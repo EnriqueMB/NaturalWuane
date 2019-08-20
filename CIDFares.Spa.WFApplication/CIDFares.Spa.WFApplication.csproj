@@ -73,7 +73,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Forms\" />
+    <Folder Include="Forms\Catalogos\" />
+    <Folder Include="Forms\Compras\" />
+    <Folder Include="Forms\Usuarios\" />
+    <Folder Include="Forms\Ventas\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
