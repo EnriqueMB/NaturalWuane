@@ -46,6 +46,7 @@
     <Compile Include="ValueObjects\EntityState.cs" />
     <Compile Include="ViewModels\Catalogos\ClienteViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\FormaPagoViewModel.cs" />
+    <Compile Include="ViewModels\Catalogos\ProductoViewModel.cs" />
     <Compile Include="ViewModels\General\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -50,6 +50,7 @@
     <Compile Include="Repositories\General\FormaPagoRepository.cs" />
     <Compile Include="Repositories\Base\Repository.cs" />
     <Compile Include="Repositories\General\LoginRepository.cs" />
+    <Compile Include="Repositories\General\ProductoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
