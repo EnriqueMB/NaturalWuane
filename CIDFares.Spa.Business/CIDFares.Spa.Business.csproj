@@ -51,5 +51,11 @@
     <Folder Include="ViewModels\Module01\" />
     <Folder Include="ViewModels\ModuleN\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CIDFares.Spa.DataAccess.Contracts\CIDFares.Spa.DataAccess.Contracts.csproj">
+      <Project>{01FE35C4-3FF0-4388-A696-E785E2512806}</Project>
+      <Name>CIDFares.Spa.DataAccess.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
