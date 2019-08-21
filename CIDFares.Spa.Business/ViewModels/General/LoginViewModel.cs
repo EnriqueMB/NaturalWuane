@@ -32,7 +32,13 @@ namespace CIDFares.Spa.Business.ViewModels.General
         #endregion
 
         #region Propiedades Publicas
+        public int? IdCuentaUsuario { get; set; }
 
+        public int IdRol { get; set; }
+
+        public Guid IdEmpleado { get; set; }
+
+        public string Nombres { get; set; }
         #endregion
 
         #region Propiedades Privadas
@@ -61,13 +67,16 @@ namespace CIDFares.Spa.Business.ViewModels.General
         #endregion
 
         #region Metodos
-        public async Task<LoginRequests> Login()
+        public async Task<int?> Login()
         {
             try
             {
-                LoginRequests x = new LoginRequests();
-                x  = await Repository.Login(UserAccount, UserPassword);
-                return x;
+                LoginRequests x  = await Repository.Login(UserAccount, UserPassword);
+                IdCuentaUsuario = x.IdCuentaUsuario;
+                IdRol = x.IdRol;
+                IdEmpleado = x.IdEmpleado;
+                Nombres = x.Nombres;
+                return x.IsValid;
             }
             catch (Exception ex)
             {
