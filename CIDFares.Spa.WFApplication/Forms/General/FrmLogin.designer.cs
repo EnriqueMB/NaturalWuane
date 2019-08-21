@@ -59,7 +59,6 @@
             // PanelImagenMovimiento
             // 
             this.PanelImagenMovimiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(94)))), ((int)(((byte)(33)))));
-            //this.PanelImagenMovimiento.BackgroundImage = global::FincaMonteVerdeDI.WF.Admin.Properties.Resources.ImagenLogin;
             this.PanelImagenMovimiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PanelImagenMovimiento.Controls.Add(this.UserPasswordControl);
             this.PanelImagenMovimiento.Controls.Add(this.UserAccountControl);
@@ -129,7 +128,7 @@
             this.LblDerechoReservado.ForeColor = System.Drawing.Color.White;
             this.LblDerechoReservado.Location = new System.Drawing.Point(34, 499);
             this.LblDerechoReservado.Name = "LblDerechoReservado";
-            this.LblDerechoReservado.Size = new System.Drawing.Size(310, 13);
+            this.LblDerechoReservado.Size = new System.Drawing.Size(309, 13);
             this.LblDerechoReservado.TabIndex = 25;
             this.LblDerechoReservado.Text = "Impulsado por CID Fares® - Todos los derechos reservados";
             // 
@@ -186,11 +185,12 @@
             this.BtnLogin.Text = "Iniciar sesión";
             this.BtnLogin.ThemeName = "Metro";
             this.BtnLogin.UseVisualStyle = true;
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Location = new System.Drawing.Point(60, 34);
             this.pictureBox1.Name = "pictureBox1";
@@ -216,6 +216,7 @@
             this.MetroColor = System.Drawing.Color.Transparent;
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.PanelImagenMovimiento.ResumeLayout(false);
             this.PanelImagenMovimiento.PerformLayout();
@@ -230,7 +231,6 @@
 
         #endregion
         private Syncfusion.Windows.Forms.BannerTextProvider bannerTextProvider;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExtVisualStyle UserAccountControl2;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Panel PanelImagenMovimiento;
         private System.Windows.Forms.PictureBox pictureBox1;
