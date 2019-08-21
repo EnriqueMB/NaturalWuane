@@ -1,4 +1,5 @@
 ﻿using CIDFares.Spa.DataAccess.Contracts.DTOs.Requests;
+using CIDFares.Spa.DataAccess.Contracts.Validations;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.Business.ViewModels.General
 {
-    public class LoginViewModel
+    public class LoginViewModel : Validable
     {
         #region Propiedades Binding
 
