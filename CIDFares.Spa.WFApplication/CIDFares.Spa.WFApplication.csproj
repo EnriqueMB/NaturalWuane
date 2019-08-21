@@ -133,6 +133,10 @@
       <Project>{E689FDFE-62C0-41A7-A889-9B3DE7057AD4}</Project>
       <Name>CIDFares.Spa.Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CIDFares.Spa.CrossCutting\CIDFares.Spa.CrossCutting.csproj">
+      <Project>{748A6233-0F47-47C8-B003-98C7C6D16D7F}</Project>
+      <Name>CIDFares.Spa.CrossCutting</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
