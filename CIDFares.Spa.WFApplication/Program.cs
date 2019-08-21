@@ -1,4 +1,5 @@
 ﻿using CIDFares.Spa.Business.Dependencies;
+using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.Business.ViewModels.General;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.WFApplication.Forms.Catalogos;
@@ -46,6 +47,7 @@ namespace CIDFares.Spa.WFApplication
         private static void RegisterViewModelDependencies()
         {
             ServiceLocator.Instance.Register<LoginViewModel>();
+            ServiceLocator.Instance.Register<FormaPagoViewModel>();
         }
 
     }
