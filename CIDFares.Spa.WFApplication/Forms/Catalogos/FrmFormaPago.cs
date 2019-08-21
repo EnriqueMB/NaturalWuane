@@ -1,6 +1,7 @@
 ﻿using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.CrossCutting.Services;
+using CIDFares.Spa.DataAccess.Contracts.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,7 +49,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         public void LimpiarPropiedades()
         {
-            Model.IdFormaPago = null;
+            Model.IdFormaPago = 0;
             Model.Nombre = string.Empty;
             Model.Descripcion = string.Empty;
         }
@@ -83,8 +84,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
                 //if (validationResults.IsValid)
                 //{
-                    var Resultado = await Model.GuardarCambios();
-                if (Resultado == 1)
+                    FormaPago Resultado = await Model.GuardarCambios();
+                if (Resultado == new FormaPago())
                 {
                     //CIDMessageBox.ShowAlert(Constants.SystemName, Constants.SuccessMessage, TypeMessage.correcto);
                     grpBoxFormaPago.Enabled = false;
@@ -102,8 +103,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "FrmNacionalidad ~ btnGuardar_Click(object sender, EventArgs e)");
-                CIDMessageBox.ShowAlert(Constants.SystemName, Constants.ErrorMessage, TypeMessage.error);
+                //LogError.AddExcFileTxt(ex, "FrmNacionalidad ~ btnGuardar_Click(object sender, EventArgs e)");
+                //CIDMessageBox.ShowAlert(Constants.SystemName, Constants.ErrorMessage, TypeMessage.error);
             }
 
             finally
