@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.Business.ViewModels.Catalogos
 {
-    public class ClienteViewModel
+    public class ClienteViewModel: INotifyPropertyChanged
     {
         #region Propiedades privadas
         private IClienteRepository Repository { get; set; }
@@ -52,13 +52,26 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
         #region Binding(Variables)
         private string _NombreCompleto;
-
         public string NombreCompleto
         {
             get { return _NombreCompleto; }
-            set { _NombreCompleto = value; }
+            set
+            {
+                _NombreCompleto = value;
+                OnPropertyChanged(nameof(NombreCompleto));
+            }
         }
 
+        #region InotifyPropertyChanged Members
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        #endregion
         #endregion
     }
 }
