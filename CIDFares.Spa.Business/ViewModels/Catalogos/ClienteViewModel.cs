@@ -51,6 +51,13 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #endregion
 
         #region Binding(Variables)
+        private string _NombreCompleto;
+
+        public string NombreCompleto
+        {
+            get { return _NombreCompleto; }
+            set { _NombreCompleto = value; }
+        }
 
         #endregion
     }
