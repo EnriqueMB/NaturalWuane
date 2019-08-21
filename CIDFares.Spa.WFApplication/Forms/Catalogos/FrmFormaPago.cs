@@ -48,7 +48,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         public void LimpiarPropiedades()
         {
-            Model.IdFormaPago = null;
+            Model.IdFormaPago = 0;
             Model.Nombre = string.Empty;
             Model.Descripcion = string.Empty;
         }
@@ -83,18 +83,18 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
                 //if (validationResults.IsValid)
                 //{
-                    var Resultado = await Model.GuardarCambios();
-                if (Resultado == 1)
-                {
-                    //CIDMessageBox.ShowAlert(Constants.SystemName, Constants.SuccessMessage, TypeMessage.correcto);
-                    grpBoxFormaPago.Enabled = false;
-                    LimpiarPropiedades();
-                    GridFromaPago.Refresh();
-                    await Model.GetAllAsync();
-                }
-                else
-                    //CIDMessageBox.ShowAlert(Constants.ErrorMessage, ObtenerMensajeError(Resultado), TypeMessage.error);
-                    MessageBox.Show("ERROR");
+                //    var Resultado = await Model.GuardarCambios();
+                //if (Resultado == 1)
+                //{
+                //    //CIDMessageBox.ShowAlert(Constants.SystemName, Constants.SuccessMessage, TypeMessage.correcto);
+                //    grpBoxFormaPago.Enabled = false;
+                //    LimpiarPropiedades();
+                //    GridFromaPago.Refresh();
+                //    await Model.GetAllAsync();
+                //}
+                //else
+                //    //CIDMessageBox.ShowAlert(Constants.ErrorMessage, ObtenerMensajeError(Resultado), TypeMessage.error);
+                //    MessageBox.Show("ERROR");
                 //}
                 //else
                 //    this.ShowErrors(errorProviderNacionalidad, typeof(Nacionalidad), validationResults);
@@ -102,8 +102,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "FrmNacionalidad ~ btnGuardar_Click(object sender, EventArgs e)");
-                CIDMessageBox.ShowAlert(Constants.SystemName, Constants.ErrorMessage, TypeMessage.error);
+                //LogError.AddExcFileTxt(ex, "FrmNacionalidad ~ btnGuardar_Click(object sender, EventArgs e)");
+                //CIDMessageBox.ShowAlert(Constants.SystemName, Constants.ErrorMessage, TypeMessage.error);
             }
 
             finally

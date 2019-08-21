@@ -61,5 +61,10 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         {
             throw new NotImplementedException();
         }
+
+        public Task<FormaPago> UpdateAsync(FormaPago element)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

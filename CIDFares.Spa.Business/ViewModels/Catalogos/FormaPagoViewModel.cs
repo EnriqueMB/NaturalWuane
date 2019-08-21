@@ -65,9 +65,9 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 }
                 else if (State == EntityState.Update)
                 {
-                    return await Repository.UpdateAsync(model.IdFormaPago);
+                    return await Repository.UpdateAsync(model);
                 }
-                return -1000;
+                return model;
             }
             catch (Exception ex)
             {
