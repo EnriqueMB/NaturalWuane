@@ -47,6 +47,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.grpBoxFormaPago.SuspendLayout();
@@ -54,6 +57,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.GridFromaPago)).BeginInit();
             this.pnlTitulo.SuspendLayout();
             this.pnlBotones.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlPrincipal
@@ -82,7 +87,7 @@
             // 
             // grpBoxFormaPago
             // 
-            this.grpBoxFormaPago.Controls.Add(this.button4);
+            this.grpBoxFormaPago.Controls.Add(this.flowLayoutPanel2);
             this.grpBoxFormaPago.Controls.Add(this.label2);
             this.grpBoxFormaPago.Controls.Add(this.label1);
             this.grpBoxFormaPago.Controls.Add(this.DescripcionControl);
@@ -101,7 +106,7 @@
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(70, 337);
+            this.button4.Location = new System.Drawing.Point(3, 3);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(123, 29);
             this.button4.TabIndex = 4;
@@ -204,9 +209,7 @@
             // 
             // pnlBotones
             // 
-            this.pnlBotones.Controls.Add(this.button3);
-            this.pnlBotones.Controls.Add(this.button2);
-            this.pnlBotones.Controls.Add(this.button1);
+            this.pnlBotones.Controls.Add(this.flowLayoutPanel1);
             this.pnlBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBotones.Location = new System.Drawing.Point(0, 450);
             this.pnlBotones.Name = "pnlBotones";
@@ -218,7 +221,7 @@
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(295, 16);
+            this.button3.Location = new System.Drawing.Point(261, 3);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(123, 29);
             this.button3.TabIndex = 2;
@@ -230,7 +233,7 @@
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(148)))), ((int)(((byte)(65)))));
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(166, 16);
+            this.button2.Location = new System.Drawing.Point(132, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(123, 29);
             this.button2.TabIndex = 1;
@@ -242,12 +245,43 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(37, 16);
+            this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(123, 29);
             this.button1.TabIndex = 0;
             this.button1.Text = "Nuevo";
             this.button1.UseVisualStyleBackColor = false;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.button2);
+            this.flowLayoutPanel1.Controls.Add(this.button3);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(16, 14);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(453, 32);
+            this.flowLayoutPanel1.TabIndex = 3;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(132, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(123, 29);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "Cancelar";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.button4);
+            this.flowLayoutPanel2.Controls.Add(this.button5);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(73, 334);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(293, 32);
+            this.flowLayoutPanel2.TabIndex = 6;
             // 
             // FrmFormaPago
             // 
@@ -266,6 +300,8 @@
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
             this.pnlBotones.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -288,5 +324,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

@@ -18,19 +18,17 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         public FrmFormaPago()
         {
             InitializeComponent();
-            //Model = ServiceLocator.Instance.Resolve<FormaPagoViewModel>();
+            Model = ServiceLocator.Instance.Resolve<FormaPagoViewModel>();
             grpBoxFormaPago.Enabled = false;
+            IniciarBinding();
         }
 
         private void IniciarBinding()
         {
             try
             {
-               //DescripcionControl.DataBindings.Add("Text", Model, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
-               // NombreControl.DataBindings.Add("Text", Model, "Descripcion", true, DataSourceUpdateMode.OnPropertyChanged);
                 this.GridFromaPago.AutoGenerateColumns = false;
                 GridFromaPago.DataBindings.Add("DataSource", Model, "ListaFormaPago", true, DataSourceUpdateMode.OnPropertyChanged);
-
             }
             catch (Exception ex)
             {

@@ -1,4 +1,5 @@
-﻿using CIDFares.Spa.DataAccess.Contracts.Entities;
+﻿using CIDFares.Spa.Business.ValueObjects;
+using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
         #region Propiedades públicas
         public BindingList<FormaPago> ListaFormaPago { get; set; }
-        //public EntityState State { get; set; }
+        public EntityState State { get; set; }
         #endregion
 
         #region Constructor
