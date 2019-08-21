@@ -128,5 +128,11 @@
   <ItemGroup>
     <None Include="Resources\PasswordL2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CIDFares.Spa.Business\CIDFares.Spa.Business.csproj">
+      <Project>{E689FDFE-62C0-41A7-A889-9B3DE7057AD4}</Project>
+      <Name>CIDFares.Spa.Business</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
