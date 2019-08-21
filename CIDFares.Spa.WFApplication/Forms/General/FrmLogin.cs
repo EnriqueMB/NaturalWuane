@@ -115,16 +115,26 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             this.LblDerechoReservado.Text = "Impulsado por CID Fares® - Todos los derechos reservados " + DateTime.Now.Year.ToString();
         }
 
-        private void BtnLogin_Click(object sender, EventArgs e)
+        private async void BtnLogin_Click(object sender, EventArgs e)
         {
             try
             {
                 LblError.Visible = false;
-
+                var x = await Model.Login();
+                if(x == 1)
+                {
+                    AbrirFormHome();
+                    this.UserAccountControl.Text = string.Empty;
+                    this.UserPasswordControl.Text = string.Empty;
+                }
+                else
+                {
+                    LblError.Visible = true;
+                    LblError.Text = ObtenerMensajeError(x);
+                }
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.Business.ViewModels.Catalogos
 {
-    public class FormaPagoViewModel
+    public class FormaPagoViewModel : INotifyPropertyChanged
     {
         #region Propiedades privadas
         private IFormaPagoRepository Repository { get; set; }
@@ -26,12 +26,12 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             Repository = formaPagoRepository;
             ListaFormaPago = new BindingList<FormaPago>();
-            GetAll();
+            GetAllAsync();
         }
         #endregion
 
         #region Metodos
-        public async Task GetAll()
+        public async Task GetAllAsync()
         {
             try
             {
@@ -47,6 +47,79 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
                 throw ex;
             }
+        }
+
+        public async Task<FormaPago> GuardarCambios()
+        {
+            try
+            {
+                FormaPago model = new FormaPago
+                {
+                    IdFormaPago = IdFormaPago,
+                    Nombre = Nombre.Trim(),
+                    Descripcion = Descripcion.Trim()
+                };
+                if (State == EntityState.Create)
+                {
+                    return await Repository.AddAsync(model);
+                }
+                else if (State == EntityState.Update)
+                {
+                    return await Repository.UpdateAsync(model);
+                }
+                return model;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion
+
+        #region Binding
+        private int _IdFormaPago;
+
+        public int IdFormaPago         
+        {
+            get { return _IdFormaPago; }
+            set
+            {
+                _IdFormaPago = value;
+                OnPropertyChanged(nameof(IdFormaPago));
+            }
+        }
+
+
+        private string _Nombre;
+
+        public string Nombre
+        {
+            get { return _Nombre; }
+            set
+            {
+                _Nombre = value;
+                OnPropertyChanged(nameof(Nombre));
+            }
+        }
+        
+        private string _Descripcion;
+        public string Descripcion
+        {
+            get { return _Descripcion; }
+            set
+            {
+                _Descripcion = value;
+                OnPropertyChanged(nameof(Descripcion));
+            }
+        }
+        #endregion
+
+        #region InotifyPropertyChanged Members
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
     }
