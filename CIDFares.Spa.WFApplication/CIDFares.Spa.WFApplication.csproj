@@ -128,5 +128,15 @@
   <ItemGroup>
     <None Include="Resources\PasswordL2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CIDFares.Spa.Business\CIDFares.Spa.Business.csproj">
+      <Project>{e689fdfe-62c0-41a7-a889-9b3de7057ad4}</Project>
+      <Name>CIDFares.Spa.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CIDFares.Spa.CrossCutting\CIDFares.Spa.CrossCutting.csproj">
+      <Project>{748a6233-0f47-47c8-b003-98c7c6d16d7f}</Project>
+      <Name>CIDFares.Spa.CrossCutting</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
