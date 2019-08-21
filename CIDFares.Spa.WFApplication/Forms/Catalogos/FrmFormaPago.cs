@@ -1,4 +1,5 @@
 ﻿using CIDFares.Spa.Business.ViewModels.Catalogos;
+using CIDFares.Spa.CrossCutting.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         public FrmFormaPago()
         {
             InitializeComponent();
-            //Model = ServiceLocator.Instance.Resolve<NacionalidadViewModel>();
+            //Model = ServiceLocator.Instance.Resolve<FormaPagoViewModel>();
             grpBoxFormaPago.Enabled = false;
         }
 
@@ -25,7 +26,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-               // DescripcionControl.DataBindings.Add("Text", Model, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
+               //DescripcionControl.DataBindings.Add("Text", Model, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
                // NombreControl.DataBindings.Add("Text", Model, "Descripcion", true, DataSourceUpdateMode.OnPropertyChanged);
                 this.GridFromaPago.AutoGenerateColumns = false;
                 GridFromaPago.DataBindings.Add("DataSource", Model, "ListaFormaPago", true, DataSourceUpdateMode.OnPropertyChanged);
