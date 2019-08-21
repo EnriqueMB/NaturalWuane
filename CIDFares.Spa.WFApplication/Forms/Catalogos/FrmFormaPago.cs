@@ -84,18 +84,18 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
                 //if (validationResults.IsValid)
                 //{
-                    FormaPago Resultado = await Model.GuardarCambios();
-                if (Resultado == new FormaPago())
-                {
-                    //CIDMessageBox.ShowAlert(Constants.SystemName, Constants.SuccessMessage, TypeMessage.correcto);
-                    grpBoxFormaPago.Enabled = false;
-                    LimpiarPropiedades();
-                    GridFromaPago.Refresh();
-                    await Model.GetAllAsync();
-                }
-                else
-                    //CIDMessageBox.ShowAlert(Constants.ErrorMessage, ObtenerMensajeError(Resultado), TypeMessage.error);
-                    MessageBox.Show("ERROR");
+                //    var Resultado = await Model.GuardarCambios();
+                //if (Resultado == 1)
+                //{
+                //    //CIDMessageBox.ShowAlert(Constants.SystemName, Constants.SuccessMessage, TypeMessage.correcto);
+                //    grpBoxFormaPago.Enabled = false;
+                //    LimpiarPropiedades();
+                //    GridFromaPago.Refresh();
+                //    await Model.GetAllAsync();
+                //}
+                //else
+                //    //CIDMessageBox.ShowAlert(Constants.ErrorMessage, ObtenerMensajeError(Resultado), TypeMessage.error);
+                //    MessageBox.Show("ERROR");
                 //}
                 //else
                 //    this.ShowErrors(errorProviderNacionalidad, typeof(Nacionalidad), validationResults);
