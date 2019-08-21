@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CIDFares.Library.Code">
+      <HintPath>..\..\CIDFares.Library\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
+    </Reference>
+    <Reference Include="CIDFares.Library.Controls">
+      <HintPath>..\..\CIDFares.Library\CIDFares.Library.Controls\bin\Debug\CIDFares.Library.Controls.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.Core.WinForms, Version=17.1460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.Data.WinForms, Version=17.1460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.Grid.Windows, Version=17.1460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
@@ -136,10 +142,6 @@
     <ProjectReference Include="..\CIDFares.Spa.CrossCutting\CIDFares.Spa.CrossCutting.csproj">
       <Project>{748a6233-0f47-47c8-b003-98c7c6d16d7f}</Project>
       <Name>CIDFares.Spa.CrossCutting</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CIDFares.Spa.DataAccess.Contracts\CIDFares.Spa.DataAccess.Contracts.csproj">
-      <Project>{01FE35C4-3FF0-4388-A696-E785E2512806}</Project>
-      <Name>CIDFares.Spa.DataAccess.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
