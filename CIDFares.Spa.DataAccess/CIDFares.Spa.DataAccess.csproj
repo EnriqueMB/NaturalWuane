@@ -54,13 +54,13 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\CIDFares.Spa.DataAccess.Contracts\CIDFares.Spa.DataAccess.Contracts.csproj">
       <Project>{01fe35c4-3ff0-4388-a696-e785e2512806}</Project>
       <Name>CIDFares.Spa.DataAccess.Contracts</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
