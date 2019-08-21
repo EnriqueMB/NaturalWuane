@@ -34,7 +34,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 }
                 return loginRequests;
             }
-            //throw new NotImplementedException();
         }
 
     }

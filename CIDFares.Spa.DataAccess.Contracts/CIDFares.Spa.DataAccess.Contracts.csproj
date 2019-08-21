@@ -46,6 +46,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\IBaseRepository.cs" />
     <Compile Include="Repositories\General\IClienteRepository.cs" />
+    <Compile Include="Entities\FormaPago.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Base\IBaseRepository.cs" />
+    <Compile Include="Repositories\General\IFormaPagoRepository.cs" />
     <Compile Include="Repositories\General\ILoginRepository.cs" />
   </ItemGroup>
   <ItemGroup>

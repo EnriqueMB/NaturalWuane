@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CIDFares.Spa.Business.ViewModels.Catalogos;
+using CIDFares.Spa.CrossCutting.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,28 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 {
     public partial class FrmFormaPago : Form
     {
+        public FormaPagoViewModel Model { get; set; }
         public FrmFormaPago()
         {
             InitializeComponent();
+            //Model = ServiceLocator.Instance.Resolve<FormaPagoViewModel>();
+            grpBoxFormaPago.Enabled = false;
+        }
+
+        private void IniciarBinding()
+        {
+            try
+            {
+               //DescripcionControl.DataBindings.Add("Text", Model, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
+               // NombreControl.DataBindings.Add("Text", Model, "Descripcion", true, DataSourceUpdateMode.OnPropertyChanged);
+                this.GridFromaPago.AutoGenerateColumns = false;
+                GridFromaPago.DataBindings.Add("DataSource", Model, "ListaFormaPago", true, DataSourceUpdateMode.OnPropertyChanged);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
