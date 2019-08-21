@@ -3,13 +3,6 @@ using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CIDFares.Spa.WFApplication.Forms.Catalogos
@@ -84,7 +77,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
                 //if (validationResults.IsValid)
                 //{
-                //    var Resultado = await Model.GuardarCambios();
+                FormaPago Resultado = await Model.GuardarCambios();
                 //if (Resultado == 1)
                 //{
                 //    //CIDMessageBox.ShowAlert(Constants.SystemName, Constants.SuccessMessage, TypeMessage.correcto);
