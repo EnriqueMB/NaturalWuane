@@ -1,5 +1,4 @@
-﻿
-using CIDFares.Spa.Business.ViewModels.General;
+﻿using CIDFares.Spa.Business.ViewModels.General;
 using CIDFares.Spa.CrossCutting.Services;
 using Syncfusion.Windows.Forms;
 using System;
