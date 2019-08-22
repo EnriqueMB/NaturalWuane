@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.DataAccess.Contracts.Entities
 {
-    class CategoriaProducto
+    public class CategoriaProducto
     {
+        public int IdCategoriaProducto { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
     }
 }
