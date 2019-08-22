@@ -19,8 +19,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         {
             throw new NotImplementedException();
         }
-
-        public Task DeleteAsync(int id)
+        
+        public Task<int> DeleteAsync(object id)
         {
             throw new NotImplementedException();
         }

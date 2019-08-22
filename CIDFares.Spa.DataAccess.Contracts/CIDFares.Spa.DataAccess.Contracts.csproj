@@ -66,10 +66,9 @@
     <Compile Include="Entities\FormaPago.cs" />
     <Compile Include="Repositories\General\IFormaPagoRepository.cs" />
     <Compile Include="Repositories\General\ILoginRepository.cs" />
-
+    <Compile Include="Repositories\General\IProductoRepository.cs" />
     <Compile Include="Validations\Validable.cs" />
     <Compile Include="Validations\ValidatorFactory.cs" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Enums\" />

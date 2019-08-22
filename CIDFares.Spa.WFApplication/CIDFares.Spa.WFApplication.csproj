@@ -34,10 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CIDFares.Library.Code">
-      <HintPath>..\..\Proyectos\CIDFares.Library\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
+      <HintPath>..\..\CIDFares.Library\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
     </Reference>
     <Reference Include="CIDFares.Library.Controls">
-      <HintPath>..\..\Proyectos\CIDFares.Library\CIDFares.Library.Controls\bin\Debug\CIDFares.Library.Controls.dll</HintPath>
+      <HintPath>..\..\CIDFares.Library\CIDFares.Library.Controls\bin\Debug\CIDFares.Library.Controls.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentValidation.8.0.0\lib\net45\FluentValidation.dll</HintPath>
@@ -88,6 +88,18 @@
     <Compile Include="Forms\Catalogos\FrmFormaPago.Designer.cs">
       <DependentUpon>FrmFormaPago.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Catalogos\FrmProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmProducto.Designer.cs">
+      <DependentUpon>FrmProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmProductoGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmProductoGrid.Designer.cs">
+      <DependentUpon>FrmProductoGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\General\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +118,9 @@
     <Compile Include="Validations\LoginValidator.cs" />
     <EmbeddedResource Include="Forms\Catalogos\FrmFormaPago.resx">
       <DependentUpon>FrmFormaPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmProductoGrid.resx">
+      <DependentUpon>FrmProductoGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
