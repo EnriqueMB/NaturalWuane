@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlBtns = new System.Windows.Forms.Panel();
@@ -36,6 +37,7 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.pnlGrid = new System.Windows.Forms.Panel();
+            this.dgmCat = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -44,14 +46,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.DescripcionControl = new System.Windows.Forms.TextBox();
             this.NombreControl = new System.Windows.Forms.TextBox();
-            this.dgmCat = new System.Windows.Forms.DataGridView();
+            this.IdCategoriaProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlHeader.SuspendLayout();
             this.pnlBtns.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlGrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgmCat)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgmCat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -108,6 +114,7 @@
             this.btnNuevo.TabIndex = 0;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnModificar
             // 
@@ -144,6 +151,18 @@
             this.pnlGrid.Name = "pnlGrid";
             this.pnlGrid.Size = new System.Drawing.Size(918, 418);
             this.pnlGrid.TabIndex = 2;
+            // 
+            // dgmCat
+            // 
+            this.dgmCat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgmCat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdCategoriaProducto,
+            this.Nombre,
+            this.Descripcion});
+            this.dgmCat.Location = new System.Drawing.Point(12, 31);
+            this.dgmCat.Name = "dgmCat";
+            this.dgmCat.Size = new System.Drawing.Size(612, 370);
+            this.dgmCat.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -184,6 +203,7 @@
             this.btnGuardar.TabIndex = 4;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelar
             // 
@@ -241,13 +261,31 @@
             this.NombreControl.Size = new System.Drawing.Size(241, 20);
             this.NombreControl.TabIndex = 0;
             // 
-            // dgmCat
+            // IdCategoriaProducto
             // 
-            this.dgmCat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgmCat.Location = new System.Drawing.Point(12, 31);
-            this.dgmCat.Name = "dgmCat";
-            this.dgmCat.Size = new System.Drawing.Size(612, 370);
-            this.dgmCat.TabIndex = 1;
+            this.IdCategoriaProducto.DataPropertyName = "IdCategoriaProducto";
+            this.IdCategoriaProducto.HeaderText = "Column1";
+            this.IdCategoriaProducto.Name = "IdCategoriaProducto";
+            this.IdCategoriaProducto.ReadOnly = true;
+            this.IdCategoriaProducto.Visible = false;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "Descripcion";
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmCategoriaProducto
             // 
@@ -264,10 +302,11 @@
             this.pnlBtns.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgmCat)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgmCat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -291,5 +330,9 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView dgmCat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdCategoriaProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

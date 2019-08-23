@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CIDFares.Spa.Business.ValueObjects;
+using CIDFares.Spa.DataAccess.Contracts.Entities;
+using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,47 +10,46 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.Business.ViewModels.Catalogos
 {
-    class CategoriaProductoViewModel
+    public class CategoriaProductoViewModel
     {
         #region Propiedades privadas
-        //private ICategoriaProducto Repository { get; set; }
+        private ICategoriaProductoRepository Repository { get; set; }
         #endregion
 
         #region Propiedades públicas
-        //public BindingList<Cliente> ListaCliente { get; set; }
-        //public EntityState State { get; set; }
+        public BindingList<CategoriaProducto> ListaCategoria { get; set; }
+        public EntityState State { get; set; }
         #endregion
 
         #region Constructor
-        //public ClienteViewModel(IClienteRepository formaPagoRepository)
-        //{
-        //    Repository = formaPagoRepository;
-        //    ListaCliente = new BindingList<Cliente>();
-        //    GetAll();
-        //}
+        public CategoriaProductoViewModel(ICategoriaProductoRepository categoriaProductoRepository)
+        {
+            Repository = categoriaProductoRepository;
+            ListaCategoria = new BindingList<CategoriaProducto>();
+            GetAllAsync();
+        }
         #endregion
 
         #region Metodos
-        //public async Task GetAll()
-        //{
-        //    try
-        //    {
-        //        var x = await Repository.GetAllAsync();
-        //        ListaCliente.Clear();
-        //        foreach (var item in x)
-        //        {
-        //            ListaCliente.Add(item);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        throw ex;
-        //    }
-        //}
+        public async Task GetAllAsync()
+        {
+            try
+            {
+                var x = await Repository.GetAllAsync();
+                ListaCategoria.Clear();
+                foreach (var item in x)
+                {
+                    ListaCategoria.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
 
-        #region Binding(Variables)
+            #region Binding(Variables)
         private int _IdCategoriaProducto;
 
         public int IdCategoriaProducto
