@@ -2,7 +2,10 @@
 using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.Business.ViewModels.General;
 using CIDFares.Spa.CrossCutting.Services;
+using CIDFares.Spa.DataAccess.Contracts.Validations;
 using CIDFares.Spa.WFApplication.Forms.Catalogos;
+using CIDFares.Spa.WFApplication.Validations;
+using FluentValidation;
 using System;
 using System.Windows.Forms;
 
@@ -39,11 +42,12 @@ namespace CIDFares.Spa.WFApplication
 
         private static void RegisterValidationDependencies()
         {
-
+            ServiceLocator.Instance.Register<LoginValidator, IValidator<LoginViewModel>>();
         }
 
         private static void RegisterViewModelDependencies()
         {
+            ServiceLocator.Instance.Register<ValidatorFactory>();
             ServiceLocator.Instance.Register<LoginViewModel>();
             ServiceLocator.Instance.Register<FormaPagoViewModel>();
             ServiceLocator.Instance.Register<ClienteViewModel>();
