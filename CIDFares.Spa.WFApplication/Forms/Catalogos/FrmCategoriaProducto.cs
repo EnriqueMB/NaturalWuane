@@ -100,8 +100,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
                 if (validationResults.IsValid)
                 {
-                    CategoriaProducto Resultado = await Model.GuardarCambios();
-                    if (Resultado.Resultado == 1)
+                    CategoriaProducto Resul = await Model.GuardarCambios();
+                    if (Resul.Resultado == 1)
                     {
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
                         gbCat.Enabled = false;
@@ -110,7 +110,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         await Model.GetAllAsync();
                     }
                     else
-                        CIDMessageBox.ShowAlert(Messages.ErrorMessage, ObtenerMensajeError(Resultado.Resultado), TypeMessage.error);
+                        CIDMessageBox.ShowAlert(Messages.ErrorMessage, ObtenerMensajeError(Resul.Resultado), TypeMessage.error);
                 }
                 else
                     this.ShowErrors(errorProvider1, typeof(CategoriaProductoViewModel), validationResults);
