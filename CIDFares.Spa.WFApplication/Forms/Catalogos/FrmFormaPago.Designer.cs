@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
@@ -49,7 +50,8 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.GridFromaPago = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pnlPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.grpBoxFormaPago.SuspendLayout();
@@ -58,7 +60,7 @@
             this.pnlTitulo.SuspendLayout();
             this.pnlBotones.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GridFromaPago)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlPrincipal
@@ -121,6 +123,7 @@
             this.btnGuardar.Size = new System.Drawing.Size(123, 29);
             this.btnGuardar.TabIndex = 4;
             this.btnGuardar.Text = "Guardar";
+            this.toolTip1.SetToolTip(this.btnGuardar, "Guarda o Actualiza una nueva forma de pago");
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -135,7 +138,9 @@
             this.btnCancelar.Size = new System.Drawing.Size(123, 29);
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
+            this.toolTip1.SetToolTip(this.btnCancelar, "Cancelar");
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label2
             // 
@@ -166,6 +171,8 @@
             this.DescripcionControl.Name = "DescripcionControl";
             this.DescripcionControl.Size = new System.Drawing.Size(266, 175);
             this.DescripcionControl.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.DescripcionControl, "Ingrese una descripción no mayor a 300 caracteres");
+            this.DescripcionControl.TextChanged += new System.EventHandler(this.DescripcionControl_TextChanged);
             // 
             // NombreControl
             // 
@@ -173,6 +180,8 @@
             this.NombreControl.Name = "NombreControl";
             this.NombreControl.Size = new System.Drawing.Size(266, 27);
             this.NombreControl.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.NombreControl, "Ingrese un nombre no mayor a 200 caracteres");
+            this.NombreControl.TextChanged += new System.EventHandler(this.NombreControl_TextChanged);
             // 
             // pnlGrid
             // 
@@ -184,6 +193,33 @@
             this.pnlGrid.Name = "pnlGrid";
             this.pnlGrid.Size = new System.Drawing.Size(573, 393);
             this.pnlGrid.TabIndex = 2;
+            // 
+            // GridFromaPago
+            // 
+            this.GridFromaPago.AccessibleName = "Table";
+            this.GridFromaPago.AllowGrouping = false;
+            gridTextColumn1.AllowGrouping = false;
+            gridTextColumn1.HeaderText = "Column1";
+            gridTextColumn1.MappingName = "IdFormaPago";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.AllowGrouping = false;
+            gridTextColumn2.HeaderText = "Nombre";
+            gridTextColumn2.MappingName = "Nombre";
+            gridTextColumn3.AllowGrouping = false;
+            gridTextColumn3.HeaderText = "Descripción";
+            gridTextColumn3.MappingName = "Descripcion";
+            this.GridFromaPago.Columns.Add(gridTextColumn1);
+            this.GridFromaPago.Columns.Add(gridTextColumn2);
+            this.GridFromaPago.Columns.Add(gridTextColumn3);
+            this.GridFromaPago.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GridFromaPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GridFromaPago.Location = new System.Drawing.Point(0, 0);
+            this.GridFromaPago.Name = "GridFromaPago";
+            this.GridFromaPago.PreviewRowHeightMode = Syncfusion.WinForms.DataGrid.Enums.PreviewRowHeightMode.Auto;
+            this.GridFromaPago.Size = new System.Drawing.Size(573, 393);
+            this.GridFromaPago.TabIndex = 0;
+            this.GridFromaPago.Text = "sfDataGrid1";
+            this.toolTip1.SetToolTip(this.GridFromaPago, "Formas de pago");
             // 
             // pnlTitulo
             // 
@@ -235,6 +271,7 @@
             this.btnNuevo.Size = new System.Drawing.Size(123, 29);
             this.btnNuevo.TabIndex = 0;
             this.btnNuevo.Text = "Nuevo";
+            this.toolTip1.SetToolTip(this.btnNuevo, "Habilita la opcion de agregar una nueva forma de pago");
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
@@ -249,6 +286,7 @@
             this.btnModificar.Size = new System.Drawing.Size(123, 29);
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar";
+            this.toolTip1.SetToolTip(this.btnModificar, "Modifica una forma de pago seleccionada");
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
@@ -263,34 +301,14 @@
             this.btnEliminar.Size = new System.Drawing.Size(123, 29);
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
+            this.toolTip1.SetToolTip(this.btnEliminar, "Elimina la forma de pago seleccionada");
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // GridFromaPago
+            // errorProvider1
             // 
-            this.GridFromaPago.AccessibleName = "Table";
-            this.GridFromaPago.AllowGrouping = false;
-            gridTextColumn1.AllowGrouping = false;
-            gridTextColumn1.HeaderText = "Column1";
-            gridTextColumn1.MappingName = "IdFormaPago";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.AllowGrouping = false;
-            gridTextColumn2.HeaderText = "Nombre";
-            gridTextColumn2.MappingName = "Nombre";
-            gridTextColumn3.AllowGrouping = false;
-            gridTextColumn3.HeaderText = "Descripcion";
-            gridTextColumn3.MappingName = "Descripcion";
-            this.GridFromaPago.Columns.Add(gridTextColumn1);
-            this.GridFromaPago.Columns.Add(gridTextColumn2);
-            this.GridFromaPago.Columns.Add(gridTextColumn3);
-            this.GridFromaPago.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GridFromaPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GridFromaPago.Location = new System.Drawing.Point(0, 0);
-            this.GridFromaPago.Name = "GridFromaPago";
-            this.GridFromaPago.PreviewRowHeightMode = Syncfusion.WinForms.DataGrid.Enums.PreviewRowHeightMode.Auto;
-            this.GridFromaPago.Size = new System.Drawing.Size(573, 393);
-            this.GridFromaPago.TabIndex = 0;
-            this.GridFromaPago.Text = "sfDataGrid1";
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmFormaPago
             // 
@@ -310,7 +328,7 @@
             this.pnlTitulo.PerformLayout();
             this.pnlBotones.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.GridFromaPago)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -335,6 +353,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private Syncfusion.WinForms.DataGrid.SfDataGrid GridFromaPago;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
