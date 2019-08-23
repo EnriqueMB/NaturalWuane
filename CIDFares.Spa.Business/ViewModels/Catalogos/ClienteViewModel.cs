@@ -4,6 +4,8 @@ using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,9 +50,77 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 throw ex;
             }
         }
+
+        public async Task GetFoto(Guid IdCliente)
+        {
+            try
+            {
+                var x = await Repository.ObtenerFoto(IdCliente);
+                this.Direccion = x;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<Cliente> GuardarCambios()
+        {
+            try
+            {
+                Cliente model = new Cliente();
+                if (State == EntityState.Create)
+                {
+                    model.NuevoRegistro = true;
+                    model.IdCliente = Guid.Empty;
+                    model.Clave = this.Clave;
+                    model.NombreCompleto = this.NombreCompleto;
+                    model.Direccion = this.Direccion;
+                    model.Telefono = this.Telefono;
+                    model.FechaNacimiento = this.FechaNacimiento;
+                    model.Sexo = this.Sexo;
+                    model.Foto = string.Empty;
+                    model.Rfc = this.Rfc;
+                    model.IdUsuarioL = this.IdUsuarioL;
+                    model = await Repository.AddAsync(model);
+                }
+                else if (State == EntityState.Update)
+                {
+                    model.NuevoRegistro = false;
+                    model.IdCliente = this.IdCliente;
+                    model.Clave = this.Clave;
+                    model.NombreCompleto = this.NombreCompleto;
+                    model.Direccion = this.Direccion;
+                    model.Telefono = this.Telefono;
+                    model.FechaNacimiento = this.FechaNacimiento;
+                    model.Sexo = this.Sexo;
+                    model.Foto = string.Empty;
+                    model.Rfc = this.Rfc;
+                    model.IdUsuarioL = this.IdUsuarioL;
+                    model = await Repository.AddAsync(model);
+                }
+                return model;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
 
         #region Binding(Variables)
+        private Guid _IdCliente;  
+        public Guid IdCliente
+        {
+            get { return _IdCliente; }
+            set
+            {
+                _IdCliente = value;
+                OnPropertyChanged(nameof(IdCliente));
+            }
+        }
+
+
         private string _NombreCompleto;
         public string NombreCompleto
         {
@@ -61,6 +131,107 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 OnPropertyChanged(nameof(NombreCompleto));
             }
         }
+
+        private string _Clave;
+        public string Clave
+        {
+            get { return _Clave; }
+            set
+            {
+                _Clave = value;
+                OnPropertyChanged(nameof(Clave));
+            }
+        }
+
+        private string _Direccion;
+        public string Direccion
+        {
+            get { return _Direccion; }
+            set
+            {
+                _Direccion = value;
+                OnPropertyChanged(nameof(Direccion));
+            }
+        }
+
+        private string _Telefono;
+        public string Telefono
+        {
+            get { return _Telefono; }
+            set
+            {
+                _Telefono = value;
+                OnPropertyChanged(nameof(Telefono));
+            }
+        }
+
+        private DateTime _FechaNacimiento;
+        public DateTime FechaNacimiento
+        {
+            get { return _FechaNacimiento; }
+            set
+            {
+                _FechaNacimiento = value;
+                OnPropertyChanged(nameof(FechaNacimiento));
+            }
+        }
+
+        private string _Rfc;
+        public string Rfc
+        {
+            get { return _Rfc; }
+            set
+            {
+                _Rfc = value;
+                OnPropertyChanged(nameof(Rfc));
+            }
+        }
+
+        private char _Sexo;
+        public char Sexo
+        {
+            get { return _Sexo; }
+            set
+            {
+                _Sexo = value;
+                OnPropertyChanged(nameof(Sexo));
+            }
+        }
+
+        private Image _Foto;
+        public Image Foto
+        {
+            get { return _Foto; }
+            set
+            {
+                _Foto = value;
+                OnPropertyChanged(nameof(Foto));
+            }
+        }
+
+        private int _IdUsuarioL;
+        public int IdUsuarioL
+        {
+            get { return _IdUsuarioL; }
+            set
+            {
+                _IdUsuarioL = value;
+                OnPropertyChanged(nameof(IdUsuarioL));
+            }
+        }
+
+        private string _FotoBase64;
+
+        public string FotoBase64
+        {
+            get { return _FotoBase64; }
+            set
+            {
+                _FotoBase64 = value;
+                OnPropertyChanged(nameof(FotoBase64));
+            }
+        }
+
 
         #region InotifyPropertyChanged Members
 

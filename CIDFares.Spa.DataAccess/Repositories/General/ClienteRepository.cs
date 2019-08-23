@@ -82,6 +82,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.Telefono = dr.GetString(dr.GetOrdinal("Telefono"));
                         item.Rfc = dr.GetString(dr.GetOrdinal("Rfc"));
                         item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
+                        item.Sexo = Convert.ToChar(dr.GetString(dr.GetOrdinal("Sexo")));
                         Lista.Add(item);
                     }
                     return Lista;
@@ -97,10 +98,23 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         {
             throw new NotImplementedException();
         }
-        
+
+        public async Task<string> ObtenerFoto(Guid IdCliente)
+        {
+            using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+            {
+                conexion.Open();
+                var dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@IdCliente", IdCliente);
+                var dr = await conexion.ExecuteScalarAsync<string>("[Cliente].[SPCID_Get_ObtenerFotoCliente]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                return dr.ToString();
+            }
+        }
+
         public Task<Cliente> UpdateAsync(Cliente element)
         {
             throw new NotImplementedException();
         }
+
     }
 }

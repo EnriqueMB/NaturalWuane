@@ -19,7 +19,8 @@ namespace CIDFares.Spa.WFApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
-            Application.Run(new FrmFormaPago());
+            //Application.Run(new FrmFormaPago());
+            Application.Run(new FrmCliente());
         }
 
         public static void InitializeContainer()
@@ -45,6 +46,8 @@ namespace CIDFares.Spa.WFApplication
         {
             ServiceLocator.Instance.Register<LoginViewModel>();
             ServiceLocator.Instance.Register<FormaPagoViewModel>();
+            ServiceLocator.Instance.Register<ClienteViewModel>();
+
         }
 
     }

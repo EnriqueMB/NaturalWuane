@@ -10,6 +10,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
 {
     public interface IClienteRepository : IBaseRepository<Cliente>
     {
-        
+        Task<string> ObtenerFoto(Guid IdCliente);
     }
 }
