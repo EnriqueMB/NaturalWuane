@@ -15,9 +15,30 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
 {
     public class FormaPagoRepository : Repository, IFormaPagoRepository
     {
-        public Task<FormaPago> AddAsync(FormaPago element)
+        public async Task<FormaPago> AddAsync(FormaPago element)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdFormaPago", element.IdFormaPago);
+                    dynamicParameters.Add("@Nombre", element.Nombre);
+                    dynamicParameters.Add("@Descripcion", element.Descripcion);
+                    dynamicParameters.Add("@Opcion", 1);
+                    dynamicParameters.Add("@Usuario", 1 /*CurrentSession.IdUsuario*/);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_AC_FormaPago]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    element.Resultado = result;
+                    return element;
+                }
+                
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public Task DeleteAsync(int id)
@@ -25,7 +46,17 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
+        public Task<int> DeleteAsync(object id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<bool> ExistAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> ExistAsync(object id)
         {
             throw new NotImplementedException();
         }
@@ -57,14 +88,35 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
-        public Task<FormaPago> UpdateAsync(int id)
+        public Task<FormaPago> GetAsync(object id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<FormaPago> UpdateAsync(FormaPago element)
+        public async Task<FormaPago> UpdateAsync(FormaPago element)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdFormaPago", element.IdFormaPago);
+                    dynamicParameters.Add("@Nombre", element.Nombre);
+                    dynamicParameters.Add("@Descripcion", element.Descripcion);
+                    dynamicParameters.Add("@Opcion", 2);
+                    dynamicParameters.Add("@Usuario", 1 /*CurrentSession.IdUsuario*/);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_AC_FormaPago]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    element.Resultado = result;
+                    return element;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

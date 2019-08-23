@@ -5,10 +5,10 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.Base
 {
     public interface IBaseRepository<T> where T : class
     {
-        Task<bool> ExistAsync(int id);
+        Task<bool> ExistAsync(object id);
         Task<IEnumerable<T>> GetAllAsync();
-        Task<T> GetAsync(int id);
-        Task DeleteAsync(int id);
+        Task<T> GetAsync(object id);
+        Task<int> DeleteAsync(object id);
         Task<T> UpdateAsync(T element);
         Task<T> AddAsync(T element);
     }
