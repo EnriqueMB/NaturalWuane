@@ -49,7 +49,17 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
+        public Task<int> DeleteAsync(object id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<bool> ExistAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> ExistAsync(object id)
         {
             throw new NotImplementedException();
         }
@@ -97,7 +107,12 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         {
             throw new NotImplementedException();
         }
-        
+
+        public Task<Cliente> GetAsync(object id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<Cliente> UpdateAsync(Cliente element)
         {
             throw new NotImplementedException();
