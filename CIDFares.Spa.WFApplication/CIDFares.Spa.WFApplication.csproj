@@ -45,31 +45,31 @@
       <HintPath>..\packages\FluentValidation.8.0.0\lib\net45\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Core.WinForms">
-      <HintPath>D:\dllKr\Syncfusion.Core.WinForms.dll</HintPath>
+      <HintPath>E:\DLLSpa\Syncfusion.Core.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Data.WinForms">
-      <HintPath>D:\dllKr\Syncfusion.Data.WinForms.dll</HintPath>
+      <HintPath>E:\DLLSpa\Syncfusion.Data.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Grid.Windows">
-      <HintPath>D:\dllKr\Syncfusion.Grid.Windows.dll</HintPath>
+      <HintPath>E:\DLLSpa\Syncfusion.Grid.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.GridCommon.WinForms">
-      <HintPath>D:\dllKr\Syncfusion.GridCommon.WinForms.dll</HintPath>
+      <HintPath>E:\DLLSpa\Syncfusion.GridCommon.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfDataGrid.WinForms">
-      <HintPath>D:\dllKr\Syncfusion.SfDataGrid.WinForms.dll</HintPath>
+      <HintPath>E:\DLLSpa\Syncfusion.SfDataGrid.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfInput.WinForms">
-      <HintPath>D:\dllKr\Syncfusion.SfInput.WinForms.dll</HintPath>
+      <HintPath>E:\DLLSpa\Syncfusion.SfInput.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfListView.WinForms">
-      <HintPath>D:\dllKr\Syncfusion.SfListView.WinForms.dll</HintPath>
+      <HintPath>E:\DLLSpa\Syncfusion.SfListView.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Shared.Base">
-      <HintPath>D:\dllKr\Syncfusion.Shared.Base.dll</HintPath>
+      <HintPath>E:\DLLSpa\Syncfusion.Shared.Base.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Shared.Windows">
-      <HintPath>D:\dllKr\Syncfusion.Shared.Windows.dll</HintPath>
+      <HintPath>E:\DLLSpa\Syncfusion.Shared.Windows.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
