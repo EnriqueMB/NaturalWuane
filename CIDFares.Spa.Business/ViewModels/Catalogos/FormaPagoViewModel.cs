@@ -57,7 +57,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 {
                     IdFormaPago = IdFormaPago,
                     Nombre = Nombre.Trim(),
-                    Descripcion = Descripcion.Trim()
+                    Descripcion = Descripcion.Trim(),
+                    Resultado = -1
                 };
                 if (State == EntityState.Create)
                 {
