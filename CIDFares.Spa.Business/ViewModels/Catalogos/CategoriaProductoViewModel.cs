@@ -1,6 +1,7 @@
 ﻿using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
+using CIDFares.Spa.DataAccess.Contracts.Validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.Business.ViewModels.Catalogos
 {
-    public class CategoriaProductoViewModel
+    public class CategoriaProductoViewModel : Validable, INotifyPropertyChanged
     {
         #region Propiedades privadas
         private ICategoriaProductoRepository Repository { get; set; }
@@ -47,9 +48,36 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 throw ex;
             }
         }
+
+        public async Task<CategoriaProducto> GuardarCambios()
+        {
+            try
+            {
+                CategoriaProducto model = new CategoriaProducto
+                {
+                    IdCategoriaProducto = IdCategoriaProducto,                    
+                    Nombre = Nombre.Trim(),
+                    Descripcion = Descripcion.Trim(),
+                    Resultado = -2
+                };
+                if (State == EntityState.Create)
+                {
+                    return await Repository.AddAsync(model);
+                }
+                else if (State == EntityState.Update)
+                {
+                    return await Repository.UpdateAsync(model);
+                }
+                return model;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
 
-            #region Binding(Variables)
+        #region Binding(Variables)
         private int _IdCategoriaProducto;
 
         public int IdCategoriaProducto

@@ -38,7 +38,10 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgmCat = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.IdCategoriaProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gbCat = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -46,16 +49,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.DescripcionControl = new System.Windows.Forms.TextBox();
             this.NombreControl = new System.Windows.Forms.TextBox();
-            this.IdCategoriaProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlHeader.SuspendLayout();
             this.pnlBtns.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgmCat)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.gbCat.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -145,7 +145,7 @@
             // pnlGrid
             // 
             this.pnlGrid.Controls.Add(this.dgmCat);
-            this.pnlGrid.Controls.Add(this.groupBox1);
+            this.pnlGrid.Controls.Add(this.gbCat);
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(0, 55);
             this.pnlGrid.Name = "pnlGrid";
@@ -164,20 +164,42 @@
             this.dgmCat.Size = new System.Drawing.Size(612, 370);
             this.dgmCat.TabIndex = 1;
             // 
-            // groupBox1
+            // IdCategoriaProducto
             // 
-            this.groupBox1.Controls.Add(this.flowLayoutPanel2);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.DescripcionControl);
-            this.groupBox1.Controls.Add(this.NombreControl);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox1.Location = new System.Drawing.Point(630, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(288, 418);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Nueva categoria";
+            this.IdCategoriaProducto.DataPropertyName = "IdCategoriaProducto";
+            this.IdCategoriaProducto.HeaderText = "Column1";
+            this.IdCategoriaProducto.Name = "IdCategoriaProducto";
+            this.IdCategoriaProducto.ReadOnly = true;
+            this.IdCategoriaProducto.Visible = false;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "Descripcion";
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            // 
+            // gbCat
+            // 
+            this.gbCat.Controls.Add(this.flowLayoutPanel2);
+            this.gbCat.Controls.Add(this.label2);
+            this.gbCat.Controls.Add(this.label1);
+            this.gbCat.Controls.Add(this.DescripcionControl);
+            this.gbCat.Controls.Add(this.NombreControl);
+            this.gbCat.Dock = System.Windows.Forms.DockStyle.Right;
+            this.gbCat.Location = new System.Drawing.Point(630, 0);
+            this.gbCat.Name = "gbCat";
+            this.gbCat.Size = new System.Drawing.Size(288, 418);
+            this.gbCat.TabIndex = 0;
+            this.gbCat.TabStop = false;
+            this.gbCat.Text = "Nueva categoria";
             // 
             // flowLayoutPanel2
             // 
@@ -261,28 +283,6 @@
             this.NombreControl.Size = new System.Drawing.Size(241, 20);
             this.NombreControl.TabIndex = 0;
             // 
-            // IdCategoriaProducto
-            // 
-            this.IdCategoriaProducto.DataPropertyName = "IdCategoriaProducto";
-            this.IdCategoriaProducto.HeaderText = "Column1";
-            this.IdCategoriaProducto.Name = "IdCategoriaProducto";
-            this.IdCategoriaProducto.ReadOnly = true;
-            this.IdCategoriaProducto.Visible = false;
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "Nombre";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.DataPropertyName = "Descripcion";
-            this.Descripcion.HeaderText = "Descripción";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -303,8 +303,8 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgmCat)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbCat.ResumeLayout(false);
+            this.gbCat.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -317,7 +317,7 @@
         private System.Windows.Forms.Panel pnlBtns;
         private System.Windows.Forms.Panel pnlGrid;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbCat;
         private System.Windows.Forms.TextBox DescripcionControl;
         private System.Windows.Forms.TextBox NombreControl;
         private System.Windows.Forms.Label label2;

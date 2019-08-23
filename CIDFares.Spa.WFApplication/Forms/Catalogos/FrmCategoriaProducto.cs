@@ -1,7 +1,12 @@
 ﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Library.Code.Helpers;
+using CIDFares.Library.Controls.CIDMessageBox.Code;
+using CIDFares.Library.Controls.CIDMessageBox.Enums;
+using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
+using CIDFares.Spa.WFApplication.Constants;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,61 +51,99 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
 
-        private CategoriaProducto ObtenerSeleccionado()
+        private string ObtenerMensajeError(int Error)
         {
             try
             {
-                if (dgmCat.SelectedRows.Count == 1)
+                string ErrorMessage = Messages.ErrorMessage;
+                switch (Error)
                 {
-                    return dgmCat.SelectedRows;
+                    case -1:
+                        ErrorMessage = "El nombre de la forma de pago ya se encuentra en los registros";
+                        break;
+                    case -2:
+                        ErrorMessage = "Desconocido";
+                        break;
                 }
-                return null;
+                return ErrorMessage;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+
+        //private CategoriaProducto ObtenerSeleccionado()
+        //{
+        //    try
+        //    {
+        //        if (dgmCat.SelectedRows.Count == 1)
+        //        {
+        //            return dgmCat.SelectedRows;
+        //        }
+        //        return null;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
         #endregion
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            //this.CleanErrors(errorProvider1, typeof(CategoriaProductoViewModel));
+            try
+            {
+                btnGuardar.Enabled = false;
+                this.CleanErrors(errorProvider1, typeof(CategoriaProductoViewModel));
+                var validationResults = Model.Validate();
+                validationResults.ToString();
+
+                if (validationResults.IsValid)
+                {
+                    CategoriaProducto Resultado = await Model.GuardarCambios();
+                    if (Resultado.Resultado == 1)
+                    {
+                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                        gbCat.Enabled = false;
+                        //LimpiarPropiedades();
+                        dgmCat.Refresh();
+                        await Model.GetAllAsync();
+                    }
+                    else
+                        CIDMessageBox.ShowAlert(Messages.ErrorMessage, ObtenerMensajeError(Resultado.Resultado), TypeMessage.error);
+                }
+                else
+                    this.ShowErrors(errorProvider1, typeof(CategoriaProductoViewModel), validationResults);
+
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCategoriaProducto ~ btnGuardar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+        }
+
+        public void LimpiarPropiedades()
+        {
+            Model.IdCategoriaProducto = 0;
+            Model.Nombre = string.Empty;
+            Model.Descripcion = string.Empty;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             try
             {
-                //btnGuardar.Enabled = false;
+                gbCat.Enabled = true;
+                LimpiarPropiedades();
+                Model.State = EntityState.Create;
                 this.CleanErrors(errorProvider1, typeof(CategoriaProductoViewModel));
-                var validationResults = Model.ValValidate();
-                validationResults.ToString();
-
-                if (validationResults.IsValid)
-                {
-                    FormaPago Resultado = await Model.GuardarCambios();
-                    if (Resultado.Resultado == 1)
-                    {
-                        CIDMessageBox.ShowAlert(Constants.SystemName, Constants.SuccessMessage, TypeMessage.correcto);
-                        grpBoxFormaPago.Enabled = false;
-                        LimpiarPropiedades();
-                        GridFromaPago.Refresh();
-                        await Model.GetAllAsync();
-                    }
-                    else
-                        CIDMessageBox.ShowAlert(Constants.ErrorMessage, ObtenerMensajeError(Resultado), TypeMessage.error);
-                    MessageBox.Show("ERROR");
-                }
-                else
-                    this.ShowErrors(errorProviderNacionalidad, typeof(Nacionalidad), validationResults);
-
             }
             catch (Exception ex)
             {
-                LogError.AddExcFileTxt(ex, "FrmNacionalidad ~ btnGuardar_Click(object sender, EventArgs e)");
-                CIDMessageBox.ShowAlert(Constants.SystemName, Constants.ErrorMessage, TypeMessage.error);
-            }
 
+                throw ex;
+            }
         }
     }
 }

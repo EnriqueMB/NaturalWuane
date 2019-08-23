@@ -23,6 +23,7 @@ namespace CIDFares.Spa.WFApplication
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
             Application.Run(new FrmCategoriaProducto());
+            //Application.Run(new FrmFormaPago());
         }
 
         public static void InitializeContainer()
@@ -43,6 +44,7 @@ namespace CIDFares.Spa.WFApplication
         {
             ServiceLocator.Instance.Register<LoginValidator, IValidator<LoginViewModel>>();
             ServiceLocator.Instance.Register<FormaPagoValidator, IValidator<FormaPagoViewModel>>();
+            ServiceLocator.Instance.Register<CategoriaProductoValidator, IValidator<CategoriaProductoViewModel>>();
         }
 
         private static void RegisterViewModelDependencies()
