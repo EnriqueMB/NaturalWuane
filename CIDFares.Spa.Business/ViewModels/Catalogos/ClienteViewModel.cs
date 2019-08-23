@@ -56,7 +56,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             try
             {
                 var x = await Repository.ObtenerFoto(IdCliente);
-                this.Direccion = x;
+                this.FotoBase64 = x;
             }
             catch (Exception ex)
             {
@@ -72,6 +72,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 if (State == EntityState.Create)
                 {
                     model.NuevoRegistro = true;
+                    model.UpdateFoto = this.UpdateFoto;
                     model.IdCliente = Guid.Empty;
                     model.Clave = this.Clave;
                     model.NombreCompleto = this.NombreCompleto;
@@ -79,7 +80,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     model.Telefono = this.Telefono;
                     model.FechaNacimiento = this.FechaNacimiento;
                     model.Sexo = this.Sexo;
-                    model.Foto = string.Empty;
+                    model.FotoBase64 = this.FotoBase64;
                     model.Rfc = this.Rfc;
                     model.IdUsuarioL = this.IdUsuarioL;
                     model = await Repository.AddAsync(model);
@@ -87,6 +88,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 else if (State == EntityState.Update)
                 {
                     model.NuevoRegistro = false;
+                    model.UpdateFoto = this.UpdateFoto;
                     model.IdCliente = this.IdCliente;
                     model.Clave = this.Clave;
                     model.NombreCompleto = this.NombreCompleto;
@@ -94,7 +96,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     model.Telefono = this.Telefono;
                     model.FechaNacimiento = this.FechaNacimiento;
                     model.Sexo = this.Sexo;
-                    model.Foto = string.Empty;
+                    model.FotoBase64 = this.FotoBase64;
                     model.Rfc = this.Rfc;
                     model.IdUsuarioL = this.IdUsuarioL;
                     model = await Repository.AddAsync(model);
@@ -221,7 +223,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private string _FotoBase64;
-
         public string FotoBase64
         {
             get { return _FotoBase64; }
@@ -229,6 +230,61 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             {
                 _FotoBase64 = value;
                 OnPropertyChanged(nameof(FotoBase64));
+            }
+        }
+
+        private bool _UpdateFoto;
+        public bool UpdateFoto
+        {
+            get { return _UpdateFoto; }
+            set
+            {
+                _UpdateFoto = value;
+                OnPropertyChanged(nameof(UpdateFoto));
+            }
+        }
+
+        private string _ImageLocation;
+        public string ImageLocation
+        {
+            get { return _ImageLocation; }
+            set
+            {
+                _ImageLocation = value; OnPropertyChanged(nameof(ImageLocation));
+                if (ImageLocation != string.Empty)
+                {
+                    try
+                    {
+                        Foto = Image.FromFile(_ImageLocation);
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                }
+            }
+        }
+
+        private string _Extencion;
+        public string Extencion
+        {
+            get { return _Extencion; }
+            set
+            {
+                _Extencion = value;
+                OnPropertyChanged(nameof(Extencion));
+            }
+        }
+
+        private ImageFormat _FormatoImg;
+
+        public ImageFormat FormatoImg
+        {
+            get { return _FormatoImg; }
+            set
+            {
+                _FormatoImg = value;
+                OnPropertyChanged(nameof(FormatoImg));
             }
         }
 

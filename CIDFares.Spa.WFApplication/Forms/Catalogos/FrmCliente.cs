@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
 using CIDFares.Library.Code.Helpers;
+using CIDFares.Library.Code.Extensions;
 using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Spa.WFApplication.Constants;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
@@ -27,6 +28,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         #region Propiedades Públicas
         public ClienteViewModel Model { get; set; }
         #endregion
+
         #region Propiedades Privadas
         private class Sexo
         {
@@ -39,6 +41,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
         #endregion
+
         #region Constructor
         public FrmCliente()
         {
@@ -61,6 +64,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 ClaveControl.DataBindings.Add("Text", Model, "Clave", true, DataSourceUpdateMode.OnPropertyChanged);
                 FotoControl.DataBindings.Add("Image", Model, "Foto", true, DataSourceUpdateMode.OnPropertyChanged);
                 SexoControl.DataBindings.Add("SelectedValue", Model, "Sexo", true, DataSourceUpdateMode.OnPropertyChanged);
+                RutaControl.DataBindings.Add("Text", Model, "ImageLocation", true, DataSourceUpdateMode.OnPropertyChanged);
                 this.sfDataGridCliente.AutoGenerateColumns = false;
                 sfDataGridCliente.DataBindings.Add("DataSource", Model, "ListaCliente", true, DataSourceUpdateMode.OnPropertyChanged);
                 this.InicializarCombo();
@@ -94,6 +98,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         public void LimpiarPropiedades()
         {
+            Model.IdCliente = Guid.Empty;
             Model.NombreCompleto = string.Empty;
             Model.Direccion = string.Empty;
             Model.Clave = string.Empty;
@@ -101,6 +106,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             Model.FechaNacimiento = DateTime.Now;
             Model.Telefono = string.Empty;
             Model.Rfc = string.Empty;
+            Model.Foto = Properties.Resources.imagen_subir; ;
+            Model.ImageLocation = string.Empty;
         }
 
         private Cliente ObtenerSeleccionado()
@@ -120,12 +127,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         }
         #endregion
 
+        #region Evento
         private async void FrmCliente_Load(object sender, EventArgs e)
         {
             try
             {
                 await Model.GetAll();
                 IniciarBinding();
+                Model.Foto = Properties.Resources.imagen_subir;
             }
             catch (Exception ex)
             {
@@ -165,6 +174,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 Model.Direccion = item.Direccion;
                 Model.Clave = item.Clave;
                 await Model.GetFoto(Model.IdCliente);
+                if (!string.IsNullOrEmpty(Model.FotoBase64))
+                {
+                    Model.Foto = ComprimirImagenExtensions.ImageBase64ToImage(Model.FotoBase64);
+                }
+                else
+                    Model.ImageLocation = "Sin Foto";
+                Model.FotoBase64 = string.Empty;
             }
             else
             {
@@ -217,22 +233,40 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 BuscarImagen.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures).ToString();
                 if (BuscarImagen.ShowDialog() == DialogResult.OK)
                 {
-                    //Model.PDatos.UpdateFoto = true;
-                    //Model.PDatos.ImageLocation = BuscarImagen.FileName;
-                    //Model.PDatos.Extencion = Path.GetExtension(BuscarImagen.FileName);
-                    //if (Model.PDatos.Extencion == ".png")
-                    //    Model.PDatos.Formato = ImageFormat.Png;
-                    //else if (Model.PDatos.Extencion == ".jpg")
-                    //    Model.PDatos.Formato = ImageFormat.Jpeg;
-                    //else if (Model.PDatos.Extencion == ".bmp")
-                    //    Model.PDatos.Formato = ImageFormat.Bmp;
+                    Model.UpdateFoto = true;
+                    Model.ImageLocation = BuscarImagen.FileName;
+                    Model.Extencion = Path.GetExtension(BuscarImagen.FileName);
+                    if (Model.Extencion == ".png")
+                        Model.FormatoImg = ImageFormat.Png;
+                    else if (Model.Extencion == ".jpg")
+                        Model.FormatoImg = ImageFormat.Jpeg;
+                    else if (Model.Extencion == ".bmp")
+                        Model.FormatoImg = ImageFormat.Bmp;
+                    var x = Model.Foto.VaryQualityLevel(35L);
+                    Model.Foto = x;
+                    Model.FotoBase64 = ComprimirImagenExtensions.ToBase64String(Model.Foto, Model.FormatoImg);
                 }
             }
             catch (Exception ex)
             {
-                ErrorLogHelper.AddExcFileTxt(ex, "FrmPersonal ~ BtnSeleccionar_Click(object sender, EventArgs e)");
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCliente ~ BtnSeleccionar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.groupBoxCliente.Enabled = false;
+                this.LimpiarPropiedades();
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCliente ~ btnCancelar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorAlCancelarFrm, TypeMessage.error);
+            }
+        }
+        #endregion       
     }
 }

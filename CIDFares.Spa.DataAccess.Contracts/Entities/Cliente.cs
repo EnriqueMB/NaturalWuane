@@ -18,6 +18,8 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public DateTime FechaNacimiento { get; set; }
         public char Sexo { get; set; }
         public string Foto { get; set; }
+        public string FotoBase64 { get; set; }
+        public bool UpdateFoto { get; set; }
         public string Rfc { get; set; }
         public bool NuevoRegistro { get; set; }
         public int IdUsuarioL { get; set; }

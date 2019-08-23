@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.panelGridDatos = new System.Windows.Forms.Panel();
@@ -49,10 +49,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.DireccionControl = new System.Windows.Forms.TextBox();
             this.PnlFoto = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.RutaControl = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.BtnSeleccionar = new System.Windows.Forms.Button();
-            this.FotoControl = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.FechaNachimientoControl = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -68,6 +67,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.PanelTitulo = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.FotoControl = new System.Windows.Forms.PictureBox();
             this.PanelPrincipal.SuspendLayout();
             this.PanelContenedor.SuspendLayout();
             this.panelGridDatos.SuspendLayout();
@@ -77,10 +77,10 @@
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SexoControl)).BeginInit();
             this.PnlFoto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
             this.PabelBTN.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.PanelTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelPrincipal
@@ -118,25 +118,25 @@
             // 
             this.sfDataGridCliente.AccessibleName = "Table";
             this.sfDataGridCliente.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.HeaderText = "IdCliente";
-            gridTextColumn1.MappingName = "IdCliente";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.HeaderText = "Clave";
-            gridTextColumn2.MappingName = "Clave";
-            gridTextColumn3.HeaderText = "Nombre";
-            gridTextColumn3.MappingName = "NombreCompleto";
-            gridTextColumn4.HeaderText = "Teléfono";
-            gridTextColumn4.MappingName = "Telefono";
-            gridTextColumn5.HeaderText = "Edad";
-            gridTextColumn5.MappingName = "Edad";
-            gridTextColumn6.HeaderText = "Genero";
-            gridTextColumn6.MappingName = "Sexo";
-            this.sfDataGridCliente.Columns.Add(gridTextColumn1);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn2);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn3);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn4);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn5);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn6);
+            gridTextColumn7.HeaderText = "IdCliente";
+            gridTextColumn7.MappingName = "IdCliente";
+            gridTextColumn7.Visible = false;
+            gridTextColumn8.HeaderText = "Clave";
+            gridTextColumn8.MappingName = "Clave";
+            gridTextColumn9.HeaderText = "Nombre";
+            gridTextColumn9.MappingName = "NombreCompleto";
+            gridTextColumn10.HeaderText = "Teléfono";
+            gridTextColumn10.MappingName = "Telefono";
+            gridTextColumn11.HeaderText = "Edad";
+            gridTextColumn11.MappingName = "Edad";
+            gridTextColumn12.HeaderText = "Genero";
+            gridTextColumn12.MappingName = "Sexo";
+            this.sfDataGridCliente.Columns.Add(gridTextColumn7);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn8);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn9);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn10);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn11);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn12);
             this.sfDataGridCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridCliente.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridCliente.Name = "sfDataGridCliente";
@@ -224,6 +224,7 @@
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label8
             // 
@@ -271,7 +272,7 @@
             // 
             // PnlFoto
             // 
-            this.PnlFoto.Controls.Add(this.textBox3);
+            this.PnlFoto.Controls.Add(this.RutaControl);
             this.PnlFoto.Controls.Add(this.label7);
             this.PnlFoto.Controls.Add(this.BtnSeleccionar);
             this.PnlFoto.Controls.Add(this.FotoControl);
@@ -280,13 +281,14 @@
             this.PnlFoto.Size = new System.Drawing.Size(355, 110);
             this.PnlFoto.TabIndex = 47;
             // 
-            // textBox3
+            // RutaControl
             // 
-            this.textBox3.Location = new System.Drawing.Point(6, 60);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(207, 47);
-            this.textBox3.TabIndex = 41;
+            this.RutaControl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RutaControl.Location = new System.Drawing.Point(6, 60);
+            this.RutaControl.Multiline = true;
+            this.RutaControl.Name = "RutaControl";
+            this.RutaControl.Size = new System.Drawing.Size(207, 47);
+            this.RutaControl.TabIndex = 41;
             // 
             // label7
             // 
@@ -314,16 +316,6 @@
             this.BtnSeleccionar.Text = "SUBIR";
             this.BtnSeleccionar.UseVisualStyleBackColor = false;
             this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
-            // 
-            // FotoControl
-            // 
-            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FotoControl.Location = new System.Drawing.Point(219, 4);
-            this.FotoControl.Name = "FotoControl";
-            this.FotoControl.Size = new System.Drawing.Size(129, 103);
-            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.FotoControl.TabIndex = 0;
-            this.FotoControl.TabStop = false;
             // 
             // label5
             // 
@@ -479,6 +471,17 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Cliente";
             // 
+            // FotoControl
+            // 
+            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FotoControl.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.imagen_subir;
+            this.FotoControl.Location = new System.Drawing.Point(219, 4);
+            this.FotoControl.Name = "FotoControl";
+            this.FotoControl.Size = new System.Drawing.Size(129, 103);
+            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.FotoControl.TabIndex = 0;
+            this.FotoControl.TabStop = false;
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -501,11 +504,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.SexoControl)).EndInit();
             this.PnlFoto.ResumeLayout(false);
             this.PnlFoto.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
             this.PabelBTN.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.PanelTitulo.ResumeLayout(false);
             this.PanelTitulo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -538,7 +541,7 @@
         private System.Windows.Forms.Label label8;
         private Syncfusion.Windows.Forms.Tools.ComboBoxAdv SexoControl;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox RutaControl;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;

@@ -33,8 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CIDFares.Library.Code">
-      <HintPath>..\..\Library\CIDFares.Library\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
+    <Reference Include="CIDFares.Library.Code, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CIDFares.Library\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
     </Reference>
     <Reference Include="CIDFares.Library.Controls">
       <HintPath>..\..\Library\CIDFares.Library\CIDFares.Library.Controls\bin\Debug\CIDFares.Library.Controls.dll</HintPath>
@@ -185,6 +186,9 @@
       <Project>{01fe35c4-3ff0-4388-a696-e785e2512806}</Project>
       <Name>CIDFares.Spa.DataAccess.Contracts</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imagen_subir.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

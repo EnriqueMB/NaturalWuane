@@ -14,6 +14,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
 {
     public class ClienteRepository : Repository, IClienteRepository
     {
+        #region Metodos Implementado
+
         public async Task<Cliente> AddAsync(Cliente element)
         {
             try
@@ -23,6 +25,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@NuevoRegistro", element.NuevoRegistro);
+                    dynamicParameters.Add("@UpdateFoto", element.UpdateFoto);
                     dynamicParameters.Add("@IdCliente", element.IdCliente);
                     dynamicParameters.Add("@Clave", element.Clave);
                     dynamicParameters.Add("@NombreCompleto", element.NombreCompleto);
@@ -30,7 +33,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@Telefono", element.Telefono);
                     dynamicParameters.Add("@FechaNacimiento", element.FechaNacimiento);
                     dynamicParameters.Add("@Sexo", element.Sexo);
-                    dynamicParameters.Add("@Foto", element.Foto);
+                    dynamicParameters.Add("@Foto", element.FotoBase64);
                     dynamicParameters.Add("@Rfc", element.Rfc);
                     dynamicParameters.Add("@IdUsuarioL", element.IdUsuarioL);
                     var Resultado = await conexion.ExecuteScalarAsync<int>("[Cliente].[SPCID_AC_Cliente]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
@@ -42,26 +45,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             {
                 throw ex;
             }
-        }
-
-        public Task DeleteAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> DeleteAsync(object id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> ExistAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> ExistAsync(object id)
-        {
-            throw new NotImplementedException();
         }
 
         public async Task<IEnumerable<Cliente>> GetAllAsync()
@@ -104,11 +87,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public Task<Cliente> GetAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<string> ObtenerFoto(Guid IdCliente)
         {
             using (IDbConnection conexion = new SqlConnection(WebConnectionString))
@@ -120,6 +98,36 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 return dr.ToString();
             }
         }
+
+        public async Task<int> DeleteAsync(object id)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdCliente", id);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Nomina].[SPCID_Delete_Personal]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        #endregion
+
+        #region Metodo No Implementado
+
+        public Task<bool> ExistAsync(object id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<Cliente> GetAsync(object id)
         {
             throw new NotImplementedException();
@@ -129,6 +137,9 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         {
             throw new NotImplementedException();
         }
+
+        #endregion
+
 
     }
 }

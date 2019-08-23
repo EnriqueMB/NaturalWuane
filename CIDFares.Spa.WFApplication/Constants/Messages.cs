@@ -21,6 +21,7 @@ namespace CIDFares.Spa.WFApplication.Constants
         public const string ErrorFormulario = "OCURRIÓ UN ERROR AL CARGAR EL FORMULARIO";
         public const string LoginErrorMessage = "FAVOR DE VERIFICAR BIEN SUS CREDENCIALES";
         public const string ErrorMacExists = "ESTA MAC SE ENCUENTRA OCUPADA";
+        public const string ErrorAlCancelarFrm = "OCURRIÓ UN ERROR AL CANCELAR EL FORMULARIO";
         public const string VersionSistema = "Versión 2.0";
     }
 }
