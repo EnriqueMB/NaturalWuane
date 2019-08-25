@@ -64,21 +64,46 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
+        public async Task<int> GuardarFotoPersonal(string clave)
+        {
+            try
+            {
+                Producto producto = new Producto
+                {
+                    Clave = clave,
+                    UpdateFoto = PDatos.UpdateFoto,
+                    Base64String = new Bitmap(PDatos.Foto).ToBase64String(PDatos.Formato),
+                    UrlFoto = PDatos.UrlFoto
+                };
+                return await IRepository.AddFotoPersonal(producto);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public async Task GetProducto()
         {
             try
             {
-                PersonalModel personal;
-                personal = await RepositoryPersonal.GetPersonal(PDatos.IdPersonal);
-                PDatos.Nombres = personal.Nombres;
-                PDatos.ApellidoPaterno = personal.ApellidoPaterno;
-                PDatos.ApellidoMaterno = personal.ApellidoMaterno;
-                PDatos.FechaNacimiento = personal.FechaNacimiento;
-                PDatos.Sexo = personal.Sexo;
-                PDatos.IdAreaEmpresa = personal.IdAreaEmpresa;
-                PDatos.IdNacionalidad = personal.IdNacionalidad;
-                PDatos.IdLugarProcedencia = personal.IdLugarProcedencia;
-                PDatos.Foto = (string.IsNullOrEmpty(personal.Base64String)) ? null : personal.Base64String.ImageBase64ToImage();
+                Producto producto;
+                producto = await IRepository.GetProductoXid(PDatos.IdProducto);
+                PDatos.Nombre = producto.Nombre;
+                PDatos.IdCategoria = producto.IdCategoria;
+                PDatos.Clave = producto.Clave;
+                PDatos.UnidadMedida = producto.UnidadMedida;
+                PDatos.PrecioPublico = producto.PrecioPublico;
+                PDatos.AplicaIva = producto.AplicaIva;
+                PDatos.Stock = producto.Stock;
+                PDatos.StockMax = producto.StockMax;
+                PDatos.StockMin = producto.StockMin;
+                PDatos.PrecioMayoreo = producto.PrecioMayoreo;
+                PDatos.PrecioMenudeo = producto.PrecioMenudeo;
+                PDatos.StockMax = producto.StockMax;
+                PDatos.Descripcion = producto.Descripcion;
+                PDatos.Foto = (string.IsNullOrEmpty(producto.Base64String)) ? null : producto.Base64String.ImageBase64ToImage();
             }
             catch (Exception ex)
             {
@@ -121,6 +146,44 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
+        public async Task<string> GuardarCambios()
+        {
+            try
+            {
+                Producto producto = new Producto
+                {
+                    IdProducto = PDatos.IdProducto,
+                    IdCategoria = PDatos.IdCategoria,
+                    Clave = PDatos.Clave,
+                    UnidadMedida = PDatos.UnidadMedida.Trim(),
+                    PrecioPublico = PDatos.PrecioPublico,
+                    PrecioMayoreo = PDatos.PrecioMayoreo,
+                    PrecioMenudeo = PDatos.PrecioMenudeo,
+                    AplicaIva = PDatos.AplicaIva,
+                    Stock = PDatos.Stock,
+                    StockMax = PDatos.StockMax,
+                    StockMin = PDatos.StockMin,
+                    Descripcion = PDatos.Descripcion
+
+                };
+                if (State == EntityState.Create)
+                {
+
+                    return await IRepository.AddWitClave(producto);
+                }
+                else if (State == EntityState.Update)
+                {               
+                    return await IRepository.Update(producto);
+                }
+                return string.Empty;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
 
 
         #endregion
@@ -142,9 +205,9 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             set { _Categoria = value; OnPropertyChanged(nameof(Categoria)); }
         }
 
-        private int _Clave;
+        private string _Clave;
 
-        public int Clave
+        public string Clave
         {
             get { return _Clave; }
             set { _Clave = value; OnPropertyChanged(nameof(Clave)); }

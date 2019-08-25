@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblSubtitle = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -71,6 +72,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.BtnSeleccionar = new System.Windows.Forms.Button();
             this.FotoControl = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -86,6 +88,7 @@
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -144,6 +147,7 @@
             this.btnGuardar.TabIndex = 7;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelar
             // 
@@ -534,6 +538,10 @@
             this.FotoControl.TabIndex = 42;
             this.FotoControl.TabStop = false;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -571,6 +579,7 @@
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -620,5 +629,6 @@
         private System.Windows.Forms.Button BtnSeleccionar;
         private System.Windows.Forms.PictureBox FotoControl;
         public System.Windows.Forms.Label lblSubtitle;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

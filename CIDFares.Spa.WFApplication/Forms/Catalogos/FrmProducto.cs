@@ -1,4 +1,5 @@
-﻿using CIDFares.Library.Code.Helpers;
+﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Library.Code.Helpers;
 using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDWait.Code;
 using CIDFares.Spa.Business.ValueObjects;
@@ -235,6 +236,64 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
                 Close();
+            }
+        }
+
+        private async void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnGuardar.Enabled = false;
+                this.CleanErrors(errorProvider1, typeof(ProductoViewModel));
+                var validationResults = Model.PDatos.Validate();
+                validationResults.ToString();
+                if (validationResults.IsValid)
+                {
+                    var Resultado = await Model.GuardarCambios();
+                    if (Resultado != null || Resultado != string.Empty)
+                    {
+                        int res = 0;
+                        if (Model.PDatos.UpdateFoto)
+                        {
+                            var x = Model.PDatos.Foto.VaryQualityLevel(35L);
+                            Model.PDatos.Foto = x;
+                            this.GuardarImagen(Resultado.ToString());
+                            res = await Model.GuardarFotoPersonal(Resultado.ToString());
+                            if (res > 0)
+                            {
+                                this.LimpiarPropiedades();
+                                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                                this.Close();
+                            }
+                            else
+                            {
+                                this.LimpiarPropiedades();
+                                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+                            }
+                        }
+                        else
+                        {
+                            this.LimpiarPropiedades();
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                            this.Close();
+                        }
+
+                    }
+                    else
+                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+                }
+                else
+                    this.ShowErrors(errorProvider1, typeof(ProductoViewModel), validationResults);
+
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmProducto ~ btnGuardar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+            finally
+            {
+                btnGuardar.Enabled = true;
             }
         }
     }

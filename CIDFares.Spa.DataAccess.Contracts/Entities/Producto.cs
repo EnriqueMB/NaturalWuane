@@ -18,7 +18,8 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         #region propiedades
         public int IdProducto { get; set; }
         public string Categoria { get; set; }
-        public int Clave { get; set; }
+        public int? IdCategoria { get; set; }
+        public string Clave { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public bool Stock { get; set; }
