@@ -1,6 +1,7 @@
 ﻿using CIDFares.Library.Code.Helpers;
 using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
+using CIDFares.Library.Controls.CIDMessageBox.Forms;
 using CIDFares.Library.Controls.CIDWait.Code;
 using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.Business.ViewModels.Catalogos;
@@ -25,7 +26,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         public ProductoViewModel Model { get; set; }
 
-        // public FrmMessageBox mensaje { get; set; }
+         public FrmMessageBox mensaje { get; set; }
 
         #endregion
 
@@ -120,14 +121,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             dataGridMain1.DataBindings.Add("DataSource", Model, "ListaProducto", true, DataSourceUpdateMode.OnPropertyChanged);
         }
 
-        private void CargarDatosAsync()
+        private async void CargarDatosAsync()
         {
             try
             {
-                CIDWait.Show(async () => {
-                    await Model.CargarDatos();
-                    //await Task.Delay(2000);
-                }, "Espere");
+                //CIDWait.Show(async () =>
+                //{
+                //    await Model.CargarDatos();
+                //    await Task.Delay(2000);
+                //}, "Espere");
+                await Model.CargarDatos();
             }
             catch (Exception ex)
             {
@@ -152,5 +155,20 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
         #endregion
+
+        private void FrmProductoGrid_Shown(object sender, EventArgs e)
+        {
+            try
+            {
+                CargarDatosAsync();
+                IniciarBinding();
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmProductoGrid_Shown(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
+                Close();
+            }
+        }
     }
 }

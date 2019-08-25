@@ -159,12 +159,12 @@
             gridTextColumn2.MappingName = "Categoria";
             gridTextColumn3.HeaderText = "Clave";
             gridTextColumn3.MappingName = "Clave";
-            gridTextColumn4.HeaderText = "Nombre";
+            gridTextColumn4.HeaderText = "Producto";
             gridTextColumn4.MappingName = "Nombre";
             gridTextColumn5.HeaderText = "Descripcion";
             gridTextColumn5.MappingName = "Descripcion";
             gridTextColumn6.HeaderText = "Stock";
-            gridTextColumn6.MappingName = "Stock";
+            gridTextColumn6.MappingName = "StockStr";
             gridTextColumn7.HeaderText = "StockMax";
             gridTextColumn7.MappingName = "StockMax";
             gridTextColumn8.HeaderText = "StockMin";
@@ -181,7 +181,7 @@
             gridTextColumn13.MappingName = "ClaveSat";
             gridTextColumn13.Visible = false;
             gridTextColumn14.HeaderText = "IVA";
-            gridTextColumn14.MappingName = "AplicaIva";
+            gridTextColumn14.MappingName = "AplicaIvaStr";
             this.dataGridMain1.Columns.Add(gridTextColumn1);
             this.dataGridMain1.Columns.Add(gridTextColumn2);
             this.dataGridMain1.Columns.Add(gridTextColumn3);
@@ -213,6 +213,7 @@
             this.Controls.Add(this.pnlTitulos);
             this.Name = "FrmProductoGrid";
             this.Text = "FrmProductoGrid";
+            this.Shown += new System.EventHandler(this.FrmProductoGrid_Shown);
             this.pnlTitulos.ResumeLayout(false);
             this.pnlTitulos.PerformLayout();
             this.FlpBotones.ResumeLayout(false);

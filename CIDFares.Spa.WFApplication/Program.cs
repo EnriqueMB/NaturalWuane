@@ -23,7 +23,7 @@ namespace CIDFares.Spa.WFApplication
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
             //Application.Run(new FrmFormaPago());
-            Application.Run(new FrmProducto());
+            Application.Run(new FrmProductoGrid());
         }
 
         public static void InitializeContainer()

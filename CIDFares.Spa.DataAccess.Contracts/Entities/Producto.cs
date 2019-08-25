@@ -17,20 +17,22 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
 
         #region propiedades
         public int IdProducto { get; set; }
-        public int Categoria { get; set; }
+        public string Categoria { get; set; }
         public int Clave { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public bool Stock { get; set; }
+        public string StockStr { get; set; }
         public int StockMax { get; set; }
         public int StockMin { get; set; }
-        public float PrecioPublico { get; set; }
-        public float PrecioMayoreo { get; set; }
-        public float PrecioMenudeo { get; set; }
+        public decimal PrecioPublico { get; set; }
+        public decimal PrecioMayoreo { get; set; }
+        public decimal PrecioMenudeo { get; set; }
         public int CodigoBarras { get; set; }
         public string UnidadMedida { get; set; }
         public int ClaveSat { get; set; }
         public bool AplicaIva { get; set; }
+        public string AplicaIvaStr { get; set; }
         public int Usuario { get; set; }
         //foto
         public string Base64String { get; set; }

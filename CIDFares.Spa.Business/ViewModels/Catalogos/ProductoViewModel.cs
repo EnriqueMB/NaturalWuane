@@ -1,6 +1,7 @@
 ﻿using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
+using CIDFares.Spa.DataAccess.Contracts.Validations;
 using CIDFares.Spa.DataAccess.Repositories.General;
 using System;
 using System.Collections.Generic;
@@ -8,26 +9,37 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
+using System.Data;
 
 namespace CIDFares.Spa.Business.ViewModels.Catalogos
 {
-    public class ProductoViewModel : INotifyPropertyChanged
+    public class ProductoViewModel : Validable, INotifyPropertyChanged
     {
         #region Propiedades privadas
         private IProductoRepository IRepository { get; set; }
+
+        private ICategoriaRespository RespositoryCategoria { get; set; }
         #endregion
 
         #region Propiedades públicas
         public BindingList<Producto> ListaProducto { get; set; }
+        public BindingList<CategoriaProducto> ListaCategoria { get; set; }
+
         public EntityState State { get; set; }
         public ProductoViewModel PDatos { get; set; }
         #endregion
 
         #region Constructor
-        public ProductoViewModel(IProductoRepository IProductoRepository)
+        public ProductoViewModel(IProductoRepository IProductoRepository, ICategoriaRespository respositoryCategoria)
         {
             IRepository = IProductoRepository;
             ListaProducto = new BindingList<Producto>();
+            ListaCategoria = new BindingList<CategoriaProducto>();
+            RespositoryCategoria = respositoryCategoria;
+
+
+
         }
         #endregion
 
@@ -40,12 +52,36 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 ListaProducto.Clear();
                 foreach (var item in x)
                 {
+                    item.AplicaIvaStr = item.AplicaIva ? "SI" : "NO";
+                    item.StockStr = item.Stock ? "SI" : "NO";
                     ListaProducto.Add(item);
                 }
             }
             catch (Exception ex)
             {
 
+                throw ex;
+            }
+        }
+
+        public async Task GetProducto()
+        {
+            try
+            {
+                PersonalModel personal;
+                personal = await RepositoryPersonal.GetPersonal(PDatos.IdPersonal);
+                PDatos.Nombres = personal.Nombres;
+                PDatos.ApellidoPaterno = personal.ApellidoPaterno;
+                PDatos.ApellidoMaterno = personal.ApellidoMaterno;
+                PDatos.FechaNacimiento = personal.FechaNacimiento;
+                PDatos.Sexo = personal.Sexo;
+                PDatos.IdAreaEmpresa = personal.IdAreaEmpresa;
+                PDatos.IdNacionalidad = personal.IdNacionalidad;
+                PDatos.IdLugarProcedencia = personal.IdLugarProcedencia;
+                PDatos.Foto = (string.IsNullOrEmpty(personal.Base64String)) ? null : personal.Base64String.ImageBase64ToImage();
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }
@@ -63,6 +99,30 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
+        public void LlenarListaCategoria(IEnumerable<CategoriaProducto> categoria)
+        {
+            foreach (var item in categoria)
+            {
+                ListaCategoria.Add(item);
+            }
+        }
+
+        public async Task<IEnumerable<CategoriaProducto>> GetListaCataegoriaProduto()
+        {
+            try
+            {
+                var CategoriaProducto = await RespositoryCategoria.LlenarComboCategoria();
+                return CategoriaProducto;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
         #endregion
 
         #region Binding
@@ -74,9 +134,9 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             set { _IdProducto = value; OnPropertyChanged(nameof(IdProducto)); }
         }
 
-        private int _Categoria;
+        private string _Categoria;
 
-        public int Categoria
+        public string Categoria
         {
             get { return _Categoria; }
             set { _Categoria = value; OnPropertyChanged(nameof(Categoria)); }
@@ -131,26 +191,26 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             set { _StockMin = value; OnPropertyChanged(nameof(StockMin)); }
         }
 
-        private float _PrecioPublico;
+        private decimal _PrecioPublico;
 
-        public float PrecioPublico
+        public decimal PrecioPublico
         {
             get { return _PrecioPublico; }
             set { _PrecioPublico = value; OnPropertyChanged(nameof(PrecioPublico)); }
         }
 
 
-        private float _PrecioMayoreo;
+        private decimal _PrecioMayoreo;
 
-        public float PrecioMayoreo
+        public decimal PrecioMayoreo
         {
             get { return _PrecioMayoreo; }
             set { _PrecioMayoreo = value; OnPropertyChanged(nameof(PrecioMayoreo)); }
         }
 
-        private float _PrecioMenudeo;
+        private decimal _PrecioMenudeo;
 
-        public float PrecioMenudeo
+        public decimal PrecioMenudeo
         {
             get { return _PrecioMenudeo; }
             set { _PrecioMenudeo = value; OnPropertyChanged(nameof(PrecioMenudeo)); }
@@ -187,13 +247,20 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             get { return _AplicaIva; }
             set { _AplicaIva = value; OnPropertyChanged(nameof(AplicaIva)); }
         }
-
+        public string Extencion { get; set; } 
         private int _Usuario;
 
         public int Usuario
         {
             get { return _Usuario; }
             set { _Usuario = value; OnPropertyChanged(nameof(Usuario)); }
+        }
+
+        private int? _IdCategoria;
+        public int? IdCategoria
+        {
+            get { return _IdCategoria; }
+            set { _IdCategoria = value; OnPropertyChanged("IdCategoria"); }
         }
 
         //propiedades par la foto
@@ -214,7 +281,48 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             set { _UpdateFoto = value; OnPropertyChanged(nameof(UpdateFoto)); }
         }
 
+        //para combo
+        private int? _IdCategoriaProducto;
 
+        public int? IdCategoriaProducto
+        {
+            get { return _IdCategoriaProducto; }
+            set { _IdCategoriaProducto = value; OnPropertyChanged("IdCategoriaProducto"); }
+        }
+
+        //private Image _Foto;
+
+        //public Image Foto
+        //{
+        //    get { return _Foto; }
+        //    set { _Foto = value; OnPropertyChanged("Foto"); }
+        //}
+
+        //public ImageFormat Formato { get; set; }
+
+        public string UrlFoto { get; set; }
+
+        //private string _ImageLocation;
+
+        //public string ImageLocation
+        //{
+        //    get { return _ImageLocation; }
+        //    set
+        //    {
+        //        _ImageLocation = value; OnPropertyChanged("ImageLocation");
+        //        if (ImageLocation != string.Empty)
+        //        {
+        //            try
+        //            {
+        //                Foto = Image.FromFile(_ImageLocation);
+        //            }
+        //            catch (Exception)
+        //            {
+
+        //            }
+        //        }
+        //    }
+        //}
 
         #endregion
 
