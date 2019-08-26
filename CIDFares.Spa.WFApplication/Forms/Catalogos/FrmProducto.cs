@@ -73,8 +73,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             FotoControl.DataBindings.Add("Image", Model.PDatos, "Foto", true, DataSourceUpdateMode.OnPropertyChanged);
             DescripcionControl.DataBindings.Add("Text", Model.PDatos, "Descripcion", true, DataSourceUpdateMode.OnPropertyChanged);
 
-            CategoriaControl.DataBindings.Add("SelectedValue", Model.PDatos, "IdAreaEmpresa", true, DataSourceUpdateMode.OnPropertyChanged);
-            CategoriaControl.DataBindings.Add("DataSource", Model, "ListaAreaEmpresa", true, DataSourceUpdateMode.OnPropertyChanged);
+            CategoriaControl.DataBindings.Add("SelectedValue", Model.PDatos, "IdCategoria", true, DataSourceUpdateMode.OnPropertyChanged);
+            CategoriaControl.DataBindings.Add("DataSource", Model, "ListaCategoria", true, DataSourceUpdateMode.OnPropertyChanged);
             IniciarCombos(1);
         }
 
