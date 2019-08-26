@@ -71,6 +71,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         }
                         else
                             item.Edad = 0;
+                        item.FechaNacimiento = dr.GetDateTime(dr.GetOrdinal("FechaNacimiento"));
                         item.Direccion = dr.GetString(dr.GetOrdinal("Direccion"));
                         item.Telefono = dr.GetString(dr.GetOrdinal("Telefono"));
                         item.Rfc = dr.GetString(dr.GetOrdinal("Rfc"));

@@ -35,6 +35,7 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.panelGridDatos = new System.Windows.Forms.Panel();
@@ -147,12 +148,17 @@
             gridTextColumn6.AllowEditing = false;
             gridTextColumn6.HeaderText = "Genero";
             gridTextColumn6.MappingName = "Sexo";
+            gridTextColumn7.AllowEditing = false;
+            gridTextColumn7.HeaderText = "FechaNacimiento";
+            gridTextColumn7.MappingName = "FechaNacimiento";
+            gridTextColumn7.Visible = false;
             this.sfDataGridCliente.Columns.Add(gridTextColumn1);
             this.sfDataGridCliente.Columns.Add(gridTextColumn2);
             this.sfDataGridCliente.Columns.Add(gridTextColumn3);
             this.sfDataGridCliente.Columns.Add(gridTextColumn4);
             this.sfDataGridCliente.Columns.Add(gridTextColumn5);
             this.sfDataGridCliente.Columns.Add(gridTextColumn6);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn7);
             this.sfDataGridCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridCliente.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridCliente.Name = "sfDataGridCliente";

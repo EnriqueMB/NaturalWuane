@@ -177,6 +177,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 Model.Telefono = item.Telefono;
                 Model.Direccion = item.Direccion;
                 Model.Clave = item.Clave;
+                Model.FechaNacimiento = item.FechaNacimiento;
                 await Model.GetFoto(Model.IdCliente);
                 if (!string.IsNullOrEmpty(Model.FotoBase64))
                 {
