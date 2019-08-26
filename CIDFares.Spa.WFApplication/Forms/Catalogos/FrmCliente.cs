@@ -50,6 +50,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             Model = ServiceLocator.Instance.Resolve<ClienteViewModel>();
             groupBoxCliente.Enabled = false;
             ClaveControl.Visible = false;
+            Model.IdUsuarioL = CurrentSession.IdCuentaUsuario;
         }
         #endregion
 

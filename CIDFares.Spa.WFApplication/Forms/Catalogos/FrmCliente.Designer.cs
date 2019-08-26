@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.panelGridDatos = new System.Windows.Forms.Panel();
@@ -128,31 +128,31 @@
             this.sfDataGridCliente.AccessibleName = "Table";
             this.sfDataGridCliente.AllowEditing = false;
             this.sfDataGridCliente.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn7.AllowEditing = false;
-            gridTextColumn7.HeaderText = "IdCliente";
-            gridTextColumn7.MappingName = "IdCliente";
-            gridTextColumn7.Visible = false;
-            gridTextColumn8.AllowEditing = false;
-            gridTextColumn8.HeaderText = "Clave";
-            gridTextColumn8.MappingName = "Clave";
-            gridTextColumn9.AllowEditing = false;
-            gridTextColumn9.HeaderText = "Nombre";
-            gridTextColumn9.MappingName = "NombreCompleto";
-            gridTextColumn10.AllowEditing = false;
-            gridTextColumn10.HeaderText = "Teléfono";
-            gridTextColumn10.MappingName = "Telefono";
-            gridTextColumn11.AllowEditing = false;
-            gridTextColumn11.HeaderText = "Edad";
-            gridTextColumn11.MappingName = "Edad";
-            gridTextColumn12.AllowEditing = false;
-            gridTextColumn12.HeaderText = "Genero";
-            gridTextColumn12.MappingName = "Sexo";
-            this.sfDataGridCliente.Columns.Add(gridTextColumn7);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn8);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn9);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn10);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn11);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn12);
+            gridTextColumn1.AllowEditing = false;
+            gridTextColumn1.HeaderText = "IdCliente";
+            gridTextColumn1.MappingName = "IdCliente";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.AllowEditing = false;
+            gridTextColumn2.HeaderText = "Clave";
+            gridTextColumn2.MappingName = "Clave";
+            gridTextColumn3.AllowEditing = false;
+            gridTextColumn3.HeaderText = "Nombre";
+            gridTextColumn3.MappingName = "NombreCompleto";
+            gridTextColumn4.AllowEditing = false;
+            gridTextColumn4.HeaderText = "Teléfono";
+            gridTextColumn4.MappingName = "Telefono";
+            gridTextColumn5.AllowEditing = false;
+            gridTextColumn5.HeaderText = "Edad";
+            gridTextColumn5.MappingName = "Edad";
+            gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.HeaderText = "Genero";
+            gridTextColumn6.MappingName = "Sexo";
+            this.sfDataGridCliente.Columns.Add(gridTextColumn1);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn2);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn3);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn4);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn5);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn6);
             this.sfDataGridCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridCliente.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridCliente.Name = "sfDataGridCliente";
@@ -380,6 +380,7 @@
             // TelefonoControl
             // 
             this.TelefonoControl.Location = new System.Drawing.Point(9, 158);
+            this.TelefonoControl.MaxLength = 10;
             this.TelefonoControl.Name = "TelefonoControl";
             this.TelefonoControl.Size = new System.Drawing.Size(355, 27);
             this.TelefonoControl.TabIndex = 7;
@@ -399,6 +400,7 @@
             // 
             this.RfcControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.RfcControl.Location = new System.Drawing.Point(9, 105);
+            this.RfcControl.MaxLength = 13;
             this.RfcControl.Name = "RfcControl";
             this.RfcControl.Size = new System.Drawing.Size(355, 27);
             this.RfcControl.TabIndex = 5;
