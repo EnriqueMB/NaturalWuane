@@ -19,6 +19,7 @@ using CIDFares.Spa.WFApplication.Constants;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.Business.ValueObjects;
+using CIDFares.Spa.WFApplication.Session;
 using System.IO;
 
 namespace CIDFares.Spa.WFApplication.Forms.Catalogos
@@ -60,11 +61,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 NombreCompletoControl.DataBindings.Add("Text", Model, "NombreCompleto", true, DataSourceUpdateMode.OnPropertyChanged);
                 RfcControl.DataBindings.Add("Text", Model, "Rfc", true, DataSourceUpdateMode.OnPropertyChanged);
                 TelefonoControl.DataBindings.Add("Text", Model, "Telefono", true, DataSourceUpdateMode.OnPropertyChanged);
-                FechaNachimientoControl.DataBindings.Add("Text", Model, "FechaNacimiento", true, DataSourceUpdateMode.OnPropertyChanged);
+                FechaNacimientoControl.DataBindings.Add("Text", Model, "FechaNacimiento", true, DataSourceUpdateMode.OnPropertyChanged);
                 ClaveControl.DataBindings.Add("Text", Model, "Clave", true, DataSourceUpdateMode.OnPropertyChanged);
                 FotoControl.DataBindings.Add("Image", Model, "Foto", true, DataSourceUpdateMode.OnPropertyChanged);
                 SexoControl.DataBindings.Add("SelectedValue", Model, "Sexo", true, DataSourceUpdateMode.OnPropertyChanged);
                 RutaControl.DataBindings.Add("Text", Model, "ImageLocation", true, DataSourceUpdateMode.OnPropertyChanged);
+                BusquedaControl.DataBindings.Add("Text", Model, "Busqueda", true, DataSourceUpdateMode.OnPropertyChanged);
                 this.sfDataGridCliente.AutoGenerateColumns = false;
                 sfDataGridCliente.DataBindings.Add("DataSource", Model, "ListaCliente", true, DataSourceUpdateMode.OnPropertyChanged);
                 this.InicializarCombo();
@@ -193,32 +195,74 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                var Resultado = await Model.GuardarCambios();
-                if (Resultado.Resultado == 1)
+                this.CleanErrors(errorProvider1, typeof(ClienteViewModel));
+                var validationResults = Model.Validate();
+                validationResults.ToString();
+                if (validationResults.IsValid)
                 {
-                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.error);
-                    LimpiarPropiedades();
-                    groupBoxCliente.Enabled = false;
-                    await Model.GetAll();
+                    var Resultado = await Model.GuardarCambios();
+                    if (Resultado.Resultado == 1)
+                    {
+                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.error);
+                        LimpiarPropiedades();
+                        groupBoxCliente.Enabled = false;
+                        await Model.GetAll();
 
-                }
-                else if (Resultado.Resultado == 5)
-                {
-                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorClaveExistente, TypeMessage.error);
-                    LimpiarPropiedades();
-                    groupBoxCliente.Enabled = false;
+                    }
+                    else if (Resultado.Resultado == 5)
+                    {
+                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorClaveExistente, TypeMessage.error);
+                        LimpiarPropiedades();
+                        groupBoxCliente.Enabled = false;
+                    }
+                    else
+                    {
+                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+                        LimpiarPropiedades();
+                        groupBoxCliente.Enabled = false;
+                    }
                 }
                 else
-                {
-                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
-                    LimpiarPropiedades();
-                    groupBoxCliente.Enabled = false;
-                }
+                    this.ShowErrors(errorProvider1, typeof(ClienteViewModel), validationResults);
             }
             catch (Exception ex)
             {
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmCliente ~ btnGuardar_Click(object sender, EventArgs e)");
-                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+        }
+
+        private async void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var item = ObtenerSeleccionado();
+                if (item != null)
+                {
+                    if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmDeleteMessage) == DialogResult.OK)
+                    {
+                        CurrentSession.IdCuentaUsuario = 0;
+                        Model.IdCliente = item.IdCliente;
+                        Model.IdUsuarioL = CurrentSession.IdCuentaUsuario;
+                        groupBoxCliente.Enabled = false;
+                        var result = await Model.DeleteAsync();
+                        if (result == 1)
+                        {
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.informacion);
+                            LimpiarPropiedades();
+                            await Model.GetAll();
+                        }
+                        else
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.informacion);
+                    }
+                }
+                else
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCliente ~  btnEliminar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.error);
             }
         }
 
@@ -260,6 +304,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {
                 this.groupBoxCliente.Enabled = false;
                 this.LimpiarPropiedades();
+                this.CleanErrors(errorProvider1, typeof(ClienteViewModel));
             }
             catch (Exception ex)
             {
@@ -267,6 +312,41 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorAlCancelarFrm, TypeMessage.error);
             }
         }
-        #endregion       
+
+        #endregion
+
+        private async void BtnBusqueda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(Model.Busqueda))
+                {
+                    await Model.GetBusqueda();
+                }
+                else
+                {
+                    errorProvider1.SetError(BusquedaControl, "INGRESE EL CAMPO BUSQUEDA. Y NO PUEDE SER MAYOR A 200 CARACTERES");
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCliente ~ btnCancelar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
+            }
+        }
+
+        private void BusquedaControl_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Model.ListaCliente.Clear();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

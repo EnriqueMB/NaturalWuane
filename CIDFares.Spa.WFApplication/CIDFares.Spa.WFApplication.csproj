@@ -127,6 +127,7 @@
     <EmbeddedResource Include="Forms\Catalogos\FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="Validations\ClienteValidator.cs" />
     <Compile Include="Validations\FormaPagoValidator.cs" />
     <Compile Include="Validations\LoginValidator.cs" />
     <EmbeddedResource Include="Forms\Catalogos\FrmFormaPago.resx">

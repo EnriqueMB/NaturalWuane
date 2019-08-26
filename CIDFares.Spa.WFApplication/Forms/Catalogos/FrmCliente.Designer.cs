@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            this.components = new System.ComponentModel.Container();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.panelGridDatos = new System.Windows.Forms.Panel();
@@ -52,8 +53,9 @@
             this.RutaControl = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.BtnSeleccionar = new System.Windows.Forms.Button();
+            this.FotoControl = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.FechaNachimientoControl = new System.Windows.Forms.DateTimePicker();
+            this.FechaNacimientoControl = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.TelefonoControl = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -66,8 +68,13 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.PanelTitulo = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnBusqueda = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.BusquedaControl = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.FotoControl = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.PanelPrincipal.SuspendLayout();
             this.PanelContenedor.SuspendLayout();
             this.panelGridDatos.SuspendLayout();
@@ -77,10 +84,12 @@
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SexoControl)).BeginInit();
             this.PnlFoto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
             this.PabelBTN.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.PanelTitulo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelPrincipal
@@ -90,7 +99,7 @@
             this.PanelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelPrincipal.Location = new System.Drawing.Point(0, 0);
             this.PanelPrincipal.Name = "PanelPrincipal";
-            this.PanelPrincipal.Size = new System.Drawing.Size(1154, 627);
+            this.PanelPrincipal.Size = new System.Drawing.Size(1176, 627);
             this.PanelPrincipal.TabIndex = 0;
             // 
             // PanelContenedor
@@ -100,7 +109,7 @@
             this.PanelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelContenedor.Location = new System.Drawing.Point(0, 49);
             this.PanelContenedor.Name = "PanelContenedor";
-            this.PanelContenedor.Size = new System.Drawing.Size(1154, 578);
+            this.PanelContenedor.Size = new System.Drawing.Size(1176, 578);
             this.PanelContenedor.TabIndex = 1;
             // 
             // panelGridDatos
@@ -111,36 +120,43 @@
             this.panelGridDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGridDatos.Location = new System.Drawing.Point(0, 0);
             this.panelGridDatos.Name = "panelGridDatos";
-            this.panelGridDatos.Size = new System.Drawing.Size(1154, 531);
+            this.panelGridDatos.Size = new System.Drawing.Size(1176, 531);
             this.panelGridDatos.TabIndex = 1;
             // 
             // sfDataGridCliente
             // 
             this.sfDataGridCliente.AccessibleName = "Table";
+            this.sfDataGridCliente.AllowEditing = false;
             this.sfDataGridCliente.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn7.HeaderText = "IdCliente";
-            gridTextColumn7.MappingName = "IdCliente";
-            gridTextColumn7.Visible = false;
-            gridTextColumn8.HeaderText = "Clave";
-            gridTextColumn8.MappingName = "Clave";
-            gridTextColumn9.HeaderText = "Nombre";
-            gridTextColumn9.MappingName = "NombreCompleto";
-            gridTextColumn10.HeaderText = "Teléfono";
-            gridTextColumn10.MappingName = "Telefono";
-            gridTextColumn11.HeaderText = "Edad";
-            gridTextColumn11.MappingName = "Edad";
-            gridTextColumn12.HeaderText = "Genero";
-            gridTextColumn12.MappingName = "Sexo";
-            this.sfDataGridCliente.Columns.Add(gridTextColumn7);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn8);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn9);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn10);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn11);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn12);
+            gridTextColumn1.AllowEditing = false;
+            gridTextColumn1.HeaderText = "IdCliente";
+            gridTextColumn1.MappingName = "IdCliente";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.AllowEditing = false;
+            gridTextColumn2.HeaderText = "Clave";
+            gridTextColumn2.MappingName = "Clave";
+            gridTextColumn3.AllowEditing = false;
+            gridTextColumn3.HeaderText = "Nombre";
+            gridTextColumn3.MappingName = "NombreCompleto";
+            gridTextColumn4.AllowEditing = false;
+            gridTextColumn4.HeaderText = "Teléfono";
+            gridTextColumn4.MappingName = "Telefono";
+            gridTextColumn5.AllowEditing = false;
+            gridTextColumn5.HeaderText = "Edad";
+            gridTextColumn5.MappingName = "Edad";
+            gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.HeaderText = "Genero";
+            gridTextColumn6.MappingName = "Sexo";
+            this.sfDataGridCliente.Columns.Add(gridTextColumn1);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn2);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn3);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn4);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn5);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn6);
             this.sfDataGridCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridCliente.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridCliente.Name = "sfDataGridCliente";
-            this.sfDataGridCliente.Size = new System.Drawing.Size(764, 531);
+            this.sfDataGridCliente.Size = new System.Drawing.Size(770, 531);
             this.sfDataGridCliente.TabIndex = 1;
             this.sfDataGridCliente.Text = "sfDataGrid1";
             // 
@@ -148,9 +164,9 @@
             // 
             this.PanelCapturaDatos.Controls.Add(this.groupBoxCliente);
             this.PanelCapturaDatos.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PanelCapturaDatos.Location = new System.Drawing.Point(764, 0);
+            this.PanelCapturaDatos.Location = new System.Drawing.Point(770, 0);
             this.PanelCapturaDatos.Name = "PanelCapturaDatos";
-            this.PanelCapturaDatos.Size = new System.Drawing.Size(390, 531);
+            this.PanelCapturaDatos.Size = new System.Drawing.Size(406, 531);
             this.PanelCapturaDatos.TabIndex = 0;
             // 
             // groupBoxCliente
@@ -164,7 +180,7 @@
             this.groupBoxCliente.Controls.Add(this.DireccionControl);
             this.groupBoxCliente.Controls.Add(this.PnlFoto);
             this.groupBoxCliente.Controls.Add(this.label5);
-            this.groupBoxCliente.Controls.Add(this.FechaNachimientoControl);
+            this.groupBoxCliente.Controls.Add(this.FechaNacimientoControl);
             this.groupBoxCliente.Controls.Add(this.label4);
             this.groupBoxCliente.Controls.Add(this.TelefonoControl);
             this.groupBoxCliente.Controls.Add(this.label2);
@@ -176,14 +192,14 @@
             this.groupBoxCliente.ForeColor = System.Drawing.Color.Black;
             this.groupBoxCliente.Location = new System.Drawing.Point(0, 0);
             this.groupBoxCliente.Name = "groupBoxCliente";
-            this.groupBoxCliente.Size = new System.Drawing.Size(390, 531);
+            this.groupBoxCliente.Size = new System.Drawing.Size(406, 531);
             this.groupBoxCliente.TabIndex = 0;
             this.groupBoxCliente.TabStop = false;
             this.groupBoxCliente.Text = "Datos de cliente";
             // 
             // ClaveControl
             // 
-            this.ClaveControl.Location = new System.Drawing.Point(238, 12);
+            this.ClaveControl.Location = new System.Drawing.Point(227, 12);
             this.ClaveControl.Name = "ClaveControl";
             this.ClaveControl.ReadOnly = true;
             this.ClaveControl.Size = new System.Drawing.Size(135, 27);
@@ -243,7 +259,7 @@
             this.SexoControl.BeforeTouchSize = new System.Drawing.Size(355, 29);
             this.SexoControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Adjust;
             this.SexoControl.FlatBorderColor = System.Drawing.Color.BurlyWood;
-            this.SexoControl.Location = new System.Drawing.Point(22, 319);
+            this.SexoControl.Location = new System.Drawing.Point(12, 319);
             this.SexoControl.MetroBorderColor = System.Drawing.Color.Black;
             this.SexoControl.Name = "SexoControl";
             this.SexoControl.Size = new System.Drawing.Size(355, 29);
@@ -265,7 +281,7 @@
             // 
             // DireccionControl
             // 
-            this.DireccionControl.Location = new System.Drawing.Point(22, 267);
+            this.DireccionControl.Location = new System.Drawing.Point(12, 267);
             this.DireccionControl.Name = "DireccionControl";
             this.DireccionControl.Size = new System.Drawing.Size(355, 27);
             this.DireccionControl.TabIndex = 48;
@@ -276,7 +292,7 @@
             this.PnlFoto.Controls.Add(this.label7);
             this.PnlFoto.Controls.Add(this.BtnSeleccionar);
             this.PnlFoto.Controls.Add(this.FotoControl);
-            this.PnlFoto.Location = new System.Drawing.Point(19, 363);
+            this.PnlFoto.Location = new System.Drawing.Point(9, 363);
             this.PnlFoto.Name = "PnlFoto";
             this.PnlFoto.Size = new System.Drawing.Size(355, 110);
             this.PnlFoto.TabIndex = 47;
@@ -317,6 +333,17 @@
             this.BtnSeleccionar.UseVisualStyleBackColor = false;
             this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
             // 
+            // FotoControl
+            // 
+            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FotoControl.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.imagen_subir;
+            this.FotoControl.Location = new System.Drawing.Point(219, 4);
+            this.FotoControl.Name = "FotoControl";
+            this.FotoControl.Size = new System.Drawing.Size(129, 103);
+            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.FotoControl.TabIndex = 0;
+            this.FotoControl.TabStop = false;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -328,14 +355,14 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Fecha nacimiento";
             // 
-            // FechaNachimientoControl
+            // FechaNacimientoControl
             // 
-            this.FechaNachimientoControl.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.FechaNachimientoControl.Location = new System.Drawing.Point(19, 213);
-            this.FechaNachimientoControl.Name = "FechaNachimientoControl";
-            this.FechaNachimientoControl.Size = new System.Drawing.Size(355, 27);
-            this.FechaNachimientoControl.TabIndex = 9;
-            this.FechaNachimientoControl.Value = new System.DateTime(2019, 8, 22, 0, 0, 0, 0);
+            this.FechaNacimientoControl.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.FechaNacimientoControl.Location = new System.Drawing.Point(9, 213);
+            this.FechaNacimientoControl.Name = "FechaNacimientoControl";
+            this.FechaNacimientoControl.Size = new System.Drawing.Size(355, 27);
+            this.FechaNacimientoControl.TabIndex = 9;
+            this.FechaNacimientoControl.Value = new System.DateTime(2019, 8, 22, 0, 0, 0, 0);
             // 
             // label4
             // 
@@ -350,7 +377,7 @@
             // 
             // TelefonoControl
             // 
-            this.TelefonoControl.Location = new System.Drawing.Point(19, 158);
+            this.TelefonoControl.Location = new System.Drawing.Point(9, 158);
             this.TelefonoControl.Name = "TelefonoControl";
             this.TelefonoControl.Size = new System.Drawing.Size(355, 27);
             this.TelefonoControl.TabIndex = 7;
@@ -368,7 +395,8 @@
             // 
             // RfcControl
             // 
-            this.RfcControl.Location = new System.Drawing.Point(19, 105);
+            this.RfcControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.RfcControl.Location = new System.Drawing.Point(9, 105);
             this.RfcControl.Name = "RfcControl";
             this.RfcControl.Size = new System.Drawing.Size(355, 27);
             this.RfcControl.TabIndex = 5;
@@ -386,7 +414,7 @@
             // 
             // NombreCompletoControl
             // 
-            this.NombreCompletoControl.Location = new System.Drawing.Point(19, 51);
+            this.NombreCompletoControl.Location = new System.Drawing.Point(9, 51);
             this.NombreCompletoControl.Name = "NombreCompletoControl";
             this.NombreCompletoControl.Size = new System.Drawing.Size(355, 27);
             this.NombreCompletoControl.TabIndex = 3;
@@ -397,7 +425,7 @@
             this.PabelBTN.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PabelBTN.Location = new System.Drawing.Point(0, 531);
             this.PabelBTN.Name = "PabelBTN";
-            this.PabelBTN.Size = new System.Drawing.Size(1154, 47);
+            this.PabelBTN.Size = new System.Drawing.Size(1176, 47);
             this.PabelBTN.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -407,7 +435,7 @@
             this.flowLayoutPanel2.Controls.Add(this.btnEliminar);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 6);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(761, 38);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(767, 38);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // btnNuevo
@@ -450,15 +478,62 @@
             this.btnEliminar.TabIndex = 5;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // PanelTitulo
             // 
+            this.PanelTitulo.Controls.Add(this.panel1);
             this.PanelTitulo.Controls.Add(this.label3);
             this.PanelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelTitulo.Location = new System.Drawing.Point(0, 0);
             this.PanelTitulo.Name = "PanelTitulo";
-            this.PanelTitulo.Size = new System.Drawing.Size(1154, 49);
+            this.PanelTitulo.Size = new System.Drawing.Size(1176, 49);
             this.PanelTitulo.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.BtnBusqueda);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.BusquedaControl);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(386, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(790, 49);
+            this.panel1.TabIndex = 2;
+            // 
+            // BtnBusqueda
+            // 
+            this.BtnBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.BtnBusqueda.FlatAppearance.BorderSize = 0;
+            this.BtnBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBusqueda.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBusqueda.Location = new System.Drawing.Point(572, 9);
+            this.BtnBusqueda.Name = "BtnBusqueda";
+            this.BtnBusqueda.Size = new System.Drawing.Size(123, 29);
+            this.BtnBusqueda.TabIndex = 6;
+            this.BtnBusqueda.Text = "Busqueda";
+            this.BtnBusqueda.UseVisualStyleBackColor = false;
+            this.BtnBusqueda.Click += new System.EventHandler(this.BtnBusqueda_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(24, 13);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(135, 20);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Nombre ó Clave:";
+            // 
+            // BusquedaControl
+            // 
+            this.BusquedaControl.Location = new System.Drawing.Point(162, 15);
+            this.BusquedaControl.MaxLength = 200;
+            this.BusquedaControl.Name = "BusquedaControl";
+            this.BusquedaControl.Size = new System.Drawing.Size(355, 20);
+            this.BusquedaControl.TabIndex = 4;
+            this.BusquedaControl.TextChanged += new System.EventHandler(this.BusquedaControl_TextChanged);
             // 
             // label3
             // 
@@ -471,22 +546,16 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Cliente";
             // 
-            // FotoControl
+            // errorProvider1
             // 
-            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FotoControl.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.imagen_subir;
-            this.FotoControl.Location = new System.Drawing.Point(219, 4);
-            this.FotoControl.Name = "FotoControl";
-            this.FotoControl.Size = new System.Drawing.Size(129, 103);
-            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.FotoControl.TabIndex = 0;
-            this.FotoControl.TabStop = false;
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1154, 627);
+            this.ClientSize = new System.Drawing.Size(1176, 627);
             this.Controls.Add(this.PanelPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCliente";
@@ -504,11 +573,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.SexoControl)).EndInit();
             this.PnlFoto.ResumeLayout(false);
             this.PnlFoto.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
             this.PabelBTN.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.PanelTitulo.ResumeLayout(false);
             this.PanelTitulo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -531,7 +603,7 @@
         private System.Windows.Forms.Button BtnSeleccionar;
         private System.Windows.Forms.PictureBox FotoControl;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker FechaNachimientoControl;
+        private System.Windows.Forms.DateTimePicker FechaNacimientoControl;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TelefonoControl;
         private System.Windows.Forms.Label label2;
@@ -549,5 +621,11 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.TextBox ClaveControl;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button BtnBusqueda;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox BusquedaControl;
     }
 }

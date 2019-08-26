@@ -22,7 +22,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public bool UpdateFoto { get; set; }
         public string Rfc { get; set; }
         public bool NuevoRegistro { get; set; }
-        public int IdUsuarioL { get; set; }
+        public int? IdUsuarioL { get; set; }
         public int Resultado { get; set; } 
         public int Edad { get; set; }
     }

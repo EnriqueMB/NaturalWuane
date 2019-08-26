@@ -1,6 +1,7 @@
 ﻿using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
+using CIDFares.Spa.DataAccess.Contracts.Validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.Business.ViewModels.Catalogos
 {
-    public class ClienteViewModel: INotifyPropertyChanged
+    public class ClienteViewModel: Validable, INotifyPropertyChanged
     {
         #region Propiedades privadas
         private IClienteRepository Repository { get; set; }
@@ -105,6 +106,37 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+
+        public async Task<int> DeleteAsync()
+        {
+            try
+            {
+                return await Repository.Elimnar(this.IdCliente, this.IdUsuarioL);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public async Task GetBusqueda()
+        {
+            try
+            {
+                var x = await Repository.GetBusquedaAsync(this.Busqueda);
+                ListaCliente.Clear();
+                foreach (var item in x)
+                {
+                    ListaCliente.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
         }
@@ -211,8 +243,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        private int _IdUsuarioL;
-        public int IdUsuarioL
+        private int? _IdUsuarioL;
+        public int? IdUsuarioL
         {
             get { return _IdUsuarioL; }
             set
@@ -285,6 +317,18 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             {
                 _FormatoImg = value;
                 OnPropertyChanged(nameof(FormatoImg));
+            }
+        }
+
+        private string _Busqueda;
+
+        public string Busqueda
+        {
+            get { return _Busqueda; }
+            set
+            {
+                _Busqueda = value;
+                OnPropertyChanged(nameof(Busqueda));
             }
         }
 

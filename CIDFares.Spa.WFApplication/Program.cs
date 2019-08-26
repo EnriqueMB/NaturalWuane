@@ -44,6 +44,7 @@ namespace CIDFares.Spa.WFApplication
         {
             ServiceLocator.Instance.Register<LoginValidator, IValidator<LoginViewModel>>();
             ServiceLocator.Instance.Register<FormaPagoValidator, IValidator<FormaPagoViewModel>>();
+            ServiceLocator.Instance.Register<ClienteValidator, IValidator<ClienteViewModel>>();
         }
 
         private static void RegisterViewModelDependencies()

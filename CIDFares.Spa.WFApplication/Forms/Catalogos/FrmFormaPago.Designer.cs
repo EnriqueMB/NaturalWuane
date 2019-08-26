@@ -43,6 +43,7 @@
             this.DescripcionControl = new System.Windows.Forms.TextBox();
             this.NombreControl = new System.Windows.Forms.TextBox();
             this.pnlGrid = new System.Windows.Forms.Panel();
+            this.GridFromaPago = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlBotones = new System.Windows.Forms.Panel();
@@ -57,6 +58,7 @@
             this.grpBoxFormaPago.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.pnlGrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GridFromaPago)).BeginInit();
             this.pnlTitulo.SuspendLayout();
             this.pnlBotones.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -79,7 +81,7 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.grpBoxFormaPago);
             this.panel1.Location = new System.Drawing.Point(582, 51);
@@ -185,8 +187,8 @@
             // 
             // pnlGrid
             // 
-            this.pnlGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.pnlGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlGrid.Controls.Add(this.GridFromaPago);
             this.pnlGrid.Location = new System.Drawing.Point(3, 51);
@@ -324,6 +326,7 @@
             this.grpBoxFormaPago.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GridFromaPago)).EndInit();
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
             this.pnlBotones.ResumeLayout(false);
@@ -341,6 +344,7 @@
         private System.Windows.Forms.Panel pnlGrid;
         private System.Windows.Forms.Panel pnlTitulo;
         private System.Windows.Forms.Panel pnlBotones;
+        private Syncfusion.WinForms.DataGrid.SfDataGrid GridFromaPago;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox DescripcionControl;

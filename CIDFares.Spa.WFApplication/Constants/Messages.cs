@@ -23,5 +23,6 @@ namespace CIDFares.Spa.WFApplication.Constants
         public const string ErrorMacExists = "ESTA MAC SE ENCUENTRA OCUPADA";
         public const string ErrorAlCancelarFrm = "OCURRIÓ UN ERROR AL CANCELAR EL FORMULARIO";
         public const string VersionSistema = "Versión 2.0";
+        public const string ErrorBusqueda = "OCURRIÓ UN ERROR AL BUSCAR LOS DATOS";
     }
 }
