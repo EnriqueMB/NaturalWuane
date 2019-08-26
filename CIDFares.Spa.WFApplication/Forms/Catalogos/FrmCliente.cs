@@ -241,7 +241,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 {
                     if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmDeleteMessage) == DialogResult.OK)
                     {
-                        CurrentSession.IdCuentaUsuario = 0;
                         Model.IdCliente = item.IdCliente;
                         Model.IdUsuarioL = CurrentSession.IdCuentaUsuario;
                         groupBoxCliente.Enabled = false;
