@@ -1,6 +1,7 @@
 ﻿using CIDFares.Library.Code.Extensions;
 using CIDFares.Library.Code.Helpers;
 using CIDFares.Library.Controls.CIDMessageBox.Code;
+using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Library.Controls.CIDWait.Code;
 using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.Business.ViewModels.Catalogos;

@@ -33,7 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-
     <Reference Include="CIDFares.Library.Code, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\CIDFares.Library\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
@@ -120,6 +119,7 @@
     <Compile Include="Session\CurrentSession.cs" />
     <Compile Include="Validations\FormaPagoValidator.cs" />
     <Compile Include="Validations\LoginValidator.cs" />
+    <Compile Include="Validations\ProductoValidator.cs" />
     <EmbeddedResource Include="Forms\Catalogos\FrmFormaPago.resx">
       <DependentUpon>FrmFormaPago.cs</DependentUpon>
     </EmbeddedResource>
