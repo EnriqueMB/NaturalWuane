@@ -31,8 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac, Version=4.9.4.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autofac.4.9.4\lib\net45\Autofac.dll</HintPath>
+    <Reference Include="Autofac, Version=4.9.3.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.9.3\lib\net45\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentValidation.8.0.0\lib\net45\FluentValidation.dll</HintPath>
@@ -58,10 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTOs\Requests\LoginRequests.cs" />
+    <Compile Include="Entities\CategoriaProducto.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\IBaseRepository.cs" />
+    <Compile Include="Repositories\General\ICategoriaProductoRepository.cs" />
     <Compile Include="Repositories\General\IClienteRepository.cs" />
     <Compile Include="Entities\FormaPago.cs" />
     <Compile Include="Repositories\General\IFormaPagoRepository.cs" />

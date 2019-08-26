@@ -44,8 +44,13 @@
     <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentValidation.8.0.0\lib\net45\FluentValidation.dll</HintPath>
     </Reference>
+
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Syncfusion.Core.WinForms, Version=17.1460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.Data.WinForms, Version=17.1460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Grid.Base, Version=17.1460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.Grid.Windows, Version=17.1460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.GridCommon.WinForms, Version=17.1460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.SfDataGrid.WinForms, Version=17.1460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
@@ -53,6 +58,10 @@
     <Reference Include="Syncfusion.SfListView.WinForms, Version=17.1460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.Shared.Windows, Version=17.1460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.Shared.Base, Version=17.1460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.SpellChecker.Base, Version=17.1460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Tools.Base, Version=17.1460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Tools.Windows, Version=17.1460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ComponentModel.Annotations.4.4.1\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
@@ -84,6 +93,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\Messages.cs" />
+
+    <Compile Include="Forms\Catalogos\FrmCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmCliente.Designer.cs">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
+
+    <Compile Include="Forms\Catalogos\FrmCategoriaProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmCategoriaProducto.Designer.cs">
+      <DependentUpon>FrmCategoriaProducto.cs</DependentUpon>
+
+    </Compile>
     <Compile Include="Forms\Catalogos\FrmFormaPago.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +131,12 @@
     <Compile Include="Forms\General\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\General\FrmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\General\FrmHome.Designer.cs">
+      <DependentUpon>FrmHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\General\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,9 +146,20 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session\CurrentSession.cs" />
+
+    <EmbeddedResource Include="Forms\Catalogos\FrmCliente.resx">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Validations\ClienteValidator.cs" />
+
+    <Compile Include="Validations\CategoriaProductoValidator.cs" />
+
     <Compile Include="Validations\FormaPagoValidator.cs" />
     <Compile Include="Validations\LoginValidator.cs" />
     <Compile Include="Validations\ProductoValidator.cs" />
+    <EmbeddedResource Include="Forms\Catalogos\FrmCategoriaProducto.resx">
+      <DependentUpon>FrmCategoriaProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmFormaPago.resx">
       <DependentUpon>FrmFormaPago.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,7 +197,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Forms\Compras\" />
@@ -183,6 +225,9 @@
       <Project>{01fe35c4-3ff0-4388-a696-e785e2512806}</Project>
       <Name>CIDFares.Spa.DataAccess.Contracts</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imagen_subir.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,6 +4,7 @@ using CIDFares.Spa.Business.ViewModels.General;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Validations;
 using CIDFares.Spa.WFApplication.Forms.Catalogos;
+using CIDFares.Spa.WFApplication.Session;
 using CIDFares.Spa.WFApplication.Validations;
 using FluentValidation;
 using System;
@@ -22,8 +23,9 @@ namespace CIDFares.Spa.WFApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
+            CurrentSession.IdCuentaUsuario = 0;
             //Application.Run(new FrmFormaPago());
-            Application.Run(new FrmProductoGrid());
+            Application.Run(new FrmCliente());
         }
 
         public static void InitializeContainer()
@@ -44,6 +46,8 @@ namespace CIDFares.Spa.WFApplication
         {
             ServiceLocator.Instance.Register<LoginValidator, IValidator<LoginViewModel>>();
             ServiceLocator.Instance.Register<FormaPagoValidator, IValidator<FormaPagoViewModel>>();
+            ServiceLocator.Instance.Register<ClienteValidator, IValidator<ClienteViewModel>>();
+            ServiceLocator.Instance.Register<CategoriaProductoValidator, IValidator<CategoriaProductoViewModel>>();
         }
 
         private static void RegisterViewModelDependencies()
@@ -52,6 +56,8 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<LoginViewModel>();
             ServiceLocator.Instance.Register<FormaPagoViewModel>();
             ServiceLocator.Instance.Register<ProductoViewModel>();
+            ServiceLocator.Instance.Register<ClienteViewModel>();
+            ServiceLocator.Instance.Register<CategoriaProductoViewModel>();
         }
 
     }

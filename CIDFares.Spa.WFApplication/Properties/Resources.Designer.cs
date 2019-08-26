@@ -63,6 +63,16 @@ namespace CIDFares.Spa.WFApplication.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap imagen_subir {
+            get {
+                object obj = ResourceManager.GetObject("imagen_subir", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PasswordL2 {
             get {
                 object obj = ResourceManager.GetObject("PasswordL2", resourceCulture);

@@ -33,6 +33,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +46,7 @@
     <Compile Include="Dependencies\Registrar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueObjects\EntityState.cs" />
+    <Compile Include="ViewModels\Catalogos\CategoriaProductoViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\ClienteViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\FormaPagoViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\ProductoViewModel.cs" />
