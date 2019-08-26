@@ -4,6 +4,7 @@ using CIDFares.Spa.DataAccess.Repositories.Base;
 using Dapper;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -82,6 +83,24 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         public Task<CategoriaProducto> GetAsync(object id)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<BindingList<CategoriaProducto>> LlenarComboCategoria()
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    var dr = await conexion.QueryAsync<CategoriaProducto>("[Catalogo].[SPCID_Get_ComboCategoria] ", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return new BindingList<CategoriaProducto>(dr.ToList());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public Task<int> NameExistAsync(string name)

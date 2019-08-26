@@ -2,6 +2,7 @@
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using CIDFares.Spa.DataAccess.Contracts.Validations;
+using CIDFares.Library.Code;
 using CIDFares.Spa.DataAccess.Repositories.General;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Data;
+using System.Drawing.Imaging;
+using CIDFares.Library.Code.Extensions;
 
 namespace CIDFares.Spa.Business.ViewModels.Catalogos
 {
@@ -19,7 +22,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #region Propiedades privadas
         private IProductoRepository IRepository { get; set; }
 
-        private ICategoriaRespository RespositoryCategoria { get; set; }
+        private ICategoriaProductoRepository RespositoryCategoria { get; set; }
         #endregion
 
         #region Propiedades públicas
@@ -31,7 +34,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #endregion
 
         #region Constructor
-        public ProductoViewModel(IProductoRepository IProductoRepository, ICategoriaRespository respositoryCategoria)
+        public ProductoViewModel(IProductoRepository IProductoRepository, ICategoriaProductoRepository respositoryCategoria)
         {
             IRepository = IProductoRepository;
             ListaProducto = new BindingList<Producto>();
@@ -353,39 +356,39 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             set { _IdCategoriaProducto = value; OnPropertyChanged("IdCategoriaProducto"); }
         }
 
-        //private Image _Foto;
+        private Image _Foto;
 
-        //public Image Foto
-        //{
-        //    get { return _Foto; }
-        //    set { _Foto = value; OnPropertyChanged("Foto"); }
-        //}
+        public Image Foto
+        {
+            get { return _Foto; }
+            set { _Foto = value; OnPropertyChanged("Foto"); }
+        }
 
-        //public ImageFormat Formato { get; set; }
+        public ImageFormat Formato { get; set; }
 
         public string UrlFoto { get; set; }
 
-        //private string _ImageLocation;
+        private string _ImageLocation;
 
-        //public string ImageLocation
-        //{
-        //    get { return _ImageLocation; }
-        //    set
-        //    {
-        //        _ImageLocation = value; OnPropertyChanged("ImageLocation");
-        //        if (ImageLocation != string.Empty)
-        //        {
-        //            try
-        //            {
-        //                Foto = Image.FromFile(_ImageLocation);
-        //            }
-        //            catch (Exception)
-        //            {
+        public string ImageLocation
+        {
+            get { return _ImageLocation; }
+            set
+            {
+                _ImageLocation = value; OnPropertyChanged("ImageLocation");
+                if (ImageLocation != string.Empty)
+                {
+                    try
+                    {
+                        Foto = Image.FromFile(_ImageLocation);
+                    }
+                    catch (Exception)
+                    {
 
-        //            }
-        //        }
-        //    }
-        //}
+                    }
+                }
+            }
+        }
 
         #endregion
 

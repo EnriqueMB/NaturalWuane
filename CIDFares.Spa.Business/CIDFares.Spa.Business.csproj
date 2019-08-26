@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CIDFares.Library.Code">
+      <HintPath>..\..\CIDFares.Library\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
+    </Reference>
+    <Reference Include="CIDFares.Library.Controls">
+      <HintPath>..\..\CIDFares.Library\CIDFares.Library.Controls\bin\Debug\CIDFares.Library.Controls.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
