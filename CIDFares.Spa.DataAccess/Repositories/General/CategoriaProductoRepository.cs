@@ -28,7 +28,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@nombre", element.Nombre);
                     dynamicParameters.Add("@desc", element.Descripcion);                    
                     dynamicParameters.Add("@user", 1 /*CurrentSession.IdUsuario*/);
-                    var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_AC_FormaPago]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_AC_CategoriaProducto]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;
                 }

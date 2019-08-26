@@ -60,14 +60,14 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     Descripcion = Descripcion,
                     Resultado = -2
                 };
-                //if (State == EntityState.Create)
-                //{
-                //    return await Repository.AddAsync(model);
-                //}
-                //else if (State == EntityState.Update)
-                //{
-                //    return await Repository.UpdateAsync(model);
-                //}
+                if (State == EntityState.Create)
+                {
+                    return await Repository.AddAsync(model);
+                }
+                else if (State == EntityState.Update)
+                {
+                    return await Repository.UpdateAsync(model);
+                }
                 return model;
             }
             catch (Exception ex)
