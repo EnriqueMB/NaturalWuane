@@ -8,6 +8,7 @@ using CIDFares.Spa.WFApplication.Forms.Ventas;
 using CIDFares.Spa.WFApplication.Session;
 using CIDFares.Spa.WFApplication.Validations;
 using FluentValidation;
+using CIDFares.Spa.WFApplication.Forms.Usuarios;
 using System;
 using System.Windows.Forms;
 
@@ -26,7 +27,7 @@ namespace CIDFares.Spa.WFApplication
             InitializeContainer();
             CurrentSession.IdCuentaUsuario = 0;
             //Application.Run(new FrmFormaPago());
-            Application.Run(new BusquedaProducto());
+            Application.Run(new FrmProductoGrid());
         }
 
         public static void InitializeContainer()
@@ -48,6 +49,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<LoginValidator, IValidator<LoginViewModel>>();
             ServiceLocator.Instance.Register<FormaPagoValidator, IValidator<FormaPagoViewModel>>();
             ServiceLocator.Instance.Register<ClienteValidator, IValidator<ClienteViewModel>>();
+            ServiceLocator.Instance.Register<CategoriaProductoValidator, IValidator<CategoriaProductoViewModel>>();
         }
 
         private static void RegisterViewModelDependencies()
@@ -55,9 +57,11 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ValidatorFactory>();
             ServiceLocator.Instance.Register<LoginViewModel>();
             ServiceLocator.Instance.Register<FormaPagoViewModel>();
+            ServiceLocator.Instance.Register<ProductoViewModel>();
             ServiceLocator.Instance.Register<ClienteViewModel>();
             ServiceLocator.Instance.Register<BusquedaProductoViewModel>();
-
+            ServiceLocator.Instance.Register<CategoriaProductoViewModel>();
+            ServiceLocator.Instance.Register<UsuarioViewModel>();
         }
 
     }
