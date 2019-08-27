@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CIDFares.Spa.WFApplication.Session
+namespace CIDFares.Spa.CrossCutting.Session
 {
     public static class CurrentSession
     {

@@ -1,6 +1,6 @@
 ﻿using CIDFares.Spa.Business.ViewModels.General;
 using CIDFares.Spa.CrossCutting.Services;
-using CIDFares.Spa.WFApplication.Session;
+using CIDFares.Spa.CrossCutting.Session;
 using Syncfusion.Windows.Forms;
 using System;
 using System.Runtime.InteropServices;

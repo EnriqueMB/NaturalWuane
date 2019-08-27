@@ -5,7 +5,7 @@ using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Validations;
 using CIDFares.Spa.WFApplication.Forms.Catalogos;
 using CIDFares.Spa.WFApplication.Forms.General;
-using CIDFares.Spa.WFApplication.Session;
+using CIDFares.Spa.CrossCutting.Session;
 using CIDFares.Spa.WFApplication.Validations;
 using FluentValidation;
 using CIDFares.Spa.WFApplication.Forms.Usuarios;
