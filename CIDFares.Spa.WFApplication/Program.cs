@@ -4,6 +4,7 @@ using CIDFares.Spa.Business.ViewModels.General;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Validations;
 using CIDFares.Spa.WFApplication.Forms.Catalogos;
+using CIDFares.Spa.WFApplication.Forms.General;
 using CIDFares.Spa.WFApplication.Validations;
 using FluentValidation;
 using System;
@@ -13,7 +14,7 @@ namespace CIDFares.Spa.WFApplication
 {
     static class Program
     {
-        /// <summary>
+        /// <summary  
         /// Punto de entrada principal para la aplicación.
         /// </summary>
         [STAThread]
@@ -22,7 +23,7 @@ namespace CIDFares.Spa.WFApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
-            Application.Run(new FrmFormaPago());
+            Application.Run(new FrmLogin());
         }
 
         public static void InitializeContainer()

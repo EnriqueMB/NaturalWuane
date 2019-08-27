@@ -15,13 +15,15 @@ namespace CIDFares.Spa.DataAccess.Contracts.DTOs.Requests
 
         public int? IsValid { get; set; }
 
-        public int IdCuentaUsuario { get; set; }
+        public Guid IdCuentaUsuario { get; set; }
 
         public int IdRol { get; set; }
 
         public Guid IdEmpleado { get; set; }
 
         public string Nombres { get; set; }
+
+        public int IdTurnoEmpleado { get; set; }
 
     }
 }

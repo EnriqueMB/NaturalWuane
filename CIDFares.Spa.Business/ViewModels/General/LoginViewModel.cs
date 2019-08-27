@@ -33,13 +33,15 @@ namespace CIDFares.Spa.Business.ViewModels.General
         #endregion
 
         #region Propiedades Publicas
-        public int? IdCuentaUsuario { get; set; }
+        public Guid IdCuentaUsuario { get; set; }
 
         public int IdRol { get; set; }
 
         public Guid IdEmpleado { get; set; }
 
         public string Nombres { get; set; }
+
+        public int IdTurnoEmpleado { get; set; }
         #endregion
 
         #region Propiedades Privadas
@@ -77,6 +79,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
                 IdRol = x.IdRol;
                 IdEmpleado = x.IdEmpleado;
                 Nombres = x.Nombres;
+                IdTurnoEmpleado = x.IdTurnoEmpleado;
                 return x.IsValid;
             }
             catch (Exception ex)
