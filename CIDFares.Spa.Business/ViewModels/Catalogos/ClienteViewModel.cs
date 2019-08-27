@@ -25,9 +25,9 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #endregion
 
         #region Constructor
-        public ClienteViewModel(IClienteRepository formaPagoRepository)
+        public ClienteViewModel(IClienteRepository clienteRepository)
         {
-            Repository = formaPagoRepository;
+            Repository = clienteRepository;
             ListaCliente = new BindingList<Cliente>();
             GetAll();
         }

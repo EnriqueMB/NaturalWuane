@@ -4,6 +4,7 @@ using CIDFares.Spa.Business.ViewModels.General;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Validations;
 using CIDFares.Spa.WFApplication.Forms.Catalogos;
+using CIDFares.Spa.WFApplication.Forms.Ventas;
 using CIDFares.Spa.WFApplication.Session;
 using CIDFares.Spa.WFApplication.Validations;
 using FluentValidation;
@@ -25,7 +26,7 @@ namespace CIDFares.Spa.WFApplication
             InitializeContainer();
             CurrentSession.IdCuentaUsuario = 0;
             //Application.Run(new FrmFormaPago());
-            Application.Run(new FrmCliente());
+            Application.Run(new BusquedaProducto());
         }
 
         public static void InitializeContainer()
@@ -55,6 +56,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<LoginViewModel>();
             ServiceLocator.Instance.Register<FormaPagoViewModel>();
             ServiceLocator.Instance.Register<ClienteViewModel>();
+            ServiceLocator.Instance.Register<BusquedaProductoViewModel>();
 
         }
 
