@@ -47,7 +47,11 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
+<<<<<<< HEAD
         public async Task<IEnumerable<Cliente>> GetAllAsync()
+=======
+        public Task<int> DeleteAsync(Object id)
+>>>>>>> Spa/Usuario
         {
             try
             {

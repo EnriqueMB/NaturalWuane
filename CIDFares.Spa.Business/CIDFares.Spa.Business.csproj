@@ -50,6 +50,7 @@
     <Compile Include="ViewModels\Catalogos\ClienteViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\FormaPagoViewModel.cs" />
     <Compile Include="ViewModels\General\LoginViewModel.cs" />
+    <Compile Include="ViewModels\General\UsuarioViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

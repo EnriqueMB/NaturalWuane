@@ -12,10 +12,28 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
 {
     public class FormaPagoRepository : Repository, IFormaPagoRepository
     {
+<<<<<<< HEAD
         /// <summary>
         /// Obtiene todas las formas de pago activas
         /// </summary>
         /// <returns></returns>
+=======
+        public Task<FormaPago> AddAsync(FormaPago element)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> DeleteAsync(Object id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> ExistAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+>>>>>>> Spa/Usuario
         public async Task<IEnumerable<FormaPago>> GetAllAsync()
         {
             using (IDbConnection conexion = new SqlConnection(WebConnectionString))

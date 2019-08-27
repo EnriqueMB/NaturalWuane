@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CIDFares.Library.Code">
+<<<<<<< HEAD
       <HintPath>..\..\LibraryNaturalWuane\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
     </Reference>
     <Reference Include="CIDFares.Library.Controls">
@@ -44,6 +45,12 @@
     </Reference>
     <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
+=======
+      <HintPath>..\..\CIDFares.Library\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
+    </Reference>
+    <Reference Include="CIDFares.Library.Controls">
+      <HintPath>..\..\CIDFares.Library\CIDFares.Library.Controls\bin\Debug\CIDFares.Library.Controls.dll</HintPath>
+>>>>>>> Spa/Usuario
     </Reference>
     <Reference Include="Syncfusion.Core.WinForms, Version=17.1460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.Data.WinForms, Version=17.1460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
@@ -125,6 +132,12 @@
     <Compile Include="Forms\General\FrmLogin.designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Usuarios\FrmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Usuarios\FrmUsuario.Designer.cs">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session\CurrentSession.cs" />
@@ -146,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Usuarios\FrmUsuario.resx">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -175,7 +191,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Forms\Compras\" />
-    <Folder Include="Forms\Usuarios\" />
     <Folder Include="Forms\Ventas\" />
   </ItemGroup>
   <ItemGroup>
@@ -194,12 +209,18 @@
       <Name>CIDFares.Spa.CrossCutting</Name>
     </ProjectReference>
     <ProjectReference Include="..\CIDFares.Spa.DataAccess.Contracts\CIDFares.Spa.DataAccess.Contracts.csproj">
+<<<<<<< HEAD
       <Project>{01fe35c4-3ff0-4388-a696-e785e2512806}</Project>
       <Name>CIDFares.Spa.DataAccess.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\imagen_subir.png" />
+=======
+      <Project>{01FE35C4-3FF0-4388-A696-E785E2512806}</Project>
+      <Name>CIDFares.Spa.DataAccess.Contracts</Name>
+    </ProjectReference>
+>>>>>>> Spa/Usuario
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

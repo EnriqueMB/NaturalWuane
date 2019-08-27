@@ -4,9 +4,13 @@ using CIDFares.Spa.Business.ViewModels.General;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Validations;
 using CIDFares.Spa.WFApplication.Forms.Catalogos;
+<<<<<<< HEAD
 using CIDFares.Spa.WFApplication.Session;
 using CIDFares.Spa.WFApplication.Validations;
 using FluentValidation;
+=======
+using CIDFares.Spa.WFApplication.Forms.Usuarios;
+>>>>>>> Spa/Usuario
 using System;
 using System.Windows.Forms;
 
@@ -23,11 +27,16 @@ namespace CIDFares.Spa.WFApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
+<<<<<<< HEAD
 
             CurrentSession.IdCuentaUsuario = 0;
             //Application.Run(new FrmFormaPago());
             Application.Run(new FrmCliente());
 
+=======
+            //Application.Run(new FrmFormaPago());
+            Application.Run(new FrmUsuario());
+>>>>>>> Spa/Usuario
         }
 
         public static void InitializeContainer()
@@ -57,9 +66,13 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ValidatorFactory>();
             ServiceLocator.Instance.Register<LoginViewModel>();
             ServiceLocator.Instance.Register<FormaPagoViewModel>();
+<<<<<<< HEAD
             ServiceLocator.Instance.Register<ClienteViewModel>();
             ServiceLocator.Instance.Register<CategoriaProductoViewModel>();
 
+=======
+            ServiceLocator.Instance.Register<UsuarioViewModel>();
+>>>>>>> Spa/Usuario
         }
 
     }
