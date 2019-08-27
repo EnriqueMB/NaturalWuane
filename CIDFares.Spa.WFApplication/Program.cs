@@ -3,6 +3,7 @@ using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.Business.ViewModels.General;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.WFApplication.Forms.Catalogos;
+using CIDFares.Spa.WFApplication.Forms.Usuarios;
 using System;
 using System.Windows.Forms;
 
@@ -19,7 +20,8 @@ namespace CIDFares.Spa.WFApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
-            Application.Run(new FrmFormaPago());
+            //Application.Run(new FrmFormaPago());
+            Application.Run(new FrmUsuario());
         }
 
         public static void InitializeContainer()
@@ -45,6 +47,7 @@ namespace CIDFares.Spa.WFApplication
         {
             ServiceLocator.Instance.Register<LoginViewModel>();
             ServiceLocator.Instance.Register<FormaPagoViewModel>();
+            ServiceLocator.Instance.Register<UsuarioViewModel>();
         }
 
     }
