@@ -29,8 +29,9 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public decimal PrecioPublico { get; set; }
         public decimal PrecioMayoreo { get; set; }
         public decimal PrecioMenudeo { get; set; }
-        public int CodigoBarras { get; set; }
+        public string CodigoBarras { get; set; }
         public string UnidadMedida { get; set; }
+        public int? IdUnidadMedida { get; set; }
         public int ClaveSat { get; set; }
         public bool AplicaIva { get; set; }
         public string AplicaIvaStr { get; set; }

@@ -23,24 +23,26 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         private IProductoRepository IRepository { get; set; }
 
         private ICategoriaProductoRepository RespositoryCategoria { get; set; }
+        private IUnidadMedidaRepository RespositoryUnidadMedida { get; set; }
         #endregion
 
         #region Propiedades públicas
         public BindingList<Producto> ListaProducto { get; set; }
         public BindingList<CategoriaProducto> ListaCategoria { get; set; }
+        public BindingList<UnidadMedida> ListaUnidadMedida { get; set; }
 
         public EntityState State { get; set; }
         public ProductoViewModel PDatos { get; set; }
         #endregion
 
         #region Constructor
-        public ProductoViewModel(IProductoRepository IProductoRepository, ICategoriaProductoRepository respositoryCategoria)
+        public ProductoViewModel(IProductoRepository IProductoRepository, ICategoriaProductoRepository respositoryCategoria, IUnidadMedidaRepository respositoryUnidadMedida)
         {
             IRepository = IProductoRepository;
             ListaProducto = new BindingList<Producto>();
             ListaCategoria = new BindingList<CategoriaProducto>();
             RespositoryCategoria = respositoryCategoria;
-
+            RespositoryUnidadMedida = respositoryUnidadMedida;
 
 
         }
@@ -67,7 +69,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        public async Task<int> GuardarFotoPersonal(string clave)
+        public async Task<int> GuardarFotoProducto(string clave)
         {
             try
             {
@@ -78,7 +80,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     Base64String = new Bitmap(PDatos.Foto).ToBase64String(PDatos.Formato),
                     UrlFoto = PDatos.UrlFoto
                 };
-                return await IRepository.AddFotoPersonal(producto);
+                return await IRepository.AddFotoProducto(producto);
             }
             catch (Exception ex)
             {
@@ -126,7 +128,32 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 throw ex;
             }
         }
+        #region combo UnidadNegocio
 
+        public void LlenarListaUnidadNegocio(IEnumerable<UnidadMedida> UnidadNegocio)
+        {
+            foreach (var item in UnidadNegocio)
+            {
+                ListaUnidadMedida.Add(item);
+            }
+        }
+
+        public async Task<IEnumerable<UnidadMedida>> GetListaUnidadMedida()
+        {
+            try
+            {
+                var UnidadMedida = await RespositoryUnidadMedida.LlenarComboUnidadMedida();
+                return UnidadMedida;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion
+
+        #region Combo Categorias
         public void LlenarListaCategoria(IEnumerable<CategoriaProducto> categoria)
         {
             foreach (var item in categoria)
@@ -149,6 +176,11 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
+        #endregion
+
+
+
+
         public async Task<string> GuardarCambios()
         {
             try
@@ -158,7 +190,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     IdProducto = PDatos.IdProducto,
                     IdCategoria = PDatos.IdCategoria,
                     Clave = PDatos.Clave,
-                    UnidadMedida = PDatos.UnidadMedida.Trim(),
+                    IdUnidadMedida = PDatos.IdUnidadMedida,
                     PrecioPublico = PDatos.PrecioPublico,
                     PrecioMayoreo = PDatos.PrecioMayoreo,
                     PrecioMenudeo = PDatos.PrecioMenudeo,
@@ -282,20 +314,27 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             set { _PrecioMenudeo = value; OnPropertyChanged(nameof(PrecioMenudeo)); }
         }
 
-        private int _CodigoBarras;
+        private string _CodigoBarras;
 
-        public int CodigoBarras
+        public string CodigoBarras
         {
             get { return _CodigoBarras; }
             set { _CodigoBarras = value; OnPropertyChanged(nameof(CodigoBarras)); }
         }
 
-        private string _UnidadMedida;
+        private int? _IdUnidadMedida;
 
+        public int? IdUnidadMedida
+        {
+            get { return _IdUnidadMedida; }
+            set { _IdUnidadMedida = value; OnPropertyChanged(nameof(IdUnidadMedida)); }
+        }
+
+        private string _UnidadMedida;
         public string UnidadMedida
         {
             get { return _UnidadMedida; }
-            set { _UnidadMedida = value; OnPropertyChanged(nameof(UnidadMedida)); }
+            set { _UnidadMedida = value; OnPropertyChanged("UnidadMedida"); }
         }
 
         private int _ClaveSat;
