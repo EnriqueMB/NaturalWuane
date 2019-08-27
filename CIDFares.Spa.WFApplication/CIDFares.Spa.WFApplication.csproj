@@ -202,18 +202,12 @@
       <Name>CIDFares.Spa.CrossCutting</Name>
     </ProjectReference>
     <ProjectReference Include="..\CIDFares.Spa.DataAccess.Contracts\CIDFares.Spa.DataAccess.Contracts.csproj">
-<<<<<<< HEAD
       <Project>{01fe35c4-3ff0-4388-a696-e785e2512806}</Project>
       <Name>CIDFares.Spa.DataAccess.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\imagen_subir.png" />
-=======
-      <Project>{01FE35C4-3FF0-4388-A696-E785E2512806}</Project>
-      <Name>CIDFares.Spa.DataAccess.Contracts</Name>
-    </ProjectReference>
->>>>>>> Spa/Usuario
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
