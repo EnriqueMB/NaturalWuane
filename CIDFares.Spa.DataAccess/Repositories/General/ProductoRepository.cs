@@ -101,7 +101,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item = new Producto();
                         item.IdProducto = dr.GetInt32(dr.GetOrdinal("IdProducto"));
                         item.Categoria = dr.GetString(dr.GetOrdinal("Categoria"));
-                        item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
+                        item.Clave = dr.GetInt32(dr.GetOrdinal("Clave"));
 
                         item.Nombre = dr.GetString(dr.GetOrdinal("Producto"));
                         item.Descripcion = dr.GetString(dr.GetOrdinal("Descripcion"));
@@ -231,7 +231,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     {
                         producto.IdProducto = dr.GetInt32(dr.GetOrdinal("IdProducto"));
                         producto.Categoria = dr.GetString(dr.GetOrdinal("Categoria"));
-                        producto.Clave = dr.GetString(dr.GetOrdinal("Clave"));
+                        producto.Clave = dr.GetInt32(dr.GetOrdinal("Clave"));
                         producto.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
                         producto.Descripcion = dr.GetString(dr.GetOrdinal("Descripcion"));
                         producto.Stock = dr.GetBoolean(dr.GetOrdinal("Stock"));

@@ -11,7 +11,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         #region Constructor
         public Producto()
         {
-            //la clvae que quiero tomar de categoria producto, juan
+            //la clvae que quiero tomar de categoria producto, ju
             Nombre = string.Empty;
         }
         #endregion
@@ -20,7 +20,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public int IdProducto { get; set; }
         public string Categoria { get; set; }
         public int? IdCategoria { get; set; }
-        public string Clave { get; set; }
+        public int Clave { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public bool Stock { get; set; }

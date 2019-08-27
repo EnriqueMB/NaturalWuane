@@ -53,8 +53,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             try
             {
-                var x = await IRepository.CargarDatos();
                 ListaProducto.Clear();
+                var x = await IRepository.CargarDatos();                
                 foreach (var item in x)
                 {
                     item.AplicaIvaStr = item.AplicaIva ? "SI" : "NO";
@@ -69,7 +69,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        public async Task<int> GuardarFotoProducto(string clave)
+        public async Task<int> GuardarFotoProducto(int clave)
         {
             try
             {
@@ -154,9 +154,9 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #endregion
 
         #region Combo Categorias
-        public void LlenarListaCategoria(IEnumerable<CategoriaProducto> categoria)
+        public void LlenarListaCategoria(IEnumerable<CategoriaProducto> CategoriaProducto)
         {
-            foreach (var item in categoria)
+            foreach (var item in CategoriaProducto)
             {
                 ListaCategoria.Add(item);
             }
@@ -239,15 +239,15 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             set { _Categoria = value; OnPropertyChanged(nameof(Categoria)); }
         }
 
-        private string _Clave;
+        private int _Clave;
 
-        public string Clave
+        public int Clave
         {
             get { return _Clave; }
             set { _Clave = value; OnPropertyChanged(nameof(Clave)); }
         }
 
-        private string _Nombre;
+        private string _Nombre = "";
 
         public string Nombre
         {

@@ -85,7 +85,9 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
-        public async Task<BindingList<CategoriaProducto>> LlenarComboCategoria()
+        //public async Task<IEnumerable<UnidadMedidaLaborModel>> LlenarComboUnidad()
+        //{
+        public async Task<IEnumerable<CategoriaProducto>> LlenarComboCategoria()
         {
             try
             {
