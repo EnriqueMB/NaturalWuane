@@ -7,6 +7,7 @@ using CIDFares.Spa.WFApplication.Forms.Catalogos;
 using CIDFares.Spa.WFApplication.Session;
 using CIDFares.Spa.WFApplication.Validations;
 using FluentValidation;
+using CIDFares.Spa.WFApplication.Forms.Usuarios;
 using System;
 using System.Windows.Forms;
 
@@ -58,6 +59,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ProductoViewModel>();
             ServiceLocator.Instance.Register<ClienteViewModel>();
             ServiceLocator.Instance.Register<CategoriaProductoViewModel>();
+            ServiceLocator.Instance.Register<UsuarioViewModel>();
         }
 
     }

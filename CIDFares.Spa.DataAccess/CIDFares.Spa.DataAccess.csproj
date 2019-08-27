@@ -48,10 +48,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\General\CategoriaProductoRepository.cs" />
     <Compile Include="Repositories\General\ClienteRepository.cs" />
+    <Compile Include="Repositories\General\EmpleadoRepository.cs" />
     <Compile Include="Repositories\General\FormaPagoRepository.cs" />
     <Compile Include="Repositories\Base\Repository.cs" />
     <Compile Include="Repositories\General\LoginRepository.cs" />
     <Compile Include="Repositories\General\ProductoRepository.cs" />
+    <Compile Include="Repositories\General\RolRepository.cs" />
+    <Compile Include="Repositories\General\UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
