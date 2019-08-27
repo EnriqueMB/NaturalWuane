@@ -12,6 +12,12 @@ namespace CIDFares.Spa.Business.Dependencies
             ServiceLocator.Instance.Register<LoginRepository, ILoginRepository>();
             ServiceLocator.Instance.Register<FormaPagoRepository, IFormaPagoRepository>();
             ServiceLocator.Instance.Register<ClienteRepository, IClienteRepository>();
+            ServiceLocator.Instance.Register<ProductoRepository, IProductoRepository>();
+            ServiceLocator.Instance.Register<CategoriaProductoRepository, ICategoriaProductoRepository>();
+            ServiceLocator.Instance.Register<UsuarioRepository, IUsuarioRepository>();
+            ServiceLocator.Instance.Register<RolRepository, IRolRepository>();
+            ServiceLocator.Instance.Register<EmpleadoRepository, IEmpleadoRepository>();
+            ServiceLocator.Instance.Register<UnidadMedidaRepository, IUnidadMedidaRepository > ();
         }
     }
 }

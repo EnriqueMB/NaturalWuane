@@ -1,16 +1,14 @@
 ﻿using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
+using CIDFares.Spa.DataAccess.Contracts.Validations;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CIDFares.Spa.Business.ViewModels.Catalogos
 {
-    public class FormaPagoViewModel : INotifyPropertyChanged
+    public class FormaPagoViewModel : Validable, INotifyPropertyChanged
     {
         #region Propiedades privadas
         private IFormaPagoRepository Repository { get; set; }
@@ -57,7 +55,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 {
                     IdFormaPago = IdFormaPago,
                     Nombre = Nombre.Trim(),
-                    Descripcion = Descripcion.Trim()
+                    Descripcion = Descripcion.Trim(),
+                    Resultado = -2
                 };
                 if (State == EntityState.Create)
                 {
@@ -71,6 +70,19 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+
+        public async Task<int> DeleteAsync()
+        {
+            try
+            {
+                return await Repository.DeleteAsync(IdFormaPago);
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
         }
