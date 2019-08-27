@@ -10,5 +10,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
 {
     public interface IFormaPagoRepository : IBaseRepository<FormaPago>
     {
+        Task<int> Elimnar(int idFormaPago, int? idUsuarioL);
     }
 }

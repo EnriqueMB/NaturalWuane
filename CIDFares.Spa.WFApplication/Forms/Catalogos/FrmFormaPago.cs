@@ -7,6 +7,7 @@ using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
+using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Windows.Forms;
 
@@ -24,6 +25,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<FormaPagoViewModel>();
             grpBoxFormaPago.Enabled = false;
+            Model.IdUsuarioL = CurrentSession.IdCuentaUsuario;
             IniciarBinding();
 
             //toolTip1.BackColor = Color.Gray;
@@ -174,7 +176,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             catch (Exception ex)
             {
 
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmFormaPago ~ btnModificar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
 
@@ -207,8 +210,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmFormaPago ~ btnEliminar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
 

@@ -1,5 +1,11 @@
-﻿using CIDFares.Library.Controls.CIDMessageBox.Code;
+﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Library.Code.Helpers;
+using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
+using CIDFares.Spa.Business.ViewModels.Catalogos;
+using CIDFares.Spa.Business.ViewModels.Ventas;
+using CIDFares.Spa.CrossCutting.Services;
+using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
 using Syncfusion.WinForms.DataGrid.Styles;
 using System;
@@ -16,46 +22,37 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
 {
     public partial class FrmVenta : Form
     {
-        List<ventax> lista;
-        ventax venta;
-        int prod = 0;
-        decimal precioUnitario = 20;
-        string noombreProd = "Shampoo ";
-        string totals = "Cobrar $";
+        #region propiedades públicas
+        public VentasViewModel Model { get; set; }
+        #endregion
+
+        #region propiedades privadas
+        private Cliente cliente = new Cliente();
+        #endregion
+
+        #region Constructor
         public FrmVenta()
         {
-
-            InitializeComponent();
-            //this.sfDataGrid1.Style.HeaderStyle.Borders.All = new GridBorder(GridBorderStyle.None);
-            //this.sfDataGrid1.Style.CellStyle.Borders.All = new GridBorder(GridBorderStyle.None);
-            venta = new ventax();
-            lista = new List<ventax>();
-            venta.Nombre = noombreProd;
-            venta.Precio = 20;
-            venta.Cantidad = 1;
-            venta.Total = venta.Precio * venta.Cantidad;
-            lista.Add(venta);
-            
-            sfDataGrid1.DataSource = lista;
+            try
+            {
+                InitializeComponent();
+                Model = ServiceLocator.Instance.Resolve<VentasViewModel>();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+        #endregion
 
-        private void FrmVenta2_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sfDataGrid1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private ventax ObtenerSeleccionado()
+        #region Métodos
+        private object ObtenerSeleccionado()
         {
             try
             {
                 if (sfDataGrid1.SelectedItems.Count == 1)
                 {
-                    return (ventax)sfDataGrid1.SelectedItem;
+                    return (object)sfDataGrid1.SelectedItem;
                 }
                 return null;
             }
@@ -65,49 +62,47 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private async void LlenarCliente(Cliente cliente)
         {
             try
             {
-                var item = ObtenerSeleccionado();
-                if (item != null)
+                NombreControl.Text = cliente.NombreCompleto;
+                TelefonoControl.Text = cliente.Telefono;
+                DireccionControl.Text = cliente.Direccion;
+                ClaveControl.Text = cliente.Clave;
+                await Model.ModelCliente.GetFoto(cliente.IdCliente);
+                if (!string.IsNullOrEmpty(Model.ModelCliente.FotoBase64))
                 {
-                    prod++;
-                    venta.Cantidad = prod++;
-                    venta.Total = prod * precioUnitario;
-                    venta.Precio = precioUnitario;
-                    btnTotal.Text = totals + venta.Total.ToString();
-                    sfDataGrid1.DataSource = lista;
-                    sfDataGrid1.Refresh();
+                    FotoControl.Image = ComprimirImagenExtensions.ImageBase64ToImage(Model.ModelCliente.FotoBase64);
                 }
                 else
-                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
+                    FotoControl.Image = Properties.Resources.imagen_subir;
+                Model.ModelCliente.FotoBase64 = string.Empty;
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
+        #endregion
 
-        private void button2_Click(object sender, EventArgs e)
+        #region Eventos
+        private void button4_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                FrmBuscarCliente cliente = new FrmBuscarCliente();
+                cliente.ShowDialog();
+                if (cliente.cliente.IdCliente != Guid.Empty)
+                    LlenarCliente(cliente.cliente);
+            }
+            catch(Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmBuscarVenta ~ btnSeleccionar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
         }
-
-        private void btnTotal_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+        #endregion
+       
     }
 }

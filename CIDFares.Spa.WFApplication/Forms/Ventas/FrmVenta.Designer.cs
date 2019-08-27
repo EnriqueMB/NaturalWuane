@@ -33,66 +33,69 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.btnTotal = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnMas = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.pnlGeneral = new System.Windows.Forms.Panel();
             this.pnlAcciones = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnMenos = new System.Windows.Forms.Button();
             this.PnlVentas = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.pnlGrid = new System.Windows.Forms.Panel();
             this.sfDataGrid1 = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            this.pnlTotalesGeneral = new System.Windows.Forms.Panel();
+            this.pnlTotales = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.TotalControl = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.IvaControl = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.SubtotalControl = new System.Windows.Forms.Label();
+            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.pnlFecha = new System.Windows.Forms.Panel();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.FolioVentaControl = new System.Windows.Forms.Label();
+            this.lblVenta = new System.Windows.Forms.Label();
             this.pnlCliente = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.FotoControl = new System.Windows.Forms.PictureBox();
+            this.ClaveControl = new System.Windows.Forms.Label();
+            this.FolioControl = new System.Windows.Forms.Label();
+            this.DireccionControl = new System.Windows.Forms.Label();
+            this.TelefonoControl = new System.Windows.Forms.Label();
+            this.lblForFolio = new System.Windows.Forms.Label();
+            this.NombreControl = new System.Windows.Forms.Label();
             this.pnlFooter = new System.Windows.Forms.Panel();
-            this.pnlBotonesGenerales = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.PnlVentaGrid = new System.Windows.Forms.Panel();
-            this.pnlHeader = new System.Windows.Forms.Panel();
-            this.pnlTotalesGeneral = new System.Windows.Forms.Panel();
-            this.pnlGrid = new System.Windows.Forms.Panel();
-            this.lblVenta = new System.Windows.Forms.Label();
-            this.lblFolio = new System.Windows.Forms.Label();
-            this.lblFecha = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.pnlTotales = new System.Windows.Forms.Panel();
-            this.pnlFecha = new System.Windows.Forms.Panel();
-            this.pnlFooterRight = new System.Windows.Forms.Panel();
             this.pnlFooterLeft = new System.Windows.Forms.Panel();
             this.pnlBotonCobrar = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnlFooterRight = new System.Windows.Forms.Panel();
+            this.pnlBotonesGenerales = new System.Windows.Forms.Panel();
+            this.btnCliente = new System.Windows.Forms.Button();
+            this.btnPromociones = new System.Windows.Forms.Button();
+            this.btnPaquetes = new System.Windows.Forms.Button();
+            this.btnServicio = new System.Windows.Forms.Button();
+            this.btnProducto = new System.Windows.Forms.Button();
+            this.PnlVentaGrid = new System.Windows.Forms.Panel();
             this.pnlGeneral.SuspendLayout();
             this.pnlAcciones.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.PnlVentas.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).BeginInit();
+            this.pnlTotalesGeneral.SuspendLayout();
+            this.pnlTotales.SuspendLayout();
+            this.pnlHeader.SuspendLayout();
+            this.pnlFecha.SuspendLayout();
             this.pnlCliente.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
             this.pnlFooter.SuspendLayout();
-            this.pnlBotonesGenerales.SuspendLayout();
-            this.pnlHeader.SuspendLayout();
-            this.pnlTotalesGeneral.SuspendLayout();
-            this.pnlGrid.SuspendLayout();
-            this.pnlTotales.SuspendLayout();
-            this.pnlFecha.SuspendLayout();
             this.pnlFooterLeft.SuspendLayout();
             this.pnlBotonCobrar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlBotonesGenerales.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTotal
@@ -109,32 +112,30 @@
             this.btnTotal.TabIndex = 0;
             this.btnTotal.Text = "Cobrar ";
             this.btnTotal.UseVisualStyleBackColor = false;
-            this.btnTotal.Click += new System.EventHandler(this.btnTotal_Click);
             // 
-            // button3
+            // btnMas
             // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(3, 161);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(155, 52);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "+";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnMas.FlatAppearance.BorderSize = 0;
+            this.btnMas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMas.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMas.Location = new System.Drawing.Point(3, 161);
+            this.btnMas.Name = "btnMas";
+            this.btnMas.Size = new System.Drawing.Size(155, 52);
+            this.btnMas.TabIndex = 3;
+            this.btnMas.Text = "+";
+            this.btnMas.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnEliminar
             // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(3, 45);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 52);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Eliminar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(3, 45);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(155, 52);
+            this.btnEliminar.TabIndex = 1;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
             // 
             // pnlGeneral
             // 
@@ -163,9 +164,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnMenos);
+            this.groupBox2.Controls.Add(this.btnMas);
+            this.groupBox2.Controls.Add(this.btnEliminar);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
@@ -175,17 +176,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones";
             // 
-            // button2
+            // btnMenos
             // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(3, 103);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(155, 52);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "-";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnMenos.FlatAppearance.BorderSize = 0;
+            this.btnMenos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenos.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenos.Location = new System.Drawing.Point(3, 103);
+            this.btnMenos.Name = "btnMenos";
+            this.btnMenos.Size = new System.Drawing.Size(155, 52);
+            this.btnMenos.TabIndex = 2;
+            this.btnMenos.Text = "-";
+            this.btnMenos.UseVisualStyleBackColor = true;
             // 
             // PnlVentas
             // 
@@ -212,6 +213,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Ventas";
             // 
+            // pnlGrid
+            // 
+            this.pnlGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGrid.Controls.Add(this.sfDataGrid1);
+            this.pnlGrid.Location = new System.Drawing.Point(3, 61);
+            this.pnlGrid.Name = "pnlGrid";
+            this.pnlGrid.Size = new System.Drawing.Size(577, 224);
+            this.pnlGrid.TabIndex = 3;
+            // 
             // sfDataGrid1
             // 
             this.sfDataGrid1.AccessibleName = "Table";
@@ -229,11 +241,15 @@
             gridTextColumn5.Format = "c2";
             gridTextColumn5.HeaderText = "Total";
             gridTextColumn5.MappingName = "Total";
+            gridTextColumn6.HeaderText = "Tipo";
+            gridTextColumn6.MappingName = "Tipo";
+            gridTextColumn6.Visible = false;
             this.sfDataGrid1.Columns.Add(gridTextColumn1);
             this.sfDataGrid1.Columns.Add(gridTextColumn2);
             this.sfDataGrid1.Columns.Add(gridTextColumn3);
             this.sfDataGrid1.Columns.Add(gridTextColumn4);
             this.sfDataGrid1.Columns.Add(gridTextColumn5);
+            this.sfDataGrid1.Columns.Add(gridTextColumn6);
             this.sfDataGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGrid1.Location = new System.Drawing.Point(0, 0);
             this.sfDataGrid1.Name = "sfDataGrid1";
@@ -244,6 +260,132 @@
             this.sfDataGrid1.Style.HeaderStyle.Font.Size = 11F;
             this.sfDataGrid1.TabIndex = 0;
             this.sfDataGrid1.Text = "sfDataGrid1";
+            // 
+            // pnlTotalesGeneral
+            // 
+            this.pnlTotalesGeneral.Controls.Add(this.pnlTotales);
+            this.pnlTotalesGeneral.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlTotalesGeneral.Location = new System.Drawing.Point(3, 282);
+            this.pnlTotalesGeneral.Name = "pnlTotalesGeneral";
+            this.pnlTotalesGeneral.Size = new System.Drawing.Size(577, 82);
+            this.pnlTotalesGeneral.TabIndex = 2;
+            // 
+            // pnlTotales
+            // 
+            this.pnlTotales.Controls.Add(this.label5);
+            this.pnlTotales.Controls.Add(this.TotalControl);
+            this.pnlTotales.Controls.Add(this.label4);
+            this.pnlTotales.Controls.Add(this.IvaControl);
+            this.pnlTotales.Controls.Add(this.label6);
+            this.pnlTotales.Controls.Add(this.SubtotalControl);
+            this.pnlTotales.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlTotales.Location = new System.Drawing.Point(428, 0);
+            this.pnlTotales.Name = "pnlTotales";
+            this.pnlTotales.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.pnlTotales.Size = new System.Drawing.Size(149, 82);
+            this.pnlTotales.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(33, 33);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 20);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "IVA:";
+            // 
+            // TotalControl
+            // 
+            this.TotalControl.AutoSize = true;
+            this.TotalControl.Location = new System.Drawing.Point(79, 59);
+            this.TotalControl.Name = "TotalControl";
+            this.TotalControl.Size = new System.Drawing.Size(41, 20);
+            this.TotalControl.TabIndex = 5;
+            this.TotalControl.Text = "$340";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(27, 59);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 20);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Total:";
+            // 
+            // IvaControl
+            // 
+            this.IvaControl.AutoSize = true;
+            this.IvaControl.Location = new System.Drawing.Point(79, 34);
+            this.IvaControl.Name = "IvaControl";
+            this.IvaControl.Size = new System.Drawing.Size(37, 20);
+            this.IvaControl.TabIndex = 4;
+            this.IvaControl.Text = "17%";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(1, 5);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 20);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Subtotal:";
+            // 
+            // SubtotalControl
+            // 
+            this.SubtotalControl.AutoSize = true;
+            this.SubtotalControl.Location = new System.Drawing.Point(79, 6);
+            this.SubtotalControl.Name = "SubtotalControl";
+            this.SubtotalControl.Size = new System.Drawing.Size(41, 20);
+            this.SubtotalControl.TabIndex = 3;
+            this.SubtotalControl.Text = "$300";
+            // 
+            // pnlHeader
+            // 
+            this.pnlHeader.Controls.Add(this.pnlFecha);
+            this.pnlHeader.Controls.Add(this.FolioVentaControl);
+            this.pnlHeader.Controls.Add(this.lblVenta);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Location = new System.Drawing.Point(3, 22);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(577, 39);
+            this.pnlHeader.TabIndex = 1;
+            // 
+            // pnlFecha
+            // 
+            this.pnlFecha.Controls.Add(this.lblFecha);
+            this.pnlFecha.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlFecha.Location = new System.Drawing.Point(377, 0);
+            this.pnlFecha.Name = "pnlFecha";
+            this.pnlFecha.Size = new System.Drawing.Size(200, 39);
+            this.pnlFecha.TabIndex = 4;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Location = new System.Drawing.Point(110, 8);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblFecha.Size = new System.Drawing.Size(87, 20);
+            this.lblFecha.TabIndex = 2;
+            this.lblFecha.Text = "26/08/2019";
+            // 
+            // FolioVentaControl
+            // 
+            this.FolioVentaControl.AutoSize = true;
+            this.FolioVentaControl.Location = new System.Drawing.Point(54, 8);
+            this.FolioVentaControl.Name = "FolioVentaControl";
+            this.FolioVentaControl.Size = new System.Drawing.Size(73, 20);
+            this.FolioVentaControl.TabIndex = 1;
+            this.FolioVentaControl.Text = "00000001";
+            // 
+            // lblVenta
+            // 
+            this.lblVenta.AutoSize = true;
+            this.lblVenta.Location = new System.Drawing.Point(6, 8);
+            this.lblVenta.Name = "lblVenta";
+            this.lblVenta.Size = new System.Drawing.Size(46, 20);
+            this.lblVenta.TabIndex = 0;
+            this.lblVenta.Text = "Folio:";
             // 
             // pnlCliente
             // 
@@ -257,11 +399,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.FotoControl);
+            this.groupBox1.Controls.Add(this.ClaveControl);
+            this.groupBox1.Controls.Add(this.FolioControl);
+            this.groupBox1.Controls.Add(this.DireccionControl);
+            this.groupBox1.Controls.Add(this.TelefonoControl);
+            this.groupBox1.Controls.Add(this.lblForFolio);
+            this.groupBox1.Controls.Add(this.NombreControl);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -270,6 +414,66 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del cliente";
+            // 
+            // FotoControl
+            // 
+            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FotoControl.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.imagen_subir;
+            this.FotoControl.Location = new System.Drawing.Point(19, 62);
+            this.FotoControl.Name = "FotoControl";
+            this.FotoControl.Size = new System.Drawing.Size(158, 145);
+            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.FotoControl.TabIndex = 7;
+            this.FotoControl.TabStop = false;
+            // 
+            // ClaveControl
+            // 
+            this.ClaveControl.AutoSize = true;
+            this.ClaveControl.Location = new System.Drawing.Point(61, 30);
+            this.ClaveControl.Name = "ClaveControl";
+            this.ClaveControl.Size = new System.Drawing.Size(0, 20);
+            this.ClaveControl.TabIndex = 6;
+            // 
+            // FolioControl
+            // 
+            this.FolioControl.AutoSize = true;
+            this.FolioControl.Location = new System.Drawing.Point(55, 62);
+            this.FolioControl.Name = "FolioControl";
+            this.FolioControl.Size = new System.Drawing.Size(0, 20);
+            this.FolioControl.TabIndex = 5;
+            // 
+            // DireccionControl
+            // 
+            this.DireccionControl.AutoSize = true;
+            this.DireccionControl.Location = new System.Drawing.Point(15, 266);
+            this.DireccionControl.Name = "DireccionControl";
+            this.DireccionControl.Size = new System.Drawing.Size(0, 20);
+            this.DireccionControl.TabIndex = 3;
+            // 
+            // TelefonoControl
+            // 
+            this.TelefonoControl.AutoSize = true;
+            this.TelefonoControl.Location = new System.Drawing.Point(15, 244);
+            this.TelefonoControl.Name = "TelefonoControl";
+            this.TelefonoControl.Size = new System.Drawing.Size(0, 20);
+            this.TelefonoControl.TabIndex = 2;
+            // 
+            // lblForFolio
+            // 
+            this.lblForFolio.AutoSize = true;
+            this.lblForFolio.Location = new System.Drawing.Point(15, 30);
+            this.lblForFolio.Name = "lblForFolio";
+            this.lblForFolio.Size = new System.Drawing.Size(50, 20);
+            this.lblForFolio.TabIndex = 1;
+            this.lblForFolio.Text = "Folio: ";
+            // 
+            // NombreControl
+            // 
+            this.NombreControl.AutoSize = true;
+            this.NombreControl.Location = new System.Drawing.Point(12, 219);
+            this.NombreControl.Name = "NombreControl";
+            this.NombreControl.Size = new System.Drawing.Size(0, 20);
+            this.NombreControl.TabIndex = 0;
             // 
             // pnlFooter
             // 
@@ -280,234 +484,6 @@
             this.pnlFooter.Name = "pnlFooter";
             this.pnlFooter.Size = new System.Drawing.Size(1012, 61);
             this.pnlFooter.TabIndex = 4;
-            // 
-            // pnlBotonesGenerales
-            // 
-            this.pnlBotonesGenerales.Controls.Add(this.button4);
-            this.pnlBotonesGenerales.Controls.Add(this.button9);
-            this.pnlBotonesGenerales.Controls.Add(this.button8);
-            this.pnlBotonesGenerales.Controls.Add(this.button7);
-            this.pnlBotonesGenerales.Controls.Add(this.button6);
-            this.pnlBotonesGenerales.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlBotonesGenerales.Location = new System.Drawing.Point(0, 52);
-            this.pnlBotonesGenerales.Name = "pnlBotonesGenerales";
-            this.pnlBotonesGenerales.Size = new System.Drawing.Size(1012, 64);
-            this.pnlBotonesGenerales.TabIndex = 2;
-            this.pnlBotonesGenerales.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
-            // 
-            // button4
-            // 
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(6, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(158, 58);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "Cliente";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(663, 3);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(158, 58);
-            this.button9.TabIndex = 8;
-            this.button9.Text = "Promociones";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(499, 3);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(158, 58);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "Paquetes";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(335, 3);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(158, 58);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "Servicio";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(171, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(158, 58);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Producto";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // PnlVentaGrid
-            // 
-            this.PnlVentaGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.PnlVentaGrid.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlVentaGrid.Location = new System.Drawing.Point(0, 0);
-            this.PnlVentaGrid.Name = "PnlVentaGrid";
-            this.PnlVentaGrid.Size = new System.Drawing.Size(1012, 52);
-            this.PnlVentaGrid.TabIndex = 0;
-            // 
-            // pnlHeader
-            // 
-            this.pnlHeader.Controls.Add(this.pnlFecha);
-            this.pnlHeader.Controls.Add(this.lblFolio);
-            this.pnlHeader.Controls.Add(this.lblVenta);
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(3, 22);
-            this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(577, 39);
-            this.pnlHeader.TabIndex = 1;
-            // 
-            // pnlTotalesGeneral
-            // 
-            this.pnlTotalesGeneral.Controls.Add(this.pnlTotales);
-            this.pnlTotalesGeneral.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlTotalesGeneral.Location = new System.Drawing.Point(3, 282);
-            this.pnlTotalesGeneral.Name = "pnlTotalesGeneral";
-            this.pnlTotalesGeneral.Size = new System.Drawing.Size(577, 82);
-            this.pnlTotalesGeneral.TabIndex = 2;
-            // 
-            // pnlGrid
-            // 
-            this.pnlGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlGrid.Controls.Add(this.sfDataGrid1);
-            this.pnlGrid.Location = new System.Drawing.Point(3, 61);
-            this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(577, 224);
-            this.pnlGrid.TabIndex = 3;
-            // 
-            // lblVenta
-            // 
-            this.lblVenta.AutoSize = true;
-            this.lblVenta.Location = new System.Drawing.Point(6, 8);
-            this.lblVenta.Name = "lblVenta";
-            this.lblVenta.Size = new System.Drawing.Size(46, 20);
-            this.lblVenta.TabIndex = 0;
-            this.lblVenta.Text = "Folio:";
-            // 
-            // lblFolio
-            // 
-            this.lblFolio.AutoSize = true;
-            this.lblFolio.Location = new System.Drawing.Point(54, 8);
-            this.lblFolio.Name = "lblFolio";
-            this.lblFolio.Size = new System.Drawing.Size(73, 20);
-            this.lblFolio.TabIndex = 1;
-            this.lblFolio.Text = "00000001";
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(110, 8);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblFecha.Size = new System.Drawing.Size(87, 20);
-            this.lblFecha.TabIndex = 2;
-            this.lblFecha.Text = "26/08/2019";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 59);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 20);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Total:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(33, 33);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 20);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "IVA:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1, 5);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 20);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Subtotal:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(79, 6);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 20);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "$300";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(79, 34);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 20);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "17%";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(79, 59);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(41, 20);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "$340";
-            // 
-            // pnlTotales
-            // 
-            this.pnlTotales.Controls.Add(this.label5);
-            this.pnlTotales.Controls.Add(this.label9);
-            this.pnlTotales.Controls.Add(this.label4);
-            this.pnlTotales.Controls.Add(this.label8);
-            this.pnlTotales.Controls.Add(this.label6);
-            this.pnlTotales.Controls.Add(this.label7);
-            this.pnlTotales.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlTotales.Location = new System.Drawing.Point(428, 0);
-            this.pnlTotales.Name = "pnlTotales";
-            this.pnlTotales.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.pnlTotales.Size = new System.Drawing.Size(149, 82);
-            this.pnlTotales.TabIndex = 6;
-            // 
-            // pnlFecha
-            // 
-            this.pnlFecha.Controls.Add(this.lblFecha);
-            this.pnlFecha.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlFecha.Location = new System.Drawing.Point(377, 0);
-            this.pnlFecha.Name = "pnlFecha";
-            this.pnlFecha.Size = new System.Drawing.Size(200, 39);
-            this.pnlFecha.TabIndex = 4;
-            // 
-            // pnlFooterRight
-            // 
-            this.pnlFooterRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlFooterRight.Location = new System.Drawing.Point(851, 0);
-            this.pnlFooterRight.Name = "pnlFooterRight";
-            this.pnlFooterRight.Size = new System.Drawing.Size(161, 61);
-            this.pnlFooterRight.TabIndex = 1;
             // 
             // pnlFooterLeft
             // 
@@ -527,82 +503,128 @@
             this.pnlBotonCobrar.Size = new System.Drawing.Size(188, 61);
             this.pnlBotonCobrar.TabIndex = 1;
             // 
-            // label1
+            // pnlFooterRight
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 235);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(219, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Juan Manuel Martinez Perez ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.pnlFooterRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlFooterRight.Location = new System.Drawing.Point(851, 0);
+            this.pnlFooterRight.Name = "pnlFooterRight";
+            this.pnlFooterRight.Size = new System.Drawing.Size(161, 61);
+            this.pnlFooterRight.TabIndex = 1;
             // 
-            // label2
+            // pnlBotonesGenerales
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Folio: 000032";
+            this.pnlBotonesGenerales.Controls.Add(this.btnCliente);
+            this.pnlBotonesGenerales.Controls.Add(this.btnPromociones);
+            this.pnlBotonesGenerales.Controls.Add(this.btnPaquetes);
+            this.pnlBotonesGenerales.Controls.Add(this.btnServicio);
+            this.pnlBotonesGenerales.Controls.Add(this.btnProducto);
+            this.pnlBotonesGenerales.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlBotonesGenerales.Location = new System.Drawing.Point(0, 52);
+            this.pnlBotonesGenerales.Name = "pnlBotonesGenerales";
+            this.pnlBotonesGenerales.Size = new System.Drawing.Size(1012, 64);
+            this.pnlBotonesGenerales.TabIndex = 2;
             // 
-            // label3
+            // btnCliente
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 260);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "9612870906";
+            this.btnCliente.FlatAppearance.BorderSize = 0;
+            this.btnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCliente.Location = new System.Drawing.Point(6, 3);
+            this.btnCliente.Name = "btnCliente";
+            this.btnCliente.Size = new System.Drawing.Size(158, 58);
+            this.btnCliente.TabIndex = 9;
+            this.btnCliente.Text = "Cliente";
+            this.btnCliente.UseVisualStyleBackColor = true;
+            this.btnCliente.Click += new System.EventHandler(this.button4_Click);
             // 
-            // label10
+            // btnPromociones
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(9, 282);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(117, 20);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Av. El Chayote";
+            this.btnPromociones.FlatAppearance.BorderSize = 0;
+            this.btnPromociones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPromociones.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPromociones.Location = new System.Drawing.Point(663, 3);
+            this.btnPromociones.Name = "btnPromociones";
+            this.btnPromociones.Size = new System.Drawing.Size(158, 58);
+            this.btnPromociones.TabIndex = 8;
+            this.btnPromociones.Text = "Promociones";
+            this.btnPromociones.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // btnPaquetes
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(9, 87);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(153, 136);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.btnPaquetes.FlatAppearance.BorderSize = 0;
+            this.btnPaquetes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPaquetes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPaquetes.Location = new System.Drawing.Point(499, 3);
+            this.btnPaquetes.Name = "btnPaquetes";
+            this.btnPaquetes.Size = new System.Drawing.Size(158, 58);
+            this.btnPaquetes.TabIndex = 7;
+            this.btnPaquetes.Text = "Paquetes";
+            this.btnPaquetes.UseVisualStyleBackColor = true;
             // 
-            // FrmVenta2
+            // btnServicio
+            // 
+            this.btnServicio.FlatAppearance.BorderSize = 0;
+            this.btnServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnServicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnServicio.Location = new System.Drawing.Point(335, 3);
+            this.btnServicio.Name = "btnServicio";
+            this.btnServicio.Size = new System.Drawing.Size(158, 58);
+            this.btnServicio.TabIndex = 6;
+            this.btnServicio.Text = "Servicio";
+            this.btnServicio.UseVisualStyleBackColor = true;
+            // 
+            // btnProducto
+            // 
+            this.btnProducto.FlatAppearance.BorderSize = 0;
+            this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProducto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProducto.Location = new System.Drawing.Point(171, 3);
+            this.btnProducto.Name = "btnProducto";
+            this.btnProducto.Size = new System.Drawing.Size(158, 58);
+            this.btnProducto.TabIndex = 5;
+            this.btnProducto.Text = "Producto";
+            this.btnProducto.UseVisualStyleBackColor = true;
+            // 
+            // PnlVentaGrid
+            // 
+            this.PnlVentaGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.PnlVentaGrid.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlVentaGrid.Location = new System.Drawing.Point(0, 0);
+            this.PnlVentaGrid.Name = "PnlVentaGrid";
+            this.PnlVentaGrid.Size = new System.Drawing.Size(1012, 52);
+            this.PnlVentaGrid.TabIndex = 0;
+            // 
+            // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 544);
             this.Controls.Add(this.pnlGeneral);
-            this.Name = "FrmVenta2";
-            this.Text = "FrmVenta2";
-            this.Load += new System.EventHandler(this.FrmVenta2_Load);
+            this.Name = "FrmVenta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = " ";
             this.pnlGeneral.ResumeLayout(false);
             this.pnlAcciones.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.PnlVentas.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).EndInit();
+            this.pnlTotalesGeneral.ResumeLayout(false);
+            this.pnlTotales.ResumeLayout(false);
+            this.pnlTotales.PerformLayout();
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
+            this.pnlFecha.ResumeLayout(false);
+            this.pnlFecha.PerformLayout();
             this.pnlCliente.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
             this.pnlFooter.ResumeLayout(false);
-            this.pnlBotonesGenerales.ResumeLayout(false);
-            this.pnlHeader.ResumeLayout(false);
-            this.pnlHeader.PerformLayout();
-            this.pnlTotalesGeneral.ResumeLayout(false);
-            this.pnlGrid.ResumeLayout(false);
-            this.pnlTotales.ResumeLayout(false);
-            this.pnlTotales.PerformLayout();
-            this.pnlFecha.ResumeLayout(false);
-            this.pnlFecha.PerformLayout();
             this.pnlFooterLeft.ResumeLayout(false);
             this.pnlBotonCobrar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlBotonesGenerales.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -610,45 +632,47 @@
         #endregion
         private System.Windows.Forms.Panel pnlGeneral;
         private System.Windows.Forms.Panel PnlVentaGrid;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMas;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnTotal;
         private System.Windows.Forms.Panel pnlBotonesGenerales;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnPromociones;
+        private System.Windows.Forms.Button btnPaquetes;
+        private System.Windows.Forms.Button btnServicio;
+        private System.Windows.Forms.Button btnProducto;
         private System.Windows.Forms.Panel pnlCliente;
         private System.Windows.Forms.Panel pnlFooter;
         private System.Windows.Forms.Panel pnlAcciones;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnMenos;
         private System.Windows.Forms.Panel PnlVentas;
         private System.Windows.Forms.GroupBox groupBox3;
         private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGrid1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnCliente;
         private System.Windows.Forms.Panel pnlGrid;
         private System.Windows.Forms.Panel pnlTotalesGeneral;
         private System.Windows.Forms.Panel pnlHeader;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label TotalControl;
+        private System.Windows.Forms.Label IvaControl;
+        private System.Windows.Forms.Label SubtotalControl;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblFecha;
-        private System.Windows.Forms.Label lblFolio;
+        private System.Windows.Forms.Label FolioVentaControl;
         private System.Windows.Forms.Label lblVenta;
         private System.Windows.Forms.Panel pnlTotales;
         private System.Windows.Forms.Panel pnlFecha;
         private System.Windows.Forms.Panel pnlFooterLeft;
         private System.Windows.Forms.Panel pnlBotonCobrar;
         private System.Windows.Forms.Panel pnlFooterRight;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label TelefonoControl;
+        private System.Windows.Forms.Label lblForFolio;
+        private System.Windows.Forms.Label NombreControl;
+        private System.Windows.Forms.Label DireccionControl;
+        private System.Windows.Forms.Label FolioControl;
+        private System.Windows.Forms.Label ClaveControl;
+        private System.Windows.Forms.PictureBox FotoControl;
     }
 }

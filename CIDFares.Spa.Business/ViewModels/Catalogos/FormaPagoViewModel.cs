@@ -53,9 +53,10 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             {
                 FormaPago model = new FormaPago
                 {
-                    IdFormaPago = IdFormaPago,
-                    Nombre = Nombre.Trim(),
-                    Descripcion = Descripcion.Trim(),
+                    IdFormaPago = this.IdFormaPago,
+                    Nombre = this.Nombre.Trim(),
+                    Descripcion = this.Descripcion.Trim(),
+                    IdUsuario = this.IdUsuarioL,
                     Resultado = -2
                 };
                 if (State == EntityState.Create)
@@ -78,7 +79,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             try
             {
-                return await Repository.DeleteAsync(IdFormaPago);
+                return await Repository.Elimnar(this.IdFormaPago, this.IdUsuarioL);
             }
             catch (Exception ex)
             {
@@ -101,6 +102,16 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
+        private int? _IdUsuarioL;
+        public int? IdUsuarioL
+        {
+            get { return _IdUsuarioL; }
+            set
+            {
+                _IdUsuarioL = value;
+                OnPropertyChanged(nameof(IdUsuarioL));
+            }
+        }
 
         private string _Nombre;
 

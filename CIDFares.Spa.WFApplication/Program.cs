@@ -10,6 +10,7 @@ using CIDFares.Spa.WFApplication.Validations;
 using FluentValidation;
 using System;
 using System.Windows.Forms;
+using CIDFares.Spa.Business.ViewModels.Ventas;
 
 namespace CIDFares.Spa.WFApplication
 {
@@ -25,8 +26,8 @@ namespace CIDFares.Spa.WFApplication
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
             CurrentSession.IdCuentaUsuario = 0;
-            //Application.Run(new FrmFormaPago());
-            Application.Run(new FrmCliente());
+            Application.Run(new FrmVenta());
+            //Application.Run(new FrmCliente());
         }
 
         public static void InitializeContainer()
@@ -56,6 +57,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<LoginViewModel>();
             ServiceLocator.Instance.Register<FormaPagoViewModel>();
             ServiceLocator.Instance.Register<ClienteViewModel>();
+            ServiceLocator.Instance.Register<VentasViewModel>();
 
         }
 
