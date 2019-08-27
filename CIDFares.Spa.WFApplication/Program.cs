@@ -60,6 +60,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ClienteViewModel>();
             ServiceLocator.Instance.Register<CategoriaProductoViewModel>();
             ServiceLocator.Instance.Register<UsuarioViewModel>();
+
         }
 
     }

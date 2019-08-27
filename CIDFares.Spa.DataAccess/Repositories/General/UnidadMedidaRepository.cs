@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.DataAccess.Repositories.General
 {
-    class UnidadMedidaRepository : Repository, IUnidadMedidaRepository
+    public class UnidadMedidaRepository : Repository, IUnidadMedidaRepository
     {
         public Task<UnidadMedida> AddAsync(UnidadMedida element)
         {
