@@ -12,6 +12,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public Producto()
         {
             //la clvae que quiero tomar de categoria producto, juan
+            Nombre = string.Empty;
         }
         #endregion
 
@@ -35,7 +36,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public int ClaveSat { get; set; }
         public bool AplicaIva { get; set; }
         public string AplicaIvaStr { get; set; }
-        public int Usuario { get; set; }
+        public Guid Usuario { get; set; }
         //foto
         public string Base64String { get; set; }
         public string UrlFoto { get; set; }

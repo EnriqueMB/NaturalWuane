@@ -44,6 +44,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             InitializeComponent();
             lblSubtitle.Text = "NUEVO REGISTRO";
             Model = ServiceLocator.Instance.Resolve<ProductoViewModel>();
+            Model.GetListaCataegoriaProduto();
+
+           
 
         }
 
@@ -62,8 +65,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         private void IniciarBinding()
         {
             NombreControl.DataBindings.Add("Text", Model.PDatos, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
-            ClaveControl.DataBindings.Add("Text", Model.PDatos, "Clave", true, DataSourceUpdateMode.OnPropertyChanged);
-            UnidadMedidaControl.DataBindings.Add("Text", Model.PDatos, "UnidadMedida", true, DataSourceUpdateMode.OnPropertyChanged);
+          //  UnidadMedidaControl.DataBindings.Add("Text", Model.PDatos, "UnidadMedida", true, DataSourceUpdateMode.OnPropertyChanged);
             PrecioPublicoControl.DataBindings.Add("Text", Model.PDatos, "PrecioPublico", true, DataSourceUpdateMode.OnPropertyChanged);
             PrecioMayoreoControl.DataBindings.Add("Text", Model.PDatos, "PrecioMayoreo", true, DataSourceUpdateMode.OnPropertyChanged);
             PrecioMenudeoControl.DataBindings.Add("Text", Model.PDatos, "PrecioMenudeo", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -77,6 +79,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             CategoriaControl.DataBindings.Add("SelectedValue", Model.PDatos, "IdCategoria", true, DataSourceUpdateMode.OnPropertyChanged);
             CategoriaControl.DataBindings.Add("DataSource", Model, "ListaCategoria", true, DataSourceUpdateMode.OnPropertyChanged);
             IniciarCombos(1);
+
+
+            //UnidadMedidaControl.DataBindings.Add("SelectedValue", Model.PDatos, "IdUnidadMedida", true, DataSourceUpdateMode.OnPropertyChanged);
+            //UnidadMedidaControl.DataBindings.Add("DataSource", Model, "ListaUnidadMedida", true, DataSourceUpdateMode.OnPropertyChanged);
+            //IniciarCombos(2);
         }
 
         private void IniciarCombos(int tipo)
@@ -87,6 +94,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 {
                     CategoriaControl.DisplayMember = "Nombre";
                     CategoriaControl.ValueMember = "IdCategoria";
+                }
+
+                else if (tipo == 2)
+                {
+                    CategoriaControl.DisplayMember = "Unidad de Medida";
+                    CategoriaControl.ValueMember = "IdUnidadMedida";
                 }
             }
             catch (Exception ex)
@@ -297,6 +310,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {
                 btnGuardar.Enabled = true;
             }
+        }
+
+        private void FrmProducto_Load(object sender, EventArgs e)
+        {
+//IniciarBinding();
         }
     }
 }

@@ -44,17 +44,10 @@
             this.CategoriaControl = new System.Windows.Forms.ComboBox();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.ClaveControl = new System.Windows.Forms.TextBox();
-            this.lblClave = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.UnidadMedidaControl = new System.Windows.Forms.TextBox();
-            this.lblUnidadMedida = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.PrecioPublicoControl = new System.Windows.Forms.TextBox();
-            this.lblPrecio = new System.Windows.Forms.Label();
             this.AplicaIvaControl = new System.Windows.Forms.CheckBox();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.StockControl = new System.Windows.Forms.CheckBox();
             this.StockMinControl = new System.Windows.Forms.TextBox();
             this.StockMaxControl = new System.Windows.Forms.TextBox();
             this.lblStockMax = new System.Windows.Forms.Label();
@@ -73,6 +66,11 @@
             this.BtnSeleccionar = new System.Windows.Forms.Button();
             this.FotoControl = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.UnidadMedidaControl = new System.Windows.Forms.ComboBox();
+            this.lblUnidadMedida = new System.Windows.Forms.Label();
+            this.PrecioPublicoControl = new System.Windows.Forms.TextBox();
+            this.lblPrecio = new System.Windows.Forms.Label();
+            this.StockControl = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -259,62 +257,27 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.ClaveControl);
-            this.panel6.Controls.Add(this.lblClave);
+            this.panel6.Controls.Add(this.UnidadMedidaControl);
+            this.panel6.Controls.Add(this.lblUnidadMedida);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 107);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(394, 46);
             this.panel6.TabIndex = 2;
             // 
-            // ClaveControl
-            // 
-            this.ClaveControl.Location = new System.Drawing.Point(6, 19);
-            this.ClaveControl.Name = "ClaveControl";
-            this.ClaveControl.Size = new System.Drawing.Size(268, 20);
-            this.ClaveControl.TabIndex = 43;
-            // 
-            // lblClave
-            // 
-            this.lblClave.AutoSize = true;
-            this.lblClave.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClave.Location = new System.Drawing.Point(3, -3);
-            this.lblClave.Name = "lblClave";
-            this.lblClave.Size = new System.Drawing.Size(44, 17);
-            this.lblClave.TabIndex = 42;
-            this.lblClave.Text = "CLAVE";
-            // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.UnidadMedidaControl);
-            this.panel7.Controls.Add(this.lblUnidadMedida);
+            this.panel7.Controls.Add(this.PrecioPublicoControl);
+            this.panel7.Controls.Add(this.lblPrecio);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 159);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(394, 46);
             this.panel7.TabIndex = 3;
             // 
-            // UnidadMedidaControl
-            // 
-            this.UnidadMedidaControl.Location = new System.Drawing.Point(6, 22);
-            this.UnidadMedidaControl.Name = "UnidadMedidaControl";
-            this.UnidadMedidaControl.Size = new System.Drawing.Size(268, 20);
-            this.UnidadMedidaControl.TabIndex = 43;
-            // 
-            // lblUnidadMedida
-            // 
-            this.lblUnidadMedida.AutoSize = true;
-            this.lblUnidadMedida.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnidadMedida.Location = new System.Drawing.Point(3, 0);
-            this.lblUnidadMedida.Name = "lblUnidadMedida";
-            this.lblUnidadMedida.Size = new System.Drawing.Size(128, 17);
-            this.lblUnidadMedida.TabIndex = 42;
-            this.lblUnidadMedida.Text = "UNIDAD DE MEDIDA";
-            // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.PrecioPublicoControl);
-            this.panel8.Controls.Add(this.lblPrecio);
+            this.panel8.Controls.Add(this.StockControl);
             this.panel8.Controls.Add(this.AplicaIvaControl);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(3, 211);
@@ -322,28 +285,11 @@
             this.panel8.Size = new System.Drawing.Size(394, 46);
             this.panel8.TabIndex = 4;
             // 
-            // PrecioPublicoControl
-            // 
-            this.PrecioPublicoControl.Location = new System.Drawing.Point(8, 23);
-            this.PrecioPublicoControl.Name = "PrecioPublicoControl";
-            this.PrecioPublicoControl.Size = new System.Drawing.Size(206, 20);
-            this.PrecioPublicoControl.TabIndex = 47;
-            // 
-            // lblPrecio
-            // 
-            this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecio.Location = new System.Drawing.Point(5, 1);
-            this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(105, 17);
-            this.lblPrecio.TabIndex = 46;
-            this.lblPrecio.Text = "PRECIO PUBLICO";
-            // 
             // AplicaIvaControl
             // 
             this.AplicaIvaControl.AutoSize = true;
             this.AplicaIvaControl.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.AplicaIvaControl.Location = new System.Drawing.Point(242, 23);
+            this.AplicaIvaControl.Location = new System.Drawing.Point(242, 12);
             this.AplicaIvaControl.Name = "AplicaIvaControl";
             this.AplicaIvaControl.Size = new System.Drawing.Size(89, 21);
             this.AplicaIvaControl.TabIndex = 45;
@@ -352,7 +298,6 @@
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.StockControl);
             this.panel9.Controls.Add(this.StockMinControl);
             this.panel9.Controls.Add(this.StockMaxControl);
             this.panel9.Controls.Add(this.lblStockMax);
@@ -363,27 +308,16 @@
             this.panel9.Size = new System.Drawing.Size(394, 49);
             this.panel9.TabIndex = 5;
             // 
-            // StockControl
-            // 
-            this.StockControl.AutoSize = true;
-            this.StockControl.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.StockControl.Location = new System.Drawing.Point(6, 19);
-            this.StockControl.Name = "StockControl";
-            this.StockControl.Size = new System.Drawing.Size(66, 21);
-            this.StockControl.TabIndex = 46;
-            this.StockControl.Text = "STOCK";
-            this.StockControl.UseVisualStyleBackColor = true;
-            // 
             // StockMinControl
             // 
-            this.StockMinControl.Location = new System.Drawing.Point(243, 25);
+            this.StockMinControl.Location = new System.Drawing.Point(219, 25);
             this.StockMinControl.Name = "StockMinControl";
             this.StockMinControl.Size = new System.Drawing.Size(145, 20);
             this.StockMinControl.TabIndex = 45;
             // 
             // StockMaxControl
             // 
-            this.StockMaxControl.Location = new System.Drawing.Point(82, 25);
+            this.StockMaxControl.Location = new System.Drawing.Point(8, 25);
             this.StockMaxControl.Name = "StockMaxControl";
             this.StockMaxControl.Size = new System.Drawing.Size(143, 20);
             this.StockMaxControl.TabIndex = 44;
@@ -392,7 +326,7 @@
             // 
             this.lblStockMax.AutoSize = true;
             this.lblStockMax.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockMax.Location = new System.Drawing.Point(84, 6);
+            this.lblStockMax.Location = new System.Drawing.Point(10, 6);
             this.lblStockMax.Name = "lblStockMax";
             this.lblStockMax.Size = new System.Drawing.Size(104, 17);
             this.lblStockMax.TabIndex = 43;
@@ -402,7 +336,7 @@
             // 
             this.lblStockMin.AutoSize = true;
             this.lblStockMin.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockMin.Location = new System.Drawing.Point(243, 6);
+            this.lblStockMin.Location = new System.Drawing.Point(219, 6);
             this.lblStockMin.Name = "lblStockMin";
             this.lblStockMin.Size = new System.Drawing.Size(101, 17);
             this.lblStockMin.TabIndex = 42;
@@ -542,6 +476,52 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // UnidadMedidaControl
+            // 
+            this.UnidadMedidaControl.FormattingEnabled = true;
+            this.UnidadMedidaControl.Location = new System.Drawing.Point(5, 23);
+            this.UnidadMedidaControl.Name = "UnidadMedidaControl";
+            this.UnidadMedidaControl.Size = new System.Drawing.Size(268, 21);
+            this.UnidadMedidaControl.TabIndex = 45;
+            // 
+            // lblUnidadMedida
+            // 
+            this.lblUnidadMedida.AutoSize = true;
+            this.lblUnidadMedida.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnidadMedida.Location = new System.Drawing.Point(5, 0);
+            this.lblUnidadMedida.Name = "lblUnidadMedida";
+            this.lblUnidadMedida.Size = new System.Drawing.Size(128, 17);
+            this.lblUnidadMedida.TabIndex = 44;
+            this.lblUnidadMedida.Text = "UNIDAD DE MEDIDA";
+            // 
+            // PrecioPublicoControl
+            // 
+            this.PrecioPublicoControl.Location = new System.Drawing.Point(10, 24);
+            this.PrecioPublicoControl.Name = "PrecioPublicoControl";
+            this.PrecioPublicoControl.Size = new System.Drawing.Size(263, 20);
+            this.PrecioPublicoControl.TabIndex = 49;
+            // 
+            // lblPrecio
+            // 
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio.Location = new System.Drawing.Point(9, 4);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(105, 17);
+            this.lblPrecio.TabIndex = 48;
+            this.lblPrecio.Text = "PRECIO PUBLICO";
+            // 
+            // StockControl
+            // 
+            this.StockControl.AutoSize = true;
+            this.StockControl.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.StockControl.Location = new System.Drawing.Point(27, 12);
+            this.StockControl.Name = "StockControl";
+            this.StockControl.Size = new System.Drawing.Size(66, 21);
+            this.StockControl.TabIndex = 47;
+            this.StockControl.Text = "STOCK";
+            this.StockControl.UseVisualStyleBackColor = true;
+            // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -552,6 +532,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmProducto";
             this.Text = "FrmProducto";
+            this.Load += new System.EventHandler(this.FrmProducto_Load);
             this.Shown += new System.EventHandler(this.FrmProducto_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -600,17 +581,10 @@
         private System.Windows.Forms.ComboBox CategoriaControl;
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox ClaveControl;
-        private System.Windows.Forms.Label lblClave;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox UnidadMedidaControl;
-        private System.Windows.Forms.Label lblUnidadMedida;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TextBox PrecioPublicoControl;
-        private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.CheckBox AplicaIvaControl;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.CheckBox StockControl;
         private System.Windows.Forms.TextBox StockMinControl;
         private System.Windows.Forms.TextBox StockMaxControl;
         private System.Windows.Forms.Label lblStockMax;
@@ -630,5 +604,10 @@
         private System.Windows.Forms.PictureBox FotoControl;
         public System.Windows.Forms.Label lblSubtitle;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ComboBox UnidadMedidaControl;
+        private System.Windows.Forms.Label lblUnidadMedida;
+        private System.Windows.Forms.TextBox PrecioPublicoControl;
+        private System.Windows.Forms.Label lblPrecio;
+        private System.Windows.Forms.CheckBox StockControl;
     }
 }

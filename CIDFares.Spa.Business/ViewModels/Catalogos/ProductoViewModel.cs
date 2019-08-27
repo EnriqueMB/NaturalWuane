@@ -189,7 +189,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 {
                     IdProducto = PDatos.IdProducto,
                     IdCategoria = PDatos.IdCategoria,
-                    Clave = PDatos.Clave,
                     IdUnidadMedida = PDatos.IdUnidadMedida,
                     PrecioPublico = PDatos.PrecioPublico,
                     PrecioMayoreo = PDatos.PrecioMayoreo,
@@ -353,9 +352,9 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             set { _AplicaIva = value; OnPropertyChanged(nameof(AplicaIva)); }
         }
         public string Extencion { get; set; } 
-        private int _Usuario;
+        private Guid _Usuario;
 
-        public int Usuario
+        public Guid Usuario
         {
             get { return _Usuario; }
             set { _Usuario = value; OnPropertyChanged(nameof(Usuario)); }
