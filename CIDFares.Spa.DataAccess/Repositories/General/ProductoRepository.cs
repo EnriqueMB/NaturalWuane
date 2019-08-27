@@ -25,7 +25,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         /// </summary>
         /// <param name="entity">De tipo producto encapsula todos los parametros que han de guardarse</param>
         /// <returns>Retorna un entero que representa el estado de la tarea</returns>
-        public async Task<int> AddFotoPersonal(Producto entity)
+        public async Task<int> AddFotoProducto(Producto entity)
         {
             try
             {
@@ -112,7 +112,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.PrecioPublico = dr.GetDecimal(dr.GetOrdinal("PrecioPublico"));
                         item.PrecioMayoreo = dr.GetDecimal(dr.GetOrdinal("PrecioMayoreo"));
                         item.PrecioMenudeo = dr.GetDecimal(dr.GetOrdinal("PrecioMenudeo"));
-                        item.CodigoBarras = dr.GetInt32(dr.GetOrdinal("CodigoBarras"));
+                        item.CodigoBarras = dr.GetString(dr.GetOrdinal("CodigoBarras"));
                         item.UnidadMedida = dr.GetString(dr.GetOrdinal("UnidadMedida"));
                         item.ClaveSat = dr.GetInt32(dr.GetOrdinal("ClaveSat"));
                         item.AplicaIva = dr.GetBoolean(dr.GetOrdinal("AplicaIva"));
@@ -240,7 +240,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         producto.PrecioPublico = dr.GetDecimal(dr.GetOrdinal("PrecioPublico"));
                         producto.PrecioMayoreo = dr.GetDecimal(dr.GetOrdinal("PrecioMayoreo"));
                         producto.PrecioMenudeo = dr.GetDecimal(dr.GetOrdinal("PrecioMenudeo"));
-                        producto.CodigoBarras = dr.GetInt32(dr.GetOrdinal("CodigoBarras"));
+                        producto.CodigoBarras = dr.GetString(dr.GetOrdinal("CodigoBarras"));
                         producto.UnidadMedida = dr.GetString(dr.GetOrdinal("UnidadMedida"));
                         producto.ClaveSat = dr.GetInt32(dr.GetOrdinal("ClaveSat"));
                         producto.AplicaIva = dr.GetBoolean(dr.GetOrdinal("AplicaIva")); 

@@ -21,7 +21,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
         /// </summary>
         /// <param name="entity">De tipo PersonalModel encapsula todos los parametros que han de guardarse</param>
         /// <returns>Retorna un entero que representa el estado de la tarea</returns>
-        Task<int> AddFotoPersonal(Producto entity);
+        Task<int> AddFotoProducto(Producto entity);
 
         /// <summary>
         /// Este metodo agrega un nuevo registro de Personal

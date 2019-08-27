@@ -64,6 +64,7 @@
     <Compile Include="Entities\Empleado.cs" />
     <Compile Include="Entities\Rol.cs" />
     <Compile Include="Entities\Usuario.cs" />
+    <Compile Include="Entities\UnidadMedida.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\IBaseRepository.cs" />
     <Compile Include="Repositories\General\ICategoriaProductoRepository.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Repositories\General\IFormaPagoRepository.cs" />
     <Compile Include="Repositories\General\ILoginRepository.cs" />
     <Compile Include="Repositories\General\IProductoRepository.cs" />
+    <Compile Include="Repositories\General\IUnidadMedidaRepository.cs" />
     <Compile Include="Validations\Validable.cs" />
     <Compile Include="Validations\ValidatorFactory.cs" />
     <Compile Include="Repositories\General\IRolRepository.cs" />

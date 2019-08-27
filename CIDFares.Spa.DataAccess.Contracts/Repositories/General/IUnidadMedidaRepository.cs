@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
 {
-    public interface ICategoriaProductoRepository : IBaseRepository<CategoriaProducto>
+    public interface IUnidadMedidaRepository : IBaseRepository<UnidadMedida>
     {
-        Task<BindingList<CategoriaProducto>> LlenarComboCategoria();
+        Task<BindingList<UnidadMedida>> LlenarComboUnidadMedida();
     }
 }

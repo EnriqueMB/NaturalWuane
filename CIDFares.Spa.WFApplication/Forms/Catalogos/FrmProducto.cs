@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -133,7 +134,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {
                 Model.PDatos.Nombre = string.Empty;
                 Model.PDatos.IdCategoriaProducto = 0;
-                Model.PDatos.Clave = 0;
+                Model.PDatos.Clave = string.Empty;
                 Model.PDatos.UnidadMedida = string.Empty;
                 Model.PDatos.PrecioPublico = 0;
                 Model.PDatos.PrecioMayoreo = 0;
@@ -259,7 +260,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                             var x = Model.PDatos.Foto.VaryQualityLevel(35L);
                             Model.PDatos.Foto = x;
                             this.GuardarImagen(Resultado.ToString());
-                            res = await Model.GuardarFotoPersonal(Resultado.ToString());
+                            res = await Model.GuardarFotoProducto(Resultado.ToString());
                             if (res > 0)
                             {
                                 this.LimpiarPropiedades();
