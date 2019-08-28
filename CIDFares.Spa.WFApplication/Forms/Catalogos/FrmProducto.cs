@@ -8,6 +8,7 @@ using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
+using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -73,6 +74,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             DescripcionControl.DataBindings.Add("Text", Model, "Descripcion", true, DataSourceUpdateMode.OnPropertyChanged);
             ClaveSatControl.DataBindings.Add("Text", Model, "ClaveSat", true, DataSourceUpdateMode.OnPropertyChanged);
             CodigoBarrasControl.DataBindings.Add("Text", Model, "CodigoBarras", true, DataSourceUpdateMode.OnPropertyChanged);
+            RutaControl.DataBindings.Add("Text", Model, "ImageLocation", true, DataSourceUpdateMode.OnPropertyChanged);
 
             IniciarCombos(1);
             CategoriaControl.DataBindings.Add("SelectedValue", Model, "IdCategoriaProducto", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -173,40 +175,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         #endregion
 
-        private void BtnSeleccionar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                OpenFileDialog BuscarImagen = new OpenFileDialog();
-                BuscarImagen.Filter = "Image Files|*.png;*.jpg;*.bmp";
-                BuscarImagen.FileName = "";
-                BuscarImagen.Title = "Seleccione una imagen";
-                BuscarImagen.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures).ToString();
-                if (BuscarImagen.ShowDialog() == DialogResult.OK)
-                {
-                    Model.Foto = null;
-                    Model.UpdateFoto = true;
-                    string ext = Path.GetExtension(BuscarImagen.FileName);
-                    Model.Extencion = BuscarImagen.FileName.Substring(BuscarImagen.FileName.LastIndexOf('.') + 1);
-                    if (Model.Extencion == "png")
-                        Model.Formato = ImageFormat.Png;
-                    else if (Model.Extencion == "jpg")
-                        Model.Formato = ImageFormat.Jpeg;
-                    else if (Model.Extencion == "bmp")
-                        Model.Formato = ImageFormat.Bmp;
-
-
-                    Model.ImageLocation = BuscarImagen.FileName;
-                    Model.UrlFoto = BuscarImagen.FileName;
-                }
-            }
-            catch (Exception ex)
-            {
-                ErrorLogHelper.AddExcFileTxt(ex, "FrmPersonal ~ BtnSeleccionar_Click(object sender, EventArgs e)");
-                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
-            }
-        }
+     
 
         
 
@@ -220,7 +189,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                // validationResults.ToString();
               //  if (validationResults.IsValid)
                // {
-                    var Resultado = await Model.GuardarCambios();
+                    var Resultado = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
                     if (Resultado != null || Resultado != string.Empty)
                     {
                         int res = 0;
@@ -228,8 +197,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         {
                             var x = Model.Foto.VaryQualityLevel(35L);
                             Model.Foto = x;
+
                             this.GuardarImagen(Resultado.ToString());
-                            res = await Model.GuardarFotoProducto(Resultado.ToString());
+                            res = await Model.GuardarFotoProducto(Resultado.ToString(), CurrentSession.IdCuentaUsuario);
                             if (res > 0)
                             {
                                 this.LimpiarPropiedades();
@@ -278,6 +248,41 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             Model.LlenaUnidadMedida(y);
 
             IniciarBinding();
+        }
+
+        private void BtnSeleccionar_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+
+                OpenFileDialog BuscarImagen = new OpenFileDialog();
+                BuscarImagen.Filter = "Image Files|*.png;*.jpg;*.bmp";
+                BuscarImagen.FileName = "";
+                BuscarImagen.Title = "Seleccione una imagen";
+                BuscarImagen.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures).ToString();
+                if (BuscarImagen.ShowDialog() == DialogResult.OK)
+                {
+                    Model.Foto = null;
+                    Model.UpdateFoto = true;
+                    string ext = Path.GetExtension(BuscarImagen.FileName);
+                    Model.Extencion = Path.GetExtension(BuscarImagen.FileName);
+                    if (Model.Extencion == ".png")
+                        Model.Formato = ImageFormat.Png;
+                    else if (Model.Extencion == ".jpg")
+                        Model.Formato = ImageFormat.Jpeg;
+                    else if (Model.Extencion == ".bmp")
+                        Model.Formato = ImageFormat.Bmp;
+
+
+                    Model.ImageLocation = BuscarImagen.FileName;
+                    Model.UrlFoto = BuscarImagen.FileName;
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPersonal ~ BtnSeleccionar_Click_1(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
         }
     }
 }

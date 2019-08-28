@@ -96,7 +96,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        public async Task<int> GuardarFotoProducto(string Clave)
+        public async Task<int> GuardarFotoProducto(string Clave, Guid IdUsuario)
         {
             try
             {
@@ -107,7 +107,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     Base64String = new Bitmap(Foto).ToBase64String(Formato),
                     UrlFoto = UrlFoto
                 };
-                return await IRepository.AddFotoProducto(producto);
+                return await IRepository.AddFotoProducto(producto, IdUsuario);
             }
             catch (Exception ex)
             {
@@ -210,7 +210,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
 
 
-        public async Task<string> GuardarCambios()
+        public async Task<string> GuardarCambios(Guid IdUsuario)
         {
             try
             {
@@ -236,11 +236,11 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 if (State == EntityState.Create)
                 {
 
-                    return await IRepository.AddWitClave(producto);
+                    return await IRepository.AddWitClave(producto, IdUsuario);
                 }
                 else if (State == EntityState.Update)
                 {               
-                    return await IRepository.Update(producto);
+                    return await IRepository.Update(producto, IdUsuario);
                 }
                 return string.Empty;
             }
@@ -410,13 +410,9 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             set { _BaseString64 = value; OnPropertyChanged("BaseString64"); }
         }
 
-        private bool _UpdateFoto;
+        public bool UpdateFoto;
 
-        public bool UpdateFoto
-        {
-            get { return _UpdateFoto; }
-            set { _UpdateFoto = value; OnPropertyChanged("UpdateFoto"); }
-        }
+        
 
        
 

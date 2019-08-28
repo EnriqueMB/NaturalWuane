@@ -37,12 +37,25 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.PrecioPublicoControl = new System.Windows.Forms.TextBox();
+            this.lblPrecio = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.PrecioMenudeoControl = new System.Windows.Forms.TextBox();
+            this.lblPrecioMenudeo = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.BtnSeleccionar = new System.Windows.Forms.Button();
+            this.FotoControl = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.NombreControl = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.CategoriaControl = new System.Windows.Forms.ComboBox();
             this.lblCategoria = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.UnidadMedidaControl = new System.Windows.Forms.ComboBox();
+            this.lblUnidadMedida = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.ClaveControl = new System.Windows.Forms.TextBox();
             this.Clave = new System.Windows.Forms.Label();
@@ -51,55 +64,44 @@
             this.StockMaxControl = new System.Windows.Forms.TextBox();
             this.lblStockMax = new System.Windows.Forms.Label();
             this.lblStockMin = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblPrecioMayoreo = new System.Windows.Forms.Label();
-            this.PrecioMayoreoControl = new System.Windows.Forms.TextBox();
-            this.pnlPrecio = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.BtnSeleccionar = new System.Windows.Forms.Button();
-            this.FotoControl = new System.Windows.Forms.PictureBox();
+            this.btnGenerarCodigoBarras = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CodigoBarrasControl = new System.Windows.Forms.TextBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.DescripcionControl = new System.Windows.Forms.TextBox();
             this.Descripcion = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.PrecioMenudeoControl = new System.Windows.Forms.TextBox();
-            this.lblPrecioMenudeo = new System.Windows.Forms.Label();
-            this.lblUnidadMedida = new System.Windows.Forms.Label();
-            this.UnidadMedidaControl = new System.Windows.Forms.ComboBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.PrecioPublicoControl = new System.Windows.Forms.TextBox();
-            this.lblPrecio = new System.Windows.Forms.Label();
-            this.AplicaIvaControl = new System.Windows.Forms.CheckBox();
+            this.pnlPrecio = new System.Windows.Forms.Panel();
+            this.PrecioMayoreoControl = new System.Windows.Forms.TextBox();
+            this.lblPrecioMayoreo = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.StockControl = new System.Windows.Forms.CheckBox();
+            this.AplicaIvaControl = new System.Windows.Forms.CheckBox();
             this.ClaveSat = new System.Windows.Forms.Panel();
             this.ClaveSatControl = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.CodigoBarrasControl = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnGenerarCodigoBarras = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.RutaControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.pnlPrecio.SuspendLayout();
-            this.panel13.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
-            this.panel11.SuspendLayout();
-            this.panel10.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.pnlPrecio.SuspendLayout();
             this.panel14.SuspendLayout();
             this.ClaveSat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RutaControl)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -190,7 +192,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 324F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 334F));
             this.tableLayoutPanel1.Controls.Add(this.panel8, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel10, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel12, 2, 0);
@@ -219,6 +221,109 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1129, 315);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.PrecioPublicoControl);
+            this.panel8.Controls.Add(this.lblPrecio);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(400, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(391, 51);
+            this.panel8.TabIndex = 15;
+            // 
+            // PrecioPublicoControl
+            // 
+            this.PrecioPublicoControl.Location = new System.Drawing.Point(7, 20);
+            this.PrecioPublicoControl.Name = "PrecioPublicoControl";
+            this.PrecioPublicoControl.Size = new System.Drawing.Size(268, 20);
+            this.PrecioPublicoControl.TabIndex = 51;
+            // 
+            // lblPrecio
+            // 
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio.Location = new System.Drawing.Point(6, 0);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(105, 17);
+            this.lblPrecio.TabIndex = 50;
+            this.lblPrecio.Text = "PRECIO PUBLICO";
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.PrecioMenudeoControl);
+            this.panel10.Controls.Add(this.lblPrecioMenudeo);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(400, 60);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(391, 41);
+            this.panel10.TabIndex = 14;
+            // 
+            // PrecioMenudeoControl
+            // 
+            this.PrecioMenudeoControl.Location = new System.Drawing.Point(7, 19);
+            this.PrecioMenudeoControl.Name = "PrecioMenudeoControl";
+            this.PrecioMenudeoControl.Size = new System.Drawing.Size(268, 20);
+            this.PrecioMenudeoControl.TabIndex = 51;
+            // 
+            // lblPrecioMenudeo
+            // 
+            this.lblPrecioMenudeo.AutoSize = true;
+            this.lblPrecioMenudeo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioMenudeo.Location = new System.Drawing.Point(4, 0);
+            this.lblPrecioMenudeo.Name = "lblPrecioMenudeo";
+            this.lblPrecioMenudeo.Size = new System.Drawing.Size(119, 17);
+            this.lblPrecioMenudeo.TabIndex = 50;
+            this.lblPrecioMenudeo.Text = "PRECIO MENUDEO";
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.RutaControl);
+            this.panel12.Controls.Add(this.label7);
+            this.panel12.Controls.Add(this.BtnSeleccionar);
+            this.panel12.Controls.Add(this.FotoControl);
+            this.panel12.Location = new System.Drawing.Point(797, 3);
+            this.panel12.Name = "panel12";
+            this.tableLayoutPanel1.SetRowSpan(this.panel12, 3);
+            this.panel12.Size = new System.Drawing.Size(319, 150);
+            this.panel12.TabIndex = 11;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(8, 12);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(143, 17);
+            this.label7.TabIndex = 44;
+            this.label7.Text = "SELECCIONAR IMAGEN";
+            // 
+            // BtnSeleccionar
+            // 
+            this.BtnSeleccionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnSeleccionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
+            this.BtnSeleccionar.FlatAppearance.BorderSize = 0;
+            this.BtnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSeleccionar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.BtnSeleccionar.ForeColor = System.Drawing.Color.White;
+            this.BtnSeleccionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSeleccionar.Location = new System.Drawing.Point(12, 54);
+            this.BtnSeleccionar.Name = "BtnSeleccionar";
+            this.BtnSeleccionar.Size = new System.Drawing.Size(130, 28);
+            this.BtnSeleccionar.TabIndex = 43;
+            this.BtnSeleccionar.Text = "SUBIR";
+            this.BtnSeleccionar.UseVisualStyleBackColor = false;
+            this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click_1);
+            // 
+            // FotoControl
+            // 
+            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FotoControl.Location = new System.Drawing.Point(166, 6);
+            this.FotoControl.Name = "FotoControl";
+            this.FotoControl.Size = new System.Drawing.Size(145, 96);
+            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.FotoControl.TabIndex = 42;
+            this.FotoControl.TabStop = false;
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.NombreControl);
@@ -226,7 +331,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(396, 51);
+            this.panel4.Size = new System.Drawing.Size(391, 51);
             this.panel4.TabIndex = 0;
             // 
             // NombreControl
@@ -253,7 +358,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 60);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(396, 41);
+            this.panel5.Size = new System.Drawing.Size(391, 41);
             this.panel5.TabIndex = 1;
             // 
             // CategoriaControl
@@ -274,6 +379,34 @@
             this.lblCategoria.TabIndex = 41;
             this.lblCategoria.Text = "CATEGORIA";
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.UnidadMedidaControl);
+            this.panel6.Controls.Add(this.lblUnidadMedida);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(3, 107);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(391, 46);
+            this.panel6.TabIndex = 2;
+            // 
+            // UnidadMedidaControl
+            // 
+            this.UnidadMedidaControl.FormattingEnabled = true;
+            this.UnidadMedidaControl.Location = new System.Drawing.Point(6, 19);
+            this.UnidadMedidaControl.Name = "UnidadMedidaControl";
+            this.UnidadMedidaControl.Size = new System.Drawing.Size(268, 21);
+            this.UnidadMedidaControl.TabIndex = 43;
+            // 
+            // lblUnidadMedida
+            // 
+            this.lblUnidadMedida.AutoSize = true;
+            this.lblUnidadMedida.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnidadMedida.Location = new System.Drawing.Point(5, 0);
+            this.lblUnidadMedida.Name = "lblUnidadMedida";
+            this.lblUnidadMedida.Size = new System.Drawing.Size(128, 17);
+            this.lblUnidadMedida.TabIndex = 44;
+            this.lblUnidadMedida.Text = "UNIDAD DE MEDIDA";
+            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.ClaveControl);
@@ -281,7 +414,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 159);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(396, 46);
+            this.panel7.Size = new System.Drawing.Size(391, 46);
             this.panel7.TabIndex = 3;
             // 
             // ClaveControl
@@ -310,7 +443,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(3, 263);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(396, 49);
+            this.panel9.Size = new System.Drawing.Size(391, 49);
             this.panel9.TabIndex = 5;
             // 
             // StockMinControl
@@ -347,103 +480,58 @@
             this.lblStockMin.TabIndex = 42;
             this.lblStockMin.Text = "STOCK MINIMO";
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // lblPrecioMayoreo
-            // 
-            this.lblPrecioMayoreo.AutoSize = true;
-            this.lblPrecioMayoreo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioMayoreo.Location = new System.Drawing.Point(4, 4);
-            this.lblPrecioMayoreo.Name = "lblPrecioMayoreo";
-            this.lblPrecioMayoreo.Size = new System.Drawing.Size(115, 17);
-            this.lblPrecioMayoreo.TabIndex = 48;
-            this.lblPrecioMayoreo.Text = "PRECIO MAYOREO";
-            // 
-            // PrecioMayoreoControl
-            // 
-            this.PrecioMayoreoControl.Location = new System.Drawing.Point(7, 24);
-            this.PrecioMayoreoControl.Name = "PrecioMayoreoControl";
-            this.PrecioMayoreoControl.Size = new System.Drawing.Size(268, 20);
-            this.PrecioMayoreoControl.TabIndex = 49;
-            // 
-            // pnlPrecio
-            // 
-            this.pnlPrecio.Controls.Add(this.PrecioMayoreoControl);
-            this.pnlPrecio.Controls.Add(this.lblPrecioMayoreo);
-            this.pnlPrecio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPrecio.Location = new System.Drawing.Point(405, 107);
-            this.pnlPrecio.Name = "pnlPrecio";
-            this.pnlPrecio.Size = new System.Drawing.Size(396, 46);
-            this.pnlPrecio.TabIndex = 6;
-            // 
             // panel13
             // 
             this.panel13.Controls.Add(this.btnGenerarCodigoBarras);
             this.panel13.Controls.Add(this.label2);
             this.panel13.Controls.Add(this.CodigoBarrasControl);
-            this.panel13.Location = new System.Drawing.Point(807, 159);
+            this.panel13.Location = new System.Drawing.Point(797, 159);
             this.panel13.Name = "panel13";
             this.tableLayoutPanel1.SetRowSpan(this.panel13, 3);
             this.panel13.Size = new System.Drawing.Size(319, 153);
             this.panel13.TabIndex = 10;
             // 
-            // panel12
+            // btnGenerarCodigoBarras
             // 
-            this.panel12.Controls.Add(this.label7);
-            this.panel12.Controls.Add(this.BtnSeleccionar);
-            this.panel12.Controls.Add(this.FotoControl);
-            this.panel12.Location = new System.Drawing.Point(807, 3);
-            this.panel12.Name = "panel12";
-            this.tableLayoutPanel1.SetRowSpan(this.panel12, 3);
-            this.panel12.Size = new System.Drawing.Size(319, 150);
-            this.panel12.TabIndex = 11;
+            this.btnGenerarCodigoBarras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGenerarCodigoBarras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
+            this.btnGenerarCodigoBarras.FlatAppearance.BorderSize = 0;
+            this.btnGenerarCodigoBarras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerarCodigoBarras.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnGenerarCodigoBarras.ForeColor = System.Drawing.Color.White;
+            this.btnGenerarCodigoBarras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGenerarCodigoBarras.Location = new System.Drawing.Point(62, 99);
+            this.btnGenerarCodigoBarras.Name = "btnGenerarCodigoBarras";
+            this.btnGenerarCodigoBarras.Size = new System.Drawing.Size(199, 28);
+            this.btnGenerarCodigoBarras.TabIndex = 52;
+            this.btnGenerarCodigoBarras.Text = "GENERAR CODIGO DE BARRAS";
+            this.btnGenerarCodigoBarras.UseVisualStyleBackColor = false;
             // 
-            // label7
+            // label2
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(8, 12);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(143, 17);
-            this.label7.TabIndex = 44;
-            this.label7.Text = "SELECCIONAR IMAGEN";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(15, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 17);
+            this.label2.TabIndex = 51;
+            this.label2.Text = "CODIGO DE BARRAS";
             // 
-            // BtnSeleccionar
+            // CodigoBarrasControl
             // 
-            this.BtnSeleccionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnSeleccionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
-            this.BtnSeleccionar.FlatAppearance.BorderSize = 0;
-            this.BtnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSeleccionar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.BtnSeleccionar.ForeColor = System.Drawing.Color.White;
-            this.BtnSeleccionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSeleccionar.Location = new System.Drawing.Point(9, 93);
-            this.BtnSeleccionar.Name = "BtnSeleccionar";
-            this.BtnSeleccionar.Size = new System.Drawing.Size(130, 28);
-            this.BtnSeleccionar.TabIndex = 43;
-            this.BtnSeleccionar.Text = "SUBIR";
-            this.BtnSeleccionar.UseVisualStyleBackColor = false;
-            // 
-            // FotoControl
-            // 
-            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FotoControl.Location = new System.Drawing.Point(159, 6);
-            this.FotoControl.Name = "FotoControl";
-            this.FotoControl.Size = new System.Drawing.Size(145, 124);
-            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.FotoControl.TabIndex = 42;
-            this.FotoControl.TabStop = false;
+            this.CodigoBarrasControl.Location = new System.Drawing.Point(18, 52);
+            this.CodigoBarrasControl.Name = "CodigoBarrasControl";
+            this.CodigoBarrasControl.Size = new System.Drawing.Size(291, 20);
+            this.CodigoBarrasControl.TabIndex = 50;
             // 
             // panel11
             // 
             this.panel11.Controls.Add(this.DescripcionControl);
             this.panel11.Controls.Add(this.Descripcion);
-            this.panel11.Location = new System.Drawing.Point(405, 211);
+            this.panel11.Location = new System.Drawing.Point(400, 211);
             this.panel11.Name = "panel11";
             this.tableLayoutPanel1.SetRowSpan(this.panel11, 2);
-            this.panel11.Size = new System.Drawing.Size(396, 98);
+            this.panel11.Size = new System.Drawing.Size(391, 98);
             this.panel11.TabIndex = 12;
             // 
             // DescripcionControl
@@ -464,98 +552,32 @@
             this.Descripcion.TabIndex = 41;
             this.Descripcion.Text = "DESCRIPCION";
             // 
-            // panel10
+            // pnlPrecio
             // 
-            this.panel10.Controls.Add(this.PrecioMenudeoControl);
-            this.panel10.Controls.Add(this.lblPrecioMenudeo);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(405, 60);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(396, 41);
-            this.panel10.TabIndex = 14;
+            this.pnlPrecio.Controls.Add(this.PrecioMayoreoControl);
+            this.pnlPrecio.Controls.Add(this.lblPrecioMayoreo);
+            this.pnlPrecio.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPrecio.Location = new System.Drawing.Point(400, 107);
+            this.pnlPrecio.Name = "pnlPrecio";
+            this.pnlPrecio.Size = new System.Drawing.Size(391, 46);
+            this.pnlPrecio.TabIndex = 6;
             // 
-            // PrecioMenudeoControl
+            // PrecioMayoreoControl
             // 
-            this.PrecioMenudeoControl.Location = new System.Drawing.Point(7, 19);
-            this.PrecioMenudeoControl.Name = "PrecioMenudeoControl";
-            this.PrecioMenudeoControl.Size = new System.Drawing.Size(268, 20);
-            this.PrecioMenudeoControl.TabIndex = 51;
+            this.PrecioMayoreoControl.Location = new System.Drawing.Point(7, 24);
+            this.PrecioMayoreoControl.Name = "PrecioMayoreoControl";
+            this.PrecioMayoreoControl.Size = new System.Drawing.Size(268, 20);
+            this.PrecioMayoreoControl.TabIndex = 49;
             // 
-            // lblPrecioMenudeo
+            // lblPrecioMayoreo
             // 
-            this.lblPrecioMenudeo.AutoSize = true;
-            this.lblPrecioMenudeo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioMenudeo.Location = new System.Drawing.Point(4, 0);
-            this.lblPrecioMenudeo.Name = "lblPrecioMenudeo";
-            this.lblPrecioMenudeo.Size = new System.Drawing.Size(119, 17);
-            this.lblPrecioMenudeo.TabIndex = 50;
-            this.lblPrecioMenudeo.Text = "PRECIO MENUDEO";
-            // 
-            // lblUnidadMedida
-            // 
-            this.lblUnidadMedida.AutoSize = true;
-            this.lblUnidadMedida.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnidadMedida.Location = new System.Drawing.Point(5, 0);
-            this.lblUnidadMedida.Name = "lblUnidadMedida";
-            this.lblUnidadMedida.Size = new System.Drawing.Size(128, 17);
-            this.lblUnidadMedida.TabIndex = 44;
-            this.lblUnidadMedida.Text = "UNIDAD DE MEDIDA";
-            // 
-            // UnidadMedidaControl
-            // 
-            this.UnidadMedidaControl.FormattingEnabled = true;
-            this.UnidadMedidaControl.Location = new System.Drawing.Point(6, 19);
-            this.UnidadMedidaControl.Name = "UnidadMedidaControl";
-            this.UnidadMedidaControl.Size = new System.Drawing.Size(268, 21);
-            this.UnidadMedidaControl.TabIndex = 43;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.UnidadMedidaControl);
-            this.panel6.Controls.Add(this.lblUnidadMedida);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 107);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(396, 46);
-            this.panel6.TabIndex = 2;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.PrecioPublicoControl);
-            this.panel8.Controls.Add(this.lblPrecio);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(405, 3);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(396, 51);
-            this.panel8.TabIndex = 15;
-            // 
-            // PrecioPublicoControl
-            // 
-            this.PrecioPublicoControl.Location = new System.Drawing.Point(7, 20);
-            this.PrecioPublicoControl.Name = "PrecioPublicoControl";
-            this.PrecioPublicoControl.Size = new System.Drawing.Size(268, 20);
-            this.PrecioPublicoControl.TabIndex = 51;
-            // 
-            // lblPrecio
-            // 
-            this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecio.Location = new System.Drawing.Point(6, 0);
-            this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(105, 17);
-            this.lblPrecio.TabIndex = 50;
-            this.lblPrecio.Text = "PRECIO PUBLICO";
-            // 
-            // AplicaIvaControl
-            // 
-            this.AplicaIvaControl.AutoSize = true;
-            this.AplicaIvaControl.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.AplicaIvaControl.Location = new System.Drawing.Point(25, 14);
-            this.AplicaIvaControl.Name = "AplicaIvaControl";
-            this.AplicaIvaControl.Size = new System.Drawing.Size(89, 21);
-            this.AplicaIvaControl.TabIndex = 46;
-            this.AplicaIvaControl.Text = "APLICA IVA";
-            this.AplicaIvaControl.UseVisualStyleBackColor = true;
+            this.lblPrecioMayoreo.AutoSize = true;
+            this.lblPrecioMayoreo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioMayoreo.Location = new System.Drawing.Point(4, 4);
+            this.lblPrecioMayoreo.Name = "lblPrecioMayoreo";
+            this.lblPrecioMayoreo.Size = new System.Drawing.Size(115, 17);
+            this.lblPrecioMayoreo.TabIndex = 48;
+            this.lblPrecioMayoreo.Text = "PRECIO MAYOREO";
             // 
             // panel14
             // 
@@ -564,7 +586,7 @@
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(3, 211);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(396, 46);
+            this.panel14.Size = new System.Drawing.Size(391, 46);
             this.panel14.TabIndex = 16;
             // 
             // StockControl
@@ -578,13 +600,24 @@
             this.StockControl.Text = "STOCK";
             this.StockControl.UseVisualStyleBackColor = true;
             // 
+            // AplicaIvaControl
+            // 
+            this.AplicaIvaControl.AutoSize = true;
+            this.AplicaIvaControl.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.AplicaIvaControl.Location = new System.Drawing.Point(25, 14);
+            this.AplicaIvaControl.Name = "AplicaIvaControl";
+            this.AplicaIvaControl.Size = new System.Drawing.Size(89, 21);
+            this.AplicaIvaControl.TabIndex = 46;
+            this.AplicaIvaControl.Text = "APLICA IVA";
+            this.AplicaIvaControl.UseVisualStyleBackColor = true;
+            // 
             // ClaveSat
             // 
             this.ClaveSat.Controls.Add(this.ClaveSatControl);
             this.ClaveSat.Controls.Add(this.label1);
-            this.ClaveSat.Location = new System.Drawing.Point(405, 159);
+            this.ClaveSat.Location = new System.Drawing.Point(400, 159);
             this.ClaveSat.Name = "ClaveSat";
-            this.ClaveSat.Size = new System.Drawing.Size(396, 46);
+            this.ClaveSat.Size = new System.Drawing.Size(391, 46);
             this.ClaveSat.TabIndex = 17;
             // 
             // ClaveSatControl
@@ -604,38 +637,27 @@
             this.label1.TabIndex = 52;
             this.label1.Text = "CLAVE SAT";
             // 
-            // CodigoBarrasControl
+            // errorProvider1
             // 
-            this.CodigoBarrasControl.Location = new System.Drawing.Point(18, 52);
-            this.CodigoBarrasControl.Name = "CodigoBarrasControl";
-            this.CodigoBarrasControl.Size = new System.Drawing.Size(291, 20);
-            this.CodigoBarrasControl.TabIndex = 50;
+            this.errorProvider1.ContainerControl = this;
             // 
-            // label2
+            // RutaControl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 17);
-            this.label2.TabIndex = 51;
-            this.label2.Text = "CODIGO DE BARRAS";
-            // 
-            // btnGenerarCodigoBarras
-            // 
-            this.btnGenerarCodigoBarras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGenerarCodigoBarras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
-            this.btnGenerarCodigoBarras.FlatAppearance.BorderSize = 0;
-            this.btnGenerarCodigoBarras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerarCodigoBarras.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnGenerarCodigoBarras.ForeColor = System.Drawing.Color.White;
-            this.btnGenerarCodigoBarras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGenerarCodigoBarras.Location = new System.Drawing.Point(62, 99);
-            this.btnGenerarCodigoBarras.Name = "btnGenerarCodigoBarras";
-            this.btnGenerarCodigoBarras.Size = new System.Drawing.Size(199, 28);
-            this.btnGenerarCodigoBarras.TabIndex = 52;
-            this.btnGenerarCodigoBarras.Text = "GENERAR CODIGO DE BARRAS";
-            this.btnGenerarCodigoBarras.UseVisualStyleBackColor = false;
+            this.RutaControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
+            this.RutaControl.BeforeTouchSize = new System.Drawing.Size(298, 35);
+            this.RutaControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RutaControl.CornerRadius = 2;
+            this.RutaControl.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.RutaControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RutaControl.Location = new System.Drawing.Point(11, 108);
+            this.RutaControl.MaxLength = 80;
+            this.RutaControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.RutaControl.MinimumSize = new System.Drawing.Size(8, 4);
+            this.RutaControl.Multiline = true;
+            this.RutaControl.Name = "RutaControl";
+            this.RutaControl.ReadOnly = true;
+            this.RutaControl.Size = new System.Drawing.Size(298, 35);
+            this.RutaControl.TabIndex = 45;
             // 
             // FrmProducto
             // 
@@ -653,34 +675,35 @@
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.pnlPrecio.ResumeLayout(false);
-            this.pnlPrecio.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
+            this.pnlPrecio.ResumeLayout(false);
+            this.pnlPrecio.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             this.ClaveSat.ResumeLayout(false);
             this.ClaveSat.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RutaControl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -739,5 +762,6 @@
         private System.Windows.Forms.Panel ClaveSat;
         private System.Windows.Forms.TextBox ClaveSatControl;
         private System.Windows.Forms.Label label1;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt RutaControl;
     }
 }

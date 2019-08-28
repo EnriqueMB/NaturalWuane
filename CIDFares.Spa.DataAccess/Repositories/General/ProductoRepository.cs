@@ -25,17 +25,18 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         /// </summary>
         /// <param name="entity">De tipo producto encapsula todos los parametros que han de guardarse</param>
         /// <returns>Retorna un entero que representa el estado de la tarea</returns>
-        public async Task<int> AddFotoProducto(Producto entity)
+        public async Task<int> AddFotoProducto(Producto entity, object IdUsuario)
         {
             try
             {
                 using (IDbConnection conexion = new SqlConnection(WebConnectionString))
                 {
                     var dynamicParameters = new DynamicParameters();
-                    dynamicParameters.Add("@IdUsuario",1);
+                    dynamicParameters.Add("@Clave", entity.Clave);
+                    dynamicParameters.Add("@IdUsuario", IdUsuario);
                     dynamicParameters.Add("@FotoBase64", entity.Base64String);
                     dynamicParameters.Add("@UrlLocalImagen", entity.UrlFoto);
-                    var result = await conexion.ExecuteScalarAsync<int>("[Nomina].[SPCID_AC_FotoPersonal]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_AC_ProductoFoto]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     return result;
                 }
             }
@@ -46,7 +47,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public async Task<string> AddWitClave(Producto entity)
+        public async Task<String> AddWitClave(Producto entity, object IdUsuario)
         {
             try
             {
@@ -71,8 +72,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@UnidadMedida", entity.IdUnidadMedida);
                     dynamicParameters.Add("@ClaveSat", entity.ClaveSat);
                     dynamicParameters.Add("@AplicaIva", entity.AplicaIva);
-                    dynamicParameters.Add("@Usuario", 1);
-                    var result = await conexion.ExecuteScalarAsync<string>("[Catalogo].[SPCID_AC_Producto]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    dynamicParameters.Add("@Usuario",  IdUsuario);
+                    var result = await conexion.ExecuteScalarAsync<String>("[Catalogo].[SPCID_AC_Producto]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     return result;
                 }
             }
@@ -131,7 +132,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         /// </summary>
         /// <param name="Id">De tipo object, representa el id del producto que se desea remover</param>
         /// <returns>Retorna un entero que indica el estado de la tarea</returns>
-        public async Task<int> DeleteAsync(object id)
+        public async Task<int> DeleteAsync(object id, object IdUsuario)
         {
             try
             {
@@ -141,7 +142,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@IdProducto", id);
-                    dynamicParameters.Add("@Usuario", 1);
+                    dynamicParameters.Add("@Usuario", IdUsuario);
                     var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_Delete_Producto]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     return result;
                 }
@@ -177,7 +178,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         /// </summary>
         /// <param name="entity">De tipo producto encapsula todos los parametros que han de modificarse</param>
         /// <returns>Retorna un string que representa la clave del Personal modificado</returns>
-        public async Task<string> Update(Producto element)
+        public async Task<String> Update(Producto element, object IdUsuario)
         {
             try
             {
@@ -201,8 +202,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     item.Add("@UnidadMedida", element.UnidadMedida);
                     item.Add("@ClaveSat", element.ClaveSat);
                     item.Add("@AplicaIva", element.AplicaIva);
-                    item.Add("@Usuario", 1);//sera el de current session
-                    var result = await conexion.ExecuteScalarAsync<string>("[Catalogo].[SPCID_AC_Producto]", param: item, commandType: CommandType.StoredProcedure);
+                    item.Add("@Usuario", IdUsuario);//sera el de current session
+                    var result = await conexion.ExecuteScalarAsync<String>("[Catalogo].[SPCID_AC_Producto]", param: item, commandType: CommandType.StoredProcedure);
                     return result;
                 }
             }
@@ -284,10 +285,10 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public Task<int> DeleteAsync(object id, object IdUsuario)
-        {
-            throw new NotImplementedException();
-        }
+        //public Task<int> DeleteAsync(object id, object IdUsuario)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public Task<Producto> UpdateAsync(Producto element, object IdUsuario)
         {
