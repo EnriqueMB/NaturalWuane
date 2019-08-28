@@ -43,6 +43,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             ListaCategoria = new BindingList<CategoriaProducto>();
             RespositoryCategoria = respositoryCategoria;
             RespositoryUnidadMedida = respositoryUnidadMedida;
+            //binding
+            Nombre = string.Empty;
 
 
         }
@@ -228,7 +230,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public int IdProducto
         {
             get { return _IdProducto; }
-            set { _IdProducto = value; OnPropertyChanged(nameof(IdProducto)); }
+            set { _IdProducto = value; OnPropertyChanged("IdProducto"); }
         }
 
         private string _Categoria;
@@ -236,7 +238,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public string Categoria
         {
             get { return _Categoria; }
-            set { _Categoria = value; OnPropertyChanged(nameof(Categoria)); }
+            set { _Categoria = value; OnPropertyChanged("Categoria"); }
         }
 
         private int _Clave;
@@ -244,15 +246,15 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public int Clave
         {
             get { return _Clave; }
-            set { _Clave = value; OnPropertyChanged(nameof(Clave)); }
+            set { _Clave = value; OnPropertyChanged("Clave"); }
         }
 
-        private string _Nombre = "";
+        private string _Nombre;
 
         public string Nombre
         {
             get { return _Nombre; }
-            set { _Nombre = value; OnPropertyChanged(nameof(Nombre)); }
+            set { _Nombre = value; OnPropertyChanged("Nombre"); }
         }
 
         private string _Descripcion;
@@ -260,7 +262,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public string Descripcion
         {
             get { return _Descripcion; }
-            set { _Descripcion = value; OnPropertyChanged(nameof(Descripcion)); }
+            set { _Descripcion = value; OnPropertyChanged("Descripcion"); }
         }
 
 
@@ -269,7 +271,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public bool Stock
         {
             get { return _Stock; }
-            set { _Stock = value; OnPropertyChanged(nameof(Stock)); }
+            set { _Stock = value; OnPropertyChanged("Stock"); }
         }
 
         private int _StockMax;
@@ -277,7 +279,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public int StockMax
         {
             get { return _StockMax; }
-            set { _StockMax = value; OnPropertyChanged(nameof(StockMax)); }
+            set { _StockMax = value; OnPropertyChanged("StockMax"); }
         }
 
         private int _StockMin;
@@ -285,7 +287,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public int StockMin
         {
             get { return _StockMin; }
-            set { _StockMin = value; OnPropertyChanged(nameof(StockMin)); }
+            set { _StockMin = value; OnPropertyChanged("StockMin"); }
         }
 
         private decimal _PrecioPublico;
@@ -293,7 +295,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public decimal PrecioPublico
         {
             get { return _PrecioPublico; }
-            set { _PrecioPublico = value; OnPropertyChanged(nameof(PrecioPublico)); }
+            set { _PrecioPublico = value; OnPropertyChanged("PrecioPublico"); }
         }
 
 
@@ -302,7 +304,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public decimal PrecioMayoreo
         {
             get { return _PrecioMayoreo; }
-            set { _PrecioMayoreo = value; OnPropertyChanged(nameof(PrecioMayoreo)); }
+            set { _PrecioMayoreo = value; OnPropertyChanged("PrecioMayoreo"); }
         }
 
         private decimal _PrecioMenudeo;
@@ -310,7 +312,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public decimal PrecioMenudeo
         {
             get { return _PrecioMenudeo; }
-            set { _PrecioMenudeo = value; OnPropertyChanged(nameof(PrecioMenudeo)); }
+            set { _PrecioMenudeo = value; OnPropertyChanged("PrecioMenudeo"); }
         }
 
         private string _CodigoBarras;
@@ -318,7 +320,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public string CodigoBarras
         {
             get { return _CodigoBarras; }
-            set { _CodigoBarras = value; OnPropertyChanged(nameof(CodigoBarras)); }
+            set { _CodigoBarras = value; OnPropertyChanged("CodigoBarras"); }
         }
 
         private int? _IdUnidadMedida;
@@ -326,7 +328,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public int? IdUnidadMedida
         {
             get { return _IdUnidadMedida; }
-            set { _IdUnidadMedida = value; OnPropertyChanged(nameof(IdUnidadMedida)); }
+            set { _IdUnidadMedida = value; OnPropertyChanged("IdUnidadMedida"); }
         }
 
         private string _UnidadMedida;
@@ -341,7 +343,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public int ClaveSat
         {
             get { return _ClaveSat; }
-            set { _ClaveSat = value; OnPropertyChanged(nameof(ClaveSat)); }
+            set { _ClaveSat = value; OnPropertyChanged("ClaveSat"); }
         }
 
         private bool _AplicaIva;
@@ -349,7 +351,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public bool AplicaIva
         {
             get { return _AplicaIva; }
-            set { _AplicaIva = value; OnPropertyChanged(nameof(AplicaIva)); }
+            set { _AplicaIva = value; OnPropertyChanged("AplicaIva"); }
         }
         public string Extencion { get; set; } 
         private Guid _Usuario;
@@ -357,7 +359,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public Guid Usuario
         {
             get { return _Usuario; }
-            set { _Usuario = value; OnPropertyChanged(nameof(Usuario)); }
+            set { _Usuario = value; OnPropertyChanged("Usuario"); }
         }
 
         private int? _IdCategoria;
@@ -374,7 +376,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public string BaseString64
         {
             get { return _BaseString64; }
-            set { _BaseString64 = value; OnPropertyChanged(nameof(BaseString64)); }
+            set { _BaseString64 = value; OnPropertyChanged("BaseString64"); }
         }
 
         private bool _UpdateFoto;
@@ -382,7 +384,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public bool UpdateFoto
         {
             get { return _UpdateFoto; }
-            set { _UpdateFoto = value; OnPropertyChanged(nameof(UpdateFoto)); }
+            set { _UpdateFoto = value; OnPropertyChanged("UpdateFoto"); }
         }
 
         //para combo
@@ -432,7 +434,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
         #region InotifyPropertyChanged Members
         public event PropertyChangedEventHandler PropertyChanged;
-
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

@@ -64,8 +64,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         #region metodos
         private void IniciarBinding()
         {
+            //NombreControl.DataBindings.Add("Text", Model.PDatos, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
             NombreControl.DataBindings.Add("Text", Model.PDatos, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
-          //  UnidadMedidaControl.DataBindings.Add("Text", Model.PDatos, "UnidadMedida", true, DataSourceUpdateMode.OnPropertyChanged);
+            //  UnidadMedidaControl.DataBindings.Add("Text", Model.PDatos, "UnidadMedida", true, DataSourceUpdateMode.OnPropertyChanged);
             PrecioPublicoControl.DataBindings.Add("Text", Model.PDatos, "PrecioPublico", true, DataSourceUpdateMode.OnPropertyChanged);
             PrecioMayoreoControl.DataBindings.Add("Text", Model.PDatos, "PrecioMayoreo", true, DataSourceUpdateMode.OnPropertyChanged);
             PrecioMenudeoControl.DataBindings.Add("Text", Model.PDatos, "PrecioMenudeo", true, DataSourceUpdateMode.OnPropertyChanged);
