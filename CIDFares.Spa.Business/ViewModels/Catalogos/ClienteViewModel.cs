@@ -21,6 +21,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
         #region Propiedades públicas
         public BindingList<Cliente> ListaCliente { get; set; }
+        public BindingList<Cliente> ListaClienteVenta { get; set; }
         public EntityState State { get; set; }
         #endregion
 
@@ -29,6 +30,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             Repository = clienteRepository;
             ListaCliente = new BindingList<Cliente>();
+            ListaClienteVenta = new BindingList<Cliente>();
             GetAll();
         }
         #endregion
@@ -51,6 +53,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 throw ex;
             }
         }
+        
 
         public async Task GetFoto(Guid IdCliente)
         {
@@ -126,10 +129,10 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             try
             {
                 var x = await Repository.GetBusquedaAsync(this.Busqueda);
-                ListaCliente.Clear();
+                ListaClienteVenta.Clear();
                 foreach (var item in x)
                 {
-                    ListaCliente.Add(item);
+                    ListaClienteVenta.Add(item);
                 }
             }
             catch (Exception ex)
@@ -329,7 +332,16 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 OnPropertyChanged(nameof(Busqueda));
             }
         }
-
+        private bool _BuscarCliente;
+        public bool BuscarCliente
+        {
+            get { return _BuscarCliente; }
+            set
+            {
+                _BuscarCliente = value;
+                OnPropertyChanged(nameof(BuscarCliente));
+            }
+        }
 
         #region InotifyPropertyChanged Members
 
