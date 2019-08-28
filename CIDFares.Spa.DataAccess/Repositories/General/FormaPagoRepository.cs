@@ -12,10 +12,12 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
 {
     public class FormaPagoRepository : Repository, IFormaPagoRepository
     {
+
         /// <summary>
         /// Obtiene todas las formas de pago activas
         /// </summary>
         /// <returns></returns>
+
         public async Task<IEnumerable<FormaPago>> GetAllAsync()
         {
             using (IDbConnection conexion = new SqlConnection(WebConnectionString))
@@ -60,7 +62,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     element.Resultado = result;
                     return element;
                 }
-                
+
             }
             catch (Exception ex)
             {

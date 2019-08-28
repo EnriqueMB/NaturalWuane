@@ -19,7 +19,7 @@ using CIDFares.Spa.WFApplication.Constants;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.Business.ValueObjects;
-using CIDFares.Spa.WFApplication.Session;
+using CIDFares.Spa.CrossCutting.Session;
 using System.IO;
 
 namespace CIDFares.Spa.WFApplication.Forms.Catalogos

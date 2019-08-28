@@ -13,26 +13,35 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
     {
         public async Task<LoginRequests> Login(string Account, string Password)
         {
-            LoginRequests loginRequests = new LoginRequests();
-            using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+            try
             {
-                conexion.Open();
-                var dynamicParameters = new DynamicParameters();
-                dynamicParameters.Add("@Cuenta", Account);
-                dynamicParameters.Add("@Password", Password);
-                var dr = await conexion.ExecuteReaderAsync("SPCID_Login", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                while (dr.Read())
+                LoginRequests loginRequests = new LoginRequests();
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
                 {
-                    loginRequests.IsValid = !dr.IsDBNull(dr.GetOrdinal("IsValid")) ? dr.GetInt32(dr.GetOrdinal("IsValid")) : 0;
-                    if(loginRequests.IsValid == 1)
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@Cuenta", Account);
+                    dynamicParameters.Add("@Password", Password);
+                    var dr = await conexion.ExecuteReaderAsync("SPCID_Login", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    while (dr.Read())
                     {
-                        loginRequests.IdCuentaUsuario = !dr.IsDBNull(dr.GetOrdinal("IdCuentaUsuario")) ? dr.GetInt32(dr.GetOrdinal("IdCuentaUsuario")) : 0;
-                        loginRequests.IdRol = !dr.IsDBNull(dr.GetOrdinal("IdRol")) ? dr.GetInt32(dr.GetOrdinal("IdRol")) : 0;
-                        loginRequests.IdEmpleado = dr.GetGuid(dr.GetOrdinal("IdEmpleado"));
-                        loginRequests.Nombres = dr.GetString(dr.GetOrdinal("Nombres"));
+                        loginRequests.IsValid = !dr.IsDBNull(dr.GetOrdinal("IsValid")) ? dr.GetInt32(dr.GetOrdinal("IsValid")) : 0;
+                        if (loginRequests.IsValid == 1)
+                        {
+                            loginRequests.IdCuentaUsuario = !dr.IsDBNull(dr.GetOrdinal("IdCuentaUsuario")) ? dr.GetGuid(dr.GetOrdinal("IdCuentaUsuario")) : Guid.Empty;
+                            loginRequests.IdRol = !dr.IsDBNull(dr.GetOrdinal("IdRol")) ? dr.GetInt32(dr.GetOrdinal("IdRol")) : 0;
+                            loginRequests.IdTurnoEmpleado = dr.GetInt32(dr.GetOrdinal("IdTurnoEmpleado"));
+                            loginRequests.IdEmpleado = !dr.IsDBNull(dr.GetOrdinal("IdEmpleado")) ? dr.GetGuid(dr.GetOrdinal("IdEmpleado")) : Guid.Empty;
+                            loginRequests.Nombres = dr.GetString(dr.GetOrdinal("Nombres"));
+                        }
                     }
+                    dr.Close();
                 }
                 return loginRequests;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
