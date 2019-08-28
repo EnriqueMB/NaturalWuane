@@ -9,10 +9,10 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.Base
         Task<IEnumerable<T>> GetAllAsync();
 
         Task<T> GetAsync(object id);
-        Task<int> DeleteAsync(object id);
+        Task<int> DeleteAsync(object id, object IdUsuario);
 
-        Task<T> UpdateAsync(T element);
-        Task<T> AddAsync(T element);
+        Task<T> UpdateAsync(T element, object IdUsuario);
+        Task<T> AddAsync(T element, object IdUsuario);
         Task<int> NameExistAsync(string name);
     }
 }

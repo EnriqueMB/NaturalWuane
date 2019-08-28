@@ -128,7 +128,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
                 if (validationResults.IsValid)
                 {
-                FormaPago Resultado = await Model.GuardarCambios();
+                FormaPago Resultado = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
                 if (Resultado.Resultado == 1)
                 {
                     CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
@@ -193,7 +193,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     {
                        Model.IdFormaPago = item.IdFormaPago;
                         grpBoxFormaPago.Enabled = false;
-                        var result = await Model.DeleteAsync();
+                        var result = await Model.DeleteAsync(CurrentSession.IdCuentaUsuario);
                         if (result == 1)
                         {
                             CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.informacion);

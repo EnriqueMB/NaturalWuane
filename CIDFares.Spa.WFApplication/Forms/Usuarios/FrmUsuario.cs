@@ -8,6 +8,7 @@ using CIDFares.Spa.Business.ViewModels.General;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
+using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -185,7 +186,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
                    // {
                         Model.IdCuentaUsuario= item.IdCuentaUsuario;
                         groupUsuario.Enabled = false;
-                        var result = await Model.Remove();
+                        var result = await Model.Remove(CurrentSession.IdCuentaUsuario);
 
 
                         if (result == 1)
@@ -220,7 +221,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
 
                 //if (validationResults.IsValid)
                 //{
-                    var Resultado = await Model.GuardarCambios();
+                    var Resultado = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
                    //if (Resultado)
                     {
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);

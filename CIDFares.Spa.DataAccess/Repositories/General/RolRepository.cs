@@ -19,7 +19,17 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
+        public Task<Rol> AddAsync(Rol element, object IdUsuario)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<int> DeleteAsync(object id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> DeleteAsync(object id, object IdUsuario)
         {
             throw new NotImplementedException();
         }
@@ -66,6 +76,11 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         }
 
         public Task<Rol> UpdateAsync(Rol element)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Rol> UpdateAsync(Rol element, object IdUsuario)
         {
             throw new NotImplementedException();
         }

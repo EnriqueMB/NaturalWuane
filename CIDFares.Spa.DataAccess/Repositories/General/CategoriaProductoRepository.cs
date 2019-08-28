@@ -40,6 +40,11 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
+        public Task<CategoriaProducto> AddAsync(CategoriaProducto element, object IdUsuario)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<int> DeleteAsync(object id)
         {
             using (IDbConnection conexion = new SqlConnection(WebConnectionString))
@@ -51,6 +56,11 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_Delete_CategoriaProducto]", param: dynamicParameters, commandType: CommandType.StoredProcedure);               
                 return result;
             }
+        }
+
+        public Task<int> DeleteAsync(object id, object IdUsuario)
+        {
+            throw new NotImplementedException();
         }
 
         public Task<bool> ExistAsync(object id)
@@ -153,6 +163,11 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             {
                 throw ex;
             }
+        }
+
+        public Task<CategoriaProducto> UpdateAsync(CategoriaProducto element, object IdUsuario)
+        {
+            throw new NotImplementedException();
         }
     }
 }

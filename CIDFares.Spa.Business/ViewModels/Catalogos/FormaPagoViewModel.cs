@@ -47,7 +47,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        public async Task<FormaPago> GuardarCambios()
+        public async Task<FormaPago> GuardarCambios(Guid IdUsuario)
         {
             try
             {
@@ -61,11 +61,11 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 };
                 if (State == EntityState.Create)
                 {
-                    return await Repository.AddAsync(model);
+                    return await Repository.AddAsync(model, IdUsuario);
                 }
                 else if (State == EntityState.Update)
                 {
-                    return await Repository.UpdateAsync(model);
+                    return await Repository.UpdateAsync(model, IdUsuario);
                 }
                 return model;
             }
@@ -75,11 +75,11 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        public async Task<int> DeleteAsync()
+        public async Task<int> DeleteAsync(Guid IdUsuario)
         {
             try
             {
-                return await Repository.Elimnar(this.IdFormaPago, this.IdUsuarioL);
+                return await Repository.DeleteAsync(IdFormaPago, IdUsuario);
             }
             catch (Exception ex)
             {

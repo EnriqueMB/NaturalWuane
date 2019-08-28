@@ -6,7 +6,7 @@ using CIDFares.Spa.DataAccess.Contracts.Validations;
 using CIDFares.Spa.WFApplication.Forms.Ventas;
 using CIDFares.Spa.WFApplication.Forms.Catalogos;
 using CIDFares.Spa.WFApplication.Forms.General;
-using CIDFares.Spa.CrossCutting.Session;
+using CIDFares.Spa.WFApplication.Session;
 using CIDFares.Spa.WFApplication.Validations;
 using FluentValidation;
 using CIDFares.Spa.WFApplication.Forms.Usuarios;
@@ -29,7 +29,8 @@ namespace CIDFares.Spa.WFApplication
             InitializeContainer();
             //CurrentSession.IdCuentaUsuario = ;
             //Application.Run(new FrmFormaPago());
-            Application.Run(new FrmCategoriaProducto());
+            //Application.Run(new FrmProductoGrid());
+            Application.Run(new FrmLogin());
         }
 
         public static void InitializeContainer()

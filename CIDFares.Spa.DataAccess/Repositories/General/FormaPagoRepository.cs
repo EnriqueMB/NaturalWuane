@@ -164,7 +164,17 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
-        public Task<int> DeleteAsync(object id)
+        public Task<int> DeleteAsync(object id, object IdUsuario)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<FormaPago> UpdateAsync(FormaPago element, object IdUsuario)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<FormaPago> AddAsync(FormaPago element, object IdUsuario)
         {
             throw new NotImplementedException();
         }
