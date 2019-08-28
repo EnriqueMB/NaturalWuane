@@ -17,7 +17,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public string Rfc { get; set; }
         public string NombreRepresentante { get; set; }
         public string RegimenFiscal { get; set; }
-
+        public int Result { get; set; }
     }
 }
     

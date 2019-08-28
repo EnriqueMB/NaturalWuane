@@ -40,7 +40,17 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
+        public Task<CategoriaProducto> AddAsync(CategoriaProducto element, object IdUsuario)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<int> DeleteAsync(object id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> DeleteAsync(object id, object IdUsuario)
         {
             throw new NotImplementedException();
         }
@@ -130,6 +140,11 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             {
                 throw ex;
             }
+        }
+
+        public Task<CategoriaProducto> UpdateAsync(CategoriaProducto element, object IdUsuario)
+        {
+            throw new NotImplementedException();
         }
     }
 }
