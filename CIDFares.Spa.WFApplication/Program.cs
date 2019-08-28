@@ -27,7 +27,7 @@ namespace CIDFares.Spa.WFApplication
             InitializeContainer();
             //CurrentSession.IdCuentaUsuario = ;
             //Application.Run(new FrmFormaPago());
-            Application.Run(new FrmProductoGrid());
+            Application.Run(new FrmServicio());
         }
 
         public static void InitializeContainer()
@@ -50,6 +50,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<FormaPagoValidator, IValidator<FormaPagoViewModel>>();
             ServiceLocator.Instance.Register<ClienteValidator, IValidator<ClienteViewModel>>();
             ServiceLocator.Instance.Register<CategoriaProductoValidator, IValidator<CategoriaProductoViewModel>>();
+            ServiceLocator.Instance.Register<ServicioValidator, IValidator<ServicioViewModel>>();
         }
 
         private static void RegisterViewModelDependencies()
@@ -61,6 +62,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ClienteViewModel>();
             ServiceLocator.Instance.Register<CategoriaProductoViewModel>();
             ServiceLocator.Instance.Register<UsuarioViewModel>();
+            ServiceLocator.Instance.Register<ServicioViewModel>();
 
         }
 

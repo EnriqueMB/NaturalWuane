@@ -54,6 +54,7 @@
     <Compile Include="Repositories\General\LoginRepository.cs" />
     <Compile Include="Repositories\General\ProductoRepository.cs" />
     <Compile Include="Repositories\General\RolRepository.cs" />
+    <Compile Include="Repositories\General\ServicioRepository.cs" />
     <Compile Include="Repositories\General\SucursalRepository.cs" />
     <Compile Include="Repositories\General\UsuarioRepository.cs" />
     <Compile Include="Repositories\General\UnidadMedidaRepository.cs" />
