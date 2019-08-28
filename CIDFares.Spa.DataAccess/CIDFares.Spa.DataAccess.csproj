@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\General\BusquedaProductoRepository.cs" />
     <Compile Include="Repositories\General\CategoriaProductoRepository.cs" />
     <Compile Include="Repositories\General\ClienteRepository.cs" />
     <Compile Include="Repositories\General\EmpleadoRepository.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Repositories\General\LoginRepository.cs" />
     <Compile Include="Repositories\General\ProductoRepository.cs" />
     <Compile Include="Repositories\General\RolRepository.cs" />
+    <Compile Include="Repositories\General\ServicioRepository.cs" />
     <Compile Include="Repositories\General\SucursalRepository.cs" />
     <Compile Include="Repositories\General\UsuarioRepository.cs" />
     <Compile Include="Repositories\General\UnidadMedidaRepository.cs" />

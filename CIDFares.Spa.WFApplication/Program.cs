@@ -5,6 +5,7 @@ using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Validations;
 using CIDFares.Spa.WFApplication.Forms.Ventas;
 using CIDFares.Spa.WFApplication.Forms.Catalogos;
+using CIDFares.Spa.WFApplication.Forms.Ventas;
 using CIDFares.Spa.WFApplication.Forms.General;
 using CIDFares.Spa.WFApplication.Session;
 using CIDFares.Spa.WFApplication.Validations;
@@ -27,10 +28,8 @@ namespace CIDFares.Spa.WFApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
-            //CurrentSession.IdCuentaUsuario = ;
-            Application.Run(new FrmVenta());
-            //Application.Run(new FrmProductoGrid());
-            //Application.Run(new FrmLogin());
+            CurrentSession.IdCuentaUsuario = Guid.Empty;
+            Application.Run(new FrmCliente());
         }
 
         public static void InitializeContainer()
@@ -53,6 +52,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<FormaPagoValidator, IValidator<FormaPagoViewModel>>();
             ServiceLocator.Instance.Register<ClienteValidator, IValidator<ClienteViewModel>>();
             ServiceLocator.Instance.Register<CategoriaProductoValidator, IValidator<CategoriaProductoViewModel>>();
+            ServiceLocator.Instance.Register<ServicioValidator, IValidator<ServicioViewModel>>();
         }
 
         private static void RegisterViewModelDependencies()
@@ -63,10 +63,10 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ProductoViewModel>();
             ServiceLocator.Instance.Register<ClienteViewModel>();
             ServiceLocator.Instance.Register<VentasViewModel>();
+            ServiceLocator.Instance.Register<BusquedaProductoViewModel>();
             ServiceLocator.Instance.Register<CategoriaProductoViewModel>();
             ServiceLocator.Instance.Register<UsuarioViewModel>();
-
+            ServiceLocator.Instance.Register<ServicioViewModel>();
         }
-
     }
 }

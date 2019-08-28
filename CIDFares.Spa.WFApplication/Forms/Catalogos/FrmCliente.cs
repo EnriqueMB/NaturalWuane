@@ -316,8 +316,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
 
-        #endregion
-
         private async void BtnBusqueda_Click(object sender, EventArgs e)
         {
             try
@@ -350,6 +348,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 throw;
             }
         }
-
+        #endregion
     }
 }

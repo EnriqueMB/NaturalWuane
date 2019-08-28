@@ -199,11 +199,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 {
                     Model.IdCategoriaProducto = item.IdCategoriaProducto;
                     gbCat.Enabled = false;
-                    var result = await Model.DeleteAsync();
+                    var result = await Model.DeleteAsync(CurrentSession.IdCuentaUsuario);
                     if (result == 1)
                     {
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.informacion);
                         LimpiarPropiedades();
+                        this.CleanErrors(errorProvider1, typeof(CategoriaProductoViewModel));
                         await Model.GetAllAsync();
                     }
                     else if(result == 0)
