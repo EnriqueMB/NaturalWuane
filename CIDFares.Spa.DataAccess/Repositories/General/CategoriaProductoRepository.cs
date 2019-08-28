@@ -28,7 +28,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@idCategoria", element.IdCategoriaProducto);
                     dynamicParameters.Add("@nombre", element.Nombre);
                     dynamicParameters.Add("@desc", element.Descripcion);                    
-                    dynamicParameters.Add("@user", 1 /*CurrentSession.IdUsuario*/);
+                    dynamicParameters.Add("@user", "E286E804-DD43-4FC9-95DE-100796BC2E3F" /*CurrentSession.IdUsuario*/);
                     var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_AC_CategoriaProducto]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;
@@ -45,9 +45,17 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
-        public Task<int> DeleteAsync(object id)
+        public async Task<int> DeleteAsync(object id)
         {
-            throw new NotImplementedException();
+            using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+            {
+                conexion.Open();
+                var dynamicParameters = new DynamicParameters();                
+                dynamicParameters.Add("@idCategoria", id);                
+                dynamicParameters.Add("@user", "E286E804-DD43-4FC9-95DE-100796BC2E3F" /*CurrentSession.IdUsuario*/);
+                var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_Delete_CategoriaProducto]", param: dynamicParameters, commandType: CommandType.StoredProcedure);               
+                return result;
+            }
         }
 
         public Task<int> DeleteAsync(object id, object IdUsuario)
@@ -113,9 +121,24 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public Task<int> NameExistAsync(string name)
+        public async Task<int> NameExistAsync(string name)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@Opcion", 3);
+                    dynamicParameters.Add("@Nombre", name.Trim());
+                    var dr = await conexion.ExecuteScalarAsync<int>("[General].[SPCID_ValidarNombre]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return dr;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public async Task<CategoriaProducto> UpdateAsync(CategoriaProducto element)
@@ -130,8 +153,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@idCategoria", element.IdCategoriaProducto);
                     dynamicParameters.Add("@nombre", element.Nombre);
                     dynamicParameters.Add("@desc", element.Descripcion);
-                    dynamicParameters.Add("@user", 1 /*CurrentSession.IdUsuario*/);
-                    var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_AC_FormaPago]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    dynamicParameters.Add("@user", "E286E804-DD43-4FC9-95DE-100796BC2E3F" /*CurrentSession.IdUsuario*/);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_AC_CategoriaProducto]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;
                 }
