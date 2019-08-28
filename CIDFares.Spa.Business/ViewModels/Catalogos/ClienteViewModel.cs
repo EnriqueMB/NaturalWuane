@@ -65,7 +65,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        public async Task<Cliente> GuardarCambios()
+        public async Task<Cliente> GuardarCambios(Guid IdUsuario)
         {
             try
             {
@@ -84,7 +84,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     model.FotoBase64 = this.FotoBase64;
                     model.Rfc = this.Rfc;
                     model.IdUsuarioL = this.IdUsuarioL;
-                    model = await Repository.AddAsync(model);
+                    model = await Repository.AddAsync(model, IdUsuario);
                 }
                 else if (State == EntityState.Update)
                 {
@@ -100,7 +100,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     model.FotoBase64 = this.FotoBase64;
                     model.Rfc = this.Rfc;
                     model.IdUsuarioL = this.IdUsuarioL;
-                    model = await Repository.AddAsync(model);
+                    model = await Repository.AddAsync(model, IdUsuario);
                 }
                 return model;
             }
@@ -243,8 +243,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        private int? _IdUsuarioL;
-        public int? IdUsuarioL
+        private Guid _IdUsuarioL;
+        public Guid IdUsuarioL
         {
             get { return _IdUsuarioL; }
             set

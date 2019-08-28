@@ -7,6 +7,7 @@ using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
+using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -109,7 +110,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
                 if (validationResults.IsValid)
                 {
-                    CategoriaProducto Resul = await Model.GuardarCambios();
+                    CategoriaProducto Resul = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
                     if (Resul.Resultado == 1)
                     {
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);

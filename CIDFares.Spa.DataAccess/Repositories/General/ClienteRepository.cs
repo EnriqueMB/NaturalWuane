@@ -121,7 +121,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public async Task<int> Elimnar(object id, int? IdUsuario)
+        public async Task<int> Elimnar(object id, Guid IdUsuario)
         {
             try
             {
@@ -203,6 +203,21 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         }
 
         public Task<Cliente> UpdateAsync(Cliente element)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> DeleteAsync(object id, object IdUsuario)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Cliente> UpdateAsync(Cliente element, object IdUsuario)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Cliente> AddAsync(Cliente element, object IdUsuario)
         {
             throw new NotImplementedException();
         }
