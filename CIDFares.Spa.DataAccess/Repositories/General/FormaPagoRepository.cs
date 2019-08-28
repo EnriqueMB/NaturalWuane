@@ -45,7 +45,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         /// </summary>
         /// <param name="element"></param>
         /// <returns></returns>
-        public async Task<FormaPago> AddAsync(FormaPago element)
+        public async Task<FormaPago> AddAsync(FormaPago element, object IdUsuario)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@Nombre", element.Nombre);
                     dynamicParameters.Add("@Descripcion", element.Descripcion);
                     dynamicParameters.Add("@Opcion", 1);
-                    dynamicParameters.Add("@Usuario", 1 /*CurrentSession.IdUsuario*/);
+                    dynamicParameters.Add("@Usuario",  IdUsuario);
                     var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_AC_FormaPago]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;
@@ -76,7 +76,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         /// </summary>
         /// <param name="element"></param>
         /// <returns></returns>
-        public async Task<FormaPago> UpdateAsync(FormaPago element)
+        public async Task<FormaPago> UpdateAsync(FormaPago element, object IdUsuario)
         {
             try
             {
@@ -88,7 +88,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@Nombre", element.Nombre);
                     dynamicParameters.Add("@Descripcion", element.Descripcion);
                     dynamicParameters.Add("@Opcion", 2);
-                    dynamicParameters.Add("@Usuario", 1 /*CurrentSession.IdUsuario*/);
+                    dynamicParameters.Add("@Usuario",IdUsuario);
                     var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_AC_FormaPago]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;
@@ -107,7 +107,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<int> DeleteAsync(object id)
+        public async Task<int> DeleteAsync(object idFormaPago, object IdUsuario)
         {
             try
             {
@@ -116,16 +116,14 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
 
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
-                    dynamicParameters.Add("@IdFormaPago", id);
-                    dynamicParameters.Add("@Usuario", 1);
+                    dynamicParameters.Add("@IdFormaPago", idFormaPago);
+                    dynamicParameters.Add("@Usuario", IdUsuario);
                     var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_Delete_FormaPago]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     return result;
                 }
-
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }

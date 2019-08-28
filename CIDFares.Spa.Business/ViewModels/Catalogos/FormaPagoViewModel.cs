@@ -47,24 +47,25 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        public async Task<FormaPago> GuardarCambios()
+        public async Task<FormaPago> GuardarCambios(Guid IdUsuario)
         {
             try
             {
                 FormaPago model = new FormaPago
                 {
-                    IdFormaPago = IdFormaPago,
-                    Nombre = Nombre.Trim(),
-                    Descripcion = Descripcion.Trim(),
+                    IdFormaPago = this.IdFormaPago,
+                    Nombre = this.Nombre.Trim(),
+                    Descripcion = this.Descripcion.Trim(),
+                    IdUsuario = this.IdUsuarioL,
                     Resultado = -2
                 };
                 if (State == EntityState.Create)
                 {
-                    return await Repository.AddAsync(model);
+                    return await Repository.AddAsync(model, IdUsuario);
                 }
                 else if (State == EntityState.Update)
                 {
-                    return await Repository.UpdateAsync(model);
+                    return await Repository.UpdateAsync(model, IdUsuario);
                 }
                 return model;
             }
@@ -74,11 +75,11 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        public async Task<int> DeleteAsync()
+        public async Task<int> DeleteAsync(Guid IdUsuario)
         {
             try
             {
-                return await Repository.DeleteAsync(IdFormaPago);
+                return await Repository.DeleteAsync(IdFormaPago, IdUsuario);
             }
             catch (Exception ex)
             {
@@ -101,6 +102,16 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
+        private Guid? _IdUsuarioL;
+        public Guid? IdUsuarioL
+        {
+            get { return _IdUsuarioL; }
+            set
+            {
+                _IdUsuarioL = value;
+                OnPropertyChanged(nameof(IdUsuarioL));
+            }
+        }
 
         private string _Nombre;
 

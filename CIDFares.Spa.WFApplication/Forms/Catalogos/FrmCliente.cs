@@ -16,10 +16,11 @@ using CIDFares.Library.Code.Helpers;
 using CIDFares.Library.Code.Extensions;
 using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Spa.WFApplication.Constants;
+using CIDFares.Spa.WFApplication.Session;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.Business.ValueObjects;
-using CIDFares.Spa.CrossCutting.Session;
+using CIDFares.Spa.WFApplication.Session;
 using System.IO;
 
 namespace CIDFares.Spa.WFApplication.Forms.Catalogos
@@ -203,7 +204,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 validationResults.ToString();
                 if (validationResults.IsValid)
                 {
-                    var Resultado = await Model.GuardarCambios();
+                    var Resultado = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
                     if (Resultado.Resultado == 1)
                     {
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.error);
@@ -315,8 +316,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
 
-        #endregion
-
         private async void BtnBusqueda_Click(object sender, EventArgs e)
         {
             try
@@ -349,6 +348,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 throw;
             }
         }
-
+        #endregion
     }
 }

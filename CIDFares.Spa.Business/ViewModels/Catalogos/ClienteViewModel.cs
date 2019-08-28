@@ -21,14 +21,16 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
         #region Propiedades públicas
         public BindingList<Cliente> ListaCliente { get; set; }
+        public BindingList<Cliente> ListaClienteVenta { get; set; }
         public EntityState State { get; set; }
         #endregion
 
         #region Constructor
-        public ClienteViewModel(IClienteRepository formaPagoRepository)
+        public ClienteViewModel(IClienteRepository clienteRepository)
         {
-            Repository = formaPagoRepository;
+            Repository = clienteRepository;
             ListaCliente = new BindingList<Cliente>();
+            ListaClienteVenta = new BindingList<Cliente>();
             GetAll();
         }
         #endregion
@@ -51,6 +53,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 throw ex;
             }
         }
+        
 
         public async Task GetFoto(Guid IdCliente)
         {
@@ -65,7 +68,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        public async Task<Cliente> GuardarCambios()
+        public async Task<Cliente> GuardarCambios(Guid IdUsuario)
         {
             try
             {
@@ -83,8 +86,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     model.Sexo = this.Sexo;
                     model.FotoBase64 = this.FotoBase64;
                     model.Rfc = this.Rfc;
-                    model.IdUsuarioL = this.IdUsuarioL;
-                    model = await Repository.AddAsync(model);
+                    model = await Repository.AddAsync(model, IdUsuario);
                 }
                 else if (State == EntityState.Update)
                 {
@@ -99,8 +101,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     model.Sexo = this.Sexo;
                     model.FotoBase64 = this.FotoBase64;
                     model.Rfc = this.Rfc;
-                    model.IdUsuarioL = this.IdUsuarioL;
-                    model = await Repository.AddAsync(model);
+                    model = await Repository.AddAsync(model, IdUsuario);
                 }
                 return model;
             }
@@ -114,7 +115,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             try
             {
-                return await Repository.Elimnar(this.IdCliente, this.IdUsuarioL);
+                return await Repository.DeleteAsync(this.IdCliente, this.IdUsuarioL);
             }
             catch (Exception ex)
             {
@@ -128,10 +129,10 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             try
             {
                 var x = await Repository.GetBusquedaAsync(this.Busqueda);
-                ListaCliente.Clear();
+                ListaClienteVenta.Clear();
                 foreach (var item in x)
                 {
-                    ListaCliente.Add(item);
+                    ListaClienteVenta.Add(item);
                 }
             }
             catch (Exception ex)
@@ -243,8 +244,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        private int? _IdUsuarioL;
-        public int? IdUsuarioL
+        private Guid _IdUsuarioL;
+        public Guid IdUsuarioL
         {
             get { return _IdUsuarioL; }
             set
@@ -331,7 +332,16 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 OnPropertyChanged(nameof(Busqueda));
             }
         }
-
+        private bool _BuscarCliente;
+        public bool BuscarCliente
+        {
+            get { return _BuscarCliente; }
+            set
+            {
+                _BuscarCliente = value;
+                OnPropertyChanged(nameof(BuscarCliente));
+            }
+        }
 
         #region InotifyPropertyChanged Members
 

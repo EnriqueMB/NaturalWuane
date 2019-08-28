@@ -1,4 +1,6 @@
-﻿namespace CIDFares.Spa.DataAccess.Contracts.Entities
+﻿using System;
+
+namespace CIDFares.Spa.DataAccess.Contracts.Entities
 {
     public class FormaPago
     {
@@ -6,5 +8,6 @@
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public int Resultado { get; set; }
+        public Guid? IdUsuario { get; set; }
     }
 }

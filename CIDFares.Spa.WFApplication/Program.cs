@@ -3,14 +3,17 @@ using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.Business.ViewModels.General;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Validations;
+using CIDFares.Spa.WFApplication.Forms.Ventas;
 using CIDFares.Spa.WFApplication.Forms.Catalogos;
+using CIDFares.Spa.WFApplication.Forms.Ventas;
 using CIDFares.Spa.WFApplication.Forms.General;
-using CIDFares.Spa.CrossCutting.Session;
+using CIDFares.Spa.WFApplication.Session;
 using CIDFares.Spa.WFApplication.Validations;
 using FluentValidation;
 using CIDFares.Spa.WFApplication.Forms.Usuarios;
 using System;
 using System.Windows.Forms;
+using CIDFares.Spa.Business.ViewModels.Ventas;
 
 namespace CIDFares.Spa.WFApplication
 {
@@ -25,9 +28,8 @@ namespace CIDFares.Spa.WFApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
-            //CurrentSession.IdCuentaUsuario = ;
-            //Application.Run(new FrmFormaPago());
-            Application.Run(new FrmProductoGrid());
+            CurrentSession.IdCuentaUsuario = Guid.Empty;
+            Application.Run(new FrmVenta());
         }
 
         public static void InitializeContainer()
@@ -50,6 +52,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<FormaPagoValidator, IValidator<FormaPagoViewModel>>();
             ServiceLocator.Instance.Register<ClienteValidator, IValidator<ClienteViewModel>>();
             ServiceLocator.Instance.Register<CategoriaProductoValidator, IValidator<CategoriaProductoViewModel>>();
+            ServiceLocator.Instance.Register<ServicioValidator, IValidator<ServicioViewModel>>();
         }
 
         private static void RegisterViewModelDependencies()
@@ -59,10 +62,11 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<FormaPagoViewModel>();
             ServiceLocator.Instance.Register<ProductoViewModel>();
             ServiceLocator.Instance.Register<ClienteViewModel>();
+            ServiceLocator.Instance.Register<VentasViewModel>();
+            ServiceLocator.Instance.Register<BusquedaProductoViewModel>();
             ServiceLocator.Instance.Register<CategoriaProductoViewModel>();
             ServiceLocator.Instance.Register<UsuarioViewModel>();
-
+            ServiceLocator.Instance.Register<ServicioViewModel>();
         }
-
     }
 }

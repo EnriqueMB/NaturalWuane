@@ -283,5 +283,20 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
+
+        public Task<int> DeleteAsync(object id, object IdUsuario)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Producto> UpdateAsync(Producto element, object IdUsuario)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Producto> AddAsync(Producto element, object IdUsuario)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

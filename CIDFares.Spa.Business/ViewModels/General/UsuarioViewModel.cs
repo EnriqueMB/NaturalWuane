@@ -92,11 +92,11 @@ namespace CIDFares.Spa.Business.ViewModels.General
                 throw ex;
             }
         }
-        public async Task<int> Remove()
+        public async Task<int> Remove(Guid IdUsuario)
         {
             try
             {
-                return await Repository.DeleteAsync(IdCuentaUsuario);
+                return await Repository.DeleteAsync(IdCuentaUsuario, IdUsuario);
             }
             catch (Exception ex)
             {
@@ -105,7 +105,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
             }
         }
 
-        public async Task<Usuario> GuardarCambios()
+        public async Task<Usuario> GuardarCambios(Guid IdUsuario)
         {
             try
             {
@@ -120,11 +120,11 @@ namespace CIDFares.Spa.Business.ViewModels.General
                 if (State == EntityState.Create)
                 {
                     
-                    return await Repository.AddAsync(model);
+                    return await Repository.AddAsync(model, IdUsuario);
                 }
                 else if (State == EntityState.Update)
                 {
-                    return await Repository.UpdateAsync(model);
+                    return await Repository.UpdateAsync(model, IdUsuario);
                 }
                 return model;
             }
