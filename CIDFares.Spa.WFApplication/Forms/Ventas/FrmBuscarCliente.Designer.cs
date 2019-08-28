@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlGeneral = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -100,23 +100,23 @@
             this.sfDataGridCliente.AccessibleName = "Table";
             this.sfDataGridCliente.AllowFiltering = true;
             this.sfDataGridCliente.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.AllowFiltering = true;
-            gridTextColumn1.HeaderText = "ID";
-            gridTextColumn1.MappingName = "Id";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.AllowFiltering = true;
-            gridTextColumn2.HeaderText = "Clave";
-            gridTextColumn2.MappingName = "Clave";
-            gridTextColumn3.AllowFiltering = true;
-            gridTextColumn3.HeaderText = "Nombre";
-            gridTextColumn3.MappingName = "NombreCompleto";
-            gridTextColumn4.AllowFiltering = true;
-            gridTextColumn4.HeaderText = "Telefono";
-            gridTextColumn4.MappingName = "Telefono";
-            this.sfDataGridCliente.Columns.Add(gridTextColumn1);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn2);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn3);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn4);
+            gridTextColumn5.AllowFiltering = true;
+            gridTextColumn5.HeaderText = "ID";
+            gridTextColumn5.MappingName = "Id";
+            gridTextColumn5.Visible = false;
+            gridTextColumn6.AllowFiltering = true;
+            gridTextColumn6.HeaderText = "Clave";
+            gridTextColumn6.MappingName = "Clave";
+            gridTextColumn7.AllowFiltering = true;
+            gridTextColumn7.HeaderText = "Nombre";
+            gridTextColumn7.MappingName = "NombreCompleto";
+            gridTextColumn8.AllowFiltering = true;
+            gridTextColumn8.HeaderText = "Telefono";
+            gridTextColumn8.MappingName = "Telefono";
+            this.sfDataGridCliente.Columns.Add(gridTextColumn5);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn6);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn7);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn8);
             this.sfDataGridCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridCliente.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridCliente.Name = "sfDataGridCliente";
@@ -158,6 +158,7 @@
             this.BusquedaControl.Name = "BusquedaControl";
             this.BusquedaControl.Size = new System.Drawing.Size(150, 19);
             this.BusquedaControl.TabIndex = 1;
+            this.BusquedaControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BusquedaControl_KeyPress);
             // 
             // btnBuscar
             // 
