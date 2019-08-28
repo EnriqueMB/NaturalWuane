@@ -7,6 +7,7 @@ using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
+using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Windows.Forms;
 
@@ -126,7 +127,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
                 if (validationResults.IsValid)
                 {
-                FormaPago Resultado = await Model.GuardarCambios();
+                FormaPago Resultado = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
                 if (Resultado.Resultado == 1)
                 {
                     CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
@@ -190,7 +191,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     {
                        Model.IdFormaPago = item.IdFormaPago;
                         grpBoxFormaPago.Enabled = false;
-                        var result = await Model.DeleteAsync();
+                        var result = await Model.DeleteAsync(CurrentSession.IdCuentaUsuario);
                         if (result == 1)
                         {
                             CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.informacion);
