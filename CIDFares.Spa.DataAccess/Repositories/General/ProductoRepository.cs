@@ -32,7 +32,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 using (IDbConnection conexion = new SqlConnection(WebConnectionString))
                 {
                     var dynamicParameters = new DynamicParameters();
-                    dynamicParameters.Add("@Clave", entity.Clave);
                     dynamicParameters.Add("@IdUsuario",1);
                     dynamicParameters.Add("@FotoBase64", entity.Base64String);
                     dynamicParameters.Add("@UrlLocalImagen", entity.UrlFoto);
@@ -58,7 +57,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@Opcion", 1);
                     dynamicParameters.Add("@IdProducto", entity.IdProducto);
-                    dynamicParameters.Add("@Categoria", entity.Categoria);
+                    dynamicParameters.Add("@Categoria", entity.IdCategoriaProducto);
                     dynamicParameters.Add("@Clave", entity.Clave);
                     dynamicParameters.Add("@Nombre", entity.Nombre);
                     dynamicParameters.Add("@Descripcion", entity.Descripcion);
@@ -69,7 +68,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@PrecioMayoreo", entity.PrecioMayoreo);
                     dynamicParameters.Add("@PrecioMenudeo", entity.PrecioMenudeo);
                     dynamicParameters.Add("@CodigoBarras", entity.CodigoBarras);
-                    dynamicParameters.Add("@UnidadMedida", entity.UnidadMedida);
+                    dynamicParameters.Add("@UnidadMedida", entity.IdUnidadMedida);
                     dynamicParameters.Add("@ClaveSat", entity.ClaveSat);
                     dynamicParameters.Add("@AplicaIva", entity.AplicaIva);
                     dynamicParameters.Add("@Usuario", 1);

@@ -33,7 +33,7 @@ namespace CIDFares.Spa.WFApplication.Validations
                 })
                 .WithMessage("EL NOMBRE DEL PRODUCTO YA EXISTE");
 
-            RuleFor(producto => producto.IdCategoria)
+            RuleFor(producto => producto.IdCategoriaProducto)
                 .NotEqual(0)
                 .WithMessage("DEBE SELECCIONAR UNA CATEGORIA.");
 

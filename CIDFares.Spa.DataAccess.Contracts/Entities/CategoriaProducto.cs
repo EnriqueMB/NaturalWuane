@@ -8,9 +8,14 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
 {
     public class CategoriaProducto
     {
+        public CategoriaProducto()
+        {
+            IdCategoriaProducto = 0;
+        }
         public int IdCategoriaProducto { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public int Resultado { get; set; }
+       
     }
 }

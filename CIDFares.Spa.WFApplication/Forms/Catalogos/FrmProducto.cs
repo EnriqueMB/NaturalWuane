@@ -31,11 +31,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         #endregion
 
-        #region Propiedades Privadas
-        private Producto producto;
-
-
-        #endregion
+      
 
         #region Constructor
 
@@ -44,7 +40,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             InitializeComponent();
             lblSubtitle.Text = "NUEVO REGISTRO";
             Model = ServiceLocator.Instance.Resolve<ProductoViewModel>();
-            Model.GetListaCataegoriaProduto();
+           // Model.GetListaCataegoriaProduto();
 
            
 
@@ -56,7 +52,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             lblSubtitle.Text = "MODIFICAR REGISTRO";
             Model = ServiceLocator.Instance.Resolve<ProductoViewModel>();
             LimpiarPropiedades();
-            Model.PDatos.IdProducto = IdProducto;
+            Model.IdProducto = IdProducto;
             Model.State = EntityState.Update;
         }
         #endregion
@@ -64,27 +60,29 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         #region metodos
         private void IniciarBinding()
         {
-            //NombreControl.DataBindings.Add("Text", Model.PDatos, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
-            NombreControl.DataBindings.Add("Text", Model.PDatos, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
-            //  UnidadMedidaControl.DataBindings.Add("Text", Model.PDatos, "UnidadMedida", true, DataSourceUpdateMode.OnPropertyChanged);
-            PrecioPublicoControl.DataBindings.Add("Text", Model.PDatos, "PrecioPublico", true, DataSourceUpdateMode.OnPropertyChanged);
-            PrecioMayoreoControl.DataBindings.Add("Text", Model.PDatos, "PrecioMayoreo", true, DataSourceUpdateMode.OnPropertyChanged);
-            PrecioMenudeoControl.DataBindings.Add("Text", Model.PDatos, "PrecioMenudeo", true, DataSourceUpdateMode.OnPropertyChanged);
-            AplicaIvaControl.DataBindings.Add("Checked", Model.PDatos, "AplicaIva", true, DataSourceUpdateMode.OnPropertyChanged);
-            StockControl.DataBindings.Add("Checked", Model.PDatos, "Stock", true, DataSourceUpdateMode.OnPropertyChanged);
-            StockMaxControl.DataBindings.Add("Text", Model.PDatos, "StockMax", true, DataSourceUpdateMode.OnPropertyChanged);
-            StockMinControl.DataBindings.Add("Text", Model.PDatos, "StockMin", true, DataSourceUpdateMode.OnPropertyChanged);
-            FotoControl.DataBindings.Add("Image", Model.PDatos, "Foto", true, DataSourceUpdateMode.OnPropertyChanged);
-            DescripcionControl.DataBindings.Add("Text", Model.PDatos, "Descripcion", true, DataSourceUpdateMode.OnPropertyChanged);
+            NombreControl.DataBindings.Add("Text", Model, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
+            ClaveControl.DataBindings.Add("Text", Model, "Clave", true, DataSourceUpdateMode.OnPropertyChanged);
+            PrecioPublicoControl.DataBindings.Add("Text", Model, "PrecioPublico", true, DataSourceUpdateMode.OnPropertyChanged);
+            PrecioMayoreoControl.DataBindings.Add("Text", Model, "PrecioMayoreo", true, DataSourceUpdateMode.OnPropertyChanged);
+            PrecioMenudeoControl.DataBindings.Add("Text", Model, "PrecioMenudeo", true, DataSourceUpdateMode.OnPropertyChanged);
+            AplicaIvaControl.DataBindings.Add("Checked", Model, "AplicaIva", true, DataSourceUpdateMode.OnPropertyChanged);
+            StockControl.DataBindings.Add("Checked", Model, "Stock", true, DataSourceUpdateMode.OnPropertyChanged);
+            StockMaxControl.DataBindings.Add("Text", Model, "StockMax", true, DataSourceUpdateMode.OnPropertyChanged);
+            StockMinControl.DataBindings.Add("Text", Model, "StockMin", true, DataSourceUpdateMode.OnPropertyChanged);
+            FotoControl.DataBindings.Add("Image", Model, "Foto", true, DataSourceUpdateMode.OnPropertyChanged);
+            DescripcionControl.DataBindings.Add("Text", Model, "Descripcion", true, DataSourceUpdateMode.OnPropertyChanged);
+            ClaveSatControl.DataBindings.Add("Text", Model, "ClaveSat", true, DataSourceUpdateMode.OnPropertyChanged);
+            CodigoBarrasControl.DataBindings.Add("Text", Model, "CodigoBarras", true, DataSourceUpdateMode.OnPropertyChanged);
 
-            CategoriaControl.DataBindings.Add("SelectedValue", Model.PDatos, "IdCategoria", true, DataSourceUpdateMode.OnPropertyChanged);
-            CategoriaControl.DataBindings.Add("DataSource", Model, "ListaCategoria", true, DataSourceUpdateMode.OnPropertyChanged);
             IniciarCombos(1);
+            CategoriaControl.DataBindings.Add("SelectedValue", Model, "IdCategoriaProducto", true, DataSourceUpdateMode.OnPropertyChanged);
+            CategoriaControl.DataBindings.Add("DataSource", Model, "ListaCategoria", true, DataSourceUpdateMode.OnPropertyChanged);
 
 
-            //UnidadMedidaControl.DataBindings.Add("SelectedValue", Model.PDatos, "IdUnidadMedida", true, DataSourceUpdateMode.OnPropertyChanged);
-            //UnidadMedidaControl.DataBindings.Add("DataSource", Model, "ListaUnidadMedida", true, DataSourceUpdateMode.OnPropertyChanged);
-            //IniciarCombos(2);
+            IniciarCombos(2);
+            UnidadMedidaControl.DataBindings.Add("SelectedValue", Model, "IdUnidadMedida", true, DataSourceUpdateMode.OnPropertyChanged);
+            UnidadMedidaControl.DataBindings.Add("DataSource", Model, "ListaUnidadMedida", true, DataSourceUpdateMode.OnPropertyChanged);
+            
         }
 
         private void IniciarCombos(int tipo)
@@ -94,13 +92,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 if (tipo ==1)
                 {
                     CategoriaControl.DisplayMember = "Nombre";
-                    CategoriaControl.ValueMember = "IdCategoria";
+                    CategoriaControl.ValueMember = "IdCategoriaProducto";
                 }
 
                 else if (tipo == 2)
                 {
-                    CategoriaControl.DisplayMember = "Unidad de Medida";
-                    CategoriaControl.ValueMember = "IdUnidadMedida";
+                    UnidadMedidaControl.DisplayMember = "Nombre";
+                    UnidadMedidaControl.ValueMember = "IdUnidadMedida";
                 }
             }
             catch (Exception ex)
@@ -120,19 +118,19 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     Directory.CreateDirectory(basePath);
                 }
 
-                if (Model.PDatos.UpdateFoto)
+                if (Model.UpdateFoto)
                 {
-                    string Url = Path.Combine(Application.StartupPath, basePath + Clave + "." + Model.PDatos.Extencion);
+                    string Url = Path.Combine(Application.StartupPath, basePath + Clave + "." + Model.Extencion);
                     if (File.Exists(Url))
                     {
                         File.Delete(Url);
-                        Model.PDatos.Foto.Save(Url);
-                        Model.PDatos.UrlFoto = Url;
+                        Model.Foto.Save(Url);
+                        Model.UrlFoto = Url;
                     }
                     else
                     {
-                        Model.PDatos.Foto.Save(Url);
-                        Model.PDatos.UrlFoto = Url;
+                        Model.Foto.Save(Url);
+                        Model.UrlFoto = Url;
                     }
                 }
             }
@@ -146,24 +144,23 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                Model.PDatos.Nombre = string.Empty;
-                Model.PDatos.IdCategoriaProducto = 0;
-                Model.PDatos.Clave = 0;
-                Model.PDatos.UnidadMedida = string.Empty;
-                Model.PDatos.PrecioPublico = 0;
-                Model.PDatos.PrecioMayoreo = 0;
-                Model.PDatos.PrecioMenudeo = 0;
-                Model.PDatos.AplicaIva = false;
-                Model.PDatos.Stock = false;
-                Model.PDatos.StockMax =0;
-                Model.PDatos.StockMin = 0;
-                Model.PDatos.Descripcion = string.Empty;
+                Model.Nombre = string.Empty;
+               // Model.PDatos.IdCategoriaProducto = 0;
+                Model.Clave = string.Empty;
+                Model.UnidadMedida = string.Empty;
+                Model.PrecioPublico = 0;
+                Model.PrecioMayoreo = 0;
+                Model.PrecioMenudeo = 0;
+                Model.AplicaIva = false;
+                Model.Stock = false;
+                Model.StockMax =0;
+                Model.StockMin = 0;
+                Model.Descripcion = string.Empty;
                
 
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -188,20 +185,20 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 BuscarImagen.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures).ToString();
                 if (BuscarImagen.ShowDialog() == DialogResult.OK)
                 {
-                    Model.PDatos.Foto = null;
-                    Model.PDatos.UpdateFoto = true;
+                    Model.Foto = null;
+                    Model.UpdateFoto = true;
                     string ext = Path.GetExtension(BuscarImagen.FileName);
-                    Model.PDatos.Extencion = BuscarImagen.FileName.Substring(BuscarImagen.FileName.LastIndexOf('.') + 1);
-                    if (Model.PDatos.Extencion == "png")
-                        Model.PDatos.Formato = ImageFormat.Png;
-                    else if (Model.PDatos.Extencion == "jpg")
-                        Model.PDatos.Formato = ImageFormat.Jpeg;
-                    else if (Model.PDatos.Extencion == "bmp")
-                        Model.PDatos.Formato = ImageFormat.Bmp;
+                    Model.Extencion = BuscarImagen.FileName.Substring(BuscarImagen.FileName.LastIndexOf('.') + 1);
+                    if (Model.Extencion == "png")
+                        Model.Formato = ImageFormat.Png;
+                    else if (Model.Extencion == "jpg")
+                        Model.Formato = ImageFormat.Jpeg;
+                    else if (Model.Extencion == "bmp")
+                        Model.Formato = ImageFormat.Bmp;
 
 
-                    Model.PDatos.ImageLocation = BuscarImagen.FileName;
-                    Model.PDatos.UrlFoto = BuscarImagen.FileName;
+                    Model.ImageLocation = BuscarImagen.FileName;
+                    Model.UrlFoto = BuscarImagen.FileName;
                 }
             }
             catch (Exception ex)
@@ -211,81 +208,39 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
 
-        private void FrmProducto_Shown(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    CIDWait.Show(async () =>
-            //    {
-            //        var _ListaCategoriaProducto = await Model.GetListaCataegoriaProduto();
-            //        Model.LlenarListaCategoria(_ListaCategoriaProducto);
-
-                   
-
-            //        await Task.Delay(2000);
-            //    }, "Espere");
-
-            //    IniciarBinding();
-
-            //    if (Model.State == EntityState.Update)
-            //    {
-            //        CIDWait.Show(async () =>
-            //        {
-            //            await Model.GetProducto();
-            //            if (Model.PDatos.Foto == null)
-            //                Model.PDatos.Foto = Properties.Resources.imagen_subir;
-            //            await Task.Delay(2000);
-            //        }, "Cargando personal");
-            //        lblSubtitle.Text = Model.PDatos.Nombre;
-            //        CategoriaControl.Enabled = false;
-            //        StockMaxControl.Enabled = !StockControl.Checked;
-            //        StockMinControl.Enabled = !StockControl.Checked;
-            //    }
-            //    else
-            //    {
-            //        Model.PDatos.Foto = Properties.Resources.imagen_subir;
-            //        StockMaxControl.Enabled = !StockControl.Checked;
-            //        StockMinControl.Enabled = !StockControl.Checked;
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
-            //    Close();
-            //}
-        }
+        
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
                 btnGuardar.Enabled = false;
-                this.CleanErrors(errorProvider1, typeof(ProductoViewModel));
-                var validationResults = Model.PDatos.Validate();
-                validationResults.ToString();
-                if (validationResults.IsValid)
-                {
+               // this.CleanErrors(errorProvider1, typeof(ProductoViewModel));
+               // var validationResults = Model.PDatos.Validate();
+               // validationResults.ToString();
+              //  if (validationResults.IsValid)
+               // {
                     var Resultado = await Model.GuardarCambios();
                     if (Resultado != null || Resultado != string.Empty)
                     {
                         int res = 0;
-                        if (Model.PDatos.UpdateFoto)
+                        if (Model.UpdateFoto)
                         {
-                            var x = Model.PDatos.Foto.VaryQualityLevel(35L);
-                            Model.PDatos.Foto = x;
+                            var x = Model.Foto.VaryQualityLevel(35L);
+                            Model.Foto = x;
                             this.GuardarImagen(Resultado.ToString());
-                            //res = await Model.GuardarFotoProducto(Resultado.ToString());
-                            //if (res > 0)
-                            //{
-                            //    this.LimpiarPropiedades();
-                            //    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
-                            //    this.Close();
-                            //}
-                            //else
-                            //{
-                            //    this.LimpiarPropiedades();
-                            //    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
-                            //}
+                            res = await Model.GuardarFotoProducto(Resultado.ToString());
+                            if (res > 0)
+                            {
+                                this.LimpiarPropiedades();
+                                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                                this.Close();
+                            }
+                            else
+                            {
+                                this.LimpiarPropiedades();
+                                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+                            }
                         }
                         else
                         {
@@ -297,9 +252,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     }
                     else
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
-                }
-                else
-                    this.ShowErrors(errorProvider1, typeof(ProductoViewModel), validationResults);
+              //  }
+               // else
+                  //  this.ShowErrors(errorProvider1, typeof(ProductoViewModel), validationResults);
 
             }
             catch (Exception ex)
@@ -318,6 +273,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             //IniciarBinding();
             var x = await Model.GetListaCataegoriaProduto();
             Model.LlenarListaCategoria(x);
+
+            var y = await Model.GetListaUnidadMedida();
+            Model.LlenaUnidadMedida(y);
 
             IniciarBinding();
         }
