@@ -14,6 +14,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
 {
     public class BusquedaProductoRepository : Repository, IBusqProductoRepository
     {
+       
         #region Metodo Implementado
 
         public async Task<IEnumerable<BusqueProducto>> GetBusquedaProductoAsync(bool BitNombre, string BusqNombre, bool BitClaveCodigo, string BusqClaveCodigo)
@@ -52,21 +53,25 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
-
+               
         #endregion
 
         #region Metodos No Implementado
-        public Task<IEnumerable<BusqueProducto>> GetAllAsync()
+        public Task<int> NameExistAsync(string name)
         {
             throw new NotImplementedException();
         }
 
-        public Task<BusqueProducto> AddAsync(BusqueProducto element)
+        public Task<BusqueProducto> UpdateAsync(BusqueProducto element, object IdUsuario)
+        {
+            throw new NotImplementedException();
+        }
+        public Task<BusqueProducto> AddAsync(BusqueProducto element, object IdUsuario)
         {
             throw new NotImplementedException();
         }
 
-        public Task<int> DeleteAsync(object id)
+        public Task<int> DeleteAsync(object id, object IdUsuario)
         {
             throw new NotImplementedException();
         }
@@ -76,17 +81,12 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
+        public Task<IEnumerable<BusqueProducto>> GetAllAsync()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<BusqueProducto> GetAsync(object id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> NameExistAsync(string name)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<BusqueProducto> UpdateAsync(BusqueProducto element)
         {
             throw new NotImplementedException();
         }

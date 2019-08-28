@@ -83,7 +83,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     model.Sexo = this.Sexo;
                     model.FotoBase64 = this.FotoBase64;
                     model.Rfc = this.Rfc;
-                    model.IdUsuarioL = this.IdUsuarioL;
                     model = await Repository.AddAsync(model, IdUsuario);
                 }
                 else if (State == EntityState.Update)
@@ -99,7 +98,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     model.Sexo = this.Sexo;
                     model.FotoBase64 = this.FotoBase64;
                     model.Rfc = this.Rfc;
-                    model.IdUsuarioL = this.IdUsuarioL;
                     model = await Repository.AddAsync(model, IdUsuario);
                 }
                 return model;
@@ -114,7 +112,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             try
             {
-                return await Repository.Elimnar(this.IdCliente, this.IdUsuarioL);
+                return await Repository.DeleteAsync(this.IdCliente, this.IdUsuarioL);
             }
             catch (Exception ex)
             {

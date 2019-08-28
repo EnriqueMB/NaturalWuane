@@ -16,7 +16,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
     {
         #region Metodos Implementado
 
-        public async Task<Cliente> AddAsync(Cliente element)
+        public async Task<Cliente> AddAsync(Cliente element, object IdUsuario)
         {
             try
             {
@@ -35,7 +35,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@Sexo", element.Sexo);
                     dynamicParameters.Add("@Foto", element.FotoBase64);
                     dynamicParameters.Add("@Rfc", element.Rfc);
-                    dynamicParameters.Add("@IdUsuarioL", element.IdUsuarioL);
+                    dynamicParameters.Add("@IdUsuarioL", IdUsuario);
                     var Resultado = await conexion.ExecuteScalarAsync<int>("[Cliente].[SPCID_AC_Cliente]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = Resultado;
                     return element;
@@ -121,7 +121,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public async Task<int> Elimnar(object id, Guid IdUsuario)
+
+        public async Task<int> DeleteAsync(object id, object IdUsuario)
         {
             try
             {
@@ -206,21 +207,11 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         {
             throw new NotImplementedException();
         }
-
-        public Task<int> DeleteAsync(object id, object IdUsuario)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public Task<Cliente> UpdateAsync(Cliente element, object IdUsuario)
         {
             throw new NotImplementedException();
-        }
-
-        public Task<Cliente> AddAsync(Cliente element, object IdUsuario)
-        {
-            throw new NotImplementedException();
-        }
+        }        
         #endregion
     }
 }

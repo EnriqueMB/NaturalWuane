@@ -204,6 +204,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     {
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.informacion);
                         LimpiarPropiedades();
+                        this.CleanErrors(errorProvider1, typeof(CategoriaProductoViewModel));
                         await Model.GetAllAsync();
                     }
                     else if(result == 0)

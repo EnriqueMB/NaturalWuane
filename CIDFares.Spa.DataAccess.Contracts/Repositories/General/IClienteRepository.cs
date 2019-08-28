@@ -11,7 +11,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
     public interface IClienteRepository : IBaseRepository<Cliente>
     {
         Task<string> ObtenerFoto(Guid IdCliente);
-        Task<int> Elimnar(object id, Guid IdUsuario);
         Task<IEnumerable<Cliente>> GetBusquedaAsync(string Busqueda);
     }
 }
