@@ -76,11 +76,11 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        public async Task<int> DeleteAsync()
+        public async Task<int> DeleteAsync(Guid idUsuario)
         {
             try
             {
-                return await Repository.DeleteAsync(IdCategoriaProducto);
+                return await Repository.DeleteAsync(IdCategoriaProducto, idUsuario);
             }
             catch (Exception ex)
             {

@@ -119,6 +119,12 @@
     <Compile Include="Forms\Catalogos\FrmProductoGrid.Designer.cs">
       <DependentUpon>FrmProductoGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Catalogos\FrmServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmServicio.Designer.cs">
+      <DependentUpon>FrmServicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\General\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validations\ServicioValidator.cs" />
     <EmbeddedResource Include="Forms\Catalogos\FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmProductoGrid.resx">
       <DependentUpon>FrmProductoGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmServicio.resx">
+      <DependentUpon>FrmServicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
