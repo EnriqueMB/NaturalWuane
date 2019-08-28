@@ -57,8 +57,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 {
                     IdCategoriaProducto = IdCategoriaProducto,                    
                     Nombre = Nombre,
-                    Descripcion = Descripcion,
-                    Resultado = -2
+                    Descripcion = Descripcion
+                    //Resultado = -2
                 };
                 if (State == EntityState.Create)
                 {
@@ -72,6 +72,19 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+
+        public async Task<int> DeleteAsync()
+        {
+            try
+            {
+                return await Repository.DeleteAsync(IdCategoriaProducto);
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
         }
