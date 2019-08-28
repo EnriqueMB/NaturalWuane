@@ -103,6 +103,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             }
         }
         #endregion
-       
+
+        private void FrmVenta_Load(object sender, EventArgs e)
+        {
+            FechaControl.Text = DateTime.Now.ToString("dd/mm/yyyy");
+        }
     }
 }

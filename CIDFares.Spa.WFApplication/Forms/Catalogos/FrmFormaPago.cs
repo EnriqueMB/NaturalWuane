@@ -25,7 +25,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<FormaPagoViewModel>();
             grpBoxFormaPago.Enabled = false;
-            Model.IdUsuarioL = CurrentSession.IdCuentaUsuario;
             IniciarBinding();
 
             //toolTip1.BackColor = Color.Gray;
@@ -198,6 +197,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         {
                             CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.informacion);
                             LimpiarPropiedades();
+                            this.CleanErrors(errorProvider1, typeof(FormaPagoViewModel));
                             await Model.GetAllAsync();
                         }
                         else

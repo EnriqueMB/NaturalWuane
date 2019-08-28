@@ -55,7 +55,7 @@
             this.SubtotalControl = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pnlFecha = new System.Windows.Forms.Panel();
-            this.lblFecha = new System.Windows.Forms.Label();
+            this.FechaControl = new System.Windows.Forms.Label();
             this.FolioVentaControl = new System.Windows.Forms.Label();
             this.lblVenta = new System.Windows.Forms.Label();
             this.pnlCliente = new System.Windows.Forms.Panel();
@@ -352,22 +352,24 @@
             // 
             // pnlFecha
             // 
-            this.pnlFecha.Controls.Add(this.lblFecha);
+            this.pnlFecha.Controls.Add(this.FechaControl);
             this.pnlFecha.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlFecha.Location = new System.Drawing.Point(377, 0);
             this.pnlFecha.Name = "pnlFecha";
             this.pnlFecha.Size = new System.Drawing.Size(200, 39);
             this.pnlFecha.TabIndex = 4;
             // 
-            // lblFecha
+            // FechaControl
             // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(110, 8);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblFecha.Size = new System.Drawing.Size(87, 20);
-            this.lblFecha.TabIndex = 2;
-            this.lblFecha.Text = "26/08/2019";
+            this.FechaControl.AutoSize = true;
+            this.FechaControl.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FechaControl.ForeColor = System.Drawing.Color.Red;
+            this.FechaControl.Location = new System.Drawing.Point(110, 8);
+            this.FechaControl.Name = "FechaControl";
+            this.FechaControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.FechaControl.Size = new System.Drawing.Size(87, 20);
+            this.FechaControl.TabIndex = 2;
+            this.FechaControl.Text = "26/08/2019";
             // 
             // FolioVentaControl
             // 
@@ -603,6 +605,7 @@
             this.Name = "FrmVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
+            this.Load += new System.EventHandler(this.FrmVenta_Load);
             this.pnlGeneral.ResumeLayout(false);
             this.pnlAcciones.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -659,7 +662,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Label FechaControl;
         private System.Windows.Forms.Label FolioVentaControl;
         private System.Windows.Forms.Label lblVenta;
         private System.Windows.Forms.Panel pnlTotales;
