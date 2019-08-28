@@ -11,5 +11,7 @@ namespace CIDFares.Spa.WFApplication.Session
         public static Guid IdEmpleado { get; set; }
 
         public static string Nombres { get; set; }
+
+        public static int IdTurnoEmpleado { get; set; }
     }
 }

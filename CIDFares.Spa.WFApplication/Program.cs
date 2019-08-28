@@ -5,6 +5,7 @@ using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Validations;
 using CIDFares.Spa.WFApplication.Forms.Catalogos;
 using CIDFares.Spa.WFApplication.Forms.Ventas;
+using CIDFares.Spa.WFApplication.Forms.General;
 using CIDFares.Spa.WFApplication.Session;
 using CIDFares.Spa.WFApplication.Validations;
 using FluentValidation;
@@ -16,7 +17,7 @@ namespace CIDFares.Spa.WFApplication
 {
     static class Program
     {
-        /// <summary>
+        /// <summary  
         /// Punto de entrada principal para la aplicación.
         /// </summary>
         [STAThread]

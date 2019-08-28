@@ -43,7 +43,10 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        
+        public Task<Usuario> AddAsync(Usuario element, object IdUsuario)
+        {
+            throw new NotImplementedException();
+        }
 
         public async Task<int> DeleteAsync(object id)
         {
@@ -69,6 +72,11 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
 
+        }
+
+        public Task<int> DeleteAsync(object id, object IdUsuario)
+        {
+            throw new NotImplementedException();
         }
 
         public Task<Guid> EsCuentaUnica(string Cuenta)
@@ -152,6 +160,11 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
 
                 throw ex;
             }
+        }
+
+        public Task<Usuario> UpdateAsync(Usuario element, object IdUsuario)
+        {
+            throw new NotImplementedException();
         }
     }
 }

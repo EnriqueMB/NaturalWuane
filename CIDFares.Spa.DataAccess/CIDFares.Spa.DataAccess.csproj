@@ -55,6 +55,7 @@
     <Compile Include="Repositories\General\LoginRepository.cs" />
     <Compile Include="Repositories\General\ProductoRepository.cs" />
     <Compile Include="Repositories\General\RolRepository.cs" />
+    <Compile Include="Repositories\General\SucursalRepository.cs" />
     <Compile Include="Repositories\General\UsuarioRepository.cs" />
     <Compile Include="Repositories\General\UnidadMedidaRepository.cs" />
   </ItemGroup>
@@ -65,6 +66,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CIDFares.Spa.CrossCutting\CIDFares.Spa.CrossCutting.csproj">
+      <Project>{748a6233-0f47-47c8-b003-98c7c6d16d7f}</Project>
+      <Name>CIDFares.Spa.CrossCutting</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CIDFares.Spa.DataAccess.Contracts\CIDFares.Spa.DataAccess.Contracts.csproj">
       <Project>{01fe35c4-3ff0-4388-a696-e785e2512806}</Project>
       <Name>CIDFares.Spa.DataAccess.Contracts</Name>

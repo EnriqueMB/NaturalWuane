@@ -49,7 +49,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        public async Task<CategoriaProducto> GuardarCambios()
+        public async Task<CategoriaProducto> GuardarCambios(Guid IdUsuario)
         {
             try
             {
@@ -57,21 +57,34 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 {
                     IdCategoriaProducto = IdCategoriaProducto,                    
                     Nombre = Nombre,
-                    Descripcion = Descripcion,
-                    Resultado = -2
+                    Descripcion = Descripcion
+                    //Resultado = -2
                 };
                 if (State == EntityState.Create)
                 {
-                    return await Repository.AddAsync(model);
+                    return await Repository.AddAsync(model, IdUsuario);
                 }
                 else if (State == EntityState.Update)
                 {
-                    return await Repository.UpdateAsync(model);
+                    return await Repository.UpdateAsync(model, IdUsuario);
                 }
                 return model;
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+
+        public async Task<int> DeleteAsync()
+        {
+            try
+            {
+                return await Repository.DeleteAsync(IdCategoriaProducto);
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
         }

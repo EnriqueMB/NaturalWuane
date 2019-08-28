@@ -1,24 +1,46 @@
 ﻿using CIDFares.Spa.Business.ViewModels.General;
 using CIDFares.Spa.CrossCutting.Services;
+using CIDFares.Spa.WFApplication.Session;
 using Syncfusion.Windows.Forms;
 using System;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
+using CIDFares.Library.Code.Extensions;
+
 using System.Windows.Forms;
 
 namespace CIDFares.Spa.WFApplication.Forms.General
 {
     public partial class FrmLogin : MetroForm
     {
+        #region Propiedades
         public LoginViewModel Model { get; set; }
+        #endregion
 
+        #region Constructor
         public FrmLogin()
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<LoginViewModel>();
         }
+        #endregion
 
         #region Metodos
+        private void GuardarSession()
+        {
+            try
+            {
+                CurrentSession.IdCuentaUsuario = Model.IdCuentaUsuario;
+                CurrentSession.IdRol = Model.IdRol;
+                CurrentSession.IdEmpleado = Model.IdEmpleado;
+                CurrentSession.Nombres = Model.Nombres;
+                CurrentSession.IdTurnoEmpleado = Model.IdTurnoEmpleado;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
         private void AbrirFormHome()
         {
             try
@@ -73,14 +95,17 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 string ErrorMessage = "FAVOR DE VERIFICAR BIEN SUS CREDENCIALES";
                 switch (Error)
                 {
-                    case -5:
+                    case 9:
                         ErrorMessage = "La cuenta de usuario no existe.";
                         break;
-                    case -7:
+                    case 7:
                         ErrorMessage = "La contraseña es incorrecta.";
                         break;
-                    case -6:
+                    case 8:
                         ErrorMessage = "La cuenta fue bloqueada por número de intentos.";
+                        break;
+                    case 10:
+                        ErrorMessage = "La cuenta no esta asignada a un empleado";
                         break;
                 }
                 return ErrorMessage;
@@ -106,6 +131,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         }
         #endregion
 
+        #region Eventos
         private void FrmLogin_Load(object sender, EventArgs e)
         {
             IniciarPlaceholder();
@@ -119,23 +145,36 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             try
             {
                 LblError.Visible = false;
-                var x = await Model.Login();
-                if(x == 1)
+                this.CleanErrors(errorProvider1, typeof(LoginViewModel));
+                var validationResults = Model.Validate();
+                if (validationResults.IsValid)
                 {
-                    AbrirFormHome();
-                    this.UserAccountControl.Text = string.Empty;
-                    this.UserPasswordControl.Text = string.Empty;
-                }
-                else
-                {
-                    LblError.Visible = true;
-                    LblError.Text = ObtenerMensajeError(x);
-                }
+                    BtnLogin.Enabled = false;
+                    var x = await Model.Login();
+                    if (x == 1)
+                    {
+                        GuardarSession();
+                        AbrirFormHome();
+                        this.UserAccountControl.Text = string.Empty;
+                        this.UserPasswordControl.Text = string.Empty;
+                    }
+                    else
+                    {
+                        LblError.Visible = true;
+                        LblError.Text = ObtenerMensajeError(x);
+                    }
+                }else
+                    this.ShowErrors(errorProvider1, typeof(LoginViewModel), validationResults);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+            finally
+            {
+                BtnLogin.Enabled = true;
+            }
         }
+        #endregion
     }
 }

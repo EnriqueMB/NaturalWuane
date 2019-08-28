@@ -206,6 +206,21 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         {
             throw new NotImplementedException();
         }
+
+        public Task<int> DeleteAsync(object id, object IdUsuario)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Cliente> UpdateAsync(Cliente element, object IdUsuario)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Cliente> AddAsync(Cliente element, object IdUsuario)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
     }
 }
