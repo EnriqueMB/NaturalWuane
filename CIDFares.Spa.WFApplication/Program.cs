@@ -27,8 +27,8 @@ namespace CIDFares.Spa.WFApplication
             InitializeContainer();
             //CurrentSession.IdCuentaUsuario = ;
             //Application.Run(new FrmFormaPago());
-            //Application.Run(new FrmProductoGrid());
-            Application.Run(new FrmLogin());
+            Application.Run(new FrmCategoriaProducto());
+            //Application.Run(new FrmLogin());
         }
 
         public static void InitializeContainer()
