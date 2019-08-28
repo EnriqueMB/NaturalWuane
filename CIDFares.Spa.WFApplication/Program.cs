@@ -25,9 +25,8 @@ namespace CIDFares.Spa.WFApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
-            CurrentSession.IdCuentaUsuario = 0;
-            //Application.Run(new FrmFormaPago());
-            Application.Run(new FrmProductoGrid());
+            CurrentSession.IdCuentaUsuario = Guid.Empty;
+            Application.Run(new FrmBusquedaProducto());
         }
 
         public static void InitializeContainer()

@@ -137,11 +137,11 @@
     <Compile Include="Forms\General\FrmLogin.designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Ventas\BusquedaProducto.cs">
+    <Compile Include="Forms\Ventas\FrmBusquedaProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Ventas\BusquedaProducto.Designer.cs">
-      <DependentUpon>BusquedaProducto.cs</DependentUpon>
+    <Compile Include="Forms\Ventas\FrmBusquedaProducto.Designer.cs">
+      <DependentUpon>FrmBusquedaProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Usuarios\FrmUsuario.cs">
       <SubType>Form</SubType>
@@ -178,8 +178,8 @@
     <EmbeddedResource Include="Forms\General\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Ventas\BusquedaProducto.resx">
-      <DependentUpon>BusquedaProducto.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Ventas\FrmBusquedaProducto.resx">
+      <DependentUpon>FrmBusquedaProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Usuarios\FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
@@ -212,8 +212,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Forms\Compras\" />
-    <Folder Include="Forms\Usuarios\" />
-    <Folder Include="Forms\Ventas\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\UsuarioL2.png" />

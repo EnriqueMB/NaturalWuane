@@ -121,7 +121,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public async Task<int> Elimnar(object id, int? IdUsuario)
+        public async Task<int> Elimnar(object id, Guid IdUsuario)
         {
             try
             {

@@ -17,6 +17,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
             PrecioPublico = 0;
             PrecioMayoreo = 0;
             PrecioMenudeo = 0;
+            UnidadMedida = string.Empty;
         }
 
         public int IdProducto { get; set; }
@@ -26,5 +27,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public decimal PrecioPublico { get; set; }
         public decimal PrecioMayoreo { get; set; }
         public decimal PrecioMenudeo { get; set; }
+        public string UnidadMedida { get; set; }
     }
 }

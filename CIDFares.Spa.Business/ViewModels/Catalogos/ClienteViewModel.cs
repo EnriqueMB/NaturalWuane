@@ -243,8 +243,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        private int? _IdUsuarioL;
-        public int? IdUsuarioL
+        private Guid _IdUsuarioL;
+        public Guid IdUsuarioL
         {
             get { return _IdUsuarioL; }
             set

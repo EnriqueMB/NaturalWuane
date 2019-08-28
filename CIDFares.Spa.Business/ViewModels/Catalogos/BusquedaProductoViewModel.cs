@@ -24,7 +24,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             Repository = busqProductoRepository;
             ListaBusquedaProducto = new BindingList<BusqueProducto>();
-            GetAll();
         }
         #endregion
 

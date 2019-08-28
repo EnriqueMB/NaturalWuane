@@ -28,9 +28,9 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@BitNombre", BitNombre);
                     dynamicParameters.Add("@BusquedaNombre", BusqNombre);
-                    dynamicParameters.Add("@BitClaveCodigo", BitClaveCodigo);
-                    dynamicParameters.Add("@BusqClaveCodigo", BusqClaveCodigo);
-                    var dr = await conexion.ExecuteReaderAsync("[Cliente].[SPCID_Get_ObtenerBusquedaCliente]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    dynamicParameters.Add("@BitCodigo", BitClaveCodigo);
+                    dynamicParameters.Add("@BusquedaCodigo", BusqClaveCodigo);
+                    var dr = await conexion.ExecuteReaderAsync("[Venta].[SPCID_Get_ObtenerBusquedaProducto]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     while (dr.Read())
                     {
                         item = new BusqueProducto();
@@ -38,6 +38,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
                         item.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
                         item.NombreCategoria = dr.GetString(dr.GetOrdinal("NombreCategoria"));
+                        item.UnidadMedida = dr.GetString(dr.GetOrdinal("UnidadMedidad"));
                         item.PrecioPublico = dr.GetDecimal(dr.GetOrdinal("PrecioPublico"));
                         item.PrecioMayoreo = dr.GetDecimal(dr.GetOrdinal("PrecioMayoreo"));
                         item.PrecioMenudeo = dr.GetDecimal(dr.GetOrdinal("PrecioMenudeo"));
