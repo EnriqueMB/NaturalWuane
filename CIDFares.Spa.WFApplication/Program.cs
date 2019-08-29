@@ -29,7 +29,7 @@ namespace CIDFares.Spa.WFApplication
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
             CurrentSession.IdCuentaUsuario = Guid.Empty;
-            Application.Run(new FrmVenta());
+            Application.Run(new FrmUsuario());
         }
 
         public static void InitializeContainer()
@@ -53,6 +53,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ClienteValidator, IValidator<ClienteViewModel>>();
             ServiceLocator.Instance.Register<CategoriaProductoValidator, IValidator<CategoriaProductoViewModel>>();
             ServiceLocator.Instance.Register<ServicioValidator, IValidator<ServicioViewModel>>();
+            ServiceLocator.Instance.Register<UsuarioValidator, IValidator<UsuarioViewModel>>();
         }
 
         private static void RegisterViewModelDependencies()
