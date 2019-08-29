@@ -44,6 +44,7 @@
             this.PrecioMenudeoControl = new System.Windows.Forms.TextBox();
             this.lblPrecioMenudeo = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.RutaControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.label7 = new System.Windows.Forms.Label();
             this.BtnSeleccionar = new System.Windows.Forms.Button();
             this.FotoControl = new System.Windows.Forms.PictureBox();
@@ -51,10 +52,10 @@
             this.NombreControl = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.CategoriaControl = new System.Windows.Forms.ComboBox();
+            this.IdCategoriaProductoControl = new System.Windows.Forms.ComboBox();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.UnidadMedidaControl = new System.Windows.Forms.ComboBox();
+            this.IdUnidadMedidaControl = new System.Windows.Forms.ComboBox();
             this.lblUnidadMedida = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.ClaveControl = new System.Windows.Forms.TextBox();
@@ -81,7 +82,6 @@
             this.ClaveSatControl = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.RutaControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -89,6 +89,7 @@
             this.panel8.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RutaControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -101,7 +102,6 @@
             this.panel14.SuspendLayout();
             this.ClaveSat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RutaControl)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -177,6 +177,7 @@
             this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // panel3
             // 
@@ -284,8 +285,26 @@
             this.panel12.Location = new System.Drawing.Point(797, 3);
             this.panel12.Name = "panel12";
             this.tableLayoutPanel1.SetRowSpan(this.panel12, 3);
-            this.panel12.Size = new System.Drawing.Size(319, 150);
+            this.panel12.Size = new System.Drawing.Size(329, 150);
             this.panel12.TabIndex = 11;
+            // 
+            // RutaControl
+            // 
+            this.RutaControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
+            this.RutaControl.BeforeTouchSize = new System.Drawing.Size(298, 35);
+            this.RutaControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RutaControl.CornerRadius = 2;
+            this.RutaControl.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.RutaControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RutaControl.Location = new System.Drawing.Point(11, 108);
+            this.RutaControl.MaxLength = 80;
+            this.RutaControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.RutaControl.MinimumSize = new System.Drawing.Size(8, 4);
+            this.RutaControl.Multiline = true;
+            this.RutaControl.Name = "RutaControl";
+            this.RutaControl.ReadOnly = true;
+            this.RutaControl.Size = new System.Drawing.Size(298, 35);
+            this.RutaControl.TabIndex = 45;
             // 
             // label7
             // 
@@ -306,7 +325,7 @@
             this.BtnSeleccionar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.BtnSeleccionar.ForeColor = System.Drawing.Color.White;
             this.BtnSeleccionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSeleccionar.Location = new System.Drawing.Point(12, 54);
+            this.BtnSeleccionar.Location = new System.Drawing.Point(22, 54);
             this.BtnSeleccionar.Name = "BtnSeleccionar";
             this.BtnSeleccionar.Size = new System.Drawing.Size(130, 28);
             this.BtnSeleccionar.TabIndex = 43;
@@ -353,7 +372,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.CategoriaControl);
+            this.panel5.Controls.Add(this.IdCategoriaProductoControl);
             this.panel5.Controls.Add(this.lblCategoria);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 60);
@@ -361,13 +380,13 @@
             this.panel5.Size = new System.Drawing.Size(391, 41);
             this.panel5.TabIndex = 1;
             // 
-            // CategoriaControl
+            // IdCategoriaProductoControl
             // 
-            this.CategoriaControl.FormattingEnabled = true;
-            this.CategoriaControl.Location = new System.Drawing.Point(6, 13);
-            this.CategoriaControl.Name = "CategoriaControl";
-            this.CategoriaControl.Size = new System.Drawing.Size(268, 21);
-            this.CategoriaControl.TabIndex = 42;
+            this.IdCategoriaProductoControl.FormattingEnabled = true;
+            this.IdCategoriaProductoControl.Location = new System.Drawing.Point(6, 13);
+            this.IdCategoriaProductoControl.Name = "IdCategoriaProductoControl";
+            this.IdCategoriaProductoControl.Size = new System.Drawing.Size(268, 21);
+            this.IdCategoriaProductoControl.TabIndex = 42;
             // 
             // lblCategoria
             // 
@@ -381,7 +400,7 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.UnidadMedidaControl);
+            this.panel6.Controls.Add(this.IdUnidadMedidaControl);
             this.panel6.Controls.Add(this.lblUnidadMedida);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 107);
@@ -389,13 +408,13 @@
             this.panel6.Size = new System.Drawing.Size(391, 46);
             this.panel6.TabIndex = 2;
             // 
-            // UnidadMedidaControl
+            // IdUnidadMedidaControl
             // 
-            this.UnidadMedidaControl.FormattingEnabled = true;
-            this.UnidadMedidaControl.Location = new System.Drawing.Point(6, 19);
-            this.UnidadMedidaControl.Name = "UnidadMedidaControl";
-            this.UnidadMedidaControl.Size = new System.Drawing.Size(268, 21);
-            this.UnidadMedidaControl.TabIndex = 43;
+            this.IdUnidadMedidaControl.FormattingEnabled = true;
+            this.IdUnidadMedidaControl.Location = new System.Drawing.Point(6, 19);
+            this.IdUnidadMedidaControl.Name = "IdUnidadMedidaControl";
+            this.IdUnidadMedidaControl.Size = new System.Drawing.Size(268, 21);
+            this.IdUnidadMedidaControl.TabIndex = 43;
             // 
             // lblUnidadMedida
             // 
@@ -488,7 +507,7 @@
             this.panel13.Location = new System.Drawing.Point(797, 159);
             this.panel13.Name = "panel13";
             this.tableLayoutPanel1.SetRowSpan(this.panel13, 3);
-            this.panel13.Size = new System.Drawing.Size(319, 153);
+            this.panel13.Size = new System.Drawing.Size(329, 153);
             this.panel13.TabIndex = 10;
             // 
             // btnGenerarCodigoBarras
@@ -500,7 +519,7 @@
             this.btnGenerarCodigoBarras.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnGenerarCodigoBarras.ForeColor = System.Drawing.Color.White;
             this.btnGenerarCodigoBarras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGenerarCodigoBarras.Location = new System.Drawing.Point(62, 99);
+            this.btnGenerarCodigoBarras.Location = new System.Drawing.Point(72, 99);
             this.btnGenerarCodigoBarras.Name = "btnGenerarCodigoBarras";
             this.btnGenerarCodigoBarras.Size = new System.Drawing.Size(199, 28);
             this.btnGenerarCodigoBarras.TabIndex = 52;
@@ -519,7 +538,7 @@
             // 
             // CodigoBarrasControl
             // 
-            this.CodigoBarrasControl.Location = new System.Drawing.Point(18, 52);
+            this.CodigoBarrasControl.Location = new System.Drawing.Point(13, 52);
             this.CodigoBarrasControl.Name = "CodigoBarrasControl";
             this.CodigoBarrasControl.Size = new System.Drawing.Size(291, 20);
             this.CodigoBarrasControl.TabIndex = 50;
@@ -539,7 +558,7 @@
             this.DescripcionControl.Location = new System.Drawing.Point(7, 29);
             this.DescripcionControl.Multiline = true;
             this.DescripcionControl.Name = "DescripcionControl";
-            this.DescripcionControl.Size = new System.Drawing.Size(378, 67);
+            this.DescripcionControl.Size = new System.Drawing.Size(353, 67);
             this.DescripcionControl.TabIndex = 50;
             // 
             // Descripcion
@@ -599,6 +618,7 @@
             this.StockControl.TabIndex = 48;
             this.StockControl.Text = "STOCK";
             this.StockControl.UseVisualStyleBackColor = true;
+            this.StockControl.CheckedChanged += new System.EventHandler(this.StockControl_CheckedChanged);
             // 
             // AplicaIvaControl
             // 
@@ -641,24 +661,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // RutaControl
-            // 
-            this.RutaControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            this.RutaControl.BeforeTouchSize = new System.Drawing.Size(298, 35);
-            this.RutaControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RutaControl.CornerRadius = 2;
-            this.RutaControl.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.RutaControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RutaControl.Location = new System.Drawing.Point(11, 108);
-            this.RutaControl.MaxLength = 80;
-            this.RutaControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.RutaControl.MinimumSize = new System.Drawing.Size(8, 4);
-            this.RutaControl.Multiline = true;
-            this.RutaControl.Name = "RutaControl";
-            this.RutaControl.ReadOnly = true;
-            this.RutaControl.Size = new System.Drawing.Size(298, 35);
-            this.RutaControl.TabIndex = 45;
-            // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -681,6 +683,7 @@
             this.panel10.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RutaControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -703,7 +706,6 @@
             this.ClaveSat.ResumeLayout(false);
             this.ClaveSat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RutaControl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -720,7 +722,7 @@
         private System.Windows.Forms.TextBox NombreControl;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.ComboBox CategoriaControl;
+        private System.Windows.Forms.ComboBox IdCategoriaProductoControl;
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel9;
@@ -744,7 +746,7 @@
         private System.Windows.Forms.Button BtnSeleccionar;
         private System.Windows.Forms.PictureBox FotoControl;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.ComboBox UnidadMedidaControl;
+        private System.Windows.Forms.ComboBox IdUnidadMedidaControl;
         private System.Windows.Forms.Label lblUnidadMedida;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Button btnGenerarCodigoBarras;

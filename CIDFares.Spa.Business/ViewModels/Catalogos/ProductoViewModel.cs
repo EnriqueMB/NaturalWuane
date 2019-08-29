@@ -30,6 +30,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public BindingList<Producto> ListaProducto { get; set; }
         public BindingList<CategoriaProducto> ListaCategoria { get; set; }
         public BindingList<UnidadMedida> ListaUnidadMedida { get; set; }
+        public BindingList<Cliente> ListaProducto2 { get; set; }
 
         public EntityState State { get; set; }
         //public ProductoViewModel PDatos { get; set; }
@@ -47,7 +48,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
             #region propiedades binding
             Nombre = string.Empty;
-            
+            IdCategoriaProducto = 0;
             IdProducto = 0;
             Categoria = string.Empty;
             Clave = string.Empty;
@@ -122,19 +123,23 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             {
                 Producto producto;
                 producto = await IRepository.GetProductoXid(IdProducto);
+                
                 Nombre = producto.Nombre;
-                IdCategoriaProducto = producto.IdCategoriaProducto;
+                Descripcion = producto.Descripcion;
                 Clave = producto.Clave;
-                UnidadMedida = producto.UnidadMedida;
-                PrecioPublico = producto.PrecioPublico;
-                AplicaIva = producto.AplicaIva;
                 Stock = producto.Stock;
+
+                IdCategoriaProducto = IdCategoriaProducto;
+
                 StockMax = producto.StockMax;
                 StockMin = producto.StockMin;
+                PrecioPublico = producto.PrecioPublico;
                 PrecioMayoreo = producto.PrecioMayoreo;
                 PrecioMenudeo = producto.PrecioMenudeo;
-                StockMax = producto.StockMax;
-                Descripcion = producto.Descripcion;
+                CodigoBarras = producto.CodigoBarras;
+                IdUnidadMedida = producto.IdUnidadMedida;
+                ClaveSat = producto.ClaveSat;
+                AplicaIva = producto.AplicaIva;                                            
                 Foto = (string.IsNullOrEmpty(producto.Base64String)) ? null : producto.Base64String.ImageBase64ToImage();
             }
             catch (Exception ex)
@@ -206,6 +211,24 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         #endregion
+
+        public async Task GetBusqueda()
+        {
+            try
+            {
+                var x = await IRepository.GetBusquedaAsync(this.Busqueda);
+                ListaProducto.Clear();
+                foreach (var item in x)
+                {
+                    ListaProducto.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
 
 
 
@@ -450,6 +473,18 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
+        //BUSQUEDA
+        private string _Busqueda;
+
+        public string Busqueda
+        {
+            get { return _Busqueda; }
+            set
+            {
+                _Busqueda = value;
+                OnPropertyChanged(nameof(Busqueda));
+            }
+        }
         #endregion
 
         #region InotifyPropertyChanged Members

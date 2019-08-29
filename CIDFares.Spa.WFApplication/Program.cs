@@ -53,6 +53,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ClienteValidator, IValidator<ClienteViewModel>>();
             ServiceLocator.Instance.Register<CategoriaProductoValidator, IValidator<CategoriaProductoViewModel>>();
             ServiceLocator.Instance.Register<ServicioValidator, IValidator<ServicioViewModel>>();
+            ServiceLocator.Instance.Register<ProductoValidator, IValidator<ProductoViewModel>>();
         }
 
         private static void RegisterViewModelDependencies()

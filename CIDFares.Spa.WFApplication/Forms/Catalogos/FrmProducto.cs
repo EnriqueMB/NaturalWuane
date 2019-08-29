@@ -50,7 +50,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         public FrmProducto(int IdProducto)
         {
             InitializeComponent();
-            lblSubtitle.Text = "MODIFICAR REGISTRO";
+           // lblSubtitle.Text = "MODIFICAR REGISTRO";
             Model = ServiceLocator.Instance.Resolve<ProductoViewModel>();
             LimpiarPropiedades();
             Model.IdProducto = IdProducto;
@@ -77,13 +77,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             RutaControl.DataBindings.Add("Text", Model, "ImageLocation", true, DataSourceUpdateMode.OnPropertyChanged);
 
             IniciarCombos(1);
-            CategoriaControl.DataBindings.Add("SelectedValue", Model, "IdCategoriaProducto", true, DataSourceUpdateMode.OnPropertyChanged);
-            CategoriaControl.DataBindings.Add("DataSource", Model, "ListaCategoria", true, DataSourceUpdateMode.OnPropertyChanged);
+            IdCategoriaProductoControl.DataBindings.Add("SelectedValue", Model, "IdCategoriaProducto", true, DataSourceUpdateMode.OnPropertyChanged);
+            IdCategoriaProductoControl.DataBindings.Add("DataSource", Model, "ListaCategoria", true, DataSourceUpdateMode.OnPropertyChanged);
 
 
             IniciarCombos(2);
-            UnidadMedidaControl.DataBindings.Add("SelectedValue", Model, "IdUnidadMedida", true, DataSourceUpdateMode.OnPropertyChanged);
-            UnidadMedidaControl.DataBindings.Add("DataSource", Model, "ListaUnidadMedida", true, DataSourceUpdateMode.OnPropertyChanged);
+            IdUnidadMedidaControl.DataBindings.Add("SelectedValue", Model, "IdUnidadMedida", true, DataSourceUpdateMode.OnPropertyChanged);
+            IdUnidadMedidaControl.DataBindings.Add("DataSource", Model, "ListaUnidadMedida", true, DataSourceUpdateMode.OnPropertyChanged);
             
         }
 
@@ -93,14 +93,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {
                 if (tipo ==1)
                 {
-                    CategoriaControl.DisplayMember = "Nombre";
-                    CategoriaControl.ValueMember = "IdCategoriaProducto";
+                    IdCategoriaProductoControl.DisplayMember = "Nombre";
+                    IdCategoriaProductoControl.ValueMember = "IdCategoriaProducto";
                 }
 
                 else if (tipo == 2)
                 {
-                    UnidadMedidaControl.DisplayMember = "Nombre";
-                    UnidadMedidaControl.ValueMember = "IdUnidadMedida";
+                    IdUnidadMedidaControl.DisplayMember = "Nombre";
+                    IdUnidadMedidaControl.ValueMember = "IdUnidadMedida";
                 }
             }
             catch (Exception ex)
@@ -147,9 +147,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             try
             {
                 Model.Nombre = string.Empty;
-               // Model.PDatos.IdCategoriaProducto = 0;
+                Model.IdCategoriaProducto = 0;
                 Model.Clave = string.Empty;
-                Model.UnidadMedida = string.Empty;
+                Model.IdUnidadMedida = 0;
                 Model.PrecioPublico = 0;
                 Model.PrecioMayoreo = 0;
                 Model.PrecioMenudeo = 0;
@@ -157,6 +157,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 Model.Stock = false;
                 Model.StockMax =0;
                 Model.StockMin = 0;
+                Model.Descripcion = string.Empty;
+                Model.ClaveSat = 0;
                 Model.Descripcion = string.Empty;
                
 
@@ -167,13 +169,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
 
-
-
-        #endregion
-
-        #region Eventos
+        
 
         #endregion
+
+        
 
      
 
@@ -184,11 +184,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             try
             {
                 btnGuardar.Enabled = false;
-               // this.CleanErrors(errorProvider1, typeof(ProductoViewModel));
-               // var validationResults = Model.PDatos.Validate();
-               // validationResults.ToString();
-              //  if (validationResults.IsValid)
-               // {
+                this.CleanErrors(errorProvider1, typeof(ProductoViewModel));
+                var validationResults = Model.Validate();
+                validationResults.ToString();
+                if (validationResults.IsValid)
+                {
                     var Resultado = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
                     if (Resultado != null || Resultado != string.Empty)
                     {
@@ -222,9 +222,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     }
                     else
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
-              //  }
-               // else
-                  //  this.ShowErrors(errorProvider1, typeof(ProductoViewModel), validationResults);
+                }
+                else
+                    this.ShowErrors(errorProvider1, typeof(ProductoViewModel), validationResults);
 
             }
             catch (Exception ex)
@@ -240,14 +240,47 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         private async void FrmProducto_Load(object sender, EventArgs e)
         {
-            //IniciarBinding();
-            var x = await Model.GetListaCataegoriaProduto();
-            Model.LlenarListaCategoria(x);
 
-            var y = await Model.GetListaUnidadMedida();
-            Model.LlenaUnidadMedida(y);
+            try
+            {
+                var x = await Model.GetListaCataegoriaProduto();
+                Model.LlenarListaCategoria(x);
 
-            IniciarBinding();
+                var y = await Model.GetListaUnidadMedida();
+                Model.LlenaUnidadMedida(y);
+
+                IniciarBinding();
+               
+                
+
+                if (Model.State == EntityState.Update)
+                {
+                    CIDWait.Show(async () => {
+                        await Model.GetProducto();
+                        if (Model.Foto == null)
+                            Model.Foto = Properties.Resources.imagen_subir;
+                        await Task.Delay(2000);
+                    }, "Cargando personal");
+                    lblSubtitle.Text = Model.Nombre;
+                   // CategoriaControl.Enabled = false;
+//                    UnidadMedidaControl.Enabled = false;
+                    //if (Model.AplicaIva==true)
+                    //{
+
+                    //}
+
+                }
+                else
+                {
+                    Model.Foto = Properties.Resources.imagen_subir;
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         private void BtnSeleccionar_Click_1(object sender, EventArgs e)
@@ -282,6 +315,36 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmPersonal ~ BtnSeleccionar_Click_1(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //DialogResult resultado = new DialogResult();
+                //FrmOption fo = new FrmOption("¿DESEA CERRAR ESTE FORMULARIO?");
+                //resultado = fo.ShowDialog();
+                //if (resultado == DialogResult.OK)
+                    this.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void StockControl_CheckedChanged(object sender, EventArgs e)
+        {
+            if (StockControl.Checked == true)
+            {
+                StockMaxControl.Enabled = true;
+                StockMinControl.Enabled = true;
+            }
+            else if (StockControl.Checked == false)
+            {
+                StockMaxControl.Enabled = false;
+                StockMinControl.Enabled = false;
             }
         }
     }

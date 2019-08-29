@@ -33,5 +33,8 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
         Task<string> Update(Producto element, object IdUsuario);
 
         Task<Producto> GetProductoXid(int IdProducto);
+        Task<int> NameExistAsync2(string name);
+
+        Task<IEnumerable<Producto>> GetBusquedaAsync(string Busqueda);
     }
 }
