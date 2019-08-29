@@ -188,7 +188,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
                     if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmDeleteMessage) == DialogResult.OK)
                     {
-                       Model.IdFormaPago = item.IdFormaPago;
+                        Model.IdFormaPago = item.IdFormaPago;
                         grpBoxFormaPago.Enabled = false;
                         var result = await Model.DeleteAsync();
                         if (result == 1)

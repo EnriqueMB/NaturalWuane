@@ -71,9 +71,24 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
 
         }
 
-        public Task<Guid> EsCuentaUnica(string Cuenta)
+        public async Task<Guid> EsCuentaUnica(string Cuenta)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@Opcion", 5);
+                    dynamicParameters.Add("@Nombre", Cuenta);
+                    var dr = await conexion.ExecuteScalarAsync<Guid>("[General].[SPCID_ValidarNombre]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return dr;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public Task<bool> ExistAsync(object id)
@@ -98,9 +113,14 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.IdCuentaUsuario = dr.GetGuid(dr.GetOrdinal("IdCuentaUsuario"));
                         //item.LocalId = dr.GetInt32(dr.GetOrdinal("LocalId"));
                         item.Cuenta = dr.GetString(dr.GetOrdinal("Cuenta"));
+                        //item.PasswordHash = dr.GetString(dr.GetOrdinal("PasswordHash"));
+                        //item.ConstraseniaDos = dr.GetString(dr.GetOrdinal("ContraseniaDos"));
                         item.IdRol = dr.GetInt32(dr.GetOrdinal("IdRol"));
                         item.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
-                       
+                        item.IdEmpleado = dr.GetGuid(dr.GetOrdinal("IdEmpleado"));
+                        item.Nombres = dr.GetString(dr.GetOrdinal("Nombres"));
+
+
                         ListaUsuario.Add(item);
                     }
                     return ListaUsuario;

@@ -26,7 +26,8 @@ namespace CIDFares.Spa.WFApplication
             InitializeContainer();
             CurrentSession.IdCuentaUsuario = 0;
             //Application.Run(new FrmFormaPago());
-            Application.Run(new FrmCliente());
+            //Application.Run(new FrmCliente());
+            Application.Run(new FrmUsuario());
 
 
         }
@@ -51,6 +52,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<FormaPagoValidator, IValidator<FormaPagoViewModel>>();
             ServiceLocator.Instance.Register<ClienteValidator, IValidator<ClienteViewModel>>();
             ServiceLocator.Instance.Register<CategoriaProductoValidator, IValidator<CategoriaProductoViewModel>>();
+            ServiceLocator.Instance.Register<UsuarioValidator, IValidator<UsuarioViewModel>>();
         }
 
         private static void RegisterViewModelDependencies()

@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -48,11 +50,12 @@
             this.CuentaControl = new System.Windows.Forms.TextBox();
             this.lblCuenta = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.PasswordControl = new System.Windows.Forms.TextBox();
             this.lblContrasenia = new System.Windows.Forms.Label();
-            this.ContraseniaControl = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.lblConfirmar = new System.Windows.Forms.Label();
             this.ContraseniaDosControl = new System.Windows.Forms.TextBox();
+            this.lblConfirmar = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.lblRol = new System.Windows.Forms.Label();
             this.IdRolControl = new System.Windows.Forms.ComboBox();
@@ -227,6 +230,7 @@
             this.CuentaControl.Name = "CuentaControl";
             this.CuentaControl.Size = new System.Drawing.Size(336, 27);
             this.CuentaControl.TabIndex = 1;
+            this.CuentaControl.TextChanged += new System.EventHandler(this.CuentaControl_TextChanged);
             // 
             // lblCuenta
             // 
@@ -240,13 +244,34 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.checkBox1);
+            this.panel7.Controls.Add(this.PasswordControl);
             this.panel7.Controls.Add(this.lblContrasenia);
-            this.panel7.Controls.Add(this.ContraseniaControl);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 68);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(474, 59);
             this.panel7.TabIndex = 2;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(358, 20);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(102, 25);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "Modificar";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // PasswordControl
+            // 
+            this.PasswordControl.Location = new System.Drawing.Point(7, 20);
+            this.PasswordControl.Margin = new System.Windows.Forms.Padding(0);
+            this.PasswordControl.Name = "PasswordControl";
+            this.PasswordControl.PasswordChar = '*';
+            this.PasswordControl.Size = new System.Drawing.Size(332, 27);
+            this.PasswordControl.TabIndex = 3;
             // 
             // lblContrasenia
             // 
@@ -254,26 +279,28 @@
             this.lblContrasenia.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.lblContrasenia.Location = new System.Drawing.Point(0, 0);
             this.lblContrasenia.Name = "lblContrasenia";
-            this.lblContrasenia.Size = new System.Drawing.Size(102, 20);
+            this.lblContrasenia.Size = new System.Drawing.Size(99, 20);
             this.lblContrasenia.TabIndex = 2;
-            this.lblContrasenia.Text = "Contraseñia:";
-            // 
-            // ContraseniaControl
-            // 
-            this.ContraseniaControl.Location = new System.Drawing.Point(4, 23);
-            this.ContraseniaControl.Name = "ContraseniaControl";
-            this.ContraseniaControl.Size = new System.Drawing.Size(336, 27);
-            this.ContraseniaControl.TabIndex = 3;
+            this.lblContrasenia.Text = "Contraseña:";
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.lblConfirmar);
             this.panel8.Controls.Add(this.ContraseniaDosControl);
+            this.panel8.Controls.Add(this.lblConfirmar);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(3, 133);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(474, 59);
             this.panel8.TabIndex = 3;
+            // 
+            // ContraseniaDosControl
+            // 
+            this.ContraseniaDosControl.Location = new System.Drawing.Point(3, 20);
+            this.ContraseniaDosControl.Margin = new System.Windows.Forms.Padding(0);
+            this.ContraseniaDosControl.Name = "ContraseniaDosControl";
+            this.ContraseniaDosControl.PasswordChar = '*';
+            this.ContraseniaDosControl.Size = new System.Drawing.Size(336, 27);
+            this.ContraseniaDosControl.TabIndex = 9;
             // 
             // lblConfirmar
             // 
@@ -281,16 +308,9 @@
             this.lblConfirmar.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.lblConfirmar.Location = new System.Drawing.Point(-1, 0);
             this.lblConfirmar.Name = "lblConfirmar";
-            this.lblConfirmar.Size = new System.Drawing.Size(176, 20);
+            this.lblConfirmar.Size = new System.Drawing.Size(173, 20);
             this.lblConfirmar.TabIndex = 8;
-            this.lblConfirmar.Text = "Confirmar contraseñia:";
-            // 
-            // ContraseniaDosControl
-            // 
-            this.ContraseniaDosControl.Location = new System.Drawing.Point(0, 23);
-            this.ContraseniaDosControl.Name = "ContraseniaDosControl";
-            this.ContraseniaDosControl.Size = new System.Drawing.Size(336, 27);
-            this.ContraseniaDosControl.TabIndex = 9;
+            this.lblConfirmar.Text = "Confirmar contraseña:";
             // 
             // panel9
             // 
@@ -395,20 +415,27 @@
             // 
             this.DataGridUsuario.AccessibleName = "Table";
             this.DataGridUsuario.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn5.HeaderText = "Column1";
-            gridTextColumn5.MappingName = "IdCuentaUsuario";
+            gridTextColumn1.HeaderText = "Column1";
+            gridTextColumn1.MappingName = "IdCuentaUsuario";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.HeaderText = "Cuenta";
+            gridTextColumn2.MappingName = "Cuenta";
+            gridTextColumn3.HeaderText = "IdRol";
+            gridTextColumn3.MappingName = "IdRol";
+            gridTextColumn3.Visible = false;
+            gridTextColumn4.HeaderText = "Rol";
+            gridTextColumn4.MappingName = "Nombre";
+            gridTextColumn5.HeaderText = "Column7";
+            gridTextColumn5.MappingName = "IdEmpleado";
             gridTextColumn5.Visible = false;
-            gridTextColumn6.HeaderText = "Cuenta";
-            gridTextColumn6.MappingName = "Cuenta";
-            gridTextColumn7.HeaderText = "IdRol";
-            gridTextColumn7.MappingName = "IdRol";
-            gridTextColumn7.Visible = false;
-            gridTextColumn8.HeaderText = "Rol";
-            gridTextColumn8.MappingName = "Nombre";
+            gridTextColumn6.HeaderText = "Nombre empleado";
+            gridTextColumn6.MappingName = "Nombres";
+            this.DataGridUsuario.Columns.Add(gridTextColumn1);
+            this.DataGridUsuario.Columns.Add(gridTextColumn2);
+            this.DataGridUsuario.Columns.Add(gridTextColumn3);
+            this.DataGridUsuario.Columns.Add(gridTextColumn4);
             this.DataGridUsuario.Columns.Add(gridTextColumn5);
             this.DataGridUsuario.Columns.Add(gridTextColumn6);
-            this.DataGridUsuario.Columns.Add(gridTextColumn7);
-            this.DataGridUsuario.Columns.Add(gridTextColumn8);
             this.DataGridUsuario.Location = new System.Drawing.Point(0, 0);
             this.DataGridUsuario.Name = "DataGridUsuario";
             this.DataGridUsuario.Size = new System.Drawing.Size(516, 420);
@@ -417,6 +444,7 @@
             // 
             // errorProviderUsuario
             // 
+            this.errorProviderUsuario.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProviderUsuario.ContainerControl = this;
             // 
             // FrmUsuario
@@ -472,14 +500,12 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.ComboBox IdRolControl;
         private System.Windows.Forms.Label lblRol;
-        private System.Windows.Forms.TextBox ContraseniaControl;
         private System.Windows.Forms.Label lblContrasenia;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.TextBox ContraseniaDosControl;
         private System.Windows.Forms.Label lblConfirmar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel6;
@@ -491,5 +517,8 @@
         private System.Windows.Forms.Label lblEmpleado;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.ErrorProvider errorProviderUsuario;
+        private System.Windows.Forms.TextBox ContraseniaDosControl;
+        private System.Windows.Forms.TextBox PasswordControl;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
