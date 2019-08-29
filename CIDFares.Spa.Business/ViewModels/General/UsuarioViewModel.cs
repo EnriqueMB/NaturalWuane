@@ -1,6 +1,7 @@
 ﻿using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
+using CIDFares.Spa.DataAccess.Contracts.Validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.Business.ViewModels.General
 {
-    public class UsuarioViewModel : INotifyPropertyChanged
+    public class UsuarioViewModel : Validable, INotifyPropertyChanged
     {
         #region Propiedades privadas
         private IUsuarioRepository Repository { get; set; } 
@@ -30,6 +31,14 @@ namespace CIDFares.Spa.Business.ViewModels.General
         #region Constructor
         public UsuarioViewModel(IUsuarioRepository usuarioRepository, IRolRepository rolRepository, IEmpleadoRepository empleadoRepository)
         {
+            Modificar = false;
+            Password = string.Empty;
+            ContraseniaDos = string.Empty;
+            IdCuentaUsuario = new Guid();
+            Cuenta = string.Empty;
+            IdRol = 0;
+            IdEmpleado = new Guid();
+
             Repository = usuarioRepository;
             ListaUsuario = new BindingList<Usuario>();
             RolRepository = rolRepository;
@@ -113,14 +122,13 @@ namespace CIDFares.Spa.Business.ViewModels.General
                 {
                     IdCuentaUsuario = IdCuentaUsuario,
                     Cuenta = Cuenta,
-                    PasswordHash = Contrasenia,
+                    PasswordHash = Password,
                     IdRol = IdRol,
                     IdEmpleado = IdEmpleado
                 };
                 if (State == EntityState.Create)
-                {
-                    
-                    return await Repository.AddAsync(model, IdUsuario);
+                {   
+                    return await Repository.AddAsync(model);
                 }
                 else if (State == EntityState.Update)
                 {
@@ -162,14 +170,14 @@ namespace CIDFares.Spa.Business.ViewModels.General
             }
         }
 
-        private string _Contrasenia;
-        public string Contrasenia
+        private string _Password;
+        public string Password
         {
-            get { return _Contrasenia; }
+            get { return _Password; }
             set
             {
-                _Contrasenia = value;
-                OnPropertyChanged(nameof(Contrasenia));
+                _Password = value;
+                OnPropertyChanged(nameof(Password));
             }
         }
 
@@ -207,6 +215,19 @@ namespace CIDFares.Spa.Business.ViewModels.General
                 OnPropertyChanged(nameof(IdEmpleado));
             }
         }
+
+        private bool _Modificar;
+
+        public bool Modificar
+        {
+            get { return _Modificar; }
+            set {
+                _Modificar = value;
+                OnPropertyChanged(nameof(Modificar));
+            }
+        }
+
+        //public bool Modificar { get; set; }
 
 
 

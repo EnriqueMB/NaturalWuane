@@ -11,5 +11,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
     public interface IUsuarioRepository : IBaseRepository<Usuario>
     {
         Task<Guid>EsCuentaUnica(string Cuenta);
+        Task<Usuario> AddAsync(Usuario element);
     }
 }

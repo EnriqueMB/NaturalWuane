@@ -1,4 +1,5 @@
 ﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Library.Code.Helpers;
 using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Library.Controls.CIDMessageBox.Forms;
@@ -10,12 +11,6 @@ using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
 using CIDFares.Spa.WFApplication.Session;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -36,12 +31,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
         {
             try
             {
+                CuentaControl.DataBindings.Add("Text", Model, "Cuenta", true, DataSourceUpdateMode.OnPropertyChanged);
+                PasswordControl.DataBindings.Add("Text", Model, "Password", true, DataSourceUpdateMode.OnPropertyChanged);
+                ContraseniaDosControl.DataBindings.Add("Text", Model, "ContraseniaDos", true, DataSourceUpdateMode.OnPropertyChanged);
+
                 this.DataGridUsuario.AutoGenerateColumns = false;
                 DataGridUsuario.DataBindings.Add("DataSource", Model, "ListaUsuario", true, DataSourceUpdateMode.OnPropertyChanged);
 
-                CuentaControl.DataBindings.Add("Text", Model, "Cuenta", true, DataSourceUpdateMode.OnPropertyChanged);
-                ContraseniaControl.DataBindings.Add("Text", Model, "Contrasenia", true, DataSourceUpdateMode.OnPropertyChanged);
-                ContraseniaDosControl.DataBindings.Add("Text", Model, "ContraseniaDos", true, DataSourceUpdateMode.OnPropertyChanged);
+                
 
 
                 IdRolControl.DataBindings.Add("SelectedValue", Model, "IdRol", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -51,6 +48,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
                 IdEmpleadoControl.DataBindings.Add("SelectedValue", Model, "IdEmpleado", true, DataSourceUpdateMode.OnPropertyChanged);
                 IdEmpleadoControl.DataBindings.Add("DataSource", Model, "ListaEmpleado", true, DataSourceUpdateMode.OnPropertyChanged);
                 IniciarComboEmpleado();
+
+                checkBox1.DataBindings.Add("Checked", Model, "Modificar", true, DataSourceUpdateMode.OnPropertyChanged);
             }
             catch (Exception ex)
             {
@@ -78,7 +77,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
             try
             {
                 IdEmpleadoControl.DisplayMember = "Nombres";
-                IdEmpleadoControl.ValueMember =   "IdEmpleado";
+                IdEmpleadoControl.ValueMember = "IdEmpleado";
 
             }
             catch (Exception ex)
@@ -106,11 +105,33 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
         public void LimpiarPropiedades()
         {
             Model.Cuenta = string.Empty;
-            Model.Contrasenia = string.Empty;
+            Model.Password = string.Empty;
             Model.ContraseniaDos = string.Empty;
             Model.IdRol = 0;
             Model.IdEmpleado = Guid.Empty;
             
+        }
+
+        private string ObtenerMensajeError(int Error)
+        {
+            try
+            {
+                string ErrorMessage = Messages.ErrorMessage;
+                switch (Error)
+                {
+                    case -1:
+                        ErrorMessage = "LA CUENTA YA SE ENCUENTRA REGISTRADA";
+                        break;
+                    case -2:
+                        ErrorMessage = "DESCONOCIDO";
+                        break;
+                }
+                return ErrorMessage;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
 
@@ -131,7 +152,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
             }
             catch (Exception ex)
             {
-                CIDMessageBox.ShowAlert(Messages.SystemName, "Error al cargar la informacion.", TypeMessage.error);
+                CIDMessageBox.ShowAlert(Messages.SystemName, "ERROR AL CARGAR LA INFORMACION.", TypeMessage.error);
                 this.Close();
                 throw ex;
             }
@@ -139,30 +160,43 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            Model.Modificar = true;
+            checkBox1.Enabled = false;
             groupUsuario.Enabled = true;
             flowLayoutPanel1.Enabled = true;
             LimpiarPropiedades();
             Model.State = EntityState.Create;
             IdRolControl.SelectedValue = 0;
+            this.CleanErrors(errorProviderUsuario, typeof(UsuarioViewModel));
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             try
             {
+                PasswordControl.Enabled = false;
+                ContraseniaDosControl.Enabled = false;
+                checkBox1.Enabled = true;
+                Model.Modificar = false;
+                this.CleanErrors(errorProviderUsuario, typeof(UsuarioViewModel));
                 var item = ObtenerSeleccionado();
                 if (item != null)
                 {
 
                     Model.IdCuentaUsuario = item.IdCuentaUsuario;
                     Model.Cuenta = item.Cuenta;
-                    Model.Contrasenia = item.PasswordHash;
+                    //Model.Password = item.PasswordHash;
+                    //Model.ContraseniaDos = item.ConstraseniaDos;
+                    Model.IdRol = item.IdRol;
+                    Model.IdEmpleado = item.IdEmpleado;
+                    
+
                     groupUsuario.Enabled = true;
                     flowLayoutPanel1.Enabled = true;
                     Model.State = EntityState.Update;
                 }
-               // else
-               //   CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
+                else
+                  CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
 
             }
             catch (Exception ex)
@@ -182,25 +216,24 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
                 if (item != null)
                 {
 
-                   // if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmDeleteMessage) == DialogResult.OK)
-                   // {
+                   if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmDeleteMessage) == DialogResult.OK)
+                   {
                         Model.IdCuentaUsuario= item.IdCuentaUsuario;
                         groupUsuario.Enabled = false;
                         var result = await Model.Remove(CurrentSession.IdCuentaUsuario);
 
-
                         if (result == 1)
                         {
-                            //CIDMessageBox.ShowAlert(Constants.SystemName, Constants.SuccessDeleteMessage, TypeMessage.informacion);
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.informacion);
                             LimpiarPropiedades();
                             await Model.GetAll();
                         }
-                //        else
-                //            CIDMessageBox.ShowAlert(Constants.SystemName, Constants.ErrorDeleteMessage, TypeMessage.informacion);
-                //    }
+                     else
+                           CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.informacion);
+                    }
                 }
-                //else
-                  //  CIDMessageBox.ShowAlert(Constants.SystemName, Constants.GridSelectMessage, TypeMessage.informacion);
+                else
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
 
             }
             catch (Exception)
@@ -214,33 +247,41 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
         {
             try
             {
-                btnGuardar.Enabled = false;
-                this.CleanErrors(errorProviderUsuario, typeof(Usuario));
-                //var validationResults = Model.Datos.Validate();
-                //validationResults.ToString();
+                btnGuardar.Enabled = true;
+               
+                this.CleanErrors(errorProviderUsuario, typeof(UsuarioViewModel));
+                var validationResults = Model.Validate();
+                validationResults.ToString();
 
-                //if (validationResults.IsValid)
-                //{
-                    var Resultado = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
-                   //if (Resultado)
+                if (validationResults.IsValid)
+                { 
+                    Usuario Resultado = await Model.GuardarCambios();
+                    
+                   if (Resultado.Resultado == 1)
                     {
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
                         groupUsuario.Enabled = false;
                         LimpiarPropiedades();
                         DataGridUsuario.Refresh();
                         await Model.GetAll();
-                   }
-                   // else
-                   //     CIDMessageBox.ShowAlert(Messages.ErrorMessage, ObtenerMensajeError(Resultado), TypeMessage.error);
-                //}
-                //else
-                  //  this.ShowErrors(errorProviderNacionalidad, typeof(Usuario), validationResults);
+                        btnGuardar.Enabled = false;
+                    }
+                   else
+                        CIDMessageBox.ShowAlert(Messages.ErrorMessage, ObtenerMensajeError(Resultado.Resultado), TypeMessage.error);
+                }
+                else
+                    this.ShowErrors(errorProviderUsuario, typeof(UsuarioViewModel), validationResults);
 
             }
             catch (Exception ex)
             {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmUsuario ~ btnGuardar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
 
-                throw ex;
+            }
+            finally
+            {
+                btnGuardar.Enabled = true;
             }
         }
 
@@ -250,11 +291,41 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
             {
                 LimpiarPropiedades();
                 groupUsuario.Enabled = false;
-
+                this.CleanErrors(errorProviderUsuario, typeof(UsuarioViewModel));
             }
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        private void CuentaControl_TextChanged(object sender, EventArgs e)
+        {
+            var x = this.CuentaControl.SelectionStart;
+            this.CuentaControl.Text = this.CuentaControl.Text.Replace("  ", " ");
+            this.CuentaControl.SelectionStart = x;
+        }
+
+        private void PasswordControl_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox1.Checked == true)
+            {
+               
+                PasswordControl.Enabled = true;
+                ContraseniaDosControl.Enabled = true;
+            }
+            else if(checkBox1.Checked == false)
+            {
+             
+                PasswordControl.Enabled = false;
+                ContraseniaDosControl.Enabled = false;
+                LimpiarPropiedades();
+                
             }
         }
     }
