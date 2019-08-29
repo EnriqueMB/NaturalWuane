@@ -119,6 +119,18 @@
     <Compile Include="Forms\Catalogos\FrmProductoGrid.Designer.cs">
       <DependentUpon>FrmProductoGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Catalogos\FrmProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmProveedor.Designer.cs">
+      <DependentUpon>FrmProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmProveedorGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmProveedorGrid.Designer.cs">
+      <DependentUpon>FrmProveedorGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Catalogos\FrmServicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +203,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmProductoGrid.resx">
       <DependentUpon>FrmProductoGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmProveedor.resx">
+      <DependentUpon>FrmProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmProveedorGrid.resx">
+      <DependentUpon>FrmProveedorGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmServicio.resx">
       <DependentUpon>FrmServicio.cs</DependentUpon>

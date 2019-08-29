@@ -61,8 +61,12 @@
     <Compile Include="Entities\BusqueProducto.cs" />
     <Compile Include="Entities\CategoriaProducto.cs" />
     <Compile Include="Entities\Cliente.cs" />
+    <Compile Include="Entities\Estado.cs" />
+    <Compile Include="Entities\Municipio.cs" />
+    <Compile Include="Entities\Pais.cs" />
     <Compile Include="Entities\Producto.cs" />
     <Compile Include="Entities\Empleado.cs" />
+    <Compile Include="Entities\Proveedor.cs" />
     <Compile Include="Entities\Rol.cs" />
     <Compile Include="Entities\Servicio.cs" />
     <Compile Include="Entities\Sucursal.cs" />
@@ -75,9 +79,13 @@
     <Compile Include="Repositories\General\IClienteRepository.cs" />
     <Compile Include="Entities\FormaPago.cs" />
     <Compile Include="Repositories\General\IEmpleadoRepository.cs" />
+    <Compile Include="Repositories\General\IEstadoRepository.cs" />
     <Compile Include="Repositories\General\IFormaPagoRepository.cs" />
     <Compile Include="Repositories\General\ILoginRepository.cs" />
+    <Compile Include="Repositories\General\IMunicipioRepository.cs" />
+    <Compile Include="Repositories\General\IPaisRepository.cs" />
     <Compile Include="Repositories\General\IProductoRepository.cs" />
+    <Compile Include="Repositories\General\IProveedorRepository.cs" />
     <Compile Include="Repositories\General\IServicioRepository.cs" />
     <Compile Include="Repositories\General\ISucursalRepository.cs" />
     <Compile Include="Repositories\General\IUnidadMedidaRepository.cs" />

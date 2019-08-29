@@ -128,7 +128,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
                 };
                 if (State == EntityState.Create)
                 {   
-                    return await Repository.AddAsync(model);
+                    return await Repository.AddAsync(model, IdUsuario);
                 }
                 else if (State == EntityState.Update)
                 {

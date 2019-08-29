@@ -255,7 +255,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
 
                 if (validationResults.IsValid)
                 { 
-                    Usuario Resultado = await Model.GuardarCambios();
+                    Usuario Resultado = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
                     
                    if (Resultado.Resultado == 1)
                     {

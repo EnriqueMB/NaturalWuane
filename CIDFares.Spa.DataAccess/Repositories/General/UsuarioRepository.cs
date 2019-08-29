@@ -14,9 +14,15 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
 {
     public class UsuarioRepository : Repository, IUsuarioRepository
     {
-        public async Task<Usuario> AddAsync(Usuario element)
+        public Task<Usuario> AddAsync(Usuario element)
         {
-            try
+            throw new NotImplementedException();
+        }
+
+        public async Task<Usuario> AddAsync(Usuario element, object IdUsuario)
+        {
+            
+             try
             {
                 using (IDbConnection conexion = new SqlConnection(WebConnectionString))
                 {
@@ -26,7 +32,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@IdCuentaUsuario", element.IdCuentaUsuario);
                     dynamicParameters.Add("@Cuenta", element.Cuenta);
                     dynamicParameters.Add("@Password", element.PasswordHash);
-                    dynamicParameters.Add("@IdUsuario", 1);
+                    dynamicParameters.Add("@IdUsuario", IdUsuario);
                     dynamicParameters.Add("@IdRol", element.IdRol);
                     dynamicParameters.Add("@IdEmpleado", element.IdEmpleado);
                   
@@ -43,13 +49,14 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public Task<Usuario> AddAsync(Usuario element, object IdUsuario)
+        public Task<int> DeleteAsync(object id )
         {
             throw new NotImplementedException();
         }
 
-        public async Task<int> DeleteAsync(object id)
+        public async Task<int> DeleteAsync(object id, object IdUsuario)
         {
+           
             try
             {
                 using (IDbConnection conexion = new SqlConnection(WebConnectionString))
@@ -58,9 +65,9 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@IdCuentaUsuario", id);
-                    dynamicParameters.Add("@IdUsuario", 1);
+                    dynamicParameters.Add("@IdUsuario", IdUsuario);
                     var result = await conexion.ExecuteScalarAsync<int>("[Usuario].[SPCID_Delete_Usuario]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                   
+
                     return result;
 
                 }
@@ -71,12 +78,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
 
                 throw ex;
             }
-
-        }
-
-        public Task<int> DeleteAsync(object id, object IdUsuario)
-        {
-            throw new NotImplementedException();
         }
 
         public async Task<Guid> EsCuentaUnica(string Cuenta)
@@ -152,8 +153,15 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
-        public async Task<Usuario> UpdateAsync(Usuario element)
+        public Task<Usuario> UpdateAsync(Usuario element)
         {
+            throw new NotImplementedException();
+        }
+
+        public async Task<Usuario> UpdateAsync(Usuario element, object IdUsuario)
+        {
+            
+
             try
             {
                 using (IDbConnection conexion = new SqlConnection(WebConnectionString))
@@ -165,7 +173,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@IdCuentaUsuario", element.IdCuentaUsuario);
                     dynamicParameters.Add("@Cuenta", element.Cuenta);
                     dynamicParameters.Add("@Password", element.PasswordHash);
-                    dynamicParameters.Add("@IdUsuario", 1);
+                    dynamicParameters.Add("@IdUsuario", IdUsuario);
                     dynamicParameters.Add("@IdRol", element.IdRol);
                     dynamicParameters.Add("@IdEmpleado", element.IdEmpleado);
                     var result = await conexion.ExecuteScalarAsync<int>("[Usuario].[SPCID_AC_Usuario2]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
@@ -180,11 +188,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
 
                 throw ex;
             }
-        }
-
-        public Task<Usuario> UpdateAsync(Usuario element, object IdUsuario)
-        {
-            throw new NotImplementedException();
         }
     }
 }
