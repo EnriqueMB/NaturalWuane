@@ -2,8 +2,6 @@
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using CIDFares.Spa.DataAccess.Repositories.Base;
 using System.Data;
@@ -14,7 +12,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
 {
     public class SucursalRepository : Repository, ISucursalRepository
     {
-        public async Task<Sucursal> AddAsync(Sucursal element)
+
+        public async Task<Sucursal> AddAsync(Sucursal element, object IdUsuario)
         {
             try
             {
@@ -36,7 +35,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@RFC", element.Rfc);
                     dynamicParameters.Add("@NombreRepresentante", element.NombreRepresentante);
                     dynamicParameters.Add("@RegimenFiscal", element.RegimenFiscal);
-                    //dynamicParameters.Add("@IdUsuarioL", CurrentSession.IdCuentaUsuario);
+                    dynamicParameters.Add("@IdUsuarioL", IdUsuario);
                     var result = await conexion.ExecuteScalarAsync<int>("[General].[SPCID_AC_Sucursales]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     sucursal.Result = result;
                 }
@@ -48,19 +47,25 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public Task<Sucursal> AddAsync(Sucursal element, object IdUsuario)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Task<int> DeleteAsync(object id)
+        public async Task<int> DeleteAsync(object id, object IdUsuario)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> DeleteAsync(object id, object IdUsuario)
-        {
-            throw new NotImplementedException();
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdSucursal", id);
+                    dynamicParameters.Add("@IdUsuario", IdUsuario);
+                    var result = await conexion.ExecuteScalarAsync<int>("[General].[SPCID_Delete_Sucursal]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public Task<bool> ExistAsync(object id)
@@ -68,14 +73,86 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Sucursal>> GetAllAsync()
+        public async Task<IEnumerable<Sucursal>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                using(IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    List<Sucursal> sucursals = new List<Sucursal>();
+                    Sucursal item;
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@Todo", 1);
+                    dynamicParameters.Add("@IdSucursal", 0);
+                    var dr = await conexion.ExecuteReaderAsync("[General].[SPCID_Get_Sucursales]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    while (dr.Read())
+                    {
+                        item = new Sucursal();
+                        item.IdSucursal = !dr.IsDBNull(dr.GetOrdinal("IdSucursal")) ? dr.GetInt32(dr.GetOrdinal("IdSucursal")) : 0;
+                        //item.IdTipoSucursal = !dr.IsDBNull(dr.GetOrdinal("IdTipoSucursal")) ? dr.GetInt32(dr.GetOrdinal("IdTipoSucursal")) : 0;
+                        item.NombreTipoSucursal = dr.GetString(dr.GetOrdinal("TipoSucursal"));
+                        item.NumSucursal = dr.GetInt32(dr.GetOrdinal("NumSucursal"));
+                        item.Nombre = dr.GetString(dr.GetOrdinal("NombreSucursal"));
+                        item.Direccion = dr.GetString(dr.GetOrdinal("Direccion"));
+                        item.Telefono = dr.GetString(dr.GetOrdinal("Telefono"));
+                        item.NombreMunicipio = dr.GetString(dr.GetOrdinal("Municipio"));
+                        item.NombreEstado = dr.GetString(dr.GetOrdinal("Estado")); ;
+                        item.NombrePais = dr.GetString(dr.GetOrdinal("Pais"));
+                        item.CodigoPostal = dr.GetString(dr.GetOrdinal("CodigoPostal"));
+                        item.Rfc = dr.GetString(dr.GetOrdinal("RFC"));
+                        item.NombreRepresentante = dr.GetString(dr.GetOrdinal("NombreRepresentante"));
+                        item.RegimenFiscal = dr.GetString(dr.GetOrdinal("RegimenFiscal"));
+                        sucursals.Add(item);
+                    }
+                    dr.Close();
+                    return sucursals;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
-        public Task<Sucursal> GetAsync(object id)
+        public async Task<Sucursal> GetAsync(object id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    Sucursal item = new Sucursal();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@Todo", 0);
+                    dynamicParameters.Add("@IdSucursal", id);
+                    var dr = await conexion.ExecuteReaderAsync("[General].[SPCID_Get_Sucursales]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    while (dr.Read())
+                    {
+                        item.IdTipoSucursal = !dr.IsDBNull(dr.GetOrdinal("IdTipoSucursal")) ? dr.GetInt32(dr.GetOrdinal("IdTipoSucursal")) : 0;
+                        item.NumSucursal = dr.GetInt32(dr.GetOrdinal("NumSucursal"));
+                        item.Nombre = dr.GetString(dr.GetOrdinal("NombreSucursal"));
+                        item.Direccion = dr.GetString(dr.GetOrdinal("Direccion"));
+                        item.Telefono = dr.GetString(dr.GetOrdinal("Telefono"));
+                        item.IdMunicipio = !dr.IsDBNull(dr.GetOrdinal("IdMunicipio")) ? dr.GetInt32(dr.GetOrdinal("IdMunicipio")) : 0;
+                        item.IdEstado = !dr.IsDBNull(dr.GetOrdinal("IdEstado")) ? dr.GetInt32(dr.GetOrdinal("IdEstado")) : 0;
+                        item.IdPais = !dr.IsDBNull(dr.GetOrdinal("IdPais")) ? dr.GetInt32(dr.GetOrdinal("IdPais")) : 0;
+                        item.CodigoPostal = dr.GetString(dr.GetOrdinal("CodigoPostal"));
+                        item.Rfc = dr.GetString(dr.GetOrdinal("RFC"));
+                        item.NombreRepresentante = dr.GetString(dr.GetOrdinal("NombreRepresentante"));
+                        item.RegimenFiscal = dr.GetString(dr.GetOrdinal("RegimenFiscal"));
+                        
+                    }
+                    dr.Close();
+                    return item;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public Task<int> NameExistAsync(string name)
@@ -83,14 +160,38 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
-        public Task<Sucursal> UpdateAsync(Sucursal element)
+        public async Task<Sucursal> UpdateAsync(Sucursal element, object IdUsuario)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<Sucursal> UpdateAsync(Sucursal element, object IdUsuario)
-        {
-            throw new NotImplementedException();
+            try
+            {
+                Sucursal sucursal = new Sucursal();
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@NuevoRegistro", 0);
+                    dynamicParameters.Add("@IdSucursal", 0);
+                    dynamicParameters.Add("@IdTipoSucursal", element.IdTipoSucursal);
+                    dynamicParameters.Add("@NombreSucursal", element.Nombre);
+                    dynamicParameters.Add("@Direccion", element.Direccion);
+                    dynamicParameters.Add("@Telefono", element.Telefono);
+                    dynamicParameters.Add("@IdMunicipio", element.IdMunicipio);
+                    dynamicParameters.Add("@IdEstado", element.IdEstado);
+                    dynamicParameters.Add("@IdPais", element.IdPais);
+                    dynamicParameters.Add("@CodigoPostal", element.CodigoPostal);
+                    dynamicParameters.Add("@RFC", element.Rfc);
+                    dynamicParameters.Add("@NombreRepresentante", element.NombreRepresentante);
+                    dynamicParameters.Add("@RegimenFiscal", element.RegimenFiscal);
+                    dynamicParameters.Add("@IdUsuarioL", IdUsuario);
+                    var result = await conexion.ExecuteScalarAsync<int>("[General].[SPCID_AC_Sucursales]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    sucursal.Result = result;
+                }
+                return sucursal;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
