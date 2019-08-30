@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
 {
-    public interface IUsuarioRepository : IBaseRepository<Usuario>
+    public interface IMunicipioRepository : IBaseRepository<Municipio>
     {
-        Task<Guid>EsCuentaUnica(string Cuenta);
-        Task<Usuario> AddAsync(Usuario element);
+        Task<IEnumerable<Municipio>> GetComboMunicipio(int IdEstado);
     }
 }
