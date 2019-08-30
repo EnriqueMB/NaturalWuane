@@ -46,7 +46,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             try
             {
                 this.Visible = false;
-                var HomeForm = new Form1();
+                var HomeForm = new FrmHome();
                 HomeForm.ShowDialog();
                 HomeForm.Dispose();
                 this.Visible = true;
@@ -176,5 +176,10 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             }
         }
         #endregion
+
+        private void LblCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

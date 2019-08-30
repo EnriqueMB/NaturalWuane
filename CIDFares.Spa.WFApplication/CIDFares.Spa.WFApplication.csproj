@@ -144,10 +144,17 @@
       <DependentUpon>FrmServicioNuevo.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\General\Form1.cs">
+    <Compile Include="Forms\Catalogos\FrmSucursal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\General\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\Catalogos\FrmSucursal.Designer.cs">
+      <DependentUpon>FrmSucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmSucursalesGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmSucursalesGrid.Designer.cs">
+      <DependentUpon>FrmSucursalesGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\General\FrmHome.cs">
       <SubType>Form</SubType>
@@ -224,6 +231,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Catalogos\FrmSucursal.resx">
+      <DependentUpon>FrmSucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmSucursalesGrid.resx">
+      <DependentUpon>FrmSucursalesGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\General\FrmHome.resx">
+      <DependentUpon>FrmHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
