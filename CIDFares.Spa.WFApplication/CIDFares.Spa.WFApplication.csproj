@@ -167,6 +167,12 @@
     <Compile Include="Forms\Ventas\FrmBuscarCliente.Designer.cs">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Ventas\FrmBuscarServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmBuscarServicio.Designer.cs">
+      <DependentUpon>FrmBuscarServicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Ventas\FrmVenta.cs">
       <SubType>Form</SubType>
     </Compile>

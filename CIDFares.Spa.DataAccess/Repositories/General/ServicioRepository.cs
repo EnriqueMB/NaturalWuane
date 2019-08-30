@@ -35,16 +35,15 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     while (dr.Read())
                     {
                         item = new Servicio();
-                        //item.Id = dr.GetInt32(dr.GetOrdinal("IdProducto"));
-                        //item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
-                        //item.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
-                        //item.NombreCategoria = dr.GetString(dr.GetOrdinal("NombreCategoria"));
-                        //item.UnidadMedida = dr.GetString(dr.GetOrdinal("UnidadMedidad"));
-                        //item.PrecioPublico = dr.GetDecimal(dr.GetOrdinal("PrecioPublico"));
-                        //item.PrecioMayoreo = dr.GetDecimal(dr.GetOrdinal("PrecioMayoreo"));
-                        //item.PrecioMenudeo = dr.GetDecimal(dr.GetOrdinal("PrecioMenudeo"));
-                        //item.ProcentajeIva = dr.GetDecimal(dr.GetOrdinal("PorcentajeIva"));
-                        //XmlConvert.ToTimeSpan(dr.GetString("hola"));
+                        item.IdServicio = dr.GetInt32(dr.GetOrdinal("IdServicio"));
+                        item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
+                        item.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
+                        item.TipoServicio = dr.GetString(dr.GetOrdinal("TipoServicio"));
+                        item.Precio = dr.GetDecimal(dr.GetOrdinal("PrecioPublico"));
+                        item.Porcentaje = dr.GetDecimal(dr.GetOrdinal("PorcentajeIva"));
+                        item.AplicaIEPS = dr.GetBoolean(dr.GetOrdinal("AplicaIEPS"));
+                        item.IEPSMonto = dr.GetBoolean(dr.GetOrdinal("IEPSMonto"));
+                        item.IEPS = dr.GetDecimal(dr.GetOrdinal("IEPS"));
                         Lista.Add(item);
                     }
                     return Lista;
@@ -103,7 +102,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         Item.TipoServicio = dr.GetString(dr.GetOrdinal("TipoServicio"));
                         Item.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
                         Item.Precio = dr.GetDecimal(dr.GetOrdinal("Precio"));
-                        Item.Duracion = XmlConvert.ToTimeSpan(dr.GetOrdinal("Duracion").ToString());
+                        Item.Duracion = XmlConvert.ToTimeSpan(dr.GetString(dr.GetOrdinal("Duracion")));
                         Item.Descripcion = dr.GetString(dr.GetOrdinal("Descripcion"));
                         Item.Porcentaje = dr.GetDecimal(dr.GetOrdinal("Porcentaje"));
                         Item.DescIva = dr.GetString(dr.GetOrdinal("DescIva"));
