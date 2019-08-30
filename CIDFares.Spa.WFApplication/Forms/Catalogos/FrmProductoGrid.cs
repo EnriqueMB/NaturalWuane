@@ -93,7 +93,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
                     if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmDeleteMessage) == DialogResult.OK)
                     {
-                        Model.PDatos.IdProducto = item.IdProducto;
+                        Model.IdProducto = item.IdProducto;
                         var result = await Model.DeleteAsync(CurrentSession.IdCuentaUsuario);
                         if (result == 1)
                         {
@@ -109,7 +109,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-                ErrorLogHelper.AddExcFileTxt(ex, "FrmProductoGrid ~ btnEliminar_Click_1(object sender, EventArgs e)");
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmProductoGrid ~ btnEliminar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
@@ -120,6 +120,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             this.dataGridMain1.AutoGenerateColumns = false;
             dataGridMain1.DataBindings.Add("DataSource", Model, "ListaProducto", true, DataSourceUpdateMode.OnPropertyChanged);
+
+            BusquedaControl.DataBindings.Add("Text", Model, "Busqueda", true, DataSourceUpdateMode.OnPropertyChanged);
+          
         }
 
         private async void CargarDatosAsync()
@@ -170,6 +173,33 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
                 Close();
             }
+        }
+
+        private async void btnBusqueda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(Model.Busqueda))
+                {
+                    await Model.GetBusqueda();
+                    //sfDataGridCliente.DataBindings.Add("DataSource", Model, "ListaCliente", true, DataSourceUpdateMode.OnPropertyChanged);
+                }
+                else
+                {
+                    // errorProvider1.SetError(BusquedaControl, "INGRESE EL CAMPO BUSQUEDA. Y NO PUEDE SER MAYOR A 200 CARACTERES");
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmProductoGrid ~ btnBusqueda_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
+            }
+        }
+
+        private void btnLimpiarBusqueda_Click(object sender, EventArgs e)
+        {
+            BusquedaControl.Text = String.Empty;
+            CargarDatosAsync();
         }
     }
 }
