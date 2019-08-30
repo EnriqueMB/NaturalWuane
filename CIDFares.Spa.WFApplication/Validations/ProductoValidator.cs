@@ -37,7 +37,6 @@ namespace CIDFares.Spa.WFApplication.Validations
             RuleFor(producto => producto.CodigoBarras)
                     .NotEmpty()
                 .WithMessage("INGRESE EL CODIGO DE BARRA.")
-                //.MaximumLength(80).WithMessage("EL NOMBRE NO PUEDE SER MAYOR A 80 CARACTERES.")
                 .MustAsync(async (producto, x, context) =>
                 {
 
@@ -63,17 +62,24 @@ namespace CIDFares.Spa.WFApplication.Validations
                 .NotEqual(0)
                 .WithMessage("DEBE SELECCIONAR UNA CATEGORIA.");
 
+            //RuleFor(producto => producto.IdAplicaIva)
+            //   .NotEqual(0) .When(prodc)
+            //   .WithMessage("DEBE SELECCIONAR UNA CATEGORIA.");
+
+
             RuleFor(producto => producto.Clave)
                 .NotEmpty().WithMessage("NO DEBE DEJAR EL CAMPO DE CLAVE VACIO");
 
-         
 
-            //RuleFor(producto => producto.PrecioPublico)
-            //    .NotEmpty().WithMessage("NO DEBE DEJAR EL CAMPO DE PRECIO PUBLICO VACIO");
 
-            //RuleFor(producto => producto.PrecioPublico)
-            //  .NotEmpty()
-            //  .WithMessage("NO PUEDE DEJAR VACIO EL CAMPO DE PRECIO.");
+            RuleFor(producto => producto.PrecioPublico)
+                .NotEqual(0).WithMessage("NO DEBE DEJAR EL CAMPO DE PRECIO PUBLICO VACIO");
+
+            RuleFor(producto => producto.PrecioMayoreo)
+                .NotEqual(0).WithMessage("NO DEBE DEJAR EL CAMPO DE PRECIO  MAYOREO VACIO");
+
+            RuleFor(producto => producto.PrecioMenudeo)
+                .NotEqual(0).WithMessage("NO DEBE DEJAR EL CAMPO DE PRECIO MENUDEO VACIO");
 
 
 
@@ -81,10 +87,29 @@ namespace CIDFares.Spa.WFApplication.Validations
               .MaximumLength(300).WithMessage("LA DESCRIPCIÓN NO PUEDE SER MAYOR A 300 CARACTERES.");
 
 
-            RuleFor(producto => producto.StockMax);
-                
 
-            
+
+            RuleFor(producto => producto.StockMax)
+              .Must((producto, x, context) =>
+              {
+                  if (producto.StockMax<=producto.StockMin)
+                  {
+                      if (producto.StockMin==0)
+                      {
+                          return true;
+                      }
+                      return false;
+                  }
+                  else
+                      return true;
+              }).WithMessage("EL STOCK MAXIMO DEBE SER MAYOR AL STOCK MINIMO.");
+
+
+
+
+
+
+
 
 
 

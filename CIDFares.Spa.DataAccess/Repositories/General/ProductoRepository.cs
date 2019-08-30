@@ -113,6 +113,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@ClaveSat", entity.ClaveSat);
                     dynamicParameters.Add("@AplicaIva", entity.AplicaIva);
                     dynamicParameters.Add("@Usuario",  IdUsuario);
+                    dynamicParameters.Add("@IdTipoIva", entity.IdAplicaIva);
                     var result = await conexion.ExecuteScalarAsync<String>("[Catalogo].[SPCID_AC_Producto]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     return result;
                 }
@@ -146,7 +147,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.Stock = dr.GetBoolean(dr.GetOrdinal("Stock"));
                         item.StockMax = dr.GetInt32(dr.GetOrdinal("StockMax"));
                         item.StockMin = dr.GetInt32(dr.GetOrdinal("StockMin"));
-
+                        item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
                         item.PrecioPublico = dr.GetDecimal(dr.GetOrdinal("PrecioPublico"));
                         item.PrecioMayoreo = dr.GetDecimal(dr.GetOrdinal("PrecioMayoreo"));
                         item.PrecioMenudeo = dr.GetDecimal(dr.GetOrdinal("PrecioMenudeo"));
@@ -154,6 +155,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.UnidadMedida = dr.GetString(dr.GetOrdinal("UnidadMedida"));
                         item.ClaveSat = dr.GetInt32(dr.GetOrdinal("ClaveSat"));
                         item.AplicaIva = dr.GetBoolean(dr.GetOrdinal("AplicaIva"));
+                        item.Porcentaje = !dr.IsDBNull(dr.GetOrdinal("Porcentaje")) ? dr.GetDecimal(dr.GetOrdinal("Porcentaje")) :0;
+
                         Lista.Add(item);
                     }
                     return Lista;
@@ -226,7 +229,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     item.Add("@UnidadMedida", element.IdUnidadMedida);
                     item.Add("@ClaveSat", element.ClaveSat);
                     item.Add("@AplicaIva", element.AplicaIva);
-                    item.Add("@Usuario", IdUsuario);//sera el de current session
+                    item.Add("@IdTipoIva", element.IdAplicaIva);
+                    item.Add("@Usuario", IdUsuario);
                     var result = await conexion.ExecuteScalarAsync<String>("[Catalogo].[SPCID_AC_Producto]", param: item, commandType: CommandType.StoredProcedure);
                     return result;
                 }
@@ -250,8 +254,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@IdProducto", IdProducto);
                     var dr = await conexion.ExecuteReaderAsync("[Catalogo].[SPCID_Get_ProductoXId]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     while (dr.Read())
-                    {
-                        
+                    {     
                         producto.IdCategoriaProducto = dr.GetInt32(dr.GetOrdinal("IdCategoriaProducto"));
                         producto.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
                         producto.Descripcion = dr.GetString(dr.GetOrdinal("Descripcion"));
@@ -265,8 +268,9 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         producto.CodigoBarras = dr.GetString(dr.GetOrdinal("CodigoBarras"));
                         producto.IdUnidadMedida = dr.GetInt32(dr.GetOrdinal("IdUnidadMedida"));
                         producto.ClaveSat = dr.GetInt32(dr.GetOrdinal("ClaveSat"));
-                        producto.AplicaIva = dr.GetBoolean(dr.GetOrdinal("AplicaIva")); 
-                        
+                        producto.AplicaIva = dr.GetBoolean(dr.GetOrdinal("AplicaIva"));
+                        producto.IdAplicaIva = dr.GetInt32(dr.GetOrdinal("IdTipoIva"));
+
                         producto.Base64String = dr.GetString(dr.GetOrdinal("FotoBase64"));
                         producto.UrlFoto = dr.GetString(dr.GetOrdinal("UrlLocalImagen"));
                     }
@@ -348,7 +352,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.Stock = dr.GetBoolean(dr.GetOrdinal("Stock"));
                         item.StockMax = dr.GetInt32(dr.GetOrdinal("StockMax"));
                         item.StockMin = dr.GetInt32(dr.GetOrdinal("StockMin"));
-
                         item.PrecioPublico = dr.GetDecimal(dr.GetOrdinal("PrecioPublico"));
                         item.PrecioMayoreo = dr.GetDecimal(dr.GetOrdinal("PrecioMayoreo"));
                         item.PrecioMenudeo = dr.GetDecimal(dr.GetOrdinal("PrecioMenudeo"));
@@ -356,6 +359,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.UnidadMedida = dr.GetString(dr.GetOrdinal("UnidadMedida"));
                         item.ClaveSat = dr.GetInt32(dr.GetOrdinal("ClaveSat"));
                         item.AplicaIva = dr.GetBoolean(dr.GetOrdinal("AplicaIva"));
+                        item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
+                        item.Porcentaje = !dr.IsDBNull(dr.GetOrdinal("Porcentaje")) ? dr.GetDecimal(dr.GetOrdinal("Porcentaje")) : 0;
                         Lista.Add(item);
                     }
                     return Lista;

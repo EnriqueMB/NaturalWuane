@@ -24,12 +24,14 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
         private ICategoriaProductoRepository RespositoryCategoria { get; set; }
         private IUnidadMedidaRepository RespositoryUnidadMedida { get; set; }
+        private IIvaRepository RespositoryIva { get; set; }
         #endregion
 
         #region Propiedades públicas
         public BindingList<Producto> ListaProducto { get; set; }
         public BindingList<CategoriaProducto> ListaCategoria { get; set; }
         public BindingList<UnidadMedida> ListaUnidadMedida { get; set; }
+        public BindingList<Iva> ListaIva { get; set; }
         public BindingList<Cliente> ListaProducto2 { get; set; }
 
         public EntityState State { get; set; }
@@ -37,16 +39,20 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #endregion
 
         #region Constructor
-        public ProductoViewModel(IProductoRepository IProductoRepository, ICategoriaProductoRepository respositoryCategoria, IUnidadMedidaRepository respositoryUnidadMedida)
+        public ProductoViewModel(IProductoRepository IProductoRepository, ICategoriaProductoRepository respositoryCategoria, IUnidadMedidaRepository respositoryUnidadMedida, IIvaRepository respositoryIva)
         {
             IRepository = IProductoRepository;
+            RespositoryIva = respositoryIva;
+
             ListaProducto = new BindingList<Producto>();
             ListaCategoria = new BindingList<CategoriaProducto>();
             ListaUnidadMedida = new BindingList<UnidadMedida>();
+            ListaIva = new BindingList<Iva>();
             RespositoryCategoria = respositoryCategoria;
             RespositoryUnidadMedida = respositoryUnidadMedida;
 
             #region propiedades binding
+            IdAplicaIva = 0;
             Nombre = string.Empty;
             IdCategoriaProducto = 0;
             IdProducto = 0;
@@ -128,9 +134,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 Descripcion = producto.Descripcion;
                 Clave = producto.Clave;
                 Stock = producto.Stock;
-
-                IdCategoriaProducto = IdCategoriaProducto;
-
+                IdAplicaIva = producto.IdAplicaIva;
+                IdCategoriaProducto = producto.IdCategoriaProducto;
                 StockMax = producto.StockMax;
                 StockMin = producto.StockMin;
                 PrecioPublico = producto.PrecioPublico;
@@ -212,6 +217,31 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
         #endregion
 
+        #region Combo iva
+        public void LlenarlistaIva(IEnumerable<Iva> Iva)
+        {
+            ListaIva.Clear();
+            foreach (var item in Iva)
+            {
+                ListaIva.Add(item);
+            }
+        }
+
+        public async Task<IEnumerable<Iva>> GetListaIva()
+        {
+            try
+            {
+                var Iva = await RespositoryIva.LlenarComboIva();
+                return Iva;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion
+
         public async Task GetBusqueda()
         {
             try
@@ -220,6 +250,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 ListaProducto.Clear();
                 foreach (var item in x)
                 {
+                    item.AplicaIvaStr = item.AplicaIva ? "SI" : "NO";
+                    item.StockStr = item.Stock ? "SI" : "NO";
                     ListaProducto.Add(item);
                 }
             }
@@ -253,7 +285,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     StockMin = StockMin,
                     Descripcion = Descripcion,
                     ClaveSat = ClaveSat,
-                    CodigoBarras=CodigoBarras
+                    CodigoBarras=CodigoBarras,
+                    IdAplicaIva=IdAplicaIva
 
                 };
                 if (State == EntityState.Create)
@@ -383,6 +416,14 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             get { return _IdUnidadMedida; }
             set { _IdUnidadMedida = value; OnPropertyChanged("IdUnidadMedida"); }
+        }
+
+        private int? _IdAplicaIva;
+
+        public int? IdAplicaIva
+        {
+            get { return _IdAplicaIva; }
+            set { _IdAplicaIva = value; OnPropertyChanged("IdAplicaIva"); }
         }
 
         private string _UnidadMedida;

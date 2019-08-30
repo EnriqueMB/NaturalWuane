@@ -31,9 +31,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         public ProductoViewModel Model { get; set; }
 
         #endregion
-
-      
-
+  
         #region Constructor
 
         public FrmProducto()
@@ -41,7 +39,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             InitializeComponent();
             lblSubtitle.Text = "NUEVO REGISTRO";
             Model = ServiceLocator.Instance.Resolve<ProductoViewModel>();
-           // Model.GetListaCataegoriaProduto();
+            Model.GetListaCataegoriaProduto();
 
            
 
@@ -50,7 +48,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         public FrmProducto(int IdProducto)
         {
             InitializeComponent();
-           // lblSubtitle.Text = "MODIFICAR REGISTRO";
             Model = ServiceLocator.Instance.Resolve<ProductoViewModel>();
             LimpiarPropiedades();
             Model.IdProducto = IdProducto;
@@ -84,7 +81,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             IniciarCombos(2);
             IdUnidadMedidaControl.DataBindings.Add("SelectedValue", Model, "IdUnidadMedida", true, DataSourceUpdateMode.OnPropertyChanged);
             IdUnidadMedidaControl.DataBindings.Add("DataSource", Model, "ListaUnidadMedida", true, DataSourceUpdateMode.OnPropertyChanged);
-            
+
+            IniciarCombos(3);
+            IdAplicaIvaControl.DataBindings.Add("SelectedValue", Model, "IdAplicaIva", true, DataSourceUpdateMode.OnPropertyChanged);
+            IdAplicaIvaControl.DataBindings.Add("DataSource", Model, "ListaIva", true, DataSourceUpdateMode.OnPropertyChanged);
+
         }
 
         private void IniciarCombos(int tipo)
@@ -102,6 +103,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     IdUnidadMedidaControl.DisplayMember = "Nombre";
                     IdUnidadMedidaControl.ValueMember = "IdUnidadMedida";
                 }
+                else if(tipo==3)
+                {
+                    IdAplicaIvaControl.DisplayMember = "Porcentaje";
+                    IdAplicaIvaControl.ValueMember = "IdTipoIva";
+                }
+
             }
             catch (Exception ex)
             {
@@ -169,16 +176,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
 
-        
+
 
         #endregion
 
-        
-
-     
-
-        
-
+        #region Botnones
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -237,52 +239,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 btnGuardar.Enabled = true;
             }
         }
-
-        private async void FrmProducto_Load(object sender, EventArgs e)
-        {
-
-            try
-            {
-                var x = await Model.GetListaCataegoriaProduto();
-                Model.LlenarListaCategoria(x);
-
-                var y = await Model.GetListaUnidadMedida();
-                Model.LlenaUnidadMedida(y);
-
-                IniciarBinding();
-               
-                
-
-                if (Model.State == EntityState.Update)
-                {
-                    CIDWait.Show(async () => {
-                        await Model.GetProducto();
-                        if (Model.Foto == null)
-                            Model.Foto = Properties.Resources.imagen_subir;
-                        await Task.Delay(2000);
-                    }, "Cargando personal");
-                    lblSubtitle.Text = Model.Nombre;
-                   // CategoriaControl.Enabled = false;
-//                    UnidadMedidaControl.Enabled = false;
-                    //if (Model.AplicaIva==true)
-                    //{
-
-                    //}
-
-                }
-                else
-                {
-                    Model.Foto = Properties.Resources.imagen_subir;
-                    
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-
         private void BtnSeleccionar_Click_1(object sender, EventArgs e)
         {
             try
@@ -317,19 +273,64 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             try
             {
-                //DialogResult resultado = new DialogResult();
-                //FrmOption fo = new FrmOption("¿DESEA CERRAR ESTE FORMULARIO?");
-                //resultado = fo.ShowDialog();
-                //if (resultado == DialogResult.OK)
-                    this.Close();
+
+                this.Close();
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+        #endregion
+
+        #region Eventos
+        private async void FrmProducto_Load(object sender, EventArgs e)
+        {
+
+            try
+            {
+                var x = await Model.GetListaCataegoriaProduto();
+                Model.LlenarListaCategoria(x);
+
+                var y = await Model.GetListaUnidadMedida();
+                Model.LlenaUnidadMedida(y);
+
+                var z = await Model.GetListaIva();
+                Model.LlenarlistaIva(z);
+
+                StockControl.Checked = false;
+                StockMinControl.Enabled = false;
+                StockMaxControl.Enabled = false;
+                IdAplicaIvaControl.Enabled = false;
+                IniciarBinding();
+
+
+
+                if (Model.State == EntityState.Update)
+                {
+                    CIDWait.Show(async () => {
+                        await Model.GetProducto();
+                        if (Model.Foto == null)
+                            Model.Foto = Properties.Resources.imagen_subir;
+                        await Task.Delay(2000);
+                    }, "Cargando productos");
+                    lblSubtitle.Text = Model.Nombre;
+
+
+                }
+                else
+                {
+                    Model.Foto = Properties.Resources.imagen_subir;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
         }
@@ -343,9 +344,88 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             else if (StockControl.Checked == false)
             {
+                StockMaxControl.Text = Convert.ToString(0);
+                StockMinControl.Text = Convert.ToString(0);
                 StockMaxControl.Enabled = false;
                 StockMinControl.Enabled = false;
             }
         }
+
+        private void GenerarCodigoBarrasControl_CheckedChanged(object sender, EventArgs e)
+        {
+            if (GenerarCodigoBarrasControl.Checked == true)
+            {
+                CodigoBarrasControl.Enabled = false;
+                CodigoBarrasControl.Text = ClaveControl.Text;
+            }
+            else if (GenerarCodigoBarrasControl.Checked == false)
+            {
+                CodigoBarrasControl.Enabled = true;
+                CodigoBarrasControl.Text = string.Empty;
+            }
+        }
+
+        private void AplicaIvaControl_CheckedChanged(object sender, EventArgs e)
+        {
+            if (AplicaIvaControl.Checked == true)
+            {
+                IdAplicaIvaControl.Enabled = true;
+            }
+            else if (AplicaIvaControl.Checked == false)
+            {
+
+                IdAplicaIvaControl.Enabled = false;
+            }
+        }
+
+        private void PrecioPublicoControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void PrecioMenudeoControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void PrecioMayoreoControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+        #endregion
+
     }
 }

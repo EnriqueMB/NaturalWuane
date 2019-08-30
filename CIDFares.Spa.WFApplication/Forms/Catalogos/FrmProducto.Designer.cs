@@ -61,14 +61,11 @@
             this.ClaveControl = new System.Windows.Forms.TextBox();
             this.Clave = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.StockControl = new System.Windows.Forms.CheckBox();
             this.StockMinControl = new System.Windows.Forms.TextBox();
             this.StockMaxControl = new System.Windows.Forms.TextBox();
             this.lblStockMax = new System.Windows.Forms.Label();
             this.lblStockMin = new System.Windows.Forms.Label();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.btnGenerarCodigoBarras = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.CodigoBarrasControl = new System.Windows.Forms.TextBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.DescripcionControl = new System.Windows.Forms.TextBox();
             this.Descripcion = new System.Windows.Forms.Label();
@@ -76,11 +73,15 @@
             this.PrecioMayoreoControl = new System.Windows.Forms.TextBox();
             this.lblPrecioMayoreo = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.StockControl = new System.Windows.Forms.CheckBox();
+            this.IdAplicaIvaControl = new System.Windows.Forms.ComboBox();
             this.AplicaIvaControl = new System.Windows.Forms.CheckBox();
             this.ClaveSat = new System.Windows.Forms.Panel();
             this.ClaveSatControl = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.GenerarCodigoBarrasControl = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CodigoBarrasControl = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -96,11 +97,11 @@
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
-            this.panel13.SuspendLayout();
             this.panel11.SuspendLayout();
             this.pnlPrecio.SuspendLayout();
             this.panel14.SuspendLayout();
             this.ClaveSat.SuspendLayout();
+            this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -202,11 +203,11 @@
             this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel7, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.panel9, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.panel13, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.panel11, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.pnlPrecio, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel14, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.ClaveSat, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.panel13, 2, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -238,6 +239,7 @@
             this.PrecioPublicoControl.Name = "PrecioPublicoControl";
             this.PrecioPublicoControl.Size = new System.Drawing.Size(268, 20);
             this.PrecioPublicoControl.TabIndex = 51;
+            this.PrecioPublicoControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PrecioPublicoControl_KeyPress);
             // 
             // lblPrecio
             // 
@@ -265,6 +267,7 @@
             this.PrecioMenudeoControl.Name = "PrecioMenudeoControl";
             this.PrecioMenudeoControl.Size = new System.Drawing.Size(268, 20);
             this.PrecioMenudeoControl.TabIndex = 51;
+            this.PrecioMenudeoControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PrecioMenudeoControl_KeyPress);
             // 
             // lblPrecioMenudeo
             // 
@@ -284,8 +287,8 @@
             this.panel12.Controls.Add(this.FotoControl);
             this.panel12.Location = new System.Drawing.Point(797, 3);
             this.panel12.Name = "panel12";
-            this.tableLayoutPanel1.SetRowSpan(this.panel12, 3);
-            this.panel12.Size = new System.Drawing.Size(329, 150);
+            this.tableLayoutPanel1.SetRowSpan(this.panel12, 4);
+            this.panel12.Size = new System.Drawing.Size(329, 202);
             this.panel12.TabIndex = 11;
             // 
             // RutaControl
@@ -296,7 +299,7 @@
             this.RutaControl.CornerRadius = 2;
             this.RutaControl.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.RutaControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RutaControl.Location = new System.Drawing.Point(11, 108);
+            this.RutaControl.Location = new System.Drawing.Point(13, 161);
             this.RutaControl.MaxLength = 80;
             this.RutaControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.RutaControl.MinimumSize = new System.Drawing.Size(8, 4);
@@ -325,9 +328,9 @@
             this.BtnSeleccionar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.BtnSeleccionar.ForeColor = System.Drawing.Color.White;
             this.BtnSeleccionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSeleccionar.Location = new System.Drawing.Point(22, 54);
+            this.BtnSeleccionar.Location = new System.Drawing.Point(11, 80);
             this.BtnSeleccionar.Name = "BtnSeleccionar";
-            this.BtnSeleccionar.Size = new System.Drawing.Size(130, 28);
+            this.BtnSeleccionar.Size = new System.Drawing.Size(93, 28);
             this.BtnSeleccionar.TabIndex = 43;
             this.BtnSeleccionar.Text = "SUBIR";
             this.BtnSeleccionar.UseVisualStyleBackColor = false;
@@ -336,9 +339,9 @@
             // FotoControl
             // 
             this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FotoControl.Location = new System.Drawing.Point(166, 6);
+            this.FotoControl.Location = new System.Drawing.Point(108, 31);
             this.FotoControl.Name = "FotoControl";
-            this.FotoControl.Size = new System.Drawing.Size(145, 96);
+            this.FotoControl.Size = new System.Drawing.Size(216, 121);
             this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.FotoControl.TabIndex = 42;
             this.FotoControl.TabStop = false;
@@ -455,6 +458,7 @@
             // 
             // panel9
             // 
+            this.panel9.Controls.Add(this.StockControl);
             this.panel9.Controls.Add(this.StockMinControl);
             this.panel9.Controls.Add(this.StockMaxControl);
             this.panel9.Controls.Add(this.lblStockMax);
@@ -465,25 +469,37 @@
             this.panel9.Size = new System.Drawing.Size(391, 49);
             this.panel9.TabIndex = 5;
             // 
+            // StockControl
+            // 
+            this.StockControl.AutoSize = true;
+            this.StockControl.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.StockControl.Location = new System.Drawing.Point(22, 23);
+            this.StockControl.Name = "StockControl";
+            this.StockControl.Size = new System.Drawing.Size(66, 21);
+            this.StockControl.TabIndex = 48;
+            this.StockControl.Text = "STOCK";
+            this.StockControl.UseVisualStyleBackColor = true;
+            this.StockControl.CheckedChanged += new System.EventHandler(this.StockControl_CheckedChanged);
+            // 
             // StockMinControl
             // 
-            this.StockMinControl.Location = new System.Drawing.Point(215, 25);
+            this.StockMinControl.Location = new System.Drawing.Point(253, 25);
             this.StockMinControl.Name = "StockMinControl";
-            this.StockMinControl.Size = new System.Drawing.Size(156, 20);
+            this.StockMinControl.Size = new System.Drawing.Size(114, 20);
             this.StockMinControl.TabIndex = 45;
             // 
             // StockMaxControl
             // 
-            this.StockMaxControl.Location = new System.Drawing.Point(7, 25);
+            this.StockMaxControl.Location = new System.Drawing.Point(113, 25);
             this.StockMaxControl.Name = "StockMaxControl";
-            this.StockMaxControl.Size = new System.Drawing.Size(160, 20);
+            this.StockMaxControl.Size = new System.Drawing.Size(107, 20);
             this.StockMaxControl.TabIndex = 44;
             // 
             // lblStockMax
             // 
             this.lblStockMax.AutoSize = true;
             this.lblStockMax.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockMax.Location = new System.Drawing.Point(9, 6);
+            this.lblStockMax.Location = new System.Drawing.Point(115, 6);
             this.lblStockMax.Name = "lblStockMax";
             this.lblStockMax.Size = new System.Drawing.Size(104, 17);
             this.lblStockMax.TabIndex = 43;
@@ -493,55 +509,11 @@
             // 
             this.lblStockMin.AutoSize = true;
             this.lblStockMin.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockMin.Location = new System.Drawing.Point(215, 6);
+            this.lblStockMin.Location = new System.Drawing.Point(253, 6);
             this.lblStockMin.Name = "lblStockMin";
             this.lblStockMin.Size = new System.Drawing.Size(101, 17);
             this.lblStockMin.TabIndex = 42;
             this.lblStockMin.Text = "STOCK MINIMO";
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.btnGenerarCodigoBarras);
-            this.panel13.Controls.Add(this.label2);
-            this.panel13.Controls.Add(this.CodigoBarrasControl);
-            this.panel13.Location = new System.Drawing.Point(797, 159);
-            this.panel13.Name = "panel13";
-            this.tableLayoutPanel1.SetRowSpan(this.panel13, 3);
-            this.panel13.Size = new System.Drawing.Size(329, 153);
-            this.panel13.TabIndex = 10;
-            // 
-            // btnGenerarCodigoBarras
-            // 
-            this.btnGenerarCodigoBarras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGenerarCodigoBarras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
-            this.btnGenerarCodigoBarras.FlatAppearance.BorderSize = 0;
-            this.btnGenerarCodigoBarras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerarCodigoBarras.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnGenerarCodigoBarras.ForeColor = System.Drawing.Color.White;
-            this.btnGenerarCodigoBarras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGenerarCodigoBarras.Location = new System.Drawing.Point(72, 99);
-            this.btnGenerarCodigoBarras.Name = "btnGenerarCodigoBarras";
-            this.btnGenerarCodigoBarras.Size = new System.Drawing.Size(199, 28);
-            this.btnGenerarCodigoBarras.TabIndex = 52;
-            this.btnGenerarCodigoBarras.Text = "GENERAR CODIGO DE BARRAS";
-            this.btnGenerarCodigoBarras.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 17);
-            this.label2.TabIndex = 51;
-            this.label2.Text = "CODIGO DE BARRAS";
-            // 
-            // CodigoBarrasControl
-            // 
-            this.CodigoBarrasControl.Location = new System.Drawing.Point(13, 52);
-            this.CodigoBarrasControl.Name = "CodigoBarrasControl";
-            this.CodigoBarrasControl.Size = new System.Drawing.Size(291, 20);
-            this.CodigoBarrasControl.TabIndex = 50;
             // 
             // panel11
             // 
@@ -587,6 +559,7 @@
             this.PrecioMayoreoControl.Name = "PrecioMayoreoControl";
             this.PrecioMayoreoControl.Size = new System.Drawing.Size(268, 20);
             this.PrecioMayoreoControl.TabIndex = 49;
+            this.PrecioMayoreoControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PrecioMayoreoControl_KeyPress);
             // 
             // lblPrecioMayoreo
             // 
@@ -600,7 +573,7 @@
             // 
             // panel14
             // 
-            this.panel14.Controls.Add(this.StockControl);
+            this.panel14.Controls.Add(this.IdAplicaIvaControl);
             this.panel14.Controls.Add(this.AplicaIvaControl);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(3, 211);
@@ -608,17 +581,13 @@
             this.panel14.Size = new System.Drawing.Size(391, 46);
             this.panel14.TabIndex = 16;
             // 
-            // StockControl
+            // IdAplicaIvaControl
             // 
-            this.StockControl.AutoSize = true;
-            this.StockControl.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.StockControl.Location = new System.Drawing.Point(221, 13);
-            this.StockControl.Name = "StockControl";
-            this.StockControl.Size = new System.Drawing.Size(66, 21);
-            this.StockControl.TabIndex = 48;
-            this.StockControl.Text = "STOCK";
-            this.StockControl.UseVisualStyleBackColor = true;
-            this.StockControl.CheckedChanged += new System.EventHandler(this.StockControl_CheckedChanged);
+            this.IdAplicaIvaControl.FormattingEnabled = true;
+            this.IdAplicaIvaControl.Location = new System.Drawing.Point(130, 15);
+            this.IdAplicaIvaControl.Name = "IdAplicaIvaControl";
+            this.IdAplicaIvaControl.Size = new System.Drawing.Size(251, 21);
+            this.IdAplicaIvaControl.TabIndex = 47;
             // 
             // AplicaIvaControl
             // 
@@ -630,6 +599,7 @@
             this.AplicaIvaControl.TabIndex = 46;
             this.AplicaIvaControl.Text = "APLICA IVA";
             this.AplicaIvaControl.UseVisualStyleBackColor = true;
+            this.AplicaIvaControl.CheckedChanged += new System.EventHandler(this.AplicaIvaControl_CheckedChanged);
             // 
             // ClaveSat
             // 
@@ -656,6 +626,46 @@
             this.label1.Size = new System.Drawing.Size(69, 17);
             this.label1.TabIndex = 52;
             this.label1.Text = "CLAVE SAT";
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.GenerarCodigoBarrasControl);
+            this.panel13.Controls.Add(this.label2);
+            this.panel13.Controls.Add(this.CodigoBarrasControl);
+            this.panel13.Location = new System.Drawing.Point(797, 211);
+            this.panel13.Name = "panel13";
+            this.tableLayoutPanel1.SetRowSpan(this.panel13, 2);
+            this.panel13.Size = new System.Drawing.Size(329, 101);
+            this.panel13.TabIndex = 10;
+            // 
+            // GenerarCodigoBarrasControl
+            // 
+            this.GenerarCodigoBarrasControl.AutoSize = true;
+            this.GenerarCodigoBarrasControl.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.GenerarCodigoBarrasControl.Location = new System.Drawing.Point(56, 63);
+            this.GenerarCodigoBarrasControl.Name = "GenerarCodigoBarrasControl";
+            this.GenerarCodigoBarrasControl.Size = new System.Drawing.Size(209, 21);
+            this.GenerarCodigoBarrasControl.TabIndex = 52;
+            this.GenerarCodigoBarrasControl.Text = "GENERAR AUTOMATICAMENTE";
+            this.GenerarCodigoBarrasControl.UseVisualStyleBackColor = true;
+            this.GenerarCodigoBarrasControl.CheckedChanged += new System.EventHandler(this.GenerarCodigoBarrasControl_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(15, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 17);
+            this.label2.TabIndex = 51;
+            this.label2.Text = "CODIGO DE BARRAS";
+            // 
+            // CodigoBarrasControl
+            // 
+            this.CodigoBarrasControl.Location = new System.Drawing.Point(11, 37);
+            this.CodigoBarrasControl.Name = "CodigoBarrasControl";
+            this.CodigoBarrasControl.Size = new System.Drawing.Size(300, 20);
+            this.CodigoBarrasControl.TabIndex = 50;
             // 
             // errorProvider1
             // 
@@ -695,8 +705,6 @@
             this.panel7.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.pnlPrecio.ResumeLayout(false);
@@ -705,6 +713,8 @@
             this.panel14.PerformLayout();
             this.ClaveSat.ResumeLayout(false);
             this.ClaveSat.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
@@ -749,7 +759,6 @@
         private System.Windows.Forms.ComboBox IdUnidadMedidaControl;
         private System.Windows.Forms.Label lblUnidadMedida;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Button btnGenerarCodigoBarras;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox CodigoBarrasControl;
         private System.Windows.Forms.Panel panel11;
@@ -765,5 +774,7 @@
         private System.Windows.Forms.TextBox ClaveSatControl;
         private System.Windows.Forms.Label label1;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt RutaControl;
+        private System.Windows.Forms.CheckBox GenerarCodigoBarrasControl;
+        private System.Windows.Forms.ComboBox IdAplicaIvaControl;
     }
 }
