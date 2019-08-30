@@ -34,6 +34,8 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.btnTotal = new System.Windows.Forms.Button();
             this.btnMas = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -44,7 +46,7 @@
             this.PnlVentas = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pnlGrid = new System.Windows.Forms.Panel();
-            this.sfDataGrid1 = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            this.sfDataGridVenta = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.pnlTotalesGeneral = new System.Windows.Forms.Panel();
             this.pnlTotales = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -84,7 +86,7 @@
             this.PnlVentas.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.pnlGrid.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sfDataGridVenta)).BeginInit();
             this.pnlTotalesGeneral.SuspendLayout();
             this.pnlTotales.SuspendLayout();
             this.pnlHeader.SuspendLayout();
@@ -118,9 +120,9 @@
             this.btnMas.FlatAppearance.BorderSize = 0;
             this.btnMas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMas.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMas.Location = new System.Drawing.Point(3, 161);
+            this.btnMas.Location = new System.Drawing.Point(2, 161);
             this.btnMas.Name = "btnMas";
-            this.btnMas.Size = new System.Drawing.Size(155, 52);
+            this.btnMas.Size = new System.Drawing.Size(126, 52);
             this.btnMas.TabIndex = 3;
             this.btnMas.Text = "+";
             this.btnMas.UseVisualStyleBackColor = true;
@@ -130,12 +132,13 @@
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(3, 45);
+            this.btnEliminar.Location = new System.Drawing.Point(1, 45);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(155, 52);
+            this.btnEliminar.Size = new System.Drawing.Size(126, 52);
             this.btnEliminar.TabIndex = 1;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // pnlGeneral
             // 
@@ -157,9 +160,9 @@
             this.pnlAcciones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlAcciones.Controls.Add(this.groupBox2);
-            this.pnlAcciones.Location = new System.Drawing.Point(851, 119);
+            this.pnlAcciones.Location = new System.Drawing.Point(880, 119);
             this.pnlAcciones.Name = "pnlAcciones";
-            this.pnlAcciones.Size = new System.Drawing.Size(158, 334);
+            this.pnlAcciones.Size = new System.Drawing.Size(129, 367);
             this.pnlAcciones.TabIndex = 7;
             // 
             // groupBox2
@@ -171,7 +174,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(158, 334);
+            this.groupBox2.Size = new System.Drawing.Size(129, 367);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones";
@@ -181,9 +184,9 @@
             this.btnMenos.FlatAppearance.BorderSize = 0;
             this.btnMenos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenos.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenos.Location = new System.Drawing.Point(3, 103);
+            this.btnMenos.Location = new System.Drawing.Point(2, 103);
             this.btnMenos.Name = "btnMenos";
-            this.btnMenos.Size = new System.Drawing.Size(155, 52);
+            this.btnMenos.Size = new System.Drawing.Size(126, 52);
             this.btnMenos.TabIndex = 2;
             this.btnMenos.Text = "-";
             this.btnMenos.UseVisualStyleBackColor = true;
@@ -194,9 +197,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PnlVentas.Controls.Add(this.groupBox3);
-            this.PnlVentas.Location = new System.Drawing.Point(265, 119);
+            this.PnlVentas.Location = new System.Drawing.Point(226, 119);
             this.PnlVentas.Name = "PnlVentas";
-            this.PnlVentas.Size = new System.Drawing.Size(583, 367);
+            this.PnlVentas.Size = new System.Drawing.Size(651, 367);
             this.PnlVentas.TabIndex = 6;
             // 
             // groupBox3
@@ -208,7 +211,7 @@
             this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(583, 367);
+            this.groupBox3.Size = new System.Drawing.Size(651, 367);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Ventas";
@@ -218,48 +221,65 @@
             this.pnlGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlGrid.Controls.Add(this.sfDataGrid1);
+            this.pnlGrid.Controls.Add(this.sfDataGridVenta);
             this.pnlGrid.Location = new System.Drawing.Point(3, 61);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(577, 224);
+            this.pnlGrid.Size = new System.Drawing.Size(645, 224);
             this.pnlGrid.TabIndex = 3;
             // 
-            // sfDataGrid1
+            // sfDataGridVenta
             // 
-            this.sfDataGrid1.AccessibleName = "Table";
-            this.sfDataGrid1.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            this.sfDataGridVenta.AccessibleName = "Table";
+            this.sfDataGridVenta.AllowEditing = false;
+            this.sfDataGridVenta.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            gridTextColumn1.AllowEditing = false;
             gridTextColumn1.HeaderText = "ID";
-            gridTextColumn1.MappingName = "Id";
+            gridTextColumn1.MappingName = "IdGenerico";
             gridTextColumn1.Visible = false;
+            gridTextColumn2.AllowEditing = false;
             gridTextColumn2.HeaderText = "Nombre";
             gridTextColumn2.MappingName = "Nombre";
+            gridTextColumn3.AllowEditing = false;
             gridTextColumn3.HeaderText = "Cantidad";
             gridTextColumn3.MappingName = "Cantidad";
+            gridTextColumn4.AllowEditing = false;
             gridTextColumn4.Format = "c2";
             gridTextColumn4.HeaderText = "Precio";
             gridTextColumn4.MappingName = "Precio";
+            gridTextColumn5.AllowEditing = false;
             gridTextColumn5.Format = "c2";
-            gridTextColumn5.HeaderText = "Total";
-            gridTextColumn5.MappingName = "Total";
-            gridTextColumn6.HeaderText = "Tipo";
-            gridTextColumn6.MappingName = "Tipo";
-            gridTextColumn6.Visible = false;
-            this.sfDataGrid1.Columns.Add(gridTextColumn1);
-            this.sfDataGrid1.Columns.Add(gridTextColumn2);
-            this.sfDataGrid1.Columns.Add(gridTextColumn3);
-            this.sfDataGrid1.Columns.Add(gridTextColumn4);
-            this.sfDataGrid1.Columns.Add(gridTextColumn5);
-            this.sfDataGrid1.Columns.Add(gridTextColumn6);
-            this.sfDataGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sfDataGrid1.Location = new System.Drawing.Point(0, 0);
-            this.sfDataGrid1.Name = "sfDataGrid1";
-            this.sfDataGrid1.Size = new System.Drawing.Size(577, 224);
-            this.sfDataGrid1.Style.CellStyle.Font.Facename = "Century Gothic";
-            this.sfDataGrid1.Style.CellStyle.Font.Size = 11F;
-            this.sfDataGrid1.Style.HeaderStyle.Font.Facename = "Century Gothic";
-            this.sfDataGrid1.Style.HeaderStyle.Font.Size = 11F;
-            this.sfDataGrid1.TabIndex = 0;
-            this.sfDataGrid1.Text = "sfDataGrid1";
+            gridTextColumn5.HeaderText = "SubTotal";
+            gridTextColumn5.MappingName = "SubTotal";
+            gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.Format = "c2";
+            gridTextColumn6.HeaderText = "Iva";
+            gridTextColumn6.MappingName = "PorcentajeIva";
+            gridTextColumn7.AllowEditing = false;
+            gridTextColumn7.Format = "c2";
+            gridTextColumn7.HeaderText = "Total";
+            gridTextColumn7.MappingName = "Total";
+            gridTextColumn8.AllowEditing = false;
+            gridTextColumn8.HeaderText = "Tipo";
+            gridTextColumn8.MappingName = "IdTipo";
+            gridTextColumn8.Visible = false;
+            this.sfDataGridVenta.Columns.Add(gridTextColumn1);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn2);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn3);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn4);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn5);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn6);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn7);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn8);
+            this.sfDataGridVenta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sfDataGridVenta.Location = new System.Drawing.Point(0, 0);
+            this.sfDataGridVenta.Name = "sfDataGridVenta";
+            this.sfDataGridVenta.Size = new System.Drawing.Size(645, 224);
+            this.sfDataGridVenta.Style.CellStyle.Font.Facename = "Century Gothic";
+            this.sfDataGridVenta.Style.CellStyle.Font.Size = 11F;
+            this.sfDataGridVenta.Style.HeaderStyle.Font.Facename = "Century Gothic";
+            this.sfDataGridVenta.Style.HeaderStyle.Font.Size = 11F;
+            this.sfDataGridVenta.TabIndex = 0;
+            this.sfDataGridVenta.Text = "sfDataGrid1";
             // 
             // pnlTotalesGeneral
             // 
@@ -267,7 +287,7 @@
             this.pnlTotalesGeneral.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlTotalesGeneral.Location = new System.Drawing.Point(3, 282);
             this.pnlTotalesGeneral.Name = "pnlTotalesGeneral";
-            this.pnlTotalesGeneral.Size = new System.Drawing.Size(577, 82);
+            this.pnlTotalesGeneral.Size = new System.Drawing.Size(645, 82);
             this.pnlTotalesGeneral.TabIndex = 2;
             // 
             // pnlTotales
@@ -279,10 +299,10 @@
             this.pnlTotales.Controls.Add(this.label6);
             this.pnlTotales.Controls.Add(this.SubtotalControl);
             this.pnlTotales.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlTotales.Location = new System.Drawing.Point(428, 0);
+            this.pnlTotales.Location = new System.Drawing.Point(446, 0);
             this.pnlTotales.Name = "pnlTotales";
             this.pnlTotales.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.pnlTotales.Size = new System.Drawing.Size(149, 82);
+            this.pnlTotales.Size = new System.Drawing.Size(199, 82);
             this.pnlTotales.TabIndex = 6;
             // 
             // label5
@@ -347,14 +367,14 @@
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(3, 22);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(577, 39);
+            this.pnlHeader.Size = new System.Drawing.Size(645, 39);
             this.pnlHeader.TabIndex = 1;
             // 
             // pnlFecha
             // 
             this.pnlFecha.Controls.Add(this.FechaControl);
             this.pnlFecha.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlFecha.Location = new System.Drawing.Point(377, 0);
+            this.pnlFecha.Location = new System.Drawing.Point(445, 0);
             this.pnlFecha.Name = "pnlFecha";
             this.pnlFecha.Size = new System.Drawing.Size(200, 39);
             this.pnlFecha.TabIndex = 4;
@@ -396,7 +416,7 @@
             this.pnlCliente.Controls.Add(this.groupBox1);
             this.pnlCliente.Location = new System.Drawing.Point(3, 119);
             this.pnlCliente.Name = "pnlCliente";
-            this.pnlCliente.Size = new System.Drawing.Size(256, 367);
+            this.pnlCliente.Size = new System.Drawing.Size(217, 367);
             this.pnlCliente.TabIndex = 5;
             // 
             // groupBox1
@@ -412,7 +432,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(256, 367);
+            this.groupBox1.Size = new System.Drawing.Size(217, 367);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del cliente";
@@ -586,6 +606,7 @@
             this.btnProducto.TabIndex = 5;
             this.btnProducto.Text = "Producto";
             this.btnProducto.UseVisualStyleBackColor = true;
+            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
             // 
             // PnlVentaGrid
             // 
@@ -612,7 +633,7 @@
             this.PnlVentas.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sfDataGridVenta)).EndInit();
             this.pnlTotalesGeneral.ResumeLayout(false);
             this.pnlTotales.ResumeLayout(false);
             this.pnlTotales.PerformLayout();
@@ -650,7 +671,7 @@
         private System.Windows.Forms.Button btnMenos;
         private System.Windows.Forms.Panel PnlVentas;
         private System.Windows.Forms.GroupBox groupBox3;
-        private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGrid1;
+        private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGridVenta;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnCliente;
         private System.Windows.Forms.Panel pnlGrid;

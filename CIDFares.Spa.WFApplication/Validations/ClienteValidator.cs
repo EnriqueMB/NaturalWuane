@@ -30,27 +30,17 @@ namespace CIDFares.Spa.WFApplication.Validations
                 .MaximumLength(10).WithMessage("EL NUMERO DE TELEFONO NO PUEDE SER MAYOR A 10 CARACTERES.")
                 .Matches(@"^[+-]?\d+(\.\d+)?$").WithMessage("EL NUMERO DE TELEFONO NO ES VALIDO.");
             //\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})
-            //RuleFor(cliente => cliente.FechaNacimiento)
-            //   .Must((cliente, x, context) =>
-            //   {
-            //       if (cliente.FechaNacimiento.Date != DateTime.Now.Date)
-            //       {
-            //           DateTime date = x;
-            //           if (x > DateTime.Today)
-            //               return false;
-            //           else
-            //           {
-            //               int edad = DateTime.Today.AddTicks(-date.Ticks).Year - 1;
-            //               if (edad < 18)
-            //                   return false;
-            //               else
-            //                   return true;
-            //           }
-            //       }
-            //       else
-            //           return true;
-            //   }
-            //   ).WithMessage("LA FECHA DE NACIMIENTO NO PUEDE SER MENOR DE 18 AÑOS ATRAS.");
+            RuleFor(cliente => cliente.FechaNacimiento)
+               .Must((cliente, x, context) =>
+               {
+                   if (cliente.FechaNacimiento.Date <= DateTime.Now.Date)
+                   {
+                       return true;
+                   }
+                   else
+                       return false;
+               }
+               ).WithMessage("LA FECHA DE NACIMIENTO NO PUEDE SER MAYOR A LA FECHA ACTUAL.");
         }
     }
 }

@@ -40,6 +40,9 @@
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenedoGridGuardar = new System.Windows.Forms.Panel();
             this.panelGuardar = new System.Windows.Forms.Panel();
+            this.BtnAgregar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CantidadProductoControl = new System.Windows.Forms.TextBox();
             this.panelGrid = new System.Windows.Forms.Panel();
             this.sfDataGridBuquedaProducto = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.panelBuscador = new System.Windows.Forms.Panel();
@@ -53,8 +56,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.BtnBusqueda = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ErrorControl = new System.Windows.Forms.Label();
             this.panelContenedor.SuspendLayout();
             this.panelContenedoGridGuardar.SuspendLayout();
+            this.panelGuardar.SuspendLayout();
             this.panelGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sfDataGridBuquedaProducto)).BeginInit();
             this.panelBuscador.SuspendLayout();
@@ -89,11 +94,49 @@
             // 
             // panelGuardar
             // 
+            this.panelGuardar.Controls.Add(this.BtnAgregar);
+            this.panelGuardar.Controls.Add(this.label1);
+            this.panelGuardar.Controls.Add(this.CantidadProductoControl);
             this.panelGuardar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGuardar.Location = new System.Drawing.Point(755, 0);
             this.panelGuardar.Name = "panelGuardar";
             this.panelGuardar.Size = new System.Drawing.Size(161, 420);
             this.panelGuardar.TabIndex = 1;
+            // 
+            // BtnAgregar
+            // 
+            this.BtnAgregar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.BtnAgregar.FlatAppearance.BorderSize = 0;
+            this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAgregar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAgregar.Location = new System.Drawing.Point(22, 169);
+            this.BtnAgregar.Name = "BtnAgregar";
+            this.BtnAgregar.Size = new System.Drawing.Size(111, 29);
+            this.BtnAgregar.TabIndex = 11;
+            this.BtnAgregar.Text = "Agregar venta";
+            this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(6, 86);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(154, 20);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Cantidad a vender:";
+            // 
+            // CantidadProductoControl
+            // 
+            this.CantidadProductoControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CantidadProductoControl.Location = new System.Drawing.Point(20, 128);
+            this.CantidadProductoControl.MaxLength = 200;
+            this.CantidadProductoControl.Name = "CantidadProductoControl";
+            this.CantidadProductoControl.Size = new System.Drawing.Size(113, 20);
+            this.CantidadProductoControl.TabIndex = 7;
             // 
             // panelGrid
             // 
@@ -126,12 +169,15 @@
             gridTextColumn5.HeaderText = "UnidadMedida";
             gridTextColumn5.MappingName = "UnidadMedida";
             gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.Format = "C2";
             gridTextColumn6.HeaderText = "Precio Publico";
             gridTextColumn6.MappingName = "PrecioPublico";
             gridTextColumn7.AllowEditing = false;
+            gridTextColumn7.Format = "C2";
             gridTextColumn7.HeaderText = "Precio Mayoreo";
             gridTextColumn7.MappingName = "PrecioMayoreo";
             gridTextColumn8.AllowEditing = false;
+            gridTextColumn8.Format = "C2";
             gridTextColumn8.HeaderText = "Precio Menudeo";
             gridTextColumn8.MappingName = "PrecioMenudeo";
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn1);
@@ -197,14 +243,14 @@
             // BusqueNombreControl
             // 
             this.BusqueNombreControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.BusqueNombreControl.BeforeTouchSize = new System.Drawing.Size(155, 21);
-            this.BusqueNombreControl.Location = new System.Drawing.Point(45, 1);
+            this.BusqueNombreControl.BeforeTouchSize = new System.Drawing.Size(175, 21);
+            this.BusqueNombreControl.Location = new System.Drawing.Point(35, 1);
             this.BusqueNombreControl.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
             this.BusqueNombreControl.Name = "BusqueNombreControl";
-            this.BusqueNombreControl.Size = new System.Drawing.Size(155, 21);
+            this.BusqueNombreControl.Size = new System.Drawing.Size(175, 21);
             this.BusqueNombreControl.Style = Syncfusion.Windows.Forms.Tools.CheckBoxAdvStyle.Metro;
             this.BusqueNombreControl.TabIndex = 7;
-            this.BusqueNombreControl.Text = "Buscar por nombre producto";
+            this.BusqueNombreControl.Text = "Buscar por producto";
             this.BusqueNombreControl.ThemeName = "Metro";
             this.BusqueNombreControl.ThemesEnabled = false;
             this.BusqueNombreControl.CheckedChanged += new System.EventHandler(this.BusqueNombreControl_CheckedChanged);
@@ -241,10 +287,12 @@
             this.BusClaveBarraControl.Text = "Buscar por clave o codigo de barra";
             this.BusClaveBarraControl.ThemeName = "Metro";
             this.BusClaveBarraControl.ThemesEnabled = false;
+            this.BusClaveBarraControl.CheckedChanged += new System.EventHandler(this.BusClaveBarraControl_CheckedChanged);
             // 
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.ErrorControl);
             this.panel3.Controls.Add(this.BtnBusqueda);
             this.panel3.Location = new System.Drawing.Point(618, 3);
             this.panel3.Name = "panel3";
@@ -270,6 +318,14 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // ErrorControl
+            // 
+            this.ErrorControl.AutoSize = true;
+            this.ErrorControl.Location = new System.Drawing.Point(17, 22);
+            this.ErrorControl.Name = "ErrorControl";
+            this.ErrorControl.Size = new System.Drawing.Size(0, 13);
+            this.ErrorControl.TabIndex = 11;
+            // 
             // FrmBusquedaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -282,6 +338,8 @@
             this.Text = "BusquedaProducto";
             this.panelContenedor.ResumeLayout(false);
             this.panelContenedoGridGuardar.ResumeLayout(false);
+            this.panelGuardar.ResumeLayout(false);
+            this.panelGuardar.PerformLayout();
             this.panelGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sfDataGridBuquedaProducto)).EndInit();
             this.panelBuscador.ResumeLayout(false);
@@ -293,6 +351,7 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BusClaveBarraControl)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
@@ -308,13 +367,17 @@
         private System.Windows.Forms.TextBox NombreControl;
         private System.Windows.Forms.Button BtnBusqueda;
         private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGridBuquedaProducto;
-        private Syncfusion.Windows.Forms.Tools.CheckBoxAdv BusClaveBarraControl;
-        private System.Windows.Forms.TextBox BuquedaClaveCodigoControl;
-        private Syncfusion.Windows.Forms.Tools.CheckBoxAdv BusqueNombreControl;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
+        private Syncfusion.Windows.Forms.Tools.CheckBoxAdv BusqueNombreControl;
+        private System.Windows.Forms.TextBox BuquedaClaveCodigoControl;
+        private Syncfusion.Windows.Forms.Tools.CheckBoxAdv BusClaveBarraControl;
+        private System.Windows.Forms.TextBox CantidadProductoControl;
+        private System.Windows.Forms.Button BtnAgregar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label ErrorControl;
     }
 }

@@ -24,6 +24,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             Repository = busqProductoRepository;
             ListaBusquedaProducto = new BindingList<BusqueProducto>();
+            this.CantidadProducto = 1;
         }
         #endregion
 
@@ -81,7 +82,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private string _BusquedaClaveCodigo;
-
         public string BusquedaClaveCodigo
         {
             get { return _BusquedaClaveCodigo; }
@@ -89,6 +89,17 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             {
                 _BusquedaClaveCodigo = value;
                 OnPropertyChanged(nameof(BusquedaClaveCodigo));
+            }
+        }
+
+        private decimal _CantidadProducto;
+        public decimal CantidadProducto
+        {
+            get { return _CantidadProducto; }
+            set
+            {
+                _CantidadProducto = value;
+                OnPropertyChanged(nameof(CantidadProducto));
             }
         }
 
