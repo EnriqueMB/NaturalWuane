@@ -1,4 +1,7 @@
-﻿using CIDFares.Spa.DataAccess.Contracts.Validations;
+﻿using CIDFares.Spa.Business.ValueObjects;
+using CIDFares.Spa.DataAccess.Contracts.Entities;
+using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
+using CIDFares.Spa.DataAccess.Contracts.Validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -98,7 +101,223 @@ namespace CIDFares.Spa.Business.ViewModels.General
 
         #endregion
 
-        
+        #region Propiedades Privadas
+        private ISucursalRepository SucursalRepository { get; set; }
+        private IPaisRepository PaisRepository { get; set; }
+        private IEstadoRepository EstadoRepository { get; set; }
+        private IMunicipioRepository MunicipioRepository { get; set; }
+        private ITipoSucursalRepository TipoSucursalRepository { get; set; }
+        #endregion
+
+        #region Propiedades Publicas
+        public List<Sucursal> ListaSucursales { get; set; }
+        public List<Pais> ListaPais { get; set; }
+        public List<Estado> ListaEstados { get; set; }
+        public List<Municipio> ListaMunicipios { get; set; }
+        public List<TipoSucursal> ListaTipoSucursal { get; set; }
+        public EntityState State { get; set; }
+        #endregion
+
+        #region Constructor
+        public SucursalViewModel(ITipoSucursalRepository tipoSucursalRepository, IPaisRepository paisRepository, IEstadoRepository estadoRepository, IMunicipioRepository municipioRepository, ISucursalRepository sucursalRepository)
+        {
+            SucursalRepository = sucursalRepository;
+            TipoSucursalRepository = tipoSucursalRepository;
+            PaisRepository = paisRepository;
+            EstadoRepository = estadoRepository;
+            MunicipioRepository = municipioRepository;
+            ListaSucursales = new List<Sucursal>();
+            ListaTipoSucursal = new List<TipoSucursal>();
+            ListaPais = new List<Pais>();
+            ListaMunicipios = new List<Municipio>();
+            ListaEstados = new List<Estado>();
+        }
+        #endregion
+
+        #region Metodos
+        public async Task GetAll()
+        {
+            try
+            {
+                var x = await SucursalRepository.GetAllAsync();
+                ListaSucursales.Clear();
+                foreach (var item in x)
+                {
+                    ListaSucursales.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void LlenarListaTipoSucursal(IEnumerable<TipoSucursal> tipoSucursals)
+        {
+            foreach (var item in tipoSucursals)
+            {
+                ListaTipoSucursal.Add(item);
+            }
+        }
+
+        public async Task<IEnumerable<TipoSucursal>> GetListaTipoSucursal()
+        {
+            try
+            {
+                var lista = await TipoSucursalRepository.GetComboTipoSucursal();
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void LlenarListaPaises(IEnumerable<Pais> pais)
+        {
+            foreach (var item in pais)
+            {
+                ListaPais.Add(item);
+            }
+        }
+
+        public async Task<IEnumerable<Pais>> GetListaPaises()
+        {
+            try
+            {
+                var lista = await PaisRepository.GetComboPais();
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void LlenarListaEstado(IEnumerable<Estado> estados)
+        {
+            ListaEstados.Clear();
+            foreach (var item in estados)
+            {
+                ListaEstados.Add(item);
+            }
+        }
+
+        public async Task<IEnumerable<Estado>> GetListaEstados()
+        {
+            try
+            {
+                var lista = await EstadoRepository.GetComboEstado(IdPais);
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void LlenarListaMunicipios(IEnumerable<Municipio> municipios)
+        {
+            ListaMunicipios.Clear();
+            foreach (var item in municipios)
+            {
+                ListaMunicipios.Add(item);
+            }
+        }
+
+        public async Task<IEnumerable<Municipio>> GetListaMunicipios()
+        {
+            try
+            {
+                var lista = await MunicipioRepository.GetComboMunicipio(IdEstado);
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task GetSucursal()
+        {
+            try
+            {
+                var sucursal = await SucursalRepository.GetAsync(IdSucursal);
+                Nombre = sucursal.Nombre;
+                Direccion = sucursal.Direccion;
+                Telefono = sucursal.Telefono;
+                IdMunicipio = sucursal.IdMunicipio;
+                IdEstado = sucursal.IdEstado;
+                IdPais = sucursal.IdPais;
+                CodigoPostal = sucursal.CodigoPostal;
+                Rfc = sucursal.Rfc;
+                NombreRepresentante = sucursal.NombreRepresentante;
+                RegimenFiscal = sucursal.RegimenFiscal;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task<Sucursal> GuardarCambios(Guid IdUsuario)
+        {
+            try
+            {
+                Sucursal sucursal = new Sucursal();
+                sucursal.Result = 0;
+                if (State == EntityState.Create)
+                {
+                    sucursal.IdSucursal = 0;
+                    sucursal.IdTipoSucursal = IdTipoSucursal;
+                    sucursal.Nombre = Nombre;
+                    sucursal.Direccion = Direccion;
+                    sucursal.Telefono = Telefono;
+                    sucursal.IdPais = IdPais;
+                    sucursal.IdEstado = IdEstado;
+                    sucursal.IdMunicipio = IdMunicipio;
+                    sucursal.CodigoPostal = CodigoPostal;
+                    sucursal.Rfc = Rfc;
+                    sucursal.NombreRepresentante = NombreRepresentante;
+                    sucursal.RegimenFiscal = RegimenFiscal;
+                    sucursal = await SucursalRepository.AddAsync(sucursal,IdUsuario);
+                }
+                else if(State == EntityState.Update)
+                {
+                    sucursal.IdSucursal = IdSucursal;
+                    sucursal.IdTipoSucursal = IdTipoSucursal;
+                    sucursal.Nombre = Nombre;
+                    sucursal.Direccion = Direccion;
+                    sucursal.Telefono = Telefono;
+                    sucursal.IdPais = IdPais;
+                    sucursal.IdEstado = IdEstado;
+                    sucursal.IdMunicipio = IdMunicipio;
+                    sucursal.CodigoPostal = CodigoPostal;
+                    sucursal.Rfc = Rfc;
+                    sucursal.NombreRepresentante = NombreRepresentante;
+                    sucursal.RegimenFiscal = RegimenFiscal;
+                    sucursal = await SucursalRepository.AddAsync(sucursal, IdUsuario);
+                }
+                return sucursal;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<int> Delete(Guid IdUsuario)
+        {
+            try
+            {
+                var result = await SucursalRepository.DeleteAsync(IdSucursal, IdUsuario);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion
 
         #region InotifyPropertyChanged Members
 
@@ -108,7 +327,6 @@ namespace CIDFares.Spa.Business.ViewModels.General
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
         #endregion
     }
 }
