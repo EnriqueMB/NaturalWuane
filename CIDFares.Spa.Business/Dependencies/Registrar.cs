@@ -26,6 +26,7 @@ namespace CIDFares.Spa.Business.Dependencies
             ServiceLocator.Instance.Register<PaisRepository, IPaisRepository>();
             ServiceLocator.Instance.Register<EstadoRepository, IEstadoRepository>();
             ServiceLocator.Instance.Register<MunicipioRepository, IMunicipioRepository>();
+            ServiceLocator.Instance.Register<ProveedorACompraRepository, IProveedorACompraRepository>();
         }
     }
 }

@@ -35,7 +35,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public BindingList<Cliente> ListaProducto2 { get; set; }
 
         public EntityState State { get; set; }
-        //public ProductoViewModel PDatos { get; set; }
         #endregion
 
         #region Constructor

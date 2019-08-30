@@ -14,6 +14,7 @@ using CIDFares.Spa.WFApplication.Forms.Usuarios;
 using System;
 using System.Windows.Forms;
 using CIDFares.Spa.Business.ViewModels.Ventas;
+using CIDFares.Spa.WFApplication.Forms.Compras;
 
 namespace CIDFares.Spa.WFApplication
 {
@@ -29,7 +30,7 @@ namespace CIDFares.Spa.WFApplication
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
             CurrentSession.IdCuentaUsuario = Guid.Empty;
-            Application.Run(new FrmLogin());
+            Application.Run(new FrmProductoGrid());
         }
 
         public static void InitializeContainer()
@@ -72,6 +73,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<UsuarioViewModel>();
             ServiceLocator.Instance.Register<ServicioViewModel>();
             ServiceLocator.Instance.Register<SucursalViewModel>();
+            ServiceLocator.Instance.Register<ProveedorACompraViewModel>();
         }
     }
 }

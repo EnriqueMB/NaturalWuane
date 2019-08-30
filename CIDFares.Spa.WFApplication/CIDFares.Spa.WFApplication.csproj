@@ -143,6 +143,18 @@
     <Compile Include="Forms\Catalogos\FrmServicioNuevo.Designer.cs">
       <DependentUpon>FrmServicioNuevo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Compras\FrmCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\FrmCompra.Designer.cs">
+      <DependentUpon>FrmCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compras\FrmProveedorACompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\FrmProveedorACompra.Designer.cs">
+      <DependentUpon>FrmProveedorACompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\General\Form1.cs">
     <Compile Include="Forms\Catalogos\FrmSucursal.cs">
       <SubType>Form</SubType>
@@ -228,6 +240,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmServicioNuevo.resx">
       <DependentUpon>FrmServicioNuevo.cs</DependentUpon>
+   </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\FrmCompra.resx">
+      <DependentUpon>FrmCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\FrmProveedorACompra.resx">
+      <DependentUpon>FrmProveedorACompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -281,9 +299,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\Compras\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\UsuarioL2.png" />
   </ItemGroup>
