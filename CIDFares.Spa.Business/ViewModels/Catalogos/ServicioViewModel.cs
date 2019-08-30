@@ -73,7 +73,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #endregion
 
         #region ComoboTipoServicio
-        public void LlenarListaTI(IEnumerable<TipoServicio> ti)
+        public void LlenarListaTServicio(IEnumerable<TipoServicio> ti)
         {
             try
             {
@@ -88,22 +88,47 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        /// <summary>
-        /// Espera LlenarComboUnidadMedida de IUnidadMedidaLaborRepository
-        /// </summary>
-        /// <returns></returns>
-        public async Task<IEnumerable<Iva>> GetListaTipoServicio()
+
+
+        public void LlenaTipoServicio(IEnumerable<TipoServicio> TipoServicio)
+        {
+            ListaTipoServicio.Clear();
+            foreach (var item in TipoServicio)
+            {
+                ListaTipoServicio.Add(item);
+            }
+        }
+
+        public async Task<IEnumerable<TipoServicio>> GetListaTipoServicio()
         {
             try
             {
-                var ti = await RepositoryTipoServicio.LlenarComboTipoServicio();
-                return ti;
+                var TipoServicio = await RepositoryTipoServicio.LlenarComboTipoServicio();
+                return TipoServicio;
+
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// Espera LlenarComboUnidadMedida de IUnidadMedidaLaborRepository
+        /// </summary>
+        /// <returns></returns>
+        //public async Task<IEnumerable<TipoServicio>> GetListaTipoServicio()
+        //{
+        //    try
+        //    {
+        //        var ti = await RepositoryTipoServicio.LlenarComboTipoServicio();
+        //        return ti;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}        
         #endregion
         #endregion
 
@@ -134,6 +159,18 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             {
                 _IdServicio = value;
                 OnPropertyChanged(nameof(IdServicio));
+            }
+        }
+
+        private int _IdTipoServicio;
+
+        public int IdTipoServicio
+        {
+            get { return _IdTipoServicio; }
+            set
+            {
+                _IdTipoServicio = value;
+                OnPropertyChanged(nameof(IdTipoServicio));
             }
         }
 

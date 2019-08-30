@@ -121,5 +121,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         }
         #endregion
+
+        private void FrmServicio_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -43,7 +43,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 IniciarCombito(0);
 
                 IdTipoServicioControl.DataBindings.Add("SelectedValue", Model, "IdTipoServicio", true, DataSourceUpdateMode.OnPropertyChanged);
-                IdTipoServicioControl.DataBindings.Add("DataSource", Model, "ListaTServicio", true, DataSourceUpdateMode.OnPropertyChanged);
+                IdTipoServicioControl.DataBindings.Add("DataSource", Model, "ListaTipoServicio", true, DataSourceUpdateMode.OnPropertyChanged);
                 IniciarCombito(1);
             }
             catch (Exception ex)
@@ -80,6 +80,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {
                 var z = await Model.GetListaTipoIva();
                 Model.LlenarListaTI(z);
+                var a = await Model.GetListaTipoServicio();
+                Model.LlenarListaTServicio(a);
             }
             catch (Exception ex)
             {
