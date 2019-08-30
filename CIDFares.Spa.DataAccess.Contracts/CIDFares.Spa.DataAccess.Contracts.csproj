@@ -68,6 +68,7 @@
     <Compile Include="Entities\Sucursal.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Entities\UnidadMedida.cs" />
+    <Compile Include="Entities\Venta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\IBaseRepository.cs" />
     <Compile Include="Repositories\General\IBusqProductoRepository.cs" />

@@ -25,6 +25,5 @@ namespace CIDFares.Spa.WFApplication.Constants
         public const string VersionSistema = "Versión 2.0";
         public const string ErrorBusqueda = "OCURRIÓ UN ERROR AL BUSCAR LOS DATOS";
         public const string CategoryIsOcuped = "ESTA CATEGORÍA CONTIENE PRODUCTOS EXISTENTES";
-
     }
 }
