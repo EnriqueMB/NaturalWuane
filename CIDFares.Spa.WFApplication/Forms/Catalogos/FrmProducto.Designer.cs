@@ -487,6 +487,7 @@
             this.StockMinControl.Name = "StockMinControl";
             this.StockMinControl.Size = new System.Drawing.Size(114, 20);
             this.StockMinControl.TabIndex = 45;
+            this.StockMinControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.StockMinControl_KeyPress);
             // 
             // StockMaxControl
             // 
@@ -494,6 +495,7 @@
             this.StockMaxControl.Name = "StockMaxControl";
             this.StockMaxControl.Size = new System.Drawing.Size(107, 20);
             this.StockMaxControl.TabIndex = 44;
+            this.StockMaxControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.StockMaxControl_KeyPress);
             // 
             // lblStockMax
             // 
