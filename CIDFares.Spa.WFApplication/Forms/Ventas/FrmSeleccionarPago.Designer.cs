@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridCheckBoxColumn gridCheckBoxColumn2 = new Syncfusion.WinForms.DataGrid.GridCheckBoxColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo gridBordersInfo2 = new Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridCheckBoxColumn gridCheckBoxColumn1 = new Syncfusion.WinForms.DataGrid.GridCheckBoxColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo gridBordersInfo1 = new Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
             this.EfectivoControl = new Syncfusion.Windows.Forms.Tools.CurrencyTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -41,7 +41,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnCobrar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.TotalControl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PanelPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EfectivoControl)).BeginInit();
@@ -125,33 +125,33 @@
             // GridFormaPago
             // 
             this.GridFormaPago.AccessibleName = "Table";
-            gridTextColumn4.HeaderText = "Column1";
-            gridTextColumn4.MappingName = "IdFormaPago";
-            gridTextColumn4.Visible = false;
-            gridCheckBoxColumn2.AllowCheckBoxOnHeader = true;
-            gridCheckBoxColumn2.HeaderText = "Seleccionar";
-            gridCheckBoxColumn2.MappingName = "Seleccionar";
-            gridCheckBoxColumn2.Width = 30D;
-            gridTextColumn5.AllowEditing = false;
-            gridTextColumn5.AllowGrouping = false;
-            gridTextColumn5.HeaderText = "Formas de pago";
-            gridTextColumn5.MappingName = "Nombre";
-            gridTextColumn5.Width = 250D;
-            gridTextColumn6.Format = "C2";
-            gridTextColumn6.HeaderText = "Monto";
-            gridTextColumn6.MappingName = "Cantidad";
-            gridTextColumn6.Width = 80D;
-            this.GridFormaPago.Columns.Add(gridTextColumn4);
-            this.GridFormaPago.Columns.Add(gridCheckBoxColumn2);
-            this.GridFormaPago.Columns.Add(gridTextColumn5);
-            this.GridFormaPago.Columns.Add(gridTextColumn6);
+            gridTextColumn1.HeaderText = "Column1";
+            gridTextColumn1.MappingName = "IdFormaPago";
+            gridTextColumn1.Visible = false;
+            gridCheckBoxColumn1.AllowCheckBoxOnHeader = true;
+            gridCheckBoxColumn1.HeaderText = "Seleccionar";
+            gridCheckBoxColumn1.MappingName = "Seleccionar";
+            gridCheckBoxColumn1.Width = 30D;
+            gridTextColumn2.AllowEditing = false;
+            gridTextColumn2.AllowGrouping = false;
+            gridTextColumn2.HeaderText = "Formas de pago";
+            gridTextColumn2.MappingName = "Nombre";
+            gridTextColumn2.Width = 250D;
+            gridTextColumn3.Format = "C2";
+            gridTextColumn3.HeaderText = "Monto";
+            gridTextColumn3.MappingName = "Cantidad";
+            gridTextColumn3.Width = 80D;
+            this.GridFormaPago.Columns.Add(gridTextColumn1);
+            this.GridFormaPago.Columns.Add(gridCheckBoxColumn1);
+            this.GridFormaPago.Columns.Add(gridTextColumn2);
+            this.GridFormaPago.Columns.Add(gridTextColumn3);
             this.GridFormaPago.Location = new System.Drawing.Point(42, 157);
             this.GridFormaPago.Name = "GridFormaPago";
             this.GridFormaPago.SelectionMode = Syncfusion.WinForms.DataGrid.Enums.GridSelectionMode.Extended;
             this.GridFormaPago.SelectionUnit = Syncfusion.WinForms.DataGrid.Enums.SelectionUnit.Cell;
             this.GridFormaPago.Size = new System.Drawing.Size(364, 207);
-            gridBordersInfo2.Bottom = new Syncfusion.WinForms.DataGrid.Styles.GridBorder(Syncfusion.WinForms.DataGrid.Styles.GridBorderStyle.Standard, System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204))))));
-            this.GridFormaPago.Style.AddNewRowStyle.Borders = gridBordersInfo2;
+            gridBordersInfo1.Bottom = new Syncfusion.WinForms.DataGrid.Styles.GridBorder(Syncfusion.WinForms.DataGrid.Styles.GridBorderStyle.Standard, System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204))))));
+            this.GridFormaPago.Style.AddNewRowStyle.Borders = gridBordersInfo1;
             this.GridFormaPago.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GridFormaPago.Style.CellStyle.Font.Facename = "Century Gothic";
             this.GridFormaPago.Style.CellStyle.Font.Size = 11F;
@@ -164,6 +164,7 @@
             this.GridFormaPago.Style.HeaderStyle.Font.Size = 10F;
             this.GridFormaPago.TabIndex = 7;
             this.GridFormaPago.Text = "sfDataGrid1";
+            this.GridFormaPago.QueryCellStyle += new Syncfusion.WinForms.DataGrid.Events.QueryCellStyleEventHandler(this.GridFormaPago_QueryCellStyle);
             // 
             // panel3
             // 
@@ -192,7 +193,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.TotalControl);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -200,16 +201,16 @@
             this.panel1.Size = new System.Drawing.Size(441, 151);
             this.panel1.TabIndex = 4;
             // 
-            // label2
+            // TotalControl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.label2.Location = new System.Drawing.Point(150, 66);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 56);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "$300";
+            this.TotalControl.AutoSize = true;
+            this.TotalControl.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.TotalControl.Location = new System.Drawing.Point(150, 66);
+            this.TotalControl.Name = "TotalControl";
+            this.TotalControl.Size = new System.Drawing.Size(132, 56);
+            this.TotalControl.TabIndex = 4;
+            this.TotalControl.Text = "$300";
             // 
             // label1
             // 
@@ -252,7 +253,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
         private Syncfusion.WinForms.DataGrid.SfDataGrid GridFormaPago;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label TotalControl;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
         private Syncfusion.Windows.Forms.Tools.CurrencyTextBox EfectivoControl;

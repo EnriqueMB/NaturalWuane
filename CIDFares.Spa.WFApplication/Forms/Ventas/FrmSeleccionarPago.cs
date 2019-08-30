@@ -1,7 +1,12 @@
-﻿using CIDFares.Spa.Business.ViewModels.Ventas;
+﻿using CIDFares.Library.Code.Helpers;
+using CIDFares.Library.Controls.CIDMessageBox.Code;
+using CIDFares.Library.Controls.CIDMessageBox.Enums;
+using CIDFares.Spa.Business.ViewModels.Ventas;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
+using CIDFares.Spa.WFApplication.Constants;
 using Syncfusion.WinForms.DataGrid;
+using Syncfusion.WinForms.DataGrid.Enums;
 using Syncfusion.WinForms.DataGrid.Styles;
 using System;
 using System.Collections.Generic;
@@ -81,5 +86,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             this.EfectivoControl.Focus();
         }
+
+        
+
+        
     }
 }
