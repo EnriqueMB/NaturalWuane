@@ -60,7 +60,6 @@
             this.lblVenta = new System.Windows.Forms.Label();
             this.pnlCliente = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.FotoControl = new System.Windows.Forms.PictureBox();
             this.ClaveControl = new System.Windows.Forms.Label();
             this.FolioControl = new System.Windows.Forms.Label();
             this.DireccionControl = new System.Windows.Forms.Label();
@@ -78,6 +77,7 @@
             this.btnServicio = new System.Windows.Forms.Button();
             this.btnProducto = new System.Windows.Forms.Button();
             this.PnlVentaGrid = new System.Windows.Forms.Panel();
+            this.FotoControl = new System.Windows.Forms.PictureBox();
             this.pnlGeneral.SuspendLayout();
             this.pnlAcciones.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -91,11 +91,11 @@
             this.pnlFecha.SuspendLayout();
             this.pnlCliente.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
             this.pnlFooter.SuspendLayout();
             this.pnlFooterLeft.SuspendLayout();
             this.pnlBotonCobrar.SuspendLayout();
             this.pnlBotonesGenerales.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
             this.SuspendLayout();
             // 
             // btnTotal
@@ -112,6 +112,7 @@
             this.btnTotal.TabIndex = 0;
             this.btnTotal.Text = "Cobrar ";
             this.btnTotal.UseVisualStyleBackColor = false;
+            this.btnTotal.Click += new System.EventHandler(this.btnTotal_Click);
             // 
             // btnMas
             // 
@@ -417,17 +418,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del cliente";
             // 
-            // FotoControl
-            // 
-            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FotoControl.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.imagen_subir;
-            this.FotoControl.Location = new System.Drawing.Point(19, 62);
-            this.FotoControl.Name = "FotoControl";
-            this.FotoControl.Size = new System.Drawing.Size(158, 145);
-            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.FotoControl.TabIndex = 7;
-            this.FotoControl.TabStop = false;
-            // 
             // ClaveControl
             // 
             this.ClaveControl.AutoSize = true;
@@ -596,6 +586,17 @@
             this.PnlVentaGrid.Size = new System.Drawing.Size(1012, 52);
             this.PnlVentaGrid.TabIndex = 0;
             // 
+            // FotoControl
+            // 
+            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FotoControl.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.imagen_subir;
+            this.FotoControl.Location = new System.Drawing.Point(19, 62);
+            this.FotoControl.Name = "FotoControl";
+            this.FotoControl.Size = new System.Drawing.Size(158, 145);
+            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.FotoControl.TabIndex = 7;
+            this.FotoControl.TabStop = false;
+            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -623,11 +624,11 @@
             this.pnlCliente.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
             this.pnlFooter.ResumeLayout(false);
             this.pnlFooterLeft.ResumeLayout(false);
             this.pnlBotonCobrar.ResumeLayout(false);
             this.pnlBotonesGenerales.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
             this.ResumeLayout(false);
 
         }

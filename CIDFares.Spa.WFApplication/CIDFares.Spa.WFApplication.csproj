@@ -149,6 +149,12 @@
     <Compile Include="Forms\Ventas\FrmBuscarCliente.Designer.cs">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Ventas\FrmSeleccionarPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmSeleccionarPago.Designer.cs">
+      <DependentUpon>FrmSeleccionarPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Ventas\FrmVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +209,9 @@
     <EmbeddedResource Include="Forms\Ventas\FrmBuscarCliente.resx">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ventas\FrmSeleccionarPago.resx">
+      <DependentUpon>FrmSeleccionarPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmVenta.resx">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </EmbeddedResource>
@@ -240,8 +249,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Forms\Compras\" />
-    <Folder Include="Forms\Usuarios\" />
-    <Folder Include="Forms\Ventas\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\UsuarioL2.png" />

@@ -108,5 +108,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             FechaControl.Text = DateTime.Now.ToString("dd/mm/yyyy");
         }
+
+        private void btnTotal_Click(object sender, EventArgs e)
+        {
+            FrmSeleccionarPago pago = new FrmSeleccionarPago();
+            pago.ShowDialog();
+        }
     }
 }
