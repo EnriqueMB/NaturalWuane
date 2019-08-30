@@ -15,10 +15,10 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public string TipoServicio { get; set; }
         public string Nombre { get; set; }
         public decimal Precio { get; set; }
-        public decimal Duracion { get; set; }
+        public TimeSpan Duracion { get; set; }
         public string Descripcion { get; set; }
         public decimal Porcentaje { get; set; }
-        public string PorcentajeStr { get; set; }
+        //public string PorcentajeStr { get; set; }
         public string DescIva { get; set; }
         public bool AplicaIva { get; set; }
         public bool AplicaIEPS { get; set; }

@@ -15,21 +15,98 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
     {
         #region Propiedades privadas
         private IServicioRepository Repository { get; set; }
+        private IIvaRepository Repositoryiva { get; set; }
+        private ITipoServicioRepository RepositoryTipoServicio { get; set; }
         #endregion
 
         #region Propiedades públicas
         public BindingList<Servicio> ListaServicio { get; set; }
+        public BindingList<Iva> ListaIva { get; set; }
+        public BindingList<TipoServicio> ListaTipoServicio { get; set; }
         public EntityState State { get; set; }
         #endregion
 
-        public ServicioViewModel(IServicioRepository servicioRepository)
+        public ServicioViewModel(IServicioRepository servicioRepository, IIvaRepository ivaRepository, ITipoServicioRepository tipoServicioRepository)
         {
             Repository = servicioRepository;
-            ListaServicio = new BindingList<Servicio>();
+            Repositoryiva = ivaRepository;
+            RepositoryTipoServicio = tipoServicioRepository;
+            ListaServicio = new BindingList<Servicio>();            
+            ListaIva = new BindingList<Iva>();
+            ListaTipoServicio = new BindingList<TipoServicio>();
             GetAllAsync();
         }
 
         #region Metodos
+        #region ComboIva
+        public void LlenarListaTI(IEnumerable<Iva> iva)
+        {
+            try
+            {
+                foreach (var item in iva)
+                {
+                    ListaIva.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Espera LlenarComboUnidadMedida de IUnidadMedidaLaborRepository
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IEnumerable<Iva>> GetListaTipoIva()
+        {
+            try
+            {
+                var iva = await Repositoryiva.LlenarComboIva();
+                return iva;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion
+
+        #region ComoboTipoServicio
+        public void LlenarListaTI(IEnumerable<TipoServicio> ti)
+        {
+            try
+            {
+                foreach (var item in ti)
+                {
+                    ListaTipoServicio.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Espera LlenarComboUnidadMedida de IUnidadMedidaLaborRepository
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IEnumerable<Iva>> GetListaTipoServicio()
+        {
+            try
+            {
+                var ti = await RepositoryTipoServicio.LlenarComboTipoServicio();
+                return ti;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion
+        #endregion
+
         public async Task GetAllAsync()
         {
             try
@@ -45,8 +122,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             {
                 throw ex;
             }
-        }
-        #endregion
+        }        
 
         #region Binding(Variables)
         private int _IdServicio;
@@ -159,17 +235,17 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        private string _PorcentajeStr;
+        //private string _PorcentajeStr;
 
-        public string PorcentajeStr
-        {
-            get { return _PorcentajeStr; }
-            set
-            {
-                _PorcentajeStr = value;
-                OnPropertyChanged(nameof(PorcentajeStr));
-            }
-        }
+        //public string PorcentajeStr
+        //{
+        //    get { return _PorcentajeStr; }
+        //    set
+        //    {
+        //        _PorcentajeStr = value;
+        //        OnPropertyChanged(nameof(PorcentajeStr));
+        //    }
+        //}
 
         private string _DescIva;
 

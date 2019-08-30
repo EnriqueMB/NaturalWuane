@@ -33,8 +33,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 NombreControl.DataBindings.Add("Text", Model, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
                 PrecioControl.DataBindings.Add("Text", Model, "Precio", true, DataSourceUpdateMode.OnPropertyChanged);
                 DuracionControl.DataBindings.Add("Text", Model, "Duracion", true, DataSourceUpdateMode.OnPropertyChanged);
-                DescripcionControl.DataBindings.Add("Text", Model, "Descripcion", true, DataSourceUpdateMode.OnPropertyChanged);
-                AplicaIvaControl.DataBindings.Add("Checked", Model, "AplicaIva", true, DataSourceUpdateMode.OnPropertyChanged);
+                DescripcionControl.DataBindings.Add("Text", Model, "Descripcion", true, DataSourceUpdateMode.OnPropertyChanged);                
                 AplicaIEPS.DataBindings.Add("Checked", Model, "AplicaIEPS", true, DataSourceUpdateMode.OnPropertyChanged);
                 IEPSMontoControl.DataBindings.Add("Checked", Model, "IEPSMonto", true, DataSourceUpdateMode.OnPropertyChanged);
                 IEPSControl.DataBindings.Add("Text", Model, "IEPS", true, DataSourceUpdateMode.OnPropertyChanged);                
@@ -64,7 +63,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 }                
                 else
                 {
-                    IdTipoIvaControl.DisplayMember = "PorcentajeStr";
+                    IdTipoIvaControl.DisplayMember = "Porcentaje";
                     IdTipoIvaControl.ValueMember = "IdTipoIva";
                 }
 
@@ -73,6 +72,19 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {
                 throw ex;
             }
+        }
+
+        private async void FrmServicioNuevo_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                var z = await Model.GetListaTipoIva();
+                Model.LlenarListaTI(z);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }            
         }
     }
 }

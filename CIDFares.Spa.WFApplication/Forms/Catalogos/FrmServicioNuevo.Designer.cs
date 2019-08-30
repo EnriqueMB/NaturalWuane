@@ -38,54 +38,53 @@
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlIEPS = new System.Windows.Forms.Panel();
+            this.IEPSControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.label6 = new System.Windows.Forms.Label();
             this.pnlAplicaIEPS = new System.Windows.Forms.Panel();
+            this.IEPSMontoControl = new System.Windows.Forms.CheckBox();
+            this.AplicaIEPS = new System.Windows.Forms.CheckBox();
             this.pnlAplicaIva = new System.Windows.Forms.Panel();
+            this.IdTipoIvaControl = new System.Windows.Forms.ComboBox();
             this.pnlDesc = new System.Windows.Forms.Panel();
+            this.DescripcionControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.label4 = new System.Windows.Forms.Label();
             this.pnlDuracion = new System.Windows.Forms.Panel();
+            this.DuracionControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.label3 = new System.Windows.Forms.Label();
             this.pnlPrecio = new System.Windows.Forms.Panel();
+            this.PrecioControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.label2 = new System.Windows.Forms.Label();
             this.pnlClave = new System.Windows.Forms.Panel();
+            this.ClaveControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.label5 = new System.Windows.Forms.Label();
             this.pnlTipoServicio = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.IdTipoServicioControl = new System.Windows.Forms.ComboBox();
             this.pnlServicio = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.NombreControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.AplicaIvaControl = new System.Windows.Forms.CheckBox();
-            this.AplicaIEPS = new System.Windows.Forms.CheckBox();
-            this.IdTipoServicioControl = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.IdTipoIvaControl = new System.Windows.Forms.ComboBox();
-            this.IEPSMontoControl = new System.Windows.Forms.CheckBox();
-            this.PrecioControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            this.ClaveControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            this.DescripcionControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            this.IEPSControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            this.DuracionControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.pnlHeader.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.flButtons.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlIEPS.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IEPSControl)).BeginInit();
             this.pnlAplicaIEPS.SuspendLayout();
             this.pnlAplicaIva.SuspendLayout();
             this.pnlDesc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DescripcionControl)).BeginInit();
             this.pnlDuracion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DuracionControl)).BeginInit();
             this.pnlPrecio.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PrecioControl)).BeginInit();
             this.pnlClave.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ClaveControl)).BeginInit();
             this.pnlTipoServicio.SuspendLayout();
             this.pnlServicio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NombreControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PrecioControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ClaveControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DescripcionControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IEPSControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DuracionControl)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -202,6 +201,29 @@
             this.pnlIEPS.Size = new System.Drawing.Size(273, 91);
             this.pnlIEPS.TabIndex = 8;
             // 
+            // IEPSControl
+            // 
+            this.IEPSControl.BeforeTouchSize = new System.Drawing.Size(396, 42);
+            this.IEPSControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.IEPSControl.Location = new System.Drawing.Point(22, 45);
+            this.IEPSControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.IEPSControl.Multiline = true;
+            this.IEPSControl.Name = "IEPSControl";
+            this.IEPSControl.Size = new System.Drawing.Size(230, 27);
+            this.IEPSControl.TabIndex = 9;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(18, 7);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 24);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "IEPS";
+            // 
             // pnlAplicaIEPS
             // 
             this.pnlAplicaIEPS.Controls.Add(this.IEPSMontoControl);
@@ -212,15 +234,42 @@
             this.pnlAplicaIEPS.Size = new System.Drawing.Size(262, 91);
             this.pnlAplicaIEPS.TabIndex = 7;
             // 
+            // IEPSMontoControl
+            // 
+            this.IEPSMontoControl.AutoSize = true;
+            this.IEPSMontoControl.Location = new System.Drawing.Point(29, 48);
+            this.IEPSMontoControl.Name = "IEPSMontoControl";
+            this.IEPSMontoControl.Size = new System.Drawing.Size(98, 21);
+            this.IEPSMontoControl.TabIndex = 2;
+            this.IEPSMontoControl.Text = "Porcentaje";
+            this.IEPSMontoControl.UseVisualStyleBackColor = true;
+            // 
+            // AplicaIEPS
+            // 
+            this.AplicaIEPS.AutoSize = true;
+            this.AplicaIEPS.Location = new System.Drawing.Point(29, 12);
+            this.AplicaIEPS.Name = "AplicaIEPS";
+            this.AplicaIEPS.Size = new System.Drawing.Size(118, 21);
+            this.AplicaIEPS.TabIndex = 1;
+            this.AplicaIEPS.Text = "¿Aplica IEPS?";
+            this.AplicaIEPS.UseVisualStyleBackColor = true;
+            // 
             // pnlAplicaIva
             // 
             this.pnlAplicaIva.Controls.Add(this.IdTipoIvaControl);
-            this.pnlAplicaIva.Controls.Add(this.AplicaIvaControl);
             this.pnlAplicaIva.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlAplicaIva.Location = new System.Drawing.Point(3, 172);
             this.pnlAplicaIva.Name = "pnlAplicaIva";
             this.pnlAplicaIva.Size = new System.Drawing.Size(261, 91);
             this.pnlAplicaIva.TabIndex = 6;
+            // 
+            // IdTipoIvaControl
+            // 
+            this.IdTipoIvaControl.FormattingEnabled = true;
+            this.IdTipoIvaControl.Location = new System.Drawing.Point(81, 27);
+            this.IdTipoIvaControl.Name = "IdTipoIvaControl";
+            this.IdTipoIvaControl.Size = new System.Drawing.Size(95, 24);
+            this.IdTipoIvaControl.TabIndex = 1;
             // 
             // pnlDesc
             // 
@@ -232,6 +281,29 @@
             this.pnlDesc.Size = new System.Drawing.Size(273, 76);
             this.pnlDesc.TabIndex = 5;
             // 
+            // DescripcionControl
+            // 
+            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(396, 42);
+            this.DescripcionControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.DescripcionControl.Location = new System.Drawing.Point(22, 37);
+            this.DescripcionControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.DescripcionControl.Multiline = true;
+            this.DescripcionControl.Name = "DescripcionControl";
+            this.DescripcionControl.Size = new System.Drawing.Size(230, 27);
+            this.DescripcionControl.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(18, 10);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(110, 24);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Descripción";
+            // 
             // pnlDuracion
             // 
             this.pnlDuracion.Controls.Add(this.DuracionControl);
@@ -241,6 +313,29 @@
             this.pnlDuracion.Name = "pnlDuracion";
             this.pnlDuracion.Size = new System.Drawing.Size(262, 76);
             this.pnlDuracion.TabIndex = 4;
+            // 
+            // DuracionControl
+            // 
+            this.DuracionControl.BeforeTouchSize = new System.Drawing.Size(396, 42);
+            this.DuracionControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.DuracionControl.Location = new System.Drawing.Point(17, 37);
+            this.DuracionControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.DuracionControl.Multiline = true;
+            this.DuracionControl.Name = "DuracionControl";
+            this.DuracionControl.Size = new System.Drawing.Size(230, 27);
+            this.DuracionControl.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(13, 10);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 24);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Duración";
             // 
             // pnlPrecio
             // 
@@ -252,6 +347,29 @@
             this.pnlPrecio.Size = new System.Drawing.Size(261, 76);
             this.pnlPrecio.TabIndex = 3;
             // 
+            // PrecioControl
+            // 
+            this.PrecioControl.BeforeTouchSize = new System.Drawing.Size(396, 42);
+            this.PrecioControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.PrecioControl.Location = new System.Drawing.Point(20, 37);
+            this.PrecioControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.PrecioControl.Multiline = true;
+            this.PrecioControl.Name = "PrecioControl";
+            this.PrecioControl.Size = new System.Drawing.Size(230, 27);
+            this.PrecioControl.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(16, 8);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 24);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Precio";
+            // 
             // pnlClave
             // 
             this.pnlClave.Controls.Add(this.ClaveControl);
@@ -262,6 +380,29 @@
             this.pnlClave.Size = new System.Drawing.Size(273, 81);
             this.pnlClave.TabIndex = 2;
             // 
+            // ClaveControl
+            // 
+            this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(396, 42);
+            this.ClaveControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.ClaveControl.Location = new System.Drawing.Point(22, 40);
+            this.ClaveControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.ClaveControl.Multiline = true;
+            this.ClaveControl.Name = "ClaveControl";
+            this.ClaveControl.Size = new System.Drawing.Size(230, 27);
+            this.ClaveControl.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(18, 11);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 24);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Clave";
+            // 
             // pnlTipoServicio
             // 
             this.pnlTipoServicio.Controls.Add(this.label7);
@@ -271,6 +412,26 @@
             this.pnlTipoServicio.Name = "pnlTipoServicio";
             this.pnlTipoServicio.Size = new System.Drawing.Size(262, 81);
             this.pnlTipoServicio.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(13, 11);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(144, 24);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Tipo de servicio";
+            // 
+            // IdTipoServicioControl
+            // 
+            this.IdTipoServicioControl.FormattingEnabled = true;
+            this.IdTipoServicioControl.Location = new System.Drawing.Point(17, 43);
+            this.IdTipoServicioControl.Name = "IdTipoServicioControl";
+            this.IdTipoServicioControl.Size = new System.Drawing.Size(230, 24);
+            this.IdTipoServicioControl.TabIndex = 0;
             // 
             // pnlServicio
             // 
@@ -296,7 +457,7 @@
             // 
             // NombreControl
             // 
-            this.NombreControl.BeforeTouchSize = new System.Drawing.Size(230, 27);
+            this.NombreControl.BeforeTouchSize = new System.Drawing.Size(396, 42);
             this.NombreControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.NombreControl.Location = new System.Drawing.Point(20, 43);
             this.NombreControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
@@ -309,179 +470,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(16, 8);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 24);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Precio";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(13, 10);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 24);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Duración";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(18, 10);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 24);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Descripción";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(18, 11);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 24);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Clave";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(18, 7);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 24);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "IEPS";
-            // 
-            // AplicaIvaControl
-            // 
-            this.AplicaIvaControl.AutoSize = true;
-            this.AplicaIvaControl.Location = new System.Drawing.Point(20, 12);
-            this.AplicaIvaControl.Name = "AplicaIvaControl";
-            this.AplicaIvaControl.Size = new System.Drawing.Size(106, 21);
-            this.AplicaIvaControl.TabIndex = 0;
-            this.AplicaIvaControl.Text = "¿Aplica iva?";
-            this.AplicaIvaControl.UseVisualStyleBackColor = true;
-            // 
-            // AplicaIEPS
-            // 
-            this.AplicaIEPS.AutoSize = true;
-            this.AplicaIEPS.Location = new System.Drawing.Point(29, 12);
-            this.AplicaIEPS.Name = "AplicaIEPS";
-            this.AplicaIEPS.Size = new System.Drawing.Size(118, 21);
-            this.AplicaIEPS.TabIndex = 1;
-            this.AplicaIEPS.Text = "¿Aplica IEPS?";
-            this.AplicaIEPS.UseVisualStyleBackColor = true;
-            // 
-            // IdTipoServicioControl
-            // 
-            this.IdTipoServicioControl.FormattingEnabled = true;
-            this.IdTipoServicioControl.Location = new System.Drawing.Point(17, 43);
-            this.IdTipoServicioControl.Name = "IdTipoServicioControl";
-            this.IdTipoServicioControl.Size = new System.Drawing.Size(230, 24);
-            this.IdTipoServicioControl.TabIndex = 0;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(13, 11);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(144, 24);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Tipo de servicio";
-            // 
-            // IdTipoIvaControl
-            // 
-            this.IdTipoIvaControl.FormattingEnabled = true;
-            this.IdTipoIvaControl.Location = new System.Drawing.Point(20, 48);
-            this.IdTipoIvaControl.Name = "IdTipoIvaControl";
-            this.IdTipoIvaControl.Size = new System.Drawing.Size(121, 24);
-            this.IdTipoIvaControl.TabIndex = 1;
-            // 
-            // IEPSMontoControl
-            // 
-            this.IEPSMontoControl.AutoSize = true;
-            this.IEPSMontoControl.Location = new System.Drawing.Point(29, 48);
-            this.IEPSMontoControl.Name = "IEPSMontoControl";
-            this.IEPSMontoControl.Size = new System.Drawing.Size(98, 21);
-            this.IEPSMontoControl.TabIndex = 2;
-            this.IEPSMontoControl.Text = "Porcentaje";
-            this.IEPSMontoControl.UseVisualStyleBackColor = true;
-            // 
-            // PrecioControl
-            // 
-            this.PrecioControl.BeforeTouchSize = new System.Drawing.Size(230, 27);
-            this.PrecioControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.PrecioControl.Location = new System.Drawing.Point(20, 37);
-            this.PrecioControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.PrecioControl.Multiline = true;
-            this.PrecioControl.Name = "PrecioControl";
-            this.PrecioControl.Size = new System.Drawing.Size(230, 27);
-            this.PrecioControl.TabIndex = 7;
-            // 
-            // ClaveControl
-            // 
-            this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(230, 27);
-            this.ClaveControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.ClaveControl.Location = new System.Drawing.Point(22, 40);
-            this.ClaveControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.ClaveControl.Multiline = true;
-            this.ClaveControl.Name = "ClaveControl";
-            this.ClaveControl.Size = new System.Drawing.Size(230, 27);
-            this.ClaveControl.TabIndex = 9;
-            // 
-            // DescripcionControl
-            // 
-            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(230, 27);
-            this.DescripcionControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.DescripcionControl.Location = new System.Drawing.Point(22, 37);
-            this.DescripcionControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.DescripcionControl.Multiline = true;
-            this.DescripcionControl.Name = "DescripcionControl";
-            this.DescripcionControl.Size = new System.Drawing.Size(230, 27);
-            this.DescripcionControl.TabIndex = 7;
-            // 
-            // IEPSControl
-            // 
-            this.IEPSControl.BeforeTouchSize = new System.Drawing.Size(230, 27);
-            this.IEPSControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.IEPSControl.Location = new System.Drawing.Point(22, 45);
-            this.IEPSControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.IEPSControl.Multiline = true;
-            this.IEPSControl.Name = "IEPSControl";
-            this.IEPSControl.Size = new System.Drawing.Size(230, 27);
-            this.IEPSControl.TabIndex = 9;
-            // 
-            // DuracionControl
-            // 
-            this.DuracionControl.BeforeTouchSize = new System.Drawing.Size(230, 27);
-            this.DuracionControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.DuracionControl.Location = new System.Drawing.Point(17, 37);
-            this.DuracionControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.DuracionControl.Multiline = true;
-            this.DuracionControl.Name = "DuracionControl";
-            this.DuracionControl.Size = new System.Drawing.Size(230, 27);
-            this.DuracionControl.TabIndex = 7;
-            // 
             // FrmServicioNuevo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -493,6 +481,7 @@
             this.MaximumSize = new System.Drawing.Size(832, 458);
             this.Name = "FrmServicioNuevo";
             this.Text = "FrmServicioNuevo";
+            this.Load += new System.EventHandler(this.FrmServicioNuevo_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlButtons.ResumeLayout(false);
@@ -501,29 +490,28 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.pnlIEPS.ResumeLayout(false);
             this.pnlIEPS.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IEPSControl)).EndInit();
             this.pnlAplicaIEPS.ResumeLayout(false);
             this.pnlAplicaIEPS.PerformLayout();
             this.pnlAplicaIva.ResumeLayout(false);
-            this.pnlAplicaIva.PerformLayout();
             this.pnlDesc.ResumeLayout(false);
             this.pnlDesc.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DescripcionControl)).EndInit();
             this.pnlDuracion.ResumeLayout(false);
             this.pnlDuracion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DuracionControl)).EndInit();
             this.pnlPrecio.ResumeLayout(false);
             this.pnlPrecio.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PrecioControl)).EndInit();
             this.pnlClave.ResumeLayout(false);
             this.pnlClave.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ClaveControl)).EndInit();
             this.pnlTipoServicio.ResumeLayout(false);
             this.pnlTipoServicio.PerformLayout();
             this.pnlServicio.ResumeLayout(false);
             this.pnlServicio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NombreControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PrecioControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ClaveControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DescripcionControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IEPSControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DuracionControl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -554,7 +542,6 @@
         private System.Windows.Forms.CheckBox IEPSMontoControl;
         private System.Windows.Forms.CheckBox AplicaIEPS;
         private System.Windows.Forms.ComboBox IdTipoIvaControl;
-        private System.Windows.Forms.CheckBox AplicaIvaControl;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

@@ -200,7 +200,6 @@
             gridTextColumn12.AllowGrouping = false;
             gridTextColumn12.HeaderText = "AplicaIva";
             gridTextColumn12.MappingName = "AplicaIva";
-            gridTextColumn12.Visible = false;
             gridTextColumn13.AllowGrouping = false;
             gridTextColumn13.HeaderText = "AplicaIEPS";
             gridTextColumn13.MappingName = "AplicaIEPS";

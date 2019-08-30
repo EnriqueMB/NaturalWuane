@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace CIDFares.Spa.DataAccess.Repositories.General
 {
@@ -54,7 +55,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         Item.TipoServicio = dr.GetString(dr.GetOrdinal("TipoServicio"));
                         Item.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
                         Item.Precio = dr.GetDecimal(dr.GetOrdinal("Precio"));
-                        Item.Duracion = dr.GetDecimal(dr.GetOrdinal("Duracion"));
+                        Item.Duracion = XmlConvert.ToTimeSpan(dr.GetOrdinal("Duracion").ToString());
                         Item.Descripcion = dr.GetString(dr.GetOrdinal("Descripcion"));
                         Item.Porcentaje = dr.GetDecimal(dr.GetOrdinal("Porcentaje"));
                         Item.DescIva = dr.GetString(dr.GetOrdinal("DescIva"));
