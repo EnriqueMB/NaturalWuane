@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
 {
-    public interface IUsuarioRepository : IBaseRepository<Usuario>
+    public interface IProveedorRepository : IBaseRepository<Proveedor>
     {
-        Task<Guid>EsCuentaUnica(string Cuenta);
-        Task<Usuario> AddAsync(Usuario element);
-    }
+        Task<bool> EsClave(string Clave);
+        Task<bool> NombreComercialUnico(string NombreComercial);
+}
 }

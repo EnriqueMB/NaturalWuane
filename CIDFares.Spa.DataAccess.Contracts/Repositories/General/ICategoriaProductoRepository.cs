@@ -11,6 +11,8 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
 {
     public interface ICategoriaProductoRepository : IBaseRepository<CategoriaProducto>
     {
+        //Task<BindingList<CategoriaProducto>> LlenarComboCategoria();
+       // Task<IEnumerable<CategoriaProducto>> LlenarComboCategoria();
         Task<BindingList<CategoriaProducto>> LlenarComboCategoria();
     }
 }

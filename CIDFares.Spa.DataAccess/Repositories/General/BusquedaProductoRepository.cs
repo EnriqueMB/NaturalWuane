@@ -43,6 +43,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.PrecioPublico = dr.GetDecimal(dr.GetOrdinal("PrecioPublico"));
                         item.PrecioMayoreo = dr.GetDecimal(dr.GetOrdinal("PrecioMayoreo"));
                         item.PrecioMenudeo = dr.GetDecimal(dr.GetOrdinal("PrecioMenudeo"));
+                        item.ProcentajeIva = dr.GetDecimal(dr.GetOrdinal("PorcentajeIva"));
                         Lista.Add(item);
                     }
                     return Lista;
