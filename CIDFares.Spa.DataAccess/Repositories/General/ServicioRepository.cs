@@ -15,7 +15,54 @@ using System.Xml;
 namespace CIDFares.Spa.DataAccess.Repositories.General
 {
     public class ServicioRepository : Repository, IServicioRepository
-    {        
+    {
+        #region Interfaces Implementadas
+
+        public async Task<IEnumerable<Servicio>> GetBusqServicioAsync(bool BitNombre, string BusqNombre, bool BitClaveCodigo, string BusqClaveCodigo)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    List<Servicio> Lista = new List<Servicio>();
+                    Servicio item;
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@BitNombre", BitNombre);
+                    dynamicParameters.Add("@BusquedaNombre", BusqNombre);
+                    dynamicParameters.Add("@BitCodigo", BitClaveCodigo);
+                    dynamicParameters.Add("@BusquedaCodigo", BusqClaveCodigo);
+                    var dr = await conexion.ExecuteReaderAsync("[Venta].[SPCID_Get_ObtenerBusquedaProducto]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    while (dr.Read())
+                    {
+                        item = new Servicio();
+                        item.IdServicio = dr.GetInt32(dr.GetOrdinal("IdServicio"));
+                        item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
+                        item.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
+                        item.TipoServicio = dr.GetString(dr.GetOrdinal("TipoServicio"));
+                        item.Precio = dr.GetDecimal(dr.GetOrdinal("PrecioPublico"));
+                        item.Porcentaje = dr.GetDecimal(dr.GetOrdinal("PorcentajeIva"));
+                        item.AplicaIEPS = dr.GetBoolean(dr.GetOrdinal("AplicaIEPS"));
+                        item.IEPSMonto = dr.GetBoolean(dr.GetOrdinal("IEPSMonto"));
+                        item.IEPS = dr.GetDecimal(dr.GetOrdinal("IEPS"));
+                        Lista.Add(item);
+                    }
+                    return Lista;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        #endregion
+        public Task<Servicio> AddAsync(Servicio element)
+        {
+            throw new NotImplementedException();
+        }
+
+          
         public Task<Servicio> AddAsync(Servicio element, object IdUsuario)
         {
             throw new NotImplementedException();
@@ -81,7 +128,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         public Task<Servicio> GetAsync(object id)
         {
             throw new NotImplementedException();
-        }
+        }        
 
         public Task<int> NameExistAsync(string name)
         {

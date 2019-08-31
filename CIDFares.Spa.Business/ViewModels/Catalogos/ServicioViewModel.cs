@@ -147,7 +147,26 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             {
                 throw ex;
             }
-        }        
+        }
+
+        public async Task BusquedaServicio()
+        {
+            try
+            {
+                var x = await Repository.GetBusqServicioAsync(this.BandNombre, this.Nombre, this.BandClave, this.Clave);
+                ListaServicio.Clear();
+                foreach (var item in x)
+                {
+                    ListaServicio.Add(item);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
 
         #region Binding(Variables)
         private int _IdServicio;
@@ -343,6 +362,31 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 OnPropertyChanged(nameof(IEPS));
             }
         }
+
+        private bool _BandNombre;
+
+        public bool BandNombre
+        {
+            get { return _BandNombre; }
+            set
+            {
+                _BandNombre = value;
+                OnPropertyChanged(nameof(BandNombre));
+            }
+        }
+
+        private bool _BandClave;
+
+        public bool BandClave
+        {
+            get { return _BandClave; }
+            set
+            {
+                _BandClave = value;
+                OnPropertyChanged(nameof(BandClave));
+            }
+        }
+
 
         #region InotifyPropertyChanged Members
 

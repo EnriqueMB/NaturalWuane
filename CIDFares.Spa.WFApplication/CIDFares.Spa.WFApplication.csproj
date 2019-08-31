@@ -156,6 +156,7 @@
       <DependentUpon>FrmProveedorACompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\General\Form1.cs">
+    </Compile>
     <Compile Include="Forms\Catalogos\FrmSucursal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +186,12 @@
     </Compile>
     <Compile Include="Forms\Ventas\FrmBuscarCliente.Designer.cs">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmBuscarServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmBuscarServicio.Designer.cs">
+      <DependentUpon>FrmBuscarServicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Ventas\FrmVenta.cs">
       <SubType>Form</SubType>
@@ -249,6 +256,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmSucursal.resx">
       <DependentUpon>FrmSucursal.cs</DependentUpon>
     </EmbeddedResource>
