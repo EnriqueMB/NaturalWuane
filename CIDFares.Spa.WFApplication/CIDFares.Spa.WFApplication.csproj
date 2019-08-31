@@ -155,8 +155,6 @@
     <Compile Include="Forms\Compras\FrmProveedorACompra.Designer.cs">
       <DependentUpon>FrmProveedorACompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\General\Form1.cs">
-    </Compile>
     <Compile Include="Forms\Catalogos\FrmSucursal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,15 +245,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmServicioNuevo.resx">
       <DependentUpon>FrmServicioNuevo.cs</DependentUpon>
-   </EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compras\FrmCompra.resx">
       <DependentUpon>FrmCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compras\FrmProveedorACompra.resx">
       <DependentUpon>FrmProveedorACompra.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\General\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmSucursal.resx">
       <DependentUpon>FrmSucursal.cs</DependentUpon>
