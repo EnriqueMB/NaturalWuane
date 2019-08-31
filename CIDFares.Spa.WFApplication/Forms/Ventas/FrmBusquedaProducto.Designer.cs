@@ -54,9 +54,9 @@
             this.BuquedaClaveCodigoControl = new System.Windows.Forms.TextBox();
             this.BusClaveBarraControl = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.ErrorControl = new System.Windows.Forms.Label();
             this.BtnBusqueda = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ErrorControl = new System.Windows.Forms.Label();
             this.panelContenedor.SuspendLayout();
             this.panelContenedoGridGuardar.SuspendLayout();
             this.panelGuardar.SuspendLayout();
@@ -299,6 +299,13 @@
             this.panel3.Size = new System.Drawing.Size(271, 49);
             this.panel3.TabIndex = 2;
             // 
+            // ErrorControl
+            // 
+            this.ErrorControl.Location = new System.Drawing.Point(17, 22);
+            this.ErrorControl.Name = "ErrorControl";
+            this.ErrorControl.Size = new System.Drawing.Size(0, 13);
+            this.ErrorControl.TabIndex = 11;
+            // 
             // BtnBusqueda
             // 
             this.BtnBusqueda.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -317,14 +324,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // ErrorControl
-            // 
-            this.ErrorControl.AutoSize = true;
-            this.ErrorControl.Location = new System.Drawing.Point(17, 22);
-            this.ErrorControl.Name = "ErrorControl";
-            this.ErrorControl.Size = new System.Drawing.Size(0, 13);
-            this.ErrorControl.TabIndex = 11;
             // 
             // FrmBusquedaProducto
             // 

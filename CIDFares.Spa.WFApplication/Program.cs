@@ -30,7 +30,7 @@ namespace CIDFares.Spa.WFApplication
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
             CurrentSession.IdCuentaUsuario = Guid.Empty;
-            Application.Run(new FrmProductoGrid());
+            Application.Run(new FrmHome());
         }
 
         public static void InitializeContainer()
