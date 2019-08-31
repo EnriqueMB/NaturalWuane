@@ -301,6 +301,7 @@
             // 
             // ErrorControl
             // 
+            this.ErrorControl.AutoSize = true;
             this.ErrorControl.Location = new System.Drawing.Point(17, 22);
             this.ErrorControl.Name = "ErrorControl";
             this.ErrorControl.Size = new System.Drawing.Size(0, 13);
