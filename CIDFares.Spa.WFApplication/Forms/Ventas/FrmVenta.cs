@@ -51,6 +51,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             try
             {
+                TotalControl.DataBindings.Add("Text", Model, "Total", true, DataSourceUpdateMode.OnPropertyChanged);
+                IvaControl.DataBindings.Add("Text", Model, "Iva", true, DataSourceUpdateMode.OnPropertyChanged);
+                SubtotalControl.DataBindings.Add("Text", Model, "Subtotal", true, DataSourceUpdateMode.OnPropertyChanged);
+
                 this.sfDataGridVenta.AutoGenerateColumns = false;
                 sfDataGridVenta.DataBindings.Add("DataSource", Model, "Listaventa", true, DataSourceUpdateMode.OnPropertyChanged);
             }
@@ -125,7 +129,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
 
         private void btnTotal_Click(object sender, EventArgs e)
         {
-            FrmSeleccionarPago pago = new FrmSeleccionarPago();
+            FrmSeleccionarPago pago = new FrmSeleccionarPago(Model);
             pago.ShowDialog();
         }
 

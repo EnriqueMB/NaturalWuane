@@ -18,6 +18,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
 
         #region Propiedades públicas
         public FormaPagoViewModel ModelFormaPago { get; set; }
+
         public EntityState State { get; set; }
         #endregion
 

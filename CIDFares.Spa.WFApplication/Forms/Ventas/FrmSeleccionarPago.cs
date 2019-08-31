@@ -5,6 +5,7 @@ using CIDFares.Spa.Business.ViewModels.Ventas;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
+using CIDFares.Spa.WFApplication.Session;
 using Syncfusion.WinForms.DataGrid;
 using Syncfusion.WinForms.DataGrid.Enums;
 using Syncfusion.WinForms.DataGrid.Styles;
@@ -22,17 +23,18 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
 {
     public partial class FrmSeleccionarPago : Form
     {
-        public SeleccionarPagoViewModel Model { get; set; }
-        public FrmSeleccionarPago()
+        public VentasViewModel Model { get; set; }
+        public FrmSeleccionarPago(VentasViewModel model)
         {
             InitializeComponent();
-            Model = ServiceLocator.Instance.Resolve<SeleccionarPagoViewModel>();
+            Model = model;
             GridFormaPago.Columns["Seleccionar"].AllowEditing = true;
             this.GridFormaPago.Style.HeaderStyle.Borders.Top = new GridBorder(GridBorderStyle.None);
             this.GridFormaPago.Style.HeaderStyle.Borders.Left = new GridBorder(GridBorderStyle.None);
             this.GridFormaPago.Style.HeaderStyle.Borders.Right = new GridBorder(GridBorderStyle.None);
             this.GridFormaPago.Style.CellStyle.Borders.All = new GridBorder(GridBorderStyle.None);
             this.EfectivoControl.Focus();
+            model.GetAllAsync(); 
             IniciarBinding();
         }
 
@@ -40,8 +42,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             try
             {
+                EfectivoControl.DataBindings.Add("Text", Model, "Efectivo", true, DataSourceUpdateMode.OnPropertyChanged);
                 this.GridFormaPago.AutoGenerateColumns = false;
-                GridFormaPago.DataBindings.Add("DataSource", Model.ModelFormaPago, "ListaFormaPago", true, DataSourceUpdateMode.OnPropertyChanged);
+                GridFormaPago.DataBindings.Add("DataSource", Model, "ListaFormaPago", true, DataSourceUpdateMode.OnPropertyChanged);
             }
             catch (Exception ex)
             {
@@ -85,10 +88,59 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         private void FrmSeleccionarPago_Load(object sender, EventArgs e)
         {
             this.EfectivoControl.Focus();
+            TotalControl.Text = Model.Total.ToString("C2");
         }
 
-        
+        private DataTable ObtenerDatosTabla(BindingList<Venta> Lista)
+        {
+            DataTable Tabla = new DataTable();
+            Tabla.Columns.Add("IdProducto", typeof(int));
+            foreach (var item in Lista)
+            {
+                if (item.IdTipo == 1)
+                {
+                    Tabla.Rows.Add(new object[] { item.IdGenerico });
+                }
+            }
+            return Tabla;
+        }
 
-        
+        private async void btnCobrar_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                Venta Resultado = await Model.GuardarVenta(CurrentSession.IdCuentaUsuario);
+                if (Resultado.Resultado == 1)
+                {
+                    pnlCambio.BringToFront();
+                    CambioControl.Text = (Model.Efectivo - Model.Total).ToString("C2");
+                }
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            
+            //this.Close();
+        }
+
+        private void pnlCambio_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TotalControl_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
