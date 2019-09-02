@@ -143,7 +143,6 @@
     <Compile Include="Forms\Catalogos\FrmServicioNuevo.Designer.cs">
       <DependentUpon>FrmServicioNuevo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\General\Form1.cs">
     <Compile Include="Forms\Catalogos\FrmSucursal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,8 +228,6 @@
     <EmbeddedResource Include="Forms\Catalogos\FrmServicioNuevo.resx">
       <DependentUpon>FrmServicioNuevo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\General\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     <EmbeddedResource Include="Forms\Catalogos\FrmSucursal.resx">
       <DependentUpon>FrmSucursal.cs</DependentUpon>
     </EmbeddedResource>
