@@ -29,29 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn17 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn18 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn19 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn20 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn21 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn22 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlTitulos = new System.Windows.Forms.Panel();
             this.btnLimpiarBusqueda = new System.Windows.Forms.Button();
             this.BusquedaControl = new System.Windows.Forms.TextBox();
             this.btnBusqueda = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.FlpBotones = new System.Windows.Forms.FlowLayoutPanel();
-            this.BtnSeleccionar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.sfDataGrid1 = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlTitulos.SuspendLayout();
-            this.FlpBotones.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -125,7 +123,6 @@
             // 
             // FlpBotones
             // 
-            this.FlpBotones.Controls.Add(this.BtnSeleccionar);
             this.FlpBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.FlpBotones.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.FlpBotones.Location = new System.Drawing.Point(0, 361);
@@ -133,23 +130,6 @@
             this.FlpBotones.Padding = new System.Windows.Forms.Padding(10, 20, 10, 0);
             this.FlpBotones.Size = new System.Drawing.Size(818, 74);
             this.FlpBotones.TabIndex = 4;
-            // 
-            // BtnSeleccionar
-            // 
-            this.BtnSeleccionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnSeleccionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
-            this.BtnSeleccionar.FlatAppearance.BorderSize = 0;
-            this.BtnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSeleccionar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSeleccionar.ForeColor = System.Drawing.Color.White;
-            this.BtnSeleccionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSeleccionar.Location = new System.Drawing.Point(665, 23);
-            this.BtnSeleccionar.Name = "BtnSeleccionar";
-            this.BtnSeleccionar.Size = new System.Drawing.Size(130, 28);
-            this.BtnSeleccionar.TabIndex = 13;
-            this.BtnSeleccionar.Text = "SELECCIONAR";
-            this.BtnSeleccionar.UseVisualStyleBackColor = false;
-            this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
             // 
             // panel1
             // 
@@ -166,57 +146,58 @@
             this.sfDataGrid1.AllowEditing = false;
             this.sfDataGrid1.AutoExpandGroups = true;
             this.sfDataGrid1.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.AllowEditing = false;
-            gridTextColumn1.HeaderText = "IdProveedor";
-            gridTextColumn1.MappingName = "IdProveedor";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.AllowEditing = false;
-            gridTextColumn2.HeaderText = "Clave";
-            gridTextColumn2.MappingName = "Clave";
-            gridTextColumn3.AllowEditing = false;
-            gridTextColumn3.HeaderText = "Nombre Comercial";
-            gridTextColumn3.MappingName = "NombreComercial";
-            gridTextColumn4.AllowEditing = false;
-            gridTextColumn4.HeaderText = "Razon Social";
-            gridTextColumn4.MappingName = "RazonSocial";
-            gridTextColumn5.AllowEditing = false;
-            gridTextColumn5.HeaderText = "Representante";
-            gridTextColumn5.MappingName = "Representante";
-            gridTextColumn6.AllowEditing = false;
-            gridTextColumn6.HeaderText = "Direccion";
-            gridTextColumn6.MappingName = "Direccion";
-            gridTextColumn7.AllowEditing = false;
-            gridTextColumn7.HeaderText = "Telefono";
-            gridTextColumn7.MappingName = "Telefono";
-            gridTextColumn8.AllowEditing = false;
-            gridTextColumn8.HeaderText = "Correo Electronico";
-            gridTextColumn8.MappingName = "CorreoElectronico";
-            gridTextColumn9.AllowEditing = false;
-            gridTextColumn9.HeaderText = "Pais";
-            gridTextColumn9.MappingName = "Pais";
-            gridTextColumn10.AllowEditing = false;
-            gridTextColumn10.HeaderText = "Estado";
-            gridTextColumn10.MappingName = "Estado";
-            gridTextColumn11.AllowEditing = false;
-            gridTextColumn11.HeaderText = "Municipio";
-            gridTextColumn11.MappingName = "Municipio";
-            this.sfDataGrid1.Columns.Add(gridTextColumn1);
-            this.sfDataGrid1.Columns.Add(gridTextColumn2);
-            this.sfDataGrid1.Columns.Add(gridTextColumn3);
-            this.sfDataGrid1.Columns.Add(gridTextColumn4);
-            this.sfDataGrid1.Columns.Add(gridTextColumn5);
-            this.sfDataGrid1.Columns.Add(gridTextColumn6);
-            this.sfDataGrid1.Columns.Add(gridTextColumn7);
-            this.sfDataGrid1.Columns.Add(gridTextColumn8);
-            this.sfDataGrid1.Columns.Add(gridTextColumn9);
-            this.sfDataGrid1.Columns.Add(gridTextColumn10);
-            this.sfDataGrid1.Columns.Add(gridTextColumn11);
+            gridTextColumn12.AllowEditing = false;
+            gridTextColumn12.HeaderText = "IdProveedor";
+            gridTextColumn12.MappingName = "IdProveedor";
+            gridTextColumn12.Visible = false;
+            gridTextColumn13.AllowEditing = false;
+            gridTextColumn13.HeaderText = "Clave";
+            gridTextColumn13.MappingName = "Clave";
+            gridTextColumn14.AllowEditing = false;
+            gridTextColumn14.HeaderText = "Nombre Comercial";
+            gridTextColumn14.MappingName = "NombreComercial";
+            gridTextColumn15.AllowEditing = false;
+            gridTextColumn15.HeaderText = "Razon Social";
+            gridTextColumn15.MappingName = "RazonSocial";
+            gridTextColumn16.AllowEditing = false;
+            gridTextColumn16.HeaderText = "Representante";
+            gridTextColumn16.MappingName = "Representante";
+            gridTextColumn17.AllowEditing = false;
+            gridTextColumn17.HeaderText = "Direccion";
+            gridTextColumn17.MappingName = "Direccion";
+            gridTextColumn18.AllowEditing = false;
+            gridTextColumn18.HeaderText = "Telefono";
+            gridTextColumn18.MappingName = "Telefono";
+            gridTextColumn19.AllowEditing = false;
+            gridTextColumn19.HeaderText = "Correo Electronico";
+            gridTextColumn19.MappingName = "CorreoElectronico";
+            gridTextColumn20.AllowEditing = false;
+            gridTextColumn20.HeaderText = "Pais";
+            gridTextColumn20.MappingName = "Pais";
+            gridTextColumn21.AllowEditing = false;
+            gridTextColumn21.HeaderText = "Estado";
+            gridTextColumn21.MappingName = "Estado";
+            gridTextColumn22.AllowEditing = false;
+            gridTextColumn22.HeaderText = "Municipio";
+            gridTextColumn22.MappingName = "Municipio";
+            this.sfDataGrid1.Columns.Add(gridTextColumn12);
+            this.sfDataGrid1.Columns.Add(gridTextColumn13);
+            this.sfDataGrid1.Columns.Add(gridTextColumn14);
+            this.sfDataGrid1.Columns.Add(gridTextColumn15);
+            this.sfDataGrid1.Columns.Add(gridTextColumn16);
+            this.sfDataGrid1.Columns.Add(gridTextColumn17);
+            this.sfDataGrid1.Columns.Add(gridTextColumn18);
+            this.sfDataGrid1.Columns.Add(gridTextColumn19);
+            this.sfDataGrid1.Columns.Add(gridTextColumn20);
+            this.sfDataGrid1.Columns.Add(gridTextColumn21);
+            this.sfDataGrid1.Columns.Add(gridTextColumn22);
             this.sfDataGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGrid1.Location = new System.Drawing.Point(0, 0);
             this.sfDataGrid1.Name = "sfDataGrid1";
             this.sfDataGrid1.Size = new System.Drawing.Size(818, 291);
             this.sfDataGrid1.TabIndex = 2;
             this.sfDataGrid1.Text = "sfDataGrid1";
+            this.sfDataGrid1.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.sfDataGrid1_CellDoubleClick);
             // 
             // errorProvider1
             // 
@@ -236,7 +217,6 @@
             this.Load += new System.EventHandler(this.FrmProveedorACompra_Load);
             this.pnlTitulos.ResumeLayout(false);
             this.pnlTitulos.PerformLayout();
-            this.FlpBotones.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -252,7 +232,6 @@
         public System.Windows.Forms.Button btnBusqueda;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.FlowLayoutPanel FlpBotones;
-        private System.Windows.Forms.Button BtnSeleccionar;
         private System.Windows.Forms.Panel panel1;
         private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGrid1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
