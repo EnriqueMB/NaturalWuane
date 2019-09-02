@@ -33,6 +33,26 @@ namespace CIDFares.Spa.WFApplication.Validations
                 })
                 .WithMessage("EL NOMBRE DEL PRODUCTO YA EXISTE");
 
+            RuleFor(producto => producto.Clave)
+                   .NotEmpty()
+               .WithMessage("INGRESE LA CLAVE DEL PRODUCTO.")
+               .MaximumLength(80).WithMessage("LA CLAVE NO PUEDE SER MAYOR A 80 CARACTERES.")
+               .MustAsync(async (producto, x, context) =>
+               {
+
+                   int result = await productoservice.ClaveExistAsync(producto.Clave);
+                   if (result > 0)
+                   {
+                       if (result == producto.IdProducto)
+                           return true;
+                       else
+                           return false;
+                   }
+                   else
+                       return true;
+               })
+               .WithMessage("LA CLAVE YA EXISTE");
+
 
             RuleFor(producto => producto.CodigoBarras)
                     .NotEmpty()
@@ -60,15 +80,7 @@ namespace CIDFares.Spa.WFApplication.Validations
 
             RuleFor(producto => producto.IdUnidadMedida)
                 .NotEqual(0)
-                .WithMessage("DEBE SELECCIONAR UNA CATEGORIA.");
-
-            //RuleFor(producto => producto.IdAplicaIva)
-            //   .NotEqual(0) .When(prodc)
-            //   .WithMessage("DEBE SELECCIONAR UNA CATEGORIA.");
-
-
-            RuleFor(producto => producto.Clave)
-                .NotEmpty().WithMessage("NO DEBE DEJAR EL CAMPO DE CLAVE VACIO");
+                .WithMessage("DEBE SELECCIONAR UNA UNIDAD DE MEDIDA.");
 
 
 
