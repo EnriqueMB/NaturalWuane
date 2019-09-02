@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
 {
-    public interface IServicioRepository : IBaseRepository<Servicio>
+    public interface IProveedorACompraRepository: IBaseRepository<ProveedorACompra>
     {
-        Task<IEnumerable<Servicio>> GetBusqServicioAsync(bool BitNombre, string BusqNombre, bool BitClaveCodigo, string BusqClaveCodigo);
+        Task<IEnumerable<ProveedorACompra>> GetBusquedaAsync(string Busqueda);
+
+        //Task<IEnumerable<ProveedorACompra>> GetNombre(string id);
     }
 }

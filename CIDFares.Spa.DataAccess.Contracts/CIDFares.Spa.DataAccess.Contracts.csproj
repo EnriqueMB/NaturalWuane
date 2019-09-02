@@ -68,9 +68,12 @@
     <Compile Include="Entities\Producto.cs" />
     <Compile Include="Entities\Empleado.cs" />
     <Compile Include="Entities\Proveedor.cs" />
+    <Compile Include="Entities\ProveedorACompra.cs" />
     <Compile Include="Entities\Rol.cs" />
     <Compile Include="Entities\Servicio.cs" />
     <Compile Include="Entities\Sucursal.cs" />
+    <Compile Include="Entities\TipoServicio.cs" />
+    <Compile Include="Entities\TipoSucursal.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Entities\UnidadMedida.cs" />
     <Compile Include="Entities\Venta.cs" />
@@ -88,9 +91,12 @@
     <Compile Include="Repositories\General\IMunicipioRepository.cs" />
     <Compile Include="Repositories\General\IPaisRepository.cs" />
     <Compile Include="Repositories\General\IProductoRepository.cs" />
+    <Compile Include="Repositories\General\IProveedorACompraRepository.cs" />
     <Compile Include="Repositories\General\IProveedorRepository.cs" />
     <Compile Include="Repositories\General\IServicioRepository.cs" />
     <Compile Include="Repositories\General\ISucursalRepository.cs" />
+    <Compile Include="Repositories\General\ITipoServicioRepository.cs" />
+    <Compile Include="Repositories\General\ITipoSucursalRepository.cs" />
     <Compile Include="Repositories\General\IUnidadMedidaRepository.cs" />
     <Compile Include="Repositories\General\IVentaRepository.cs" />
     <Compile Include="Validations\Validable.cs" />

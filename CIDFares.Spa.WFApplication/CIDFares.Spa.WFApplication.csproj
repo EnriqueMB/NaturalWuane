@@ -137,11 +137,35 @@
     <Compile Include="Forms\Catalogos\FrmServicio.Designer.cs">
       <DependentUpon>FrmServicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\General\Form1.cs">
+    <Compile Include="Forms\Catalogos\FrmServicioNuevo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\General\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\Catalogos\FrmServicioNuevo.Designer.cs">
+      <DependentUpon>FrmServicioNuevo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compras\FrmCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\FrmCompra.Designer.cs">
+      <DependentUpon>FrmCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compras\FrmProveedorACompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\FrmProveedorACompra.Designer.cs">
+      <DependentUpon>FrmProveedorACompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmSucursal.Designer.cs">
+      <DependentUpon>FrmSucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmSucursalesGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmSucursalesGrid.Designer.cs">
+      <DependentUpon>FrmSucursalesGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\General\FrmHome.cs">
       <SubType>Form</SubType>
@@ -166,6 +190,12 @@
     </Compile>
     <Compile Include="Forms\Ventas\FrmSeleccionarPago.Designer.cs">
       <DependentUpon>FrmSeleccionarPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmBuscarServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmBuscarServicio.Designer.cs">
+      <DependentUpon>FrmBuscarServicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Ventas\FrmVenta.cs">
       <SubType>Form</SubType>
@@ -219,8 +249,23 @@
     <EmbeddedResource Include="Forms\Catalogos\FrmServicio.resx">
       <DependentUpon>FrmServicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\General\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Catalogos\FrmServicioNuevo.resx">
+      <DependentUpon>FrmServicioNuevo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\FrmCompra.resx">
+      <DependentUpon>FrmCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\FrmProveedorACompra.resx">
+      <DependentUpon>FrmProveedorACompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmSucursal.resx">
+      <DependentUpon>FrmSucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmSucursalesGrid.resx">
+      <DependentUpon>FrmSucursalesGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\General\FrmHome.resx">
+      <DependentUpon>FrmHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
@@ -266,9 +311,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\Compras\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\UsuarioL2.png" />
   </ItemGroup>

@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.DataAccess.Contracts.Entities
 {
-    public class Estado
+    public class TipoServicio
     {
-        public int IdEstado { get; set; }
-        public string Descripcion { get; set; }
-        public string Nombre { get; set; }
+        public int IdTipoServicio { get; set; }
+        public string TipoServicioN { get; set; }
     }
 }

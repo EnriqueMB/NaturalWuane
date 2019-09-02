@@ -2,14 +2,17 @@
 using CIDFares.Spa.DataAccess.Contracts.Repositories.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
 {
-    public interface IServicioRepository : IBaseRepository<Servicio>
+    public interface ITipoServicioRepository : IBaseRepository<TipoServicio>
     {
-        Task<IEnumerable<Servicio>> GetBusqServicioAsync(bool BitNombre, string BusqNombre, bool BitClaveCodigo, string BusqClaveCodigo);
+        //Task<IEnumerable<Iva>> LlenarComboTipoServicio();
+
+        Task<IEnumerable<TipoServicio>> LlenarComboTipoServicio();
     }
 }

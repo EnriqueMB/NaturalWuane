@@ -4,6 +4,7 @@ using CIDFares.Spa.DataAccess.Repositories.Base;
 using Dapper;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -12,9 +13,9 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.DataAccess.Repositories.General
 {
-    public class PaisRepository : Repository, IPaisRepository
+    public class TipoServicioRepository : Repository, ITipoServicioRepository
     {
-        public Task<Pais> AddAsync(Pais element, object IdUsuario)
+        public Task<TipoServicio> AddAsync(TipoServicio element, object IdUsuario)
         {
             throw new NotImplementedException();
         }
@@ -29,27 +30,36 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Pais>> GetAllAsync()
+        public Task<IEnumerable<TipoServicio>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Pais> GetAsync(object id)
+        public Task<TipoServicio> GetAsync(object id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Pais>> GetComboPais()
+        public async  Task<IEnumerable<TipoServicio>> LlenarComboTipoServicio()
         {
             try
             {
                 using (IDbConnection conexion = new SqlConnection(WebConnectionString))
                 {
                     conexion.Open();
-                    var dynamicParameters = new DynamicParameters();
-                    var result = await conexion.QueryAsync<Pais>("[General].[SPCID_Get_ComboPaises]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
 
-                    return result.ToList();
+                    List<TipoServicio> Lista = new List<TipoServicio>();
+                    TipoServicio Item;
+                    var dr = await conexion.ExecuteReaderAsync("[Catalogo].[SPCID_Get_ComboTipoServicio]", commandType: CommandType.StoredProcedure);
+                    while (dr.Read())
+                    {
+                        Item = new TipoServicio();
+                        Item.IdTipoServicio = dr.GetInt32(dr.GetOrdinal("IdTipoServicio"));
+                        Item.TipoServicioN = dr.GetString(dr.GetOrdinal("Tiposervicio"));
+                        Lista.Add(Item);
+                    }
+                    dr.Close();
+                    return Lista;
                 }
             }
             catch (Exception ex)
@@ -63,9 +73,13 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
-        public Task<Pais> UpdateAsync(Pais element, object IdUsuario)
+        public Task<TipoServicio> UpdateAsync(TipoServicio element, object IdUsuario)
         {
             throw new NotImplementedException();
         }
+
+      
+
+            
     }
 }

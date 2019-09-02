@@ -188,3 +188,4 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 /.vs/CIDFares.Spa/v15/Server/sqlite3
+/CIDFares.Spa.WFApplication/Forms/Ventas/FrmBuscarServicio.resx

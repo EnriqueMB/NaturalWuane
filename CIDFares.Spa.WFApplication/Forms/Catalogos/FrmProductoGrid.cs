@@ -125,16 +125,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
           
         }
 
-        private async void CargarDatosAsync()
+        private  void CargarDatosAsync()
         {
             try
             {
-                //CIDWait.Show(async () =>
-                //{
-                //    await Model.CargarDatos();
-                //    await Task.Delay(2000);
-                //}, "Espere");
-                await Model.CargarDatos();
+                CIDWait.Show(async () =>
+                {
+                    await Model.CargarDatos();
+                    await Task.Delay(2000);
+                }, "Espere");
+               
             }
             catch (Exception ex)
             {

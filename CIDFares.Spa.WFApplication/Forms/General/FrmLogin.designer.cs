@@ -108,6 +108,7 @@
             this.LblCerrar.TabIndex = 31;
             this.LblCerrar.Text = "Cerrar";
             this.LblCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblCerrar.Click += new System.EventHandler(this.LblCerrar_Click);
             // 
             // LblVersionSistema
             // 

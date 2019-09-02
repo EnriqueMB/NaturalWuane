@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CIDFares.Spa.WFApplication.Forms.General
+namespace CIDFares.Spa.WFApplication.Forms.Ventas
 {
-    public partial class Form1 : Form
+    public partial class FrmBuscarServicio : Form
     {
-        public Form1()
+        public FrmBuscarServicio()
         {
             InitializeComponent();
         }

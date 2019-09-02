@@ -48,7 +48,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@IdPais", IdPais);
-                    var result = await conexion.QueryAsync<Estado>("[General].[SPCID_Get_ComboEstador] ", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var result = await conexion.QueryAsync<Estado>("[General].[SPCID_Get_ComboEstador]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
 
                     return result;
                 }
