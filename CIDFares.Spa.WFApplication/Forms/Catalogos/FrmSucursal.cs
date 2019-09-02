@@ -147,7 +147,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     IdPaisControl.DataBindings["SelectedValue"].WriteValue();
                     var ListaEstados = await Model.GetListaEstados();
                     Model.LlenarListaEstado(ListaEstados);
-                    Model.IdEstado = 0;
+                    IdEstadoControl.SelectedValue = 0;
                 }
             }
             catch (Exception ex)
@@ -165,7 +165,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     IdEstadoControl.DataBindings["SelectedValue"].WriteValue();
                     var ListaMunicipios = await Model.GetListaMunicipios();
                     Model.LlenarListaMunicipios(ListaMunicipios);
-                    Model.IdMunicipio = 0;
+                    IdMunicipioControl.SelectedValue = 0;
                 }
             }
             catch (Exception ex)
