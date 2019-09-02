@@ -32,7 +32,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@BusquedaNombre", BusqNombre);
                     dynamicParameters.Add("@BitCodigo", BitClaveCodigo);
                     dynamicParameters.Add("@BusquedaCodigo", BusqClaveCodigo);
-                    var dr = await conexion.ExecuteReaderAsync("[Venta].[SPCID_Get_ObtenerBusquedaProducto]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var dr = await conexion.ExecuteReaderAsync("[General].[SPCID_Get_ObtenerBusquedaServicio]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     while (dr.Read())
                     {
                         item = new Servicio();
@@ -45,18 +45,25 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.AplicaIEPS = dr.GetBoolean(dr.GetOrdinal("AplicaIEPS"));
                         item.IEPSMonto = dr.GetBoolean(dr.GetOrdinal("IEPSMonto"));
                         item.IEPS = dr.GetDecimal(dr.GetOrdinal("IEPS"));
+                        string cadena = dr.GetString(dr.GetOrdinal("Duracion"));
+                        item.Duracion = TimeSpan.Parse(cadena);
                         Lista.Add(item);
                     }
                     return Lista;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
-        #endregion        
+        #endregion
+
+        public Task<Servicio> AddAsync(Servicio element)
+        {
+            throw new NotImplementedException();
+        }
 
           
         public async Task<Servicio> AddAsync(Servicio element, object IdUsuario)

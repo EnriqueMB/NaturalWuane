@@ -37,7 +37,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             ListaServicio = new BindingList<Servicio>();            
             ListaIva = new BindingList<Iva>();
             ListaTipoServicio = new BindingList<TipoServicio>();
-            GetAllAsync();
+            this.Cantidad = 1;
+           // GetAllAsync();
         }
 
         #region Metodos
@@ -301,7 +302,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 OnPropertyChanged(nameof(Descripcion));
             }
         }
-
         private decimal _Porcentaje100;
 
         public decimal Porcentaje100
@@ -313,7 +313,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 OnPropertyChanged(nameof(Porcentaje100));
             }
         }
-
         private decimal _Porcentaje;
 
         public decimal Porcentaje
@@ -469,7 +468,13 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
         public string Extencion { get; set; }
         #endregion
+        private decimal _Cantidad;
 
+        public decimal Cantidad
+        {
+            get { return _Cantidad; }
+            set { _Cantidad = value; }
+        }
 
         #region InotifyPropertyChanged Members
 

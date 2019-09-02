@@ -29,8 +29,8 @@ namespace CIDFares.Spa.WFApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
-            CurrentSession.IdCuentaUsuario = Guid.Empty;                        
-            Application.Run(new FrmHome());
+            CurrentSession.IdCuentaUsuario = Guid.Empty;
+            Application.Run(new FrmHomeD());
         }
 
         public static void InitializeContainer()

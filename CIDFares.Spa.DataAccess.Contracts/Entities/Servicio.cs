@@ -29,6 +29,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         //foto
         public string Base64String { get; set; }
         public string UrlFoto { get; set; }
-        public bool UpdateFoto { get; set; }
+        public bool UpdateFoto { get; set; }   
+        public decimal CantidadServicio { get; set; }
     }
 }
