@@ -1,7 +1,10 @@
-﻿using CIDFares.Library.Controls.CIDWait.Code;
+﻿using CIDFares.Library.Controls.CIDMessageBox.Code;
+using CIDFares.Library.Controls.CIDMessageBox.Enums;
+using CIDFares.Library.Controls.CIDWait.Code;
 using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.Business.ViewModels.General;
 using CIDFares.Spa.CrossCutting.Services;
+using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,15 +43,15 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 switch (combo)
                 {
                     case 1:
-                        IdPaisControl.DisplayMember = "Nombre";
+                        IdPaisControl.DisplayMember = "Descripcion";
                         IdPaisControl.ValueMember = "IdPais";
                         break;
                     case 2:
-                        IdMunicipioControl.DisplayMember = "Nombre";
+                        IdMunicipioControl.DisplayMember = "Descripcion";
                         IdMunicipioControl.ValueMember = "IdMunicipio";
                         break;
                     case 3:
-                        IdEstadoControl.DisplayMember = "Nombre";
+                        IdEstadoControl.DisplayMember = "Descripcion";
                         IdEstadoControl.ValueMember = "IdEstado";
                         break;
                     case 4:
@@ -172,6 +175,28 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {
                 throw ex;
             }
+        }
+
+        private async void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var resultado = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
+                if(resultado.Result > 0)
+                {
+                    CIDMessageBox.ShowAlert(Constants.Messages.SystemName, Constants.Messages.SuccessMessage, TypeMessage.correcto);
+                    Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            CIDMessageBox.ShowAlert(Constants.Messages.SystemName, Constants.Messages.ConfirmCancelInput, TypeMessage.correcto);
         }
     }
 }

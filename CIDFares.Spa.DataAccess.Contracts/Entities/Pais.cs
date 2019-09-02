@@ -12,6 +12,5 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public string A2 { get; set; }
         public string A3 { get; set; }
         public string Descripcion { get; set; }
-        public string Nombre { get; set; }
     }
 }

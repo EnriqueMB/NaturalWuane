@@ -30,12 +30,12 @@
         {
             this.pnlBody = new System.Windows.Forms.Panel();
             this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
-            this.pnlFood = new System.Windows.Forms.Panel();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.pnlHead = new System.Windows.Forms.Panel();
-            this.lblSubtitle = new System.Windows.Forms.Label();
-            this.lblTitulo = new System.Windows.Forms.Label();
+            this.pnlTipoSucursal = new System.Windows.Forms.Panel();
+            this.IdTipoSucursalControl = new Syncfusion.Windows.Forms.Tools.ComboBoxAdv();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pnlEstado = new System.Windows.Forms.Panel();
+            this.IdMunicipioControl = new Syncfusion.Windows.Forms.Tools.ComboBoxAdv();
+            this.lbMunicipio = new System.Windows.Forms.Label();
             this.pnlNombre = new System.Windows.Forms.Panel();
             this.NombreControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.lbNombre = new System.Windows.Forms.Label();
@@ -58,20 +58,22 @@
             this.RegimenFiscalControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.lbRegimenFiscal = new System.Windows.Forms.Label();
             this.pnlPais = new System.Windows.Forms.Panel();
-            this.lbPais = new System.Windows.Forms.Label();
-            this.IdPaisControl = new Syncfusion.Windows.Forms.Tools.ComboBoxAdv();
-            this.pnlEstado = new System.Windows.Forms.Panel();
             this.IdEstadoControl = new Syncfusion.Windows.Forms.Tools.ComboBoxAdv();
             this.lbEstado = new System.Windows.Forms.Label();
-            this.IdMunicipioControl = new Syncfusion.Windows.Forms.Tools.ComboBoxAdv();
-            this.lbMunicipio = new System.Windows.Forms.Label();
-            this.pnlTipoSucursal = new System.Windows.Forms.Panel();
-            this.IdTipoSucursalControl = new Syncfusion.Windows.Forms.Tools.ComboBoxAdv();
-            this.label1 = new System.Windows.Forms.Label();
+            this.IdPaisControl = new Syncfusion.Windows.Forms.Tools.ComboBoxAdv();
+            this.lbPais = new System.Windows.Forms.Label();
+            this.pnlFood = new System.Windows.Forms.Panel();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.pnlHead = new System.Windows.Forms.Panel();
+            this.lblSubtitle = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.pnlBody.SuspendLayout();
             this.tlpContainer.SuspendLayout();
-            this.pnlFood.SuspendLayout();
-            this.pnlHead.SuspendLayout();
+            this.pnlTipoSucursal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IdTipoSucursalControl)).BeginInit();
+            this.pnlEstado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IdMunicipioControl)).BeginInit();
             this.pnlNombre.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NombreControl)).BeginInit();
             this.pnlDireccion.SuspendLayout();
@@ -87,12 +89,10 @@
             this.pnlRegimenFiscal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RegimenFiscalControl)).BeginInit();
             this.pnlPais.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.IdPaisControl)).BeginInit();
-            this.pnlEstado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IdEstadoControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IdMunicipioControl)).BeginInit();
-            this.pnlTipoSucursal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.IdTipoSucursalControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdPaisControl)).BeginInit();
+            this.pnlFood.SuspendLayout();
+            this.pnlHead.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlBody
@@ -131,78 +131,83 @@
             this.tlpContainer.Size = new System.Drawing.Size(800, 378);
             this.tlpContainer.TabIndex = 0;
             // 
-            // pnlFood
+            // pnlTipoSucursal
             // 
-            this.pnlFood.Controls.Add(this.btnGuardar);
-            this.pnlFood.Controls.Add(this.btnCancelar);
-            this.pnlFood.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFood.Location = new System.Drawing.Point(0, 438);
-            this.pnlFood.Name = "pnlFood";
-            this.pnlFood.Size = new System.Drawing.Size(800, 75);
-            this.pnlFood.TabIndex = 4;
+            this.pnlTipoSucursal.Controls.Add(this.IdTipoSucursalControl);
+            this.pnlTipoSucursal.Controls.Add(this.label1);
+            this.pnlTipoSucursal.Location = new System.Drawing.Point(403, 303);
+            this.pnlTipoSucursal.Name = "pnlTipoSucursal";
+            this.pnlTipoSucursal.Size = new System.Drawing.Size(394, 69);
+            this.pnlTipoSucursal.TabIndex = 10;
             // 
-            // btnGuardar
+            // IdTipoSucursalControl
             // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(513, 26);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(130, 28);
-            this.btnGuardar.TabIndex = 7;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.IdTipoSucursalControl.BackColor = System.Drawing.Color.White;
+            this.IdTipoSucursalControl.BeforeTouchSize = new System.Drawing.Size(351, 29);
+            this.IdTipoSucursalControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Adjust;
+            this.IdTipoSucursalControl.FlatBorderColor = System.Drawing.Color.Black;
+            this.IdTipoSucursalControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IdTipoSucursalControl.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.IdTipoSucursalControl.IgnoreThemeBackground = false;
+            this.IdTipoSucursalControl.Location = new System.Drawing.Point(10, 25);
+            this.IdTipoSucursalControl.MetroBorderColor = System.Drawing.Color.Black;
+            this.IdTipoSucursalControl.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.IdTipoSucursalControl.Name = "IdTipoSucursalControl";
+            this.IdTipoSucursalControl.Office2007ColorTheme = Syncfusion.Windows.Forms.Office2007Theme.Black;
+            this.IdTipoSucursalControl.Office2010ColorTheme = Syncfusion.Windows.Forms.Office2010Theme.Managed;
+            this.IdTipoSucursalControl.Size = new System.Drawing.Size(351, 29);
+            this.IdTipoSucursalControl.Style = Syncfusion.Windows.Forms.VisualStyle.Metro;
+            this.IdTipoSucursalControl.TabIndex = 34;
+            this.IdTipoSucursalControl.ThemeName = "Metro";
             // 
-            // btnCancelar
+            // label1
             // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(658, 26);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(130, 28);
-            this.btnCancelar.TabIndex = 8;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(116, 20);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Tipo de sucursal";
             // 
-            // pnlHead
+            // pnlEstado
             // 
-            this.pnlHead.Controls.Add(this.lblSubtitle);
-            this.pnlHead.Controls.Add(this.lblTitulo);
-            this.pnlHead.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHead.Location = new System.Drawing.Point(0, 0);
-            this.pnlHead.Name = "pnlHead";
-            this.pnlHead.Size = new System.Drawing.Size(800, 60);
-            this.pnlHead.TabIndex = 3;
+            this.pnlEstado.Controls.Add(this.IdMunicipioControl);
+            this.pnlEstado.Controls.Add(this.lbMunicipio);
+            this.pnlEstado.Location = new System.Drawing.Point(403, 228);
+            this.pnlEstado.Name = "pnlEstado";
+            this.pnlEstado.Size = new System.Drawing.Size(394, 69);
+            this.pnlEstado.TabIndex = 9;
             // 
-            // lblSubtitle
+            // IdMunicipioControl
             // 
-            this.lblSubtitle.AutoSize = true;
-            this.lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblSubtitle.Location = new System.Drawing.Point(27, 34);
-            this.lblSubtitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblSubtitle.Name = "lblSubtitle";
-            this.lblSubtitle.Size = new System.Drawing.Size(102, 15);
-            this.lblSubtitle.TabIndex = 182;
-            this.lblSubtitle.Text = "NUEVO REGISTRO";
+            this.IdMunicipioControl.BackColor = System.Drawing.Color.White;
+            this.IdMunicipioControl.BeforeTouchSize = new System.Drawing.Size(351, 29);
+            this.IdMunicipioControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Adjust;
+            this.IdMunicipioControl.FlatBorderColor = System.Drawing.Color.Black;
+            this.IdMunicipioControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IdMunicipioControl.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.IdMunicipioControl.IgnoreThemeBackground = false;
+            this.IdMunicipioControl.Location = new System.Drawing.Point(10, 25);
+            this.IdMunicipioControl.MetroBorderColor = System.Drawing.Color.Black;
+            this.IdMunicipioControl.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.IdMunicipioControl.Name = "IdMunicipioControl";
+            this.IdMunicipioControl.Office2007ColorTheme = Syncfusion.Windows.Forms.Office2007Theme.Black;
+            this.IdMunicipioControl.Office2010ColorTheme = Syncfusion.Windows.Forms.Office2010Theme.Managed;
+            this.IdMunicipioControl.Size = new System.Drawing.Size(351, 29);
+            this.IdMunicipioControl.Style = Syncfusion.Windows.Forms.VisualStyle.Metro;
+            this.IdMunicipioControl.TabIndex = 34;
+            this.IdMunicipioControl.ThemeName = "Metro";
             // 
-            // lblTitulo
+            // lbMunicipio
             // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(20, 9);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(109, 25);
-            this.lblTitulo.TabIndex = 181;
-            this.lblTitulo.Text = "SUCURSAL";
+            this.lbMunicipio.AutoSize = true;
+            this.lbMunicipio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMunicipio.Location = new System.Drawing.Point(6, 3);
+            this.lbMunicipio.Name = "lbMunicipio";
+            this.lbMunicipio.Size = new System.Drawing.Size(75, 20);
+            this.lbMunicipio.TabIndex = 33;
+            this.lbMunicipio.Text = "Municipio";
             // 
             // pnlNombre
             // 
@@ -418,46 +423,6 @@
             this.pnlPais.Size = new System.Drawing.Size(394, 69);
             this.pnlPais.TabIndex = 8;
             // 
-            // lbPais
-            // 
-            this.lbPais.AutoSize = true;
-            this.lbPais.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPais.Location = new System.Drawing.Point(6, 3);
-            this.lbPais.Name = "lbPais";
-            this.lbPais.Size = new System.Drawing.Size(34, 20);
-            this.lbPais.TabIndex = 8;
-            this.lbPais.Text = "Pais";
-            // 
-            // IdPaisControl
-            // 
-            this.IdPaisControl.BackColor = System.Drawing.Color.White;
-            this.IdPaisControl.BeforeTouchSize = new System.Drawing.Size(163, 29);
-            this.IdPaisControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Adjust;
-            this.IdPaisControl.FlatBorderColor = System.Drawing.Color.Black;
-            this.IdPaisControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IdPaisControl.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.IdPaisControl.IgnoreThemeBackground = false;
-            this.IdPaisControl.Location = new System.Drawing.Point(10, 25);
-            this.IdPaisControl.MetroBorderColor = System.Drawing.Color.Black;
-            this.IdPaisControl.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.IdPaisControl.Name = "IdPaisControl";
-            this.IdPaisControl.Office2007ColorTheme = Syncfusion.Windows.Forms.Office2007Theme.Black;
-            this.IdPaisControl.Office2010ColorTheme = Syncfusion.Windows.Forms.Office2010Theme.Managed;
-            this.IdPaisControl.Size = new System.Drawing.Size(163, 29);
-            this.IdPaisControl.Style = Syncfusion.Windows.Forms.VisualStyle.Metro;
-            this.IdPaisControl.TabIndex = 32;
-            this.IdPaisControl.ThemeName = "Metro";
-            this.IdPaisControl.SelectedValueChanged += new System.EventHandler(this.IdPaisControl_SelectedValueChanged);
-            // 
-            // pnlEstado
-            // 
-            this.pnlEstado.Controls.Add(this.IdMunicipioControl);
-            this.pnlEstado.Controls.Add(this.lbMunicipio);
-            this.pnlEstado.Location = new System.Drawing.Point(403, 228);
-            this.pnlEstado.Name = "pnlEstado";
-            this.pnlEstado.Size = new System.Drawing.Size(394, 69);
-            this.pnlEstado.TabIndex = 9;
-            // 
             // IdEstadoControl
             // 
             this.IdEstadoControl.BackColor = System.Drawing.Color.White;
@@ -489,74 +454,111 @@
             this.lbEstado.TabIndex = 33;
             this.lbEstado.Text = "Estado";
             // 
-            // IdMunicipioControl
+            // IdPaisControl
             // 
-            this.IdMunicipioControl.BackColor = System.Drawing.Color.White;
-            this.IdMunicipioControl.BeforeTouchSize = new System.Drawing.Size(351, 29);
-            this.IdMunicipioControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Adjust;
-            this.IdMunicipioControl.FlatBorderColor = System.Drawing.Color.Black;
-            this.IdMunicipioControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IdMunicipioControl.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.IdMunicipioControl.IgnoreThemeBackground = false;
-            this.IdMunicipioControl.Location = new System.Drawing.Point(10, 25);
-            this.IdMunicipioControl.MetroBorderColor = System.Drawing.Color.Black;
-            this.IdMunicipioControl.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.IdMunicipioControl.Name = "IdMunicipioControl";
-            this.IdMunicipioControl.Office2007ColorTheme = Syncfusion.Windows.Forms.Office2007Theme.Black;
-            this.IdMunicipioControl.Office2010ColorTheme = Syncfusion.Windows.Forms.Office2010Theme.Managed;
-            this.IdMunicipioControl.Size = new System.Drawing.Size(351, 29);
-            this.IdMunicipioControl.Style = Syncfusion.Windows.Forms.VisualStyle.Metro;
-            this.IdMunicipioControl.TabIndex = 34;
-            this.IdMunicipioControl.ThemeName = "Metro";
+            this.IdPaisControl.BackColor = System.Drawing.Color.White;
+            this.IdPaisControl.BeforeTouchSize = new System.Drawing.Size(163, 29);
+            this.IdPaisControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Adjust;
+            this.IdPaisControl.FlatBorderColor = System.Drawing.Color.Black;
+            this.IdPaisControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IdPaisControl.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.IdPaisControl.IgnoreThemeBackground = false;
+            this.IdPaisControl.Location = new System.Drawing.Point(10, 25);
+            this.IdPaisControl.MetroBorderColor = System.Drawing.Color.Black;
+            this.IdPaisControl.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.IdPaisControl.Name = "IdPaisControl";
+            this.IdPaisControl.Office2007ColorTheme = Syncfusion.Windows.Forms.Office2007Theme.Black;
+            this.IdPaisControl.Office2010ColorTheme = Syncfusion.Windows.Forms.Office2010Theme.Managed;
+            this.IdPaisControl.Size = new System.Drawing.Size(163, 29);
+            this.IdPaisControl.Style = Syncfusion.Windows.Forms.VisualStyle.Metro;
+            this.IdPaisControl.TabIndex = 32;
+            this.IdPaisControl.ThemeName = "Metro";
+            this.IdPaisControl.SelectedValueChanged += new System.EventHandler(this.IdPaisControl_SelectedValueChanged);
             // 
-            // lbMunicipio
+            // lbPais
             // 
-            this.lbMunicipio.AutoSize = true;
-            this.lbMunicipio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMunicipio.Location = new System.Drawing.Point(6, 3);
-            this.lbMunicipio.Name = "lbMunicipio";
-            this.lbMunicipio.Size = new System.Drawing.Size(75, 20);
-            this.lbMunicipio.TabIndex = 33;
-            this.lbMunicipio.Text = "Municipio";
+            this.lbPais.AutoSize = true;
+            this.lbPais.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPais.Location = new System.Drawing.Point(6, 3);
+            this.lbPais.Name = "lbPais";
+            this.lbPais.Size = new System.Drawing.Size(34, 20);
+            this.lbPais.TabIndex = 8;
+            this.lbPais.Text = "Pais";
             // 
-            // pnlTipoSucursal
+            // pnlFood
             // 
-            this.pnlTipoSucursal.Controls.Add(this.IdTipoSucursalControl);
-            this.pnlTipoSucursal.Controls.Add(this.label1);
-            this.pnlTipoSucursal.Location = new System.Drawing.Point(403, 303);
-            this.pnlTipoSucursal.Name = "pnlTipoSucursal";
-            this.pnlTipoSucursal.Size = new System.Drawing.Size(394, 69);
-            this.pnlTipoSucursal.TabIndex = 10;
+            this.pnlFood.Controls.Add(this.btnGuardar);
+            this.pnlFood.Controls.Add(this.btnCancelar);
+            this.pnlFood.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlFood.Location = new System.Drawing.Point(0, 438);
+            this.pnlFood.Name = "pnlFood";
+            this.pnlFood.Size = new System.Drawing.Size(800, 75);
+            this.pnlFood.TabIndex = 4;
             // 
-            // IdTipoSucursalControl
+            // btnGuardar
             // 
-            this.IdTipoSucursalControl.BackColor = System.Drawing.Color.White;
-            this.IdTipoSucursalControl.BeforeTouchSize = new System.Drawing.Size(351, 29);
-            this.IdTipoSucursalControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Adjust;
-            this.IdTipoSucursalControl.FlatBorderColor = System.Drawing.Color.Black;
-            this.IdTipoSucursalControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IdTipoSucursalControl.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.IdTipoSucursalControl.IgnoreThemeBackground = false;
-            this.IdTipoSucursalControl.Location = new System.Drawing.Point(10, 25);
-            this.IdTipoSucursalControl.MetroBorderColor = System.Drawing.Color.Black;
-            this.IdTipoSucursalControl.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.IdTipoSucursalControl.Name = "IdTipoSucursalControl";
-            this.IdTipoSucursalControl.Office2007ColorTheme = Syncfusion.Windows.Forms.Office2007Theme.Black;
-            this.IdTipoSucursalControl.Office2010ColorTheme = Syncfusion.Windows.Forms.Office2010Theme.Managed;
-            this.IdTipoSucursalControl.Size = new System.Drawing.Size(351, 29);
-            this.IdTipoSucursalControl.Style = Syncfusion.Windows.Forms.VisualStyle.Metro;
-            this.IdTipoSucursalControl.TabIndex = 34;
-            this.IdTipoSucursalControl.ThemeName = "Metro";
+            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(513, 26);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(130, 28);
+            this.btnGuardar.TabIndex = 7;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // label1
+            // btnCancelar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 20);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Tipo de sucursal";
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(658, 26);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(130, 28);
+            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // pnlHead
+            // 
+            this.pnlHead.Controls.Add(this.lblSubtitle);
+            this.pnlHead.Controls.Add(this.lblTitulo);
+            this.pnlHead.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHead.Location = new System.Drawing.Point(0, 0);
+            this.pnlHead.Name = "pnlHead";
+            this.pnlHead.Size = new System.Drawing.Size(800, 60);
+            this.pnlHead.TabIndex = 3;
+            // 
+            // lblSubtitle
+            // 
+            this.lblSubtitle.AutoSize = true;
+            this.lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblSubtitle.Location = new System.Drawing.Point(27, 34);
+            this.lblSubtitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSubtitle.Name = "lblSubtitle";
+            this.lblSubtitle.Size = new System.Drawing.Size(102, 15);
+            this.lblSubtitle.TabIndex = 182;
+            this.lblSubtitle.Text = "NUEVO REGISTRO";
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(20, 9);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(109, 25);
+            this.lblTitulo.TabIndex = 181;
+            this.lblTitulo.Text = "SUCURSAL";
             // 
             // FrmSucursal
             // 
@@ -572,9 +574,12 @@
             this.Shown += new System.EventHandler(this.FrmSucursal_Shown);
             this.pnlBody.ResumeLayout(false);
             this.tlpContainer.ResumeLayout(false);
-            this.pnlFood.ResumeLayout(false);
-            this.pnlHead.ResumeLayout(false);
-            this.pnlHead.PerformLayout();
+            this.pnlTipoSucursal.ResumeLayout(false);
+            this.pnlTipoSucursal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IdTipoSucursalControl)).EndInit();
+            this.pnlEstado.ResumeLayout(false);
+            this.pnlEstado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IdMunicipioControl)).EndInit();
             this.pnlNombre.ResumeLayout(false);
             this.pnlNombre.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NombreControl)).EndInit();
@@ -598,14 +603,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.RegimenFiscalControl)).EndInit();
             this.pnlPais.ResumeLayout(false);
             this.pnlPais.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.IdPaisControl)).EndInit();
-            this.pnlEstado.ResumeLayout(false);
-            this.pnlEstado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IdEstadoControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IdMunicipioControl)).EndInit();
-            this.pnlTipoSucursal.ResumeLayout(false);
-            this.pnlTipoSucursal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.IdTipoSucursalControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdPaisControl)).EndInit();
+            this.pnlFood.ResumeLayout(false);
+            this.pnlHead.ResumeLayout(false);
+            this.pnlHead.PerformLayout();
             this.ResumeLayout(false);
 
         }

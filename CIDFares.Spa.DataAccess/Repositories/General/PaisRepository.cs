@@ -47,7 +47,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 {
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
-                    var result = await conexion.QueryAsync<Pais>("[General].[SPCID_Get_ComboPaises]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var result = await conexion.QueryAsync<Pais>("[General].[SPCID_Get_ComboPais]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
 
                     return result.ToList();
                 }
