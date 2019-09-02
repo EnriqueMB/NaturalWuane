@@ -29,7 +29,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             Repository = clienteRepository;
             ListaCliente = new BindingList<Cliente>();
-            ListaClienteVenta = new BindingList<Cliente>();
             GetAll();
         }
         #endregion
