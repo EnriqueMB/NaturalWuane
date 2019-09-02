@@ -100,6 +100,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+
                 Model.IdServicio = infoServicio.IdServicio;
                 Model.IdTipoServicio = infoServicio.IdTipoServicio;
                 Model.IdTipoIva = infoServicio.IdTipoIva;
@@ -113,6 +114,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 Model.IEPS = infoServicio.IEPS;
                 Model.Porcentaje = infoServicio.Porcentaje;
                 this.lblTitle.Text = infoServicio.Nombre;
+                Model.Foto = (string.IsNullOrEmpty(infoServicio.Base64String)) ? null : infoServicio.Base64String.ImageBase64ToImage();
+                //Model.Foto = infoServicio.Base64String;//(string.IsNullOrEmpty(infoServicio.Base64String)) ? null : infoServicio.Base64String.ImageBase64ToImage();
             }
             catch (Exception ex)
             {

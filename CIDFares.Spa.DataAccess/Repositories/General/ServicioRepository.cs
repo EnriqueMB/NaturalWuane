@@ -148,6 +148,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         Item.AplicaIEPS = dr.GetBoolean(dr.GetOrdinal("AplicaIEPS"));
                         Item.IEPSMonto = dr.GetBoolean(dr.GetOrdinal("IEPSMonto"));
                         Item.IEPS = dr.GetDecimal(dr.GetOrdinal("IEPS"));
+                        Item.Base64String = dr.GetString(dr.GetOrdinal("FotoBase64"));
+                        Item.UrlFoto = dr.GetString(dr.GetOrdinal("UrlLocalImagen"));
                         Lista.Add(Item);
                     }
                     dr.Close();
