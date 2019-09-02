@@ -1,4 +1,5 @@
 ﻿using CIDFares.Spa.WFApplication.Forms.Catalogos;
+using CIDFares.Spa.WFApplication.Forms.Compras;
 using CIDFares.Spa.WFApplication.Forms.Usuarios;
 using CIDFares.Spa.WFApplication.Forms.Ventas;
 using System;
@@ -86,6 +87,13 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnCompras_Click(object sender, EventArgs e)
+        {
+            FrmCompra frmCompra = new FrmCompra();
+            frmCompra.ShowDialog();
+            frmCompra.Dispose();
         }
     }
 }
