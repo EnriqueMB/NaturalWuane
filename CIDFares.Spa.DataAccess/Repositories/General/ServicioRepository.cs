@@ -228,6 +228,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@iEPSMonto", element.IEPSMonto);
                     dynamicParameters.Add("@iEPS", element.IEPS);
                     dynamicParameters.Add("@user", IdUsuario);
+                    dynamicParameters.Add("@fotob64", element.Base64String);
+                    dynamicParameters.Add("@urlLocalImagen", element.UrlFoto);
                     var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_AC_Servicio]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;
