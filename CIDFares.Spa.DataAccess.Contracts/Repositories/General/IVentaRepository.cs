@@ -10,6 +10,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
 {
     public interface IVentaRepository : IBaseRepository<Venta>
     {
-        
+        Task<string> GetFolio();
     }
 }

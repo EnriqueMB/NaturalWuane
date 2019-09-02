@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            this.components = new System.ComponentModel.Container();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.btnTotal = new System.Windows.Forms.Button();
             this.btnMas = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -56,14 +57,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.SubtotalControl = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.pnlFecha = new System.Windows.Forms.Panel();
-            this.FechaControl = new System.Windows.Forms.Label();
             this.FolioVentaControl = new System.Windows.Forms.Label();
             this.lblVenta = new System.Windows.Forms.Label();
             this.pnlCliente = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ClaveControl = new System.Windows.Forms.Label();
-            this.FolioControl = new System.Windows.Forms.Label();
+            this.FotoControl = new System.Windows.Forms.PictureBox();
+            this.FolioClienteControl = new System.Windows.Forms.Label();
             this.DireccionControl = new System.Windows.Forms.Label();
             this.TelefonoControl = new System.Windows.Forms.Label();
             this.lblForFolio = new System.Windows.Forms.Label();
@@ -79,7 +78,9 @@
             this.btnServicio = new System.Windows.Forms.Button();
             this.btnProducto = new System.Windows.Forms.Button();
             this.PnlVentaGrid = new System.Windows.Forms.Panel();
-            this.FotoControl = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.FechaControl = new System.Windows.Forms.Label();
+            this.pnlFecha = new System.Windows.Forms.Panel();
             this.pnlGeneral.SuspendLayout();
             this.pnlAcciones.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -90,14 +91,15 @@
             this.pnlTotalesGeneral.SuspendLayout();
             this.pnlTotales.SuspendLayout();
             this.pnlHeader.SuspendLayout();
-            this.pnlFecha.SuspendLayout();
             this.pnlCliente.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
             this.pnlFooter.SuspendLayout();
             this.pnlFooterLeft.SuspendLayout();
             this.pnlBotonCobrar.SuspendLayout();
             this.pnlBotonesGenerales.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.pnlFecha.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTotal
@@ -233,44 +235,44 @@
             this.sfDataGridVenta.AccessibleName = "Table";
             this.sfDataGridVenta.AllowEditing = false;
             this.sfDataGridVenta.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.AllowEditing = false;
-            gridTextColumn1.HeaderText = "ID";
-            gridTextColumn1.MappingName = "IdGenerico";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.AllowEditing = false;
-            gridTextColumn2.HeaderText = "Nombre";
-            gridTextColumn2.MappingName = "Nombre";
-            gridTextColumn3.AllowEditing = false;
-            gridTextColumn3.HeaderText = "Cantidad";
-            gridTextColumn3.MappingName = "Cantidad";
-            gridTextColumn4.AllowEditing = false;
-            gridTextColumn4.Format = "c2";
-            gridTextColumn4.HeaderText = "Precio";
-            gridTextColumn4.MappingName = "Precio";
-            gridTextColumn5.AllowEditing = false;
-            gridTextColumn5.Format = "c2";
-            gridTextColumn5.HeaderText = "SubTotal";
-            gridTextColumn5.MappingName = "SubTotal";
-            gridTextColumn6.AllowEditing = false;
-            gridTextColumn6.Format = "c2";
-            gridTextColumn6.HeaderText = "Iva";
-            gridTextColumn6.MappingName = "PorcentajeIva";
-            gridTextColumn7.AllowEditing = false;
-            gridTextColumn7.Format = "c2";
-            gridTextColumn7.HeaderText = "Total";
-            gridTextColumn7.MappingName = "Total";
-            gridTextColumn8.AllowEditing = false;
-            gridTextColumn8.HeaderText = "Tipo";
-            gridTextColumn8.MappingName = "IdTipo";
-            gridTextColumn8.Visible = false;
-            this.sfDataGridVenta.Columns.Add(gridTextColumn1);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn2);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn3);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn4);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn5);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn6);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn7);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn8);
+            gridTextColumn9.AllowEditing = false;
+            gridTextColumn9.HeaderText = "ID";
+            gridTextColumn9.MappingName = "IdGenerico";
+            gridTextColumn9.Visible = false;
+            gridTextColumn10.AllowEditing = false;
+            gridTextColumn10.HeaderText = "Nombre";
+            gridTextColumn10.MappingName = "Nombre";
+            gridTextColumn11.AllowEditing = false;
+            gridTextColumn11.HeaderText = "Cantidad";
+            gridTextColumn11.MappingName = "Cantidad";
+            gridTextColumn12.AllowEditing = false;
+            gridTextColumn12.Format = "c2";
+            gridTextColumn12.HeaderText = "Precio";
+            gridTextColumn12.MappingName = "Precio";
+            gridTextColumn13.AllowEditing = false;
+            gridTextColumn13.Format = "c2";
+            gridTextColumn13.HeaderText = "SubTotal";
+            gridTextColumn13.MappingName = "SubTotal";
+            gridTextColumn14.AllowEditing = false;
+            gridTextColumn14.Format = "c2";
+            gridTextColumn14.HeaderText = "Iva";
+            gridTextColumn14.MappingName = "PorcentajeIva";
+            gridTextColumn15.AllowEditing = false;
+            gridTextColumn15.Format = "c2";
+            gridTextColumn15.HeaderText = "Total";
+            gridTextColumn15.MappingName = "Total";
+            gridTextColumn16.AllowEditing = false;
+            gridTextColumn16.HeaderText = "Tipo";
+            gridTextColumn16.MappingName = "IdTipo";
+            gridTextColumn16.Visible = false;
+            this.sfDataGridVenta.Columns.Add(gridTextColumn9);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn10);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn11);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn12);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn13);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn14);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn15);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn16);
             this.sfDataGridVenta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridVenta.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridVenta.Name = "sfDataGridVenta";
@@ -371,27 +373,6 @@
             this.pnlHeader.Size = new System.Drawing.Size(645, 39);
             this.pnlHeader.TabIndex = 1;
             // 
-            // pnlFecha
-            // 
-            this.pnlFecha.Controls.Add(this.FechaControl);
-            this.pnlFecha.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlFecha.Location = new System.Drawing.Point(445, 0);
-            this.pnlFecha.Name = "pnlFecha";
-            this.pnlFecha.Size = new System.Drawing.Size(200, 39);
-            this.pnlFecha.TabIndex = 4;
-            // 
-            // FechaControl
-            // 
-            this.FechaControl.AutoSize = true;
-            this.FechaControl.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FechaControl.ForeColor = System.Drawing.Color.Red;
-            this.FechaControl.Location = new System.Drawing.Point(110, 8);
-            this.FechaControl.Name = "FechaControl";
-            this.FechaControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.FechaControl.Size = new System.Drawing.Size(87, 20);
-            this.FechaControl.TabIndex = 2;
-            this.FechaControl.Text = "26/08/2019";
-            // 
             // FolioVentaControl
             // 
             this.FolioVentaControl.AutoSize = true;
@@ -423,8 +404,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.FotoControl);
-            this.groupBox1.Controls.Add(this.ClaveControl);
-            this.groupBox1.Controls.Add(this.FolioControl);
+            this.groupBox1.Controls.Add(this.FolioClienteControl);
             this.groupBox1.Controls.Add(this.DireccionControl);
             this.groupBox1.Controls.Add(this.TelefonoControl);
             this.groupBox1.Controls.Add(this.lblForFolio);
@@ -438,21 +418,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del cliente";
             // 
-            // ClaveControl
+            // FotoControl
             // 
-            this.ClaveControl.AutoSize = true;
-            this.ClaveControl.Location = new System.Drawing.Point(61, 30);
-            this.ClaveControl.Name = "ClaveControl";
-            this.ClaveControl.Size = new System.Drawing.Size(0, 20);
-            this.ClaveControl.TabIndex = 6;
+            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FotoControl.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.imagen_subir;
+            this.FotoControl.Location = new System.Drawing.Point(19, 62);
+            this.FotoControl.Name = "FotoControl";
+            this.FotoControl.Size = new System.Drawing.Size(158, 145);
+            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.FotoControl.TabIndex = 7;
+            this.FotoControl.TabStop = false;
             // 
-            // FolioControl
+            // FolioClienteControl
             // 
-            this.FolioControl.AutoSize = true;
-            this.FolioControl.Location = new System.Drawing.Point(55, 62);
-            this.FolioControl.Name = "FolioControl";
-            this.FolioControl.Size = new System.Drawing.Size(0, 20);
-            this.FolioControl.TabIndex = 5;
+            this.FolioClienteControl.AutoSize = true;
+            this.FolioClienteControl.Location = new System.Drawing.Point(61, 30);
+            this.FolioClienteControl.Name = "FolioClienteControl";
+            this.FolioClienteControl.Size = new System.Drawing.Size(0, 20);
+            this.FolioClienteControl.TabIndex = 6;
             // 
             // DireccionControl
             // 
@@ -607,16 +590,30 @@
             this.PnlVentaGrid.Size = new System.Drawing.Size(1012, 52);
             this.PnlVentaGrid.TabIndex = 0;
             // 
-            // FotoControl
+            // errorProvider1
             // 
-            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FotoControl.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.imagen_subir;
-            this.FotoControl.Location = new System.Drawing.Point(19, 62);
-            this.FotoControl.Name = "FotoControl";
-            this.FotoControl.Size = new System.Drawing.Size(158, 145);
-            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.FotoControl.TabIndex = 7;
-            this.FotoControl.TabStop = false;
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // FechaControl
+            // 
+            this.FechaControl.AutoSize = true;
+            this.FechaControl.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FechaControl.ForeColor = System.Drawing.Color.Red;
+            this.FechaControl.Location = new System.Drawing.Point(110, 8);
+            this.FechaControl.Name = "FechaControl";
+            this.FechaControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.FechaControl.Size = new System.Drawing.Size(87, 20);
+            this.FechaControl.TabIndex = 2;
+            this.FechaControl.Text = "26/08/2019";
+            // 
+            // pnlFecha
+            // 
+            this.pnlFecha.Controls.Add(this.FechaControl);
+            this.pnlFecha.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlFecha.Location = new System.Drawing.Point(445, 0);
+            this.pnlFecha.Name = "pnlFecha";
+            this.pnlFecha.Size = new System.Drawing.Size(200, 39);
+            this.pnlFecha.TabIndex = 4;
             // 
             // FrmVenta
             // 
@@ -640,16 +637,17 @@
             this.pnlTotales.PerformLayout();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
-            this.pnlFecha.ResumeLayout(false);
-            this.pnlFecha.PerformLayout();
             this.pnlCliente.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
             this.pnlFooter.ResumeLayout(false);
             this.pnlFooterLeft.ResumeLayout(false);
             this.pnlBotonCobrar.ResumeLayout(false);
             this.pnlBotonesGenerales.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.pnlFecha.ResumeLayout(false);
+            this.pnlFecha.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -684,11 +682,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label FechaControl;
         private System.Windows.Forms.Label FolioVentaControl;
         private System.Windows.Forms.Label lblVenta;
         private System.Windows.Forms.Panel pnlTotales;
-        private System.Windows.Forms.Panel pnlFecha;
         private System.Windows.Forms.Panel pnlFooterLeft;
         private System.Windows.Forms.Panel pnlBotonCobrar;
         private System.Windows.Forms.Panel pnlFooterRight;
@@ -696,8 +692,10 @@
         private System.Windows.Forms.Label lblForFolio;
         private System.Windows.Forms.Label NombreControl;
         private System.Windows.Forms.Label DireccionControl;
-        private System.Windows.Forms.Label FolioControl;
-        private System.Windows.Forms.Label ClaveControl;
+        private System.Windows.Forms.Label FolioClienteControl;
         private System.Windows.Forms.PictureBox FotoControl;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Panel pnlFecha;
+        private System.Windows.Forms.Label FechaControl;
     }
 }

@@ -51,9 +51,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             try
             {
+                FolioClienteControl.DataBindings.Add("Text", Model, "FolioCliente", true, DataSourceUpdateMode.OnPropertyChanged);
+
                 TotalControl.DataBindings.Add("Text", Model, "Total", true, DataSourceUpdateMode.OnPropertyChanged);
                 IvaControl.DataBindings.Add("Text", Model, "Iva", true, DataSourceUpdateMode.OnPropertyChanged);
                 SubtotalControl.DataBindings.Add("Text", Model, "Subtotal", true, DataSourceUpdateMode.OnPropertyChanged);
+                FolioVentaControl.DataBindings.Add("Text", Model, "Folio", true, DataSourceUpdateMode.OnPropertyChanged);
 
                 this.sfDataGridVenta.AutoGenerateColumns = false;
                 sfDataGridVenta.DataBindings.Add("DataSource", Model, "Listaventa", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -84,10 +87,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             try
             {
+                Model.IdCliente = cliente.IdCliente;
                 NombreControl.Text = cliente.NombreCompleto;
                 TelefonoControl.Text = cliente.Telefono;
                 DireccionControl.Text = cliente.Direccion;
-                ClaveControl.Text = cliente.Clave;
+                FolioClienteControl.Text = cliente.Clave;
                 await Model.ModelCliente.GetFoto(cliente.IdCliente);
                 if (!string.IsNullOrEmpty(Model.ModelCliente.FotoBase64))
                 {
@@ -120,17 +124,97 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
+
+        private DataTable ObtenerTablaProducto(BindingList<Venta> Lista)
+        {
+            DataTable Tabla = new DataTable();
+            Tabla.Columns.Add("IdProducto", typeof(int));
+            Tabla.Columns.Add("Cantidad", typeof(decimal));
+            Tabla.Columns.Add("Total", typeof(decimal));
+            foreach (var item in Lista)
+            {
+                if (item.IdTipo == 1)
+                {
+                    Tabla.Rows.Add(new object[] { item.IdGenerico, item.Cantidad, item.Total });
+                }
+            }
+            return Tabla;
+        }
+
+        private DataTable ObtenerTablaServicio(BindingList<Venta> Lista)
+        {
+            DataTable Tabla = new DataTable();
+            Tabla.Columns.Add("IdServicio", typeof(int));
+            Tabla.Columns.Add("Cantidad", typeof(decimal));
+            Tabla.Columns.Add("Total", typeof(decimal));
+            foreach (var item in Lista)
+            {
+                if (item.IdTipo == 2)
+                {
+                    Tabla.Rows.Add(new object[] { item.IdGenerico, item.Cantidad, item.Total });
+                }
+            }
+            return Tabla;
+        }
+
         #endregion
 
         private void FrmVenta_Load(object sender, EventArgs e)
         {
-            FechaControl.Text = DateTime.Now.ToString("dd/mm/yyyy");
+            FechaControl.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
 
         private void btnTotal_Click(object sender, EventArgs e)
         {
-            FrmSeleccionarPago pago = new FrmSeleccionarPago(Model);
-            pago.ShowDialog();
+            BindingList<Venta> ListaProductos = (BindingList<Venta>)sfDataGridVenta.DataSource;
+            this.CleanErrors(errorProvider1, typeof(VentasViewModel));
+            var validationResults = Model.Validate();
+            validationResults.ToString();
+
+            if (validationResults.IsValid)
+            {
+                if (ListaProductos.Count > 0)
+                {
+                    Model.TablaProducto = ObtenerTablaProducto(ListaProductos);
+                    Model.TablaServicio = ObtenerTablaServicio(ListaProductos);
+                    FrmSeleccionarPago pago = new FrmSeleccionarPago(Model);
+                    pago.ShowDialog();
+                    if (pago.resultado)
+                        LimpiarPropiedades();
+                }
+                else
+                    errorProvider1.SetError(FolioVentaControl, "Seleccione al menos un articulo.");
+            }
+            else
+                    this.ShowErrors(errorProvider1, typeof(VentasViewModel), validationResults);
+    }
+
+        private void LimpiarPropiedades()
+        {
+            try
+            {
+                Model.IdCliente = Guid.Empty;
+                Model.Iva = 0;
+                Model.SubTotal = 0;
+                Model.Total = 0;
+                Model.TablaFormaPago = new DataTable();
+                Model.TablaProducto = new DataTable();
+                Model.TablaServicio = new DataTable();
+                Model.Listaventa.Clear();
+                Model.Efectivo = 0;
+                Model.GetFolio();
+                NombreControl.Text = "";
+                TelefonoControl.Text = "";
+                DireccionControl.Text = "";
+                FolioClienteControl.Text = "";
+                FechaControl.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                FotoControl.Image = Properties.Resources.imagen_subir;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void btnProducto_Click(object sender, EventArgs e)

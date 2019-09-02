@@ -28,34 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridCheckBoxColumn gridCheckBoxColumn1 = new Syncfusion.WinForms.DataGrid.GridCheckBoxColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo gridBordersInfo1 = new Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo();
+            this.components = new System.ComponentModel.Container();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridCheckBoxColumn gridCheckBoxColumn2 = new Syncfusion.WinForms.DataGrid.GridCheckBoxColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo gridBordersInfo2 = new Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.EfectivoControl = new Syncfusion.Windows.Forms.Tools.CurrencyTextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.GridFormaPago = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnCobrar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.TotalControl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.EfectivoControl = new Syncfusion.Windows.Forms.Tools.CurrencyTextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.pnlCambio = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnAceeptar = new System.Windows.Forms.Button();
             this.CambioControl = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.PanelPrincipal.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EfectivoControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridFormaPago)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.EfectivoControl)).BeginInit();
             this.pnlCambio.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelPrincipal
@@ -69,110 +72,6 @@
             this.PanelPrincipal.Name = "PanelPrincipal";
             this.PanelPrincipal.Size = new System.Drawing.Size(442, 536);
             this.PanelPrincipal.TabIndex = 0;
-            // 
-            // GridFormaPago
-            // 
-            this.GridFormaPago.AccessibleName = "Table";
-            gridTextColumn1.HeaderText = "Column1";
-            gridTextColumn1.MappingName = "IdFormaPago";
-            gridTextColumn1.Visible = false;
-            gridCheckBoxColumn1.AllowCheckBoxOnHeader = true;
-            gridCheckBoxColumn1.HeaderText = "Seleccionar";
-            gridCheckBoxColumn1.MappingName = "Seleccionar";
-            gridCheckBoxColumn1.Width = 30D;
-            gridTextColumn2.AllowEditing = false;
-            gridTextColumn2.AllowGrouping = false;
-            gridTextColumn2.HeaderText = "Formas de pago";
-            gridTextColumn2.MappingName = "Nombre";
-            gridTextColumn2.Width = 250D;
-            gridTextColumn3.Format = "C2";
-            gridTextColumn3.HeaderText = "Monto";
-            gridTextColumn3.MappingName = "Cantidad";
-            gridTextColumn3.Width = 80D;
-            this.GridFormaPago.Columns.Add(gridTextColumn1);
-            this.GridFormaPago.Columns.Add(gridCheckBoxColumn1);
-            this.GridFormaPago.Columns.Add(gridTextColumn2);
-            this.GridFormaPago.Columns.Add(gridTextColumn3);
-            this.GridFormaPago.Location = new System.Drawing.Point(35, 157);
-            this.GridFormaPago.Name = "GridFormaPago";
-            this.GridFormaPago.SelectionMode = Syncfusion.WinForms.DataGrid.Enums.GridSelectionMode.Extended;
-            this.GridFormaPago.SelectionUnit = Syncfusion.WinForms.DataGrid.Enums.SelectionUnit.Cell;
-            this.GridFormaPago.Size = new System.Drawing.Size(364, 207);
-            gridBordersInfo1.Bottom = new Syncfusion.WinForms.DataGrid.Styles.GridBorder(Syncfusion.WinForms.DataGrid.Styles.GridBorderStyle.Standard, System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204))))));
-            this.GridFormaPago.Style.AddNewRowStyle.Borders = gridBordersInfo1;
-            this.GridFormaPago.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.GridFormaPago.Style.CellStyle.Font.Facename = "Century Gothic";
-            this.GridFormaPago.Style.CellStyle.Font.Size = 11F;
-            this.GridFormaPago.Style.CheckBoxStyle.CheckedBackColor = System.Drawing.Color.White;
-            this.GridFormaPago.Style.CheckBoxStyle.CheckedBorderColor = System.Drawing.Color.White;
-            this.GridFormaPago.Style.CheckBoxStyle.CheckedTickColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.GridFormaPago.Style.CheckBoxStyle.IndeterminateBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.GridFormaPago.Style.CurrentCellStyle.BorderColor = System.Drawing.Color.White;
-            this.GridFormaPago.Style.HeaderStyle.Font.Facename = "Century Gothic";
-            this.GridFormaPago.Style.HeaderStyle.Font.Size = 10F;
-            this.GridFormaPago.TabIndex = 7;
-            this.GridFormaPago.Text = "sfDataGrid1";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.btnCobrar);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 455);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(442, 81);
-            this.panel3.TabIndex = 6;
-            // 
-            // btnCobrar
-            // 
-            this.btnCobrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(176)))), ((int)(((byte)(50)))));
-            this.btnCobrar.FlatAppearance.BorderSize = 0;
-            this.btnCobrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCobrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCobrar.ForeColor = System.Drawing.Color.White;
-            this.btnCobrar.Location = new System.Drawing.Point(63, 16);
-            this.btnCobrar.Name = "btnCobrar";
-            this.btnCobrar.Size = new System.Drawing.Size(312, 53);
-            this.btnCobrar.TabIndex = 2;
-            this.btnCobrar.Text = "Cobrar ";
-            this.btnCobrar.UseVisualStyleBackColor = false;
-            this.btnCobrar.Click += new System.EventHandler(this.btnCobrar_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.TotalControl);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(442, 151);
-            this.panel1.TabIndex = 4;
-            // 
-            // TotalControl
-            // 
-            this.TotalControl.AutoSize = true;
-            this.TotalControl.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.TotalControl.Location = new System.Drawing.Point(150, 66);
-            this.TotalControl.Name = "TotalControl";
-            this.TotalControl.Size = new System.Drawing.Size(132, 56);
-            this.TotalControl.TabIndex = 4;
-            this.TotalControl.Text = "$300";
-            this.TotalControl.Click += new System.EventHandler(this.TotalControl_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.label1.Location = new System.Drawing.Point(79, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(296, 22);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Seleccione una forma de pago";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel4
             // 
@@ -241,6 +140,112 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Efectivo";
             // 
+            // GridFormaPago
+            // 
+            this.GridFormaPago.AccessibleName = "Table";
+            gridTextColumn4.HeaderText = "Column1";
+            gridTextColumn4.MappingName = "IdFormaPago";
+            gridTextColumn4.Visible = false;
+            gridCheckBoxColumn2.AllowCheckBoxOnHeader = true;
+            gridCheckBoxColumn2.HeaderText = "Seleccionar";
+            gridCheckBoxColumn2.MappingName = "Seleccionar";
+            gridCheckBoxColumn2.Width = 30D;
+            gridTextColumn5.AllowEditing = false;
+            gridTextColumn5.AllowGrouping = false;
+            gridTextColumn5.HeaderText = "Formas de pago";
+            gridTextColumn5.MappingName = "Nombre";
+            gridTextColumn5.Width = 250D;
+            gridTextColumn6.Format = "C2";
+            gridTextColumn6.HeaderText = "Monto";
+            gridTextColumn6.MappingName = "Cantidad";
+            gridTextColumn6.Width = 80D;
+            this.GridFormaPago.Columns.Add(gridTextColumn4);
+            this.GridFormaPago.Columns.Add(gridCheckBoxColumn2);
+            this.GridFormaPago.Columns.Add(gridTextColumn5);
+            this.GridFormaPago.Columns.Add(gridTextColumn6);
+            this.GridFormaPago.Location = new System.Drawing.Point(35, 157);
+            this.GridFormaPago.Name = "GridFormaPago";
+            this.GridFormaPago.SelectionMode = Syncfusion.WinForms.DataGrid.Enums.GridSelectionMode.Extended;
+            this.GridFormaPago.SelectionUnit = Syncfusion.WinForms.DataGrid.Enums.SelectionUnit.Cell;
+            this.GridFormaPago.Size = new System.Drawing.Size(364, 207);
+            gridBordersInfo2.Bottom = new Syncfusion.WinForms.DataGrid.Styles.GridBorder(Syncfusion.WinForms.DataGrid.Styles.GridBorderStyle.Standard, System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204))))));
+            this.GridFormaPago.Style.AddNewRowStyle.Borders = gridBordersInfo2;
+            this.GridFormaPago.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GridFormaPago.Style.CellStyle.Font.Facename = "Century Gothic";
+            this.GridFormaPago.Style.CellStyle.Font.Size = 11F;
+            this.GridFormaPago.Style.CheckBoxStyle.CheckedBackColor = System.Drawing.Color.White;
+            this.GridFormaPago.Style.CheckBoxStyle.CheckedBorderColor = System.Drawing.Color.White;
+            this.GridFormaPago.Style.CheckBoxStyle.CheckedTickColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.GridFormaPago.Style.CheckBoxStyle.IndeterminateBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.GridFormaPago.Style.CurrentCellStyle.BorderColor = System.Drawing.Color.White;
+            this.GridFormaPago.Style.HeaderStyle.Font.Facename = "Century Gothic";
+            this.GridFormaPago.Style.HeaderStyle.Font.Size = 10F;
+            this.GridFormaPago.TabIndex = 7;
+            this.GridFormaPago.Text = "sfDataGrid1";
+            this.GridFormaPago.CurrentCellEndEdit += new Syncfusion.WinForms.DataGrid.Events.CurrentCellEndEditEventHandler(this.GridFormaPago_CurrentCellEndEdit);
+            this.GridFormaPago.TextChanged += new System.EventHandler(this.GridFormaPago_TextChanged);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.btnCobrar);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 455);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(442, 81);
+            this.panel3.TabIndex = 6;
+            // 
+            // btnCobrar
+            // 
+            this.btnCobrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(176)))), ((int)(((byte)(50)))));
+            this.btnCobrar.FlatAppearance.BorderSize = 0;
+            this.btnCobrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCobrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCobrar.ForeColor = System.Drawing.Color.White;
+            this.btnCobrar.Location = new System.Drawing.Point(63, 16);
+            this.btnCobrar.Name = "btnCobrar";
+            this.btnCobrar.Size = new System.Drawing.Size(312, 53);
+            this.btnCobrar.TabIndex = 2;
+            this.btnCobrar.Text = "Cobrar ";
+            this.btnCobrar.UseVisualStyleBackColor = false;
+            this.btnCobrar.Click += new System.EventHandler(this.btnCobrar_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.TotalControl);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(442, 151);
+            this.panel1.TabIndex = 4;
+            // 
+            // TotalControl
+            // 
+            this.TotalControl.AutoSize = true;
+            this.TotalControl.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.TotalControl.Location = new System.Drawing.Point(150, 66);
+            this.TotalControl.Name = "TotalControl";
+            this.TotalControl.Size = new System.Drawing.Size(132, 56);
+            this.TotalControl.TabIndex = 4;
+            this.TotalControl.Text = "$300";
+            this.TotalControl.Click += new System.EventHandler(this.TotalControl_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.label1.Location = new System.Drawing.Point(79, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(296, 22);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Seleccione una forma de pago";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // pnlCambio
             // 
             this.pnlCambio.BackColor = System.Drawing.Color.White;
@@ -255,6 +260,18 @@
             this.pnlCambio.TabIndex = 1;
             this.pnlCambio.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCambio_Paint);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.label5.Location = new System.Drawing.Point(175, 206);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(83, 22);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Cambio";
+            // 
             // btnAceeptar
             // 
             this.btnAceeptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(176)))), ((int)(((byte)(50)))));
@@ -268,6 +285,7 @@
             this.btnAceeptar.TabIndex = 5;
             this.btnAceeptar.Text = "Aceptar";
             this.btnAceeptar.UseVisualStyleBackColor = false;
+            this.btnAceeptar.Click += new System.EventHandler(this.btnAceeptar_Click);
             // 
             // CambioControl
             // 
@@ -292,17 +310,9 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Venta realizada exitosamente";
             // 
-            // label5
+            // errorProvider1
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.label5.Location = new System.Drawing.Point(175, 206);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 22);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Cambio";
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmSeleccionarPago
             // 
@@ -316,15 +326,16 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmSeleccionarPago_Load);
             this.PanelPrincipal.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EfectivoControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridFormaPago)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.EfectivoControl)).EndInit();
             this.pnlCambio.ResumeLayout(false);
             this.pnlCambio.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -347,5 +358,6 @@
         private System.Windows.Forms.Button btnAceeptar;
         private System.Windows.Forms.Label CambioControl;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

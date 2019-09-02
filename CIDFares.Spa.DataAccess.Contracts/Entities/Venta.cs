@@ -11,7 +11,10 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
     {
         public Venta()
         {
+            ClienteVenta = new Cliente();
             TablaFormaPago = new DataTable();
+            TablaProducto = new DataTable();
+            TablaServicio = new DataTable();
         }
         public int IdGenerico { get; set; }
         public int IdTipo { get; set; }
@@ -23,7 +26,12 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public decimal SubTotal { get; set; }
         public decimal PrecioConIva { get; set; }
 
+        public Cliente ClienteVenta { get; set; }
         public DataTable TablaFormaPago { get; set; }
+        public DataTable TablaProducto { get; set; }
+        public DataTable TablaServicio{ get; set; }
+
         public int Resultado { get; set; }
+        public string Folio { get; set; }
     }
 }
