@@ -567,6 +567,7 @@
             this.btnServicio.TabIndex = 6;
             this.btnServicio.Text = "Servicio";
             this.btnServicio.UseVisualStyleBackColor = true;
+            this.btnServicio.Click += new System.EventHandler(this.btnServicio_Click);
             // 
             // btnProducto
             // 

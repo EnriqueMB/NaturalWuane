@@ -55,7 +55,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     {
                         Item = new TipoServicio();
                         Item.IdTipoServicio = dr.GetInt32(dr.GetOrdinal("IdTipoServicio"));
-                        Item.TipoServicioN = dr.GetString(dr.GetOrdinal("Tiposervicio"));
+                        Item.NombreTipoServicio = dr.GetString(dr.GetOrdinal("NombreTipoServicio"));
                         Lista.Add(Item);
                     }
                     dr.Close();

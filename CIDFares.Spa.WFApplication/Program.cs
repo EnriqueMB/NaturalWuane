@@ -5,7 +5,6 @@ using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Validations;
 using CIDFares.Spa.WFApplication.Forms.Ventas;
 using CIDFares.Spa.WFApplication.Forms.Catalogos;
-using CIDFares.Spa.WFApplication.Forms.Ventas;
 using CIDFares.Spa.WFApplication.Forms.General;
 using CIDFares.Spa.WFApplication.Session;
 using CIDFares.Spa.WFApplication.Validations;
@@ -29,8 +28,7 @@ namespace CIDFares.Spa.WFApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
-            CurrentSession.IdCuentaUsuario = Guid.Empty;
-            Application.Run(new FrmHome());
+            Application.Run(new FrmLogin());
         }
 
         public static void InitializeContainer()
@@ -54,9 +52,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ClienteValidator, IValidator<ClienteViewModel>>();
             ServiceLocator.Instance.Register<CategoriaProductoValidator, IValidator<CategoriaProductoViewModel>>();
             ServiceLocator.Instance.Register<ServicioValidator, IValidator<ServicioViewModel>>();
-
             ServiceLocator.Instance.Register<UsuarioValidator, IValidator<UsuarioViewModel>>();
-
             ServiceLocator.Instance.Register<ProductoValidator, IValidator<ProductoViewModel>>();
 
             ServiceLocator.Instance.Register<VentaValidator, IValidator<VentasViewModel>>();

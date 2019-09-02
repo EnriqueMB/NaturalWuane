@@ -11,5 +11,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
     public interface IServicioRepository : IBaseRepository<Servicio>
     {
         Task<IEnumerable<Servicio>> GetBusqServicioAsync(bool BitNombre, string BusqNombre, bool BitClaveCodigo, string BusqClaveCodigo);
+
+        //Task<int> AddFotoProducto(Producto entity, object IdUsuario);
     }
 }

@@ -173,6 +173,12 @@
     <Compile Include="Forms\General\FrmHome.Designer.cs">
       <DependentUpon>FrmHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\General\FrmHomeD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\General\FrmHomeD.Designer.cs">
+      <DependentUpon>FrmHomeD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\General\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,6 +274,9 @@
     <EmbeddedResource Include="Forms\General\FrmHome.resx">
       <DependentUpon>FrmHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\General\FrmHomeD.resx">
+      <DependentUpon>FrmHomeD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmSeleccionarPago.resx">
       <DependentUpon>FrmSeleccionarPago.cs</DependentUpon>
+      </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ventas\FrmBuscarServicio.resx">
+      <DependentUpon>FrmBuscarServicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmVenta.resx">
       <DependentUpon>FrmVenta.cs</DependentUpon>
@@ -312,7 +324,9 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\NaturalW.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\UsuarioL2.png" />
   </ItemGroup>
@@ -335,6 +349,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\imagen_subir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

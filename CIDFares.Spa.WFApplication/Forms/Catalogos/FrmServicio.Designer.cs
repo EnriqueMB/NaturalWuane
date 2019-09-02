@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
@@ -43,6 +44,7 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -52,11 +54,13 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgServicio = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flpnlButtons.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgServicio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -73,7 +77,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblTitle.Location = new System.Drawing.Point(70, 22);
+            this.lblTitle.Location = new System.Drawing.Point(50, 22);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(112, 29);
@@ -182,6 +186,7 @@
             gridTextColumn6.HeaderText = "Nombre";
             gridTextColumn6.MappingName = "Nombre";
             gridTextColumn7.AllowGrouping = false;
+            gridTextColumn7.Format = "C2";
             gridTextColumn7.HeaderText = "Precio";
             gridTextColumn7.MappingName = "Precio";
             gridTextColumn8.AllowGrouping = false;
@@ -193,13 +198,14 @@
             gridTextColumn10.AllowGrouping = false;
             gridTextColumn10.HeaderText = "Porcentaje";
             gridTextColumn10.MappingName = "Porcentaje";
+            gridTextColumn10.Visible = false;
             gridTextColumn11.AllowGrouping = false;
             gridTextColumn11.HeaderText = "DecsIva";
             gridTextColumn11.MappingName = "DescIva";
             gridTextColumn11.Visible = false;
             gridTextColumn12.AllowGrouping = false;
             gridTextColumn12.HeaderText = "AplicaIva";
-            gridTextColumn12.MappingName = "AplicaIva";
+            gridTextColumn12.MappingName = "AplicaIvaStr";
             gridTextColumn13.AllowGrouping = false;
             gridTextColumn13.HeaderText = "AplicaIEPS";
             gridTextColumn13.MappingName = "AplicaIEPS";
@@ -212,6 +218,10 @@
             gridTextColumn15.HeaderText = "IEPS";
             gridTextColumn15.MappingName = "IEPS";
             gridTextColumn15.Visible = false;
+            gridTextColumn16.AllowGrouping = false;
+            gridTextColumn16.Format = "P";
+            gridTextColumn16.HeaderText = "Porcentaje";
+            gridTextColumn16.MappingName = "Porcentaje100";
             this.dgServicio.Columns.Add(gridTextColumn1);
             this.dgServicio.Columns.Add(gridTextColumn2);
             this.dgServicio.Columns.Add(gridTextColumn3);
@@ -227,6 +237,7 @@
             this.dgServicio.Columns.Add(gridTextColumn13);
             this.dgServicio.Columns.Add(gridTextColumn14);
             this.dgServicio.Columns.Add(gridTextColumn15);
+            this.dgServicio.Columns.Add(gridTextColumn16);
             this.dgServicio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgServicio.Location = new System.Drawing.Point(0, 0);
@@ -236,6 +247,10 @@
             this.dgServicio.Size = new System.Drawing.Size(1238, 388);
             this.dgServicio.TabIndex = 1;
             this.dgServicio.Text = "sfDataGrid1";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmServicio
             // 
@@ -254,6 +269,7 @@
             this.flpnlButtons.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgServicio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -269,5 +285,6 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

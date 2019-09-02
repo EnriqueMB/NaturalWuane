@@ -224,7 +224,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 FrmBusquedaProducto Producto = new FrmBusquedaProducto();
                 Producto.ShowDialog();
                 if (Producto.producto.IdProducto != 0)
-                    LLenarGrid(Producto.producto);
+                {
+                    var IdTipo = Producto.IDTipo;
+                    LLenarGrid2(Producto.producto, IdTipo);
+                    //LLenarGrid(Producto.producto);
+                }
             }
             catch (Exception ex)
             {
@@ -340,6 +344,139 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 throw ex;
             }
         }
+
+        private void btnServicio_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmBuscarServicio servicio = new FrmBuscarServicio();
+                servicio.ShowDialog();
+                if (servicio.servicio.IdServicio != 0)
+                {
+                    int Tipo = 0;
+                    Tipo = servicio.IDTipo;
+                    LLenarGrid2(servicio.servicio, Tipo);
+                }
+                    
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmBuscarVenta ~ btnProducto_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
+            }
+        }
+
+        public void LLenarGrid2(object objetoX, int IdTipo)
+        {
+            try
+            {
+                if (IdTipo == 1)
+                {
+                    var Producto = (BusqueProducto)objetoX;
+                    if (Model.Listaventa.Count == 0)
+                    {
+                        Model.Listaventa.Add(new Venta
+                        {
+                            IdGenerico = Producto.IdProducto,
+                            IdTipo = Producto.IdTipo,
+                            Cantidad = Producto.CantidaProducto,
+                            Nombre = Producto.Nombre,
+                            Precio = Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100)),
+                            PorcentajeIva = (Producto.PrecioPublico * (Producto.ProcentajeIva / 100)),
+                            Total = Producto.CantidaProducto * Producto.PrecioPublico,
+                            SubTotal = Producto.CantidaProducto * Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100))
+                        });
+                        TotalVenta();
+                    }
+                    else
+                    {
+                        var x = Model.Listaventa.Where(p => p.IdGenerico == Producto.IdProducto && p.IdTipo == Producto.IdTipo).Select(u => {
+                            u.Cantidad += Producto.CantidaProducto;
+                            u.Precio = Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100));
+                            u.PorcentajeIva += (Producto.PrecioPublico * (Producto.ProcentajeIva / 100));
+                            u.Total = u.Cantidad * Producto.PrecioPublico;
+                            u.SubTotal = u.Cantidad * u.Precio; return u;
+                        }).ToList();
+                        if (x.Count == 1)
+                        {
+                            this.sfDataGridVenta.Refresh();
+                            TotalVenta();
+                        }
+                        else
+                        {
+                            Model.Listaventa.Add(new Venta
+                            {
+                                IdGenerico = Producto.IdProducto,
+                                IdTipo = Producto.IdTipo,
+                                Cantidad = Producto.CantidaProducto,
+                                Nombre = Producto.Nombre,
+                                Precio = Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100)),
+                                PorcentajeIva = (Producto.PrecioPublico * (Producto.ProcentajeIva / 100)),
+                                Total = Producto.CantidaProducto * Producto.PrecioPublico,
+                                SubTotal = Producto.CantidaProducto * Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100))
+                            });
+                            TotalVenta();
+                        }                       
+                    }
+                }
+                else if (IdTipo == 2)
+                {
+                    var x = (Servicio)objetoX;
+                    if (Model.Listaventa.Count == 0)
+                    {
+                        Model.Listaventa.Add(new Venta
+                        {
+                            IdGenerico = x.IdServicio,
+                            IdTipo = x.IdTipoServicio,
+                            Cantidad = x.CantidadServicio,
+                            Nombre = x.Nombre,
+                            Precio = x.Precio - (x.Precio * (x.Porcentaje / 100)),
+                            PorcentajeIva = (x.Precio * (x.Porcentaje / 100)),
+                            Total = x.CantidadServicio * x.Precio,
+                            SubTotal = x.CantidadServicio * x.Precio - (x. Precio * (x.Porcentaje / 100))
+                        });
+                        TotalVenta();
+                    }
+                    else
+                    {
+                        var Lista = Model.Listaventa.Where(p => p.IdGenerico == x.IdServicio && p.IdTipo == x.IdTipoServicio)
+                            .Select(u => {
+                            u.Cantidad += x.CantidadServicio;
+                            u.Precio = x.Precio - (x.Precio * (x.Porcentaje / 100));
+                            u.PorcentajeIva += (x.Precio * (x.Porcentaje / 100));
+                            u.Total = u.Cantidad * x.Precio;
+                            u.SubTotal = u.Cantidad * u.Precio; return u;
+                        }).ToList();
+                        if (Lista.Count == 1)
+                        {
+                            this.sfDataGridVenta.Refresh();
+                            TotalVenta();
+                        }
+                        else
+                        {
+                            Model.Listaventa.Add(new Venta
+                            {
+                                IdGenerico = x.IdServicio,
+                                IdTipo = x.IdTipoServicio,
+                                Cantidad = x.CantidadServicio,
+                                Nombre = x.Nombre,
+                                Precio = x.Precio - (x.Precio * (x.Porcentaje / 100)),
+                                PorcentajeIva = (x.Precio * (x.Porcentaje / 100)),
+                                Total = x.CantidadServicio * x.Precio,
+                                SubTotal = x.CantidadServicio * x.Precio - (x.Precio * (x.Porcentaje / 100))
+                            });
+                            TotalVenta();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmBuscarVenta ~ btnProducto_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
+            }
+        }
+
         //CALCULO DE EL IEPS
         //public decimal DesglosaIeps(out decimal PrecioSinIvaSinIeps)
         //{

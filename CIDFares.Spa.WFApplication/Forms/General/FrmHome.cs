@@ -82,5 +82,12 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         {
             Close();
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            FrmCategoriaProducto fcp = new FrmCategoriaProducto();
+            fcp.ShowDialog();
+            fcp.Dispose();
+        }
     }
 }

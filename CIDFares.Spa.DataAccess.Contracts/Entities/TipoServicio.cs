@@ -9,6 +9,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
     public class TipoServicio
     {
         public int IdTipoServicio { get; set; }
-        public string TipoServicioN { get; set; }
+        public string NombreTipoServicio { get; set; }
     }
 }

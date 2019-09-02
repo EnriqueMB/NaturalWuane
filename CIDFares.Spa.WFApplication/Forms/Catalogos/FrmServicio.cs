@@ -1,4 +1,5 @@
 ﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Library.Code.Helpers;
 using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Spa.Business.ValueObjects;
@@ -6,6 +7,7 @@ using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
+using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,7 +31,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<ServicioViewModel>();
-            IniciarBinding();
+            //IniciarBinding();
         }
         #endregion
 
@@ -48,14 +50,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {
                 throw ex;
             }
-        }
-        public void LimpiarPropiedades()
-        {
-            //dgServicio.Text = "Nueva categoría";
-            //Model.IdCategoriaProducto = 0;
-            //Model.Nombre = string.Empty;
-            //Model.Descripcion = string.Empty;
-        }
+        }        
 
         private string ObtenerMensajeError(int Error)
         {
@@ -104,27 +99,74 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 FrmServicioNuevo f = new FrmServicioNuevo();
                 f.ShowDialog();
                 Model.State = EntityState.Create;
+                Model.GetAllAsync();
             }
             catch (Exception ex)
-            {                
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmServicio ~ btnNuevo_Click(object sender, EventArgs e)");                
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }                    
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                var item = ObtenerSeleccionado();
+                if (item != null)
+                {
+                    Model.State = EntityState.Update;
+                    FrmServicioNuevo frn = new FrmServicioNuevo(ObtenerSeleccionado());
+                    frn.ShowDialog();                    
+                    Model.GetAllAsync();                                        
+                }
+                else
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmServicio ~ btnModificar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private async void btnEliminar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var item = ObtenerSeleccionado();
+                if (item != null)
+                {
 
-        }
+                    if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmDeleteMessage) == DialogResult.OK)
+                    {
+                        Model.IdServicio = item.IdServicio;
+                        var result = await Model.DeleteAsync(CurrentSession.IdCuentaUsuario);
+                        if (result == 1)
+                        {
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.informacion);
+                            await Model.GetAllAsync();
+                        }
+                        else
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.informacion);
+                    }
+                }
+                else
+                {
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmServicio ~ btnEliminar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+        }       
         #endregion
 
         private void FrmServicio_Load(object sender, EventArgs e)
         {
-
+            IniciarBinding();
         }
     }
 }
