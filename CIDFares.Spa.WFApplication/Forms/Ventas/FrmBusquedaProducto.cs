@@ -32,7 +32,15 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             Model = ServiceLocator.Instance.Resolve<BusquedaProductoViewModel>();
             producto = new BusqueProducto();
             IniciarBinding();
+            BusClaveBarraControl.CheckedChanged -= BusClaveBarraControl_CheckedChanged;
+            BusClaveBarraControl.Checked = false;
+            BusClaveBarraControl.CheckedChanged += BusClaveBarraControl_CheckedChanged;
+            this.Model.BuscaClaveCodigo = true;
+            this.ActiveControl = this.BuquedaClaveCodigoControl;
+            this.BuquedaClaveCodigoControl.Focus();
         }
+
+        #region Metodo
 
         private void IniciarBinding()
         {
@@ -67,7 +75,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 throw ex;
             }
         }
-        private async void BtnBusqueda_Click(object sender, EventArgs e)
+
+        public async void MetodoBuscar()
         {
             try
             {
@@ -77,21 +86,80 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     {
                         errorProvider1.Clear();
                         await Model.GetAll();
+                        if (Model.ListaBusquedaProducto.Count == 0)
+                            CIDMessageBox.ShowAlert(Messages.SystemName, "LA BUSQUEDA REALIZADA NO SE ENCUENTA EN LA BASE DE DATOS.", TypeMessage.informacion);
+                        else if (Model.ListaBusquedaProducto.Count == 1)
+                            this.AgregarRegistro();
                     }
                     else if (!string.IsNullOrEmpty(Model.BusquedaNombre))
                     {
                         errorProvider1.Clear();
                         await Model.GetAll();
+                        if (Model.ListaBusquedaProducto.Count == 0)
+                            CIDMessageBox.ShowAlert(Messages.SystemName, "LA BUSQUEDA REALIZADA NO SE ENCUENTA EN LA BASE DE DATOS.", TypeMessage.informacion);
+                        else if (Model.ListaBusquedaProducto.Count == 1)
+                            this.AgregarRegistro();
                     }
                     else
-                    {
                         errorProvider1.SetError(ErrorControl, "TIENE QUE INGRESAR EL NOMBRE DEL PRODUCTO O CLAVE.");
-                    }
+                }
+                else
+                    errorProvider1.SetError(ErrorControl, "TIENE QUE SELECCIONAR AL MENOS UN METODO DE BUSQUEDA.");
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, " FrmBusquedaProducto() ~ MetodoBuscar()");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
+            }
+        }
+
+        public void AgregarRegistro()
+        {
+            try
+            {
+                if (Model.ListaBusquedaProducto.Count == 1)
+                {
+                    var item = Model.ListaBusquedaProducto.ElementAt(0);
+                    item.IdTipo = this.IDTipo = 1;
+                    item.CantidaProducto = 1;
+                    producto = item;
+                    this.Close();
                 }
                 else
                 {
-                    errorProvider1.SetError(ErrorControl, "TIENE QUE SELECCIONAR AL MENOS UN METODO DE BUSQUEDA.");
+                    var item = ObtenerSeleccionado();
+                    if (item != null)
+                    {
+                        item.IdTipo = this.IDTipo = 1;
+                        item.CantidaProducto = Model.CantidadProducto;
+                        if (Model.CantidadProducto > 0)
+                        {
+                            producto = item;
+                            this.Close();
+                        }
+                        else
+                            errorProvider1.SetError(CantidadProductoControl, "LA CANTIDAD DE PRODUCTO TIENE QUE SER MAYOR A CERO.");
+                    }
+                    else
+                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
                 }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, " FrmBusquedaProducto() ~ AgregarRegistro()");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
+            }
+        }
+
+        #endregion
+
+        #region Evento
+
+        private void BtnBusqueda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.MetodoBuscar();
             }
             catch (Exception ex)
             {
@@ -118,10 +186,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     NombreControl.Enabled = false;
                     Model.BusquedaNombre = string.Empty;
                     //habilitar la busqueda por codigo o clave
-                    Model.BuscaClaveCodigo = true;
                     BusClaveBarraControl.Enabled = true;
                     BuquedaClaveCodigoControl.Enabled = true;
-                    
+                    BusClaveBarraControl.CheckedChanged -= BusClaveBarraControl_CheckedChanged;
+                    BusClaveBarraControl.Checked = true;
+                    BusClaveBarraControl.CheckedChanged += BusClaveBarraControl_CheckedChanged;
+                    this.Model.BuscaClaveCodigo = true;
+                    this.ActiveControl = this.BuquedaClaveCodigoControl;
+                    this.BuquedaClaveCodigoControl.Focus();
                 }
             }
             catch (Exception)
@@ -149,9 +221,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     BuquedaClaveCodigoControl.Enabled = false;
                     Model.BusquedaClaveCodigo = string.Empty;
                     //habilitar la busqueda  por nombre
-                    Model.BuscarNombre = true;
                     BusqueNombreControl.Enabled = true;
                     NombreControl.Enabled = true;
+                    BusqueNombreControl.CheckedChanged -= BusqueNombreControl_CheckedChanged;
+                    BusqueNombreControl.Checked = true;
+                    BusqueNombreControl.CheckedChanged += BusqueNombreControl_CheckedChanged;
+                    this.Model.BuscarNombre = true;
+                    this.ActiveControl = this.NombreControl;
+                    this.NombreControl.Focus();
                 }
             }
             catch (Exception)
@@ -165,32 +242,47 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             try
             {
-                var item = ObtenerSeleccionado();
-                if (item != null)
-                {
-                    item.IdTipo = this.IDTipo = 1;
-                    item.CantidaProducto = Model.CantidadProducto;
-                    if (Model.CantidadProducto > 0)
-                    {
-                        producto = item;
-                        this.Close();
-                    }
-                    else
-                    {
-                        errorProvider1.SetError(CantidadProductoControl, "LA CANTIDAD DE PRODUCTO TIENE QUE SER MAYOR A CERO.");
-                    }
-                }
-                else
-                {
-                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
-                }
+                this.AgregarRegistro();
             }
             catch (Exception ex)
             {
                 ErrorLogHelper.AddExcFileTxt(ex, " FrmBusquedaProducto() ~ BtnAgregar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
             }
-            
         }
+
+        private void BuquedaClaveCodigoControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    MetodoBuscar();
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmBusquedaProducto() ~ BuquedaClaveCodigoControl_KeyPress(object sender, KeyPressEventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
+            }
+        }
+
+        private void NombreControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    MetodoBuscar();
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmBusquedaProducto() ~ NombreControl_KeyPress(object sender, KeyPressEventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
+            }
+        }
+
+        #endregion
     }
 }

@@ -23,6 +23,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public bool AplicaIva { get; set; }
         public bool AplicaIEPS { get; set; }
         public bool IEPSMonto { get; set; }
-        public decimal IEPS { get; set; }      
+        public decimal IEPS { get; set; }     
+        public decimal CantidadServicio { get; set; }
     }
 }

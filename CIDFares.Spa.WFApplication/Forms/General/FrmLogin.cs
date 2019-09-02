@@ -56,6 +56,21 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 throw ex;
             }
         }
+        private void AbrirFormHome2()
+        {
+            try
+            {
+                this.Visible = false;
+                var HomeForm = new FrmHomeD();
+                HomeForm.ShowDialog();
+                HomeForm.Dispose();
+                this.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         private void IniciarPlaceholder()
         {
             try
@@ -154,7 +169,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                     if (x == 1)
                     {
                         GuardarSession();
-                        AbrirFormHome();
+                        AbrirFormHome2();
                         this.UserAccountControl.Text = string.Empty;
                         this.UserPasswordControl.Text = string.Empty;
                     }
