@@ -21,7 +21,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
         #region Propiedades públicas
         public BindingList<Cliente> ListaCliente { get; set; }
-        public BindingList<Cliente> ListaClienteVenta { get; set; }
         public EntityState State { get; set; }
         #endregion
 
@@ -129,10 +128,10 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             try
             {
                 var x = await Repository.GetBusquedaAsync(this.Busqueda);
-                ListaClienteVenta.Clear();
+                ListaCliente.Clear();
                 foreach (var item in x)
                 {
-                    ListaClienteVenta.Add(item);
+                    ListaCliente.Add(item);
                 }
             }
             catch (Exception ex)
