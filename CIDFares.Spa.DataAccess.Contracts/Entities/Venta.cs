@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,10 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
 {
     public class Venta
     {
+        public Venta()
+        {
+            TablaFormaPago = new DataTable();
+        }
         public int IdGenerico { get; set; }
         public int IdTipo { get; set; }
         public string Nombre { get; set; }
@@ -17,5 +22,8 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public decimal PorcentajeIva { get; set; }
         public decimal SubTotal { get; set; }
         public decimal PrecioConIva { get; set; }
+
+        public DataTable TablaFormaPago { get; set; }
+        public int Resultado { get; set; }
     }
 }

@@ -91,15 +91,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             TotalControl.Text = Model.Total.ToString("C2");
         }
 
-        private DataTable ObtenerDatosTabla(BindingList<Venta> Lista)
+        private DataTable ObtenerDatosTabla(BindingList<FormaPago> Lista)
         {
             DataTable Tabla = new DataTable();
-            Tabla.Columns.Add("IdProducto", typeof(int));
+            Tabla.Columns.Add("IdFormaPago", typeof(int));
+            Tabla.Columns.Add("Cantidad", typeof(decimal));
             foreach (var item in Lista)
             {
-                if (item.IdTipo == 1)
+                if (item.Seleccionar == true)
                 {
-                    Tabla.Rows.Add(new object[] { item.IdGenerico });
+                    Tabla.Rows.Add(new object[] { item.IdFormaPago, item.Cantidad});
                 }
             }
             return Tabla;
@@ -110,8 +111,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
 
             try
             {
+                BindingList<FormaPago> ListaFormaPago = (BindingList<FormaPago>)GridFormaPago.DataSource;
+                Model.TablaFormaPago = ObtenerDatosTabla(ListaFormaPago);
+
                 Venta Resultado = await Model.GuardarVenta(CurrentSession.IdCuentaUsuario);
-                if (Resultado.Resultado == 1)
+                //if (Resultado.Resultado == 1)
                 {
                     pnlCambio.BringToFront();
                     CambioControl.Text = (Model.Efectivo - Model.Total).ToString("C2");

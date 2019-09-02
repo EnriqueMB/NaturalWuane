@@ -64,6 +64,7 @@
     <Compile Include="Repositories\General\SucursalRepository.cs" />
     <Compile Include="Repositories\General\UsuarioRepository.cs" />
     <Compile Include="Repositories\General\UnidadMedidaRepository.cs" />
+    <Compile Include="Repositories\General\VentaRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

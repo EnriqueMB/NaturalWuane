@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
+using System.Data;
 
 namespace CIDFares.Spa.Business.ViewModels.Ventas
 {
@@ -17,18 +18,21 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
     {
         #region Propiedades privadas
         private IFormaPagoRepository RepositoryFormaPago { get; set; }
+        private IVentaRepository Repository { get; set; }
         #endregion
 
         #region Propiedades públicas
         public ClienteViewModel ModelCliente{ get; set; }
         public BindingList<Venta> Listaventa { get; set; }
         public BindingList<FormaPago> ListaFormaPago { get; set; }
+        public DataTable TablaFormaPago { get; set; }
         public EntityState State { get; set; }
         #endregion
 
         #region Constructor
-        public VentasViewModel(IFormaPagoRepository formaPagoRepository)
+        public VentasViewModel(IFormaPagoRepository formaPagoRepository, IVentaRepository ventaRepository)
         {
+            Repository = ventaRepository;
             RepositoryFormaPago = formaPagoRepository;
             ModelCliente = ServiceLocator.Instance.Resolve<ClienteViewModel>();
             Listaventa = new BindingList<Venta>();
@@ -118,6 +122,17 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public async Task<Venta> GuardarVenta(Guid idCuentaUsuario)
+        {
+            Venta model = new Venta
+            {
+                //TablaPersonal = obtenerTabla(),
+                TablaFormaPago = TablaFormaPago
+                //IdPersonal = GDatos.IdPersonal,
+            };
+            return await Repository.AddAsync(model, idCuentaUsuario);
         }
         #endregion
     }
