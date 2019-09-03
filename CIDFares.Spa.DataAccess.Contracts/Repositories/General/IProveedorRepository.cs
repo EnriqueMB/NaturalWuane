@@ -10,7 +10,9 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
 {
     public interface IProveedorRepository : IBaseRepository<Proveedor>
     {
-        Task<bool> EsClave(string Clave);
-        Task<bool> NombreComercialUnico(string NombreComercial);
-}
+        Task<IEnumerable<Proveedor>> GetBusquedaProveedorAsync(string Busqueda);
+        Task<Guid> EsClave(string Clave);
+        Task<Guid> NombreComercialUnico(string NombreComercial);
+        Task<Proveedor> GetProveedorXId(Guid IdProveedor);
+    }
 }

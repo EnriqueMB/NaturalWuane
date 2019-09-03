@@ -160,14 +160,24 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            Model.Modificar = true;
-            checkBox1.Enabled = false;
-            groupUsuario.Enabled = true;
-            flowLayoutPanel1.Enabled = true;
-            LimpiarPropiedades();
-            Model.State = EntityState.Create;
-            IdRolControl.SelectedValue = 0;
-            this.CleanErrors(errorProviderUsuario, typeof(UsuarioViewModel));
+            try
+            {
+                Model.Modificar = true;
+                checkBox1.Enabled = false;
+                groupUsuario.Enabled = true;
+                flowLayoutPanel1.Enabled = true;
+                LimpiarPropiedades();
+                Model.State = EntityState.Create;
+                IdRolControl.SelectedValue = 0;
+                this.CleanErrors(errorProviderUsuario, typeof(UsuarioViewModel));
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
