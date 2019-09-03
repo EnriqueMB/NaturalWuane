@@ -190,7 +190,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             else
             {
-                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.error);
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
                 groupBoxCliente.Enabled = false;
             }
         }
@@ -207,7 +207,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     var Resultado = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
                     if (Resultado.Resultado == 1)
                     {
-                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.error);
+                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
                         LimpiarPropiedades();
                         groupBoxCliente.Enabled = false;
                         await Model.GetAll();
@@ -215,7 +215,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     }
                     else if (Resultado.Resultado == 5)
                     {
-                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorClaveExistente, TypeMessage.error);
+                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorClaveExistente, TypeMessage.informacion);
                         LimpiarPropiedades();
                         groupBoxCliente.Enabled = false;
                     }
@@ -246,17 +246,17 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmDeleteMessage) == DialogResult.OK)
                     {
                         Model.IdCliente = item.IdCliente;
-                        Model.IdUsuarioL = CurrentSession.IdCuentaUsuario;
+                        //Model.IdUsuarioL = CurrentSession.IdCuentaUsuario;
                         groupBoxCliente.Enabled = false;
                         var result = await Model.DeleteAsync();
                         if (result == 1)
                         {
-                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.informacion);
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.correcto);
                             LimpiarPropiedades();
                             await Model.GetAll();
                         }
                         else
-                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.informacion);
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.error);
                     }
                 }
                 else
@@ -282,16 +282,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 {
                     Model.UpdateFoto = true;
                     Model.ImageLocation = BuscarImagen.FileName;
-                    Model.Extencion = Path.GetExtension(BuscarImagen.FileName);
-                    if (Model.Extencion == ".png")
-                        Model.FormatoImg = ImageFormat.Png;
-                    else if (Model.Extencion == ".jpg")
-                        Model.FormatoImg = ImageFormat.Jpeg;
-                    else if (Model.Extencion == ".bmp")
-                        Model.FormatoImg = ImageFormat.Bmp;
                     var x = Model.Foto.VaryQualityLevel(35L);
+                   // Bitmap bit = new Bitmap((Image)x.Clone());
                     Model.Foto = x;
-                    Model.FotoBase64 = ComprimirImagenExtensions.ToBase64String(Model.Foto, Model.FormatoImg);
+                    Model.FotoBase64 = ((Image)x.Clone()).ToBase64String(x.RawFormat);
                 }
             }
             catch (Exception ex)

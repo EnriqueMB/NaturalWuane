@@ -24,25 +24,57 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
         private ICategoriaProductoRepository RespositoryCategoria { get; set; }
         private IUnidadMedidaRepository RespositoryUnidadMedida { get; set; }
+        private IIvaRepository RespositoryIva { get; set; }
         #endregion
 
         #region Propiedades públicas
         public BindingList<Producto> ListaProducto { get; set; }
         public BindingList<CategoriaProducto> ListaCategoria { get; set; }
         public BindingList<UnidadMedida> ListaUnidadMedida { get; set; }
+        public BindingList<Iva> ListaIva { get; set; }
+        public BindingList<Cliente> ListaProducto2 { get; set; }
 
         public EntityState State { get; set; }
-        public ProductoViewModel PDatos { get; set; }
         #endregion
 
         #region Constructor
-        public ProductoViewModel(IProductoRepository IProductoRepository, ICategoriaProductoRepository respositoryCategoria, IUnidadMedidaRepository respositoryUnidadMedida)
+        public ProductoViewModel(IProductoRepository IProductoRepository, ICategoriaProductoRepository respositoryCategoria, IUnidadMedidaRepository respositoryUnidadMedida, IIvaRepository respositoryIva)
         {
             IRepository = IProductoRepository;
+            RespositoryIva = respositoryIva;
+
             ListaProducto = new BindingList<Producto>();
             ListaCategoria = new BindingList<CategoriaProducto>();
+            ListaUnidadMedida = new BindingList<UnidadMedida>();
+            ListaIva = new BindingList<Iva>();
             RespositoryCategoria = respositoryCategoria;
             RespositoryUnidadMedida = respositoryUnidadMedida;
+
+            #region propiedades binding
+            IdAplicaIva = 0;
+            Nombre = string.Empty;
+            IdCategoriaProducto = 0;
+            IdProducto = 0;
+            Categoria = string.Empty;
+            Clave = string.Empty;
+            Nombre = string.Empty;
+            Descripcion = string.Empty;
+            Stock = false;
+            StockMax = 0;
+            StockMin = 0;
+            PrecioPublico = 0;
+            PrecioMayoreo = 0;
+            PrecioMenudeo = 0;
+            CodigoBarras = string.Empty;
+            UnidadMedida = string.Empty;
+            IdUnidadMedida = 0;
+            ClaveSat = 0;
+            AplicaIva = false;
+            Usuario = Guid.Empty;
+            
+            #endregion
+
+
 
 
         }
@@ -53,6 +85,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             try
             {
+               
                 var x = await IRepository.CargarDatos();
                 ListaProducto.Clear();
                 foreach (var item in x)
@@ -69,18 +102,18 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        public async Task<int> GuardarFotoProducto(string clave)
+        public async Task<int> GuardarFotoProducto(string Clave, Guid IdUsuario)
         {
             try
             {
                 Producto producto = new Producto
                 {
-                    Clave = clave,
-                    UpdateFoto = PDatos.UpdateFoto,
-                    Base64String = new Bitmap(PDatos.Foto).ToBase64String(PDatos.Formato),
-                    UrlFoto = PDatos.UrlFoto
+                    Clave = Clave,
+                    UpdateFoto = UpdateFoto,
+                    Base64String = new Bitmap(Foto).ToBase64String(Formato),
+                    UrlFoto = UrlFoto
                 };
-                return await IRepository.AddFotoProducto(producto);
+                return await IRepository.AddFotoProducto(producto, IdUsuario);
             }
             catch (Exception ex)
             {
@@ -94,21 +127,24 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             try
             {
                 Producto producto;
-                producto = await IRepository.GetProductoXid(PDatos.IdProducto);
-                PDatos.Nombre = producto.Nombre;
-                PDatos.IdCategoria = producto.IdCategoria;
-                PDatos.Clave = producto.Clave;
-                PDatos.UnidadMedida = producto.UnidadMedida;
-                PDatos.PrecioPublico = producto.PrecioPublico;
-                PDatos.AplicaIva = producto.AplicaIva;
-                PDatos.Stock = producto.Stock;
-                PDatos.StockMax = producto.StockMax;
-                PDatos.StockMin = producto.StockMin;
-                PDatos.PrecioMayoreo = producto.PrecioMayoreo;
-                PDatos.PrecioMenudeo = producto.PrecioMenudeo;
-                PDatos.StockMax = producto.StockMax;
-                PDatos.Descripcion = producto.Descripcion;
-                PDatos.Foto = (string.IsNullOrEmpty(producto.Base64String)) ? null : producto.Base64String.ImageBase64ToImage();
+                producto = await IRepository.GetProductoXid(IdProducto);
+                
+                Nombre = producto.Nombre;
+                Descripcion = producto.Descripcion;
+                Clave = producto.Clave;
+                Stock = producto.Stock;
+                IdAplicaIva = producto.IdAplicaIva;
+                IdCategoriaProducto = producto.IdCategoriaProducto;
+                StockMax = producto.StockMax;
+                StockMin = producto.StockMin;
+                PrecioPublico = producto.PrecioPublico;
+                PrecioMayoreo = producto.PrecioMayoreo;
+                PrecioMenudeo = producto.PrecioMenudeo;
+                CodigoBarras = producto.CodigoBarras;
+                IdUnidadMedida = producto.IdUnidadMedida;
+                ClaveSat = producto.ClaveSat;
+                AplicaIva = producto.AplicaIva;                                            
+                Foto = (string.IsNullOrEmpty(producto.Base64String)) ? null : producto.Base64String.ImageBase64ToImage();
             }
             catch (Exception ex)
             {
@@ -128,11 +164,12 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 throw ex;
             }
         }
-        #region combo UnidadNegocio
+        #region combo UnidadMedida
 
-        public void LlenarListaUnidadNegocio(IEnumerable<UnidadMedida> UnidadNegocio)
+        public void LlenaUnidadMedida(IEnumerable<UnidadMedida> UnidadMedida)
         {
-            foreach (var item in UnidadNegocio)
+            ListaUnidadMedida.Clear();
+            foreach (var item in UnidadMedida)
             {
                 ListaUnidadMedida.Add(item);
             }
@@ -154,9 +191,10 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #endregion
 
         #region Combo Categorias
-        public void LlenarListaCategoria(IEnumerable<CategoriaProducto> categoria)
+        public void LlenarListaCategoria(IEnumerable<CategoriaProducto> CategoriaProducto)
         {
-            foreach (var item in categoria)
+            ListaCategoria.Clear();
+            foreach (var item in CategoriaProducto)
             {
                 ListaCategoria.Add(item);
             }
@@ -178,37 +216,86 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
         #endregion
 
+        #region Combo iva
+        public void LlenarlistaIva(IEnumerable<Iva> Iva)
+        {
+            ListaIva.Clear();
+            foreach (var item in Iva)
+            {
+                ListaIva.Add(item);
+            }
+        }
+
+        public async Task<IEnumerable<Iva>> GetListaIva()
+        {
+            try
+            {
+                var Iva = await RespositoryIva.LlenarComboIva();
+                return Iva;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion
+
+        public async Task GetBusqueda()
+        {
+            try
+            {
+                var x = await IRepository.GetBusquedaAsync(this.Busqueda);
+                ListaProducto.Clear();
+                foreach (var item in x)
+                {
+                    item.AplicaIvaStr = item.AplicaIva ? "SI" : "NO";
+                    item.StockStr = item.Stock ? "SI" : "NO";
+                    ListaProducto.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
 
 
 
-        public async Task<string> GuardarCambios()
+
+        public async Task<string> GuardarCambios(Guid IdUsuario)
         {
             try
             {
                 Producto producto = new Producto
                 {
-                    IdProducto = PDatos.IdProducto,
-                    IdCategoria = PDatos.IdCategoria,
-                    Clave = PDatos.Clave,
-                    IdUnidadMedida = PDatos.IdUnidadMedida,
-                    PrecioPublico = PDatos.PrecioPublico,
-                    PrecioMayoreo = PDatos.PrecioMayoreo,
-                    PrecioMenudeo = PDatos.PrecioMenudeo,
-                    AplicaIva = PDatos.AplicaIva,
-                    Stock = PDatos.Stock,
-                    StockMax = PDatos.StockMax,
-                    StockMin = PDatos.StockMin,
-                    Descripcion = PDatos.Descripcion
+                    Nombre = Nombre,
+                    IdProducto = IdProducto,
+                    IdCategoriaProducto = IdCategoriaProducto,
+                    IdUnidadMedida = IdUnidadMedida,
+                    Clave = Clave,
+                    PrecioPublico = PrecioPublico,
+                    PrecioMayoreo = PrecioMayoreo,
+                    PrecioMenudeo = PrecioMenudeo,
+                    AplicaIva = AplicaIva,
+                    Stock = Stock,
+                    StockMax = StockMax,
+                    StockMin = StockMin,
+                    Descripcion = Descripcion,
+                    ClaveSat = ClaveSat,
+                    CodigoBarras=CodigoBarras,
+                    IdAplicaIva=IdAplicaIva
 
                 };
                 if (State == EntityState.Create)
                 {
 
-                    return await IRepository.AddWitClave(producto);
+                    return await IRepository.AddWitClave(producto, IdUsuario);
                 }
                 else if (State == EntityState.Update)
                 {               
-                    return await IRepository.Update(producto);
+                    return await IRepository.Update(producto, IdUsuario);
                 }
                 return string.Empty;
             }
@@ -229,7 +316,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public int IdProducto
         {
             get { return _IdProducto; }
-            set { _IdProducto = value; OnPropertyChanged(nameof(IdProducto)); }
+            set { _IdProducto = value; OnPropertyChanged("IdProducto"); }
         }
 
         private string _Categoria;
@@ -237,7 +324,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public string Categoria
         {
             get { return _Categoria; }
-            set { _Categoria = value; OnPropertyChanged(nameof(Categoria)); }
+            set { _Categoria = value; OnPropertyChanged("Categoria"); }
         }
 
         private string _Clave;
@@ -245,7 +332,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public string Clave
         {
             get { return _Clave; }
-            set { _Clave = value; OnPropertyChanged(nameof(Clave)); }
+            set { _Clave = value; OnPropertyChanged("Clave"); }
         }
 
         private string _Nombre;
@@ -253,7 +340,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public string Nombre
         {
             get { return _Nombre; }
-            set { _Nombre = value; OnPropertyChanged(nameof(Nombre)); }
+            set { _Nombre = value; OnPropertyChanged("Nombre"); }
         }
 
         private string _Descripcion;
@@ -261,7 +348,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public string Descripcion
         {
             get { return _Descripcion; }
-            set { _Descripcion = value; OnPropertyChanged(nameof(Descripcion)); }
+            set { _Descripcion = value; OnPropertyChanged("Descripcion"); }
         }
 
 
@@ -270,7 +357,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public bool Stock
         {
             get { return _Stock; }
-            set { _Stock = value; OnPropertyChanged(nameof(Stock)); }
+            set { _Stock = value; OnPropertyChanged("Stock"); }
         }
 
         private int _StockMax;
@@ -278,7 +365,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public int StockMax
         {
             get { return _StockMax; }
-            set { _StockMax = value; OnPropertyChanged(nameof(StockMax)); }
+            set { _StockMax = value; OnPropertyChanged("StockMax"); }
         }
 
         private int _StockMin;
@@ -286,7 +373,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public int StockMin
         {
             get { return _StockMin; }
-            set { _StockMin = value; OnPropertyChanged(nameof(StockMin)); }
+            set { _StockMin = value; OnPropertyChanged("StockMin"); }
         }
 
         private decimal _PrecioPublico;
@@ -294,7 +381,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public decimal PrecioPublico
         {
             get { return _PrecioPublico; }
-            set { _PrecioPublico = value; OnPropertyChanged(nameof(PrecioPublico)); }
+            set { _PrecioPublico = value; OnPropertyChanged("PrecioPublico"); }
         }
 
 
@@ -303,7 +390,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public decimal PrecioMayoreo
         {
             get { return _PrecioMayoreo; }
-            set { _PrecioMayoreo = value; OnPropertyChanged(nameof(PrecioMayoreo)); }
+            set { _PrecioMayoreo = value; OnPropertyChanged("PrecioMayoreo"); }
         }
 
         private decimal _PrecioMenudeo;
@@ -311,7 +398,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public decimal PrecioMenudeo
         {
             get { return _PrecioMenudeo; }
-            set { _PrecioMenudeo = value; OnPropertyChanged(nameof(PrecioMenudeo)); }
+            set { _PrecioMenudeo = value; OnPropertyChanged("PrecioMenudeo"); }
         }
 
         private string _CodigoBarras;
@@ -319,7 +406,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public string CodigoBarras
         {
             get { return _CodigoBarras; }
-            set { _CodigoBarras = value; OnPropertyChanged(nameof(CodigoBarras)); }
+            set { _CodigoBarras = value; OnPropertyChanged("CodigoBarras"); }
         }
 
         private int? _IdUnidadMedida;
@@ -327,7 +414,15 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public int? IdUnidadMedida
         {
             get { return _IdUnidadMedida; }
-            set { _IdUnidadMedida = value; OnPropertyChanged(nameof(IdUnidadMedida)); }
+            set { _IdUnidadMedida = value; OnPropertyChanged("IdUnidadMedida"); }
+        }
+
+        private int? _IdAplicaIva;
+
+        public int? IdAplicaIva
+        {
+            get { return _IdAplicaIva; }
+            set { _IdAplicaIva = value; OnPropertyChanged("IdAplicaIva"); }
         }
 
         private string _UnidadMedida;
@@ -342,7 +437,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public int ClaveSat
         {
             get { return _ClaveSat; }
-            set { _ClaveSat = value; OnPropertyChanged(nameof(ClaveSat)); }
+            set { _ClaveSat = value; OnPropertyChanged("ClaveSat"); }
         }
 
         private bool _AplicaIva;
@@ -350,22 +445,22 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public bool AplicaIva
         {
             get { return _AplicaIva; }
-            set { _AplicaIva = value; OnPropertyChanged(nameof(AplicaIva)); }
+            set { _AplicaIva = value; OnPropertyChanged("AplicaIva"); }
         }
         public string Extencion { get; set; } 
-        private int _Usuario;
+        private Guid _Usuario;
 
-        public int Usuario
+        public Guid Usuario
         {
             get { return _Usuario; }
-            set { _Usuario = value; OnPropertyChanged(nameof(Usuario)); }
+            set { _Usuario = value; OnPropertyChanged("Usuario"); }
         }
 
-        private int? _IdCategoria;
-        public int? IdCategoria
+        private int? _IdCategoriaProducto;
+        public int? IdCategoriaProducto
         {
-            get { return _IdCategoria; }
-            set { _IdCategoria = value; OnPropertyChanged("IdCategoria"); }
+            get { return _IdCategoriaProducto; }
+            set { _IdCategoriaProducto = value; OnPropertyChanged("IdCategoriaProducto"); }
         }
 
         //propiedades par la foto
@@ -375,25 +470,14 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public string BaseString64
         {
             get { return _BaseString64; }
-            set { _BaseString64 = value; OnPropertyChanged(nameof(BaseString64)); }
+            set { _BaseString64 = value; OnPropertyChanged("BaseString64"); }
         }
 
-        private bool _UpdateFoto;
+        public bool UpdateFoto;
 
-        public bool UpdateFoto
-        {
-            get { return _UpdateFoto; }
-            set { _UpdateFoto = value; OnPropertyChanged(nameof(UpdateFoto)); }
-        }
+        
 
-        //para combo
-        private int? _IdCategoriaProducto;
-
-        public int? IdCategoriaProducto
-        {
-            get { return _IdCategoriaProducto; }
-            set { _IdCategoriaProducto = value; OnPropertyChanged("IdCategoriaProducto"); }
-        }
+       
 
         private Image _Foto;
 
@@ -429,11 +513,22 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
+        //BUSQUEDA
+        private string _Busqueda;
+
+        public string Busqueda
+        {
+            get { return _Busqueda; }
+            set
+            {
+                _Busqueda = value;
+                OnPropertyChanged(nameof(Busqueda));
+            }
+        }
         #endregion
 
         #region InotifyPropertyChanged Members
         public event PropertyChangedEventHandler PropertyChanged;
-
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

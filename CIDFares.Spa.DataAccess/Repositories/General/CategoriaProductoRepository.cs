@@ -100,6 +100,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
+        
         public async Task<BindingList<CategoriaProducto>> LlenarComboCategoria()
         {
             try
@@ -108,7 +109,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 {
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
-                    var dr = await conexion.QueryAsync<CategoriaProducto>("[Catalogo].[SPCID_Get_ComboCategoria] ", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var dr = await conexion.QueryAsync<CategoriaProducto>("[Catalogo].[SPCID_Get_ComboCategoria]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     return new BindingList<CategoriaProducto>(dr.ToList());
                 }
             }

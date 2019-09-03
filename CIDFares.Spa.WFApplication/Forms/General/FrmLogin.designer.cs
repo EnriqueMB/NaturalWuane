@@ -80,7 +80,7 @@
             // UserPasswordControl
             // 
             this.UserPasswordControl.BeforeTouchSize = new System.Drawing.Size(210, 22);
-            this.UserPasswordControl.Location = new System.Drawing.Point(114, 289);
+            this.UserPasswordControl.Location = new System.Drawing.Point(113, 302);
             this.UserPasswordControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.UserPasswordControl.Name = "UserPasswordControl";
             this.UserPasswordControl.PasswordChar = '*';
@@ -90,7 +90,7 @@
             // UserAccountControl
             // 
             this.UserAccountControl.BeforeTouchSize = new System.Drawing.Size(210, 22);
-            this.UserAccountControl.Location = new System.Drawing.Point(114, 234);
+            this.UserAccountControl.Location = new System.Drawing.Point(113, 247);
             this.UserAccountControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.UserAccountControl.Name = "UserAccountControl";
             this.UserAccountControl.Size = new System.Drawing.Size(210, 22);
@@ -108,6 +108,7 @@
             this.LblCerrar.TabIndex = 31;
             this.LblCerrar.Text = "Cerrar";
             this.LblCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblCerrar.Click += new System.EventHandler(this.LblCerrar_Click);
             // 
             // LblVersionSistema
             // 
@@ -128,7 +129,7 @@
             this.LblDerechoReservado.ForeColor = System.Drawing.Color.White;
             this.LblDerechoReservado.Location = new System.Drawing.Point(34, 499);
             this.LblDerechoReservado.Name = "LblDerechoReservado";
-            this.LblDerechoReservado.Size = new System.Drawing.Size(309, 13);
+            this.LblDerechoReservado.Size = new System.Drawing.Size(310, 13);
             this.LblDerechoReservado.TabIndex = 25;
             this.LblDerechoReservado.Text = "Impulsado por CID Fares® - Todos los derechos reservados";
             // 
@@ -136,7 +137,7 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(94)))), ((int)(((byte)(33)))));
             this.pictureBox3.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.PasswordL2;
-            this.pictureBox3.Location = new System.Drawing.Point(73, 288);
+            this.pictureBox3.Location = new System.Drawing.Point(72, 301);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(36, 23);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -147,7 +148,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(94)))), ((int)(((byte)(33)))));
             this.pictureBox2.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.UsuarioL2;
-            this.pictureBox2.Location = new System.Drawing.Point(73, 233);
+            this.pictureBox2.Location = new System.Drawing.Point(72, 246);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(36, 23);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -192,10 +193,11 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Location = new System.Drawing.Point(60, 34);
+            this.pictureBox1.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.logo_2;
+            this.pictureBox1.Location = new System.Drawing.Point(88, 11);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(267, 96);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.Size = new System.Drawing.Size(208, 204);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 

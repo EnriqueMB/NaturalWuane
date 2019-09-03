@@ -42,7 +42,11 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlTitulos = new System.Windows.Forms.Panel();
+            this.btnLimpiarBusqueda = new System.Windows.Forms.Button();
+            this.BusquedaControl = new System.Windows.Forms.TextBox();
+            this.btnBusqueda = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.FlpBotones = new System.Windows.Forms.FlowLayoutPanel();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -58,6 +62,9 @@
             // 
             // pnlTitulos
             // 
+            this.pnlTitulos.Controls.Add(this.btnLimpiarBusqueda);
+            this.pnlTitulos.Controls.Add(this.BusquedaControl);
+            this.pnlTitulos.Controls.Add(this.btnBusqueda);
             this.pnlTitulos.Controls.Add(this.lblTitulo);
             this.pnlTitulos.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitulos.Location = new System.Drawing.Point(0, 0);
@@ -65,11 +72,54 @@
             this.pnlTitulos.Size = new System.Drawing.Size(1048, 70);
             this.pnlTitulos.TabIndex = 2;
             // 
+            // btnLimpiarBusqueda
+            // 
+            this.btnLimpiarBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLimpiarBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
+            this.btnLimpiarBusqueda.FlatAppearance.BorderSize = 0;
+            this.btnLimpiarBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarBusqueda.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarBusqueda.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiarBusqueda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiarBusqueda.Location = new System.Drawing.Point(856, 23);
+            this.btnLimpiarBusqueda.Name = "btnLimpiarBusqueda";
+            this.btnLimpiarBusqueda.Size = new System.Drawing.Size(130, 28);
+            this.btnLimpiarBusqueda.TabIndex = 183;
+            this.btnLimpiarBusqueda.Text = "ELIMINAR FILTROS";
+            this.btnLimpiarBusqueda.UseVisualStyleBackColor = false;
+            this.btnLimpiarBusqueda.Click += new System.EventHandler(this.btnLimpiarBusqueda_Click);
+            // 
+            // BusquedaControl
+            // 
+            this.BusquedaControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BusquedaControl.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BusquedaControl.Location = new System.Drawing.Point(334, 32);
+            this.BusquedaControl.Name = "BusquedaControl";
+            this.BusquedaControl.Size = new System.Drawing.Size(355, 19);
+            this.BusquedaControl.TabIndex = 182;
+            // 
+            // btnBusqueda
+            // 
+            this.btnBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
+            this.btnBusqueda.FlatAppearance.BorderSize = 0;
+            this.btnBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBusqueda.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBusqueda.ForeColor = System.Drawing.Color.White;
+            this.btnBusqueda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBusqueda.Location = new System.Drawing.Point(706, 23);
+            this.btnBusqueda.Name = "btnBusqueda";
+            this.btnBusqueda.Size = new System.Drawing.Size(130, 28);
+            this.btnBusqueda.TabIndex = 181;
+            this.btnBusqueda.Text = "BUSCAR";
+            this.btnBusqueda.UseVisualStyleBackColor = false;
+            this.btnBusqueda.Click += new System.EventHandler(this.btnBusqueda_Click);
+            // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(33, 35);
+            this.lblTitulo.Location = new System.Drawing.Point(12, 9);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(114, 25);
             this.lblTitulo.TabIndex = 180;
@@ -151,37 +201,61 @@
             // dataGridMain1
             // 
             this.dataGridMain1.AccessibleName = "Table";
+            this.dataGridMain1.AllowEditing = false;
             this.dataGridMain1.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            gridTextColumn1.AllowEditing = false;
             gridTextColumn1.HeaderText = "Column1";
             gridTextColumn1.MappingName = "IdProducto";
             gridTextColumn1.Visible = false;
-            gridTextColumn2.HeaderText = "Categoria";
-            gridTextColumn2.MappingName = "Categoria";
-            gridTextColumn3.HeaderText = "Clave";
-            gridTextColumn3.MappingName = "Clave";
-            gridTextColumn4.HeaderText = "Producto";
-            gridTextColumn4.MappingName = "Nombre";
+            gridTextColumn2.AllowEditing = false;
+            gridTextColumn2.HeaderText = "Clave";
+            gridTextColumn2.MappingName = "Clave";
+            gridTextColumn3.AllowEditing = false;
+            gridTextColumn3.HeaderText = "Producto";
+            gridTextColumn3.MappingName = "Nombre";
+            gridTextColumn4.AllowEditing = false;
+            gridTextColumn4.HeaderText = "Categoria";
+            gridTextColumn4.MappingName = "Categoria";
+            gridTextColumn5.AllowEditing = false;
             gridTextColumn5.HeaderText = "Descripcion";
             gridTextColumn5.MappingName = "Descripcion";
+            gridTextColumn6.AllowEditing = false;
             gridTextColumn6.HeaderText = "Stock";
             gridTextColumn6.MappingName = "StockStr";
+            gridTextColumn7.AllowEditing = false;
             gridTextColumn7.HeaderText = "StockMax";
             gridTextColumn7.MappingName = "StockMax";
+            gridTextColumn8.AllowEditing = false;
             gridTextColumn8.HeaderText = "StockMin";
             gridTextColumn8.MappingName = "StockMin";
+            gridTextColumn9.AllowEditing = false;
+            gridTextColumn9.CellStyle.HorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Right;
+            gridTextColumn9.Format = "C";
             gridTextColumn9.HeaderText = "Precio publico";
             gridTextColumn9.MappingName = "PrecioPublico";
+            gridTextColumn10.AllowEditing = false;
+            gridTextColumn10.CellStyle.HorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Right;
+            gridTextColumn10.Format = "C";
             gridTextColumn10.HeaderText = "Precio mayoreo";
             gridTextColumn10.MappingName = "PrecioMayoreo";
+            gridTextColumn11.AllowEditing = false;
+            gridTextColumn11.CellStyle.HorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Right;
+            gridTextColumn11.Format = "C";
             gridTextColumn11.HeaderText = "Precio menudeo";
             gridTextColumn11.MappingName = "PrecioMenudeo";
+            gridTextColumn12.AllowEditing = false;
             gridTextColumn12.HeaderText = "Unidad de medida";
             gridTextColumn12.MappingName = "UnidadMedida";
+            gridTextColumn13.AllowEditing = false;
             gridTextColumn13.HeaderText = "Clave SAT";
             gridTextColumn13.MappingName = "ClaveSat";
             gridTextColumn13.Visible = false;
+            gridTextColumn14.AllowEditing = false;
             gridTextColumn14.HeaderText = "IVA";
             gridTextColumn14.MappingName = "AplicaIvaStr";
+            gridTextColumn15.AllowEditing = false;
+            gridTextColumn15.HeaderText = "Porcentaje Iva";
+            gridTextColumn15.MappingName = "Porcentaje";
             this.dataGridMain1.Columns.Add(gridTextColumn1);
             this.dataGridMain1.Columns.Add(gridTextColumn2);
             this.dataGridMain1.Columns.Add(gridTextColumn3);
@@ -196,6 +270,7 @@
             this.dataGridMain1.Columns.Add(gridTextColumn12);
             this.dataGridMain1.Columns.Add(gridTextColumn13);
             this.dataGridMain1.Columns.Add(gridTextColumn14);
+            this.dataGridMain1.Columns.Add(gridTextColumn15);
             this.dataGridMain1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridMain1.Location = new System.Drawing.Point(0, 0);
             this.dataGridMain1.Name = "dataGridMain1";
@@ -233,5 +308,8 @@
         private System.Windows.Forms.Button BtnNuevo;
         private System.Windows.Forms.Panel pnlContainer;
         private Syncfusion.WinForms.DataGrid.SfDataGrid dataGridMain1;
+        public System.Windows.Forms.Button btnLimpiarBusqueda;
+        private System.Windows.Forms.TextBox BusquedaControl;
+        public System.Windows.Forms.Button btnBusqueda;
     }
 }

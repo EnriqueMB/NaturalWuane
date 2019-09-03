@@ -5,7 +5,6 @@ using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Validations;
 using CIDFares.Spa.WFApplication.Forms.Ventas;
 using CIDFares.Spa.WFApplication.Forms.Catalogos;
-using CIDFares.Spa.WFApplication.Forms.Ventas;
 using CIDFares.Spa.WFApplication.Forms.General;
 using CIDFares.Spa.WFApplication.Session;
 using CIDFares.Spa.WFApplication.Validations;
@@ -14,12 +13,13 @@ using CIDFares.Spa.WFApplication.Forms.Usuarios;
 using System;
 using System.Windows.Forms;
 using CIDFares.Spa.Business.ViewModels.Ventas;
+using CIDFares.Spa.WFApplication.Forms.Compras;
 
 namespace CIDFares.Spa.WFApplication
 {
     static class Program
     {
-        /// <summary  
+        /// <summary
         /// Punto de entrada principal para la aplicación.
         /// </summary>
         [STAThread]
@@ -28,8 +28,9 @@ namespace CIDFares.Spa.WFApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
-            CurrentSession.IdCuentaUsuario = Guid.Empty;
-            Application.Run(new FrmProveedorGrid());
+
+            Application.Run(new FrmLogin());
+
         }
 
         public static void InitializeContainer()
@@ -55,6 +56,8 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ServicioValidator, IValidator<ServicioViewModel>>();
             ServiceLocator.Instance.Register<UsuarioValidator, IValidator<UsuarioViewModel>>();
             ServiceLocator.Instance.Register<ProveedorValidator, IValidator<ProveedorViewModel>>();
+            ServiceLocator.Instance.Register<ProductoValidator, IValidator<ProductoViewModel>>();
+
         }
 
         private static void RegisterViewModelDependencies()
@@ -70,6 +73,9 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<UsuarioViewModel>();
             ServiceLocator.Instance.Register<ServicioViewModel>();
             ServiceLocator.Instance.Register<ProveedorViewModel>();
+            ServiceLocator.Instance.Register<SucursalViewModel>();
+            ServiceLocator.Instance.Register<ProveedorACompraViewModel>();
+
         }
     }
 }

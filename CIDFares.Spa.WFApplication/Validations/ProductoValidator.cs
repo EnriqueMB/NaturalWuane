@@ -16,7 +16,7 @@ namespace CIDFares.Spa.WFApplication.Validations
             RuleFor(producto => producto.Nombre)
                     .NotEmpty()
                 .WithMessage("INGRESE EL NOMBRE DEL PRODUCTO.")
-                .MaximumLength(200).WithMessage("EL NOMBRE NO PUEDE SER MAYOR A 200 CARACTERES.")
+                .MaximumLength(80).WithMessage("EL NOMBRE NO PUEDE SER MAYOR A 80 CARACTERES.")
                 .MustAsync(async (producto, x, context) =>
                 {
 
@@ -33,25 +33,96 @@ namespace CIDFares.Spa.WFApplication.Validations
                 })
                 .WithMessage("EL NOMBRE DEL PRODUCTO YA EXISTE");
 
-            RuleFor(producto => producto.IdCategoria)
+            RuleFor(producto => producto.Clave)
+                   .NotEmpty()
+               .WithMessage("INGRESE LA CLAVE DEL PRODUCTO.")
+               .MaximumLength(80).WithMessage("LA CLAVE NO PUEDE SER MAYOR A 80 CARACTERES.")
+               .MustAsync(async (producto, x, context) =>
+               {
+
+                   int result = await productoservice.ClaveExistAsync(producto.Clave);
+                   if (result > 0)
+                   {
+                       if (result == producto.IdProducto)
+                           return true;
+                       else
+                           return false;
+                   }
+                   else
+                       return true;
+               })
+               .WithMessage("LA CLAVE YA EXISTE");
+
+
+            RuleFor(producto => producto.CodigoBarras)
+                    .NotEmpty()
+                .WithMessage("INGRESE EL CODIGO DE BARRA.")
+                .MustAsync(async (producto, x, context) =>
+                {
+
+                    int result = await productoservice.NameExistAsync2(producto.CodigoBarras);
+                    if (result > 0)
+                    {
+                        if (result == producto.IdProducto)
+                            return true;
+                        else
+                            return false;
+                    }
+                    else
+                        return true;
+                })
+                .WithMessage("EL CODIGO DE BARRAS  YA EXISTE");
+
+            RuleFor(producto => producto.IdCategoriaProducto)
                 .NotEqual(0)
                 .WithMessage("DEBE SELECCIONAR UNA CATEGORIA.");
 
-            RuleFor(producto => producto.Clave)
-                .NotEmpty().WithMessage("NO DEBE DEJAR EL CAMPO DE CLAVE VACIO");
+
+            RuleFor(producto => producto.IdUnidadMedida)
+                .NotEqual(0)
+                .WithMessage("DEBE SELECCIONAR UNA UNIDAD DE MEDIDA.");
+
+
 
             RuleFor(producto => producto.PrecioPublico)
-                .NotEmpty().WithMessage("NO DEBE DEJAR EL CAMPO DE PRECIO PUBLICO VACIO");
+                .NotEqual(0).WithMessage("NO DEBE DEJAR EL CAMPO DE PRECIO PUBLICO VACIO");
+
+            RuleFor(producto => producto.PrecioMayoreo)
+                .NotEqual(0).WithMessage("NO DEBE DEJAR EL CAMPO DE PRECIO  MAYOREO VACIO");
+
+            RuleFor(producto => producto.PrecioMenudeo)
+                .NotEqual(0).WithMessage("NO DEBE DEJAR EL CAMPO DE PRECIO MENUDEO VACIO");
 
 
 
             RuleFor(producto => producto.Descripcion)
               .MaximumLength(300).WithMessage("LA DESCRIPCIÓN NO PUEDE SER MAYOR A 300 CARACTERES.");
 
-            RuleFor(producto => producto.PrecioPublico)
-              .NotEmpty()
-              .WithMessage("NO PUEDE DEJAR VACIO EL CAMPO DE PRECIO.");
-              
+
+
+
+            RuleFor(producto => producto.StockMax)
+              .Must((producto, x, context) =>
+              {
+                  if (producto.StockMax<=producto.StockMin)
+                  {
+                      if (producto.StockMin==0)
+                      {
+                          return true;
+                      }
+                      return false;
+                  }
+                  else
+                      return true;
+              }).WithMessage("EL STOCK MAXIMO DEBE SER MAYOR AL STOCK MINIMO.");
+
+
+
+
+
+
+
+
 
 
         }

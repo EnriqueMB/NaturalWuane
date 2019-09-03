@@ -46,7 +46,22 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             try
             {
                 this.Visible = false;
-                var HomeForm = new Form1();
+                var HomeForm = new FrmHome();
+                HomeForm.ShowDialog();
+                HomeForm.Dispose();
+                this.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private void AbrirFormHome2()
+        {
+            try
+            {
+                this.Visible = false;
+                var HomeForm = new FrmHomeD();
                 HomeForm.ShowDialog();
                 HomeForm.Dispose();
                 this.Visible = true;
@@ -154,7 +169,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                     if (x == 1)
                     {
                         GuardarSession();
-                        AbrirFormHome();
+                        AbrirFormHome2();
                         this.UserAccountControl.Text = string.Empty;
                         this.UserPasswordControl.Text = string.Empty;
                     }
@@ -176,5 +191,10 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             }
         }
         #endregion
+
+        private void LblCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
