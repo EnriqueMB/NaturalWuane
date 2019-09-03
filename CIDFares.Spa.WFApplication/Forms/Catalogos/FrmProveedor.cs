@@ -359,26 +359,41 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         private async void IdPaisControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-     
+            if (IdPaisControl.DataBindings["SelectedValue"] != null)
+            {
+                IdPaisControl.DataBindings["SelectedValue"].WriteValue();
+                var _ListaEstado = await Model.GetListaEstado();
+                Model.GetListaEstado(_ListaEstado);
+                IdEstadoControl.SelectedValue = 0;
+            }
+            /*
             if (IdPaisControl.SelectedValue != null)
             {
 
                 //await Model.LlenarListaEstado(Model.IdPais);
                 var _ListaEstado = await Model.GetListaEstado();
                 Model.GetListaEstado(_ListaEstado);
-            }
+            }*/
         }
        
         private async void IdEstadoControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
+                if (IdEstadoControl.DataBindings["SelectedValue"] != null)
+                {
+                    IdEstadoControl.DataBindings["SelectedValue"].WriteValue();
+                    var _ListaMunicipio = await Model.GetListaMunicipio();
+                    Model.GetListaMunicipio(_ListaMunicipio);
+                    IdMunicipioControl.SelectedValue = 0;
+                }
+            /*
                 if (IdEstadoControl.SelectedValue != null)
                 {
                     //await Model.LlenarListaMunicipio(Model.IdEstado);
                     var _ListaMunicipio = await Model.GetListaMunicipio();
                     Model.GetListaMunicipio(_ListaMunicipio);
-                }
+                }*/
             }
             catch (Exception ex)
             {
