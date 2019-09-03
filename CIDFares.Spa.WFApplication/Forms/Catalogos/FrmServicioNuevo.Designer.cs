@@ -38,6 +38,7 @@
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlIEPS = new System.Windows.Forms.Panel();
+            this.lblIEPS = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.IEPSControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.DescripcionControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.label4 = new System.Windows.Forms.Label();
             this.pnlDuracion = new System.Windows.Forms.Panel();
-            this.DuracionControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlPrecio = new System.Windows.Forms.Panel();
             this.PrecioControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
@@ -68,13 +68,12 @@
             this.pnlServicio = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.NombreControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.pnlFoto = new System.Windows.Forms.Panel();
+            this.FotoControl = new System.Windows.Forms.PictureBox();
+            this.BtnSeleccionar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.lblIEPS = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.pnlFoto = new System.Windows.Forms.Panel();
-            this.BtnSeleccionar = new System.Windows.Forms.Button();
-            this.FotoControl = new System.Windows.Forms.PictureBox();
+            this.DuracionControl = new System.Windows.Forms.DateTimePicker();
             this.pnlHeader.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.flButtons.SuspendLayout();
@@ -88,7 +87,6 @@
             this.pnlDesc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DescripcionControl)).BeginInit();
             this.pnlDuracion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DuracionControl)).BeginInit();
             this.pnlPrecio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PrecioControl)).BeginInit();
             this.pnlClave.SuspendLayout();
@@ -96,9 +94,9 @@
             this.pnlTipoServicio.SuspendLayout();
             this.pnlServicio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NombreControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.pnlFoto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -223,6 +221,16 @@
             this.pnlIEPS.TabIndex = 8;
             this.pnlIEPS.Visible = false;
             // 
+            // lblIEPS
+            // 
+            this.lblIEPS.AutoSize = true;
+            this.lblIEPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIEPS.Location = new System.Drawing.Point(14, 49);
+            this.lblIEPS.Name = "lblIEPS";
+            this.lblIEPS.Size = new System.Drawing.Size(24, 20);
+            this.lblIEPS.TabIndex = 11;
+            this.lblIEPS.Text = "%";
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -236,7 +244,7 @@
             // 
             // IEPSControl
             // 
-            this.IEPSControl.BeforeTouchSize = new System.Drawing.Size(396, 42);
+            this.IEPSControl.BeforeTouchSize = new System.Drawing.Size(215, 27);
             this.IEPSControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.IEPSControl.Location = new System.Drawing.Point(38, 45);
             this.IEPSControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
@@ -368,7 +376,7 @@
             // 
             // DescripcionControl
             // 
-            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(396, 42);
+            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(215, 27);
             this.DescripcionControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.DescripcionControl.Location = new System.Drawing.Point(11, 37);
             this.DescripcionControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
@@ -391,7 +399,6 @@
             // 
             // pnlDuracion
             // 
-            this.pnlDuracion.Controls.Add(this.label10);
             this.pnlDuracion.Controls.Add(this.DuracionControl);
             this.pnlDuracion.Controls.Add(this.label3);
             this.pnlDuracion.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -399,17 +406,6 @@
             this.pnlDuracion.Name = "pnlDuracion";
             this.pnlDuracion.Size = new System.Drawing.Size(262, 76);
             this.pnlDuracion.TabIndex = 4;
-            // 
-            // DuracionControl
-            // 
-            this.DuracionControl.BeforeTouchSize = new System.Drawing.Size(396, 42);
-            this.DuracionControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.DuracionControl.Location = new System.Drawing.Point(5, 37);
-            this.DuracionControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.DuracionControl.Multiline = true;
-            this.DuracionControl.Name = "DuracionControl";
-            this.DuracionControl.Size = new System.Drawing.Size(217, 27);
-            this.DuracionControl.TabIndex = 7;
             // 
             // label3
             // 
@@ -435,7 +431,7 @@
             // 
             // PrecioControl
             // 
-            this.PrecioControl.BeforeTouchSize = new System.Drawing.Size(396, 42);
+            this.PrecioControl.BeforeTouchSize = new System.Drawing.Size(215, 27);
             this.PrecioControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.PrecioControl.Location = new System.Drawing.Point(15, 37);
             this.PrecioControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
@@ -468,7 +464,7 @@
             // 
             // ClaveControl
             // 
-            this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(396, 42);
+            this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(215, 27);
             this.ClaveControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ClaveControl.Location = new System.Drawing.Point(11, 40);
             this.ClaveControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
@@ -543,7 +539,7 @@
             // 
             // NombreControl
             // 
-            this.NombreControl.BeforeTouchSize = new System.Drawing.Size(396, 42);
+            this.NombreControl.BeforeTouchSize = new System.Drawing.Size(215, 27);
             this.NombreControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.NombreControl.Location = new System.Drawing.Point(15, 43);
             this.NombreControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
@@ -551,31 +547,6 @@
             this.NombreControl.Name = "NombreControl";
             this.NombreControl.Size = new System.Drawing.Size(215, 27);
             this.NombreControl.TabIndex = 0;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // lblIEPS
-            // 
-            this.lblIEPS.AutoSize = true;
-            this.lblIEPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIEPS.Location = new System.Drawing.Point(14, 49);
-            this.lblIEPS.Name = "lblIEPS";
-            this.lblIEPS.Size = new System.Drawing.Size(24, 20);
-            this.lblIEPS.TabIndex = 11;
-            this.lblIEPS.Text = "%";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label10.Location = new System.Drawing.Point(105, 14);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 17);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "hh:mm:ss";
-            this.toolTip1.SetToolTip(this.label10, "Impuesto Especial sobre Producción y Servicios");
             // 
             // pnlFoto
             // 
@@ -586,6 +557,17 @@
             this.pnlFoto.Name = "pnlFoto";
             this.pnlFoto.Size = new System.Drawing.Size(276, 266);
             this.pnlFoto.TabIndex = 1;
+            // 
+            // FotoControl
+            // 
+            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FotoControl.Location = new System.Drawing.Point(4, 14);
+            this.FotoControl.Margin = new System.Windows.Forms.Padding(4);
+            this.FotoControl.Name = "FotoControl";
+            this.FotoControl.Size = new System.Drawing.Size(272, 152);
+            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.FotoControl.TabIndex = 45;
+            this.FotoControl.TabStop = false;
             // 
             // BtnSeleccionar
             // 
@@ -605,16 +587,20 @@
             this.BtnSeleccionar.UseVisualStyleBackColor = false;
             this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
             // 
-            // FotoControl
+            // errorProvider1
             // 
-            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FotoControl.Location = new System.Drawing.Point(4, 14);
-            this.FotoControl.Margin = new System.Windows.Forms.Padding(4);
-            this.FotoControl.Name = "FotoControl";
-            this.FotoControl.Size = new System.Drawing.Size(272, 152);
-            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.FotoControl.TabIndex = 45;
-            this.FotoControl.TabStop = false;
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // DuracionControl
+            // 
+            this.DuracionControl.CustomFormat = "HH:mm";
+            this.DuracionControl.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DuracionControl.Location = new System.Drawing.Point(69, 37);
+            this.DuracionControl.Name = "DuracionControl";
+            this.DuracionControl.ShowUpDown = true;
+            this.DuracionControl.Size = new System.Drawing.Size(102, 22);
+            this.DuracionControl.TabIndex = 7;
+            this.DuracionControl.ValueChanged += new System.EventHandler(this.DuracionControl_ValueChanged);
             // 
             // FrmServicioNuevo
             // 
@@ -649,7 +635,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DescripcionControl)).EndInit();
             this.pnlDuracion.ResumeLayout(false);
             this.pnlDuracion.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DuracionControl)).EndInit();
             this.pnlPrecio.ResumeLayout(false);
             this.pnlPrecio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PrecioControl)).EndInit();
@@ -661,9 +646,9 @@
             this.pnlServicio.ResumeLayout(false);
             this.pnlServicio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NombreControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.pnlFoto.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -702,7 +687,6 @@
         private System.Windows.Forms.ComboBox IdTipoServicioControl;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt IEPSControl;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt DescripcionControl;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt DuracionControl;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt PrecioControl;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt ClaveControl;
         private System.Windows.Forms.Label label8;
@@ -712,9 +696,9 @@
         private System.Windows.Forms.RadioButton rbPorcentajeControl;
         private System.Windows.Forms.RadioButton rbMontoControl;
         private System.Windows.Forms.Label lblIEPS;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel pnlFoto;
         private System.Windows.Forms.Button BtnSeleccionar;
         private System.Windows.Forms.PictureBox FotoControl;
+        private System.Windows.Forms.DateTimePicker DuracionControl;
     }
 }

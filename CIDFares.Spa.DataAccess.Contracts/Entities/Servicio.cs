@@ -27,7 +27,8 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public int Resultado { get; set; }
         public decimal Porcentaje100 { get; set; }
         //foto
-        public string Base64String { get; set; }
+        //public string Base64String { get; set; }
+        public string FotoBase64 { get; set; }
         public string UrlFoto { get; set; }
         public bool UpdateFoto { get; set; }   
         public decimal CantidadServicio { get; set; }

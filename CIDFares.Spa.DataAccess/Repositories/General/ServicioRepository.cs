@@ -58,13 +58,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        #endregion
-
-        public Task<Servicio> AddAsync(Servicio element)
-        {
-            throw new NotImplementedException();
-        }
-
+        #endregion        
           
         public async Task<Servicio> AddAsync(Servicio element, object IdUsuario)
         {
@@ -88,8 +82,9 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@iEPSMonto", element.IEPSMonto);
                     dynamicParameters.Add("@iEPS", element.IEPS);
                     dynamicParameters.Add("@user", IdUsuario);
-                    dynamicParameters.Add("@fotob64", element.Base64String);
-                    dynamicParameters.Add("@urlLocalImagen", element.UrlFoto);
+                    dynamicParameters.Add("@UpdateFoto", element.UpdateFoto);
+                    dynamicParameters.Add("@fotob64", element.FotoBase64);
+                    dynamicParameters.Add("@urlFoto", element.UrlFoto);
                     var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_AC_Servicio]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;
@@ -119,7 +114,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             {
                 throw ex;
             }
-        }
+        }        
 
         public Task<bool> ExistAsync(object id)
         {
@@ -155,7 +150,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         Item.AplicaIEPS = dr.GetBoolean(dr.GetOrdinal("AplicaIEPS"));
                         Item.IEPSMonto = dr.GetBoolean(dr.GetOrdinal("IEPSMonto"));
                         Item.IEPS = dr.GetDecimal(dr.GetOrdinal("IEPS"));
-                        Item.Base64String = dr.GetString(dr.GetOrdinal("FotoBase64"));
+                        Item.FotoBase64 = dr.GetString(dr.GetOrdinal("FotoBase64"));
                         Item.UrlFoto = dr.GetString(dr.GetOrdinal("UrlLocalImagen"));
                         Lista.Add(Item);
                     }
@@ -237,7 +232,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@iEPSMonto", element.IEPSMonto);
                     dynamicParameters.Add("@iEPS", element.IEPS);
                     dynamicParameters.Add("@user", IdUsuario);
-                    dynamicParameters.Add("@fotob64", element.Base64String);
+                    dynamicParameters.Add("@fotob64", element.FotoBase64);
                     dynamicParameters.Add("@urlLocalImagen", element.UrlFoto);
                     var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_AC_Servicio]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;

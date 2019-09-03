@@ -53,7 +53,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 ClaveControl.DataBindings.Add("Text", Model, "Clave", true, DataSourceUpdateMode.OnPropertyChanged);
                 NombreControl.DataBindings.Add("Text", Model, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
                 PrecioControl.DataBindings.Add("Text", Model, "Precio", true, DataSourceUpdateMode.OnPropertyChanged);
-                DuracionControl.DataBindings.Add("Text", Model, "Duracion", true, DataSourceUpdateMode.OnPropertyChanged);
+                //DuracionControl.DataBindings.Add("Text", Model, "Duracion", true, DataSourceUpdateMode.OnPropertyChanged);
                 DescripcionControl.DataBindings.Add("Text", Model, "Descripcion", true, DataSourceUpdateMode.OnPropertyChanged);                
                 AplicaIEPSControl.DataBindings.Add("Checked", Model, "AplicaIEPS", true, DataSourceUpdateMode.OnPropertyChanged);
                 IEPSMontoControl.DataBindings.Add("Checked", Model, "IEPSMonto", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -114,7 +114,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 Model.IEPS = infoServicio.IEPS;
                 Model.Porcentaje = infoServicio.Porcentaje;
                 this.lblTitle.Text = infoServicio.Nombre;
-                Model.Foto = (string.IsNullOrEmpty(infoServicio.Base64String)) ? null : infoServicio.Base64String.ImageBase64ToImage();
+                //Model.Foto = (string.IsNullOrEmpty(infoServicio.Base64String)) ? null : infoServicio.Base64String.ImageBase64ToImage();
                 //Model.Foto = infoServicio.Base64String;//(string.IsNullOrEmpty(infoServicio.Base64String)) ? null : infoServicio.Base64String.ImageBase64ToImage();
             }
             catch (Exception ex)
@@ -135,14 +135,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 if (Model.State == EntityState.Update)
                 {
                     CargarDatos();
-                    if (Model.Foto == null)
-                        Model.Foto = Properties.Resources.imagen_subir;
-                    await Task.Delay(2000);
+                    //if (Model.Foto == null)
+                    //    Model.Foto = Properties.Resources.imagen_subir;
+                    //await Task.Delay(2000);
                 }
-                else
-                {
-                    Model.Foto = Properties.Resources.imagen_subir;
-                }                
+                //else
+                //{
+                //    Model.Foto = Properties.Resources.imagen_subir;
+                //}                
             }
             catch (Exception ex)
             {
@@ -237,6 +237,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         private void rbMonto_CheckedChanged(object sender, EventArgs e)
         {
+            IEPSControl.Text = "0";
             if (rbMontoControl.Checked)
             {
                 IEPSMontoControl.Checked = true;
@@ -253,7 +254,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-
                 OpenFileDialog BuscarImagen = new OpenFileDialog();
                 BuscarImagen.Filter = "Image Files|*.png;*.jpg;*.bmp";
                 BuscarImagen.FileName = "";
@@ -261,27 +261,23 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 BuscarImagen.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures).ToString();
                 if (BuscarImagen.ShowDialog() == DialogResult.OK)
                 {
-                    Model.Foto = null;
                     Model.UpdateFoto = true;
-                    string ext = Path.GetExtension(BuscarImagen.FileName);
-                    Model.Extencion = Path.GetExtension(BuscarImagen.FileName);
-                    if (Model.Extencion == ".png")
-                        Model.Formato = ImageFormat.Png;
-                    else if (Model.Extencion == ".jpg")
-                        Model.Formato = ImageFormat.Jpeg;
-                    else if (Model.Extencion == ".bmp")
-                        Model.Formato = ImageFormat.Bmp;
-
-
                     Model.ImageLocation = BuscarImagen.FileName;
-                    Model.UrlFoto = BuscarImagen.FileName;
+                    var x = Model.Foto.VaryQualityLevel(35L);                    
+                    Model.Foto = x;
+                    Model.FotoBase64 = ((Image)x.Clone()).ToBase64String(x.RawFormat);
                 }
             }
             catch (Exception ex)
             {
-                ErrorLogHelper.AddExcFileTxt(ex, "FrmServicioNuevo ~ BtnSeleccionar_Click_1(object sender, EventArgs e)");
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmServicio ~ BtnSeleccionar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
+        }
+
+        private void DuracionControl_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
