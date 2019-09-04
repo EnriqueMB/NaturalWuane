@@ -81,7 +81,7 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.grpBoxFormaPago);
             this.panel1.Location = new System.Drawing.Point(582, 51);
@@ -187,8 +187,8 @@
             // 
             // pnlGrid
             // 
-            this.pnlGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.pnlGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlGrid.Controls.Add(this.GridFromaPago);
             this.pnlGrid.Location = new System.Drawing.Point(3, 51);
@@ -200,14 +200,19 @@
             // 
             this.GridFromaPago.AccessibleName = "Table";
             this.GridFromaPago.AllowGrouping = false;
+            this.GridFromaPago.AllowResizingColumns = true;
+            this.GridFromaPago.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
             gridTextColumn1.AllowGrouping = false;
+            gridTextColumn1.AllowResizing = true;
             gridTextColumn1.HeaderText = "Column1";
             gridTextColumn1.MappingName = "IdFormaPago";
             gridTextColumn1.Visible = false;
             gridTextColumn2.AllowGrouping = false;
+            gridTextColumn2.AllowResizing = true;
             gridTextColumn2.HeaderText = "Nombre";
             gridTextColumn2.MappingName = "Nombre";
             gridTextColumn3.AllowGrouping = false;
+            gridTextColumn3.AllowResizing = true;
             gridTextColumn3.HeaderText = "Descripción";
             gridTextColumn3.MappingName = "Descripcion";
             this.GridFromaPago.Columns.Add(gridTextColumn1);

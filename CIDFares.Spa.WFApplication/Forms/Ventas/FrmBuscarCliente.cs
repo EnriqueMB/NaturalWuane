@@ -134,5 +134,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 btnBuscar.PerformClick();
             }
         }
+
+        private void sfDataGridCliente_CellDoubleClick(object sender, Syncfusion.WinForms.DataGrid.Events.CellClickEventArgs e)
+        {
+            btnGuardar_Click(sender, e);
+        }
     }
 }
