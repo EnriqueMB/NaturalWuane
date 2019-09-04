@@ -1,4 +1,5 @@
-﻿using CIDFares.Library.Controls.CIDMessageBox.Code;
+﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Library.Controls.CIDWait.Code;
 using CIDFares.Spa.Business.ValueObjects;
@@ -22,7 +23,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         #region Propiedades
         public SucursalViewModel Model { get; set; }
         #endregion
-        public FrmSucursal(int IdSucursal)
+        public FrmSucursal(int? IdSucursal)
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<SucursalViewModel>();
@@ -59,6 +60,27 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         IdTipoSucursalControl.ValueMember = "IdTipoSucursal";
                         break;
                 }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        } 
+        private void LimpiarPropiedades()
+        {
+            try
+            {
+                Model.Nombre = string.Empty;
+                Model.Direccion = string.Empty;
+                Model.Telefono = string.Empty;
+                Model.CodigoPostal = string.Empty;
+                Model.NombreRepresentante = string.Empty;
+                Model.RegimenFiscal = string.Empty;
+                Model.Rfc = string.Empty;
+                Model.IdTipoSucursal = 0;
+                Model.IdPais = 0;
+                Model.IdEstado = 0;
+                Model.IdMunicipio = 0;
             }
             catch (Exception ex)
             {
@@ -124,16 +146,20 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
                     }, "Espere");
 
-                IniciarBinding();
-
                 if(Model.State == EntityState.Update)
                 {
                     CIDWait.Show(async () =>
                     {
                         await Model.GetSucursal();
                         lblSubtitle.Text = Model.Nombre;
+                        await Task.Delay(2000);
                     }, "Cargando sucursal");
                 }
+
+                IniciarBinding();
+                LimpiarPropiedades();
+                IdTipoSucursalControl.SelectedValue = 0;
+
             }
             catch (Exception ex)
             {
@@ -181,22 +207,98 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                var resultado = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
-                if(resultado.Result > 0)
+                btnGuardar.Enabled = false;
+                this.CleanErrors(errorProvider1, typeof(SucursalViewModel));
+                var ValidationsResult = Model.Validate();
+                if (ValidationsResult.IsValid)
                 {
-                    CIDMessageBox.ShowAlert(Constants.Messages.SystemName, Constants.Messages.SuccessMessage, TypeMessage.correcto);
-                    Close();
+                    var resultado = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
+                    if (resultado.Result > 0)
+                    {
+                        CIDMessageBox.ShowAlert(Constants.Messages.SystemName, Constants.Messages.SuccessMessage, TypeMessage.correcto);
+                        Close();
+                    }
                 }
+                else
+                    this.ShowErrors(errorProvider1, typeof(SucursalViewModel), ValidationsResult);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+            finally
+            {
+                btnGuardar.Enabled = true;
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            CIDMessageBox.ShowAlert(Constants.Messages.SystemName, Constants.Messages.ConfirmCancelInput, TypeMessage.correcto);
+            if (CIDMessageBox.ShowAlertRequest(Constants.Messages.SystemName, Constants.Messages.ConfirmCancelInput) == DialogResult.OK)
+                Close();
+        }
+
+        private void NombreControl_TextChanged(object sender, EventArgs e)
+        {
+            NombreControl.Text = NombreControl.Text.Replace("  ", " ");
+            NombreControl.Select(NombreControl.Text.Length, 0);
+        }
+
+        private void DireccionControl_TextChanged(object sender, EventArgs e)
+        {
+            DireccionControl.Text = DireccionControl.Text.Replace("  ", " ");
+            DireccionControl.Select(DireccionControl.Text.Length, 0);
+        }
+
+        private void TelefonoControl_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void TelefonoControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+                e.Handled = false;
+            else if (Char.IsLetter(e.KeyChar))
+                e.Handled = true;
+            else if (Char.IsPunctuation(e.KeyChar))
+                e.Handled = true;
+            else if (Char.IsSymbol(e.KeyChar))
+                e.Handled = true;
+            else if (Char.IsWhiteSpace(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void CodigoPostalControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+                e.Handled = false;
+            else if (Char.IsLetter(e.KeyChar))
+                e.Handled = true;
+            else if (Char.IsPunctuation(e.KeyChar))
+                e.Handled = true;
+            else if (Char.IsSymbol(e.KeyChar))
+                e.Handled = true;
+            else if (Char.IsWhiteSpace(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void RfcControl_TextChanged(object sender, EventArgs e)
+        {
+            RfcControl.Text = RfcControl.Text.Replace(" ", "");
+            RfcControl.Select(RfcControl.Text.Length, 0);
+        }
+
+        private void NombreRepresentanteControl_TextChanged(object sender, EventArgs e)
+        {
+            NombreRepresentanteControl.Text = NombreRepresentanteControl.Text.Replace("  ", " ");
+            NombreRepresentanteControl.Select(NombreRepresentanteControl.Text.Length, 0);
+        }
+
+        private void RegimenFiscalControl_TextChanged(object sender, EventArgs e)
+        {
+            RegimenFiscalControl.Text = RegimenFiscalControl.Text.Replace("  ", " ");
+            RegimenFiscalControl.Select(RegimenFiscalControl.Text.Length, 0);
         }
     }
 }

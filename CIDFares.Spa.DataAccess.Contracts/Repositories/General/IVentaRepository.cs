@@ -11,5 +11,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
     public interface IVentaRepository : IBaseRepository<Venta>
     {
         Task<string> GetFolio();
+        Task<Venta> AddWithIdSucursalAsync(Venta element, object IdUsuario, object IdSucursal);
     }
 }

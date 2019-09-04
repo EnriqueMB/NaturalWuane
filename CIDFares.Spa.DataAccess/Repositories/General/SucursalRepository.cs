@@ -170,7 +170,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@NuevoRegistro", 0);
-                    dynamicParameters.Add("@IdSucursal", 0);
+                    dynamicParameters.Add("@IdSucursal", element.IdSucursal);
                     dynamicParameters.Add("@IdTipoSucursal", element.IdTipoSucursal);
                     dynamicParameters.Add("@NombreSucursal", element.Nombre);
                     dynamicParameters.Add("@Direccion", element.Direccion);

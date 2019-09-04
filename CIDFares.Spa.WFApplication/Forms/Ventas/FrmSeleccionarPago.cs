@@ -127,7 +127,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                         if (Model.Efectivo >= EfectivoIngresado)
                         {
                             Model.TablaFormaPago = ObtenerDatosTabla(ListaFormaPago);
-                            Venta Resultado = await Model.GuardarVenta(CurrentSession.IdCuentaUsuario);
+                            Venta Resultado = await Model.GuardarVenta(CurrentSession.IdCuentaUsuario, CurrentSession.IdSucursal);
                             if (Resultado.Resultado == 1)
                             {
                                 pnlCambio.BringToFront();
