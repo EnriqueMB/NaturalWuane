@@ -27,6 +27,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@Subtotal", element.SubTotal);
                     dynamicParameters.Add("@Iva", element.PorcentajeIva);
                     dynamicParameters.Add("@Total", element.Total);
+                    dynamicParameters.Add("@Efectivo", element.Efectivo);
                     dynamicParameters.Add("@Pagado", 1);
                     dynamicParameters.Add("@IdCliente", element.ClienteVenta.IdCliente);
                     dynamicParameters.Add("@IdUsuario", IdUsuario);

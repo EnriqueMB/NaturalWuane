@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridCheckBoxColumn gridCheckBoxColumn2 = new Syncfusion.WinForms.DataGrid.GridCheckBoxColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo gridBordersInfo2 = new Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridCheckBoxColumn gridCheckBoxColumn1 = new Syncfusion.WinForms.DataGrid.GridCheckBoxColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo gridBordersInfo1 = new Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnlEfectivo = new System.Windows.Forms.Panel();
             this.EfectivoControl = new Syncfusion.Windows.Forms.Tools.CurrencyTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,8 +51,9 @@
             this.CambioControl = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ErrorControl = new System.Windows.Forms.Label();
             this.PanelPrincipal.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.pnlEfectivo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EfectivoControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridFormaPago)).BeginInit();
             this.panel3.SuspendLayout();
@@ -64,7 +65,8 @@
             // PanelPrincipal
             // 
             this.PanelPrincipal.BackColor = System.Drawing.Color.White;
-            this.PanelPrincipal.Controls.Add(this.panel4);
+            this.PanelPrincipal.Controls.Add(this.ErrorControl);
+            this.PanelPrincipal.Controls.Add(this.pnlEfectivo);
             this.PanelPrincipal.Controls.Add(this.GridFormaPago);
             this.PanelPrincipal.Controls.Add(this.panel3);
             this.PanelPrincipal.Controls.Add(this.panel1);
@@ -73,16 +75,16 @@
             this.PanelPrincipal.Size = new System.Drawing.Size(442, 536);
             this.PanelPrincipal.TabIndex = 0;
             // 
-            // panel4
+            // pnlEfectivo
             // 
-            this.panel4.Controls.Add(this.EfectivoControl);
-            this.panel4.Controls.Add(this.panel2);
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 373);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(442, 82);
-            this.panel4.TabIndex = 11;
+            this.pnlEfectivo.Controls.Add(this.EfectivoControl);
+            this.pnlEfectivo.Controls.Add(this.panel2);
+            this.pnlEfectivo.Controls.Add(this.label3);
+            this.pnlEfectivo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlEfectivo.Location = new System.Drawing.Point(0, 373);
+            this.pnlEfectivo.Name = "pnlEfectivo";
+            this.pnlEfectivo.Size = new System.Drawing.Size(442, 82);
+            this.pnlEfectivo.TabIndex = 11;
             // 
             // EfectivoControl
             // 
@@ -143,33 +145,33 @@
             // GridFormaPago
             // 
             this.GridFormaPago.AccessibleName = "Table";
-            gridTextColumn4.HeaderText = "Column1";
-            gridTextColumn4.MappingName = "IdFormaPago";
-            gridTextColumn4.Visible = false;
-            gridCheckBoxColumn2.AllowCheckBoxOnHeader = true;
-            gridCheckBoxColumn2.HeaderText = "Seleccionar";
-            gridCheckBoxColumn2.MappingName = "Seleccionar";
-            gridCheckBoxColumn2.Width = 30D;
-            gridTextColumn5.AllowEditing = false;
-            gridTextColumn5.AllowGrouping = false;
-            gridTextColumn5.HeaderText = "Formas de pago";
-            gridTextColumn5.MappingName = "Nombre";
-            gridTextColumn5.Width = 250D;
-            gridTextColumn6.Format = "C2";
-            gridTextColumn6.HeaderText = "Monto";
-            gridTextColumn6.MappingName = "Cantidad";
-            gridTextColumn6.Width = 80D;
-            this.GridFormaPago.Columns.Add(gridTextColumn4);
-            this.GridFormaPago.Columns.Add(gridCheckBoxColumn2);
-            this.GridFormaPago.Columns.Add(gridTextColumn5);
-            this.GridFormaPago.Columns.Add(gridTextColumn6);
+            gridTextColumn1.HeaderText = "Column1";
+            gridTextColumn1.MappingName = "IdFormaPago";
+            gridTextColumn1.Visible = false;
+            gridCheckBoxColumn1.AllowCheckBoxOnHeader = true;
+            gridCheckBoxColumn1.HeaderText = "Seleccionar";
+            gridCheckBoxColumn1.MappingName = "Seleccionar";
+            gridCheckBoxColumn1.Width = 30D;
+            gridTextColumn2.AllowEditing = false;
+            gridTextColumn2.AllowGrouping = false;
+            gridTextColumn2.HeaderText = "Formas de pago";
+            gridTextColumn2.MappingName = "Nombre";
+            gridTextColumn2.Width = 250D;
+            gridTextColumn3.Format = "C2";
+            gridTextColumn3.HeaderText = "Monto";
+            gridTextColumn3.MappingName = "Cantidad";
+            gridTextColumn3.Width = 80D;
+            this.GridFormaPago.Columns.Add(gridTextColumn1);
+            this.GridFormaPago.Columns.Add(gridCheckBoxColumn1);
+            this.GridFormaPago.Columns.Add(gridTextColumn2);
+            this.GridFormaPago.Columns.Add(gridTextColumn3);
             this.GridFormaPago.Location = new System.Drawing.Point(35, 157);
             this.GridFormaPago.Name = "GridFormaPago";
             this.GridFormaPago.SelectionMode = Syncfusion.WinForms.DataGrid.Enums.GridSelectionMode.Extended;
             this.GridFormaPago.SelectionUnit = Syncfusion.WinForms.DataGrid.Enums.SelectionUnit.Cell;
             this.GridFormaPago.Size = new System.Drawing.Size(364, 207);
-            gridBordersInfo2.Bottom = new Syncfusion.WinForms.DataGrid.Styles.GridBorder(Syncfusion.WinForms.DataGrid.Styles.GridBorderStyle.Standard, System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204))))));
-            this.GridFormaPago.Style.AddNewRowStyle.Borders = gridBordersInfo2;
+            gridBordersInfo1.Bottom = new Syncfusion.WinForms.DataGrid.Styles.GridBorder(Syncfusion.WinForms.DataGrid.Styles.GridBorderStyle.Standard, System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204))))));
+            this.GridFormaPago.Style.AddNewRowStyle.Borders = gridBordersInfo1;
             this.GridFormaPago.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GridFormaPago.Style.CellStyle.Font.Facename = "Century Gothic";
             this.GridFormaPago.Style.CellStyle.Font.Size = 11F;
@@ -183,6 +185,7 @@
             this.GridFormaPago.TabIndex = 7;
             this.GridFormaPago.Text = "sfDataGrid1";
             this.GridFormaPago.CurrentCellEndEdit += new Syncfusion.WinForms.DataGrid.Events.CurrentCellEndEditEventHandler(this.GridFormaPago_CurrentCellEndEdit);
+            this.GridFormaPago.CellCheckBoxClick += new Syncfusion.WinForms.DataGrid.Events.CellCheckBoxClickEventHandler(this.GridFormaPago_CellCheckBoxClick);
             this.GridFormaPago.TextChanged += new System.EventHandler(this.GridFormaPago_TextChanged);
             // 
             // panel3
@@ -314,6 +317,14 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // ErrorControl
+            // 
+            this.ErrorControl.AutoSize = true;
+            this.ErrorControl.Location = new System.Drawing.Point(401, 163);
+            this.ErrorControl.Name = "ErrorControl";
+            this.ErrorControl.Size = new System.Drawing.Size(0, 13);
+            this.ErrorControl.TabIndex = 12;
+            // 
             // FrmSeleccionarPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,8 +337,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmSeleccionarPago_Load);
             this.PanelPrincipal.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.PanelPrincipal.PerformLayout();
+            this.pnlEfectivo.ResumeLayout(false);
+            this.pnlEfectivo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EfectivoControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridFormaPago)).EndInit();
             this.panel3.ResumeLayout(false);
@@ -349,7 +361,7 @@
         private System.Windows.Forms.Panel panel1;
         private Syncfusion.WinForms.DataGrid.SfDataGrid GridFormaPago;
         private System.Windows.Forms.Label TotalControl;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pnlEfectivo;
         private Syncfusion.Windows.Forms.Tools.CurrencyTextBox EfectivoControl;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
@@ -359,5 +371,6 @@
         private System.Windows.Forms.Label CambioControl;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label ErrorControl;
     }
 }

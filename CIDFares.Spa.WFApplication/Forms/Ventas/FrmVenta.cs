@@ -477,24 +477,28 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             }
         }
 
-        //CALCULO DE EL IEPS
-        //public decimal DesglosaIeps(out decimal PrecioSinIvaSinIeps)
-        //{
-        //    decimal PrecioSinIva = Precio / (1 + PorcentajeIva / 100);
-        //    decimal MontoIeps = 0m;
-        //    PrecioSinIvaSinIeps = 0m;
-        //    if (EsMontoIeps)
-        //    {
-        //        MontoIeps = Ieps;
-        //        PrecioSinIvaSinIeps = Math.Round(PrecioSinIva - MontoIeps, 2);
-        //    }
-        //    else
-        //    {
-        //        PrecioSinIvaSinIeps = Math.Round(PrecioSinIva / (1 + Ieps / 100), 2);
-        //        MontoIeps = Math.Round(PrecioSinIvaSinIeps * Ieps / 100, 2);
-        //    }
-        //    return MontoIeps;
-        //}
-        //FIN DEL METODO DE IEPS
-    }
+        private void btnMas_Click(object sender, EventArgs e)
+        {
+            
+        }
+            //CALCULO DE EL IEPS
+            //public decimal DesglosaIeps(out decimal PrecioSinIvaSinIeps)
+            //{
+            //    decimal PrecioSinIva = Precio / (1 + PorcentajeIva / 100);
+            //    decimal MontoIeps = 0m;
+            //    PrecioSinIvaSinIeps = 0m;
+            //    if (EsMontoIeps)
+            //    {
+            //        MontoIeps = Ieps;
+            //        PrecioSinIvaSinIeps = Math.Round(PrecioSinIva - MontoIeps, 2);
+            //    }
+            //    else
+            //    {
+            //        PrecioSinIvaSinIeps = Math.Round(PrecioSinIva / (1 + Ieps / 100), 2);
+            //        MontoIeps = Math.Round(PrecioSinIvaSinIeps * Ieps / 100, 2);
+            //    }
+            //    return MontoIeps;
+            //}
+            //FIN DEL METODO DE IEPS
+        }
 }

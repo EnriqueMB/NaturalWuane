@@ -185,6 +185,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 Folio = this.Folio,
                 SubTotal = this.SubTotal,
                 Total = this.Total,
+                Efectivo = this.Efectivo,
                 PorcentajeIva = this.Iva,
                 TablaProducto = TablaProducto,
                 TablaFormaPago = TablaFormaPago,

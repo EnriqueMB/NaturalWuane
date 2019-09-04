@@ -33,5 +33,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
 
         public int Resultado { get; set; }
         public string Folio { get; set; }
+        public decimal Efectivo { get; set; }
     }
 }

@@ -101,7 +101,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             Tabla.Columns.Add("Cantidad", typeof(decimal));
             foreach (var item in Lista)
             {
-                if (item.Seleccionar == true)
+                if (item.Seleccionar == true && item.Cantidad > 0)
                 {
                     Tabla.Rows.Add(new object[] { item.IdFormaPago, item.Cantidad});
                 }
@@ -114,32 +114,37 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
 
             try
             {
+                BindingList<FormaPago> ListaFormaPago = (BindingList<FormaPago>)GridFormaPago.DataSource;
                 this.CleanErrors(errorProvider1, typeof(VentasViewModel));
                 TotalVenta();
-                if (TotalFormaPago == Model.Total)
+                if (ValidarPagos(ListaFormaPago))
                 {
-                    
-                    BindingList<FormaPago> ListaFormaPago = (BindingList<FormaPago>)GridFormaPago.DataSource;
-                    decimal EfectivoIngresado = ObtenerEfectivo(ListaFormaPago);
-                    if (Model.Efectivo >= EfectivoIngresado)
+                    if (TotalFormaPago == Model.Total)
                     {
-                        Model.TablaFormaPago = ObtenerDatosTabla(ListaFormaPago);
-                        Venta Resultado = await Model.GuardarVenta(CurrentSession.IdCuentaUsuario);
-                        if (Resultado.Resultado == 1)
+
+                        
+                        decimal EfectivoIngresado = ObtenerEfectivo(ListaFormaPago);
+                        if (Model.Efectivo >= EfectivoIngresado)
                         {
-                            pnlCambio.BringToFront();
-                            CambioControl.Text = (Model.Efectivo - EfectivoIngresado).ToString("C2");
-                            this.resultado = true;
+                            Model.TablaFormaPago = ObtenerDatosTabla(ListaFormaPago);
+                            Venta Resultado = await Model.GuardarVenta(CurrentSession.IdCuentaUsuario);
+                            if (Resultado.Resultado == 1)
+                            {
+                                pnlCambio.BringToFront();
+                                CambioControl.Text = (Model.Efectivo - EfectivoIngresado).ToString("C2");
+                                this.resultado = true;
+                            }
+                            else
+                                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
                         }
                         else
-                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+                            errorProvider1.SetError(EfectivoControl, "Debe ingresar mas efectivo");
                     }
                     else
-                        errorProvider1.SetError(EfectivoControl, "Debe ingresar mas efectivo");
+                        errorProvider1.SetError(ErrorControl, "La suma de las cantidades debe ser igua al total");
                 }
                 else
-                    errorProvider1.SetError(GridFormaPago, "La suma de las cantidades debe ser igua al total");
-
+                errorProvider1.SetError(ErrorControl, "Agregue al menos una forma de pago");
             }
             catch (Exception)
             {
@@ -149,6 +154,25 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
 
             
             //this.Close();
+        }
+
+        private bool ValidarPagos(BindingList<FormaPago> ListaFormaPago)
+        {
+            bool res;
+            int i = 0;
+            foreach (var item in ListaFormaPago)
+            {
+                if (item.Seleccionar == true)
+                {
+                    i++;
+                    res = true;
+                }
+            }
+            if (i == 0)
+                res = false;
+            else
+                res = true;
+            return res;
         }
 
         private decimal ObtenerEfectivo(BindingList<FormaPago> ListaFormaPago)
@@ -163,6 +187,20 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             }
             return EfectivoIngresado;
         }
+        
+        private bool RequiereEfectivo(BindingList<FormaPago> ListaFormaPago)
+        {
+            
+            foreach (var item in ListaFormaPago)
+            {
+                if (item.Nombre == "Efectivo" && item.Cantidad == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
 
         private void pnlCambio_Paint(object sender, PaintEventArgs e)
         {
@@ -198,17 +236,23 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             if (x.Count > 0)
             {
                 this.GridFormaPago.Refresh();
-                
             }
 
-            //var x = Model.ListaFormaPago.Where(p => p.Nombre == "Efectivo").Select(u => {
-            //    u.Cantidad = Model.ListaFormaPago.; return u;
-            //}).ToList();
-            //if (x.Count > 0)
-            //{
-            //    this.GridFormaPago.Refresh();
-            //    TotalVenta();
-            //}
+            var y = Model.ListaFormaPago.Where(p => p.Cantidad <= 0).Select(u => {
+                u.Seleccionar = false; return u;
+            }).ToList();
+            if (y.Count > 0)
+            {
+                this.GridFormaPago.Refresh();
+            }
+            
+            BindingList<FormaPago> ListaFormaPago = (BindingList<FormaPago>)GridFormaPago.DataSource;
+            if (RequiereEfectivo(ListaFormaPago))
+                pnlEfectivo.Visible = true;
+            else
+                pnlEfectivo.Visible = false;
+
+
         }
 
         public void TotalVenta()
@@ -221,6 +265,20 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             {
                 throw ex;
             }
+        }
+
+        private void GridFormaPago_CellCheckBoxClick(object sender, Syncfusion.WinForms.DataGrid.Events.CellCheckBoxClickEventArgs e)
+        {
+        //    BindingList<FormaPago> ListaFormaPago = (BindingList<FormaPago>)GridFormaPago.DataSource;
+
+        //    var z = Model.ListaFormaPago.Where(p => p.Seleccionar == false).Select(u => {
+        //        u.Cantidad = 0; return u;
+        //    }).ToList();
+        //    if (z.Count > 0)
+        //    {
+        //        this.GridFormaPago.Refresh();
+        //    }
+            
         }
     }
 }

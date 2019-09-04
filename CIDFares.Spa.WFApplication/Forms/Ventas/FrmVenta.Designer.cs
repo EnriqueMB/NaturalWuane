@@ -29,21 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.btnTotal = new System.Windows.Forms.Button();
-            this.btnMas = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.pnlGeneral = new System.Windows.Forms.Panel();
             this.pnlAcciones = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnMenos = new System.Windows.Forms.Button();
             this.PnlVentas = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pnlGrid = new System.Windows.Forms.Panel();
@@ -57,6 +55,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.SubtotalControl = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.pnlFecha = new System.Windows.Forms.Panel();
+            this.FechaControl = new System.Windows.Forms.Label();
             this.FolioVentaControl = new System.Windows.Forms.Label();
             this.lblVenta = new System.Windows.Forms.Label();
             this.pnlCliente = new System.Windows.Forms.Panel();
@@ -79,8 +79,6 @@
             this.btnProducto = new System.Windows.Forms.Button();
             this.PnlVentaGrid = new System.Windows.Forms.Panel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.FechaControl = new System.Windows.Forms.Label();
-            this.pnlFecha = new System.Windows.Forms.Panel();
             this.pnlGeneral.SuspendLayout();
             this.pnlAcciones.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -91,6 +89,7 @@
             this.pnlTotalesGeneral.SuspendLayout();
             this.pnlTotales.SuspendLayout();
             this.pnlHeader.SuspendLayout();
+            this.pnlFecha.SuspendLayout();
             this.pnlCliente.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
@@ -99,7 +98,6 @@
             this.pnlBotonCobrar.SuspendLayout();
             this.pnlBotonesGenerales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.pnlFecha.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTotal
@@ -117,18 +115,6 @@
             this.btnTotal.Text = "Cobrar ";
             this.btnTotal.UseVisualStyleBackColor = false;
             this.btnTotal.Click += new System.EventHandler(this.btnTotal_Click);
-            // 
-            // btnMas
-            // 
-            this.btnMas.FlatAppearance.BorderSize = 0;
-            this.btnMas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMas.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMas.Location = new System.Drawing.Point(2, 161);
-            this.btnMas.Name = "btnMas";
-            this.btnMas.Size = new System.Drawing.Size(126, 52);
-            this.btnMas.TabIndex = 3;
-            this.btnMas.Text = "+";
-            this.btnMas.UseVisualStyleBackColor = true;
             // 
             // btnEliminar
             // 
@@ -170,8 +156,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnMenos);
-            this.groupBox2.Controls.Add(this.btnMas);
             this.groupBox2.Controls.Add(this.btnEliminar);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -181,18 +165,6 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones";
-            // 
-            // btnMenos
-            // 
-            this.btnMenos.FlatAppearance.BorderSize = 0;
-            this.btnMenos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenos.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenos.Location = new System.Drawing.Point(2, 103);
-            this.btnMenos.Name = "btnMenos";
-            this.btnMenos.Size = new System.Drawing.Size(126, 52);
-            this.btnMenos.TabIndex = 2;
-            this.btnMenos.Text = "-";
-            this.btnMenos.UseVisualStyleBackColor = true;
             // 
             // PnlVentas
             // 
@@ -235,44 +207,44 @@
             this.sfDataGridVenta.AccessibleName = "Table";
             this.sfDataGridVenta.AllowEditing = false;
             this.sfDataGridVenta.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn9.AllowEditing = false;
-            gridTextColumn9.HeaderText = "ID";
-            gridTextColumn9.MappingName = "IdGenerico";
-            gridTextColumn9.Visible = false;
-            gridTextColumn10.AllowEditing = false;
-            gridTextColumn10.HeaderText = "Nombre";
-            gridTextColumn10.MappingName = "Nombre";
-            gridTextColumn11.AllowEditing = false;
-            gridTextColumn11.HeaderText = "Cantidad";
-            gridTextColumn11.MappingName = "Cantidad";
-            gridTextColumn12.AllowEditing = false;
-            gridTextColumn12.Format = "c2";
-            gridTextColumn12.HeaderText = "Precio";
-            gridTextColumn12.MappingName = "Precio";
-            gridTextColumn13.AllowEditing = false;
-            gridTextColumn13.Format = "c2";
-            gridTextColumn13.HeaderText = "SubTotal";
-            gridTextColumn13.MappingName = "SubTotal";
-            gridTextColumn14.AllowEditing = false;
-            gridTextColumn14.Format = "c2";
-            gridTextColumn14.HeaderText = "Iva";
-            gridTextColumn14.MappingName = "PorcentajeIva";
-            gridTextColumn15.AllowEditing = false;
-            gridTextColumn15.Format = "c2";
-            gridTextColumn15.HeaderText = "Total";
-            gridTextColumn15.MappingName = "Total";
-            gridTextColumn16.AllowEditing = false;
-            gridTextColumn16.HeaderText = "Tipo";
-            gridTextColumn16.MappingName = "IdTipo";
-            gridTextColumn16.Visible = false;
-            this.sfDataGridVenta.Columns.Add(gridTextColumn9);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn10);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn11);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn12);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn13);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn14);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn15);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn16);
+            gridTextColumn1.AllowEditing = false;
+            gridTextColumn1.HeaderText = "ID";
+            gridTextColumn1.MappingName = "IdGenerico";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.AllowEditing = false;
+            gridTextColumn2.HeaderText = "Nombre";
+            gridTextColumn2.MappingName = "Nombre";
+            gridTextColumn3.AllowEditing = false;
+            gridTextColumn3.HeaderText = "Cantidad";
+            gridTextColumn3.MappingName = "Cantidad";
+            gridTextColumn4.AllowEditing = false;
+            gridTextColumn4.Format = "c2";
+            gridTextColumn4.HeaderText = "Precio";
+            gridTextColumn4.MappingName = "Precio";
+            gridTextColumn5.AllowEditing = false;
+            gridTextColumn5.Format = "c2";
+            gridTextColumn5.HeaderText = "SubTotal";
+            gridTextColumn5.MappingName = "SubTotal";
+            gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.Format = "c2";
+            gridTextColumn6.HeaderText = "Iva";
+            gridTextColumn6.MappingName = "PorcentajeIva";
+            gridTextColumn7.AllowEditing = false;
+            gridTextColumn7.Format = "c2";
+            gridTextColumn7.HeaderText = "Total";
+            gridTextColumn7.MappingName = "Total";
+            gridTextColumn8.AllowEditing = false;
+            gridTextColumn8.HeaderText = "Tipo";
+            gridTextColumn8.MappingName = "IdTipo";
+            gridTextColumn8.Visible = false;
+            this.sfDataGridVenta.Columns.Add(gridTextColumn1);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn2);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn3);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn4);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn5);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn6);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn7);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn8);
             this.sfDataGridVenta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridVenta.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridVenta.Name = "sfDataGridVenta";
@@ -372,6 +344,27 @@
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(645, 39);
             this.pnlHeader.TabIndex = 1;
+            // 
+            // pnlFecha
+            // 
+            this.pnlFecha.Controls.Add(this.FechaControl);
+            this.pnlFecha.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlFecha.Location = new System.Drawing.Point(445, 0);
+            this.pnlFecha.Name = "pnlFecha";
+            this.pnlFecha.Size = new System.Drawing.Size(200, 39);
+            this.pnlFecha.TabIndex = 4;
+            // 
+            // FechaControl
+            // 
+            this.FechaControl.AutoSize = true;
+            this.FechaControl.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FechaControl.ForeColor = System.Drawing.Color.Red;
+            this.FechaControl.Location = new System.Drawing.Point(110, 8);
+            this.FechaControl.Name = "FechaControl";
+            this.FechaControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.FechaControl.Size = new System.Drawing.Size(87, 20);
+            this.FechaControl.TabIndex = 2;
+            this.FechaControl.Text = "26/08/2019";
             // 
             // FolioVentaControl
             // 
@@ -595,27 +588,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // FechaControl
-            // 
-            this.FechaControl.AutoSize = true;
-            this.FechaControl.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FechaControl.ForeColor = System.Drawing.Color.Red;
-            this.FechaControl.Location = new System.Drawing.Point(110, 8);
-            this.FechaControl.Name = "FechaControl";
-            this.FechaControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.FechaControl.Size = new System.Drawing.Size(87, 20);
-            this.FechaControl.TabIndex = 2;
-            this.FechaControl.Text = "26/08/2019";
-            // 
-            // pnlFecha
-            // 
-            this.pnlFecha.Controls.Add(this.FechaControl);
-            this.pnlFecha.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlFecha.Location = new System.Drawing.Point(445, 0);
-            this.pnlFecha.Name = "pnlFecha";
-            this.pnlFecha.Size = new System.Drawing.Size(200, 39);
-            this.pnlFecha.TabIndex = 4;
-            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -638,6 +610,8 @@
             this.pnlTotales.PerformLayout();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            this.pnlFecha.ResumeLayout(false);
+            this.pnlFecha.PerformLayout();
             this.pnlCliente.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -647,8 +621,6 @@
             this.pnlBotonCobrar.ResumeLayout(false);
             this.pnlBotonesGenerales.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.pnlFecha.ResumeLayout(false);
-            this.pnlFecha.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -656,7 +628,6 @@
         #endregion
         private System.Windows.Forms.Panel pnlGeneral;
         private System.Windows.Forms.Panel PnlVentaGrid;
-        private System.Windows.Forms.Button btnMas;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnTotal;
         private System.Windows.Forms.Panel pnlBotonesGenerales;
@@ -668,7 +639,6 @@
         private System.Windows.Forms.Panel pnlFooter;
         private System.Windows.Forms.Panel pnlAcciones;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnMenos;
         private System.Windows.Forms.Panel PnlVentas;
         private System.Windows.Forms.GroupBox groupBox3;
         private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGridVenta;
