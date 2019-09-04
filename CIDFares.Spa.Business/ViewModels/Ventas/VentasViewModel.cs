@@ -177,7 +177,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public async Task<Venta> GuardarVenta(Guid idCuentaUsuario)
+        public async Task<Venta> GuardarVenta(Guid idCuentaUsuario, int IdSucursal)
         {
             Venta model = new Venta
             {
@@ -191,7 +191,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 TablaFormaPago = TablaFormaPago,
                 TablaServicio = TablaServicio
             };
-            return await Repository.AddAsync(model, idCuentaUsuario);
+            return await Repository.AddWithIdSucursalAsync(model, idCuentaUsuario, IdSucursal);
         }
         #endregion
     }

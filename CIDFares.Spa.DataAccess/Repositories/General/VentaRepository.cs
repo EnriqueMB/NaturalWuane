@@ -42,6 +42,37 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
+        public async Task<Venta> AddWithIdSucursalAsync(Venta element, object IdUsuario, object IdSucursal)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@TablaFormaPago", element.TablaFormaPago, DbType.Object);
+                    dynamicParameters.Add("@TablaProducto", element.TablaProducto, DbType.Object);
+                    dynamicParameters.Add("@TablaServicio", element.TablaServicio, DbType.Object);
+                    dynamicParameters.Add("@Folio", element.Folio);
+                    dynamicParameters.Add("@Subtotal", element.SubTotal);
+                    dynamicParameters.Add("@Iva", element.PorcentajeIva);
+                    dynamicParameters.Add("@Total", element.Total);
+                    dynamicParameters.Add("@Efectivo", element.Efectivo);
+                    dynamicParameters.Add("@Pagado", 1);
+                    dynamicParameters.Add("@IdCliente", element.ClienteVenta.IdCliente);
+                    dynamicParameters.Add("@IdUsuario", IdUsuario);
+                    dynamicParameters.Add("@IdSucursal", IdSucursal);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Venta].[spCID_A_Venta]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    element.Resultado = result;
+                    return element;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<string> GetFolio()
         {
             try
