@@ -25,5 +25,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.DTOs.Requests
 
         public int IdTurnoEmpleado { get; set; }
 
+        public int IdSucursal { get; set; }
+
     }
 }

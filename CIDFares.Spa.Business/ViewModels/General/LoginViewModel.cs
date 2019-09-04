@@ -88,6 +88,5 @@ namespace CIDFares.Spa.Business.ViewModels.General
             }
         }
         #endregion
-
     }
 }

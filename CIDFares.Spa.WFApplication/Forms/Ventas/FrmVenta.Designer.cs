@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
@@ -37,12 +38,10 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.btnTotal = new System.Windows.Forms.Button();
-            this.btnMas = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.pnlGeneral = new System.Windows.Forms.Panel();
             this.pnlAcciones = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnMenos = new System.Windows.Forms.Button();
             this.PnlVentas = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pnlGrid = new System.Windows.Forms.Panel();
@@ -63,8 +62,7 @@
             this.pnlCliente = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.FotoControl = new System.Windows.Forms.PictureBox();
-            this.ClaveControl = new System.Windows.Forms.Label();
-            this.FolioControl = new System.Windows.Forms.Label();
+            this.FolioClienteControl = new System.Windows.Forms.Label();
             this.DireccionControl = new System.Windows.Forms.Label();
             this.TelefonoControl = new System.Windows.Forms.Label();
             this.lblForFolio = new System.Windows.Forms.Label();
@@ -80,6 +78,7 @@
             this.btnServicio = new System.Windows.Forms.Button();
             this.btnProducto = new System.Windows.Forms.Button();
             this.PnlVentaGrid = new System.Windows.Forms.Panel();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlGeneral.SuspendLayout();
             this.pnlAcciones.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -98,6 +97,7 @@
             this.pnlFooterLeft.SuspendLayout();
             this.pnlBotonCobrar.SuspendLayout();
             this.pnlBotonesGenerales.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnTotal
@@ -114,18 +114,7 @@
             this.btnTotal.TabIndex = 0;
             this.btnTotal.Text = "Cobrar ";
             this.btnTotal.UseVisualStyleBackColor = false;
-            // 
-            // btnMas
-            // 
-            this.btnMas.FlatAppearance.BorderSize = 0;
-            this.btnMas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMas.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMas.Location = new System.Drawing.Point(2, 161);
-            this.btnMas.Name = "btnMas";
-            this.btnMas.Size = new System.Drawing.Size(126, 52);
-            this.btnMas.TabIndex = 3;
-            this.btnMas.Text = "+";
-            this.btnMas.UseVisualStyleBackColor = true;
+            this.btnTotal.Click += new System.EventHandler(this.btnTotal_Click);
             // 
             // btnEliminar
             // 
@@ -167,8 +156,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnMenos);
-            this.groupBox2.Controls.Add(this.btnMas);
             this.groupBox2.Controls.Add(this.btnEliminar);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -178,18 +165,6 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones";
-            // 
-            // btnMenos
-            // 
-            this.btnMenos.FlatAppearance.BorderSize = 0;
-            this.btnMenos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenos.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenos.Location = new System.Drawing.Point(2, 103);
-            this.btnMenos.Name = "btnMenos";
-            this.btnMenos.Size = new System.Drawing.Size(126, 52);
-            this.btnMenos.TabIndex = 2;
-            this.btnMenos.Text = "-";
-            this.btnMenos.UseVisualStyleBackColor = true;
             // 
             // PnlVentas
             // 
@@ -422,8 +397,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.FotoControl);
-            this.groupBox1.Controls.Add(this.ClaveControl);
-            this.groupBox1.Controls.Add(this.FolioControl);
+            this.groupBox1.Controls.Add(this.FolioClienteControl);
             this.groupBox1.Controls.Add(this.DireccionControl);
             this.groupBox1.Controls.Add(this.TelefonoControl);
             this.groupBox1.Controls.Add(this.lblForFolio);
@@ -448,21 +422,13 @@
             this.FotoControl.TabIndex = 7;
             this.FotoControl.TabStop = false;
             // 
-            // ClaveControl
+            // FolioClienteControl
             // 
-            this.ClaveControl.AutoSize = true;
-            this.ClaveControl.Location = new System.Drawing.Point(61, 30);
-            this.ClaveControl.Name = "ClaveControl";
-            this.ClaveControl.Size = new System.Drawing.Size(0, 20);
-            this.ClaveControl.TabIndex = 6;
-            // 
-            // FolioControl
-            // 
-            this.FolioControl.AutoSize = true;
-            this.FolioControl.Location = new System.Drawing.Point(55, 62);
-            this.FolioControl.Name = "FolioControl";
-            this.FolioControl.Size = new System.Drawing.Size(0, 20);
-            this.FolioControl.TabIndex = 5;
+            this.FolioClienteControl.AutoSize = true;
+            this.FolioClienteControl.Location = new System.Drawing.Point(61, 30);
+            this.FolioClienteControl.Name = "FolioClienteControl";
+            this.FolioClienteControl.Size = new System.Drawing.Size(0, 20);
+            this.FolioClienteControl.TabIndex = 6;
             // 
             // DireccionControl
             // 
@@ -618,6 +584,10 @@
             this.PnlVentaGrid.Size = new System.Drawing.Size(1012, 52);
             this.PnlVentaGrid.TabIndex = 0;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -650,6 +620,7 @@
             this.pnlFooterLeft.ResumeLayout(false);
             this.pnlBotonCobrar.ResumeLayout(false);
             this.pnlBotonesGenerales.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -657,7 +628,6 @@
         #endregion
         private System.Windows.Forms.Panel pnlGeneral;
         private System.Windows.Forms.Panel PnlVentaGrid;
-        private System.Windows.Forms.Button btnMas;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnTotal;
         private System.Windows.Forms.Panel pnlBotonesGenerales;
@@ -669,7 +639,6 @@
         private System.Windows.Forms.Panel pnlFooter;
         private System.Windows.Forms.Panel pnlAcciones;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnMenos;
         private System.Windows.Forms.Panel PnlVentas;
         private System.Windows.Forms.GroupBox groupBox3;
         private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGridVenta;
@@ -684,11 +653,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label FechaControl;
         private System.Windows.Forms.Label FolioVentaControl;
         private System.Windows.Forms.Label lblVenta;
         private System.Windows.Forms.Panel pnlTotales;
-        private System.Windows.Forms.Panel pnlFecha;
         private System.Windows.Forms.Panel pnlFooterLeft;
         private System.Windows.Forms.Panel pnlBotonCobrar;
         private System.Windows.Forms.Panel pnlFooterRight;
@@ -696,8 +663,10 @@
         private System.Windows.Forms.Label lblForFolio;
         private System.Windows.Forms.Label NombreControl;
         private System.Windows.Forms.Label DireccionControl;
-        private System.Windows.Forms.Label FolioControl;
-        private System.Windows.Forms.Label ClaveControl;
+        private System.Windows.Forms.Label FolioClienteControl;
         private System.Windows.Forms.PictureBox FotoControl;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Panel pnlFecha;
+        private System.Windows.Forms.Label FechaControl;
     }
 }

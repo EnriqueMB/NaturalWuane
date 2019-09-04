@@ -13,5 +13,7 @@ namespace CIDFares.Spa.WFApplication.Session
         public static string Nombres { get; set; }
 
         public static int IdTurnoEmpleado { get; set; }
+
+        public static int IdSucursal { get; set; }
     }
 }
