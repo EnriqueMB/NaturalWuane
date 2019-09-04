@@ -37,6 +37,11 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 ListaFormaPago.Clear();
                 foreach (var item in x)
                 {
+                    if(item.Nombre == "Efectivo")
+                    {
+                        item.Seleccionar = true;
+                        item.Cantidad = 300;
+                    }
                     ListaFormaPago.Add(item);
                 }
             }

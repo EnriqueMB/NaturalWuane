@@ -42,7 +42,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             {
                 BusquedaControl.DataBindings.Add("Text", Model, "Busqueda", true, DataSourceUpdateMode.OnPropertyChanged);
                 this.sfDataGridCliente.AutoGenerateColumns = false;
-                sfDataGridCliente.DataBindings.Add("DataSource", Model, "ListaClienteVenta", true, DataSourceUpdateMode.OnPropertyChanged);
+                sfDataGridCliente.DataBindings.Add("DataSource", Model, "ListaCliente", true, DataSourceUpdateMode.OnPropertyChanged);
             }
             catch (Exception ex)
             {
