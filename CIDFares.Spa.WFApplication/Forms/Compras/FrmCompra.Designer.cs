@@ -34,8 +34,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bntnAgregarProvedor = new System.Windows.Forms.Button();
             this.Np = new System.Windows.Forms.Label();
+            this.bntnAgregarProvedor = new System.Windows.Forms.Button();
             this.pnlTitulos.SuspendLayout();
             this.FlpBotones.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -114,6 +114,16 @@
             this.panel1.Size = new System.Drawing.Size(994, 306);
             this.panel1.TabIndex = 6;
             // 
+            // Np
+            // 
+            this.Np.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Np.AutoSize = true;
+            this.Np.Location = new System.Drawing.Point(731, 250);
+            this.Np.Name = "Np";
+            this.Np.Size = new System.Drawing.Size(75, 13);
+            this.Np.TabIndex = 15;
+            this.Np.Text = "PROVEEDOR";
+            // 
             // bntnAgregarProvedor
             // 
             this.bntnAgregarProvedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -130,15 +140,6 @@
             this.bntnAgregarProvedor.Text = "AGREGAR PROVEEDOR";
             this.bntnAgregarProvedor.UseVisualStyleBackColor = false;
             this.bntnAgregarProvedor.Click += new System.EventHandler(this.bntnAgregarProvedor_Click);
-            // 
-            // Np
-            // 
-            this.Np.AutoSize = true;
-            this.Np.Location = new System.Drawing.Point(770, 250);
-            this.Np.Name = "Np";
-            this.Np.Size = new System.Drawing.Size(35, 13);
-            this.Np.TabIndex = 15;
-            this.Np.Text = "label1";
             // 
             // FrmCompra
             // 

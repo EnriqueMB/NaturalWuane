@@ -110,11 +110,11 @@ namespace CIDFares.Spa.Business.ViewModels.General
         #endregion
 
         #region Propiedades Publicas
-        public List<Sucursal> ListaSucursales { get; set; }
-        public List<Pais> ListaPais { get; set; }
-        public List<Estado> ListaEstados { get; set; }
-        public List<Municipio> ListaMunicipios { get; set; }
-        public List<TipoSucursal> ListaTipoSucursal { get; set; }
+        public BindingList<Sucursal> ListaSucursales { get; set; }
+        public BindingList<Pais> ListaPais { get; set; }
+        public BindingList<Estado> ListaEstados { get; set; }
+        public BindingList<Municipio> ListaMunicipios { get; set; }
+        public BindingList<TipoSucursal> ListaTipoSucursal { get; set; }
         public EntityState State { get; set; }
         #endregion
 
@@ -126,11 +126,11 @@ namespace CIDFares.Spa.Business.ViewModels.General
             PaisRepository = paisRepository;
             EstadoRepository = estadoRepository;
             MunicipioRepository = municipioRepository;
-            ListaSucursales = new List<Sucursal>();
-            ListaTipoSucursal = new List<TipoSucursal>();
-            ListaPais = new List<Pais>();
-            ListaMunicipios = new List<Municipio>();
-            ListaEstados = new List<Estado>();
+            ListaSucursales = new BindingList<Sucursal>();
+            ListaTipoSucursal = new BindingList<TipoSucursal>();
+            ListaPais = new BindingList<Pais>();
+            ListaMunicipios = new BindingList<Municipio>();
+            ListaEstados = new BindingList<Estado>();
         }
         #endregion
 

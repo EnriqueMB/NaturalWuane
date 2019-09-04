@@ -64,7 +64,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@IdProveedor", id);
                     dynamicParameters.Add("@IdUsuario", IdUsuario);
-                    var result = await conexion.ExecuteScalarAsync<int>("[Usuario].[SPCID_Delete_Proveedor]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_Delete_Proveedor]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
 
                     return result;
 
@@ -78,10 +78,27 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public Task<bool> EsClave(string Clave)
+        public async Task<Guid> EsClave(string Clave)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@Opcion", 7);
+                    dynamicParameters.Add("@Nombre", Clave);
+                    var dr = await conexion.ExecuteScalarAsync<Guid>("[General].[SPCID_ValidarNombre]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return dr;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
+   
 
         public Task<bool> ExistAsync(object id)
         {
@@ -98,12 +115,14 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     List<Proveedor> ListaProveedor = new List<Proveedor>();
                     Proveedor item;
                     var dynamicParameters = new DynamicParameters();
-                    var dr = await conexion.ExecuteReaderAsync("[Usuario].[SPCID_Get_Proveedor]", commandType: CommandType.StoredProcedure);
+
+                    var dr = await conexion.ExecuteReaderAsync("[Catalogo].[SPCID_Get_Proveedor]", commandType: CommandType.StoredProcedure);
                     while (dr.Read())
                     {
                         item = new Proveedor();
                         item.IdProveedor = dr.GetGuid(dr.GetOrdinal("IdProveedor"));
                         item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
+                        item.NombreComercial = dr.GetString(dr.GetOrdinal("NombreComercial"));
                         item.RazonSocial = dr.GetString(dr.GetOrdinal("RazonSocial"));
                         item.Representante = dr.GetString(dr.GetOrdinal("Representante"));
                         item.RFC = dr.GetString(dr.GetOrdinal("RFC"));
@@ -111,7 +130,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.Telefono = dr.GetString(dr.GetOrdinal("Telefono"));
                         item.CorreoElectronico = dr.GetString(dr.GetOrdinal("CorreoElectronico"));
                         item.CodigoPostal = dr.GetString(dr.GetOrdinal("CodigoPostal"));
-                 
+
                         item.IdPais = dr.GetInt32(dr.GetOrdinal("IdPais"));
                         item.Pais = dr.GetString(dr.GetOrdinal("Pais"));
                         item.IdEstado = dr.GetInt32(dr.GetOrdinal("IdEstado"));
@@ -131,6 +150,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
 
                 throw ex;
             }
+
         }
 
         public Task<Proveedor> GetAsync(object id)
@@ -138,14 +158,125 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
+        public async Task<IEnumerable<Proveedor>> GetBusquedaProveedorAsync(string Busqueda)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    List<Proveedor> ListaProveedor = new List<Proveedor>();
+                    Proveedor item;
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@Buscar", Busqueda);
+                    var dr = await conexion.ExecuteReaderAsync("[Catalogo].[SPCID_Get_ProveedorBusqueda]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    while (dr.Read())
+                    {
+                        item = new Proveedor();
+                        item.IdProveedor = dr.GetGuid(dr.GetOrdinal("IdProveedor"));
+                        item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
+                        item.NombreComercial = dr.GetString(dr.GetOrdinal("NombreComercial"));
+                        item.RazonSocial = dr.GetString(dr.GetOrdinal("RazonSocial"));
+                        item.Representante = dr.GetString(dr.GetOrdinal("Representante"));
+                        item.RFC = dr.GetString(dr.GetOrdinal("RFC"));
+                        item.Direccion = dr.GetString(dr.GetOrdinal("Direccion"));
+                        item.Telefono = dr.GetString(dr.GetOrdinal("Telefono"));
+                        item.CorreoElectronico = dr.GetString(dr.GetOrdinal("CorreoElectronico"));
+                        item.CodigoPostal = dr.GetString(dr.GetOrdinal("CodigoPostal"));
+
+                        item.IdPais = dr.GetInt32(dr.GetOrdinal("IdPais"));
+                        item.Pais = dr.GetString(dr.GetOrdinal("Pais"));
+                        item.IdEstado = dr.GetInt32(dr.GetOrdinal("IdEstado"));
+                        item.Estado = dr.GetString(dr.GetOrdinal("Estado"));
+                        item.IdMunicipio = dr.GetInt32(dr.GetOrdinal("IdMunicipio"));
+                        item.Municipio = dr.GetString(dr.GetOrdinal("Municipio"));
+
+
+                        ListaProveedor.Add(item);
+                    }
+
+                  return ListaProveedor;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public async Task<Proveedor> GetProveedorXId(Guid IdProveedor)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    Proveedor item = new Proveedor();
+                    
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdProveedor", IdProveedor);
+                    var dr = await conexion.ExecuteReaderAsync("[Catalogo].[SPCID_Get_ProveedorXId]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    while (dr.Read())
+                    {
+                        item = new Proveedor();
+                        item.IdProveedor = dr.GetGuid(dr.GetOrdinal("IdProveedor"));
+                        item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
+                        item.NombreComercial = dr.GetString(dr.GetOrdinal("NombreComercial"));
+                        item.RazonSocial = dr.GetString(dr.GetOrdinal("RazonSocial"));
+                        item.Representante = dr.GetString(dr.GetOrdinal("Representante"));
+                        item.RFC = dr.GetString(dr.GetOrdinal("RFC"));
+                        item.Direccion = dr.GetString(dr.GetOrdinal("Direccion"));
+                        item.Telefono = dr.GetString(dr.GetOrdinal("Telefono"));
+                        item.CorreoElectronico = dr.GetString(dr.GetOrdinal("CorreoElectronico"));
+                        item.CodigoPostal = dr.GetString(dr.GetOrdinal("CodigoPostal"));
+
+                        item.IdPais = dr.GetInt32(dr.GetOrdinal("IdPais"));
+                        item.Pais = dr.GetString(dr.GetOrdinal("Pais"));
+                        item.IdEstado = dr.GetInt32(dr.GetOrdinal("IdEstado"));
+                        item.Estado = dr.GetString(dr.GetOrdinal("Estado"));
+                        item.IdMunicipio = dr.GetInt32(dr.GetOrdinal("IdMunicipio"));
+                        item.Municipio = dr.GetString(dr.GetOrdinal("Municipio"));
+
+
+                      
+                    }
+                    return item;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
         public Task<int> NameExistAsync(string name)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> NombreComercialUnico(string NombreComercial)
+        public async Task<Guid> NombreComercialUnico(string NombreComercial)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@Opcion", 9);
+                    dynamicParameters.Add("@Nombre", NombreComercial);
+                    var dr = await conexion.ExecuteScalarAsync<Guid>("[General].[SPCID_ValidarNombre]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return dr;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public async Task<Proveedor> UpdateAsync(Proveedor element, object IdUsuario)

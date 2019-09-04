@@ -4,6 +4,7 @@ using CIDFares.Spa.DataAccess.Repositories.Base;
 using Dapper;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -47,9 +48,11 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 {
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
-                    var result = await conexion.QueryAsync<Pais>("[General].[SPCID_Get_ComboPaises]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var result = await conexion.QueryAsync<Pais>("[General].[SPCID_Get_ComboPais]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+
 
                     return result.ToList();
+
                 }
             }
             catch (Exception ex)

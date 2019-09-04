@@ -105,7 +105,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
                 if (!string.IsNullOrEmpty(Model.Busqueda))
                 {
                     await Model.GetBusqueda();
-                    //sfDataGrid1.DataBindings.Add("DataSource", Model, "ListaProveedorACompra", true, DataSourceUpdateMode.OnPropertyChanged);
+                    
                 }
                 else
                 {
@@ -125,7 +125,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
             CargarDatosAsync();
         }
 
-        private async void BtnSeleccionar_Click(object sender, EventArgs e)
+        
+
+        private void sfDataGrid1_CellDoubleClick(object sender, Syncfusion.WinForms.DataGrid.Events.CellClickEventArgs e)
         {
             try
             {
@@ -133,15 +135,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
                 if (item != null)
                 {
 
-                    
+
                     Model.IdProveedorTemp = item.IdProveedor;
-                    Model.NombreProveedor=item.NombreComercial;
-                    //var x = await Model.Proveedor(Model.IdProveedorTemp);
+                    Model.NombreProveedor = item.NombreComercial;
+
                     this.Close();
-                    //FrmProducto Producto = new FrmProducto(item.IdProducto);
-                    //Producto.ShowDialog();
-                    //Model.State = EntityState.Update;
-                    //CargarDatosAsync();
+
                 }
                 else
                     CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);

@@ -28,7 +28,9 @@ namespace CIDFares.Spa.WFApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
+
             Application.Run(new FrmLogin());
+
         }
 
         public static void InitializeContainer()
@@ -53,8 +55,8 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<CategoriaProductoValidator, IValidator<CategoriaProductoViewModel>>();
             ServiceLocator.Instance.Register<ServicioValidator, IValidator<ServicioViewModel>>();
             ServiceLocator.Instance.Register<UsuarioValidator, IValidator<UsuarioViewModel>>();
+            ServiceLocator.Instance.Register<ProveedorValidator, IValidator<ProveedorViewModel>>();
             ServiceLocator.Instance.Register<ProductoValidator, IValidator<ProductoViewModel>>();
-
             ServiceLocator.Instance.Register<VentaValidator, IValidator<VentasViewModel>>();
         }
 
@@ -71,8 +73,10 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<UsuarioViewModel>();
             ServiceLocator.Instance.Register<ServicioViewModel>();
             ServiceLocator.Instance.Register<SeleccionarPagoViewModel>();
+            ServiceLocator.Instance.Register<ProveedorViewModel>();
             ServiceLocator.Instance.Register<SucursalViewModel>();
             ServiceLocator.Instance.Register<ProveedorACompraViewModel>();
+
         }
     }
 }

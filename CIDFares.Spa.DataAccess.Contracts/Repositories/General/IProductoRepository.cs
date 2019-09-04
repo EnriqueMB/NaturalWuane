@@ -36,5 +36,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
         Task<int> NameExistAsync2(string name);
 
         Task<IEnumerable<Producto>> GetBusquedaAsync(string Busqueda);
+
+        Task<int> ClaveExistAsync(string name);
     }
 }
