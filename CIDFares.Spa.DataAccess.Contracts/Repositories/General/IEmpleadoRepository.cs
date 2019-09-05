@@ -11,5 +11,14 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
     public interface IEmpleadoRepository : IBaseRepository<Empleado>
     {
         Task<IEnumerable<Empleado>> GetComboEmpleado();
+        //Task<IEnumerable<Empleado>> GetComboTurno();
+        
+        Task<Empleado> GetEmpleadoXid(Guid IdEmpleado);
+
+        Task<string> ObtenerFoto(Guid IdEmpleado);
+
+        Task<IEnumerable<Empleado>> GetBusquedaAsync(string Busqueda);
+
+        Task<int> ClaveExistAsync(string name);
     }
 }
