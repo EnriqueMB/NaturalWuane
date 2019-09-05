@@ -34,6 +34,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<ServicioViewModel>();
             //IniciarBinding();
+            Model.Duracion = new DateTime(1900, 1, 1, 0, 30, 0);
         }
 
         public FrmServicioNuevo(Servicio ServId)
@@ -44,6 +45,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             //CargarDatos();
             //IniciarBinding();
             Model.State = EntityState.Update;
+            
         }
 
         private void IniciarBinding()
@@ -54,6 +56,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 NombreControl.DataBindings.Add("Text", Model, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
                 PrecioControl.DataBindings.Add("Text", Model, "Precio", true, DataSourceUpdateMode.OnPropertyChanged);
                 //DuracionControl.DataBindings.Add("Text", Model, "Duracion", true, DataSourceUpdateMode.OnPropertyChanged);
+                DuracionControl.DataBindings.Add("Value", Model, "Duracion", true, DataSourceUpdateMode.OnPropertyChanged);
                 DescripcionControl.DataBindings.Add("Text", Model, "Descripcion", true, DataSourceUpdateMode.OnPropertyChanged);                
                 AplicaIEPSControl.DataBindings.Add("Checked", Model, "AplicaIEPS", true, DataSourceUpdateMode.OnPropertyChanged);
                 IEPSMontoControl.DataBindings.Add("Checked", Model, "IEPSMonto", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -96,7 +99,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
 
-        public void CargarDatos()
+        public async void CargarDatos()
         {
             try
             {
@@ -114,6 +117,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 Model.IEPS = infoServicio.IEPS;
                 Model.Porcentaje = infoServicio.Porcentaje;
                 this.lblTitle.Text = infoServicio.Nombre;
+                await Model.GetFoto(Model.IdServicio);
+                if (!string.IsNullOrEmpty(Model.FotoBase64))
+                {
+                    Model.Foto = ComprimirImagenExtensions.ImageBase64ToImage(Model.FotoBase64);
+                }
+                else
+                    Model.ImageLocation = "Sin Foto";
+                Model.FotoBase64 = string.Empty;
                 //Model.Foto = (string.IsNullOrEmpty(infoServicio.Base64String)) ? null : infoServicio.Base64String.ImageBase64ToImage();
                 //Model.Foto = infoServicio.Base64String;//(string.IsNullOrEmpty(infoServicio.Base64String)) ? null : infoServicio.Base64String.ImageBase64ToImage();
             }
@@ -161,6 +172,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
                 if (validationResults.IsValid)
                 {
+                    var aux = Model.Duracion;
+                    var otroAux = DuracionControl.Value;
                     Servicio Resul = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
                     if (Resul.Resultado == 1)
                     {
@@ -191,11 +204,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             Model.Nombre = string.Empty;
             Model.Clave = string.Empty;
             Model.Precio = 0;
-            Model.Duracion = TimeSpan.Zero;
+            Model.Duracion = DateTime.Now;
+            //Model.Duracion = TimeSpan.Zero;
             Model.DescIva = string.Empty;
             Model.AplicaIEPS = false;
             Model.IEPSMonto = false;
             Model.IEPS = 0;
+            Model.FotoBase64 = string.Empty;            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

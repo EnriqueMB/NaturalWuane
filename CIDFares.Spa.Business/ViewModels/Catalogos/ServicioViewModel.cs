@@ -187,7 +187,20 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 throw ex;
             }
         }
-        
+
+        public async Task GetFoto(int IdServicio)
+        {
+            try
+            {
+                var x = await Repository.ObtenerFoto(IdServicio);
+                this.FotoBase64 = x;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task BusquedaServicio()
         {
             try
@@ -293,9 +306,9 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        private TimeSpan _Duracion;
+        private DateTime _Duracion;
 
-        public TimeSpan Duracion
+        public DateTime Duracion
         {
             get { return _Duracion; }
             set
@@ -304,6 +317,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 OnPropertyChanged(nameof(Duracion));
             }
         }
+
 
         private string _Descripcion;
 
@@ -425,7 +439,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         #region FOTO        
-        private string _FotoBase64;
+        private string _FotoBase64 = "";
         public string FotoBase64
         {
             get { return _FotoBase64; }
@@ -455,7 +469,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        private string _ImageLocation;
+        private string _ImageLocation = "";
         public string ImageLocation
         {
             get { return _ImageLocation; }

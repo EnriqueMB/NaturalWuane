@@ -55,6 +55,7 @@
             this.DescripcionControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.label4 = new System.Windows.Forms.Label();
             this.pnlDuracion = new System.Windows.Forms.Panel();
+            this.DuracionControl = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlPrecio = new System.Windows.Forms.Panel();
             this.PrecioControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
@@ -73,7 +74,6 @@
             this.BtnSeleccionar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.DuracionControl = new System.Windows.Forms.DateTimePicker();
             this.pnlHeader.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.flButtons.SuspendLayout();
@@ -407,6 +407,17 @@
             this.pnlDuracion.Size = new System.Drawing.Size(262, 76);
             this.pnlDuracion.TabIndex = 4;
             // 
+            // DuracionControl
+            // 
+            this.DuracionControl.CustomFormat = "HH:mm";
+            this.DuracionControl.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DuracionControl.Location = new System.Drawing.Point(69, 37);
+            this.DuracionControl.Name = "DuracionControl";
+            this.DuracionControl.ShowUpDown = true;
+            this.DuracionControl.Size = new System.Drawing.Size(102, 22);
+            this.DuracionControl.TabIndex = 7;
+            this.DuracionControl.ValueChanged += new System.EventHandler(this.DuracionControl_ValueChanged);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -590,17 +601,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // DuracionControl
-            // 
-            this.DuracionControl.CustomFormat = "HH:mm";
-            this.DuracionControl.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DuracionControl.Location = new System.Drawing.Point(69, 37);
-            this.DuracionControl.Name = "DuracionControl";
-            this.DuracionControl.ShowUpDown = true;
-            this.DuracionControl.Size = new System.Drawing.Size(102, 22);
-            this.DuracionControl.TabIndex = 7;
-            this.DuracionControl.ValueChanged += new System.EventHandler(this.DuracionControl_ValueChanged);
             // 
             // FrmServicioNuevo
             // 
