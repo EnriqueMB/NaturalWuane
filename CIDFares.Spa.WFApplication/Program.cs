@@ -28,7 +28,7 @@ namespace CIDFares.Spa.WFApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
-            Application.Run(new FrmLogin());
+            Application.Run(new FrmPaquete());
         }
 
         public static void InitializeContainer()
@@ -70,6 +70,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ServicioViewModel>();
             ServiceLocator.Instance.Register<SucursalViewModel>();
             ServiceLocator.Instance.Register<ProveedorACompraViewModel>();
+            ServiceLocator.Instance.Register<PaqueteViewModel>();
         }
     }
 }
