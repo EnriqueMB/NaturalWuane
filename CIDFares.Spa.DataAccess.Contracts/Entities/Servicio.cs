@@ -16,6 +16,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public string Nombre { get; set; }
         public decimal Precio { get; set; }
         public DateTime Duracion { get; set; }
+        public string DuracionStr { get; set; }
         public string Descripcion { get; set; }
         public decimal Porcentaje { get; set; }
         public string AplicaIvaStr { get; set; }
