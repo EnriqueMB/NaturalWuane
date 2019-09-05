@@ -176,7 +176,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 var x = await Repository.GetAllAsync();
                 ListaServicio.Clear();
                 foreach (var item in x)
-                {                    
+                {                  
+                    //item.DuracionStr = item.Duracion.ToLongTimeString();
                     item.AplicaIvaStr = item.IdTipoIva == 2 ? "SI" : "NO";
                     item.Porcentaje100 = item.Porcentaje == 16 ? item.Porcentaje/100 : item.Porcentaje;                        
                     ListaServicio.Add(item);
