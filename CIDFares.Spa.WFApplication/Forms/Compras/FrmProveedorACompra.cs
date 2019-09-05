@@ -138,6 +138,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
 
                     Model.IdProveedorTemp = item.IdProveedor;
                     Model.NombreProveedor = item.NombreComercial;
+                    Model.Representante = item.Representante;
+                    Model.Telefono = item.Telefono;
+                    Model.Direccion = item.Direccion;
 
                     this.Close();
 

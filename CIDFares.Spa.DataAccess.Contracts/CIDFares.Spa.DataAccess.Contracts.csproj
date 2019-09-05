@@ -61,6 +61,7 @@
     <Compile Include="Entities\BusqueProducto.cs" />
     <Compile Include="Entities\CategoriaProducto.cs" />
     <Compile Include="Entities\Cliente.cs" />
+    <Compile Include="Entities\Compra.cs" />
     <Compile Include="Entities\Estado.cs" />
     <Compile Include="Entities\Municipio.cs" />
     <Compile Include="Entities\Pais.cs" />

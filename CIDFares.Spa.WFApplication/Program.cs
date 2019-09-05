@@ -14,6 +14,7 @@ using System;
 using System.Windows.Forms;
 using CIDFares.Spa.Business.ViewModels.Ventas;
 using CIDFares.Spa.WFApplication.Forms.Compras;
+using CIDFares.Spa.Business.ViewModels.Compras;
 
 namespace CIDFares.Spa.WFApplication
 {
@@ -29,7 +30,7 @@ namespace CIDFares.Spa.WFApplication
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
 
-            Application.Run(new FrmLogin());
+            Application.Run(new FrmCompra());
 
         }
 
@@ -75,6 +76,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ProveedorViewModel>();
             ServiceLocator.Instance.Register<SucursalViewModel>();
             ServiceLocator.Instance.Register<ProveedorACompraViewModel>();
+            ServiceLocator.Instance.Register<ComprasViewModel>();
 
         }
     }

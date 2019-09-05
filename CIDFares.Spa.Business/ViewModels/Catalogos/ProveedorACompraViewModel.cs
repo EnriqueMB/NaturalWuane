@@ -154,7 +154,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
         public string Telefono
         {
-            get { return _Direccion; }
+            get { return _Telefono; }
             set { _Telefono = value; OnPropertyChanged("Telefono"); }
         }
 
