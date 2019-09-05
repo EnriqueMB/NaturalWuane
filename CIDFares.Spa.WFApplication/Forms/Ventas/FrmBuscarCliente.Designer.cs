@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlGeneral = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.sfDataGridCliente = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.BusquedaControl = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.BusquedaControl = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.pnlGeneral.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -100,23 +100,23 @@
             this.sfDataGridCliente.AccessibleName = "Table";
             this.sfDataGridCliente.AllowFiltering = true;
             this.sfDataGridCliente.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn5.AllowFiltering = true;
-            gridTextColumn5.HeaderText = "ID";
-            gridTextColumn5.MappingName = "Id";
-            gridTextColumn5.Visible = false;
-            gridTextColumn6.AllowFiltering = true;
-            gridTextColumn6.HeaderText = "Clave";
-            gridTextColumn6.MappingName = "Clave";
-            gridTextColumn7.AllowFiltering = true;
-            gridTextColumn7.HeaderText = "Nombre";
-            gridTextColumn7.MappingName = "NombreCompleto";
-            gridTextColumn8.AllowFiltering = true;
-            gridTextColumn8.HeaderText = "Telefono";
-            gridTextColumn8.MappingName = "Telefono";
-            this.sfDataGridCliente.Columns.Add(gridTextColumn5);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn6);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn7);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn8);
+            gridTextColumn1.AllowFiltering = true;
+            gridTextColumn1.HeaderText = "ID";
+            gridTextColumn1.MappingName = "Id";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.AllowFiltering = true;
+            gridTextColumn2.HeaderText = "Clave";
+            gridTextColumn2.MappingName = "Clave";
+            gridTextColumn3.AllowFiltering = true;
+            gridTextColumn3.HeaderText = "Nombre";
+            gridTextColumn3.MappingName = "NombreCompleto";
+            gridTextColumn4.AllowFiltering = true;
+            gridTextColumn4.HeaderText = "Telefono";
+            gridTextColumn4.MappingName = "Telefono";
+            this.sfDataGridCliente.Columns.Add(gridTextColumn1);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn2);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn3);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn4);
             this.sfDataGridCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridCliente.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridCliente.Name = "sfDataGridCliente";
@@ -126,6 +126,7 @@
             this.sfDataGridCliente.Style.HeaderStyle.Font.Facename = "Century Gothic";
             this.sfDataGridCliente.Style.HeaderStyle.Font.Size = 11F;
             this.sfDataGridCliente.TabIndex = 1;
+            this.sfDataGridCliente.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.sfDataGridCliente_CellDoubleClick);
             // 
             // panel2
             // 
@@ -138,27 +139,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 44);
             this.panel2.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Buscar clientes";
-            // 
-            // BusquedaControl
-            // 
-            this.BusquedaControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.BusquedaControl.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BusquedaControl.Location = new System.Drawing.Point(518, 16);
-            this.BusquedaControl.Name = "BusquedaControl";
-            this.BusquedaControl.Size = new System.Drawing.Size(150, 19);
-            this.BusquedaControl.TabIndex = 1;
-            this.BusquedaControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BusquedaControl_KeyPress);
             // 
             // btnBuscar
             // 
@@ -173,6 +153,27 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // BusquedaControl
+            // 
+            this.BusquedaControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BusquedaControl.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BusquedaControl.Location = new System.Drawing.Point(518, 16);
+            this.BusquedaControl.Name = "BusquedaControl";
+            this.BusquedaControl.Size = new System.Drawing.Size(150, 19);
+            this.BusquedaControl.TabIndex = 1;
+            this.BusquedaControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BusquedaControl_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(124, 21);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Buscar clientes";
             // 
             // FrmBuscarCliente
             // 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlBody = new System.Windows.Forms.Panel();
             this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
             this.pnlTipoSucursal = new System.Windows.Forms.Panel();
@@ -68,6 +69,7 @@
             this.pnlHead = new System.Windows.Forms.Panel();
             this.lblSubtitle = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlBody.SuspendLayout();
             this.tlpContainer.SuspendLayout();
             this.pnlTipoSucursal.SuspendLayout();
@@ -93,6 +95,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.IdPaisControl)).BeginInit();
             this.pnlFood.SuspendLayout();
             this.pnlHead.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBody
@@ -226,7 +229,8 @@
             this.NombreControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.NombreControl.Name = "NombreControl";
             this.NombreControl.Size = new System.Drawing.Size(351, 29);
-            this.NombreControl.TabIndex = 1;
+            this.NombreControl.TabIndex = 6;
+            this.NombreControl.TextChanged += new System.EventHandler(this.NombreControl_TextChanged);
             // 
             // lbNombre
             // 
@@ -256,6 +260,7 @@
             this.DireccionControl.Name = "DireccionControl";
             this.DireccionControl.Size = new System.Drawing.Size(351, 29);
             this.DireccionControl.TabIndex = 3;
+            this.DireccionControl.TextChanged += new System.EventHandler(this.DireccionControl_TextChanged);
             // 
             // lbDireccion
             // 
@@ -281,10 +286,13 @@
             this.TelefonoControl.BeforeTouchSize = new System.Drawing.Size(351, 29);
             this.TelefonoControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TelefonoControl.Location = new System.Drawing.Point(9, 26);
+            this.TelefonoControl.MaxLength = 10;
             this.TelefonoControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.TelefonoControl.Name = "TelefonoControl";
             this.TelefonoControl.Size = new System.Drawing.Size(351, 29);
             this.TelefonoControl.TabIndex = 3;
+            this.TelefonoControl.TextChanged += new System.EventHandler(this.TelefonoControl_TextChanged);
+            this.TelefonoControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TelefonoControl_KeyPress);
             // 
             // lbTelefono
             // 
@@ -314,6 +322,7 @@
             this.CodigoPostalControl.Name = "CodigoPostalControl";
             this.CodigoPostalControl.Size = new System.Drawing.Size(351, 29);
             this.CodigoPostalControl.TabIndex = 3;
+            this.CodigoPostalControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CodigoPostalControl_KeyPress);
             // 
             // lbCodigoPostal
             // 
@@ -343,6 +352,7 @@
             this.RfcControl.Name = "RfcControl";
             this.RfcControl.Size = new System.Drawing.Size(351, 29);
             this.RfcControl.TabIndex = 5;
+            this.RfcControl.TextChanged += new System.EventHandler(this.RfcControl_TextChanged);
             // 
             // lbRfc
             // 
@@ -372,6 +382,7 @@
             this.NombreRepresentanteControl.Name = "NombreRepresentanteControl";
             this.NombreRepresentanteControl.Size = new System.Drawing.Size(351, 29);
             this.NombreRepresentanteControl.TabIndex = 5;
+            this.NombreRepresentanteControl.TextChanged += new System.EventHandler(this.NombreRepresentanteControl_TextChanged);
             // 
             // lbNombreRepresentante
             // 
@@ -401,6 +412,7 @@
             this.RegimenFiscalControl.Name = "RegimenFiscalControl";
             this.RegimenFiscalControl.Size = new System.Drawing.Size(351, 29);
             this.RegimenFiscalControl.TabIndex = 7;
+            this.RegimenFiscalControl.TextChanged += new System.EventHandler(this.RegimenFiscalControl_TextChanged);
             // 
             // lbRegimenFiscal
             // 
@@ -560,6 +572,10 @@
             this.lblTitulo.TabIndex = 181;
             this.lblTitulo.Text = "SUCURSAL";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FrmSucursal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -608,6 +624,7 @@
             this.pnlFood.ResumeLayout(false);
             this.pnlHead.ResumeLayout(false);
             this.pnlHead.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -625,7 +642,6 @@
         private System.Windows.Forms.Panel pnlEstado;
         private Syncfusion.Windows.Forms.Tools.ComboBoxAdv IdEstadoControl;
         private System.Windows.Forms.Panel pnlNombre;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt NombreControl;
         private System.Windows.Forms.Label lbNombre;
         private System.Windows.Forms.Panel pnlDireccion;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt DireccionControl;
@@ -654,5 +670,7 @@
         private Syncfusion.Windows.Forms.Tools.ComboBoxAdv IdMunicipioControl;
         private System.Windows.Forms.Label lbMunicipio;
         private System.Windows.Forms.Label lbEstado;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt NombreControl;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

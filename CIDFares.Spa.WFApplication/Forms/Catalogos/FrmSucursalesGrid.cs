@@ -1,6 +1,10 @@
-﻿using CIDFares.Library.Controls.CIDWait.Code;
+﻿using CIDFares.Library.Controls.CIDMessageBox.Code;
+using CIDFares.Library.Controls.CIDMessageBox.Enums;
+using CIDFares.Library.Controls.CIDWait.Code;
 using CIDFares.Spa.Business.ViewModels.General;
 using CIDFares.Spa.CrossCutting.Services;
+using CIDFares.Spa.DataAccess.Contracts.Entities;
+using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,6 +57,24 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
         #endregion
+
+        #region Metodos
+        private Sucursal ObtenerSeleccionado()
+        {
+            try
+            {
+                if (sfDataGrid1.SelectedItems.Count == 1)
+                {
+                    return (Sucursal)sfDataGrid1.SelectedItem;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion
         private void FrmSucursalesGrid_Shown(object sender, EventArgs e)
         {
             try
@@ -84,12 +106,52 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Sucursal item = ObtenerSeleccionado();
+                if (item != null)
+                {
+                    FrmSucursal frmSucursal = new FrmSucursal(item.IdSucursal);
+                    frmSucursal.ShowDialog();
+                    frmSucursal.Dispose();
+                    GetDataAsync();
+                }
+                else
+                    CIDMessageBox.ShowAlert(Constants.Messages.SystemName, Constants.Messages.GridSelectMessage, TypeMessage.informacion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private async void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Sucursal item = ObtenerSeleccionado();
+                if (item != null)
+                {
+                    if (CIDMessageBox.ShowAlertRequest(Constants.Messages.SystemName, Constants.Messages.ConfirmDeleteMessage) == DialogResult.OK)
+                    {
+                        Model.IdSucursal = item.IdSucursal;
+                        var result = await Model.Delete(CurrentSession.IdCuentaUsuario);
+                        if (result == 1)
+                        {
+                            CIDMessageBox.ShowAlert(Constants.Messages.SystemName, Constants.Messages.SuccessDeleteMessage, TypeMessage.correcto);
+                        }
+                        else
+                            CIDMessageBox.ShowAlert(Constants.Messages.SystemName, Constants.Messages.SuccessDeleteMessage, TypeMessage.correcto);
+                    }else
+                        CIDMessageBox.ShowAlert(Constants.Messages.SystemName, Constants.Messages.ErrorDeleteMessage, TypeMessage.error);
+                }
+                else
+                    CIDMessageBox.ShowAlert(Constants.Messages.SystemName, Constants.Messages.GridSelectMessage, TypeMessage.informacion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
