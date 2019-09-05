@@ -55,8 +55,7 @@
             this.DescripcionControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.label4 = new System.Windows.Forms.Label();
             this.pnlDuracion = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.DuracionControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.DuracionControl = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlPrecio = new System.Windows.Forms.Panel();
             this.PrecioControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
@@ -88,7 +87,6 @@
             this.pnlDesc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DescripcionControl)).BeginInit();
             this.pnlDuracion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DuracionControl)).BeginInit();
             this.pnlPrecio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PrecioControl)).BeginInit();
             this.pnlClave.SuspendLayout();
@@ -228,10 +226,9 @@
             // 
             this.lblIEPS.AutoSize = true;
             this.lblIEPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIEPS.Location = new System.Drawing.Point(10, 40);
-            this.lblIEPS.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblIEPS.Location = new System.Drawing.Point(14, 49);
             this.lblIEPS.Name = "lblIEPS";
-            this.lblIEPS.Size = new System.Drawing.Size(20, 17);
+            this.lblIEPS.Size = new System.Drawing.Size(24, 20);
             this.lblIEPS.TabIndex = 11;
             this.lblIEPS.Text = "%";
             // 
@@ -249,7 +246,7 @@
             // 
             // IEPSControl
             // 
-            this.IEPSControl.BeforeTouchSize = new System.Drawing.Size(162, 23);
+            this.IEPSControl.BeforeTouchSize = new System.Drawing.Size(215, 27);
             this.IEPSControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.IEPSControl.Location = new System.Drawing.Point(28, 37);
             this.IEPSControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -390,7 +387,7 @@
             // 
             // DescripcionControl
             // 
-            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(162, 23);
+            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(215, 27);
             this.DescripcionControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.DescripcionControl.Location = new System.Drawing.Point(8, 30);
             this.DescripcionControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -413,7 +410,6 @@
             // 
             // pnlDuracion
             // 
-            this.pnlDuracion.Controls.Add(this.label10);
             this.pnlDuracion.Controls.Add(this.DuracionControl);
             this.pnlDuracion.Controls.Add(this.label3);
             this.pnlDuracion.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -437,15 +433,14 @@
             // 
             // DuracionControl
             // 
-            this.DuracionControl.BeforeTouchSize = new System.Drawing.Size(162, 23);
-            this.DuracionControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.DuracionControl.Location = new System.Drawing.Point(4, 30);
-            this.DuracionControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.DuracionControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.DuracionControl.Multiline = true;
+            this.DuracionControl.CustomFormat = "HH:mm";
+            this.DuracionControl.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DuracionControl.Location = new System.Drawing.Point(69, 37);
             this.DuracionControl.Name = "DuracionControl";
-            this.DuracionControl.Size = new System.Drawing.Size(164, 23);
+            this.DuracionControl.ShowUpDown = true;
+            this.DuracionControl.Size = new System.Drawing.Size(102, 22);
             this.DuracionControl.TabIndex = 7;
+            this.DuracionControl.ValueChanged += new System.EventHandler(this.DuracionControl_ValueChanged);
             // 
             // label3
             // 
@@ -471,7 +466,7 @@
             // 
             // PrecioControl
             // 
-            this.PrecioControl.BeforeTouchSize = new System.Drawing.Size(162, 23);
+            this.PrecioControl.BeforeTouchSize = new System.Drawing.Size(215, 27);
             this.PrecioControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.PrecioControl.Location = new System.Drawing.Point(11, 30);
             this.PrecioControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -505,7 +500,7 @@
             // 
             // ClaveControl
             // 
-            this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(162, 23);
+            this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(215, 27);
             this.ClaveControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ClaveControl.Location = new System.Drawing.Point(8, 32);
             this.ClaveControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -581,7 +576,7 @@
             // 
             // NombreControl
             // 
-            this.NombreControl.BeforeTouchSize = new System.Drawing.Size(162, 23);
+            this.NombreControl.BeforeTouchSize = new System.Drawing.Size(215, 27);
             this.NombreControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.NombreControl.Location = new System.Drawing.Point(11, 35);
             this.NombreControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -605,9 +600,10 @@
             // FotoControl
             // 
             this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FotoControl.Location = new System.Drawing.Point(3, 11);
+            this.FotoControl.Location = new System.Drawing.Point(4, 14);
+            this.FotoControl.Margin = new System.Windows.Forms.Padding(4);
             this.FotoControl.Name = "FotoControl";
-            this.FotoControl.Size = new System.Drawing.Size(204, 124);
+            this.FotoControl.Size = new System.Drawing.Size(272, 152);
             this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.FotoControl.TabIndex = 45;
             this.FotoControl.TabStop = false;
@@ -667,7 +663,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DescripcionControl)).EndInit();
             this.pnlDuracion.ResumeLayout(false);
             this.pnlDuracion.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DuracionControl)).EndInit();
             this.pnlPrecio.ResumeLayout(false);
             this.pnlPrecio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PrecioControl)).EndInit();
@@ -720,7 +715,6 @@
         private System.Windows.Forms.ComboBox IdTipoServicioControl;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt IEPSControl;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt DescripcionControl;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt DuracionControl;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt PrecioControl;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt ClaveControl;
         private System.Windows.Forms.Label label8;
@@ -730,9 +724,9 @@
         private System.Windows.Forms.RadioButton rbPorcentajeControl;
         private System.Windows.Forms.RadioButton rbMontoControl;
         private System.Windows.Forms.Label lblIEPS;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel pnlFoto;
         private System.Windows.Forms.Button BtnSeleccionar;
         private System.Windows.Forms.PictureBox FotoControl;
+        private System.Windows.Forms.DateTimePicker DuracionControl;
     }
 }

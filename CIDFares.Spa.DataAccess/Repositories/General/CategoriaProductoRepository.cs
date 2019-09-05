@@ -127,7 +127,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 {
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
-                    dynamicParameters.Add("@Opcion", 3);
+                    dynamicParameters.Add("@Opcion", 4);
                     dynamicParameters.Add("@Nombre", name.Trim());
                     var dr = await conexion.ExecuteScalarAsync<int>("[General].[SPCID_ValidarNombre]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     return dr;
