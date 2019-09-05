@@ -42,6 +42,18 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         #region Metodos
+        //public async Task GetFoto(Guid IdCliente)
+        //{
+        //    try
+        //    {
+        //        var x = await Repository.ObtenerFoto(IdCliente);
+        //        this.FotoBase64 = x;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
 
         public async Task<Servicio> GuardarCambios(Guid IdUsuario)
         {
@@ -61,10 +73,12 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     IEPSMonto = IEPSMonto,
                     IEPS = IEPS,
                     UpdateFoto = UpdateFoto,
-                    Base64String = new Bitmap(Foto).ToBase64String(Formato),
-                    UrlFoto = UrlFoto
-                    //Resultado = -2
-                };
+                    FotoBase64 = FotoBase64,
+                    UrlFoto = ImageLocation
+                //Base64String = new Bitmap(Foto).ToBase64String(Formato),
+                //UrlFoto = UrlFoto
+                //Resultado = -2
+            };
                 if (State == EntityState.Create)
                 {
                     return await Repository.AddAsync(model, IdUsuario);
@@ -173,7 +187,20 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 throw ex;
             }
         }
-        
+
+        public async Task GetFoto(int IdServicio)
+        {
+            try
+            {
+                var x = await Repository.ObtenerFoto(IdServicio);
+                this.FotoBase64 = x;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task BusquedaServicio()
         {
             try
@@ -279,9 +306,9 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        private TimeSpan _Duracion;
+        private DateTime _Duracion;
 
-        public TimeSpan Duracion
+        public DateTime Duracion
         {
             get { return _Duracion; }
             set
@@ -290,6 +317,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 OnPropertyChanged(nameof(Duracion));
             }
         }
+
 
         private string _Descripcion;
 
@@ -324,18 +352,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 OnPropertyChanged(nameof(Porcentaje));
             }
         }
-
-        //private string _PorcentajeStr;
-
-        //public string PorcentajeStr
-        //{
-        //    get { return _PorcentajeStr; }
-        //    set
-        //    {
-        //        _PorcentajeStr = value;
-        //        OnPropertyChanged(nameof(PorcentajeStr));
-        //    }
-        //}
+        
 
         private string _DescIva;
 
@@ -421,37 +438,44 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        #region FOTO
-        private string _BaseString64;
-
-        public string BaseString64
+        #region FOTO        
+        private string _FotoBase64 = "";
+        public string FotoBase64
         {
-            get { return _BaseString64; }
-            set { _BaseString64 = value; OnPropertyChanged("BaseString64"); }
+            get { return _FotoBase64; }
+            set
+            {
+                _FotoBase64 = value;
+                OnPropertyChanged(nameof(FotoBase64));
+            }
         }
 
-        public bool UpdateFoto;
+        //private string _BaseString64;
 
-        private Image _Foto;
+        //public string BaseString64
+        //{
+        //    get { return _BaseString64; }
+        //    set { _BaseString64 = value; OnPropertyChanged("BaseString64"); }
+        //}
 
-        public Image Foto
+        private bool _UpdateFoto;
+        public bool UpdateFoto
         {
-            get { return _Foto; }
-            set { _Foto = value; OnPropertyChanged("Foto"); }
+            get { return _UpdateFoto; }
+            set
+            {
+                _UpdateFoto = value;
+                OnPropertyChanged(nameof(UpdateFoto));
+            }
         }
 
-        public ImageFormat Formato { get; set; }
-
-        public string UrlFoto { get; set; }
-
-        private string _ImageLocation;
-
+        private string _ImageLocation = "";
         public string ImageLocation
         {
             get { return _ImageLocation; }
             set
             {
-                _ImageLocation = value; OnPropertyChanged("ImageLocation");
+                _ImageLocation = value; OnPropertyChanged(nameof(ImageLocation));
                 if (ImageLocation != string.Empty)
                 {
                     try
@@ -466,7 +490,40 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        public string Extencion { get; set; }
+        private string _Extencion;
+        public string Extencion
+        {
+            get { return _Extencion; }
+            set
+            {
+                _Extencion = value;
+                OnPropertyChanged(nameof(Extencion));
+            }
+        }
+
+        private ImageFormat _FormatoImg;
+
+        public ImageFormat FormatoImg
+        {
+            get { return _FormatoImg; }
+            set
+            {
+                _FormatoImg = value;
+                OnPropertyChanged(nameof(FormatoImg));
+            }
+        }
+
+        private Image _Foto;
+        public Image Foto
+        {
+            get { return _Foto; }
+            set
+            {
+                _Foto = value;
+                OnPropertyChanged(nameof(Foto));
+            }
+        }
+
         #endregion
         private decimal _Cantidad;
 

@@ -35,7 +35,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@Sexo", element.Sexo);
                     dynamicParameters.Add("@Foto", element.FotoBase64);
                     dynamicParameters.Add("@Rfc", element.Rfc);
-                    dynamicParameters.Add("@IdUsuarioL", IdUsuario);
+                    dynamicParameters.Add("@IdUsuarioLg", IdUsuario);
                     var Resultado = await conexion.ExecuteScalarAsync<int>("[Cliente].[SPCID_AC_Cliente]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = Resultado;
                     return element;
