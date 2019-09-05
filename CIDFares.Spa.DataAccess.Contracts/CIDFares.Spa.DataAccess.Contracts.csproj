@@ -99,6 +99,7 @@
     <Compile Include="Repositories\General\ITipoServicioRepository.cs" />
     <Compile Include="Repositories\General\ITipoSucursalRepository.cs" />
     <Compile Include="Repositories\General\IUnidadMedidaRepository.cs" />
+    <Compile Include="Repositories\General\IVentaRepository.cs" />
     <Compile Include="Validations\Validable.cs" />
     <Compile Include="Validations\ValidatorFactory.cs" />
     <Compile Include="Repositories\General\IRolRepository.cs" />

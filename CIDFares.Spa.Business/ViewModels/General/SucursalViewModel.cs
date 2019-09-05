@@ -13,93 +13,6 @@ namespace CIDFares.Spa.Business.ViewModels.General
 {
     public class SucursalViewModel : Validable
     {
-        #region Propiedades Binding
-        private int _IdSucursal;
-
-        public int IdSucursal
-        {
-            get { return _IdSucursal; }
-            set { _IdSucursal = value; }
-        }
-        private int _IdTipoSucursal;
-
-        public int IdTipoSucursal
-        {
-            get { return _IdTipoSucursal; }
-            set { _IdTipoSucursal = value; OnPropertyChanged(nameof(IdTipoSucursal)); }
-        }
-        private string _Nombre;
-
-        public string Nombre
-        {
-            get { return _Nombre; }
-            set { _Nombre = value; OnPropertyChanged(nameof(Nombre)); }
-        }
-        private string _Direccion;
-
-        public string Direccion
-        {
-            get { return _Direccion; }
-            set { _Direccion = value; OnPropertyChanged(nameof(Direccion)); }
-        }
-        private string _Telefono;
-
-        public string Telefono
-        {
-            get { return _Telefono; }
-            set { _Telefono = value; OnPropertyChanged(nameof(Telefono)); }
-        }
-        private int _IdMunicipio;
-
-        public int IdMunicipio
-        {
-            get { return _IdMunicipio; }
-            set { _IdMunicipio = value; OnPropertyChanged(nameof(IdMunicipio)); }
-        }
-        private int _IdEstado;
-
-        public int IdEstado
-        {
-            get { return _IdEstado; }
-            set { _IdEstado = value; OnPropertyChanged(nameof(IdEstado)); }
-        }
-        private int _IdPais;
-
-        public int IdPais
-        {
-            get { return _IdPais; }
-            set { _IdPais = value; OnPropertyChanged(nameof(IdPais)); }
-        }
-        private string _CodigoPostal;
-
-        public string CodigoPostal
-        {
-            get { return _CodigoPostal; }
-            set { _CodigoPostal = value; }
-        }
-        private string _Rfc;
-
-        public string Rfc
-        {
-            get { return _Rfc; }
-            set { _Rfc = value; }
-        }
-        private string _NombreRepresentante;
-
-        public string NombreRepresentante
-        {
-            get { return _NombreRepresentante; }
-            set { _NombreRepresentante = value; }
-        }
-        private string _RegimenFiscal;
-
-        public string RegimenFiscal
-        {
-            get { return _RegimenFiscal; }
-            set { _RegimenFiscal = value; }
-        }
-
-        #endregion
 
         #region Propiedades Privadas
         private ISucursalRepository SucursalRepository { get; set; }
@@ -242,11 +155,13 @@ namespace CIDFares.Spa.Business.ViewModels.General
         {
             try
             {
-                var sucursal = await SucursalRepository.GetAsync(IdSucursal);
+                Sucursal sucursal;
+                sucursal = await SucursalRepository.GetAsync(IdSucursal);
                 Nombre = sucursal.Nombre;
                 Direccion = sucursal.Direccion;
                 Telefono = sucursal.Telefono;
                 IdMunicipio = sucursal.IdMunicipio;
+                IdTipoSucursal = sucursal.IdTipoSucursal;
                 IdEstado = sucursal.IdEstado;
                 IdPais = sucursal.IdPais;
                 CodigoPostal = sucursal.CodigoPostal;
@@ -295,7 +210,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
                     sucursal.Rfc = Rfc;
                     sucursal.NombreRepresentante = NombreRepresentante;
                     sucursal.RegimenFiscal = RegimenFiscal;
-                    sucursal = await SucursalRepository.AddAsync(sucursal, IdUsuario);
+                    sucursal = await SucursalRepository.UpdateAsync(sucursal, IdUsuario);
                 }
                 return sucursal;
             }
@@ -317,6 +232,94 @@ namespace CIDFares.Spa.Business.ViewModels.General
                 throw ex;
             }
         }
+        #endregion
+
+        #region Propiedades Binding
+        private int? _IdSucursal;
+
+        public int? IdSucursal
+        {
+            get { return _IdSucursal; }
+            set { _IdSucursal = value; }
+        }
+        private int? _IdTipoSucursal;
+
+        public int? IdTipoSucursal
+        {
+            get { return _IdTipoSucursal; }
+            set { _IdTipoSucursal = value; OnPropertyChanged(nameof(IdTipoSucursal)); }
+        }
+        private string _Nombre;
+
+        public string Nombre
+        {
+            get { return _Nombre; }
+            set { _Nombre = value; OnPropertyChanged(nameof(Nombre)); }
+        }
+        private string _Direccion;
+
+        public string Direccion
+        {
+            get { return _Direccion; }
+            set { _Direccion = value; OnPropertyChanged(nameof(Direccion)); }
+        }
+        private string _Telefono;
+
+        public string Telefono
+        {
+            get { return _Telefono; }
+            set { _Telefono = value; OnPropertyChanged(nameof(Telefono)); }
+        }
+        private int _IdMunicipio;
+
+        public int IdMunicipio
+        {
+            get { return _IdMunicipio; }
+            set { _IdMunicipio = value; OnPropertyChanged(nameof(IdMunicipio)); }
+        }
+        private int _IdEstado;
+
+        public int IdEstado
+        {
+            get { return _IdEstado; }
+            set { _IdEstado = value; OnPropertyChanged(nameof(IdEstado)); }
+        }
+        private int _IdPais;
+
+        public int IdPais
+        {
+            get { return _IdPais; }
+            set { _IdPais = value; OnPropertyChanged(nameof(IdPais)); }
+        }
+        private string _CodigoPostal;
+
+        public string CodigoPostal
+        {
+            get { return _CodigoPostal; }
+            set { _CodigoPostal = value; OnPropertyChanged(nameof(CodigoPostal)); }
+        }
+        private string _Rfc;
+
+        public string Rfc
+        {
+            get { return _Rfc; }
+            set { _Rfc = value; OnPropertyChanged(nameof(Rfc)); }
+        }
+        private string _NombreRepresentante;
+
+        public string NombreRepresentante
+        {
+            get { return _NombreRepresentante; }
+            set { _NombreRepresentante = value; OnPropertyChanged(nameof(NombreRepresentante)); }
+        }
+        private string _RegimenFiscal;
+
+        public string RegimenFiscal
+        {
+            get { return _RegimenFiscal; }
+            set { _RegimenFiscal = value; OnPropertyChanged(nameof(RegimenFiscal)); }
+        }
+
         #endregion
 
         #region InotifyPropertyChanged Members
