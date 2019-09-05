@@ -65,6 +65,7 @@
     <Compile Include="Entities\Municipio.cs" />
     <Compile Include="Entities\Pais.cs" />
     <Compile Include="Entities\Iva.cs" />
+    <Compile Include="Entities\PaqueteDetalle.cs" />
     <Compile Include="Entities\Paquetes.cs" />
     <Compile Include="Entities\Producto.cs" />
     <Compile Include="Entities\Empleado.cs" />

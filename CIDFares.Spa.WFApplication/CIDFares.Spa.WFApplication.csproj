@@ -113,6 +113,12 @@
     <Compile Include="Forms\Catalogos\FrmPaquete.Designer.cs">
       <DependentUpon>FrmPaquete.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Catalogos\FrmPaqueteNuevo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmPaqueteNuevo.Designer.cs">
+      <DependentUpon>FrmPaqueteNuevo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Catalogos\FrmProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +258,9 @@
     <EmbeddedResource Include="Forms\Catalogos\FrmPaquete.resx">
       <DependentUpon>FrmPaquete.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmPaqueteNuevo.resx">
+      <DependentUpon>FrmPaqueteNuevo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmProducto.resx">
       <DependentUpon>FrmProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,7 +305,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmSeleccionarPago.resx">
       <DependentUpon>FrmSeleccionarPago.cs</DependentUpon>
-      </EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmBuscarServicio.resx">
       <DependentUpon>FrmBuscarServicio.cs</DependentUpon>
     </EmbeddedResource>

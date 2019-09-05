@@ -112,8 +112,22 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.error);
             }
         }
+
         #endregion
 
-
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmPaqueteNuevo frmPaqueteNuevo = new FrmPaqueteNuevo();
+                frmPaqueteNuevo.ShowDialog();
+                frmPaqueteNuevo.Dispose();
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPaquete ~ BtnNuevo_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
+            }
+        }
     }
 }

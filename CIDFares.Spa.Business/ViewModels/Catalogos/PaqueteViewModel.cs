@@ -20,6 +20,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
         #region Propiedades Publicas
         public BindingList<Paquetes> ListaPaquete { get; set; }
+        public BindingList<PaqueteDetalle> ListaDetallePaquete { get; set; }
         public EntityState State { get; set; }
         public DataTable TablaProducto { get; set; }
         public DataTable TablaServicio { get; set; }
@@ -31,6 +32,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             Repository = paqueteRepository;
             ListaPaquete = new BindingList<Paquetes>();
+            ListaDetallePaquete = new BindingList<PaqueteDetalle>();
         }
 
         #endregion
@@ -62,7 +64,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 model.Clave = this.Clave;
                 model.Nombre = this.Nombre;
                 model.Descripcion = this.Descripcion;
-                model.NPersona = this.NPersona;
+                model.NPersona = this.NPersonal;
                 model.NPago = this.NPago;
                 model.FechaVencimiento = this.FechaVencimiento;
                 model.TablaProducto = this.TablaProducto;
@@ -144,14 +146,14 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        private string _NPersona;
-        public string NPersona
+        private string _NPersonal;
+        public string NPersonal
         {
-            get { return _NPersona; }
+            get { return _NPersonal; }
             set
             {
-                _NPersona = value;
-                OnPropertyChanged(nameof(NPersona));
+                _NPersonal = value;
+                OnPropertyChanged(nameof(NPersonal));
             }
         }
 
