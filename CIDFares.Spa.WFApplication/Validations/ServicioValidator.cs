@@ -47,21 +47,21 @@ namespace CIDFares.Spa.WFApplication.Validations
                 .GreaterThan(0)
                 .WithMessage("INGRESE UN PRECIO VÁLIDO");
 
-            RuleFor(ser => ser.Duracion)
-                .MustAsync(async (ser, x, context) =>
-                {
-                    double result = ser.Duracion.TotalHours;
-                    //var result = Convert.ToDecimal(ser.Duracion.TotalHours);
-                    if (result <= 0.0)
-                    {                        
-                            return false;
-                    }
-                    else
-                    {
-                        return true;
-                    }
-                })
-                .WithMessage("LA DURACIÓN DEL SERVICIO DEBE SER MAYOR A CERO");
+            //RuleFor(ser => ser.Duracion)
+            //    .MustAsync(async (ser, x, context) =>
+            //    {
+            //        double result = ser.Duracion.TotalHours;
+            //        //var result = Convert.ToDecimal(ser.Duracion.TotalHours);
+            //        if (result <= 0.0)
+            //        {                        
+            //                return false;
+            //        }
+            //        else
+            //        {
+            //            return true;
+            //        }
+            //    })
+            //    .WithMessage("LA DURACIÓN DEL SERVICIO DEBE SER MAYOR A CERO");
 
             RuleFor(ser => ser.IdTipoIva)
                 .NotEqual(0)

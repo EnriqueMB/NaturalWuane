@@ -167,6 +167,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         private void FrmServicio_Load(object sender, EventArgs e)
         {
             IniciarBinding();
+            Model.GetAllAsync();
         }
     }
 }
