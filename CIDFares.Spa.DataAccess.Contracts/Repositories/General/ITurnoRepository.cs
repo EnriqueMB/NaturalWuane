@@ -8,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
 {
-    public interface IPuestoRepository : IBaseRepository<Puesto>
+   public interface ITurnoRepository :  IBaseRepository<Turno>
     {
-        Task<IEnumerable<Puesto>> GetComboPuesto();
-
-        Task<Puesto> GetPuestoXid(int IdPuesto);
+        Task<IEnumerable<Turno>> GetComboTurno();
     }
 }

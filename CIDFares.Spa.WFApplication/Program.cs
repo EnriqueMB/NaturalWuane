@@ -77,6 +77,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ProveedorViewModel>();
             ServiceLocator.Instance.Register<SucursalViewModel>();
             ServiceLocator.Instance.Register<ProveedorACompraViewModel>();
+            ServiceLocator.Instance.Register<EmpleadoViewModel>();
 
         }
     }

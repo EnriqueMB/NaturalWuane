@@ -101,6 +101,12 @@
     <Compile Include="Forms\Catalogos\FrmCategoriaProducto.Designer.cs">
       <DependentUpon>FrmCategoriaProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Catalogos\FrmEmpleadoGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmEmpleadoGrid.Designer.cs">
+      <DependentUpon>FrmEmpleadoGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Catalogos\FrmFormaPago.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +246,9 @@
     <EmbeddedResource Include="Forms\Catalogos\FrmCategoriaProducto.resx">
       <DependentUpon>FrmCategoriaProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmEmpleadoGrid.resx">
+      <DependentUpon>FrmEmpleadoGrid.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmFormaPago.resx">
       <DependentUpon>FrmFormaPago.cs</DependentUpon>
     </EmbeddedResource>
@@ -287,7 +296,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmSeleccionarPago.resx">
       <DependentUpon>FrmSeleccionarPago.cs</DependentUpon>
-      </EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmBuscarServicio.resx">
       <DependentUpon>FrmBuscarServicio.cs</DependentUpon>
     </EmbeddedResource>

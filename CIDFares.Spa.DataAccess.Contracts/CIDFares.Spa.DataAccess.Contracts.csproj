@@ -75,6 +75,7 @@
     <Compile Include="Entities\Sucursal.cs" />
     <Compile Include="Entities\TipoServicio.cs" />
     <Compile Include="Entities\TipoSucursal.cs" />
+    <Compile Include="Entities\Turno.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Entities\UnidadMedida.cs" />
     <Compile Include="Entities\Venta.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Repositories\General\ISucursalRepository.cs" />
     <Compile Include="Repositories\General\ITipoServicioRepository.cs" />
     <Compile Include="Repositories\General\ITipoSucursalRepository.cs" />
+    <Compile Include="Repositories\General\ITurnoRepository.cs" />
     <Compile Include="Repositories\General\IUnidadMedidaRepository.cs" />
     <Compile Include="Repositories\General\IVentaRepository.cs" />
     <Compile Include="Validations\Validable.cs" />

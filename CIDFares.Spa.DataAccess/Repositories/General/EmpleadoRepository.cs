@@ -133,7 +133,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.Telefono = !dr.IsDBNull(dr.GetOrdinal("Telefono")) ? dr.GetString(dr.GetOrdinal("Telefono")) : string.Empty;
                         item.Correo = !dr.IsDBNull(dr.GetOrdinal("Correo")) ? dr.GetString(dr.GetOrdinal("Correo")) : string.Empty;
                         item.Direccion = !dr.IsDBNull(dr.GetOrdinal("Direccion")) ? dr.GetString(dr.GetOrdinal("Direccion")) : string.Empty;
-                        item.CodigoBarra= !dr.IsDBNull(dr.GetOrdinal("CodigoBarra")) ? dr.GetString(dr.GetOrdinal("CodigoBarra")) : string.Empty;
+                        item.CodigoBarra = !dr.IsDBNull(dr.GetOrdinal("CodigoBarra")) ? dr.GetString(dr.GetOrdinal("CodigoBarra")) : string.Empty;
                         Lista.Add(item);
                     }
                     return Lista;

@@ -16,25 +16,25 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #region Propiedades Privadas
         private IEmpleadoRepository IRepository { get; set; }
         private IPuestoRepository IPuesto { get; set; }
-        // public ITurno ITurno { get; set; }
+        private ITurnoRepository ITurno { get; set; }
         #endregion
 
         #region Propiedades Publicas
         public BindingList<Empleado> ListaEmpleado { get; set; }
         public BindingList<Puesto> ListaPuesto { get; set; }
-        //public BindingList<Turno> ListaTurno { get; set; }
+        public BindingList<Turno> ListaTurno { get; set; }
         public EntityState State { get; set; }
         #endregion
 
         #region Constructor
-        public EmpleadoViewModel(IEmpleadoRepository repository, IPuestoRepository Puesto )
+        public EmpleadoViewModel(IEmpleadoRepository repository, IPuestoRepository Puesto, ITurnoRepository Turno )
         {
             IRepository = repository;
             IPuesto = Puesto;
-
+            ITurno = Turno;
             ListaPuesto = new BindingList<Puesto>();
             ListaEmpleado = new BindingList<Empleado>();
-            //ListaTurno = new BindingList<Turno>();
+            ListaTurno = new BindingList<Turno>();
         }
         #endregion
 
@@ -128,28 +128,28 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
         #region combo Turno
 
-        //public void LlenaTurno(IEnumerable<Turno> turno)
-        //{
-        //    ListaTurno.Clear();
-        //    foreach (var item in turno)
-        //    {
-        //        ListaTurno.Add(item);
-        //    }
-        //}
+        public void LlenaTurno(IEnumerable<Turno> turno)
+        {
+            ListaTurno.Clear();
+            foreach (var item in turno)
+            {
+                ListaTurno.Add(item);
+            }
+        }
 
-        //public async Task<IEnumerable<Turno>> GetListaTurno()
-        //{
-        //    try
-        //    {
-        //        var turno = await IPuesto.GetComboTurno();
-        //        return turno;
+        public async Task<IEnumerable<Turno>> GetListaTurno()
+        {
+            try
+            {
+                var turno = await ITurno.GetComboTurno();
+                return turno;
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
 
         public async Task GetBusqueda()
