@@ -14,6 +14,7 @@ using System;
 using System.Windows.Forms;
 using CIDFares.Spa.Business.ViewModels.Ventas;
 using CIDFares.Spa.WFApplication.Forms.Compras;
+using CIDFares.Spa.Business.ViewModels.Usuarios;
 
 namespace CIDFares.Spa.WFApplication
 {
@@ -29,7 +30,7 @@ namespace CIDFares.Spa.WFApplication
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
 
-            Application.Run(new FrmLogin());
+            Application.Run(new FrmReglasPerfil());
 
         }
 
@@ -59,6 +60,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ProductoValidator, IValidator<ProductoViewModel>>();
             ServiceLocator.Instance.Register<SucursalValidator, IValidator<SucursalViewModel>>();
             ServiceLocator.Instance.Register<VentaValidator, IValidator<VentasViewModel>>();
+            ServiceLocator.Instance.Register<ReglaValidator, IValidator<ReglaPerfilViewModel>>();
         }
 
         private static void RegisterViewModelDependencies()
@@ -77,6 +79,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ProveedorViewModel>();
             ServiceLocator.Instance.Register<SucursalViewModel>();
             ServiceLocator.Instance.Register<ProveedorACompraViewModel>();
+            ServiceLocator.Instance.Register<ReglaPerfilViewModel>();
 
         }
     }

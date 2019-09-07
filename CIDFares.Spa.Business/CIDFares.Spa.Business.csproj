@@ -61,6 +61,7 @@
     <Compile Include="ViewModels\Catalogos\ProveedorViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\ServicioViewModel.cs" />
     <Compile Include="ViewModels\General\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Usuarios\ReglaPerfilViewModel.cs" />
     <Compile Include="ViewModels\Ventas\SeleccionarPagoViewModel.cs" />
     <Compile Include="ViewModels\General\SucursalViewModel.cs" />
     <Compile Include="ViewModels\Ventas\VentasViewModel.cs" />

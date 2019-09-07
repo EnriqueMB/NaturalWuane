@@ -60,6 +60,7 @@
     <Compile Include="Repositories\General\ProductoRepository.cs" />
     <Compile Include="Repositories\General\ProveedorACompraRepository.cs" />
     <Compile Include="Repositories\General\ProveedorRepository.cs" />
+    <Compile Include="Repositories\General\ReglaPerfilRepository.cs" />
     <Compile Include="Repositories\General\RolRepository.cs" />
     <Compile Include="Repositories\General\ServicioRepository.cs" />
     <Compile Include="Repositories\General\SucursalRepository.cs" />
