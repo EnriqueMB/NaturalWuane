@@ -1,5 +1,6 @@
 ﻿using CIDFares.Spa.WFApplication.Forms.Catalogos;
 using CIDFares.Spa.WFApplication.Forms.Compras;
+using CIDFares.Spa.WFApplication.Forms.Cuestionarios;
 using CIDFares.Spa.WFApplication.Forms.Usuarios;
 using CIDFares.Spa.WFApplication.Forms.Ventas;
 using System;
@@ -94,6 +95,13 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             FrmCompra frmCompra = new FrmCompra();
             frmCompra.ShowDialog();
             frmCompra.Dispose();
+        }
+
+        private void Btn_Cuestionario_Click(object sender, EventArgs e)
+        {
+            FrmEncuesta _cuestionario = new FrmEncuesta();
+            _cuestionario.ShowDialog();
+            _cuestionario.Dispose();
         }
     }
 }
