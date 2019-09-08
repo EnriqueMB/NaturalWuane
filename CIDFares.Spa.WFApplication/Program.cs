@@ -29,9 +29,8 @@ namespace CIDFares.Spa.WFApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
-
             Application.Run(new FrmLogin());
-
+            // Application.Run(new FrmHomeD());
         }
 
         public static void InitializeContainer()
