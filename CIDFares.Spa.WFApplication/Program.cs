@@ -30,7 +30,7 @@ namespace CIDFares.Spa.WFApplication
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
 
-            Application.Run(new FrmReglasPerfil());
+            Application.Run(new FrmLogin());
 
         }
 

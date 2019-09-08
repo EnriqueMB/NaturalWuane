@@ -31,6 +31,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             InitializeComponent();           
             Model = ServiceLocator.Instance.Resolve<CategoriaProductoViewModel>();
+
+            btnNuevo.Enabled = CurrentSession.PermisoUsuario("1");
+            btnModificar.Enabled = CurrentSession.PermisoUsuario("2");
+            btnEliminar.Enabled = CurrentSession.PermisoUsuario("3");
+
             IniciarBinding();        
         }        
         #endregion

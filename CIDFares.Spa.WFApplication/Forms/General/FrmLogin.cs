@@ -34,6 +34,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 CurrentSession.IdEmpleado = Model.IdEmpleado;
                 CurrentSession.Nombres = Model.Nombres;
                 CurrentSession.IdTurnoEmpleado = Model.IdTurnoEmpleado;
+                CurrentSession.ReglasUsuario = Model.ReglaUsuario;
             }
             catch (Exception ex)
             {
@@ -169,9 +170,17 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                     if (x == 1)
                     {
                         GuardarSession();
-                        AbrirFormHome2();
-                        this.UserAccountControl.Text = string.Empty;
-                        this.UserPasswordControl.Text = string.Empty;
+                        if (CurrentSession.PermisoUsuario("1,2,3,4,5,6"))
+                        {
+                            AbrirFormHome2();
+                            this.UserAccountControl.Text = string.Empty;
+                            this.UserPasswordControl.Text = string.Empty;
+                        }
+                        else
+                        {
+                            LblError.Visible = true;
+                            LblError.Text = "EL USUARIO NO TIENE PERMISO PARA ACCEDER AL SISTEMA.";
+                        }
                     }
                     else
                     {

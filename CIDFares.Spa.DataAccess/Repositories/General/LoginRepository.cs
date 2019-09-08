@@ -22,7 +22,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@Cuenta", Account);
                     dynamicParameters.Add("@Password", Password);
-                    var dr = await conexion.ExecuteReaderAsync("SPCID_Login", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var dr = await conexion.ExecuteReaderAsync("SPCID_Login2", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     while (dr.Read())
                     {
                         loginRequests.IsValid = !dr.IsDBNull(dr.GetOrdinal("IsValid")) ? dr.GetInt32(dr.GetOrdinal("IsValid")) : 0;
@@ -34,6 +34,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                             loginRequests.IdEmpleado = !dr.IsDBNull(dr.GetOrdinal("IdEmpleado")) ? dr.GetGuid(dr.GetOrdinal("IdEmpleado")) : Guid.Empty;
                             loginRequests.Nombres = dr.GetString(dr.GetOrdinal("NombreCompleto"));
                             loginRequests.IdSucursal = !dr.IsDBNull(dr.GetOrdinal("IdSucursal")) ? dr.GetInt32(dr.GetOrdinal("IdSucursal")) : 0;
+
+                            loginRequests.ReglaUsuario = dr.GetString(dr.GetOrdinal("IdReglas")).Split(',');
                         }
                     }
                     dr.Close();
