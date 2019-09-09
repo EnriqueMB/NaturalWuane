@@ -5,6 +5,7 @@ using CIDFares.Spa.DataAccess.Contracts.Validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -335,9 +336,9 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             set { _FechaNacimiento = value; OnPropertyChanged("FechaNacimiento"); }
         }
 
-        private string _Sexo;
+        private char _Sexo;
 
-        public string Sexo
+        public char Sexo
         {
             get { return _Sexo; }
             set { _Sexo = value; OnPropertyChanged("Sexo"); }
@@ -445,6 +446,39 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             get { return _CodigoBarra; }
             set { _CodigoBarra = value; OnPropertyChanged("CodigoBarra"); }
+        }
+
+        //Foto
+        private Image _Foto;
+        public Image Foto
+        {
+            get { return _Foto; }
+            set
+            {
+                _Foto = value;
+                OnPropertyChanged(nameof(Foto));
+            }
+        }
+
+        private string _ImageLocation;
+        public string ImageLocation
+        {
+            get { return _ImageLocation; }
+            set
+            {
+                _ImageLocation = value; OnPropertyChanged(nameof(ImageLocation));
+                if (ImageLocation != string.Empty)
+                {
+                    try
+                    {
+                        Foto = Image.FromFile(_ImageLocation);
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                }
+            }
         }
         #endregion
 

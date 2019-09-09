@@ -55,7 +55,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
-        public async Task<int> ClaveExistAsync(string name)
+        public async Task<Guid> ClaveExistAsync(string name)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@Opcion", 10);
                     dynamicParameters.Add("@Nombre", name.Trim());
-                    var dr = await conexion.ExecuteScalarAsync<int>("[General].[SPCID_ValidarNombre]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var dr = await conexion.ExecuteScalarAsync<Guid>("[General].[SPCID_ValidarNombre]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     return dr;
                 }
             }
@@ -125,7 +125,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.Clave = !dr.IsDBNull(dr.GetOrdinal("Clave")) ? dr.GetString(dr.GetOrdinal("Clave")) : string.Empty;
                         item.NombreCompleto = !dr.IsDBNull(dr.GetOrdinal("NombreCompleto")) ? dr.GetString(dr.GetOrdinal("NombreCompleto")) : string.Empty;
                         item.Edad = !dr.IsDBNull(dr.GetOrdinal("Edad")) ? dr.GetInt32(dr.GetOrdinal("Edad")) : 0;
-                        item.Sexo = !dr.IsDBNull(dr.GetOrdinal("Sexo")) ? dr.GetString(dr.GetOrdinal("Sexo")) : string.Empty;
+                        item.Sexo = Convert.ToChar(dr.GetString(dr.GetOrdinal("Sexo"))); 
                         
                         item.Turno = !dr.IsDBNull(dr.GetOrdinal("Turno")) ? dr.GetString(dr.GetOrdinal("Turno")) : string.Empty;
                        
@@ -193,7 +193,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.ApellidoMat = !dr.IsDBNull(dr.GetOrdinal("ApellidoMat")) ? dr.GetString(dr.GetOrdinal("ApellidoMat")) : string.Empty;
 
                         item.FechaNacimiento = dr.GetDateTime(dr.GetOrdinal("FechaNacimiento"));
-                        item.Sexo = !dr.IsDBNull(dr.GetOrdinal("Sexo")) ? dr.GetString(dr.GetOrdinal("Sexo")) : string.Empty;
+                        item.Sexo = Convert.ToChar(dr.GetString(dr.GetOrdinal("Sexo")));
                         item.IdTurno = !dr.IsDBNull(dr.GetOrdinal("IdTurno")) ? dr.GetInt32(dr.GetOrdinal("IdTurno")) : 0;
 
                         item.IdPuesto = !dr.IsDBNull(dr.GetOrdinal("IdPuesto")) ? dr.GetInt32(dr.GetOrdinal("IdPuesto")) : 0;
@@ -299,7 +299,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.Clave = !dr.IsDBNull(dr.GetOrdinal("Clave")) ? dr.GetString(dr.GetOrdinal("Clave")) : string.Empty;
                         item.NombreCompleto = !dr.IsDBNull(dr.GetOrdinal("NombreCompleto")) ? dr.GetString(dr.GetOrdinal("NombreCompleto")) : string.Empty;
                         item.Edad = !dr.IsDBNull(dr.GetOrdinal("Edad")) ? dr.GetInt32(dr.GetOrdinal("Edad")) : 0;
-                        item.Sexo = !dr.IsDBNull(dr.GetOrdinal("Sexo")) ? dr.GetString(dr.GetOrdinal("Sexo")) : string.Empty;
+                        item.Sexo = Convert.ToChar(dr.GetString(dr.GetOrdinal("Sexo")));
 
                         item.Turno = !dr.IsDBNull(dr.GetOrdinal("Turno")) ? dr.GetString(dr.GetOrdinal("Turno")) : string.Empty;
 
@@ -319,5 +319,25 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
+        public async  Task<Guid> NombreCompletoExistAsync(string name, string ApellidoPat, string ApellidoMat)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@Nombre", name.Trim());
+                    dynamicParameters.Add("@ApellidoPat", ApellidoPat.Trim());
+                    dynamicParameters.Add("@ApellidoMat", ApellidoMat.Trim());
+                    var dr = await conexion.ExecuteScalarAsync<Guid>("[Usuario].[SPCID_ValidarNombre]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return dr;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

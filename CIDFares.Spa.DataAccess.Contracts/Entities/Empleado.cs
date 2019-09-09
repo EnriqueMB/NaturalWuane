@@ -17,7 +17,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public string ApellidoMat { get; set; }
         public int Edad { get; set; }
         public DateTime FechaNacimiento { get; set; }
-        public string Sexo { get; set; }
+        public char Sexo { get; set; }
         public int IdTurno { get; set; }
         public string Turno { get; set; }
         public int IdPuesto { get; set; }

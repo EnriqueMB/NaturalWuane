@@ -19,6 +19,8 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
 
         Task<IEnumerable<Empleado>> GetBusquedaAsync(string Busqueda);
 
-        Task<int> ClaveExistAsync(string name);
+        Task<Guid> ClaveExistAsync(string name);
+
+        Task<Guid> NombreCompletoExistAsync(string name, string ApellidoPat, string ApellidoMat);
     }
 }

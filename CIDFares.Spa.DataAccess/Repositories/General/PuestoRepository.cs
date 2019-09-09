@@ -114,8 +114,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     while (dr.Read())
                     {
                         Item = new Puesto();
-                        Item.IdPuesto = dr.GetInt32(dr.GetOrdinal("IdTipoIva"));
-                        Item.NombrePuesto = dr.GetString(dr.GetOrdinal("Porcentaje"));
+                        Item.IdPuesto = dr.GetInt32(dr.GetOrdinal("IdPuesto"));
+                        Item.NombrePuesto = dr.GetString(dr.GetOrdinal("Puesto"));
                         Lista.Add(Item);
                     }
                     dr.Close();
