@@ -18,7 +18,7 @@ namespace CIDFares.Spa.WFApplication.Validations
            .MustAsync(async (empleado, x, context) =>
            {
 
-               var result = await Servicio.NombreCompletoExistAsync(empleado.Clave, empleado.ApellidoPat, empleado.ApellidoMat);
+               Guid result = await Servicio.NombreCompletoExistAsync(empleado.Clave, empleado.ApellidoPat, empleado.ApellidoMat);
                if (result != Guid.Empty)
                {
                    if (result == empleado.IdEmpleado)
@@ -33,13 +33,13 @@ namespace CIDFares.Spa.WFApplication.Validations
 
 
             RuleFor(empleado => empleado.Clave)
-                .NotEmpty()
+            .NotEmpty()
             .WithMessage("INGRESE LA CLAVE.")
             .MaximumLength(15).WithMessage("LA CLAVE NO DEBE SER MAYOR A 15 CARACTERES.")
             .MustAsync(async (empleado, x, context) =>
             {
 
-                var result = await Servicio.ClaveExistAsync(empleado.Clave);
+                Guid result = await Servicio.ClaveExistAsync(empleado.Clave);
                 if (result != Guid.Empty)
                 {
                     if (result == empleado.IdEmpleado)

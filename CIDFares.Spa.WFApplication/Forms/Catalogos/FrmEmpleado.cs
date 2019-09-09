@@ -45,7 +45,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         public FrmEmpleado()
         {
             InitializeComponent();
-           // lblSubtitle.Text = "NUEVO REGISTRO";
+            lblSubtitle.Text = "NUEVO REGISTRO";
             Model = ServiceLocator.Instance.Resolve<EmpleadoViewModel>();
           //  Model.GetListaCataegoriaProduto();
 
@@ -57,7 +57,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<EmpleadoViewModel>();
-            //LimpiarPropiedades();
+            LimpiarPropiedades();
          //   Model.IdProducto = IdProducto;
             Model.State = EntityState.Update;
         }

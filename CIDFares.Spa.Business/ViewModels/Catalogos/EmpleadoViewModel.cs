@@ -36,6 +36,33 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             ListaPuesto = new BindingList<Puesto>();
             ListaEmpleado = new BindingList<Empleado>();
             ListaTurno = new BindingList<Turno>();
+
+            #region Binding
+            Busqueda = string.Empty;
+            UpdateFoto = false;
+            IdEmpleado = Guid.Empty;
+            LocalId = 0;
+            Clave = string.Empty;
+            NombreCompleto = string.Empty;
+            Nombre = string.Empty;
+            ApellidoPat = string.Empty;
+            ApellidoMat = string.Empty;
+            Edad = 0;
+            FechaNacimiento = DateTime.Now;
+            
+            IdTurno = 0;
+            IdPuesto = 0;
+            Telefono = string.Empty;
+            Correo = string.Empty;
+            Direccion = string.Empty;
+            Contraseña = string.Empty;
+            IdSucursal = 0;
+            Sucursal = string.Empty;
+            FotoBase64 = string.Empty;
+            Resultado = 0;
+            CodigoBarra = string.Empty;
+            ImageLocation = string.Empty;
+            #endregion
         }
         #endregion
 
