@@ -40,6 +40,8 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GroupColumnDescription groupColumnDescription1 = new Syncfusion.WinForms.DataGrid.GroupColumnDescription();
+            Syncfusion.WinForms.DataGrid.GroupColumnDescription groupColumnDescription2 = new Syncfusion.WinForms.DataGrid.GroupColumnDescription();
             this.FlpBotones = new System.Windows.Forms.FlowLayoutPanel();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -271,8 +273,14 @@
             this.sfDataGrid1.Columns.Add(gridTextColumn10);
             this.sfDataGrid1.Columns.Add(gridTextColumn11);
             this.sfDataGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+           // this.sfDataGrid1.group
+            groupColumnDescription1.ColumnName = "Turno";
+            groupColumnDescription2.ColumnName = "Puesto";
+            this.sfDataGrid1.GroupColumnDescriptions.Add(groupColumnDescription1);
+            this.sfDataGrid1.GroupColumnDescriptions.Add(groupColumnDescription2);
             this.sfDataGrid1.Location = new System.Drawing.Point(0, 0);
             this.sfDataGrid1.Name = "sfDataGrid1";
+            this.sfDataGrid1.ShowGroupDropArea = true;
             this.sfDataGrid1.Size = new System.Drawing.Size(963, 306);
             this.sfDataGrid1.TabIndex = 0;
             this.sfDataGrid1.Text = "sfDataGrid1";

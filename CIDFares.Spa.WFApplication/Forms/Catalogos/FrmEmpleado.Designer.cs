@@ -51,7 +51,6 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.SexoControl = new Syncfusion.Windows.Forms.Tools.ComboBoxAdv();
-            this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.TelefonoControl = new System.Windows.Forms.TextBox();
             this.lblNumero = new System.Windows.Forms.Label();
@@ -70,14 +69,18 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.DireccionControl = new System.Windows.Forms.TextBox();
             this.lblDireccion = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ClaveControl = new System.Windows.Forms.TextBox();
+            this.lblClave = new System.Windows.Forms.Label();
+            this.Contraseña2Control = new System.Windows.Forms.TextBox();
+            this.lblContraseña2 = new System.Windows.Forms.Label();
             this.RutaControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.BtnSeleccionar = new System.Windows.Forms.Button();
             this.FotoControl = new System.Windows.Forms.PictureBox();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.ClaveControl = new System.Windows.Forms.TextBox();
-            this.lblClave = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel16 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -87,17 +90,18 @@
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SexoControl)).BeginInit();
-            this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RutaControl)).BeginInit();
+            this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
             this.panel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.panel16.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -173,6 +177,7 @@
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -191,8 +196,9 @@
             this.tableLayoutPanel1.Controls.Add(this.panel12, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.panel13, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.panel14, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel8, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.panel15, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel8, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel15, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.panel16, 2, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 60);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -351,19 +357,6 @@
             this.SexoControl.Text = "comboBoxAdv1";
             this.SexoControl.ThemeName = "Metro";
             // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.RutaControl);
-            this.panel8.Controls.Add(this.label7);
-            this.panel8.Controls.Add(this.BtnSeleccionar);
-            this.panel8.Controls.Add(this.FotoControl);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(575, 129);
-            this.panel8.Name = "panel8";
-            this.tableLayoutPanel1.SetRowSpan(this.panel8, 3);
-            this.panel8.Size = new System.Drawing.Size(281, 183);
-            this.panel8.TabIndex = 5;
-            // 
             // panel9
             // 
             this.panel9.Controls.Add(this.TelefonoControl);
@@ -476,8 +469,8 @@
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.ContraseñaControl);
-            this.panel13.Controls.Add(this.lblContraseña);
+            this.panel13.Controls.Add(this.DireccionControl);
+            this.panel13.Controls.Add(this.lblDireccion);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(289, 255);
             this.panel13.Name = "panel13";
@@ -486,7 +479,7 @@
             // 
             // ContraseñaControl
             // 
-            this.ContraseñaControl.Location = new System.Drawing.Point(4, 28);
+            this.ContraseñaControl.Location = new System.Drawing.Point(4, 29);
             this.ContraseñaControl.Name = "ContraseñaControl";
             this.ContraseñaControl.Size = new System.Drawing.Size(215, 20);
             this.ContraseñaControl.TabIndex = 45;
@@ -504,8 +497,8 @@
             // 
             // panel14
             // 
-            this.panel14.Controls.Add(this.DireccionControl);
-            this.panel14.Controls.Add(this.lblDireccion);
+            this.panel14.Controls.Add(this.ClaveControl);
+            this.panel14.Controls.Add(this.lblClave);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(575, 3);
             this.panel14.Name = "panel14";
@@ -514,7 +507,7 @@
             // 
             // DireccionControl
             // 
-            this.DireccionControl.Location = new System.Drawing.Point(4, 29);
+            this.DireccionControl.Location = new System.Drawing.Point(4, 28);
             this.DireccionControl.Name = "DireccionControl";
             this.DireccionControl.Size = new System.Drawing.Size(215, 20);
             this.DireccionControl.TabIndex = 43;
@@ -529,31 +522,85 @@
             this.lblDireccion.TabIndex = 44;
             this.lblDireccion.Text = "DIRECCIÓN";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // ClaveControl
+            // 
+            this.ClaveControl.Location = new System.Drawing.Point(4, 29);
+            this.ClaveControl.Name = "ClaveControl";
+            this.ClaveControl.Size = new System.Drawing.Size(215, 20);
+            this.ClaveControl.TabIndex = 47;
+            // 
+            // lblClave
+            // 
+            this.lblClave.AutoSize = true;
+            this.lblClave.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClave.Location = new System.Drawing.Point(7, 7);
+            this.lblClave.Name = "lblClave";
+            this.lblClave.Size = new System.Drawing.Size(44, 17);
+            this.lblClave.TabIndex = 48;
+            this.lblClave.Text = "CLAVE";
+            this.lblClave.Click += new System.EventHandler(this.lblClave_Click);
+            // 
+            // Contraseña2Control
+            // 
+            this.Contraseña2Control.Location = new System.Drawing.Point(4, 29);
+            this.Contraseña2Control.Name = "Contraseña2Control";
+            this.Contraseña2Control.Size = new System.Drawing.Size(215, 20);
+            this.Contraseña2Control.TabIndex = 47;
+            this.Contraseña2Control.UseSystemPasswordChar = true;
+            // 
+            // lblContraseña2
+            // 
+            this.lblContraseña2.AutoSize = true;
+            this.lblContraseña2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContraseña2.Location = new System.Drawing.Point(7, 7);
+            this.lblContraseña2.Name = "lblContraseña2";
+            this.lblContraseña2.Size = new System.Drawing.Size(168, 17);
+            this.lblContraseña2.TabIndex = 48;
+            this.lblContraseña2.Text = "CONFIRMAR CONTRASEÑA";
+            // 
             // RutaControl
             // 
             this.RutaControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            this.RutaControl.BeforeTouchSize = new System.Drawing.Size(263, 27);
+            this.RutaControl.BeforeTouchSize = new System.Drawing.Size(70, 27);
             this.RutaControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RutaControl.CornerRadius = 2;
             this.RutaControl.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.RutaControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RutaControl.Location = new System.Drawing.Point(9, 148);
+            this.RutaControl.Location = new System.Drawing.Point(12, 31);
             this.RutaControl.MaxLength = 80;
             this.RutaControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.RutaControl.MinimumSize = new System.Drawing.Size(8, 4);
             this.RutaControl.Name = "RutaControl";
             this.RutaControl.ReadOnly = true;
-            this.RutaControl.Size = new System.Drawing.Size(263, 27);
+            this.RutaControl.Size = new System.Drawing.Size(70, 27);
             this.RutaControl.TabIndex = 49;
+            this.RutaControl.Visible = false;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.RutaControl);
+            this.panel8.Controls.Add(this.label7);
+            this.panel8.Controls.Add(this.BtnSeleccionar);
+            this.panel8.Controls.Add(this.FotoControl);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(575, 66);
+            this.panel8.Name = "panel8";
+            this.tableLayoutPanel1.SetRowSpan(this.panel8, 2);
+            this.panel8.Size = new System.Drawing.Size(281, 120);
+            this.panel8.TabIndex = 12;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 9);
+            this.label7.Location = new System.Drawing.Point(5, 1);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(143, 17);
-            this.label7.TabIndex = 47;
+            this.label7.TabIndex = 51;
             this.label7.Text = "SELECCIONAR IMAGEN";
             // 
             // BtnSeleccionar
@@ -565,53 +612,43 @@
             this.BtnSeleccionar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.BtnSeleccionar.ForeColor = System.Drawing.Color.White;
             this.BtnSeleccionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSeleccionar.Location = new System.Drawing.Point(11, 91);
+            this.BtnSeleccionar.Location = new System.Drawing.Point(12, 64);
             this.BtnSeleccionar.Name = "BtnSeleccionar";
             this.BtnSeleccionar.Size = new System.Drawing.Size(70, 28);
-            this.BtnSeleccionar.TabIndex = 48;
+            this.BtnSeleccionar.TabIndex = 52;
             this.BtnSeleccionar.Text = "SUBIR";
             this.BtnSeleccionar.UseVisualStyleBackColor = false;
+            this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
             // 
             // FotoControl
             // 
             this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FotoControl.Location = new System.Drawing.Point(91, 29);
+            this.FotoControl.Location = new System.Drawing.Point(88, 21);
             this.FotoControl.Name = "FotoControl";
-            this.FotoControl.Size = new System.Drawing.Size(187, 113);
+            this.FotoControl.Size = new System.Drawing.Size(187, 98);
             this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.FotoControl.TabIndex = 50;
+            this.FotoControl.TabIndex = 53;
             this.FotoControl.TabStop = false;
             // 
             // panel15
             // 
-            this.panel15.Controls.Add(this.ClaveControl);
-            this.panel15.Controls.Add(this.lblClave);
+            this.panel15.Controls.Add(this.ContraseñaControl);
+            this.panel15.Controls.Add(this.lblContraseña);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel15.Location = new System.Drawing.Point(575, 66);
+            this.panel15.Location = new System.Drawing.Point(575, 192);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(281, 57);
-            this.panel15.TabIndex = 12;
+            this.panel15.TabIndex = 13;
             // 
-            // ClaveControl
+            // panel16
             // 
-            this.ClaveControl.Location = new System.Drawing.Point(4, 29);
-            this.ClaveControl.Name = "ClaveControl";
-            this.ClaveControl.Size = new System.Drawing.Size(215, 20);
-            this.ClaveControl.TabIndex = 45;
-            // 
-            // lblClave
-            // 
-            this.lblClave.AutoSize = true;
-            this.lblClave.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClave.Location = new System.Drawing.Point(7, 7);
-            this.lblClave.Name = "lblClave";
-            this.lblClave.Size = new System.Drawing.Size(44, 17);
-            this.lblClave.TabIndex = 46;
-            this.lblClave.Text = "CLAVE";
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
+            this.panel16.Controls.Add(this.Contraseña2Control);
+            this.panel16.Controls.Add(this.lblContraseña2);
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel16.Location = new System.Drawing.Point(575, 255);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(281, 57);
+            this.panel16.TabIndex = 14;
             // 
             // FrmEmpleado
             // 
@@ -639,8 +676,6 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SexoControl)).EndInit();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -653,11 +688,15 @@
             this.panel13.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RutaControl)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -676,7 +715,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox NombreControl;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox ApellidoPatControl;
@@ -705,13 +743,17 @@
         private System.Windows.Forms.Label lblContraseña;
         private System.Windows.Forms.Label label2;
         private Syncfusion.Windows.Forms.Tools.ComboBoxAdv SexoControl;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TextBox ClaveControl;
+        private System.Windows.Forms.Label lblClave;
+        private System.Windows.Forms.TextBox Contraseña2Control;
+        private System.Windows.Forms.Label lblContraseña2;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt RutaControl;
+        private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button BtnSeleccionar;
         private System.Windows.Forms.PictureBox FotoControl;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.TextBox ClaveControl;
-        private System.Windows.Forms.Label lblClave;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Panel panel16;
     }
 }

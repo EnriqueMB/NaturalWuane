@@ -2,6 +2,7 @@
 using CIDFares.Library.Code.Helpers;
 using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
+using CIDFares.Library.Controls.CIDWait.Code;
 using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.CrossCutting.Services;
@@ -45,9 +46,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         public FrmEmpleado()
         {
             InitializeComponent();
+           
             lblSubtitle.Text = "NUEVO REGISTRO";
             Model = ServiceLocator.Instance.Resolve<EmpleadoViewModel>();
-          //  Model.GetListaCataegoriaProduto();
+            //  Model.GetListaCataegoriaProduto();
+            Model.Modificar = true;
 
 
 
@@ -58,7 +61,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<EmpleadoViewModel>();
             LimpiarPropiedades();
-         //   Model.IdProducto = IdProducto;
+            Model.Modificar = false;
+            Model.IdEmpleado = IdEmpleado;
             Model.State = EntityState.Update;
         }
         #endregion
@@ -67,29 +71,34 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+              
                 this.CleanErrors(errorProvider1, typeof(EmpleadoViewModel));
                 var validationResults = Model.Validate();
                 validationResults.ToString();
-                if (validationResults.IsValid)
-                {
-                    var Resultado = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
-                    if (Resultado.Resultado == 1)
+               
+
+                    if (validationResults.IsValid)
                     {
-                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
-                        LimpiarPropiedades();
-                       
-                       
+                        var Resultado = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
+                        if (Resultado.Resultado == 1)
+                        {
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                            LimpiarPropiedades();
+                            this.Close();
+
+
 
                     }
-                    else
-                    {
-                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
-                        LimpiarPropiedades();
-                       
+                        else
+                        {
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+                            LimpiarPropiedades();
+
+                        }
                     }
-                }
-                else
-                    this.ShowErrors(errorProvider1, typeof(EmpleadoViewModel), validationResults);
+                    else
+                        this.ShowErrors(errorProvider1, typeof(EmpleadoViewModel), validationResults);
+               
             }
             catch (Exception ex)
             {
@@ -137,6 +146,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 TelefonoControl.DataBindings.Add("Text", Model, "Telefono", true, DataSourceUpdateMode.OnPropertyChanged);
                 CorreoControl.DataBindings.Add("Text", Model, "Correo", true, DataSourceUpdateMode.OnPropertyChanged);
                 ContraseñaControl.DataBindings.Add("Text", Model, "Contraseña", true, DataSourceUpdateMode.OnPropertyChanged);
+                Contraseña2Control.DataBindings.Add("Text", Model, "Contraseña2", true, DataSourceUpdateMode.OnPropertyChanged);
                 DireccionControl.DataBindings.Add("Text", Model, "Direccion", true, DataSourceUpdateMode.OnPropertyChanged);
                 ClaveControl.DataBindings.Add("Text", Model, "Clave", true, DataSourceUpdateMode.OnPropertyChanged);
                 FotoControl.DataBindings.Add("Image", Model, "Foto", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -208,7 +218,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             Model.Contraseña = string.Empty;
             Model.Direccion = string.Empty;
             Model.Clave = string.Empty;
-          
+            Model.Contraseña2 = string.Empty;
             Model.FotoBase64 = string.Empty;
         }
 
@@ -226,12 +236,44 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
                 IniciarBinding();
                 Model.Foto = Properties.Resources.imagen_subir;
+                if (Model.State == EntityState.Update)
+                {
+                    CIDWait.Show(async () => {
+                        await Model.GetEmpleadoXId();
+                        await Model.GetFoto(Model.IdEmpleado);
+                        ContraseñaControl.Visible = false;
+                        Contraseña2Control.Visible = false;
+                        lblContraseña.Visible = false;
+                        lblContraseña2.Visible = false;
+                        if (!string.IsNullOrEmpty(Model.FotoBase64))
+                        {
+                            Model.Foto = ComprimirImagenExtensions.ImageBase64ToImage(Model.FotoBase64);
+                        }
+                        else
+                           Model.ImageLocation = "Sin Foto";
+                        Model.FotoBase64 = string.Empty;
+                        await Task.Delay(2000);
+                    }, "Cargando Empleado");
+                    lblSubtitle.Text = Model.Nombre;
+
+                   
+                }
             }
             catch (Exception ex)
             {
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmEmpleado ~ FrmEmpleado_Load(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
+        }
+
+        private void lblClave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

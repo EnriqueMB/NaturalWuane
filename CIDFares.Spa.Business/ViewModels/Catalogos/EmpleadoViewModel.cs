@@ -38,6 +38,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             ListaTurno = new BindingList<Turno>();
 
             #region Binding
+            Contraseña2 = string.Empty;
             Busqueda = string.Empty;
             UpdateFoto = false;
             IdEmpleado = Guid.Empty;
@@ -49,7 +50,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             ApellidoMat = string.Empty;
             Edad = 0;
             FechaNacimiento = DateTime.Now;
-            
+            Modificar = false;
             IdTurno = 0;
             IdPuesto = 0;
             Telefono = string.Empty;
@@ -231,6 +232,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     model.ApellidoMat = this.ApellidoMat;
                     model.FechaNacimiento = this.FechaNacimiento;
                     model.UpdateFoto = this.UpdateFoto;
+                    model.IdEmpleado = this.IdEmpleado;
                     model.Sexo = this.Sexo;
                     model.IdTurno = this.IdTurno;
                     model.IdPuesto = this.IdPuesto;
@@ -264,6 +266,13 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #endregion
 
         #region Binding
+        private bool _Modificar;
+
+        public bool Modificar
+        {
+            get { return _Modificar; }
+            set { _Modificar = value; OnPropertyChanged("Modificar"); }
+        }
 
         private string _Busqueda;
 
@@ -474,6 +483,14 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             get { return _CodigoBarra; }
             set { _CodigoBarra = value; OnPropertyChanged("CodigoBarra"); }
         }
+
+        private string _Contraseña2;
+        public string Contraseña2
+        {
+            get { return _Contraseña2; }
+            set { _Contraseña2 = value; OnPropertyChanged("Contraseña2"); }
+        }
+
 
         //Foto
         private Image _Foto;

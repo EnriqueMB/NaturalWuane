@@ -13,7 +13,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
         Task<IEnumerable<Empleado>> GetComboEmpleado();
         
         
-        Task<Empleado> GetEmpleadoXid(Guid IdEmpleado);
+        Task<Empleado> GetEmpleadoXid(Guid IdEmpleado); 
 
         Task<string> ObtenerFoto(Guid IdEmpleado);
 

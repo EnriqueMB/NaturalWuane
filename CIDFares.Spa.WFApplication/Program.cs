@@ -30,7 +30,7 @@ namespace CIDFares.Spa.WFApplication
             InitializeContainer();
             //Application.Run(new FrmLogin());
             // Application.Run(new FrmHomeD());
-            Application.Run(new FrmEmpleado());
+            Application.Run(new FrmEmpleadoGrid());
         }
 
         public static void InitializeContainer()

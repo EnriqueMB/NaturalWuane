@@ -131,7 +131,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-                ErrorLogHelper.AddExcFileTxt(ex, "FrmEmpleadoGrid ~ btnEliminar_Click(object sender, EventArgs e)");
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmEmpleadoGrid ~  btnEliminar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
@@ -171,7 +171,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 var item = ObtenerSeleccionado();
                 if (item != null)
                 {
-
+                 
                     FrmEmpleado Empleado = new FrmEmpleado(item.IdEmpleado);
                     Empleado.ShowDialog();
                     Model.State = EntityState.Update;
@@ -191,6 +191,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                
                 FrmEmpleado Empleado = new FrmEmpleado();
                 Empleado.ShowDialog();
                 Model.State = EntityState.Create;

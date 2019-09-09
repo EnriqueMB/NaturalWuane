@@ -18,7 +18,7 @@ namespace CIDFares.Spa.WFApplication.Validations
            .MustAsync(async (empleado, x, context) =>
            {
 
-               Guid result = await Servicio.NombreCompletoExistAsync(empleado.Clave, empleado.ApellidoPat, empleado.ApellidoMat);
+               Guid result = await Servicio.NombreCompletoExistAsync(empleado.Nombre, empleado.ApellidoPat, empleado.ApellidoMat);
                if (result != Guid.Empty)
                {
                    if (result == empleado.IdEmpleado)
@@ -29,7 +29,7 @@ namespace CIDFares.Spa.WFApplication.Validations
                else
                    return true;
            })
-           .WithMessage("EL EMPLEADO CON ESTE NOMBRE YA SE ECNCUENTRA REGISTRADO");
+           .WithMessage("EL EMPLEADO CON ESTOS NOMBRES Y APELLIDOS YA SE ECNCUENTRA REGISTRADO");
 
 
             RuleFor(empleado => empleado.Clave)
@@ -87,7 +87,12 @@ namespace CIDFares.Spa.WFApplication.Validations
 
             RuleFor(Empleado => Empleado.Correo)
                .NotEmpty()
-               .WithMessage("DEBE INGRESAR SU DIRECCION DE CORREO ELECTRONICO.");
+               .WithMessage("DEBE INGRESAR SU DIRECCION DE CORREO ELECTRONICO.")
+               .Matches("\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*")
+               .WithMessage("NO TIENE FORMATO DE CORREO ELECTRONICO");
+            
+
+           
 
             RuleFor(Empleado => Empleado.Direccion)
                .NotEmpty()
@@ -106,10 +111,20 @@ namespace CIDFares.Spa.WFApplication.Validations
               ).WithMessage("LA FECHA DE NACIMIENTO NO PUEDE SER MAYOR A LA FECHA ACTUAL.");
 
             RuleFor(empleado => empleado.Contraseña)
+               .Matches(@"^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,13}$")
+               .WithMessage("LA CONTRASEÑA DEBE TENER ENTRE 8 Y 13 CARACTERES, AL MENOS UN DÍGITO, AL MENOS UNA MINÚSCULA Y AL MENOS UNA MAYÚSCULA.")
+               .When(x => x.Modificar);
+
+
+            RuleFor(empleado => empleado.Contraseña2)
+                      .Equal((x) => x.Contraseña)
+                      .WithMessage("LAS CONTRASEÑAS NO COINCIDEN.")
+                      .When(empleado => empleado.Modificar); 
+
+            RuleFor(empleado => empleado.Contraseña2)
                 .NotEmpty()
-                .WithMessage("DEBE INGRESAR UNA CONTRASEÑA");
-               //.Matches(@"^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,13}$")
-              // .WithMessage("LA CONTRASEÑA DEBE TENER ENTRE 8 Y 13 CARACTERES, AL MENOS UN DÍGITO, AL MENOS UNA MINÚSCULA Y AL MENOS UNA MAYÚSCULA.");
+                .WithMessage("DEBE INGRESAR UNA CONTRASEÑA")
+                .When(empleado => empleado.Modificar);
         }
     }
 }

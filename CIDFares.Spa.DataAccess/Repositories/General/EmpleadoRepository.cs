@@ -28,6 +28,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@Opcion", 1);
+                    dynamicParameters.Add("@IdEmpleado", element.IdEmpleado);
                     dynamicParameters.Add("@Clave", element.Clave);
                     dynamicParameters.Add("@Nombre", element.Nombre);
                     dynamicParameters.Add("@ApellidoPat", element.ApellidoPat);
@@ -42,10 +43,10 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@Direccion", element.Direccion);
                     dynamicParameters.Add("@Foto", element.FotoBase64);
                     dynamicParameters.Add("@Contraseña", element.Contraseña);
-                    dynamicParameters.Add("@IdSucursal", element.IdSucursal);
+                    dynamicParameters.Add("@IdSucursal", /*element.IdSucursal*/ 1);
                     
 
-                    var Resultado = await conexion.ExecuteScalarAsync<int>(" [Usuario].[SPCID_AC_Empleado]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var Resultado = await conexion.ExecuteScalarAsync<int>("[Usuario].[SPCID_AC_Empleado]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = Resultado;
                     return element;
                 }
@@ -92,7 +93,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@IdEmpleado", id);
                     dynamicParameters.Add("@Usuario", IdUsuario);
-                    var result = await conexion.ExecuteScalarAsync<int>(" [Usuario].[SPCID_Delete_Empleado]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Usuario].[SPCID_Delete_Empleado]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     return result;
                 }
             }
@@ -232,6 +233,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@Opcion", 2);
+                    dynamicParameters.Add("@IdEmpleado", element.IdEmpleado);
                     dynamicParameters.Add("@Clave", element.Clave);
                     dynamicParameters.Add("@Nombre", element.Nombre);
                     dynamicParameters.Add("@ApellidoPat", element.ApellidoPat);
@@ -245,11 +247,11 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@Usuario", IdUsuario);
                     dynamicParameters.Add("@Direccion", element.Direccion);
                     dynamicParameters.Add("@Foto", element.FotoBase64);
-                   // dynamicParameters.Add("@Contraseña", element.Contraseña);
-                    dynamicParameters.Add("@IdSucursal", element.IdSucursal);
+                    dynamicParameters.Add("@Contraseña", element.Contraseña);
+                    dynamicParameters.Add("@IdSucursal", /*element.IdSucursal*/ 1);
 
 
-                    var Resultado = await conexion.ExecuteScalarAsync<int>(" [Usuario].[SPCID_AC_Empleado]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var Resultado = await conexion.ExecuteScalarAsync<int>("[Usuario].[SPCID_AC_Empleado]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = Resultado;
                     return element;
                 }
