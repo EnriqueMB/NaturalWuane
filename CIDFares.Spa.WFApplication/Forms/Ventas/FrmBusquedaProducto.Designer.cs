@@ -37,6 +37,7 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenedoGridGuardar = new System.Windows.Forms.Panel();
             this.panelGuardar = new System.Windows.Forms.Panel();
@@ -173,6 +174,10 @@
             gridTextColumn8.Format = "C2";
             gridTextColumn8.HeaderText = "Precio Menudeo";
             gridTextColumn8.MappingName = "PrecioMenudeo";
+            gridTextColumn9.AllowEditing = false;
+            gridTextColumn9.HeaderText = "Porcentaje Paquete";
+            gridTextColumn9.MappingName = "PorcentajePaquete";
+            gridTextColumn9.Visible = false;
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn1);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn2);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn3);
@@ -181,12 +186,14 @@
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn6);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn7);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn8);
+            this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn9);
             this.sfDataGridBuquedaProducto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridBuquedaProducto.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridBuquedaProducto.Name = "sfDataGridBuquedaProducto";
             this.sfDataGridBuquedaProducto.Size = new System.Drawing.Size(755, 420);
             this.sfDataGridBuquedaProducto.TabIndex = 2;
             this.sfDataGridBuquedaProducto.Text = "sfDataGrid1";
+            this.sfDataGridBuquedaProducto.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.sfDataGridBuquedaProducto_CellDoubleClick);
             // 
             // panelBuscador
             // 

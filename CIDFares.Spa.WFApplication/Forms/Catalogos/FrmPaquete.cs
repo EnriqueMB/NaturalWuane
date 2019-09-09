@@ -115,17 +115,38 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         #endregion
 
-        private void BtnNuevo_Click(object sender, EventArgs e)
+        private async void BtnNuevo_Click(object sender, EventArgs e)
         {
             try
             {
                 FrmPaqueteNuevo frmPaqueteNuevo = new FrmPaqueteNuevo();
                 frmPaqueteNuevo.ShowDialog();
-                frmPaqueteNuevo.Dispose();
+                await Model.GetAll();
             }
             catch (Exception ex)
             {
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmPaquete ~ BtnNuevo_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
+            }
+        }
+
+        private async void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var item = ObtenerSeleccionado();
+                if (item != null)
+                {
+                    FrmPaqueteNuevo frmPaqueteNuevo = new FrmPaqueteNuevo(item);
+                    frmPaqueteNuevo.ShowDialog();
+                    await Model.GetAll();
+                }
+                else
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPaquete ~ btnModificar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }

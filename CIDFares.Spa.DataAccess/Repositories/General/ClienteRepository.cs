@@ -90,14 +90,22 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
 
         public async Task<string> ObtenerFoto(Guid IdCliente)
         {
-            using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+            try
             {
-                conexion.Open();
-                var dynamicParameters = new DynamicParameters();
-                dynamicParameters.Add("@IdCliente", IdCliente);
-                var dr = await conexion.ExecuteScalarAsync<string>("[Cliente].[SPCID_Get_ObtenerFotoCliente]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                return dr.ToString();
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdCliente", IdCliente);
+                    var dr = await conexion.ExecuteScalarAsync<string>("[Cliente].[SPCID_Get_ObtenerFotoCliente]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return dr;
+                }
             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
         }
 
         public async Task<int> DeleteAsync(object id)

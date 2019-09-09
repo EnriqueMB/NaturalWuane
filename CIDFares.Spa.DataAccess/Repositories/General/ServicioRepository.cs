@@ -48,6 +48,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         //string cadena = dr.GetString(dr.GetOrdinal("Duracion"));
                         //item.Duracion = TimeSpan.Parse(cadena);
                         item.Duracion = dr.GetDateTime(dr.GetOrdinal("Duracion"));
+                        item.PorcentajePaquete = dr.GetDecimal(dr.GetOrdinal("PorcentajePaquete"));
                         Lista.Add(item);
                     }
                     return Lista;
@@ -124,14 +125,22 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
 
         public async Task<string> ObtenerFoto(int IdServicio)
         {
-            using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+            try
             {
-                conexion.Open();
-                var dynamicParameters = new DynamicParameters();
-                dynamicParameters.Add("@idServicio", IdServicio);
-                var dr = await conexion.ExecuteScalarAsync<string>("[Catalogo].[SPCID_Get_ObtenerFotoServicio]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                return dr.ToString();
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@idServicio", IdServicio);
+                    var dr = await conexion.ExecuteScalarAsync<string>("[Catalogo].[SPCID_Get_ObtenerFotoServicio]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return dr;
+                }
             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
         }
 
         public async Task<IEnumerable<Servicio>> GetAllAsync()

@@ -55,6 +55,24 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
+        public async Task ListaDetalle()
+        {
+            try
+            {
+                var x = await Repository.GetAsync(this.IdPaquete);
+                ListaDetallePaquete.Clear();
+                foreach (var item in x.ListaDetallePaquete)
+                {
+                    ListaDetallePaquete.Add(item);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public async Task<Paquetes> GuardarCambios(Guid IdUsuario)
         {
             try
@@ -66,18 +84,17 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 model.Descripcion = this.Descripcion;
                 model.NPersona = this.NPersonal;
                 model.NPago = this.NPago;
+                model.MontoPaquete = this.MontoPaquete;
                 model.FechaVencimiento = this.FechaVencimiento;
                 model.TablaProducto = this.TablaProducto;
                 model.TablaServicio = this.TablaServicio;
                 if (State == EntityState.Create)
                 {
-                    model.NuevoRegistro = true;
                     model = await Repository.AddAsync(model, IdUsuario);
                 }
                 else if (State == EntityState.Update)
                 {
-                    model.NuevoRegistro = false;
-                    model = await Repository.AddAsync(model, IdUsuario);
+                    model = await Repository.UpdateAsync(model, IdUsuario);
                 }
                 return model;
             }

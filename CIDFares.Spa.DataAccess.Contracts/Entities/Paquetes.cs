@@ -17,9 +17,9 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public string NPago { get; set; }
         public decimal MontoPaquete { get; set; }
         public DateTime FechaVencimiento { get; set; }
-        public bool NuevoRegistro { get; set; }
         public DataTable TablaProducto { get; set; }
         public DataTable TablaServicio { get; set; }
         public int Result { get; set; }
+        public List<PaqueteDetalle> ListaDetallePaquete { get; set; }
     }
 }

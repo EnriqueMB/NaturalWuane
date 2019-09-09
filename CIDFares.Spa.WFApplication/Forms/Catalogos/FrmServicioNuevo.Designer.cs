@@ -419,18 +419,6 @@
             this.pnlDuracion.Size = new System.Drawing.Size(197, 62);
             this.pnlDuracion.TabIndex = 4;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label10.Location = new System.Drawing.Point(79, 11);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(51, 13);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "hh:mm:ss";
-            this.toolTip1.SetToolTip(this.label10, "Impuesto Especial sobre Producción y Servicios");
-            // 
             // DuracionControl
             // 
             this.DuracionControl.CustomFormat = "HH:mm";
