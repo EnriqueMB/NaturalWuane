@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn17 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn18 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn19 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn20 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GroupColumnDescription groupColumnDescription1 = new Syncfusion.WinForms.DataGrid.GroupColumnDescription();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenedor1 = new System.Windows.Forms.Panel();
             this.panelFormulario = new System.Windows.Forms.Panel();
@@ -235,7 +236,7 @@
             // 
             // TotalControl
             // 
-            this.TotalControl.BeforeTouchSize = new System.Drawing.Size(162, 23);
+            this.TotalControl.BeforeTouchSize = new System.Drawing.Size(214, 23);
             this.TotalControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.TotalControl.Location = new System.Drawing.Point(138, 30);
             this.TotalControl.Margin = new System.Windows.Forms.Padding(2);
@@ -260,7 +261,7 @@
             // 
             // MontoPaqueteControl
             // 
-            this.MontoPaqueteControl.BeforeTouchSize = new System.Drawing.Size(162, 23);
+            this.MontoPaqueteControl.BeforeTouchSize = new System.Drawing.Size(214, 23);
             this.MontoPaqueteControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.MontoPaqueteControl.Location = new System.Drawing.Point(16, 30);
             this.MontoPaqueteControl.Margin = new System.Windows.Forms.Padding(2);
@@ -329,7 +330,7 @@
             // NPagoControl
             // 
             this.NPagoControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.NPagoControl.BeforeTouchSize = new System.Drawing.Size(162, 23);
+            this.NPagoControl.BeforeTouchSize = new System.Drawing.Size(214, 23);
             this.NPagoControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.NPagoControl.Location = new System.Drawing.Point(163, 30);
             this.NPagoControl.Margin = new System.Windows.Forms.Padding(2);
@@ -353,7 +354,7 @@
             // 
             // NPersonaControl
             // 
-            this.NPersonaControl.BeforeTouchSize = new System.Drawing.Size(162, 23);
+            this.NPersonaControl.BeforeTouchSize = new System.Drawing.Size(214, 23);
             this.NPersonaControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.NPersonaControl.Location = new System.Drawing.Point(10, 30);
             this.NPersonaControl.Margin = new System.Windows.Forms.Padding(2);
@@ -389,7 +390,7 @@
             // 
             this.DescripcionControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(235, 46);
+            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(214, 23);
             this.DescripcionControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.DescripcionControl.Location = new System.Drawing.Point(3, 21);
             this.DescripcionControl.Margin = new System.Windows.Forms.Padding(2);
@@ -425,7 +426,7 @@
             // 
             this.NombreControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.NombreControl.BeforeTouchSize = new System.Drawing.Size(162, 23);
+            this.NombreControl.BeforeTouchSize = new System.Drawing.Size(214, 23);
             this.NombreControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.NombreControl.Location = new System.Drawing.Point(21, 36);
             this.NombreControl.Margin = new System.Windows.Forms.Padding(2);
@@ -461,7 +462,7 @@
             // 
             this.ClaveControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(162, 23);
+            this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(214, 23);
             this.ClaveControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ClaveControl.Location = new System.Drawing.Point(10, 36);
             this.ClaveControl.Margin = new System.Windows.Forms.Padding(2);
@@ -514,91 +515,82 @@
             this.dataGridsfPaqueteDetalle.AutoExpandGroups = true;
             this.dataGridsfPaqueteDetalle.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
             this.dataGridsfPaqueteDetalle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            gridTextColumn11.AllowDragging = true;
-            gridTextColumn11.AllowEditing = false;
-            gridTextColumn11.AllowFiltering = true;
-            gridTextColumn11.HeaderText = "IdTipo";
-            gridTextColumn11.MappingName = "IDTipo";
-            gridTextColumn11.Visible = false;
-            gridTextColumn12.AllowDragging = true;
-            gridTextColumn12.AllowEditing = false;
-            gridTextColumn12.AllowFiltering = true;
-            gridTextColumn12.HeaderText = "IdGenerico";
-            gridTextColumn12.MappingName = "IdGenerico";
-            gridTextColumn12.Visible = false;
-            gridTextColumn13.AllowDragging = true;
-            gridTextColumn13.AllowEditing = false;
-            gridTextColumn13.AllowFiltering = true;
-            gridTextColumn13.HeaderText = "Tipo";
-            gridTextColumn13.MappingName = "Tipo";
-            gridTextColumn13.Visible = false;
-            gridTextColumn14.AllowDragging = true;
-            gridTextColumn14.AllowEditing = false;
-            gridTextColumn14.AllowFiltering = true;
-            gridTextColumn14.HeaderText = "Nombre";
-            gridTextColumn14.MappingName = "Nombre";
-            gridTextColumn15.AllowDragging = true;
-            gridTextColumn15.AllowEditing = false;
-            gridTextColumn15.AllowFiltering = true;
-            gridTextColumn15.HeaderText = "Cantidad";
-            gridTextColumn15.MappingName = "Cantidad";
-            gridTextColumn16.AllowDragging = true;
-            gridTextColumn16.AllowEditing = false;
-            gridTextColumn16.AllowFiltering = true;
-            gridTextColumn16.Format = "C2";
-            gridTextColumn16.HeaderText = "Precio";
-            gridTextColumn16.MappingName = "Precios";
-            gridTextColumn17.AllowDragging = true;
-            gridTextColumn17.AllowEditing = false;
-            gridTextColumn17.AllowFiltering = true;
-            gridTextColumn17.Format = "C2";
-            gridTextColumn17.HeaderText = "Precio Sin Descuento";
-            gridTextColumn17.MappingName = "PrecioSinDescuento";
-            gridTextColumn18.AllowDragging = true;
-            gridTextColumn18.AllowEditing = false;
-            gridTextColumn18.AllowFiltering = true;
-            gridTextColumn18.Format = "N2";
-            gridTextColumn18.HeaderText = "Porcentaje Descuento";
-            gridTextColumn18.MappingName = "PorcentajeDescuento";
-            gridTextColumn19.AllowDragging = true;
-            gridTextColumn19.AllowEditing = false;
-            gridTextColumn19.AllowFiltering = true;
-            gridTextColumn19.Format = "C2";
-            gridTextColumn19.HeaderText = "Precio Descuento";
-            gridTextColumn19.MappingName = "PrecioDescuento";
-            gridTextColumn20.AllowDragging = true;
-            gridTextColumn20.AllowEditing = false;
-            gridTextColumn20.AllowFiltering = true;
-            gridTextColumn20.HeaderText = "IdDetallePaquete";
-            gridTextColumn20.MappingName = "IdDetallePaquete";
-            gridTextColumn20.Visible = false;
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn11);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn12);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn13);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn14);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn15);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn16);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn17);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn18);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn19);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn20);
+            gridTextColumn1.AllowDragging = true;
+            gridTextColumn1.AllowEditing = false;
+            gridTextColumn1.AllowFiltering = true;
+            gridTextColumn1.HeaderText = "IdTipo";
+            gridTextColumn1.MappingName = "IDTipo";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.AllowDragging = true;
+            gridTextColumn2.AllowEditing = false;
+            gridTextColumn2.AllowFiltering = true;
+            gridTextColumn2.HeaderText = "IdGenerico";
+            gridTextColumn2.MappingName = "IdGenerico";
+            gridTextColumn2.Visible = false;
+            gridTextColumn3.AllowDragging = true;
+            gridTextColumn3.AllowEditing = false;
+            gridTextColumn3.AllowFiltering = true;
+            gridTextColumn3.HeaderText = "Tipo";
+            gridTextColumn3.MappingName = "Tipo";
+            gridTextColumn3.Visible = false;
+            gridTextColumn4.AllowDragging = true;
+            gridTextColumn4.AllowEditing = false;
+            gridTextColumn4.AllowFiltering = true;
+            gridTextColumn4.HeaderText = "Nombre";
+            gridTextColumn4.MappingName = "Nombre";
+            gridTextColumn5.AllowDragging = true;
+            gridTextColumn5.AllowEditing = false;
+            gridTextColumn5.AllowFiltering = true;
+            gridTextColumn5.HeaderText = "Cantidad";
+            gridTextColumn5.MappingName = "Cantidad";
+            gridTextColumn6.AllowDragging = true;
+            gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.AllowFiltering = true;
+            gridTextColumn6.Format = "C2";
+            gridTextColumn6.HeaderText = "Precio";
+            gridTextColumn6.MappingName = "Precios";
+            gridTextColumn7.AllowDragging = true;
+            gridTextColumn7.AllowEditing = false;
+            gridTextColumn7.AllowFiltering = true;
+            gridTextColumn7.Format = "C2";
+            gridTextColumn7.HeaderText = "Precio Sin Descuento";
+            gridTextColumn7.MappingName = "PrecioSinDescuento";
+            gridTextColumn8.AllowDragging = true;
+            gridTextColumn8.AllowEditing = false;
+            gridTextColumn8.AllowFiltering = true;
+            gridTextColumn8.Format = "N2";
+            gridTextColumn8.HeaderText = "Porcentaje Descuento";
+            gridTextColumn8.MappingName = "PorcentajeDescuento";
+            gridTextColumn9.AllowDragging = true;
+            gridTextColumn9.AllowEditing = false;
+            gridTextColumn9.AllowFiltering = true;
+            gridTextColumn9.Format = "C2";
+            gridTextColumn9.HeaderText = "Precio Descuento";
+            gridTextColumn9.MappingName = "PrecioDescuento";
+            gridTextColumn10.AllowDragging = true;
+            gridTextColumn10.AllowEditing = false;
+            gridTextColumn10.AllowFiltering = true;
+            gridTextColumn10.HeaderText = "IdDetallePaquete";
+            gridTextColumn10.MappingName = "IdDetallePaquete";
+            gridTextColumn10.Visible = false;
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn1);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn2);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn3);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn4);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn5);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn6);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn7);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn8);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn9);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn10);
             this.dataGridsfPaqueteDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
+            groupColumnDescription1.ColumnName = "Tipo";
+            this.dataGridsfPaqueteDetalle.GroupColumnDescriptions.Add(groupColumnDescription1);
             this.dataGridsfPaqueteDetalle.Location = new System.Drawing.Point(0, 0);
             this.dataGridsfPaqueteDetalle.Name = "dataGridsfPaqueteDetalle";
             this.dataGridsfPaqueteDetalle.RowHeight = 21;
             this.dataGridsfPaqueteDetalle.ShowGroupDropArea = true;
             this.dataGridsfPaqueteDetalle.Size = new System.Drawing.Size(794, 219);
-            this.dataGridsfPaqueteDetalle.Style.CellStyle.TextColor = System.Drawing.Color.Black;
-            this.dataGridsfPaqueteDetalle.Style.GroupDropAreaItemStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.dataGridsfPaqueteDetalle.Style.GroupDropAreaItemStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.dataGridsfPaqueteDetalle.Style.GroupDropAreaStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            this.dataGridsfPaqueteDetalle.Style.GroupDropAreaStyle.TextColor = System.Drawing.Color.Black;
-            this.dataGridsfPaqueteDetalle.Style.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.dataGridsfPaqueteDetalle.Style.HeaderStyle.Font.Bold = false;
-            this.dataGridsfPaqueteDetalle.Style.HeaderStyle.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(64)))), ((int)(((byte)(23)))));
-            this.dataGridsfPaqueteDetalle.Style.HeaderStyle.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridsfPaqueteDetalle.Style.HeaderStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridsfPaqueteDetalle.Style.IndentCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
             this.dataGridsfPaqueteDetalle.TabIndex = 1;
             this.dataGridsfPaqueteDetalle.Text = "dataGridsf1";
             // 
