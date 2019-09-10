@@ -62,6 +62,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                this.ActiveControl = this.ClaveControl;
+                this.ClaveControl.Focus();
                 IniciarBinding();
                 if (Model.IdPaquete != 0)
                 {
@@ -176,6 +178,28 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmPaqueteNuevo() ~ btnCancelar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
+        }
+        private void NPersonaControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                errorProvider1.SetError(NPersonaControl, "SOLO SE PERMITE NUMERO.");
+                e.Handled = true;
+                return;
+            }
+            else
+                errorProvider1.SetError(NPersonaControl, "");
+        }
+        private void NPagoControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                errorProvider1.SetError(NPagoControl, "SOLO SE PERMITE NUMERO.");
+                e.Handled = true;
+                return;
+            }
+            else
+                errorProvider1.SetError(NPagoControl, "");
         }
         #endregion
 
