@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
 {
@@ -12,6 +13,8 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
     {
         #region Metodos
         Task<IEnumerable<Cuestionario>> LlenarComboTipoEncuesta();
+
+        Task<int> GuardarEncuesta(string NombreEncuesta, int TipoEncuesta,Guid IdUsuario, DataTable tblPregunta, DataTable tblRespuesta);
         #endregion
     }
 }

@@ -8,7 +8,17 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
 {
     public class Preguntas
     {
+        public Preguntas()
+        {
+            Respuesta = new List<Respuestas>();
+        }
+
+        public Guid IdPregunta { get; set; }
         public string Pregunta { get; set; }
-        public bool Checked { get; set; }
+        public string TipoPregunta { get; set; }
+        public string IdPreguntaDepende { get; set; }
+        public string DependePregunta { get; set; }
+        public int Orden { get; set; }
+        public List<Respuestas> Respuesta { get; set; }
     }
 }

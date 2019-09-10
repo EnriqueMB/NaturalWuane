@@ -4,6 +4,7 @@ using CIDFares.Spa.DataAccess.Contracts.Validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,13 +12,13 @@ using System.Threading.Tasks;
 namespace CIDFares.Spa.Business.ViewModels.Catalogos
 {
     public class EncuestasViewModel : Validable, INotifyPropertyChanged
-    {
-        #region variables globales
-        #endregion
-
+    {     
         #region Propiedades
-        public ICuestionarioRepository _cuestionarioRepository { get; set; }
+        private ICuestionarioRepository _cuestionarioRepository { get; set; }
         public BindingList<Cuestionario> _ListaTipoEncuesta { get; set; }
+
+        public DataTable TblPregunta { get; set; }
+        public DataTable TblRespuesta { get; set; }
         #endregion
 
         #region Constructor
@@ -46,6 +47,17 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
+        public async Task<int> GuardarEncuesta(Guid idUsuario)
+        {
+            try
+            {
+               return await _cuestionarioRepository.GuardarEncuesta(NombreEncuesta,IdTipoEncuesta,idUsuario,TblPregunta,TblRespuesta);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
 
         #region Binding
@@ -79,6 +91,17 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
+        private Guid _IdPregunta;
+
+        public Guid IdPregunta
+        {
+            get { return _IdPregunta; }
+            set { _IdPregunta = value;
+                OnPropertyChanged(nameof(IdPregunta));
+            }
+        }
+
+
         private string _NombreEncuesta;
         public string NombreEncuesta
         {
@@ -88,6 +111,12 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
+        private string _Respuesta;
+        public string Respuesta
+        {
+            get { return _Respuesta; }
+            set { _Respuesta = value; }
+        }
 
         #endregion
 

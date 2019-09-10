@@ -31,7 +31,7 @@ namespace CIDFares.Spa.WFApplication
             InitializeContainer();
 
 
-            Application.Run(new FrmEncuesta());
+            Application.Run(new FrmLogin());
 
         }
 

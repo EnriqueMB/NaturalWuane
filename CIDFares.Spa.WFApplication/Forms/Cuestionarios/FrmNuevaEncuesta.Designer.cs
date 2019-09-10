@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GroupColumnDescription groupColumnDescription2 = new Syncfusion.WinForms.DataGrid.GroupColumnDescription();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridCheckBoxColumn gridCheckBoxColumn2 = new Syncfusion.WinForms.DataGrid.GridCheckBoxColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.FlpBotones = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancelarEncuesta = new System.Windows.Forms.Button();
             this.btnNuevaEncuesta = new System.Windows.Forms.Button();
@@ -47,6 +50,8 @@
             this.dtgRespuestas = new CIDFares.Library.Controls.CIDDataGridsf.DataGridsf();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnEliminarPregunta = new System.Windows.Forms.Button();
+            this.btnBajar = new System.Windows.Forms.Button();
+            this.btnSubir = new System.Windows.Forms.Button();
             this.btnAgregarPregunta = new System.Windows.Forms.Button();
             this.dtgPreguntas = new CIDFares.Library.Controls.CIDDataGridsf.DataGridsf();
             this.IdTipoEncuestaControl = new System.Windows.Forms.ComboBox();
@@ -202,20 +207,30 @@
             this.dtgRespuestas.AutoExpandGroups = true;
             this.dtgRespuestas.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
             this.dtgRespuestas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            gridTextColumn5.AllowDragging = true;
-            gridTextColumn5.AllowEditing = false;
-            gridTextColumn5.AllowFiltering = true;
-            gridTextColumn5.HeaderText = "PREGUNTA";
-            gridTextColumn5.MappingName = "pregunta";
-            gridTextColumn6.AllowDragging = true;
-            gridTextColumn6.AllowEditing = false;
-            gridTextColumn6.AllowFiltering = true;
-            gridTextColumn6.HeaderText = "RESPUESTAS";
-            gridTextColumn6.MappingName = "Respuesta";
-            this.dtgRespuestas.Columns.Add(gridTextColumn5);
-            this.dtgRespuestas.Columns.Add(gridTextColumn6);
-            groupColumnDescription2.ColumnName = "pregunta";
-            this.dtgRespuestas.GroupColumnDescriptions.Add(groupColumnDescription2);
+            gridTextColumn1.AllowDragging = true;
+            gridTextColumn1.AllowEditing = false;
+            gridTextColumn1.AllowFiltering = true;
+            gridTextColumn1.HeaderText = "IdPregunta";
+            gridTextColumn1.MappingName = "IdPregunta";
+            gridTextColumn2.AllowDragging = true;
+            gridTextColumn2.AllowEditing = false;
+            gridTextColumn2.AllowFiltering = true;
+            gridTextColumn2.HeaderText = "PREGUNTA";
+            gridTextColumn2.MappingName = "pregunta";
+            gridTextColumn3.AllowDragging = true;
+            gridTextColumn3.AllowEditing = false;
+            gridTextColumn3.AllowFiltering = true;
+            gridTextColumn3.HeaderText = "RESPUESTAS";
+            gridTextColumn3.MappingName = "Respuesta";
+            gridTextColumn4.AllowDragging = true;
+            gridTextColumn4.AllowEditing = false;
+            gridTextColumn4.AllowFiltering = true;
+            gridTextColumn4.HeaderText = "IdRespuesta";
+            gridTextColumn4.MappingName = "IdRespuesta";
+            this.dtgRespuestas.Columns.Add(gridTextColumn1);
+            this.dtgRespuestas.Columns.Add(gridTextColumn2);
+            this.dtgRespuestas.Columns.Add(gridTextColumn3);
+            this.dtgRespuestas.Columns.Add(gridTextColumn4);
             this.dtgRespuestas.Location = new System.Drawing.Point(6, 19);
             this.dtgRespuestas.Name = "dtgRespuestas";
             this.dtgRespuestas.RowHeight = 21;
@@ -238,6 +253,8 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnEliminarPregunta);
+            this.groupBox1.Controls.Add(this.btnBajar);
+            this.groupBox1.Controls.Add(this.btnSubir);
             this.groupBox1.Controls.Add(this.btnAgregarPregunta);
             this.groupBox1.Controls.Add(this.dtgPreguntas);
             this.groupBox1.Location = new System.Drawing.Point(0, 90);
@@ -264,6 +281,40 @@
             this.btnEliminarPregunta.UseVisualStyleBackColor = false;
             this.btnEliminarPregunta.Click += new System.EventHandler(this.BtnEliminarPregunta_Click);
             // 
+            // btnBajar
+            // 
+            this.btnBajar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBajar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
+            this.btnBajar.FlatAppearance.BorderSize = 0;
+            this.btnBajar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBajar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBajar.ForeColor = System.Drawing.Color.White;
+            this.btnBajar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBajar.Location = new System.Drawing.Point(603, 190);
+            this.btnBajar.Name = "btnBajar";
+            this.btnBajar.Size = new System.Drawing.Size(53, 36);
+            this.btnBajar.TabIndex = 15;
+            this.btnBajar.Text = "^";
+            this.btnBajar.UseVisualStyleBackColor = false;
+            this.btnBajar.Click += new System.EventHandler(this.BtnBajar_Click);
+            // 
+            // btnSubir
+            // 
+            this.btnSubir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSubir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
+            this.btnSubir.FlatAppearance.BorderSize = 0;
+            this.btnSubir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubir.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubir.ForeColor = System.Drawing.Color.White;
+            this.btnSubir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSubir.Location = new System.Drawing.Point(603, 148);
+            this.btnSubir.Name = "btnSubir";
+            this.btnSubir.Size = new System.Drawing.Size(53, 36);
+            this.btnSubir.TabIndex = 15;
+            this.btnSubir.Text = "^";
+            this.btnSubir.UseVisualStyleBackColor = false;
+            this.btnSubir.Click += new System.EventHandler(this.BtnSubir_Click);
+            // 
             // btnAgregarPregunta
             // 
             this.btnAgregarPregunta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -285,33 +336,49 @@
             // 
             this.dtgPreguntas.AccessibleName = "Table";
             this.dtgPreguntas.AllowDraggingColumns = true;
+            this.dtgPreguntas.AllowDrop = true;
             this.dtgPreguntas.AllowEditing = false;
             this.dtgPreguntas.AllowFiltering = true;
+            this.dtgPreguntas.AllowSelectionOnMouseDown = true;
             this.dtgPreguntas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgPreguntas.AutoExpandGroups = true;
+            this.dtgPreguntas.AutoFitGroupDropAreaItem = true;
             this.dtgPreguntas.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
             this.dtgPreguntas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            gridTextColumn1.AllowDragging = true;
-            gridTextColumn1.AllowEditing = false;
-            gridTextColumn1.AllowFiltering = true;
-            gridTextColumn1.HeaderText = "IdPregunta";
-            gridTextColumn1.MappingName = "Column1";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.AllowDragging = true;
-            gridTextColumn2.AllowEditing = false;
-            gridTextColumn2.AllowFiltering = true;
-            gridTextColumn2.HeaderText = "PREGUNTA";
-            gridTextColumn2.MappingName = "Pregunta";
-            gridCheckBoxColumn2.AllowCheckBoxOnHeader = true;
-            gridCheckBoxColumn2.AllowDragging = true;
-            gridCheckBoxColumn2.AllowFiltering = true;
-            gridCheckBoxColumn2.HeaderText = "OPCION MULTIPLE";
-            gridCheckBoxColumn2.MappingName = "Checked";
-            this.dtgPreguntas.Columns.Add(gridTextColumn1);
-            this.dtgPreguntas.Columns.Add(gridTextColumn2);
-            this.dtgPreguntas.Columns.Add(gridCheckBoxColumn2);
+            gridTextColumn5.AllowDragging = true;
+            gridTextColumn5.AllowEditing = false;
+            gridTextColumn5.AllowFiltering = true;
+            gridTextColumn5.HeaderText = "IdPregunta";
+            gridTextColumn5.MappingName = "IdPregunta";
+            gridTextColumn5.Visible = false;
+            gridTextColumn6.AllowDragging = true;
+            gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.AllowFiltering = true;
+            gridTextColumn6.HeaderText = "PREGUNTA";
+            gridTextColumn6.MappingName = "Pregunta";
+            gridTextColumn7.AllowDragging = true;
+            gridTextColumn7.AllowEditing = false;
+            gridTextColumn7.AllowFiltering = true;
+            gridTextColumn7.HeaderText = "TIPO DE RESPUESTA";
+            gridTextColumn7.MappingName = "TipoPregunta";
+            gridTextColumn8.AllowDragging = true;
+            gridTextColumn8.AllowEditing = false;
+            gridTextColumn8.AllowFiltering = true;
+            gridTextColumn8.HeaderText = "DEPENDE DE...";
+            gridTextColumn8.MappingName = "DependePregunta";
+            gridTextColumn9.AllowDragging = true;
+            gridTextColumn9.AllowEditing = false;
+            gridTextColumn9.AllowFiltering = true;
+            gridTextColumn9.HeaderText = "DEPENDE";
+            gridTextColumn9.MappingName = "IdPreguntaDepende";
+            gridTextColumn9.Visible = false;
+            this.dtgPreguntas.Columns.Add(gridTextColumn5);
+            this.dtgPreguntas.Columns.Add(gridTextColumn6);
+            this.dtgPreguntas.Columns.Add(gridTextColumn7);
+            this.dtgPreguntas.Columns.Add(gridTextColumn8);
+            this.dtgPreguntas.Columns.Add(gridTextColumn9);
             this.dtgPreguntas.Location = new System.Drawing.Point(6, 19);
             this.dtgPreguntas.Name = "dtgPreguntas";
             this.dtgPreguntas.RowHeight = 21;
@@ -422,5 +489,7 @@
         private System.Windows.Forms.Button btnEliminarRespuesta;
         private System.Windows.Forms.Button btnAgregarRespuesta;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button btnSubir;
+        private System.Windows.Forms.Button btnBajar;
     }
 }

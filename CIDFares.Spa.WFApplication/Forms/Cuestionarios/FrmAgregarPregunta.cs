@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,21 +23,24 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
 {
     public partial class FrmAgregarPregunta : Form
     {
-        int opcion;
-        string Pregunta;
+        #region Propiedades
         public EncuestasViewModel Model { get; set; }
-        public List<Preguntas> ListaPreguntas;
-        public List<Respuestas> ListaRespuesta;
+        public BindingList<Preguntas> ListaPreguntas;
+        //public List<Respuestas> ListaRespuesta;
+        private List<Preguntas> list;
+        private List<Preguntas> PreguntasEncuesta = new List<Preguntas>();
+        #endregion
 
-        public FrmAgregarPregunta(int _opcion,string _pregunta)
+        #region Constructor   
+        public FrmAgregarPregunta(List<Preguntas> _Preguntax)
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<EncuestasViewModel>();
-            opcion = _opcion;
-            Pregunta = _pregunta;
-            ListaPreguntas = new List<Preguntas>();
-            ListaRespuesta = new List<Respuestas>();
+            ListaPreguntas = new BindingList<Preguntas>();
+            //ListaRespuesta = new List<Respuestas>();
+            list = _Preguntax;
         }
+        #endregion
 
         #region Eventos
         private void TxtPreguntas_TextChanged(object sender, EventArgs e)
@@ -53,120 +57,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 throw ex;
             }
         }
-        #endregion
-
-        #region Metodos
-        private void IniciarBinding()
-        {
-            try
-            {
-                PreguntaControl.DataBindings.Add("Text", Model, "Pregunta", true, DataSourceUpdateMode.OnPropertyChanged);             
-            }
-            catch (Exception ex)
-            {
-                CIDMessageBox.ShowAlert(Messages.SystemName, ex.Message.ToString(), TypeMessage.error);
-            }
-        }
-        #endregion
-
-        private void BtnGuardarPregunta_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if(opcion == 1)
-                {
-                    if (!string.IsNullOrEmpty(Model.Pregunta))
-                    {
-                        LLenarListaPreguntas(CargarDatos());
-                        this.Close();
-                    }
-                    else
-                    {
-                        errorProvider1.SetError(PreguntaControl, "EL CAMPO PREGUNTA NO DEBE ESTAR VACIO.");
-                    }
-                }
-                else if(opcion == 2)
-                {
-                    if (!string.IsNullOrEmpty(Model.Pregunta))
-                    {
-                        LLenarListaRespuestas(CargarDatosR());
-                        this.Close();
-                    }
-                    else
-                    {
-                        errorProvider1.SetError(PreguntaControl, "EL CAMPO RESPUESTA NO DEBE ESTAR VACIO.");
-                    }
-                }
-                
-            }
-            catch (Exception ex)
-            {
-                ErrorLogHelper.AddExcFileTxt(ex, "FrmAgregarPregunta ~ BtnGuardarPregunta_Click(object sender, EventArgs e)");
-                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
-            }
-        }
-
-        private Preguntas CargarDatos()
-        {
-            try
-            {
-                Preguntas dato = new Preguntas();
-                dato.Pregunta = PreguntaControl.Text;
-                //dato.Checked = check.Checked;
-                return dato;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        private Respuestas CargarDatosR()
-        {
-            try
-            {
-                Respuestas dato = new Respuestas();
-                dato.Respuesta = PreguntaControl.Text;
-                dato.pregunta = Pregunta;
-                return dato;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        public void LLenarListaPreguntas(Preguntas value)
-        {
-            try
-            {
-                ListaPreguntas.Add(value);
-          
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public void LLenarListaRespuestas(Respuestas value)
-        {
-            try
-            {
-                ListaRespuesta.Add(value);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         private void FrmAgregarPregunta_Load(object sender, EventArgs e)
         {
             IniciarBinding();
-            if (opcion == 2)
-            {
-                lblTitulo.Text = "RESPUESTAS:";
-                lblPregunta.Text = Pregunta;
-            }
+            Height = 366;           
         }
 
         private void PreguntaControl_KeyPress(object sender, KeyPressEventArgs e)
@@ -179,9 +73,144 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 }
             }
             catch (Exception ex)
-            {              
+            {
                 CIDMessageBox.ShowAlert(Messages.SystemName, ex.Message.ToString(), TypeMessage.error);
             }
         }
+
+        private void CheckDepende_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkDepende.Checked)
+            {       
+                Height = 497;                
+                IniciarComboTE();
+                lblTitulo.Visible = true;
+                cmbPreguntas.Visible = true;               
+            }
+            else
+            {               
+                Height = 385;
+                lblTitulo.Visible = false;
+                cmbPreguntas.Visible = false;
+            }
+        }
+        private void BtnGuardarPregunta_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(Model.Pregunta))
+                {
+                    LLenarListaPreguntas(CargarDatos());
+                    this.Close();
+                }
+                else
+                {
+                    errorProvider1.SetError(PreguntaControl, "EL CAMPO PREGUNTA NO DEBE ESTAR VACIO.");
+                }               
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmAgregarPregunta ~ BtnGuardarPregunta_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+        }
+        #endregion
+
+        #region Metodos
+        private void IniciarBinding()
+        {
+            try
+            {
+                PreguntaControl.DataBindings.Add("Text", Model, "Pregunta", true, DataSourceUpdateMode.OnPropertyChanged);
+
+                //cmbPreguntas.DataBindings.Add("SelectedValue", Model, "IdPregunta", true, DataSourceUpdateMode.OnPropertyChanged);
+                //cmbPreguntas.DataBindings.Add("DataSource", Model, "", true, DataSourceUpdateMode.OnPropertyChanged);
+                //IniciarComboTE();
+            }
+            catch (Exception ex)
+            {
+                CIDMessageBox.ShowAlert(Messages.SystemName, ex.Message.ToString(), TypeMessage.error);
+            }
+        }
+        private void IniciarComboTE()
+        {
+            try
+            {
+                this.cmbPreguntas.DataSource = list;                
+                cmbPreguntas.DisplayMember = "Pregunta";
+                cmbPreguntas.ValueMember = "IdPregunta";
+            }
+            catch (Exception ex)
+            {
+                CIDMessageBox.ShowAlert(Messages.SystemName, ex.Message.ToString(), TypeMessage.error);
+            }
+        }
+
+        private Preguntas CargarDatos()
+        {
+            try
+            {
+                Preguntas Paux = ObtenerItemSeleccionado();
+
+                Preguntas dato = new Preguntas();
+                dato.IdPregunta = Guid.NewGuid();
+                dato.Pregunta = PreguntaControl.Text;
+                if (rbAbierta.Checked)
+                {
+                    dato.TipoPregunta = "ABIERTA";
+                }
+                else if (rbSiNo.Checked)
+                {
+                    dato.TipoPregunta = "SI/NO";
+                }
+                else if (rbMultiple.Checked)
+                {
+                    dato.TipoPregunta = "MULTIPLE";
+                }
+                if (checkDepende.Checked)
+                {
+                    dato.IdPreguntaDepende = Paux.IdPregunta.ToString();
+                    dato.DependePregunta = Paux.Pregunta;
+                }
+                
+                return dato;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void LLenarListaPreguntas(Preguntas value)
+        {
+            try
+            {
+                ListaPreguntas.Add(value);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private Preguntas ObtenerItemSeleccionado()
+        {
+            try
+            {
+                Preguntas DatosAux = new Preguntas();
+                if (this.cmbPreguntas.SelectedIndex != -1)
+                {
+                    DatosAux = (Preguntas)this.cmbPreguntas.SelectedItem;
+                }
+                return DatosAux;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion
+
     }
 }

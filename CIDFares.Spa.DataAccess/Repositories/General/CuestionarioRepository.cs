@@ -41,6 +41,30 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
+        public async Task<int> GuardarEncuesta(string NombreEncuesta, int TipoEncuesta, Guid IdUsuario, DataTable tblPregunta, DataTable tblRespuesta)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdUsuario", IdUsuario);
+                    dynamicParameters.Add("@NombreEncuesta", NombreEncuesta);
+                    dynamicParameters.Add("@IdTipoEncuesta", TipoEncuesta);
+                    dynamicParameters.Add("@TblPregunta", tblPregunta,DbType.Object);
+                    dynamicParameters.Add("@TblRespuesta", tblRespuesta,DbType.Object);
+
+                    var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[spCID_A_Encuesta]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<IEnumerable<Cuestionario>> LlenarComboTipoEncuesta()
         {
             try
