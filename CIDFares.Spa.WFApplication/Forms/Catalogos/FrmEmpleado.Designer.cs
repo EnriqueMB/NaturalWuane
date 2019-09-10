@@ -64,23 +64,23 @@
             this.lblPuesto = new System.Windows.Forms.Label();
             this.IdPuestoControl = new System.Windows.Forms.ComboBox();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.ContraseñaControl = new System.Windows.Forms.TextBox();
-            this.lblContraseña = new System.Windows.Forms.Label();
-            this.panel14 = new System.Windows.Forms.Panel();
             this.DireccionControl = new System.Windows.Forms.TextBox();
             this.lblDireccion = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel14 = new System.Windows.Forms.Panel();
             this.ClaveControl = new System.Windows.Forms.TextBox();
             this.lblClave = new System.Windows.Forms.Label();
-            this.Contraseña2Control = new System.Windows.Forms.TextBox();
-            this.lblContraseña2 = new System.Windows.Forms.Label();
-            this.RutaControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.RutaControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.label7 = new System.Windows.Forms.Label();
             this.BtnSeleccionar = new System.Windows.Forms.Button();
             this.FotoControl = new System.Windows.Forms.PictureBox();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.ContraseñaControl = new System.Windows.Forms.TextBox();
+            this.lblContraseña = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
+            this.Contraseña2Control = new System.Windows.Forms.TextBox();
+            this.lblContraseña2 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -96,12 +96,12 @@
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RutaControl)).BeginInit();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RutaControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
             this.panel15.SuspendLayout();
             this.panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -373,6 +373,7 @@
             this.TelefonoControl.Name = "TelefonoControl";
             this.TelefonoControl.Size = new System.Drawing.Size(215, 20);
             this.TelefonoControl.TabIndex = 45;
+            this.TelefonoControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TelefonoControl_KeyPress);
             // 
             // lblNumero
             // 
@@ -477,34 +478,6 @@
             this.panel13.Size = new System.Drawing.Size(280, 57);
             this.panel13.TabIndex = 10;
             // 
-            // ContraseñaControl
-            // 
-            this.ContraseñaControl.Location = new System.Drawing.Point(4, 29);
-            this.ContraseñaControl.Name = "ContraseñaControl";
-            this.ContraseñaControl.Size = new System.Drawing.Size(215, 20);
-            this.ContraseñaControl.TabIndex = 45;
-            this.ContraseñaControl.UseSystemPasswordChar = true;
-            // 
-            // lblContraseña
-            // 
-            this.lblContraseña.AutoSize = true;
-            this.lblContraseña.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContraseña.Location = new System.Drawing.Point(7, 7);
-            this.lblContraseña.Name = "lblContraseña";
-            this.lblContraseña.Size = new System.Drawing.Size(91, 17);
-            this.lblContraseña.TabIndex = 46;
-            this.lblContraseña.Text = "CONTRASEÑA";
-            // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.ClaveControl);
-            this.panel14.Controls.Add(this.lblClave);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(575, 3);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(281, 57);
-            this.panel14.TabIndex = 11;
-            // 
             // DireccionControl
             // 
             this.DireccionControl.Location = new System.Drawing.Point(4, 28);
@@ -522,9 +495,15 @@
             this.lblDireccion.TabIndex = 44;
             this.lblDireccion.Text = "DIRECCIÓN";
             // 
-            // errorProvider1
+            // panel14
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.panel14.Controls.Add(this.ClaveControl);
+            this.panel14.Controls.Add(this.lblClave);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(575, 3);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(281, 57);
+            this.panel14.TabIndex = 11;
             // 
             // ClaveControl
             // 
@@ -544,28 +523,23 @@
             this.lblClave.Text = "CLAVE";
             this.lblClave.Click += new System.EventHandler(this.lblClave_Click);
             // 
-            // Contraseña2Control
+            // panel8
             // 
-            this.Contraseña2Control.Location = new System.Drawing.Point(4, 29);
-            this.Contraseña2Control.Name = "Contraseña2Control";
-            this.Contraseña2Control.Size = new System.Drawing.Size(215, 20);
-            this.Contraseña2Control.TabIndex = 47;
-            this.Contraseña2Control.UseSystemPasswordChar = true;
-            // 
-            // lblContraseña2
-            // 
-            this.lblContraseña2.AutoSize = true;
-            this.lblContraseña2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContraseña2.Location = new System.Drawing.Point(7, 7);
-            this.lblContraseña2.Name = "lblContraseña2";
-            this.lblContraseña2.Size = new System.Drawing.Size(168, 17);
-            this.lblContraseña2.TabIndex = 48;
-            this.lblContraseña2.Text = "CONFIRMAR CONTRASEÑA";
+            this.panel8.Controls.Add(this.RutaControl);
+            this.panel8.Controls.Add(this.label7);
+            this.panel8.Controls.Add(this.BtnSeleccionar);
+            this.panel8.Controls.Add(this.FotoControl);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(575, 66);
+            this.panel8.Name = "panel8";
+            this.tableLayoutPanel1.SetRowSpan(this.panel8, 2);
+            this.panel8.Size = new System.Drawing.Size(281, 120);
+            this.panel8.TabIndex = 12;
             // 
             // RutaControl
             // 
             this.RutaControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            this.RutaControl.BeforeTouchSize = new System.Drawing.Size(70, 27);
+            this.RutaControl.BeforeTouchSize = new System.Drawing.Size(298, 35);
             this.RutaControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RutaControl.CornerRadius = 2;
             this.RutaControl.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -579,19 +553,6 @@
             this.RutaControl.Size = new System.Drawing.Size(70, 27);
             this.RutaControl.TabIndex = 49;
             this.RutaControl.Visible = false;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.RutaControl);
-            this.panel8.Controls.Add(this.label7);
-            this.panel8.Controls.Add(this.BtnSeleccionar);
-            this.panel8.Controls.Add(this.FotoControl);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(575, 66);
-            this.panel8.Name = "panel8";
-            this.tableLayoutPanel1.SetRowSpan(this.panel8, 2);
-            this.panel8.Size = new System.Drawing.Size(281, 120);
-            this.panel8.TabIndex = 12;
             // 
             // label7
             // 
@@ -640,6 +601,24 @@
             this.panel15.Size = new System.Drawing.Size(281, 57);
             this.panel15.TabIndex = 13;
             // 
+            // ContraseñaControl
+            // 
+            this.ContraseñaControl.Location = new System.Drawing.Point(4, 29);
+            this.ContraseñaControl.Name = "ContraseñaControl";
+            this.ContraseñaControl.Size = new System.Drawing.Size(215, 20);
+            this.ContraseñaControl.TabIndex = 45;
+            this.ContraseñaControl.UseSystemPasswordChar = true;
+            // 
+            // lblContraseña
+            // 
+            this.lblContraseña.AutoSize = true;
+            this.lblContraseña.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContraseña.Location = new System.Drawing.Point(7, 7);
+            this.lblContraseña.Name = "lblContraseña";
+            this.lblContraseña.Size = new System.Drawing.Size(91, 17);
+            this.lblContraseña.TabIndex = 46;
+            this.lblContraseña.Text = "CONTRASEÑA";
+            // 
             // panel16
             // 
             this.panel16.Controls.Add(this.Contraseña2Control);
@@ -649,6 +628,28 @@
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(281, 57);
             this.panel16.TabIndex = 14;
+            // 
+            // Contraseña2Control
+            // 
+            this.Contraseña2Control.Location = new System.Drawing.Point(4, 29);
+            this.Contraseña2Control.Name = "Contraseña2Control";
+            this.Contraseña2Control.Size = new System.Drawing.Size(215, 20);
+            this.Contraseña2Control.TabIndex = 47;
+            this.Contraseña2Control.UseSystemPasswordChar = true;
+            // 
+            // lblContraseña2
+            // 
+            this.lblContraseña2.AutoSize = true;
+            this.lblContraseña2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContraseña2.Location = new System.Drawing.Point(7, 7);
+            this.lblContraseña2.Name = "lblContraseña2";
+            this.lblContraseña2.Size = new System.Drawing.Size(168, 17);
+            this.lblContraseña2.TabIndex = 48;
+            this.lblContraseña2.Text = "CONFIRMAR CONTRASEÑA";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmEmpleado
             // 
@@ -688,15 +689,15 @@
             this.panel13.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RutaControl)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RutaControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
