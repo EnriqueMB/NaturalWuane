@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace CIDFares.Spa.WFApplication.Session
 {
@@ -15,5 +16,21 @@ namespace CIDFares.Spa.WFApplication.Session
         public static int IdTurnoEmpleado { get; set; }
 
         public static int IdSucursal { get; set; }
+
+        //Permisos de usuario
+        public static string[] ReglasUsuario { get; set; }
+
+        public static bool PermisoUsuario(string ValidarReglas)
+        {
+            string[] ReglaVerificar = ValidarReglas.Split(',');
+            foreach (var item in ReglaVerificar)
+            {
+                if (item != "" && ReglasUsuario.Contains(item))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

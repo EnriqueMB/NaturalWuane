@@ -26,6 +26,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<SucursalViewModel>();
+
+            BtnNuevo.Visible = CurrentSession.PermisoUsuario("19");
+            btnModificar.Visible = CurrentSession.PermisoUsuario("20");
+            btnEliminar.Visible = CurrentSession.PermisoUsuario("21");
         }
 
         #region Metodos

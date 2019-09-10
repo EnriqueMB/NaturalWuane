@@ -57,10 +57,12 @@
     <Compile Include="Repositories\General\LoginRepository.cs" />
     <Compile Include="Repositories\General\MunicipioRepository.cs" />
     <Compile Include="Repositories\General\PaisRepository.cs" />
+    <Compile Include="Repositories\General\PaqueteRepository.cs" />
     <Compile Include="Repositories\General\ProductoRepository.cs" />
     <Compile Include="Repositories\General\ProveedorACompraRepository.cs" />
     <Compile Include="Repositories\General\ProveedorRepository.cs" />
     <Compile Include="Repositories\General\PuestoRepository.cs" />
+    <Compile Include="Repositories\General\ReglaPerfilRepository.cs" />
     <Compile Include="Repositories\General\RolRepository.cs" />
     <Compile Include="Repositories\General\ServicioRepository.cs" />
     <Compile Include="Repositories\General\SucursalRepository.cs" />

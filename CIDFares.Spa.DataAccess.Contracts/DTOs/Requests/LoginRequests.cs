@@ -27,5 +27,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.DTOs.Requests
 
         public int IdSucursal { get; set; }
 
+        public string[] ReglaUsuario { get; set; }
     }
 }

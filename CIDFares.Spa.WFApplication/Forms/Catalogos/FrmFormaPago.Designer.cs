@@ -33,7 +33,7 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlDatos = new System.Windows.Forms.Panel();
             this.grpBoxFormaPago = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -42,7 +42,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.DescripcionControl = new System.Windows.Forms.TextBox();
             this.NombreControl = new System.Windows.Forms.TextBox();
-            this.pnlGrid = new System.Windows.Forms.Panel();
             this.GridFromaPago = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,22 +52,24 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.panelCentral = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnlPrincipal.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlDatos.SuspendLayout();
             this.grpBoxFormaPago.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridFromaPago)).BeginInit();
             this.pnlTitulo.SuspendLayout();
             this.pnlBotones.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.panelCentral.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlPrincipal
             // 
-            this.pnlPrincipal.Controls.Add(this.panel1);
-            this.pnlPrincipal.Controls.Add(this.pnlGrid);
+            this.pnlPrincipal.Controls.Add(this.panelCentral);
             this.pnlPrincipal.Controls.Add(this.pnlTitulo);
             this.pnlPrincipal.Controls.Add(this.pnlBotones);
             this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -79,15 +80,14 @@
             this.pnlPrincipal.Size = new System.Drawing.Size(1001, 517);
             this.pnlPrincipal.TabIndex = 0;
             // 
-            // panel1
+            // pnlDatos
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.grpBoxFormaPago);
-            this.panel1.Location = new System.Drawing.Point(582, 51);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(400, 393);
-            this.panel1.TabIndex = 3;
+            this.pnlDatos.Controls.Add(this.grpBoxFormaPago);
+            this.pnlDatos.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlDatos.Location = new System.Drawing.Point(706, 0);
+            this.pnlDatos.Name = "pnlDatos";
+            this.pnlDatos.Size = new System.Drawing.Size(295, 405);
+            this.pnlDatos.TabIndex = 3;
             // 
             // grpBoxFormaPago
             // 
@@ -100,7 +100,7 @@
             this.grpBoxFormaPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpBoxFormaPago.Location = new System.Drawing.Point(0, 0);
             this.grpBoxFormaPago.Name = "grpBoxFormaPago";
-            this.grpBoxFormaPago.Size = new System.Drawing.Size(400, 393);
+            this.grpBoxFormaPago.Size = new System.Drawing.Size(295, 405);
             this.grpBoxFormaPago.TabIndex = 0;
             this.grpBoxFormaPago.TabStop = false;
             this.grpBoxFormaPago.Text = "Datos forma de pago";
@@ -109,7 +109,7 @@
             // 
             this.flowLayoutPanel2.Controls.Add(this.btnGuardar);
             this.flowLayoutPanel2.Controls.Add(this.btnCancelar);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(73, 334);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(21, 334);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(293, 32);
             this.flowLayoutPanel2.TabIndex = 6;
@@ -149,7 +149,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(68, 109);
+            this.label2.Location = new System.Drawing.Point(16, 109);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 20);
             this.label2.TabIndex = 3;
@@ -160,7 +160,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(69, 51);
+            this.label1.Location = new System.Drawing.Point(17, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 20);
             this.label1.TabIndex = 2;
@@ -168,7 +168,7 @@
             // 
             // DescripcionControl
             // 
-            this.DescripcionControl.Location = new System.Drawing.Point(70, 132);
+            this.DescripcionControl.Location = new System.Drawing.Point(18, 132);
             this.DescripcionControl.Multiline = true;
             this.DescripcionControl.Name = "DescripcionControl";
             this.DescripcionControl.Size = new System.Drawing.Size(266, 175);
@@ -178,23 +178,12 @@
             // 
             // NombreControl
             // 
-            this.NombreControl.Location = new System.Drawing.Point(70, 73);
+            this.NombreControl.Location = new System.Drawing.Point(18, 73);
             this.NombreControl.Name = "NombreControl";
             this.NombreControl.Size = new System.Drawing.Size(266, 27);
             this.NombreControl.TabIndex = 0;
             this.toolTip1.SetToolTip(this.NombreControl, "Ingrese un nombre no mayor a 200 caracteres");
             this.NombreControl.TextChanged += new System.EventHandler(this.NombreControl_TextChanged);
-            // 
-            // pnlGrid
-            // 
-            this.pnlGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlGrid.Controls.Add(this.GridFromaPago);
-            this.pnlGrid.Location = new System.Drawing.Point(3, 51);
-            this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(573, 393);
-            this.pnlGrid.TabIndex = 2;
             // 
             // GridFromaPago
             // 
@@ -223,7 +212,7 @@
             this.GridFromaPago.Location = new System.Drawing.Point(0, 0);
             this.GridFromaPago.Name = "GridFromaPago";
             this.GridFromaPago.PreviewRowHeightMode = Syncfusion.WinForms.DataGrid.Enums.PreviewRowHeightMode.Auto;
-            this.GridFromaPago.Size = new System.Drawing.Size(573, 393);
+            this.GridFromaPago.Size = new System.Drawing.Size(706, 405);
             this.GridFromaPago.TabIndex = 0;
             this.GridFromaPago.Text = "sfDataGrid1";
             this.toolTip1.SetToolTip(this.GridFromaPago, "Formas de pago");
@@ -317,6 +306,25 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
+            // panelCentral
+            // 
+            this.panelCentral.Controls.Add(this.panel1);
+            this.panelCentral.Controls.Add(this.pnlDatos);
+            this.panelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCentral.Location = new System.Drawing.Point(0, 45);
+            this.panelCentral.Name = "panelCentral";
+            this.panelCentral.Size = new System.Drawing.Size(1001, 405);
+            this.panelCentral.TabIndex = 4;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.GridFromaPago);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(706, 405);
+            this.panel1.TabIndex = 4;
+            // 
             // FrmFormaPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,17 +334,18 @@
             this.Name = "FrmFormaPago";
             this.Text = "FrmFormaPago";
             this.pnlPrincipal.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.pnlDatos.ResumeLayout(false);
             this.grpBoxFormaPago.ResumeLayout(false);
             this.grpBoxFormaPago.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
-            this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridFromaPago)).EndInit();
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
             this.pnlBotones.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.panelCentral.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -344,9 +353,8 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlPrincipal;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlDatos;
         private System.Windows.Forms.GroupBox grpBoxFormaPago;
-        private System.Windows.Forms.Panel pnlGrid;
         private System.Windows.Forms.Panel pnlTitulo;
         private System.Windows.Forms.Panel pnlBotones;
         private Syncfusion.WinForms.DataGrid.SfDataGrid GridFromaPago;
@@ -364,5 +372,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Panel panelCentral;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -119,6 +119,18 @@
     <Compile Include="Forms\Catalogos\FrmFormaPago.Designer.cs">
       <DependentUpon>FrmFormaPago.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Catalogos\FrmPaquete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmPaquete.Designer.cs">
+      <DependentUpon>FrmPaquete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmPaqueteNuevo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmPaqueteNuevo.Designer.cs">
+      <DependentUpon>FrmPaqueteNuevo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Catalogos\FrmProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +209,12 @@
     <Compile Include="Forms\General\FrmLogin.designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Usuarios\FrmReglasPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Usuarios\FrmReglasPerfil.Designer.cs">
+      <DependentUpon>FrmReglasPerfil.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Ventas\FrmBuscarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,7 +254,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validations\EmpleadoValidator.cs" />
+    <Compile Include="Validations\PaqueteValidator.cs" />
     <Compile Include="Validations\ProveedorValidator.cs" />
+    <Compile Include="Validations\ReglaValidator.cs" />
     <Compile Include="Validations\ServicioValidator.cs" />
     <Compile Include="Validations\SucursalValidator.cs" />
     <Compile Include="Validations\UsuarioValidator.cs" />
@@ -261,6 +281,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmFormaPago.resx">
       <DependentUpon>FrmFormaPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmPaquete.resx">
+      <DependentUpon>FrmPaquete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmPaqueteNuevo.resx">
+      <DependentUpon>FrmPaqueteNuevo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmProducto.resx">
       <DependentUpon>FrmProducto.cs</DependentUpon>
@@ -300,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Usuarios\FrmReglasPerfil.resx">
+      <DependentUpon>FrmReglasPerfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmBuscarCliente.resx">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
@@ -379,6 +408,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fondo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajustes.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -298,6 +298,19 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             }
         }
 
+        private void sfDataGridBusqServicio_CellDoubleClick(object sender, Syncfusion.WinForms.DataGrid.Events.CellClickEventArgs e)
+        {
+            try
+            {
+                this.AgregarRegistro();
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, " FrmBuscarServicio() ~ sfDataGridBusqServicio_CellDoubleClick(object sender, Syncfusion.WinForms.DataGrid.Events.CellClickEventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
+            }
+        }
+
         #endregion
     }
 }
