@@ -164,6 +164,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 throw ex;
             }
         }
+
         #region combo UnidadMedida
 
         public void LlenaUnidadMedida(IEnumerable<UnidadMedida> UnidadMedida)
