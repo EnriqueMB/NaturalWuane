@@ -28,7 +28,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
             btnModificar.Visible = CurrentSession.PermisoUsuario("23");
             btnEliminar.Visible = CurrentSession.PermisoUsuario("24");
 
-            groupUsuario.Visible = CurrentSession.PermisoUsuario("22,23");
+            panelDatos.Visible = CurrentSession.PermisoUsuario("22,23");
         }
 
         #region Metodos
