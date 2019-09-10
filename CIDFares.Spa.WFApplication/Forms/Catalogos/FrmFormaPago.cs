@@ -27,10 +27,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             grpBoxFormaPago.Enabled = false;
             IniciarBinding();
 
-            //toolTip1.BackColor = Color.Gray;
-            //toolTip1.ForeColor = Color.White;
-            //toolTip1.OwnerDraw = true;
-            //toolTip1.Draw += DrawToolTip;
+            btnNuevo.Visible = CurrentSession.PermisoUsuario("7");
+            btnModificar.Visible = CurrentSession.PermisoUsuario("8");
+            btnEliminar.Visible = CurrentSession.PermisoUsuario("9");
+
+            pnlDatos.Visible = CurrentSession.PermisoUsuario("7,8");
 
         }
         #endregion

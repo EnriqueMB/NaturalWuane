@@ -23,6 +23,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<UsuarioViewModel>();
+
+            btnNuevo.Visible = CurrentSession.PermisoUsuario("22");
+            btnModificar.Visible = CurrentSession.PermisoUsuario("23");
+            btnEliminar.Visible = CurrentSession.PermisoUsuario("24");
+
+            panelDatos.Visible = CurrentSession.PermisoUsuario("22,23");
         }
 
         #region Metodos

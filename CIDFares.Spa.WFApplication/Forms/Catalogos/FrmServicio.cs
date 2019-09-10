@@ -31,7 +31,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<ServicioViewModel>();
-            //IniciarBinding();
+
+            btnNuevo.Visible = CurrentSession.PermisoUsuario("16");
+            btnModificar.Visible = CurrentSession.PermisoUsuario("17");
+            btnEliminar.Visible = CurrentSession.PermisoUsuario("18");
         }
         #endregion
 
@@ -167,6 +170,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         private void FrmServicio_Load(object sender, EventArgs e)
         {
             IniciarBinding();
+            Model.GetAllAsync();
         }
     }
 }

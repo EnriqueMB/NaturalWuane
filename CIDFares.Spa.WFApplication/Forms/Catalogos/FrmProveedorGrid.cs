@@ -29,7 +29,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<ProveedorViewModel>();
-            
+
+            btnNuevo.Visible = CurrentSession.PermisoUsuario("13");
+            btnModificar.Visible = CurrentSession.PermisoUsuario("14");
+            btnEliminar.Visible = CurrentSession.PermisoUsuario("15");
         }
 
         #region Metodos

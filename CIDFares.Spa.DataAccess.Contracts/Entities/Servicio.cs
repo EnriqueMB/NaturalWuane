@@ -15,7 +15,8 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public string TipoServicio { get; set; }
         public string Nombre { get; set; }
         public decimal Precio { get; set; }
-        public TimeSpan Duracion { get; set; }
+        public DateTime Duracion { get; set; }
+        public string DuracionStr { get; set; }
         public string Descripcion { get; set; }
         public decimal Porcentaje { get; set; }
         public string AplicaIvaStr { get; set; }
@@ -26,8 +27,10 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public decimal IEPS { get; set; }
         public int Resultado { get; set; }
         public decimal Porcentaje100 { get; set; }
+        public decimal PorcentajePaquete { get; set; }
         //foto
-        public string Base64String { get; set; }
+        //public string Base64String { get; set; }
+        public string FotoBase64 { get; set; }
         public string UrlFoto { get; set; }
         public bool UpdateFoto { get; set; }   
         public decimal CantidadServicio { get; set; }

@@ -20,7 +20,6 @@ using CIDFares.Spa.WFApplication.Session;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.Business.ValueObjects;
-using CIDFares.Spa.WFApplication.Session;
 using System.IO;
 
 namespace CIDFares.Spa.WFApplication.Forms.Catalogos
@@ -52,6 +51,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             groupBoxCliente.Enabled = false;
             ClaveControl.Visible = false;
             Model.IdUsuarioL = CurrentSession.IdCuentaUsuario;
+
+            btnNuevo.Visible = CurrentSession.PermisoUsuario("4");
+            btnModificar.Visible = CurrentSession.PermisoUsuario("5");
+            btnEliminar.Visible = CurrentSession.PermisoUsuario("6");
+
+            PanelCapturaDatos.Visible = CurrentSession.PermisoUsuario("4,5");
         }
         #endregion
 

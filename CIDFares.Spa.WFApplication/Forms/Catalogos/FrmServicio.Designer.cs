@@ -164,6 +164,7 @@
             // 
             this.dgServicio.AccessibleName = "Table";
             this.dgServicio.AllowGrouping = false;
+            this.dgServicio.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
             gridTextColumn1.AllowGrouping = false;
             gridTextColumn1.HeaderText = "IdServicio";
             gridTextColumn1.MappingName = "IdServicio";
@@ -190,6 +191,7 @@
             gridTextColumn7.HeaderText = "Precio";
             gridTextColumn7.MappingName = "Precio";
             gridTextColumn8.AllowGrouping = false;
+            gridTextColumn8.Format = "H:mm";
             gridTextColumn8.HeaderText = "Duracion";
             gridTextColumn8.MappingName = "Duracion";
             gridTextColumn9.AllowGrouping = false;
