@@ -27,6 +27,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public decimal IEPS { get; set; }
         public int Resultado { get; set; }
         public decimal Porcentaje100 { get; set; }
+        public decimal PorcentajePaquete { get; set; }
         //foto
         //public string Base64String { get; set; }
         public string FotoBase64 { get; set; }
