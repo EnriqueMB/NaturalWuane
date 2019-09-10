@@ -22,7 +22,7 @@ namespace CIDFares.Spa.WFApplication.Validations
                .WithMessage("DEBE SELECCIONAR EL SEXO DEL CLIENTE.");
 
             RuleFor(x => x.Rfc)
-               .Matches(@"^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$").WithMessage("EL REGISTRO FEDERAL DEL CONTRIBUYENTES (RFC) NO TIENE EL FORMATO CORRECTO.");
+               .Matches(@"^([A-ZÑ&]{3,4})?(?:-?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01]))?(?:-?)?([A-Z\d]{2})([A\d])$").WithMessage("EL REGISTRO FEDERAL DEL CONTRIBUYENTES (RFC) NO TIENE EL FORMATO CORRECTO.");
 
             RuleFor(x => x.Telefono)
                 .NotEmpty()

@@ -57,6 +57,7 @@
     <Compile Include="Repositories\General\LoginRepository.cs" />
     <Compile Include="Repositories\General\MunicipioRepository.cs" />
     <Compile Include="Repositories\General\PaisRepository.cs" />
+    <Compile Include="Repositories\General\PaqueteRepository.cs" />
     <Compile Include="Repositories\General\ProductoRepository.cs" />
     <Compile Include="Repositories\General\ProveedorACompraRepository.cs" />
     <Compile Include="Repositories\General\ProveedorRepository.cs" />
