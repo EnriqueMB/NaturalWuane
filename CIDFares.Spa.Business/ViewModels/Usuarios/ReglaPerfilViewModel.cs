@@ -25,8 +25,7 @@ namespace CIDFares.Spa.Business.ViewModels.Usuarios
         public BindingList<ReglasRol> ListaReglas { get; set; }
         public EntityState State { get; set; }
         #endregion
-
-
+        
         #region Constructor
         public ReglaPerfilViewModel(IReglaPerfilRepository reglaPerfilRepository, IRolRepository rolRepository)
         {

@@ -18,6 +18,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         {
             try
             {
+                ReglasRol reglas = new ReglasRol();
                 using (IDbConnection conexion = new SqlConnection(WebConnectionString))
                 {
                     conexion.Open();
@@ -25,10 +26,15 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@TablaRegla", element.TablaRegla, DbType.Object);
                     dynamicParameters.Add("@IdRol", element.IdRol);
                     dynamicParameters.Add("@IdUsuario", IdUsuario);
-                    var result = await conexion.ExecuteScalarAsync<int>("[Usuario].[SPCID_AC_ReglasRol]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                    element.Resultado = result;
-                    return element;
+                    var dr = await conexion.ExecuteReaderAsync("[Usuario].[SPCID_AC_ReglasRol]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    while (dr.Read())
+                    {
+                        reglas.Resultado = !dr.IsDBNull(dr.GetOrdinal("Resultado")) ? dr.GetInt32(dr.GetOrdinal("Resultado")) : 0;
+                        reglas.ReglasLogin.ReglaUsuario = dr.GetString(dr.GetOrdinal("IdReglas")).Split(',');
+                    }
+                    dr.Close();
                 }
+                return reglas;
             }
             catch (Exception ex)
             {

@@ -52,6 +52,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             groupBoxCliente.Enabled = false;
             ClaveControl.Visible = false;
             Model.IdUsuarioL = CurrentSession.IdCuentaUsuario;
+
+            btnNuevo.Visible = CurrentSession.PermisoUsuario("4");
+            btnModificar.Visible = CurrentSession.PermisoUsuario("5");
+            btnEliminar.Visible = CurrentSession.PermisoUsuario("6");
+
+            PanelCapturaDatos.Visible = CurrentSession.PermisoUsuario("4,5");
         }
         #endregion
 

@@ -21,16 +21,27 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
 {
     public partial class FrmReglasPerfil : Form
     {
+
+        #region Propiedades privadas
+
+        #endregion
+
+        #region Propiedades públicas
         public ReglaPerfilViewModel Model { get; set; }
+        #endregion
+        
+        #region Constructor
         public FrmReglasPerfil()
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<ReglaPerfilViewModel>();
             this.IniciarBinding();
-            this.ListaRegla.GroupCaptionTextFormat = "{Key} - Reglas ({ItemsCount})";
-           
-        }
+            this.ListaRegla.GroupCaptionTextFormat = "{Key} - Permisos ({ItemsCount})";
 
+        }
+        #endregion
+
+        #region Metodos
         private void IniciarBinding()
         {
             try
@@ -62,6 +73,22 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
             }
         }
 
+        private DataTable ObtenerDatosTabla(BindingList<ReglasRol> Lista)
+        {
+            DataTable Tabla = new DataTable();
+            Tabla.Columns.Add("IdRegla", typeof(int));
+            foreach (var item in Lista)
+            {
+                if (item.ReglaAsignada)
+                {
+                    Tabla.Rows.Add(new object[] { item.IdRegla });
+                }
+            }
+            return Tabla;
+        }
+        #endregion
+
+        #region Eventos
         private async void FrmReglasPerfil_Load(object sender, EventArgs e)
         {
             try
@@ -71,7 +98,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
             }
             catch (Exception ex)
             {
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmReglaPerfil ~ FrmReglasPerfil_Load(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
 
@@ -95,20 +123,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
             }
         }
 
-        private DataTable ObtenerDatosTabla(BindingList<ReglasRol> Lista)
-        {
-            DataTable Tabla = new DataTable();
-            Tabla.Columns.Add("IdRegla", typeof(int));
-            foreach (var item in Lista)
-            {
-                if (item.ReglaAsignada)
-                {
-                    Tabla.Rows.Add(new object[] { item.IdRegla});
-                }
-            }
-            return Tabla;
-        }
-
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -123,6 +137,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
                     var reglasRol = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
                     if (reglasRol.Resultado != 0)
                     {
+                        CurrentSession.ReglasUsuario = reglasRol.ReglasLogin.ReglaUsuario;
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
                         this.ListaRegla.Refresh();
                         Model.LlenarListaRegla(Model.IdRol);
@@ -132,11 +147,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
                 }
                 else
                 {
-                                    
-                    if(Validacion == "1")
+
+                    if (Validacion == "1")
                         errorProvider1.SetError(ErrorControl, "La lista tiene que tener al menos un registro seleccionado.");
                     else
-                    this.ShowErrors(errorProvider1, typeof(ReglaPerfilViewModel), validationResults);
+                        this.ShowErrors(errorProvider1, typeof(ReglaPerfilViewModel), validationResults);
                 }
             }
             catch (Exception ex)
@@ -145,5 +160,19 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmReglaRol ~ btnCancelar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+        }
+        #endregion
     }
 }

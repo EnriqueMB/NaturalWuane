@@ -2,6 +2,7 @@
 using CIDFares.Spa.WFApplication.Forms.Compras;
 using CIDFares.Spa.WFApplication.Forms.Usuarios;
 using CIDFares.Spa.WFApplication.Forms.Ventas;
+using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,8 +20,36 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         public FrmHomeD()
         {
             InitializeComponent();
+            BotonesPerfil();
         }
 
+        private void BotonesPerfil()
+        {
+            //btnCategoria.Enabled = CurrentSession.PermisoUsuario("1,2,3");
+            EnabledButton(btnCategoria, CurrentSession.PermisoUsuario("1,2,3"));
+            EnabledButton(btnCliente, CurrentSession.PermisoUsuario("4,5,6"));
+            EnabledButton(btnFormaPago, CurrentSession.PermisoUsuario("7,8,9"));
+            EnabledButton(btnProducto, CurrentSession.PermisoUsuario("10,11,12"));
+            EnabledButton(btnProveedor, CurrentSession.PermisoUsuario("13,14,15"));
+            EnabledButton(btnServicio, CurrentSession.PermisoUsuario("16,17,18"));
+            EnabledButton(btnSucursale, CurrentSession.PermisoUsuario("19,20,21"));
+            EnabledButton(btnUsuario,CurrentSession.PermisoUsuario("22,23,24"));
+            EnabledButton(btnVenta,CurrentSession.PermisoUsuario("25"));
+            EnabledButton(btnCompras,CurrentSession.PermisoUsuario("26"));
+
+            btnConfiguracion.Visible = CurrentSession.PermisoUsuario("27");
+            EnabledButton(btnPermisos,CurrentSession.PermisoUsuario("27"));
+        }
+
+        private void EnabledButton(Button boton, bool permiso)
+        {
+            boton.BackColor = Color.White;
+            boton.Enabled = permiso;
+            if (permiso == false)
+            {
+                boton.BackColor = Color.WhiteSmoke;
+            }
+        }
         private void btnCliente_Click(object sender, EventArgs e)
         {
             FrmCliente frmCliente = new FrmCliente();
@@ -94,6 +123,24 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             FrmCompra frmCompra = new FrmCompra();
             frmCompra.ShowDialog();
             frmCompra.Dispose();
+        }
+
+        private void btnConfiguracion_Click(object sender, EventArgs e)
+        {
+            if(panelConfiguracion.Visible)
+            panelConfiguracion.Visible = false;
+            else
+                panelConfiguracion.Visible = true;
+            
+        }
+
+        private void btnPermisos_Click(object sender, EventArgs e)
+        {
+            FrmReglasPerfil frmReglas = new FrmReglasPerfil();
+            frmReglas.ShowDialog();
+            frmReglas.Dispose();
+            BotonesPerfil();
+            panelConfiguracion.Visible = false;
         }
     }
 }
