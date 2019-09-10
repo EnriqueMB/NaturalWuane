@@ -58,7 +58,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         #endregion
 
         #region Eventos
-
         private async void FrmPaqueteNuevo_Load(object sender, EventArgs e)
         {
             try
@@ -72,8 +71,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 else
                 {
                     LimpiarPropiedades();
-                }
-               
+                }               
             }
             catch (Exception ex)
             {
@@ -81,7 +79,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
-
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
             try
@@ -101,7 +98,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
-
         private void btnAgregarServicio_Click(object sender, EventArgs e)
         {
             try
@@ -113,7 +109,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     var IdTipo = frmBuscarServicio.IDTipo;
                     LLenarGrid(frmBuscarServicio.servicio, IdTipo);
                 }
-
             }
             catch (Exception ex)
             {
@@ -121,7 +116,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
-
         private void btnEliminarRegistro_Click(object sender, EventArgs e)
         {
             try
@@ -135,10 +129,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-                throw;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPaqueteNuevo() ~ btnEliminarRegistro_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
-
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -146,7 +140,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 this.CleanErrors(errorProvider1, typeof(PaqueteViewModel));
                 var validationResults = Model.Validate();
                 validationResults.ToString();
-
                 if (validationResults.IsValid)
                 {
                     if (Model.ListaDetallePaquete.Count > 0)
@@ -172,7 +165,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             try
@@ -185,11 +177,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
-
         #endregion
 
         #region Metodo
-
         private void IniciarBinding()
         {
             try
@@ -210,7 +200,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 throw ex;
             }
         }
-
         public void LimpiarPropiedades()
         {
             Model.Clave = string.Empty;
@@ -223,7 +212,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             Model.TablaProducto = new DataTable();
             Model.TablaServicio = new DataTable();
         }
-
         public void LLenarGrid(object objetoX, int IdTipo)
         {
             try
@@ -249,7 +237,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     }
                     else
                     {
-                        var x = Model.ListaDetallePaquete.Where(p => p.IdGenerico == Producto.IdProducto && p.IdTipo == Producto.IdTipo).Select(u =>
+                        List<PaqueteDetalle> x = Model.ListaDetallePaquete.Where(p => p.IdGenerico == Producto.IdProducto && p.IdTipo == Producto.IdTipo).Select(u =>
                         {
                             u.Cantidad += Producto.CantidaProducto;
                             u.PrecioSinDescuento = u.Cantidad * Producto.PrecioPublico;

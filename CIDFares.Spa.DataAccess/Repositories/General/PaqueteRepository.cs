@@ -15,7 +15,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
     public class PaqueteRepository : Repository, IPaqueteRepository
     {
         #region Metodos Implementados
-
         public async Task<Paquetes> AddAsync(Paquetes element, object IdUsuario)
         {
             try
@@ -45,7 +44,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
-
         public async Task<int> DeleteAsync(object id, object IdUsuario)
         {
             try
@@ -66,7 +64,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
-
         public async Task<IEnumerable<Paquetes>> GetAllAsync()
         {
             try
@@ -99,7 +96,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
-
         public async Task<int> NameExistAsync(string name)
         {
             try
@@ -118,8 +114,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             {
                 throw ex;
             }
-        }
-        
+        }        
         public async Task<Paquetes> GetAsync(object id)
         {
             try
@@ -158,8 +153,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
-
-
         public async Task<Paquetes> UpdateAsync(Paquetes element, object IdUsuario)
         {
             try
