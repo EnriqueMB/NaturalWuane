@@ -348,5 +348,31 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
         #endregion
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               var item = ObtenerSeleccionado();
+               if (item != null)
+                {
+                    FrmClaveTarjeta frmClaveTarjeta = new FrmClaveTarjeta();
+                    frmClaveTarjeta.ShowDialog();
+                    if(frmClaveTarjeta.DialogResult == DialogResult.OK)
+                    {
+                        Model.IdCliente = item.IdCliente;
+                        var resul = await Model.SetMonedero(CurrentSession.IdCuentaUsuario, frmClaveTarjeta.ClaveTarjeta);
+                        if(resul == 1)
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                        else
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -120,5 +120,25 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         {
             throw new NotImplementedException();
         }
+
+        public async Task<int> CheckCantidadProducto(object IdProducto, int Cantidad)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    DynamicParameters parametros = new DynamicParameters();
+                    parametros.Add("@IdProducto", IdProducto);
+                    parametros.Add("@Cantidad", Cantidad);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Venta].[SPCID_CheckCantidadProducto]", param: parametros, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

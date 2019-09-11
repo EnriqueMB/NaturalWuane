@@ -19,12 +19,16 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         #region Propiedades privadas
         private IFormaPagoRepository RepositoryFormaPago { get; set; }
         private IVentaRepository Repository { get; set; }
+        private IServicioRepository ServicioRepository { get; set; }
+        public IBusqProductoRepository BusqProductoRepository { get; set; }
         #endregion
 
         #region Propiedades públicas
         public ClienteViewModel ModelCliente{ get; set; }
         public BindingList<Venta> Listaventa { get; set; }
         public BindingList<FormaPago> ListaFormaPago { get; set; }
+        public BindingList<BusqueProducto> ListaBusquedaProducto { get; set; }
+        public BindingList<Servicio> ListaServicio { get; set; }
         public DataTable TablaFormaPago { get; set; }
         public DataTable TablaProducto { get; set; }
         public DataTable TablaServicio { get; set; }
@@ -32,13 +36,17 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         #endregion
 
         #region Constructor
-        public VentasViewModel(IFormaPagoRepository formaPagoRepository, IVentaRepository ventaRepository)
+        public VentasViewModel(IFormaPagoRepository formaPagoRepository, IVentaRepository ventaRepository, IBusqProductoRepository busqProductoRepository, IServicioRepository servicioRepository)
         {
+            ServicioRepository = servicioRepository;
             Repository = ventaRepository;
             RepositoryFormaPago = formaPagoRepository;
+            BusqProductoRepository = busqProductoRepository;
             ModelCliente = ServiceLocator.Instance.Resolve<ClienteViewModel>();
             Listaventa = new BindingList<Venta>();
             ListaFormaPago = new BindingList<FormaPago>();
+            ListaBusquedaProducto = new BindingList<BusqueProducto>();
+            ListaServicio = new BindingList<Servicio>();
             GetAllAsync();
             GetFolio();
         }
@@ -77,6 +85,47 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             catch (Exception ex)
             {
 
+                throw ex;
+            }
+        }
+
+        public async Task GetBusquedaRapida(int TipoBusqueda, string Busqueda)
+        {
+            try
+            {
+                if(TipoBusqueda == 1)
+                {
+                    var x = await BusqProductoRepository.GetBusquedaProductoAsync(false, Busqueda, true, Busqueda);
+                    ListaBusquedaProducto.Clear();
+                    foreach (var item in x)
+                    {
+                        ListaBusquedaProducto.Add(item);
+                    }
+                }
+                else if(TipoBusqueda == 2)
+                {
+                    var x = await ServicioRepository.GetBusqServicioAsync(false, Busqueda, true, Busqueda);
+                    ListaServicio.Clear();
+                    foreach (var item in x)
+                    {
+                        ListaServicio.Add(item);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<int> CheckCantidadProducto(int IdProducto, int Cantidad)
+        {
+            try
+            {
+                return await Repository.CheckCantidadProducto(IdProducto, Cantidad);
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }

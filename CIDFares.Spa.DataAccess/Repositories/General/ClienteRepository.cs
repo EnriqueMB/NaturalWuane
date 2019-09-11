@@ -192,6 +192,26 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
+        public async Task<int> SetMonederoCliente(object IdCliente, object IdUsuario, string ClaveTarjeta)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    DynamicParameters parametros = new DynamicParameters();
+                    parametros.Add("@ClaveTarjeta", ClaveTarjeta);
+                    parametros.Add("@IdCliente", IdCliente);
+                    parametros.Add("@IdUsuario", IdUsuario);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Cliente].[SPCID_A_TarjetaMonederoCliente]", param: parametros, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
 
         #region Metodo No Implementado
@@ -219,7 +239,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         public Task<Cliente> UpdateAsync(Cliente element, object IdUsuario)
         {
             throw new NotImplementedException();
-        }        
+        }
+
         #endregion
     }
 }
