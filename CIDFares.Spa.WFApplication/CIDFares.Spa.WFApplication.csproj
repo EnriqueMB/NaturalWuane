@@ -89,6 +89,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\Messages.cs" />
+    <Compile Include="Forms\Catalogos\FrmClaveTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmClaveTarjeta.Designer.cs">
+      <DependentUpon>FrmClaveTarjeta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Catalogos\FrmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,12 @@
     <Compile Include="Forms\Usuarios\FrmReglasPerfil.Designer.cs">
       <DependentUpon>FrmReglasPerfil.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\General\FrmProductosMonedero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\General\FrmProductosMonedero.Designer.cs">
+      <DependentUpon>FrmProductosMonedero.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Ventas\FrmBuscarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,6 +280,9 @@
     <Compile Include="Validations\SucursalValidator.cs" />
     <Compile Include="Validations\UsuarioValidator.cs" />
     <Compile Include="Validations\VentaValidator.cs" />
+    <EmbeddedResource Include="Forms\Catalogos\FrmClaveTarjeta.resx">
+      <DependentUpon>FrmClaveTarjeta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -339,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Usuarios\FrmReglasPerfil.resx">
       <DependentUpon>FrmReglasPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\General\FrmProductosMonedero.resx">
+      <DependentUpon>FrmProductosMonedero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmBuscarCliente.resx">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>

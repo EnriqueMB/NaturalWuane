@@ -26,25 +26,17 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
     public partial class FrmProducto : Form
     {
         #region Propiedades Publicas
-
-
         public ProductoViewModel Model { get; set; }
-
         #endregion
   
         #region Constructor
-
         public FrmProducto()
         {
             InitializeComponent();
             lblSubtitle.Text = "NUEVO REGISTRO";
             Model = ServiceLocator.Instance.Resolve<ProductoViewModel>();
             Model.GetListaCataegoriaProduto();
-
-           
-
         }
-
         public FrmProducto(int IdProducto)
         {
             InitializeComponent();
@@ -60,9 +52,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             NombreControl.DataBindings.Add("Text", Model, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
             ClaveControl.DataBindings.Add("Text", Model, "Clave", true, DataSourceUpdateMode.OnPropertyChanged);
-            PrecioPublicoControl.DataBindings.Add("Text", Model, "PrecioPublico", true, DataSourceUpdateMode.OnPropertyChanged);
-            PrecioMayoreoControl.DataBindings.Add("Text", Model, "PrecioMayoreo", true, DataSourceUpdateMode.OnPropertyChanged);
-            PrecioMenudeoControl.DataBindings.Add("Text", Model, "PrecioMenudeo", true, DataSourceUpdateMode.OnPropertyChanged);
+            PrecioPublicoControl.DataBindings.Add("Text", Model, "PrecioPublico", true, DataSourceUpdateMode.OnPropertyChanged, "", "C2");
+            PrecioMayoreoControl.DataBindings.Add("Text", Model, "PrecioMayoreo", true, DataSourceUpdateMode.OnPropertyChanged, "", "C2");
+            PrecioMenudeoControl.DataBindings.Add("Text", Model, "PrecioMenudeo", true, DataSourceUpdateMode.OnPropertyChanged, "", "C2");
             AplicaIvaControl.DataBindings.Add("Checked", Model, "AplicaIva", true, DataSourceUpdateMode.OnPropertyChanged);
             StockControl.DataBindings.Add("Checked", Model, "Stock", true, DataSourceUpdateMode.OnPropertyChanged);
             StockMaxControl.DataBindings.Add("Text", Model, "StockMax", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -72,20 +64,17 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             ClaveSatControl.DataBindings.Add("Text", Model, "ClaveSat", true, DataSourceUpdateMode.OnPropertyChanged);
             CodigoBarrasControl.DataBindings.Add("Text", Model, "CodigoBarras", true, DataSourceUpdateMode.OnPropertyChanged);
             RutaControl.DataBindings.Add("Text", Model, "ImageLocation", true, DataSourceUpdateMode.OnPropertyChanged);
-
+            CostoProductoControl.DataBindings.Add("Text", Model, "CostoProducto", true, DataSourceUpdateMode.OnPropertyChanged,"","C2");
+            PorcentajePControl.DataBindings.Add("Text", Model, "PorcentajeP", true, DataSourceUpdateMode.OnPropertyChanged);
             IniciarCombos(1);
             IdCategoriaProductoControl.DataBindings.Add("SelectedValue", Model, "IdCategoriaProducto", true, DataSourceUpdateMode.OnPropertyChanged);
             IdCategoriaProductoControl.DataBindings.Add("DataSource", Model, "ListaCategoria", true, DataSourceUpdateMode.OnPropertyChanged);
-
-
             IniciarCombos(2);
             IdUnidadMedidaControl.DataBindings.Add("SelectedValue", Model, "IdUnidadMedida", true, DataSourceUpdateMode.OnPropertyChanged);
             IdUnidadMedidaControl.DataBindings.Add("DataSource", Model, "ListaUnidadMedida", true, DataSourceUpdateMode.OnPropertyChanged);
-
             IniciarCombos(3);
             IdAplicaIvaControl.DataBindings.Add("SelectedValue", Model, "IdAplicaIva", true, DataSourceUpdateMode.OnPropertyChanged);
             IdAplicaIvaControl.DataBindings.Add("DataSource", Model, "ListaIva", true, DataSourceUpdateMode.OnPropertyChanged);
-
         }
 
         private void IniciarCombos(int tipo)
@@ -167,16 +156,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 Model.Descripcion = string.Empty;
                 Model.ClaveSat = 0;
                 Model.Descripcion = string.Empty;
-               
-
+                Model.CostoProducto = 0;
+                Model.PorcentajeP = 0;
             }
             catch (Exception)
             {
                 throw;
             }
         }
-
-
 
         #endregion
 
@@ -220,7 +207,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                             CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
                             this.Close();
                         }
-
                     }
                     else
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
@@ -243,7 +229,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-
                 OpenFileDialog BuscarImagen = new OpenFileDialog();
                 BuscarImagen.Filter = "Image Files|*.png;*.jpg;*.bmp";
                 BuscarImagen.FileName = "";
@@ -261,8 +246,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         Model.Formato = ImageFormat.Jpeg;
                     else if (Model.Extencion == ".bmp")
                         Model.Formato = ImageFormat.Bmp;
-
-
+                    
                     Model.ImageLocation = BuscarImagen.FileName;
                     Model.UrlFoto = BuscarImagen.FileName;
                 }
@@ -277,7 +261,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-
                 this.Close();
             }
             catch (Exception ex)
@@ -290,7 +273,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         #region Eventos
         private async void FrmProducto_Load(object sender, EventArgs e)
         {
-
             try
             {
                 var x = await Model.GetListaCataegoriaProduto();
@@ -308,8 +290,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 IdAplicaIvaControl.Enabled = false;
                 IniciarBinding();
 
-
-
                 if (Model.State == EntityState.Update)
                 {
                     CIDWait.Show(async () => {
@@ -319,18 +299,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         await Task.Delay(2000);
                     }, "Cargando productos");
                     lblSubtitle.Text = Model.Nombre;
-
-
                 }
                 else
                 {
                     Model.Foto = Properties.Resources.imagen_subir;
-
                 }
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
@@ -350,7 +326,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 StockMinControl.Enabled = false;
             }
         }
-
         private void GenerarCodigoBarrasControl_CheckedChanged(object sender, EventArgs e)
         {
             if (GenerarCodigoBarrasControl.Checked == true)
@@ -364,7 +339,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 CodigoBarrasControl.Text = string.Empty;
             }
         }
-
         private void AplicaIvaControl_CheckedChanged(object sender, EventArgs e)
         {
             if (AplicaIvaControl.Checked == true)
@@ -373,11 +347,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             else if (AplicaIvaControl.Checked == false)
             {
-
                 IdAplicaIvaControl.Enabled = false;
             }
         }
-
         private void PrecioPublicoControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -393,7 +365,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 e.Handled = true;
             }
         }
-
         private void PrecioMenudeoControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -425,7 +396,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 e.Handled = true;
             }
         }
-
         private void StockMaxControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -441,7 +411,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 e.Handled = true;
             }
         }
-
         private void StockMinControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -458,7 +427,5 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
         #endregion
-
-
     }
 }
