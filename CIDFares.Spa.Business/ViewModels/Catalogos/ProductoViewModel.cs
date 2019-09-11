@@ -84,8 +84,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public async Task CargarDatos()
         {
             try
-            {
-               
+            {               
                 var x = await IRepository.CargarDatos();
                 ListaProducto.Clear();
                 foreach (var item in x)
@@ -97,7 +96,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
@@ -117,7 +115,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
@@ -145,6 +142,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 ClaveSat = producto.ClaveSat;
                 AplicaIva = producto.AplicaIva;                                            
                 Foto = (string.IsNullOrEmpty(producto.Base64String)) ? null : producto.Base64String.ImageBase64ToImage();
+                this.CostoProducto = producto.CostoProducto;
+                this.PorcentajeP = producto.PorcentajeP;
             }
             catch (Exception ex)
             {
@@ -260,10 +259,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 throw ex;
             }
         }
-
-
-
-
         public async Task<string> GuardarCambios(Guid IdUsuario)
         {
             try
@@ -285,12 +280,12 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     Descripcion = Descripcion,
                     ClaveSat = ClaveSat,
                     CodigoBarras=CodigoBarras,
-                    IdAplicaIva=IdAplicaIva
-
+                    IdAplicaIva=IdAplicaIva,
+                    CostoProducto = this.CostoProducto,
+                    PorcentajeP = this.PorcentajeP
                 };
                 if (State == EntityState.Create)
                 {
-
                     return await IRepository.AddWitClave(producto, IdUsuario);
                 }
                 else if (State == EntityState.Update)
@@ -301,18 +296,13 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
-
-
-
         #endregion
 
         #region Binding
         private int _IdProducto;
-
         public int IdProducto
         {
             get { return _IdProducto; }
@@ -320,7 +310,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private string _Categoria;
-
         public string Categoria
         {
             get { return _Categoria; }
@@ -328,7 +317,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private string _Clave;
-
         public string Clave
         {
             get { return _Clave; }
@@ -336,7 +324,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private string _Nombre;
-
         public string Nombre
         {
             get { return _Nombre; }
@@ -344,16 +331,13 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private string _Descripcion;
-
         public string Descripcion
         {
             get { return _Descripcion; }
             set { _Descripcion = value; OnPropertyChanged("Descripcion"); }
         }
 
-
         private bool _Stock;
-
         public bool Stock
         {
             get { return _Stock; }
@@ -361,7 +345,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private int _StockMax;
-
         public int StockMax
         {
             get { return _StockMax; }
@@ -369,7 +352,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private int _StockMin;
-
         public int StockMin
         {
             get { return _StockMin; }
@@ -377,16 +359,13 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private decimal _PrecioPublico;
-
         public decimal PrecioPublico
         {
             get { return _PrecioPublico; }
             set { _PrecioPublico = value; OnPropertyChanged("PrecioPublico"); }
         }
-
-
+        
         private decimal _PrecioMayoreo;
-
         public decimal PrecioMayoreo
         {
             get { return _PrecioMayoreo; }
@@ -394,7 +373,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private decimal _PrecioMenudeo;
-
         public decimal PrecioMenudeo
         {
             get { return _PrecioMenudeo; }
@@ -402,7 +380,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private string _CodigoBarras;
-
         public string CodigoBarras
         {
             get { return _CodigoBarras; }
@@ -410,7 +387,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private int? _IdUnidadMedida;
-
         public int? IdUnidadMedida
         {
             get { return _IdUnidadMedida; }
@@ -418,7 +394,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private int? _IdAplicaIva;
-
         public int? IdAplicaIva
         {
             get { return _IdAplicaIva; }
@@ -433,7 +408,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private int _ClaveSat;
-
         public int ClaveSat
         {
             get { return _ClaveSat; }
@@ -441,7 +415,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private bool _AplicaIva;
-
         public bool AplicaIva
         {
             get { return _AplicaIva; }
@@ -449,7 +422,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
         public string Extencion { get; set; } 
         private Guid _Usuario;
-
         public Guid Usuario
         {
             get { return _Usuario; }
@@ -466,21 +438,15 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         //propiedades par la foto
 
         private string _BaseString64;
-
         public string BaseString64
         {
             get { return _BaseString64; }
             set { _BaseString64 = value; OnPropertyChanged("BaseString64"); }
         }
 
-        public bool UpdateFoto;
-
-        
-
-       
+        public bool UpdateFoto; 
 
         private Image _Foto;
-
         public Image Foto
         {
             get { return _Foto; }
@@ -492,7 +458,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public string UrlFoto { get; set; }
 
         private string _ImageLocation;
-
         public string ImageLocation
         {
             get { return _ImageLocation; }
@@ -513,9 +478,32 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
+        private decimal _CostoProducto;
+
+        public decimal CostoProducto
+        {
+            get { return _CostoProducto; }
+            set
+            {
+                _CostoProducto = value;
+                OnPropertyChanged(nameof(CostoProducto));
+            }
+        }
+
+        private decimal _PorcentajeP;
+        public decimal PorcentajeP
+        {
+            get { return _PorcentajeP; }
+            set
+            {
+                _PorcentajeP = value;
+                OnPropertyChanged(nameof(PorcentajeP));
+            }
+        }
+
+
         //BUSQUEDA
         private string _Busqueda;
-
         public string Busqueda
         {
             get { return _Busqueda; }
