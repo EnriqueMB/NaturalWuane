@@ -226,6 +226,7 @@
     </Compile>
     <Compile Include="Forms\Usuarios\FrmReglasPerfil.Designer.cs">
       <DependentUpon>FrmReglasPerfil.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\General\FrmProductosMonedero.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -353,6 +354,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Usuarios\FrmReglasPerfil.resx">
       <DependentUpon>FrmReglasPerfil.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\FrmProductosMonedero.resx">
       <DependentUpon>FrmProductosMonedero.cs</DependentUpon>
     </EmbeddedResource>
