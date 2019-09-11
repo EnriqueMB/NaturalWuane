@@ -304,9 +304,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                this.groupBoxCliente.Enabled = false;
-                this.LimpiarPropiedades();
-                this.CleanErrors(errorProvider1, typeof(ClienteViewModel));
+                if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmCancelInput) == DialogResult.OK)
+                {
+                    this.groupBoxCliente.Enabled = false;
+                    this.LimpiarPropiedades();
+                    this.CleanErrors(errorProvider1, typeof(ClienteViewModel));
+                }
             }
             catch (Exception ex)
             {

@@ -87,6 +87,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@UpdateFoto", element.UpdateFoto);
                     dynamicParameters.Add("@fotob64", element.FotoBase64);
                     dynamicParameters.Add("@urlFoto", element.UrlFoto);
+                    dynamicParameters.Add("@PorcentajeP", element.PorcentajePaquete);
                     var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_AC_Servicio]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;
@@ -177,6 +178,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         Item.IEPS = dr.GetDecimal(dr.GetOrdinal("IEPS"));
                         Item.FotoBase64 = dr.GetString(dr.GetOrdinal("FotoBase64"));
                         Item.UrlFoto = dr.GetString(dr.GetOrdinal("UrlLocalImagen"));
+                        Item.PorcentajePaquete = dr.GetDecimal(dr.GetOrdinal("PorcentajeP"));
                         Lista.Add(Item);
                     }
                     dr.Close();
@@ -260,6 +262,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@UpdateFoto", element.UpdateFoto);
                     dynamicParameters.Add("@fotob64", element.FotoBase64);
                     dynamicParameters.Add("@urlFoto", element.UrlFoto);
+                    dynamicParameters.Add("@PorcentajeP", element.PorcentajePaquete);
                     var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_AC_Servicio]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;

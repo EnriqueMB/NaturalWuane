@@ -74,7 +74,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     IEPS = IEPS,
                     UpdateFoto = UpdateFoto,
                     FotoBase64 = FotoBase64,
-                    UrlFoto = ImageLocation
+                    UrlFoto = ImageLocation,
+                    PorcentajePaquete = this.PorcentajeP
                 //Base64String = new Bitmap(Foto).ToBase64String(Formato),
                 //UrlFoto = UrlFoto
                 //Resultado = -2
@@ -223,7 +224,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
         #region Binding(Variables)
         private int _IdServicio = 0;
-
         public int IdServicio
         {
             get { return _IdServicio; }
@@ -235,7 +235,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private int _IdTipoServicio;
-
         public int IdTipoServicio
         {
             get { return _IdTipoServicio; }
@@ -247,7 +246,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private int _IdTipoIva;
-
         public int IdTipoIva
         {
             get { return _IdTipoIva; }
@@ -259,7 +257,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }       
 
         private string _Clave;
-
         public string Clave
         {
             get { return _Clave; }
@@ -284,7 +281,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         //}
 
         private string _Nombre = "";
-
         public string Nombre
         {
             get { return _Nombre; }
@@ -296,7 +292,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private decimal _Precio;
-
         public decimal Precio
         {
             get { return _Precio; }
@@ -321,7 +316,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
 
         private string _Descripcion;
-
         public string Descripcion
         {
             get { return _Descripcion; }
@@ -332,7 +326,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
         private decimal _Porcentaje100;
-
         public decimal Porcentaje100
         {
             get { return _Porcentaje/100; }
@@ -343,7 +336,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
         private decimal _Porcentaje;
-
         public decimal Porcentaje
         {
             get { return _Porcentaje; }
@@ -356,7 +348,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         
 
         private string _DescIva;
-
         public string DescIva
         {
             get { return _DescIva; }
@@ -368,7 +359,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private bool _AplicaIva;
-
         public bool AplicaIva
         {
             get { return _AplicaIva; }
@@ -380,7 +370,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private bool _AplicaIEPS;
-
         public bool AplicaIEPS
         {
             get { return _AplicaIEPS; }
@@ -392,7 +381,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private bool _IEPSMonto;
-
         public bool IEPSMonto
         {
             get { return _IEPSMonto; }
@@ -404,7 +392,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private decimal _IEPS;
-
         public decimal IEPS
         {
             get { return _IEPS; }
@@ -416,7 +403,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private bool _BandNombre;
-
         public bool BandNombre
         {
             get { return _BandNombre; }
@@ -428,7 +414,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
         private bool _BandClave;
-
         public bool BandClave
         {
             get { return _BandClave; }
@@ -438,6 +423,19 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 OnPropertyChanged(nameof(BandClave));
             }
         }
+
+        private decimal _PorcentajeP;
+
+        public decimal PorcentajeP
+        {
+            get { return _PorcentajeP; }
+            set
+            {
+                _PorcentajeP = value;
+                OnPropertyChanged(nameof(PorcentajeP));
+            }
+        }
+
 
         #region FOTO        
         private string _FotoBase64 = "";
@@ -527,7 +525,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
         #endregion
         private decimal _Cantidad;
-
         public decimal Cantidad
         {
             get { return _Cantidad; }

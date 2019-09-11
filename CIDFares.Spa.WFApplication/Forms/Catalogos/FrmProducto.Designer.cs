@@ -76,13 +76,17 @@
             this.IdAplicaIvaControl = new System.Windows.Forms.ComboBox();
             this.AplicaIvaControl = new System.Windows.Forms.CheckBox();
             this.ClaveSat = new System.Windows.Forms.Panel();
-            this.ClaveSatControl = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.GenerarCodigoBarrasControl = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.CodigoBarrasControl = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ClaveSatControl = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CostoProductoControl = new System.Windows.Forms.TextBox();
+            this.PorcentajePControl = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -122,7 +126,7 @@
             this.lblSubtitle.Location = new System.Drawing.Point(27, 34);
             this.lblSubtitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSubtitle.Name = "lblSubtitle";
-            this.lblSubtitle.Size = new System.Drawing.Size(102, 15);
+            this.lblSubtitle.Size = new System.Drawing.Size(101, 15);
             this.lblSubtitle.TabIndex = 182;
             this.lblSubtitle.Text = "NUEVO REGISTRO";
             // 
@@ -431,6 +435,8 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.ClaveSatControl);
+            this.panel7.Controls.Add(this.label1);
             this.panel7.Controls.Add(this.ClaveControl);
             this.panel7.Controls.Add(this.Clave);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -442,6 +448,7 @@
             // ClaveControl
             // 
             this.ClaveControl.Location = new System.Drawing.Point(7, 20);
+            this.ClaveControl.MaxLength = 20;
             this.ClaveControl.Name = "ClaveControl";
             this.ClaveControl.Size = new System.Drawing.Size(268, 20);
             this.ClaveControl.TabIndex = 4;
@@ -605,8 +612,10 @@
             // 
             // ClaveSat
             // 
-            this.ClaveSat.Controls.Add(this.ClaveSatControl);
-            this.ClaveSat.Controls.Add(this.label1);
+            this.ClaveSat.Controls.Add(this.PorcentajePControl);
+            this.ClaveSat.Controls.Add(this.label4);
+            this.ClaveSat.Controls.Add(this.CostoProductoControl);
+            this.ClaveSat.Controls.Add(this.label3);
             this.ClaveSat.Location = new System.Drawing.Point(400, 159);
             this.ClaveSat.Name = "ClaveSat";
             this.ClaveSat.Size = new System.Drawing.Size(391, 46);
@@ -672,6 +681,59 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // ClaveSatControl
+            // 
+            this.ClaveSatControl.Location = new System.Drawing.Point(149, 20);
+            this.ClaveSatControl.Name = "ClaveSatControl";
+            this.ClaveSatControl.Size = new System.Drawing.Size(125, 20);
+            this.ClaveSatControl.TabIndex = 55;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(148, 1);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 17);
+            this.label1.TabIndex = 54;
+            this.label1.Text = "CLAVE SAT";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(8, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 17);
+            this.label3.TabIndex = 56;
+            this.label3.Text = "COSTO";
+            // 
+            // CostoProductoControl
+            // 
+            this.CostoProductoControl.Location = new System.Drawing.Point(7, 23);
+            this.CostoProductoControl.MaxLength = 10;
+            this.CostoProductoControl.Name = "CostoProductoControl";
+            this.CostoProductoControl.Size = new System.Drawing.Size(125, 20);
+            this.CostoProductoControl.TabIndex = 57;
+            // 
+            // PorcentajePControl
+            // 
+            this.PorcentajePControl.Location = new System.Drawing.Point(148, 23);
+            this.PorcentajePControl.MaxLength = 10;
+            this.PorcentajePControl.Name = "PorcentajePControl";
+            this.PorcentajePControl.Size = new System.Drawing.Size(127, 20);
+            this.PorcentajePControl.TabIndex = 59;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(157, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 17);
+            this.label4.TabIndex = 58;
+            this.label4.Text = "% DESCUENTO";
             // 
             // FrmProducto
             // 
@@ -773,10 +835,14 @@
         private System.Windows.Forms.CheckBox StockControl;
         private System.Windows.Forms.CheckBox AplicaIvaControl;
         private System.Windows.Forms.Panel ClaveSat;
-        private System.Windows.Forms.TextBox ClaveSatControl;
-        private System.Windows.Forms.Label label1;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt RutaControl;
         private System.Windows.Forms.CheckBox GenerarCodigoBarrasControl;
         private System.Windows.Forms.ComboBox IdAplicaIvaControl;
+        private System.Windows.Forms.TextBox ClaveSatControl;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox PorcentajePControl;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox CostoProductoControl;
+        private System.Windows.Forms.Label label3;
     }
 }
