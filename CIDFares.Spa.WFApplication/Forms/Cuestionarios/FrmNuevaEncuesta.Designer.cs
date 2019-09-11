@@ -212,6 +212,7 @@
             gridTextColumn1.AllowFiltering = true;
             gridTextColumn1.HeaderText = "IdPregunta";
             gridTextColumn1.MappingName = "IdPregunta";
+            gridTextColumn1.Visible = false;
             gridTextColumn2.AllowDragging = true;
             gridTextColumn2.AllowEditing = false;
             gridTextColumn2.AllowFiltering = true;
@@ -227,6 +228,7 @@
             gridTextColumn4.AllowFiltering = true;
             gridTextColumn4.HeaderText = "IdRespuesta";
             gridTextColumn4.MappingName = "IdRespuesta";
+            gridTextColumn4.Visible = false;
             this.dtgRespuestas.Columns.Add(gridTextColumn1);
             this.dtgRespuestas.Columns.Add(gridTextColumn2);
             this.dtgRespuestas.Columns.Add(gridTextColumn3);

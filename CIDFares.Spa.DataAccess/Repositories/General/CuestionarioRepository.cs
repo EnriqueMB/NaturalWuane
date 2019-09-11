@@ -21,9 +21,25 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
-        public Task<int> DeleteAsync(object id, object IdUsuario)
+        public async Task<int> DeleteAsync(object id, object IdUsuario)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdEncuesta",id);
+                    dynamicParameters.Add("@IdUsuario",IdUsuario);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[spCID_B_Encuesta]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public Task<bool> ExistAsync(object id)
@@ -31,9 +47,35 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Cuestionario>> GetAllAsync()
+        public async Task<IEnumerable<Cuestionario>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    List<Cuestionario> Lista = new List<Cuestionario>();
+                    Cuestionario Item;
+
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();                  
+                    var dr = await conexion.ExecuteReaderAsync("[Catalogo].[spCID_Get_Encuesta]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    while (dr.Read())
+                    {
+                        Item = new Cuestionario();
+                        Item.IdEncuesta = dr.GetGuid(dr.GetOrdinal("IdEncuesta"));
+                        Item.NombreEncuesta = dr.GetString(dr.GetOrdinal("NombreEncuesta"));
+                        Item.IdTipoEncuesta = dr.GetInt32(dr.GetOrdinal("IdTipoEncuesta"));
+                        Item.Descripcion = dr.GetString(dr.GetOrdinal("Descripcion"));
+                        Lista.Add(Item);
+                    }
+                    dr.Close();
+                    return Lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public Task<Cuestionario> GetAsync(object id)

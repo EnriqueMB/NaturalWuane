@@ -31,16 +31,17 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.FlpBotones = new System.Windows.Forms.FlowLayoutPanel();
             this.btnEliminarEncuesta = new System.Windows.Forms.Button();
             this.btnModificarEncuesta = new System.Windows.Forms.Button();
             this.btnNuevaEncuesta = new System.Windows.Forms.Button();
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridsf1 = new CIDFares.Library.Controls.CIDDataGridsf.DataGridsf();
+            this.dtgEncuestas = new CIDFares.Library.Controls.CIDDataGridsf.DataGridsf();
             this.FlpBotones.SuspendLayout();
             this.pnlTitulo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridsf1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgEncuestas)).BeginInit();
             this.SuspendLayout();
             // 
             // FlpBotones
@@ -71,6 +72,7 @@
             this.btnEliminarEncuesta.TabIndex = 16;
             this.btnEliminarEncuesta.Text = "ELIMINAR";
             this.btnEliminarEncuesta.UseVisualStyleBackColor = false;
+            this.btnEliminarEncuesta.Click += new System.EventHandler(this.BtnEliminarEncuesta_Click);
             // 
             // btnModificarEncuesta
             // 
@@ -87,6 +89,7 @@
             this.btnModificarEncuesta.TabIndex = 15;
             this.btnModificarEncuesta.Text = "MODIFICAR";
             this.btnModificarEncuesta.UseVisualStyleBackColor = false;
+            this.btnModificarEncuesta.Click += new System.EventHandler(this.BtnModificarEncuesta_Click);
             // 
             // btnNuevaEncuesta
             // 
@@ -125,68 +128,78 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "ENCUESTAS";
             // 
-            // dataGridsf1
+            // dtgEncuestas
             // 
-            this.dataGridsf1.AccessibleName = "Table";
-            this.dataGridsf1.AllowDraggingColumns = true;
-            this.dataGridsf1.AllowEditing = false;
-            this.dataGridsf1.AllowFiltering = true;
-            this.dataGridsf1.AutoExpandGroups = true;
-            this.dataGridsf1.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            this.dataGridsf1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
+            this.dtgEncuestas.AccessibleName = "Table";
+            this.dtgEncuestas.AllowDraggingColumns = true;
+            this.dtgEncuestas.AllowEditing = false;
+            this.dtgEncuestas.AllowFiltering = true;
+            this.dtgEncuestas.AutoExpandGroups = true;
+            this.dtgEncuestas.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            this.dtgEncuestas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
             gridTextColumn1.AllowDragging = true;
             gridTextColumn1.AllowEditing = false;
             gridTextColumn1.AllowFiltering = true;
-            gridTextColumn1.HeaderText = "Column1";
-            gridTextColumn1.MappingName = "Column1";
+            gridTextColumn1.HeaderText = "IdEncuesta";
+            gridTextColumn1.MappingName = "IdEncuesta";
+            gridTextColumn1.Visible = false;
             gridTextColumn2.AllowDragging = true;
             gridTextColumn2.AllowEditing = false;
             gridTextColumn2.AllowFiltering = true;
-            gridTextColumn2.HeaderText = "Column2";
-            gridTextColumn2.MappingName = "Column2";
+            gridTextColumn2.HeaderText = "ENCUESTA";
+            gridTextColumn2.MappingName = "NombreEncuesta";
             gridTextColumn3.AllowDragging = true;
             gridTextColumn3.AllowEditing = false;
             gridTextColumn3.AllowFiltering = true;
-            gridTextColumn3.HeaderText = "Column3";
-            gridTextColumn3.MappingName = "Column3";
-            this.dataGridsf1.Columns.Add(gridTextColumn1);
-            this.dataGridsf1.Columns.Add(gridTextColumn2);
-            this.dataGridsf1.Columns.Add(gridTextColumn3);
-            this.dataGridsf1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridsf1.Location = new System.Drawing.Point(0, 45);
-            this.dataGridsf1.Name = "dataGridsf1";
-            this.dataGridsf1.RowHeight = 21;
-            this.dataGridsf1.ShowGroupDropArea = true;
-            this.dataGridsf1.Size = new System.Drawing.Size(800, 331);
-            this.dataGridsf1.Style.CellStyle.TextColor = System.Drawing.Color.Black;
-            this.dataGridsf1.Style.GroupDropAreaItemStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.dataGridsf1.Style.GroupDropAreaItemStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.dataGridsf1.Style.GroupDropAreaStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            this.dataGridsf1.Style.GroupDropAreaStyle.TextColor = System.Drawing.Color.Black;
-            this.dataGridsf1.Style.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(64)))), ((int)(((byte)(23)))));
-            this.dataGridsf1.Style.HeaderStyle.Font.Bold = false;
-            this.dataGridsf1.Style.HeaderStyle.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(64)))), ((int)(((byte)(23)))));
-            this.dataGridsf1.Style.HeaderStyle.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridsf1.Style.HeaderStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridsf1.Style.IndentCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            this.dataGridsf1.TabIndex = 1;
-            this.dataGridsf1.Text = "dataGridsf1";
+            gridTextColumn3.HeaderText = "IdTipoEncuesta";
+            gridTextColumn3.MappingName = "IdTipoEncuesta";
+            gridTextColumn3.Visible = false;
+            gridTextColumn4.AllowDragging = true;
+            gridTextColumn4.AllowEditing = false;
+            gridTextColumn4.AllowFiltering = true;
+            gridTextColumn4.HeaderText = "TIPO DE ENCUESTA";
+            gridTextColumn4.MappingName = "Descripcion";
+            this.dtgEncuestas.Columns.Add(gridTextColumn1);
+            this.dtgEncuestas.Columns.Add(gridTextColumn2);
+            this.dtgEncuestas.Columns.Add(gridTextColumn3);
+            this.dtgEncuestas.Columns.Add(gridTextColumn4);
+            this.dtgEncuestas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgEncuestas.Location = new System.Drawing.Point(0, 45);
+            this.dtgEncuestas.Name = "dtgEncuestas";
+            this.dtgEncuestas.RowHeight = 21;
+            this.dtgEncuestas.ShowGroupDropArea = true;
+            this.dtgEncuestas.Size = new System.Drawing.Size(800, 331);
+            this.dtgEncuestas.Style.CellStyle.TextColor = System.Drawing.Color.Black;
+            this.dtgEncuestas.Style.GroupDropAreaItemStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.dtgEncuestas.Style.GroupDropAreaItemStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.dtgEncuestas.Style.GroupDropAreaStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
+            this.dtgEncuestas.Style.GroupDropAreaStyle.TextColor = System.Drawing.Color.Black;
+            this.dtgEncuestas.Style.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(64)))), ((int)(((byte)(23)))));
+            this.dtgEncuestas.Style.HeaderStyle.Font.Bold = false;
+            this.dtgEncuestas.Style.HeaderStyle.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(64)))), ((int)(((byte)(23)))));
+            this.dtgEncuestas.Style.HeaderStyle.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dtgEncuestas.Style.HeaderStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dtgEncuestas.Style.IndentCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
+            this.dtgEncuestas.TabIndex = 1;
+            this.dtgEncuestas.Text = "dataGridsf1";
             // 
             // FrmEncuesta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridsf1);
+            this.Controls.Add(this.dtgEncuestas);
             this.Controls.Add(this.pnlTitulo);
             this.Controls.Add(this.FlpBotones);
             this.Name = "FrmEncuesta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCuestionarios";
+            this.Load += new System.EventHandler(this.FrmEncuesta_Load);
+            this.Shown += new System.EventHandler(this.FrmEncuesta_Shown);
             this.FlpBotones.ResumeLayout(false);
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridsf1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgEncuestas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -198,6 +211,6 @@
         private System.Windows.Forms.Button btnNuevaEncuesta;
         private System.Windows.Forms.Panel pnlTitulo;
         private System.Windows.Forms.Label label3;
-        private Library.Controls.CIDDataGridsf.DataGridsf dataGridsf1;
+        private Library.Controls.CIDDataGridsf.DataGridsf dtgEncuestas;
     }
 }

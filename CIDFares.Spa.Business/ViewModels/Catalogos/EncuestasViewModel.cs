@@ -16,16 +16,22 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #region Propiedades
         private ICuestionarioRepository _cuestionarioRepository { get; set; }
         public BindingList<Cuestionario> _ListaTipoEncuesta { get; set; }
+        public BindingList<Cuestionario> _ListaEncuesta { get; set; }
 
         public DataTable TblPregunta { get; set; }
         public DataTable TblRespuesta { get; set; }
+
+        public Guid IdUsuario { get; set; }
+        public Guid IdEncuesta { get; set; }
         #endregion
 
         #region Constructor
         public EncuestasViewModel(ICuestionarioRepository cuestionarioRepository)
         {
             _cuestionarioRepository = cuestionarioRepository;
-            _ListaTipoEncuesta = new BindingList<Cuestionario>();          
+            _ListaTipoEncuesta = new BindingList<Cuestionario>();
+            _ListaEncuesta = new BindingList<Cuestionario>();
+            //LLenarListaEncuesta();
         }
         #endregion
 
@@ -52,6 +58,35 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             try
             {
                return await _cuestionarioRepository.GuardarEncuesta(NombreEncuesta,IdTipoEncuesta,idUsuario,TblPregunta,TblRespuesta);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task LLenarListaEncuesta()
+        {
+            try
+            {
+                var x = await _cuestionarioRepository.GetAllAsync();
+                _ListaEncuesta.Clear();
+                foreach (var item in x)
+                {
+                    _ListaEncuesta.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<int> Remove()
+        {
+            try
+            {
+                return await _cuestionarioRepository.DeleteAsync(IdEncuesta,IdUsuario);
             }
             catch (Exception ex)
             {
