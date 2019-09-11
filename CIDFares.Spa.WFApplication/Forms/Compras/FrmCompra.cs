@@ -1,4 +1,5 @@
-﻿using CIDFares.Library.Code.Helpers;
+﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Library.Code.Helpers;
 using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Spa.Business.ViewModels.Catalogos;
@@ -6,6 +7,7 @@ using CIDFares.Spa.Business.ViewModels.Compras;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
+using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,6 +46,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
         {
             try
             {
+                ClaveProveedorControl.DataBindings.Add("Text", ModelCompra, "ClaveProveedor", true, DataSourceUpdateMode.OnPropertyChanged);
+                TotalControl.DataBindings.Add("Text", ModelCompra, "Total", true, DataSourceUpdateMode.OnPropertyChanged);
+                IvaControl.DataBindings.Add("Text", ModelCompra, "Iva", true, DataSourceUpdateMode.OnPropertyChanged);
+                SubtotalControl.DataBindings.Add("Text", ModelCompra, "Subtotal", true, DataSourceUpdateMode.OnPropertyChanged);
+                FolioCompraControl.DataBindings.Add("Text", ModelCompra, "Folio", true, DataSourceUpdateMode.OnPropertyChanged);
                 this.sfDataGrid1.AutoGenerateColumns = false;
                 sfDataGrid1.DataBindings.Add("DataSource", ModelCompra, "ListaCompra", true, DataSourceUpdateMode.OnPropertyChanged);
             }
@@ -73,18 +80,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
         {
             try
             {
-                FrmProveedorACompra producto = new FrmProveedorACompra();
-                producto.ShowDialog();
-                //var x = await Model.Proveedor(Model.IdProveedorTemp);
-                this.Np.Text = producto.Model.NombreProveedor;
-                this.lblRepresentante.Text = producto.Model.Representante;
-                this.lblTelefono.Text = producto.Model.Telefono;
-                this.lblDireccion.Text = producto.Model.Direccion;
-
+                FrmProveedorACompra proveedor = new FrmProveedorACompra();
+                proveedor.ShowDialog();
+                if (proveedor.proveedor.IdProveedor != Guid.Empty)
+                    LlenarProveedor(proveedor.proveedor);
             }
             catch (Exception ex)
             {
-                ErrorLogHelper.AddExcFileTxt(ex, "FrmCompra ~ bntnAgregarProvedor_Click(object sender, EventArgs e)");
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmBuscarVenta ~ btnSeleccionar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
@@ -112,6 +115,23 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
             }
         }
 
+        private void LlenarProveedor(ProveedorACompra proveedor)
+        {
+            try
+            {
+                ModelCompra.IdProveedor = proveedor.IdProveedor;
+                this.ClaveProveedorControl.Text = proveedor.Clave;
+                this.Np.Text = proveedor.NombreComercial;
+                this.lblRepresentanteControl.Text = proveedor.Representante;
+                this.lblTelefonoControl.Text = proveedor.Telefono;
+                this.lblDireccionControl.Text = proveedor.Direccion;
+               
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void LLenarGridCompra(object objetoX)
         {
             try
@@ -122,7 +142,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
                 {
                     ModelCompra.ListaCompra.Add(new Compra
                     {
-                        IdProducto = Producto.IdProducto,
+                        IdCompraProducto = Producto.IdProducto,
                         Cantidad = Producto.CantidaProducto,
                         Nombre = Producto.Nombre,
                         PrecioCosto = Producto.CostoProducto,
@@ -134,7 +154,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
                 }
                 else
                 {
-                    var x = ModelCompra.ListaCompra.Where(p => p.IdCompra == Producto.IdProducto).Select(u => {
+                    var x = ModelCompra.ListaCompra.Where(p => p.IdCompraProducto == Producto.IdProducto).Select(u => {
                         u.Cantidad += Producto.CantidaProducto;
                         u.PrecioCosto = Producto.CostoProducto;
                         u.PorcentajeIva += (Producto.CostoProducto * (Producto.ProcentajeIva / 100));
@@ -150,7 +170,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
                     {
                         ModelCompra.ListaCompra.Add(new Compra
                         {
-                            IdCompra = Producto.IdProducto,
+                            IdCompraProducto = Producto.IdProducto,
                             Cantidad = Producto.CantidaProducto,
                             Nombre = Producto.Nombre,
                             PrecioCosto = Producto.CostoProducto,
@@ -187,6 +207,107 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Compra item = (Compra)ObtenerSeleccionado();
+                if (item != null)
+                {
+                    ModelCompra.ListaCompra.Remove(item);
+                    TotalCompra();
+                }
+                else
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private async void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            BindingList<Compra> ListaProductos = (BindingList<Compra>)sfDataGrid1.DataSource;
+            this.CleanErrors(errorProvider1, typeof(ComprasViewModel));
+            var validationResults = ModelCompra.Validate();
+            validationResults.ToString();
+
+            if (validationResults.IsValid)
+            {
+                if (ListaProductos.Count > 0)
+                {
+                    ModelCompra.TablaProducto = ObtenerTablaProducto(ListaProductos);
+                   
+                    Compra Resultado = await ModelCompra.GuardarVenta(CurrentSession.IdCuentaUsuario, CurrentSession.IdSucursal);
+                    if (Resultado.Resultado == 1)
+                    {
+                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                        LimpiarPropiedades();
+                    }
+                }
+                else
+                    errorProvider1.SetError(FolioCompraControl, "Seleccione al menos un articulo.");
+            }
+            else
+                this.ShowErrors(errorProvider1, typeof(ComprasViewModel), validationResults);
+        }
+
+        private DataTable ObtenerTablaProducto(BindingList<Compra> Lista)
+        {
+            DataTable Tabla = new DataTable();
+            Tabla.Columns.Add("IdProducto", typeof(int));
+            Tabla.Columns.Add("Cantidad", typeof(decimal));
+            Tabla.Columns.Add("Total", typeof(decimal));
+            foreach (var item in Lista)
+            {
+                    Tabla.Rows.Add(new object[] {item.IdCompraProducto, item.Cantidad, item.Total });
+ 
+            }
+            return Tabla;
+        }
+
+
+        private void LimpiarPropiedades()
+        {
+            try
+            {
+                ModelCompra.IdProveedor = Guid.Empty;
+                ModelCompra.Iva = 0;
+                ModelCompra.SubTotal = 0;
+                ModelCompra.Total = 0;
+                ModelCompra.TablaProducto = new DataTable();
+
+                ModelCompra.ListaCompra.Clear();
+                ModelCompra.GetFolio();
+                ClaveProveedorControl.Text = "";
+                Np.Text = "";
+                lblRepresentanteControl.Text = "";
+                lblTelefonoControl.Text = "";
+                lblDireccionControl.Text = "";
+                FechaControl.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmOutMessage) == DialogResult.OK)
+                    this.Close();
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCompra ~ btnCancelar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
     }

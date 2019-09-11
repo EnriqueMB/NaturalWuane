@@ -30,7 +30,7 @@ namespace CIDFares.Spa.WFApplication
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
 
-            Application.Run(new FrmCompra());
+            Application.Run(new FrmProveedorGrid());
 
         }
 
@@ -60,6 +60,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ProductoValidator, IValidator<ProductoViewModel>>();
             ServiceLocator.Instance.Register<SucursalValidator, IValidator<SucursalViewModel>>();
             ServiceLocator.Instance.Register<VentaValidator, IValidator<VentasViewModel>>();
+            ServiceLocator.Instance.Register<CompraValidator, IValidator<ComprasViewModel>>();
         }
 
         private static void RegisterViewModelDependencies()

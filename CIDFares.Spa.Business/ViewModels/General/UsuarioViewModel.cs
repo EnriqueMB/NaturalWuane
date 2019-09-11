@@ -227,10 +227,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
             }
         }
 
-        //public bool Modificar { get; set; }
-
-
-
+       
         #region InotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;

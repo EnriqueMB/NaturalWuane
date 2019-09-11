@@ -105,22 +105,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 throw ex;
             }
         }
-        /*
-        public async Task LlenarListaPais()
-        {
-            try
-            {
-                var listaPais = await PaisRepository.GetComboPais();
-                foreach (var item in listaPais)
-                {
-                    ListaPais.Add(item);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }*/
+       
         
         #region Combo pais
         public void GetListaPais(IEnumerable<Pais> pais)
@@ -199,45 +184,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
         #endregion
 
-        /*
-        public async Task LlenarListaEstado(int IdPais)
-        {
-            try
-            {
-                var listaEstado = await EstadoRepository.GetComboEstado(IdPais);
-
-                ListaEstado.Clear();
-                foreach (var item in listaEstado)
-                {
-                    ListaEstado.Add(item);
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }*/
-        /*
-          public async Task LlenarListaMunicipio(int IdEstado)
-          {
-              try
-              {
-                  var listaMunicipio = await MunicipioRepository.GetComboMunicipio(IdEstado);
-                  ListaMunicipio.Clear();
-                  foreach (var item in listaMunicipio)
-                  {
-                      ListaMunicipio.Add(item);
-                  }
-              }
-              catch (Exception ex)
-              {
-
-                  throw ex;
-              }
-          }
-          */
+        
         public async Task<int> Remove(Guid IdUsuario)
         {
             try

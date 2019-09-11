@@ -49,6 +49,7 @@
     <Compile Include="Repositories\General\BusquedaProductoRepository.cs" />
     <Compile Include="Repositories\General\CategoriaProductoRepository.cs" />
     <Compile Include="Repositories\General\ClienteRepository.cs" />
+    <Compile Include="Repositories\General\CompraRepository.cs" />
     <Compile Include="Repositories\General\EmpleadoRepository.cs" />
     <Compile Include="Repositories\General\EstadoRepository.cs" />
     <Compile Include="Repositories\General\FormaPagoRepository.cs" />

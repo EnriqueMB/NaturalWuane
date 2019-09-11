@@ -84,6 +84,7 @@
     <Compile Include="Repositories\General\ICategoriaProductoRepository.cs" />
     <Compile Include="Repositories\General\IClienteRepository.cs" />
     <Compile Include="Entities\FormaPago.cs" />
+    <Compile Include="Repositories\General\ICompraRepository.cs" />
     <Compile Include="Repositories\General\IEmpleadoRepository.cs" />
     <Compile Include="Repositories\General\IEstadoRepository.cs" />
     <Compile Include="Repositories\General\IFormaPagoRepository.cs" />

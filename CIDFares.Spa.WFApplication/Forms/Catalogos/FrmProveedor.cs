@@ -237,14 +237,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     Model.GetListaPais(_ListaPais);
 
 
-                    //await Model.LlenarListaPais();
+                    
                     var _ListaEstado = await Model.GetListaEstado();
                     Model.GetListaEstado(_ListaEstado);
-                    //await Model.LlenarListaEstado(Model.IdPais);
+                   
 
                     var _ListaMunicipio = await Model.GetListaMunicipio();
                     Model.GetListaMunicipio(_ListaMunicipio);
-                    //await Model.LlenarListaMunicipio(Model.IdEstado);
+                    
                     await Model.GetAll();
 
 
@@ -260,8 +260,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     }, "Espere");
                 
                 }
-           
-        
+
+                
 
 
             }
@@ -327,34 +327,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
-        /*
-        private async void FrmProveedor_Load(object sender, EventArgs e)
-        {
-            try
-            {
-               
-                await Model.LlenarListaPais();
-                await Model.LlenarListaEstado(Model.IdPais);
-                await Model.LlenarListaMunicipio(Model.IdEstado);
-                //await Model.GetAll();
-           
-                
-                IniciarBinding();
-
-                if (Model.State == EntityState.Update)
-                {
-                    await Model.GetAll();
-                    CargarDatos();
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-
-        }*/
+        
        
 
         private async void IdPaisControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -366,14 +339,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 Model.GetListaEstado(_ListaEstado);
                 IdEstadoControl.SelectedValue = 0;
             }
-            /*
-            if (IdPaisControl.SelectedValue != null)
-            {
-
-                //await Model.LlenarListaEstado(Model.IdPais);
-                var _ListaEstado = await Model.GetListaEstado();
-                Model.GetListaEstado(_ListaEstado);
-            }*/
+            
         }
        
         private async void IdEstadoControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -387,13 +353,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     Model.GetListaMunicipio(_ListaMunicipio);
                     IdMunicipioControl.SelectedValue = 0;
                 }
-            /*
-                if (IdEstadoControl.SelectedValue != null)
-                {
-                    //await Model.LlenarListaMunicipio(Model.IdEstado);
-                    var _ListaMunicipio = await Model.GetListaMunicipio();
-                    Model.GetListaMunicipio(_ListaMunicipio);
-                }*/
+
             }
             catch (Exception ex)
             {

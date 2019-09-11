@@ -229,6 +229,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validations\CompraValidator.cs" />
     <Compile Include="Validations\ProveedorValidator.cs" />
     <Compile Include="Validations\ServicioValidator.cs" />
     <Compile Include="Validations\SucursalValidator.cs" />
@@ -296,7 +297,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmSeleccionarPago.resx">
       <DependentUpon>FrmSeleccionarPago.cs</DependentUpon>
-      </EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmBuscarServicio.resx">
       <DependentUpon>FrmBuscarServicio.cs</DependentUpon>
     </EmbeddedResource>

@@ -27,9 +27,7 @@ namespace CIDFares.Spa.WFApplication.Validations
                     return value.Equals("");
 
                 }).When(x => !x.Modificar).WithMessage("DEBE INGRESAR LA CONTRASEÑA.");
-              //  .Equal((x) => x.Password)
-              //  .WithMessage("LAS CONTRASEÑAS NO COINCIDEN."); ;
-
+             
             RuleFor(passdos => passdos.ContraseniaDos)
               .Equal((x) => x.Password)
               .WithMessage("LAS CONTRASEÑAS NO COINCIDEN.");
@@ -54,8 +52,6 @@ namespace CIDFares.Spa.WFApplication.Validations
                          return true;
                  })
                     .WithMessage("EL NOMBRE DE LA CUENTA YA EXISTE");
-
-
 
 
             RuleFor(x => x.IdRol)

@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            this.components = new System.ComponentModel.Container();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlTitulos = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.FlpBotones = new System.Windows.Forms.FlowLayoutPanel();
@@ -42,12 +43,22 @@
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ClaveProveedor = new System.Windows.Forms.Label();
+            this.lblDireccionControl = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblTelefonoControl = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblRepresentanteControl = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.Np = new System.Windows.Forms.Label();
             this.bntnAgregarProvedor = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupProducto = new System.Windows.Forms.GroupBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.TotalControl = new System.Windows.Forms.Label();
@@ -62,26 +73,24 @@
             this.lblVenta = new System.Windows.Forms.Label();
             this.FechaControl = new System.Windows.Forms.Label();
             this.btnProducto = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblRepresentante = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblTelefono = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblDireccion = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.ClaveProveedorControl = new System.Windows.Forms.Label();
             this.pnlTitulos.SuspendLayout();
             this.FlpBotones.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupProducto.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).BeginInit();
             this.panelBrnProducto.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTitulos
@@ -132,6 +141,7 @@
             this.btnCancelar.TabIndex = 14;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // BtnAgregar
             // 
@@ -148,11 +158,11 @@
             this.BtnAgregar.TabIndex = 13;
             this.BtnAgregar.Text = "Comprar";
             this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.panel8);
             this.panel1.Controls.Add(this.panelBrnProducto);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 44);
@@ -164,17 +174,115 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.groupBox1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(835, 37);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(835, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(159, 313);
             this.panel3.TabIndex = 18;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.ClaveProveedorControl);
+            this.groupBox1.Controls.Add(this.ClaveProveedor);
+            this.groupBox1.Controls.Add(this.lblDireccionControl);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.lblTelefonoControl);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.lblRepresentanteControl);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.Np);
+            this.groupBox1.Controls.Add(this.bntnAgregarProvedor);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(159, 313);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Datos proveedor";
+            // 
+            // ClaveProveedor
+            // 
+            this.ClaveProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClaveProveedor.AutoSize = true;
+            this.ClaveProveedor.Location = new System.Drawing.Point(17, 46);
+            this.ClaveProveedor.Name = "ClaveProveedor";
+            this.ClaveProveedor.Size = new System.Drawing.Size(88, 13);
+            this.ClaveProveedor.TabIndex = 24;
+            this.ClaveProveedor.Text = "Clave proveedor:";
+            // 
+            // lblDireccionControl
+            // 
+            this.lblDireccionControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDireccionControl.AutoSize = true;
+            this.lblDireccionControl.Location = new System.Drawing.Point(14, 229);
+            this.lblDireccionControl.Name = "lblDireccionControl";
+            this.lblDireccionControl.Size = new System.Drawing.Size(0, 13);
+            this.lblDireccionControl.TabIndex = 22;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(14, 216);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 13);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Dirección:";
+            // 
+            // lblTelefonoControl
+            // 
+            this.lblTelefonoControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTelefonoControl.AutoSize = true;
+            this.lblTelefonoControl.Location = new System.Drawing.Point(17, 185);
+            this.lblTelefonoControl.Name = "lblTelefonoControl";
+            this.lblTelefonoControl.Size = new System.Drawing.Size(0, 13);
+            this.lblTelefonoControl.TabIndex = 20;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 172);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Telefono:";
+            // 
+            // lblRepresentanteControl
+            // 
+            this.lblRepresentanteControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblRepresentanteControl.AutoSize = true;
+            this.lblRepresentanteControl.Location = new System.Drawing.Point(17, 140);
+            this.lblRepresentanteControl.Name = "lblRepresentanteControl";
+            this.lblRepresentanteControl.Size = new System.Drawing.Size(0, 13);
+            this.lblRepresentanteControl.TabIndex = 18;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 127);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(80, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Representante:";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 88);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 13);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Nombre proveedor:";
             // 
             // Np
             // 
             this.Np.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Np.AutoSize = true;
-            this.Np.Location = new System.Drawing.Point(14, 50);
+            this.Np.Location = new System.Drawing.Point(17, 101);
             this.Np.Name = "Np";
             this.Np.Size = new System.Drawing.Size(0, 13);
             this.Np.TabIndex = 15;
@@ -188,7 +296,7 @@
             this.bntnAgregarProvedor.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bntnAgregarProvedor.ForeColor = System.Drawing.Color.White;
             this.bntnAgregarProvedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bntnAgregarProvedor.Location = new System.Drawing.Point(17, 238);
+            this.bntnAgregarProvedor.Location = new System.Drawing.Point(6, 264);
             this.bntnAgregarProvedor.Name = "bntnAgregarProvedor";
             this.bntnAgregarProvedor.Size = new System.Drawing.Size(130, 36);
             this.bntnAgregarProvedor.TabIndex = 14;
@@ -199,8 +307,8 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.groupProducto);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 37);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(835, 313);
             this.panel2.TabIndex = 17;
@@ -230,11 +338,25 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.btnEliminar);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(527, 72);
             this.panel7.TabIndex = 1;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(9, 9);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(126, 52);
+            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // panel6
             // 
@@ -317,32 +439,32 @@
             // 
             this.sfDataGrid1.AccessibleName = "Table";
             this.sfDataGrid1.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.HeaderText = "Column1";
-            gridTextColumn1.MappingName = "IdProducto";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.HeaderText = "Nombre";
-            gridTextColumn2.MappingName = "Nombre";
-            gridTextColumn3.HeaderText = "Cantidad";
-            gridTextColumn3.MappingName = "Cantidad";
-            gridTextColumn4.Format = "C";
-            gridTextColumn4.HeaderText = "Costo";
-            gridTextColumn4.MappingName = "PrecioCosto";
-            gridTextColumn5.Format = "C";
-            gridTextColumn5.HeaderText = "Subtotal";
-            gridTextColumn5.MappingName = "Subtotal";
-            gridTextColumn6.Format = "C";
-            gridTextColumn6.HeaderText = "Iva";
-            gridTextColumn6.MappingName = "PorcentajeIva";
-            gridTextColumn7.Format = "C";
-            gridTextColumn7.HeaderText = "Total";
-            gridTextColumn7.MappingName = "Total";
-            this.sfDataGrid1.Columns.Add(gridTextColumn1);
-            this.sfDataGrid1.Columns.Add(gridTextColumn2);
-            this.sfDataGrid1.Columns.Add(gridTextColumn3);
-            this.sfDataGrid1.Columns.Add(gridTextColumn4);
-            this.sfDataGrid1.Columns.Add(gridTextColumn5);
-            this.sfDataGrid1.Columns.Add(gridTextColumn6);
-            this.sfDataGrid1.Columns.Add(gridTextColumn7);
+            gridTextColumn8.HeaderText = "Column1";
+            gridTextColumn8.MappingName = "IdProducto";
+            gridTextColumn8.Visible = false;
+            gridTextColumn9.HeaderText = "Nombre";
+            gridTextColumn9.MappingName = "Nombre";
+            gridTextColumn10.HeaderText = "Cantidad";
+            gridTextColumn10.MappingName = "Cantidad";
+            gridTextColumn11.Format = "C";
+            gridTextColumn11.HeaderText = "Costo";
+            gridTextColumn11.MappingName = "PrecioCosto";
+            gridTextColumn12.Format = "C";
+            gridTextColumn12.HeaderText = "Subtotal";
+            gridTextColumn12.MappingName = "Subtotal";
+            gridTextColumn13.Format = "C";
+            gridTextColumn13.HeaderText = "Iva";
+            gridTextColumn13.MappingName = "PorcentajeIva";
+            gridTextColumn14.Format = "C";
+            gridTextColumn14.HeaderText = "Total";
+            gridTextColumn14.MappingName = "Total";
+            this.sfDataGrid1.Columns.Add(gridTextColumn8);
+            this.sfDataGrid1.Columns.Add(gridTextColumn9);
+            this.sfDataGrid1.Columns.Add(gridTextColumn10);
+            this.sfDataGrid1.Columns.Add(gridTextColumn11);
+            this.sfDataGrid1.Columns.Add(gridTextColumn12);
+            this.sfDataGrid1.Columns.Add(gridTextColumn13);
+            this.sfDataGrid1.Columns.Add(gridTextColumn14);
             this.sfDataGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGrid1.Location = new System.Drawing.Point(0, 0);
             this.sfDataGrid1.Name = "sfDataGrid1";
@@ -392,7 +514,7 @@
             this.FechaControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.FechaControl.Size = new System.Drawing.Size(87, 20);
             this.FechaControl.TabIndex = 16;
-            this.FechaControl.Text = "26/08/2019";
+            this.FechaControl.Text = "00/00/2019";
             // 
             // btnProducto
             // 
@@ -411,91 +533,28 @@
             this.btnProducto.UseVisualStyleBackColor = false;
             this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
             // 
-            // groupBox1
+            // errorProvider1
             // 
-            this.groupBox1.Controls.Add(this.lblDireccion);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.lblTelefono);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.lblRepresentante);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.Np);
-            this.groupBox1.Controls.Add(this.bntnAgregarProvedor);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(159, 313);
-            this.groupBox1.TabIndex = 16;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Datos proveedor";
+            this.errorProvider1.ContainerControl = this;
             // 
-            // label1
+            // panel8
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 13);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Nombre proveedor:";
+            this.panel8.Controls.Add(this.panel2);
+            this.panel8.Controls.Add(this.panel3);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(0, 37);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(994, 313);
+            this.panel8.TabIndex = 19;
             // 
-            // label2
+            // ClaveProveedorControl
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 85);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 13);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Representante:";
-            // 
-            // lblRepresentante
-            // 
-            this.lblRepresentante.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblRepresentante.AutoSize = true;
-            this.lblRepresentante.Location = new System.Drawing.Point(14, 98);
-            this.lblRepresentante.Name = "lblRepresentante";
-            this.lblRepresentante.Size = new System.Drawing.Size(0, 13);
-            this.lblRepresentante.TabIndex = 18;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 133);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Telefono:";
-            // 
-            // lblTelefono
-            // 
-            this.lblTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(14, 152);
-            this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(0, 13);
-            this.lblTelefono.TabIndex = 20;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(14, 181);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 13);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Dirección:";
-            // 
-            // lblDireccion
-            // 
-            this.lblDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(14, 194);
-            this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(0, 13);
-            this.lblDireccion.TabIndex = 22;
+            this.ClaveProveedorControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClaveProveedorControl.AutoSize = true;
+            this.ClaveProveedorControl.Location = new System.Drawing.Point(17, 59);
+            this.ClaveProveedorControl.Name = "ClaveProveedorControl";
+            this.ClaveProveedorControl.Size = new System.Drawing.Size(0, 13);
+            this.ClaveProveedorControl.TabIndex = 26;
             // 
             // FrmCompra
             // 
@@ -513,17 +572,20 @@
             this.FlpBotones.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.groupProducto.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).EndInit();
             this.panelBrnProducto.ResumeLayout(false);
             this.panelBrnProducto.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -558,12 +620,17 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label SubtotalControl;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblDireccion;
+        private System.Windows.Forms.Label lblDireccionControl;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblTelefono;
+        private System.Windows.Forms.Label lblTelefonoControl;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblRepresentante;
+        private System.Windows.Forms.Label lblRepresentanteControl;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label ClaveProveedor;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label ClaveProveedorControl;
     }
 }

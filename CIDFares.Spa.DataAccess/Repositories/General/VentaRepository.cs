@@ -61,7 +61,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@Pagado", 1);
                     dynamicParameters.Add("@IdCliente", element.ClienteVenta.IdCliente);
                     dynamicParameters.Add("@IdUsuario", IdUsuario);
-                    dynamicParameters.Add("@IdSucursal", IdSucursal);
+                    dynamicParameters.Add("@IdSucursal", 1);
                     var result = await conexion.ExecuteScalarAsync<int>("[Venta].[spCID_A_Venta]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;

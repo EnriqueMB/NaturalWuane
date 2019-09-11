@@ -22,6 +22,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
 
         #region Propiedades privadas
         public ProveedorACompraViewModel Model { get; set; }
+        public ProveedorACompra proveedor { get; set; }
         #endregion
 
         #region propiedades publicas
@@ -33,6 +34,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<ProveedorACompraViewModel>();
+            proveedor = new ProveedorACompra();
         }
 
         private void FrmProveedorACompra_Load(object sender, EventArgs e)
@@ -134,13 +136,15 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
                 var item = ObtenerSeleccionado();
                 if (item != null)
                 {
-
-
+                    proveedor = item;
+                    this.Close();
+                    /*
                     Model.IdProveedorTemp = item.IdProveedor;
+                    Model.Clave = item.Clave;
                     Model.NombreProveedor = item.NombreComercial;
                     Model.Representante = item.Representante;
                     Model.Telefono = item.Telefono;
-                    Model.Direccion = item.Direccion;
+                    Model.Direccion = item.Direccion;*/
 
                     this.Close();
 
