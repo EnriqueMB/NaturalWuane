@@ -92,6 +92,42 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         {
             throw new NotImplementedException();
         }
+
+        public async Task<IEnumerable<BusqueProducto>> GetBusquedaProductoCompraAsync(bool BitNombre, string BusqNombre, bool BitClaveCodigo, string BusqClaveCodigo)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    List<BusqueProducto> Lista = new List<BusqueProducto>();
+                    BusqueProducto item;
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@BitNombre", BitNombre);
+                    dynamicParameters.Add("@BusquedaNombre", BusqNombre);
+                    dynamicParameters.Add("@BitCodigo", BitClaveCodigo);
+                    dynamicParameters.Add("@BusquedaCodigo", BusqClaveCodigo);
+                    var dr = await conexion.ExecuteReaderAsync("[Compra].[SPCID_Get_ObtenerBusquedaProducto]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    while (dr.Read())
+                    {
+                        item = new BusqueProducto();
+                        item.IdProducto = dr.GetInt32(dr.GetOrdinal("IdProducto"));
+                        item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
+                        item.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
+                        item.NombreCategoria = dr.GetString(dr.GetOrdinal("NombreCategoria"));
+                        item.UnidadMedida = dr.GetString(dr.GetOrdinal("UnidadMedidad"));
+                        item.CostoProducto = dr.GetDecimal(dr.GetOrdinal("CostoProducto"));
+                        item.ProcentajeIva = dr.GetDecimal(dr.GetOrdinal("PorcentajeIva"));
+                        Lista.Add(item);
+                    }
+                    return Lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
     }
 }

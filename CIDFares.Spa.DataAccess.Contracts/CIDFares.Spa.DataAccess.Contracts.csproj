@@ -61,6 +61,7 @@
     <Compile Include="Entities\BusqueProducto.cs" />
     <Compile Include="Entities\CategoriaProducto.cs" />
     <Compile Include="Entities\Cliente.cs" />
+    <Compile Include="Entities\Compra.cs" />
     <Compile Include="Entities\Estado.cs" />
     <Compile Include="Entities\Municipio.cs" />
     <Compile Include="Entities\Pais.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Repositories\General\ICategoriaProductoRepository.cs" />
     <Compile Include="Repositories\General\IClienteRepository.cs" />
     <Compile Include="Entities\FormaPago.cs" />
+    <Compile Include="Repositories\General\ICompraRepository.cs" />
     <Compile Include="Repositories\General\IEmpleadoRepository.cs" />
     <Compile Include="Repositories\General\IEstadoRepository.cs" />
     <Compile Include="Repositories\General\IFormaPagoRepository.cs" />

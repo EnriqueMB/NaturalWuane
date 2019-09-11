@@ -119,11 +119,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     while (dr.Read())
                     {
                         item = new Usuario();
-                        item.IdCuentaUsuario = dr.GetGuid(dr.GetOrdinal("IdCuentaUsuario"));
-                        //item.LocalId = dr.GetInt32(dr.GetOrdinal("LocalId"));
+                        item.IdCuentaUsuario = dr.GetGuid(dr.GetOrdinal("IdCuentaUsuario"));                    
                         item.Cuenta = dr.GetString(dr.GetOrdinal("Cuenta"));
-                        //item.PasswordHash = dr.GetString(dr.GetOrdinal("PasswordHash"));
-                        //item.ConstraseniaDos = dr.GetString(dr.GetOrdinal("ContraseniaDos"));
                         item.IdRol = dr.GetInt32(dr.GetOrdinal("IdRol"));
                         item.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
                         item.IdEmpleado = dr.GetGuid(dr.GetOrdinal("IdEmpleado"));
