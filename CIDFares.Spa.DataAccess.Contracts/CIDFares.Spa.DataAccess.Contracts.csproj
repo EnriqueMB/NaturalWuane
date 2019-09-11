@@ -67,6 +67,7 @@
     <Compile Include="Entities\Iva.cs" />
     <Compile Include="Entities\Producto.cs" />
     <Compile Include="Entities\Empleado.cs" />
+    <Compile Include="Entities\ProductosMonedero.cs" />
     <Compile Include="Entities\Proveedor.cs" />
     <Compile Include="Entities\ProveedorACompra.cs" />
     <Compile Include="Entities\Rol.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Repositories\General\IMunicipioRepository.cs" />
     <Compile Include="Repositories\General\IPaisRepository.cs" />
     <Compile Include="Repositories\General\IProductoRepository.cs" />
+    <Compile Include="Repositories\General\IProductosMonederoRepository.cs" />
     <Compile Include="Repositories\General\IProveedorACompraRepository.cs" />
     <Compile Include="Repositories\General\IProveedorRepository.cs" />
     <Compile Include="Repositories\General\IServicioRepository.cs" />

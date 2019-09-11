@@ -18,7 +18,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         {
             try
             {
-                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                using(IDbConnection conexion = new SqlConnection(WebConnectionString))
                 {
                     conexion.Open();
                     var parametros = new DynamicParameters();
