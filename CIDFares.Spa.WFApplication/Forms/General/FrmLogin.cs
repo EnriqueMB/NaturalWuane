@@ -34,6 +34,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 CurrentSession.IdEmpleado = Model.IdEmpleado;
                 CurrentSession.Nombres = Model.Nombres;
                 CurrentSession.IdTurnoEmpleado = Model.IdTurnoEmpleado;
+                CurrentSession.IdSucursal = Model.IdSucursal;
             }
             catch (Exception ex)
             {
