@@ -53,6 +53,23 @@ namespace CIDFares.Spa.WFApplication.Validations
                  })
                     .WithMessage("EL NOMBRE DE LA CUENTA YA EXISTE");
 
+            RuleFor(x => x.IdEmpleado)
+                .NotEmpty()
+                .MustAsync(async (Empleado, x, context) =>
+                {
+
+                    Guid result = await usuarioService.EsCuentaEmpleadoUnico(Empleado.IdEmpleado);
+                    if (result != Guid.Empty)
+                    {
+                        if (result == Empleado.IdCuentaUsuario)
+                            return true;
+                        else
+                            return false;
+                    }
+                    else
+                        return true;
+                })
+                    .WithMessage("EL EMPLEADO TIENE CUENTA YA EXISTEN");
 
             RuleFor(x => x.IdRol)
                  .NotEqual(0)

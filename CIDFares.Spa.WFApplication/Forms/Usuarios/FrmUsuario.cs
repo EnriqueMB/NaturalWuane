@@ -82,7 +82,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
         {
             try
             {
-                IdEmpleadoControl.DisplayMember = "Nombres";
+                IdEmpleadoControl.DisplayMember = "Nombre";
                 IdEmpleadoControl.ValueMember = "IdEmpleado";
 
             }

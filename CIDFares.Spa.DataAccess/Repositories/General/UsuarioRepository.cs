@@ -80,6 +80,30 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
+        public Task<Guid> EsCuentaEmpleadoUnico(string Nombre, string ApellidoPat, string ApellidoMat)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<Guid> EsCuentaEmpleadoUnico(Guid Empleado)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdEmpleado", Empleado);
+                    var dr = await conexion.ExecuteScalarAsync<Guid>("[Usuario].[SPCID_ValidaUnicaCuentaEmpleado]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return dr;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<Guid> EsCuentaUnica(string Cuenta)
         {
             try
