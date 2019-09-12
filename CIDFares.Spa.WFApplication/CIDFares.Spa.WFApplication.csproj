@@ -36,8 +36,9 @@
     <Reference Include="CIDFares.Library.Code">
       <HintPath>..\..\CIDFares.Library\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
     </Reference>
-    <Reference Include="CIDFares.Library.Controls">
-      <HintPath>..\..\CIDFares.Library\CIDFares.Library.Controls\bin\Debug\CIDFares.Library.Controls.dll</HintPath>
+    <Reference Include="CIDFares.Library.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CIDFaresLibrary\CIDFares.Library.Controls\bin\Debug\CIDFares.Library.Controls.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentValidation.8.0.0\lib\net45\FluentValidation.dll</HintPath>
@@ -203,6 +204,30 @@
     <Compile Include="Forms\Catalogos\FrmSucursalesGrid.Designer.cs">
       <DependentUpon>FrmSucursalesGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Cuestionarios\FrmAgregarPregunta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cuestionarios\FrmAgregarPregunta.Designer.cs">
+      <DependentUpon>FrmAgregarPregunta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cuestionarios\FrmAgregarRespuesta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cuestionarios\FrmAgregarRespuesta.Designer.cs">
+      <DependentUpon>FrmAgregarRespuesta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cuestionarios\FrmEncuesta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cuestionarios\FrmEncuesta.Designer.cs">
+      <DependentUpon>FrmEncuesta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cuestionarios\FrmNuevaEncuesta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cuestionarios\FrmNuevaEncuesta.Designer.cs">
+      <DependentUpon>FrmNuevaEncuesta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\General\FrmHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -271,6 +296,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validations\EncuestaValidator.cs" />
     <Compile Include="Validations\EmpleadoValidator.cs" />
     <Compile Include="Validations\PaqueteValidator.cs" />
     <Compile Include="Validations\CompraValidator.cs" />
@@ -342,6 +368,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmSucursalesGrid.resx">
       <DependentUpon>FrmSucursalesGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Cuestionarios\FrmAgregarPregunta.resx">
+      <DependentUpon>FrmAgregarPregunta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Cuestionarios\FrmAgregarRespuesta.resx">
+      <DependentUpon>FrmAgregarRespuesta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Cuestionarios\FrmEncuesta.resx">
+      <DependentUpon>FrmEncuesta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Cuestionarios\FrmNuevaEncuesta.resx">
+      <DependentUpon>FrmNuevaEncuesta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\FrmHome.resx">
       <DependentUpon>FrmHome.cs</DependentUpon>
