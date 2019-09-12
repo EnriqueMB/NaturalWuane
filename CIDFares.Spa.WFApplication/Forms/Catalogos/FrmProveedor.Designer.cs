@@ -215,6 +215,7 @@
             this.ClaveControl.Name = "ClaveControl";
             this.ClaveControl.Size = new System.Drawing.Size(264, 20);
             this.ClaveControl.TabIndex = 1;
+            this.ClaveControl.TextChanged += new System.EventHandler(this.ClaveControl_TextChanged);
             // 
             // lblClave
             // 
@@ -242,6 +243,7 @@
             this.NombreComercialControl.Name = "NombreComercialControl";
             this.NombreComercialControl.Size = new System.Drawing.Size(264, 20);
             this.NombreComercialControl.TabIndex = 2;
+            this.NombreComercialControl.TextChanged += new System.EventHandler(this.NombreComercialControl_TextChanged);
             // 
             // lblcomercial
             // 
@@ -269,6 +271,7 @@
             this.RazonSocialControl.Name = "RazonSocialControl";
             this.RazonSocialControl.Size = new System.Drawing.Size(264, 20);
             this.RazonSocialControl.TabIndex = 2;
+            this.RazonSocialControl.TextChanged += new System.EventHandler(this.RazonSocialControl_TextChanged);
             // 
             // lblRazonSocial
             // 
@@ -296,6 +299,7 @@
             this.RepresentanteControl.Name = "RepresentanteControl";
             this.RepresentanteControl.Size = new System.Drawing.Size(264, 20);
             this.RepresentanteControl.TabIndex = 2;
+            this.RepresentanteControl.TextChanged += new System.EventHandler(this.RepresentanteControl_TextChanged);
             // 
             // lblRepresentante
             // 
@@ -323,6 +327,7 @@
             this.RFCControl.Name = "RFCControl";
             this.RFCControl.Size = new System.Drawing.Size(264, 20);
             this.RFCControl.TabIndex = 2;
+            this.RFCControl.TextChanged += new System.EventHandler(this.RFCControl_TextChanged);
             // 
             // lblRFC
             // 
@@ -350,6 +355,7 @@
             this.DireccionControl.Name = "DireccionControl";
             this.DireccionControl.Size = new System.Drawing.Size(264, 20);
             this.DireccionControl.TabIndex = 2;
+            this.DireccionControl.TextChanged += new System.EventHandler(this.DireccionControl_TextChanged);
             // 
             // lblDireccion
             // 
@@ -377,6 +383,7 @@
             this.TelefonoControl.Name = "TelefonoControl";
             this.TelefonoControl.Size = new System.Drawing.Size(264, 20);
             this.TelefonoControl.TabIndex = 2;
+            this.TelefonoControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TelefonoControl_KeyPress);
             // 
             // lblTelefono
             // 
@@ -431,6 +438,7 @@
             this.CodigoPostalControl.Name = "CodigoPostalControl";
             this.CodigoPostalControl.Size = new System.Drawing.Size(264, 20);
             this.CodigoPostalControl.TabIndex = 2;
+            this.CodigoPostalControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CodigoPostalControl_KeyPress);
             // 
             // lblCodigoPostal
             // 

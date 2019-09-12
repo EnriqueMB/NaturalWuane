@@ -20,6 +20,9 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
             UnidadMedida = string.Empty;
             IdTipo = 0;
             CantidaProducto = 0;
+            PorcentajePaquete = 0;
+            CostoProducto = 0;
+
         }
 
         public int IdProducto { get; set; }
@@ -32,6 +35,8 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public string UnidadMedida { get; set; }
         public int IdTipo { get; set; }
         public decimal CantidaProducto { get; set; }
+        public decimal CostoProducto { get; set; }
         public decimal ProcentajeIva { get; set; }
+        public decimal PorcentajePaquete { get; set; }
     }
 }

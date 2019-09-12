@@ -34,6 +34,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             else
                 Model.State = EntityState.Create;
+
         }
 
         #region Metodos
@@ -114,6 +115,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 IniciarCombos(4);
                 IdTipoSucursalControl.DataBindings.Add("DataSource", Model, "ListaTipoSucursal", true, DataSourceUpdateMode.OnPropertyChanged);
                 IdTipoSucursalControl.DataBindings.Add("SelectedValue", Model, "IdTipoSucursal", true, DataSourceUpdateMode.OnPropertyChanged);
+                
             }
             catch (Exception ex)
             {
@@ -128,9 +130,23 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                Model.IdPais = 143;
-                Model.IdEstado = 7;
+                LimpiarPropiedades();
+                if (Model.State == EntityState.Update)
+                {
                     CIDWait.Show(async () =>
+                    {
+                        await Model.GetSucursal();
+                        lblSubtitle.Text = Model.Nombre;
+                    }, "Cargando sucursal");
+                }
+                else
+                {
+                    Model.IdPais = 143;
+                    Model.IdEstado = 7;
+                    IdTipoSucursalControl.SelectedValue = 0;
+                }
+
+                CIDWait.Show(async () =>
                     {
                         var ListaTipoSucursal = await Model.GetListaTipoSucursal();
                         Model.LlenarListaTipoSucursal(ListaTipoSucursal);
@@ -146,20 +162,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
                     }, "Espere");
 
-                if(Model.State == EntityState.Update)
-                {
-                    CIDWait.Show(async () =>
-                    {
-                        await Model.GetSucursal();
-                        lblSubtitle.Text = Model.Nombre;
-                        await Task.Delay(2000);
-                    }, "Cargando sucursal");
-                }
-
                 IniciarBinding();
-                LimpiarPropiedades();
-                IdTipoSucursalControl.SelectedValue = 0;
-
             }
             catch (Exception ex)
             {

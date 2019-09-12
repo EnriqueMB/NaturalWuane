@@ -26,6 +26,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<SucursalViewModel>();
+
+            BtnNuevo.Visible = CurrentSession.PermisoUsuario("19");
+            btnModificar.Visible = CurrentSession.PermisoUsuario("20");
+            btnEliminar.Visible = CurrentSession.PermisoUsuario("21");
         }
 
         #region Metodos
@@ -43,6 +47,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 throw ex;
             }
         }
+
 
         private void IniciarBinding()
         {
@@ -139,6 +144,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         if (result == 1)
                         {
                             CIDMessageBox.ShowAlert(Constants.Messages.SystemName, Constants.Messages.SuccessDeleteMessage, TypeMessage.correcto);
+                            GetDataAsync();
                         }
                         else
                             CIDMessageBox.ShowAlert(Constants.Messages.SystemName, Constants.Messages.SuccessDeleteMessage, TypeMessage.correcto);

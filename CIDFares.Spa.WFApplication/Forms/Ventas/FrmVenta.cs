@@ -162,6 +162,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         private void FrmVenta_Load(object sender, EventArgs e)
         {
             FechaControl.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            rbtProducto.Checked = true;
         }
 
         private void btnTotal_Click(object sender, EventArgs e)
@@ -366,6 +367,25 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             }
         }
 
+        public decimal BuscarCantidad(object objetoX)
+        {
+            try
+            {
+                decimal cantidad = 0;
+                var Producto = (BusqueProducto)objetoX;
+                var x = Model.Listaventa.Where(p => p.IdGenerico == Producto.IdProducto && p.IdTipo == Producto.IdTipo).Select(u =>
+                {
+                    cantidad = u.Cantidad;
+                    return u;
+                }).ToList();
+
+                return cantidad;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void LLenarGrid2(object objetoX, int IdTipo)
         {
             try
@@ -481,24 +501,95 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             
         }
-            //CALCULO DE EL IEPS
-            //public decimal DesglosaIeps(out decimal PrecioSinIvaSinIeps)
-            //{
-            //    decimal PrecioSinIva = Precio / (1 + PorcentajeIva / 100);
-            //    decimal MontoIeps = 0m;
-            //    PrecioSinIvaSinIeps = 0m;
-            //    if (EsMontoIeps)
-            //    {
-            //        MontoIeps = Ieps;
-            //        PrecioSinIvaSinIeps = Math.Round(PrecioSinIva - MontoIeps, 2);
-            //    }
-            //    else
-            //    {
-            //        PrecioSinIvaSinIeps = Math.Round(PrecioSinIva / (1 + Ieps / 100), 2);
-            //        MontoIeps = Math.Round(PrecioSinIvaSinIeps * Ieps / 100, 2);
-            //    }
-            //    return MontoIeps;
-            //}
-            //FIN DEL METODO DE IEPS
+
+        private async void BtnBusqueda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                errorProvider1.SetError(txtCantidad, string.Empty);
+                errorProvider1.SetError(BusquedaControl, string.Empty);
+                int cantidad = 0;
+                int.TryParse(txtCantidad.Text, out cantidad);
+                if (BusquedaControl.Text != string.Empty)
+                {
+                    if (cantidad > 0)
+                    {
+                        if (rbtProducto.Checked == true)
+                        {
+                            await Model.GetBusquedaRapida(1, BusquedaControl.Text);
+                            if (Model.ListaBusquedaProducto.Count == 1)
+                            {
+                                var item = Model.ListaBusquedaProducto.ElementAt(0);
+                                item.IdTipo = 1;
+                                decimal cantidadAnterior = BuscarCantidad(item);
+                                int cantidadActual = 0;
+                                cantidadActual = Convert.ToInt32(cantidadAnterior);
+                                cantidad += cantidadActual;
+                                var result = await Model.CheckCantidadProducto(item.IdProducto, cantidad);
+                                if (result == -1)
+                                {
+                                    item.CantidaProducto = cantidad;
+                                    LLenarGrid2(item, item.IdTipo);
+                                }
+                                else if(result != -1)
+                                    CIDMessageBox.ShowAlert(Messages.SystemName, "No hay suficiente productos. La cantidad existente es: "+result.ToString(), TypeMessage.error);
+                            }
+                        }
+                        else if (rbtServicio.Checked == true)
+                        {
+                            await Model.GetBusquedaRapida(2, BusquedaControl.Text);
+                            if (Model.ListaServicio.Count == 1)
+                            {
+                                var item = Model.ListaServicio.ElementAt(0);
+                                item.IdTipoServicio = 2;
+                                item.CantidadServicio = 1;
+                                LLenarGrid2(item, item.IdTipoServicio);
+                            }
+                        }
+                    }
+                    else
+                        errorProvider1.SetError(txtCantidad, "Ingrese la cantidad deseada");
+                }
+                else
+                    errorProvider1.SetError(BusquedaControl, "Ingrese la clave o el código de barras");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+                e.Handled = false;
+            else if (Char.IsLetter(e.KeyChar))
+                e.Handled = true;
+            else if (Char.IsPunctuation(e.KeyChar))
+                e.Handled = true;
+            else if (Char.IsSymbol(e.KeyChar))
+                e.Handled = true;
+            else if (Char.IsWhiteSpace(e.KeyChar))
+                e.Handled = true;
+        }
+        //CALCULO DE EL IEPS
+        //public decimal DesglosaIeps(out decimal PrecioSinIvaSinIeps)
+        //{
+        //    decimal PrecioSinIva = Precio / (1 + PorcentajeIva / 100);
+        //    decimal MontoIeps = 0m;
+        //    PrecioSinIvaSinIeps = 0m;
+        //    if (EsMontoIeps)
+        //    {
+        //        MontoIeps = Ieps;
+        //        PrecioSinIvaSinIeps = Math.Round(PrecioSinIva - MontoIeps, 2);
+        //    }
+        //    else
+        //    {
+        //        PrecioSinIvaSinIeps = Math.Round(PrecioSinIva / (1 + Ieps / 100), 2);
+        //        MontoIeps = Math.Round(PrecioSinIvaSinIeps * Ieps / 100, 2);
+        //    }
+        //    return MontoIeps;
+        //}
+        //FIN DEL METODO DE IEPS
+    }
 }

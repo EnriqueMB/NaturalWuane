@@ -57,6 +57,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.DataGridProveedor = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.errorGridProveedor = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -67,6 +68,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnBuscar);
             this.panel1.Controls.Add(this.BuscarControl);
             this.panel1.Controls.Add(this.lblProveedor);
@@ -241,6 +243,15 @@
             // 
             this.errorGridProveedor.ContainerControl = this;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(749, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(132, 13);
+            this.label1.TabIndex = 184;
+            this.label1.Text = "Clave o nombre comercial:";
+            // 
             // FrmProveedorGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -277,5 +288,6 @@
         private System.Windows.Forms.TextBox BuscarControl;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.ErrorProvider errorGridProveedor;
+        private System.Windows.Forms.Label label1;
     }
 }

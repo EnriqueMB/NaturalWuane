@@ -31,29 +31,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         #endregion
         public FrmProveedor()
-        {
-            /*
-            try
-            {
-                InitializeComponent();
-                Model = ServiceLocator.Instance.Resolve<ProveedorViewModel>();
-                if (IdProveedor == Guid.Empty || IdProveedor == null)
-                {
-                    Model.State = EntityState.Create;
-                }
-                else if(IdProveedor != Guid.Empty || IdProveedor != null)
-                {
-                    Model.State = EntityState.Update;
-                    Datos.IdProveedor = IdProveedor;
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }*/
-            
+        { 
             try
             {
                 InitializeComponent();
@@ -68,17 +46,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             
         }
         
-        public FrmProveedor(Proveedor DatosProveedor)
+        public  FrmProveedor(Guid IdProveedor)
         {
             InitializeComponent();
             lblSubtitle.Text = "MODIFICAR REGISTRO";
             Model = ServiceLocator.Instance.Resolve<ProveedorViewModel>();
-            //LimpiarPropiedades();
-            Datos = DatosProveedor;
-            //Model.IdProveedor = IdProveedor;
-            
+            Model.IdProveedor = IdProveedor;
             Model.State = EntityState.Update;
-            CargarDatos();
+            
         }
 
         #region Metodos
@@ -96,18 +71,20 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 CorreoElectronicoControl.DataBindings.Add("Text", Model, "CorreoElectronico", true, DataSourceUpdateMode.OnPropertyChanged);
                 CodigoPostalControl.DataBindings.Add("Text", Model, "CodigoPostal", true, DataSourceUpdateMode.OnPropertyChanged);
 
-
-                IdPaisControl.DataBindings.Add("SelectedValue", Model, "IdPais", true, DataSourceUpdateMode.OnPropertyChanged);
-                IdPaisControl.DataBindings.Add("DataSource", Model, "ListaPais", true, DataSourceUpdateMode.OnPropertyChanged);
                 IniciarComboPais();
-
-                IdEstadoControl.DataBindings.Add("SelectedValue", Model, "IdEstado", true, DataSourceUpdateMode.OnPropertyChanged);
-                IdEstadoControl.DataBindings.Add("DataSource", Model, "ListaEstado", true, DataSourceUpdateMode.OnPropertyChanged);
+                IdPaisControl.DataBindings.Add("DataSource", Model, "ListaPais", true, DataSourceUpdateMode.OnPropertyChanged);
+                IdPaisControl.DataBindings.Add("SelectedValue", Model, "IdPais", true, DataSourceUpdateMode.OnPropertyChanged);
+                
                 IniciarComboEstado();
+                IdEstadoControl.DataBindings.Add("DataSource", Model, "ListaEstado", true, DataSourceUpdateMode.OnPropertyChanged);
+                IdEstadoControl.DataBindings.Add("SelectedValue", Model, "IdEstado", true, DataSourceUpdateMode.OnPropertyChanged);
+               
 
-                IdMunicipioControl.DataBindings.Add("SelectedValue", Model, "IdMunicipio", true, DataSourceUpdateMode.OnPropertyChanged);
-                IdMunicipioControl.DataBindings.Add("DataSource", Model, "ListaMunicipio", true, DataSourceUpdateMode.OnPropertyChanged);
                 IniciarComboMunicipio();
+                IdMunicipioControl.DataBindings.Add("DataSource", Model, "ListaMunicipio", true, DataSourceUpdateMode.OnPropertyChanged);
+                IdMunicipioControl.DataBindings.Add("SelectedValue", Model, "IdMunicipio", true, DataSourceUpdateMode.OnPropertyChanged);
+               
+               
 
 
             }
@@ -161,7 +138,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         public void LimpiarPropiedades()
         {
-            Model.IdProveedor = Guid.Empty;
+          
             Model.Clave = string.Empty;
             Model.NombreComercial = string.Empty;
             Model.RazonSocial = string.Empty;
@@ -231,38 +208,39 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                LimpiarPropiedades();
+                if (Model.State == EntityState.Update)
+                {
+                    CIDWait.Show(async () => {
+                        await Model.CargarDatos();
+                    }, "Espere");
+
+                }
+                else
+                {
+                    Model.IdPais = 143;
+                    Model.IdEstado = 7;
+                   
+                }
+
                 CIDWait.Show(async () =>
                 {
                     var _ListaPais = await Model.GetListaPais();
                     Model.GetListaPais(_ListaPais);
 
 
-                    //await Model.LlenarListaPais();
+                    
                     var _ListaEstado = await Model.GetListaEstado();
                     Model.GetListaEstado(_ListaEstado);
-                    //await Model.LlenarListaEstado(Model.IdPais);
+                   
 
                     var _ListaMunicipio = await Model.GetListaMunicipio();
                     Model.GetListaMunicipio(_ListaMunicipio);
-                    //await Model.LlenarListaMunicipio(Model.IdEstado);
-                    await Model.GetAll();
-
-
+                 
                     await Task.Delay(2000);
                 }, "Espere");
 
                 IniciarBinding();
-
-                if (Model.State == EntityState.Update)
-                {
-                    CIDWait.Show(async () => {
-                        CargarDatos();
-                    }, "Espere");
-                
-                }
-           
-        
-
 
             }
             catch (Exception ex)
@@ -289,7 +267,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
 
                         LimpiarPropiedades();
-                        //DataGridProveedor.Refresh();
                         await Model.GetAll();
                         this.Close();
                         btnGuardar.Enabled = false;
@@ -327,34 +304,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
-        /*
-        private async void FrmProveedor_Load(object sender, EventArgs e)
-        {
-            try
-            {
-               
-                await Model.LlenarListaPais();
-                await Model.LlenarListaEstado(Model.IdPais);
-                await Model.LlenarListaMunicipio(Model.IdEstado);
-                //await Model.GetAll();
-           
-                
-                IniciarBinding();
-
-                if (Model.State == EntityState.Update)
-                {
-                    await Model.GetAll();
-                    CargarDatos();
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-
-        }*/
+        
        
 
         private async void IdPaisControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -366,14 +316,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 Model.GetListaEstado(_ListaEstado);
                 IdEstadoControl.SelectedValue = 0;
             }
-            /*
-            if (IdPaisControl.SelectedValue != null)
-            {
-
-                //await Model.LlenarListaEstado(Model.IdPais);
-                var _ListaEstado = await Model.GetListaEstado();
-                Model.GetListaEstado(_ListaEstado);
-            }*/
+            
         }
        
         private async void IdEstadoControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -387,13 +330,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     Model.GetListaMunicipio(_ListaMunicipio);
                     IdMunicipioControl.SelectedValue = 0;
                 }
-            /*
-                if (IdEstadoControl.SelectedValue != null)
-                {
-                    //await Model.LlenarListaMunicipio(Model.IdEstado);
-                    var _ListaMunicipio = await Model.GetListaMunicipio();
-                    Model.GetListaMunicipio(_ListaMunicipio);
-                }*/
+
             }
             catch (Exception ex)
             {
@@ -401,6 +338,70 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 throw ex;
             }
             
+        }
+
+        private void TelefonoControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+                e.Handled = false;
+            else if (Char.IsLetter(e.KeyChar))
+                e.Handled = true;
+            else if (Char.IsPunctuation(e.KeyChar))
+                e.Handled = true;
+            else if (Char.IsSymbol(e.KeyChar))
+                e.Handled = true;
+            else if (Char.IsWhiteSpace(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void CodigoPostalControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+                e.Handled = false;
+            else if (Char.IsLetter(e.KeyChar))
+                e.Handled = true;
+            else if (Char.IsPunctuation(e.KeyChar))
+                e.Handled = true;
+            else if (Char.IsSymbol(e.KeyChar))
+                e.Handled = true;
+            else if (Char.IsWhiteSpace(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void ClaveControl_TextChanged(object sender, EventArgs e)
+        {
+            ClaveControl.Text = ClaveControl.Text.Replace("  ", " ");
+            ClaveControl.Select(ClaveControl.Text.Length, 0);
+        }
+
+        private void NombreComercialControl_TextChanged(object sender, EventArgs e)
+        {
+            NombreComercialControl.Text = NombreComercialControl.Text.Replace("  ", " ");
+            NombreComercialControl.Select(NombreComercialControl.Text.Length, 0);
+        }
+
+        private void RazonSocialControl_TextChanged(object sender, EventArgs e)
+        {
+            RazonSocialControl.Text = RazonSocialControl.Text.Replace("  ", " ");
+            RazonSocialControl.Select(RazonSocialControl.Text.Length, 0);
+        }
+
+        private void RepresentanteControl_TextChanged(object sender, EventArgs e)
+        {
+            RepresentanteControl.Text = RepresentanteControl.Text.Replace("  ", " ");
+            RepresentanteControl.Select(RepresentanteControl.Text.Length, 0);
+        }
+
+        private void RFCControl_TextChanged(object sender, EventArgs e)
+        {
+            RFCControl.Text = RFCControl.Text.Replace("  ", " ");
+            RFCControl.Select(RFCControl.Text.Length, 0);
+        }
+
+        private void DireccionControl_TextChanged(object sender, EventArgs e)
+        {
+            DireccionControl.Text = DireccionControl.Text.Replace("  ", " ");
+            DireccionControl.Select(DireccionControl.Text.Length, 0);
         }
     }
 }

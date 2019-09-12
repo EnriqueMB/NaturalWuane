@@ -39,6 +39,7 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenedor1 = new System.Windows.Forms.Panel();
             this.panelGrid = new System.Windows.Forms.Panel();
@@ -115,6 +116,7 @@
             gridTextColumn4.HeaderText = "Tipo Servicio";
             gridTextColumn4.MappingName = "TipoServicio";
             gridTextColumn5.AllowEditing = false;
+            gridTextColumn5.Format = "HH:mm";
             gridTextColumn5.HeaderText = "Duracion";
             gridTextColumn5.MappingName = "Duracion";
             gridTextColumn6.AllowEditing = false;
@@ -128,6 +130,7 @@
             gridTextColumn8.AllowEditing = false;
             gridTextColumn8.HeaderText = "AplicaIEPS";
             gridTextColumn8.MappingName = "AplicaIEPS";
+            gridTextColumn8.Visible = false;
             gridTextColumn9.AllowEditing = false;
             gridTextColumn9.HeaderText = "IEPSMonto";
             gridTextColumn9.MappingName = "IEPSMonto";
@@ -136,6 +139,11 @@
             gridTextColumn10.Format = "C2";
             gridTextColumn10.HeaderText = "IEPS";
             gridTextColumn10.MappingName = "IEPS";
+            gridTextColumn10.Visible = false;
+            gridTextColumn11.AllowEditing = false;
+            gridTextColumn11.HeaderText = "Porcentaje Paquete";
+            gridTextColumn11.MappingName = "PorcentajePaquete";
+            gridTextColumn11.Visible = false;
             this.sfDataGridBusqServicio.Columns.Add(gridTextColumn1);
             this.sfDataGridBusqServicio.Columns.Add(gridTextColumn2);
             this.sfDataGridBusqServicio.Columns.Add(gridTextColumn3);
@@ -146,12 +154,14 @@
             this.sfDataGridBusqServicio.Columns.Add(gridTextColumn8);
             this.sfDataGridBusqServicio.Columns.Add(gridTextColumn9);
             this.sfDataGridBusqServicio.Columns.Add(gridTextColumn10);
+            this.sfDataGridBusqServicio.Columns.Add(gridTextColumn11);
             this.sfDataGridBusqServicio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridBusqServicio.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridBusqServicio.Name = "sfDataGridBusqServicio";
             this.sfDataGridBusqServicio.Size = new System.Drawing.Size(600, 395);
             this.sfDataGridBusqServicio.TabIndex = 3;
             this.sfDataGridBusqServicio.Text = "sfDataGrid1";
+            this.sfDataGridBusqServicio.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.sfDataGridBusqServicio_CellDoubleClick);
             // 
             // panelcantidad
             // 

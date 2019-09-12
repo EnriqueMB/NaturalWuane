@@ -29,7 +29,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             Repository = clienteRepository;
             ListaCliente = new BindingList<Cliente>();
-            GetAll();
+           // GetAll();
         }
         #endregion
 
@@ -136,6 +136,18 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             catch (Exception ex)
             {
 
+                throw ex;
+            }
+        }
+
+        public async Task<int> SetMonedero(Guid IdUsuario, string ClaveTarjeta)
+        {
+            try
+            {
+                return await Repository.SetMonederoCliente(IdCliente, IdUsuario, ClaveTarjeta);
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }

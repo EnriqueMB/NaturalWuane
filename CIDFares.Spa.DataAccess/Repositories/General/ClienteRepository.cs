@@ -35,7 +35,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@Sexo", element.Sexo);
                     dynamicParameters.Add("@Foto", element.FotoBase64);
                     dynamicParameters.Add("@Rfc", element.Rfc);
-                    dynamicParameters.Add("@IdUsuarioLg", IdUsuario);
+                    dynamicParameters.Add("@IdUsuarioL", IdUsuario);
                     var Resultado = await conexion.ExecuteScalarAsync<int>("[Cliente].[SPCID_AC_Cliente]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = Resultado;
                     return element;
@@ -90,14 +90,22 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
 
         public async Task<string> ObtenerFoto(Guid IdCliente)
         {
-            using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+            try
             {
-                conexion.Open();
-                var dynamicParameters = new DynamicParameters();
-                dynamicParameters.Add("@IdCliente", IdCliente);
-                var dr = await conexion.ExecuteScalarAsync<string>("[Cliente].[SPCID_Get_ObtenerFotoCliente]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                return dr.ToString();
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdCliente", IdCliente);
+                    var dr = await conexion.ExecuteScalarAsync<string>("[Cliente].[SPCID_Get_ObtenerFotoCliente]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return dr;
+                }
             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
         }
 
         public async Task<int> DeleteAsync(object id)
@@ -184,6 +192,26 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
+        public async Task<int> SetMonederoCliente(object IdCliente, object IdUsuario, string ClaveTarjeta)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    DynamicParameters parametros = new DynamicParameters();
+                    parametros.Add("@ClaveTarjeta", ClaveTarjeta);
+                    parametros.Add("@IdCliente", IdCliente);
+                    parametros.Add("@IdUsuario", IdUsuario);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Cliente].[SPCID_A_TarjetaMonederoCliente]", param: parametros, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
 
         #region Metodo No Implementado
@@ -211,7 +239,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         public Task<Cliente> UpdateAsync(Cliente element, object IdUsuario)
         {
             throw new NotImplementedException();
-        }        
+        }
+
         #endregion
     }
 }

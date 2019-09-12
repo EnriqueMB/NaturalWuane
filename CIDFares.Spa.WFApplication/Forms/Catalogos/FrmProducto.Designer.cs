@@ -58,6 +58,8 @@
             this.IdUnidadMedidaControl = new System.Windows.Forms.ComboBox();
             this.lblUnidadMedida = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.ClaveSatControl = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.ClaveControl = new System.Windows.Forms.TextBox();
             this.Clave = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -76,8 +78,10 @@
             this.IdAplicaIvaControl = new System.Windows.Forms.ComboBox();
             this.AplicaIvaControl = new System.Windows.Forms.CheckBox();
             this.ClaveSat = new System.Windows.Forms.Panel();
-            this.ClaveSatControl = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.PorcentajePControl = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.CostoProductoControl = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.GenerarCodigoBarrasControl = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -122,7 +126,7 @@
             this.lblSubtitle.Location = new System.Drawing.Point(27, 34);
             this.lblSubtitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSubtitle.Name = "lblSubtitle";
-            this.lblSubtitle.Size = new System.Drawing.Size(102, 15);
+            this.lblSubtitle.Size = new System.Drawing.Size(101, 15);
             this.lblSubtitle.TabIndex = 182;
             this.lblSubtitle.Text = "NUEVO REGISTRO";
             // 
@@ -144,7 +148,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 375);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1129, 75);
-            this.panel2.TabIndex = 1;
+            this.panel2.TabIndex = 0;
             // 
             // btnGuardar
             // 
@@ -158,7 +162,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(842, 26);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(130, 28);
-            this.btnGuardar.TabIndex = 7;
+            this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -175,7 +179,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(987, 26);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(130, 28);
-            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -231,14 +235,14 @@
             this.panel8.Location = new System.Drawing.Point(400, 3);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(391, 51);
-            this.panel8.TabIndex = 15;
+            this.panel8.TabIndex = 6;
             // 
             // PrecioPublicoControl
             // 
             this.PrecioPublicoControl.Location = new System.Drawing.Point(7, 20);
             this.PrecioPublicoControl.Name = "PrecioPublicoControl";
             this.PrecioPublicoControl.Size = new System.Drawing.Size(268, 20);
-            this.PrecioPublicoControl.TabIndex = 51;
+            this.PrecioPublicoControl.TabIndex = 1;
             this.PrecioPublicoControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PrecioPublicoControl_KeyPress);
             // 
             // lblPrecio
@@ -248,7 +252,7 @@
             this.lblPrecio.Location = new System.Drawing.Point(6, 0);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(105, 17);
-            this.lblPrecio.TabIndex = 50;
+            this.lblPrecio.TabIndex = 1;
             this.lblPrecio.Text = "PRECIO PUBLICO";
             // 
             // panel10
@@ -259,14 +263,14 @@
             this.panel10.Location = new System.Drawing.Point(400, 60);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(391, 41);
-            this.panel10.TabIndex = 14;
+            this.panel10.TabIndex = 7;
             // 
             // PrecioMenudeoControl
             // 
             this.PrecioMenudeoControl.Location = new System.Drawing.Point(7, 19);
             this.PrecioMenudeoControl.Name = "PrecioMenudeoControl";
             this.PrecioMenudeoControl.Size = new System.Drawing.Size(268, 20);
-            this.PrecioMenudeoControl.TabIndex = 51;
+            this.PrecioMenudeoControl.TabIndex = 1;
             this.PrecioMenudeoControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PrecioMenudeoControl_KeyPress);
             // 
             // lblPrecioMenudeo
@@ -276,7 +280,7 @@
             this.lblPrecioMenudeo.Location = new System.Drawing.Point(4, 0);
             this.lblPrecioMenudeo.Name = "lblPrecioMenudeo";
             this.lblPrecioMenudeo.Size = new System.Drawing.Size(119, 17);
-            this.lblPrecioMenudeo.TabIndex = 50;
+            this.lblPrecioMenudeo.TabIndex = 0;
             this.lblPrecioMenudeo.Text = "PRECIO MENUDEO";
             // 
             // panel12
@@ -307,7 +311,7 @@
             this.RutaControl.Name = "RutaControl";
             this.RutaControl.ReadOnly = true;
             this.RutaControl.Size = new System.Drawing.Size(298, 35);
-            this.RutaControl.TabIndex = 45;
+            this.RutaControl.TabIndex = 2;
             // 
             // label7
             // 
@@ -316,7 +320,7 @@
             this.label7.Location = new System.Drawing.Point(8, 12);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(143, 17);
-            this.label7.TabIndex = 44;
+            this.label7.TabIndex = 0;
             this.label7.Text = "SELECCIONAR IMAGEN";
             // 
             // BtnSeleccionar
@@ -331,7 +335,7 @@
             this.BtnSeleccionar.Location = new System.Drawing.Point(11, 80);
             this.BtnSeleccionar.Name = "BtnSeleccionar";
             this.BtnSeleccionar.Size = new System.Drawing.Size(93, 28);
-            this.BtnSeleccionar.TabIndex = 43;
+            this.BtnSeleccionar.TabIndex = 1;
             this.BtnSeleccionar.Text = "SUBIR";
             this.BtnSeleccionar.UseVisualStyleBackColor = false;
             this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click_1);
@@ -361,7 +365,7 @@
             this.NombreControl.Location = new System.Drawing.Point(6, 22);
             this.NombreControl.Name = "NombreControl";
             this.NombreControl.Size = new System.Drawing.Size(268, 20);
-            this.NombreControl.TabIndex = 41;
+            this.NombreControl.TabIndex = 1;
             // 
             // lblNombre
             // 
@@ -389,7 +393,7 @@
             this.IdCategoriaProductoControl.Location = new System.Drawing.Point(6, 13);
             this.IdCategoriaProductoControl.Name = "IdCategoriaProductoControl";
             this.IdCategoriaProductoControl.Size = new System.Drawing.Size(268, 21);
-            this.IdCategoriaProductoControl.TabIndex = 42;
+            this.IdCategoriaProductoControl.TabIndex = 2;
             // 
             // lblCategoria
             // 
@@ -417,7 +421,7 @@
             this.IdUnidadMedidaControl.Location = new System.Drawing.Point(6, 19);
             this.IdUnidadMedidaControl.Name = "IdUnidadMedidaControl";
             this.IdUnidadMedidaControl.Size = new System.Drawing.Size(268, 21);
-            this.IdUnidadMedidaControl.TabIndex = 43;
+            this.IdUnidadMedidaControl.TabIndex = 3;
             // 
             // lblUnidadMedida
             // 
@@ -431,6 +435,8 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.ClaveSatControl);
+            this.panel7.Controls.Add(this.label1);
             this.panel7.Controls.Add(this.ClaveControl);
             this.panel7.Controls.Add(this.Clave);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -439,12 +445,30 @@
             this.panel7.Size = new System.Drawing.Size(391, 46);
             this.panel7.TabIndex = 3;
             // 
+            // ClaveSatControl
+            // 
+            this.ClaveSatControl.Location = new System.Drawing.Point(149, 20);
+            this.ClaveSatControl.Name = "ClaveSatControl";
+            this.ClaveSatControl.Size = new System.Drawing.Size(125, 20);
+            this.ClaveSatControl.TabIndex = 55;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(148, 1);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 17);
+            this.label1.TabIndex = 54;
+            this.label1.Text = "CLAVE SAT";
+            // 
             // ClaveControl
             // 
-            this.ClaveControl.Location = new System.Drawing.Point(7, 20);
+            this.ClaveControl.Location = new System.Drawing.Point(6, 20);
+            this.ClaveControl.MaxLength = 20;
             this.ClaveControl.Name = "ClaveControl";
-            this.ClaveControl.Size = new System.Drawing.Size(268, 20);
-            this.ClaveControl.TabIndex = 53;
+            this.ClaveControl.Size = new System.Drawing.Size(126, 20);
+            this.ClaveControl.TabIndex = 4;
             // 
             // Clave
             // 
@@ -476,7 +500,7 @@
             this.StockControl.Location = new System.Drawing.Point(22, 23);
             this.StockControl.Name = "StockControl";
             this.StockControl.Size = new System.Drawing.Size(66, 21);
-            this.StockControl.TabIndex = 48;
+            this.StockControl.TabIndex = 4;
             this.StockControl.Text = "STOCK";
             this.StockControl.UseVisualStyleBackColor = true;
             this.StockControl.CheckedChanged += new System.EventHandler(this.StockControl_CheckedChanged);
@@ -486,7 +510,7 @@
             this.StockMinControl.Location = new System.Drawing.Point(253, 25);
             this.StockMinControl.Name = "StockMinControl";
             this.StockMinControl.Size = new System.Drawing.Size(114, 20);
-            this.StockMinControl.TabIndex = 45;
+            this.StockMinControl.TabIndex = 9;
             this.StockMinControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.StockMinControl_KeyPress);
             // 
             // StockMaxControl
@@ -494,7 +518,7 @@
             this.StockMaxControl.Location = new System.Drawing.Point(113, 25);
             this.StockMaxControl.Name = "StockMaxControl";
             this.StockMaxControl.Size = new System.Drawing.Size(107, 20);
-            this.StockMaxControl.TabIndex = 44;
+            this.StockMaxControl.TabIndex = 8;
             this.StockMaxControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.StockMaxControl_KeyPress);
             // 
             // lblStockMax
@@ -525,7 +549,7 @@
             this.panel11.Name = "panel11";
             this.tableLayoutPanel1.SetRowSpan(this.panel11, 2);
             this.panel11.Size = new System.Drawing.Size(391, 98);
-            this.panel11.TabIndex = 12;
+            this.panel11.TabIndex = 10;
             // 
             // DescripcionControl
             // 
@@ -533,7 +557,7 @@
             this.DescripcionControl.Multiline = true;
             this.DescripcionControl.Name = "DescripcionControl";
             this.DescripcionControl.Size = new System.Drawing.Size(353, 67);
-            this.DescripcionControl.TabIndex = 50;
+            this.DescripcionControl.TabIndex = 0;
             // 
             // Descripcion
             // 
@@ -542,7 +566,7 @@
             this.Descripcion.Location = new System.Drawing.Point(4, 9);
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.Size = new System.Drawing.Size(88, 17);
-            this.Descripcion.TabIndex = 41;
+            this.Descripcion.TabIndex = 1;
             this.Descripcion.Text = "DESCRIPCION";
             // 
             // pnlPrecio
@@ -553,14 +577,14 @@
             this.pnlPrecio.Location = new System.Drawing.Point(400, 107);
             this.pnlPrecio.Name = "pnlPrecio";
             this.pnlPrecio.Size = new System.Drawing.Size(391, 46);
-            this.pnlPrecio.TabIndex = 6;
+            this.pnlPrecio.TabIndex = 8;
             // 
             // PrecioMayoreoControl
             // 
             this.PrecioMayoreoControl.Location = new System.Drawing.Point(7, 24);
             this.PrecioMayoreoControl.Name = "PrecioMayoreoControl";
             this.PrecioMayoreoControl.Size = new System.Drawing.Size(268, 20);
-            this.PrecioMayoreoControl.TabIndex = 49;
+            this.PrecioMayoreoControl.TabIndex = 1;
             this.PrecioMayoreoControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PrecioMayoreoControl_KeyPress);
             // 
             // lblPrecioMayoreo
@@ -570,7 +594,7 @@
             this.lblPrecioMayoreo.Location = new System.Drawing.Point(4, 4);
             this.lblPrecioMayoreo.Name = "lblPrecioMayoreo";
             this.lblPrecioMayoreo.Size = new System.Drawing.Size(115, 17);
-            this.lblPrecioMayoreo.TabIndex = 48;
+            this.lblPrecioMayoreo.TabIndex = 1;
             this.lblPrecioMayoreo.Text = "PRECIO MAYOREO";
             // 
             // panel14
@@ -581,7 +605,7 @@
             this.panel14.Location = new System.Drawing.Point(3, 211);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(391, 46);
-            this.panel14.TabIndex = 16;
+            this.panel14.TabIndex = 4;
             // 
             // IdAplicaIvaControl
             // 
@@ -589,7 +613,7 @@
             this.IdAplicaIvaControl.Location = new System.Drawing.Point(130, 15);
             this.IdAplicaIvaControl.Name = "IdAplicaIvaControl";
             this.IdAplicaIvaControl.Size = new System.Drawing.Size(251, 21);
-            this.IdAplicaIvaControl.TabIndex = 47;
+            this.IdAplicaIvaControl.TabIndex = 6;
             // 
             // AplicaIvaControl
             // 
@@ -598,36 +622,57 @@
             this.AplicaIvaControl.Location = new System.Drawing.Point(25, 14);
             this.AplicaIvaControl.Name = "AplicaIvaControl";
             this.AplicaIvaControl.Size = new System.Drawing.Size(89, 21);
-            this.AplicaIvaControl.TabIndex = 46;
+            this.AplicaIvaControl.TabIndex = 1;
             this.AplicaIvaControl.Text = "APLICA IVA";
             this.AplicaIvaControl.UseVisualStyleBackColor = true;
             this.AplicaIvaControl.CheckedChanged += new System.EventHandler(this.AplicaIvaControl_CheckedChanged);
             // 
             // ClaveSat
             // 
-            this.ClaveSat.Controls.Add(this.ClaveSatControl);
-            this.ClaveSat.Controls.Add(this.label1);
+            this.ClaveSat.Controls.Add(this.PorcentajePControl);
+            this.ClaveSat.Controls.Add(this.label4);
+            this.ClaveSat.Controls.Add(this.CostoProductoControl);
+            this.ClaveSat.Controls.Add(this.label3);
             this.ClaveSat.Location = new System.Drawing.Point(400, 159);
             this.ClaveSat.Name = "ClaveSat";
             this.ClaveSat.Size = new System.Drawing.Size(391, 46);
-            this.ClaveSat.TabIndex = 17;
+            this.ClaveSat.TabIndex = 9;
             // 
-            // ClaveSatControl
+            // PorcentajePControl
             // 
-            this.ClaveSatControl.Location = new System.Drawing.Point(7, 20);
-            this.ClaveSatControl.Name = "ClaveSatControl";
-            this.ClaveSatControl.Size = new System.Drawing.Size(268, 20);
-            this.ClaveSatControl.TabIndex = 53;
+            this.PorcentajePControl.Location = new System.Drawing.Point(148, 23);
+            this.PorcentajePControl.MaxLength = 10;
+            this.PorcentajePControl.Name = "PorcentajePControl";
+            this.PorcentajePControl.Size = new System.Drawing.Size(127, 20);
+            this.PorcentajePControl.TabIndex = 59;
             // 
-            // label1
+            // label4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 17);
-            this.label1.TabIndex = 52;
-            this.label1.Text = "CLAVE SAT";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(157, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 17);
+            this.label4.TabIndex = 58;
+            this.label4.Text = "% DESCUENTO";
+            // 
+            // CostoProductoControl
+            // 
+            this.CostoProductoControl.Location = new System.Drawing.Point(7, 23);
+            this.CostoProductoControl.MaxLength = 10;
+            this.CostoProductoControl.Name = "CostoProductoControl";
+            this.CostoProductoControl.Size = new System.Drawing.Size(125, 20);
+            this.CostoProductoControl.TabIndex = 57;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(8, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 17);
+            this.label3.TabIndex = 56;
+            this.label3.Text = "COSTO";
             // 
             // panel13
             // 
@@ -638,7 +683,7 @@
             this.panel13.Name = "panel13";
             this.tableLayoutPanel1.SetRowSpan(this.panel13, 2);
             this.panel13.Size = new System.Drawing.Size(329, 101);
-            this.panel13.TabIndex = 10;
+            this.panel13.TabIndex = 12;
             // 
             // GenerarCodigoBarrasControl
             // 
@@ -647,7 +692,7 @@
             this.GenerarCodigoBarrasControl.Location = new System.Drawing.Point(56, 63);
             this.GenerarCodigoBarrasControl.Name = "GenerarCodigoBarrasControl";
             this.GenerarCodigoBarrasControl.Size = new System.Drawing.Size(209, 21);
-            this.GenerarCodigoBarrasControl.TabIndex = 52;
+            this.GenerarCodigoBarrasControl.TabIndex = 1;
             this.GenerarCodigoBarrasControl.Text = "GENERAR AUTOMATICAMENTE";
             this.GenerarCodigoBarrasControl.UseVisualStyleBackColor = true;
             this.GenerarCodigoBarrasControl.CheckedChanged += new System.EventHandler(this.GenerarCodigoBarrasControl_CheckedChanged);
@@ -659,7 +704,7 @@
             this.label2.Location = new System.Drawing.Point(15, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 17);
-            this.label2.TabIndex = 51;
+            this.label2.TabIndex = 1;
             this.label2.Text = "CODIGO DE BARRAS";
             // 
             // CodigoBarrasControl
@@ -667,7 +712,7 @@
             this.CodigoBarrasControl.Location = new System.Drawing.Point(11, 37);
             this.CodigoBarrasControl.Name = "CodigoBarrasControl";
             this.CodigoBarrasControl.Size = new System.Drawing.Size(300, 20);
-            this.CodigoBarrasControl.TabIndex = 50;
+            this.CodigoBarrasControl.TabIndex = 0;
             // 
             // errorProvider1
             // 
@@ -773,10 +818,14 @@
         private System.Windows.Forms.CheckBox StockControl;
         private System.Windows.Forms.CheckBox AplicaIvaControl;
         private System.Windows.Forms.Panel ClaveSat;
-        private System.Windows.Forms.TextBox ClaveSatControl;
-        private System.Windows.Forms.Label label1;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt RutaControl;
         private System.Windows.Forms.CheckBox GenerarCodigoBarrasControl;
         private System.Windows.Forms.ComboBox IdAplicaIvaControl;
+        private System.Windows.Forms.TextBox ClaveSatControl;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox PorcentajePControl;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox CostoProductoControl;
+        private System.Windows.Forms.Label label3;
     }
 }

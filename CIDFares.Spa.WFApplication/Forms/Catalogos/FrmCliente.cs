@@ -20,7 +20,6 @@ using CIDFares.Spa.WFApplication.Session;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.Business.ValueObjects;
-using CIDFares.Spa.WFApplication.Session;
 using System.IO;
 
 namespace CIDFares.Spa.WFApplication.Forms.Catalogos
@@ -52,6 +51,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             groupBoxCliente.Enabled = false;
             ClaveControl.Visible = false;
             Model.IdUsuarioL = CurrentSession.IdCuentaUsuario;
+
+            btnNuevo.Visible = CurrentSession.PermisoUsuario("4");
+            btnModificar.Visible = CurrentSession.PermisoUsuario("5");
+            btnEliminar.Visible = CurrentSession.PermisoUsuario("6");
+
+            PanelCapturaDatos.Visible = CurrentSession.PermisoUsuario("4,5");
         }
         #endregion
 
@@ -152,6 +157,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                Model.State = EntityState.Create;
                 groupBoxCliente.Enabled = true;
                 ClaveControl.Visible = false;
                 LimpiarPropiedades();
@@ -299,9 +305,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                this.groupBoxCliente.Enabled = false;
-                this.LimpiarPropiedades();
-                this.CleanErrors(errorProvider1, typeof(ClienteViewModel));
+                if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmCancelInput) == DialogResult.OK)
+                {
+                    this.groupBoxCliente.Enabled = false;
+                    this.LimpiarPropiedades();
+                    this.CleanErrors(errorProvider1, typeof(ClienteViewModel));
+                }
             }
             catch (Exception ex)
             {
@@ -343,5 +352,31 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
         #endregion
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               var item = ObtenerSeleccionado();
+               if (item != null)
+                {
+                    FrmClaveTarjeta frmClaveTarjeta = new FrmClaveTarjeta();
+                    frmClaveTarjeta.ShowDialog();
+                    if(frmClaveTarjeta.DialogResult == DialogResult.OK)
+                    {
+                        Model.IdCliente = item.IdCliente;
+                        var resul = await Model.SetMonedero(CurrentSession.IdCuentaUsuario, frmClaveTarjeta.ClaveTarjeta);
+                        if(resul == 1)
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                        else
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -43,7 +43,6 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.groupUsuario = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -65,14 +64,14 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.DataGridUsuario = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.errorProviderUsuario = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panelDatos = new System.Windows.Forms.Panel();
+            this.panelGrid = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.groupUsuario.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -81,9 +80,10 @@
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderUsuario)).BeginInit();
+            this.panelDatos.SuspendLayout();
+            this.panelGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -165,22 +165,13 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.panel5);
-            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.panelGrid);
+            this.panel3.Controls.Add(this.panelDatos);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 62);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1017, 423);
             this.panel3.TabIndex = 2;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.groupUsuario);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(519, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(498, 423);
-            this.panel5.TabIndex = 1;
             // 
             // groupUsuario
             // 
@@ -189,7 +180,7 @@
             this.groupUsuario.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.groupUsuario.Location = new System.Drawing.Point(0, 0);
             this.groupUsuario.Name = "groupUsuario";
-            this.groupUsuario.Size = new System.Drawing.Size(498, 423);
+            this.groupUsuario.Size = new System.Drawing.Size(492, 423);
             this.groupUsuario.TabIndex = 0;
             this.groupUsuario.TabStop = false;
             this.groupUsuario.Text = "Datos usuario";
@@ -408,15 +399,6 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.DataGridUsuario);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(519, 423);
-            this.panel4.TabIndex = 0;
-            // 
             // DataGridUsuario
             // 
             this.DataGridUsuario.AccessibleName = "Table";
@@ -442,9 +424,10 @@
             this.DataGridUsuario.Columns.Add(gridTextColumn4);
             this.DataGridUsuario.Columns.Add(gridTextColumn5);
             this.DataGridUsuario.Columns.Add(gridTextColumn6);
+            this.DataGridUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataGridUsuario.Location = new System.Drawing.Point(0, 0);
             this.DataGridUsuario.Name = "DataGridUsuario";
-            this.DataGridUsuario.Size = new System.Drawing.Size(516, 420);
+            this.DataGridUsuario.Size = new System.Drawing.Size(525, 423);
             this.DataGridUsuario.TabIndex = 0;
             this.DataGridUsuario.Text = "sfDataGrid1";
             // 
@@ -452,6 +435,24 @@
             // 
             this.errorProviderUsuario.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProviderUsuario.ContainerControl = this;
+            // 
+            // panelDatos
+            // 
+            this.panelDatos.Controls.Add(this.groupUsuario);
+            this.panelDatos.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelDatos.Location = new System.Drawing.Point(525, 0);
+            this.panelDatos.Name = "panelDatos";
+            this.panelDatos.Size = new System.Drawing.Size(492, 423);
+            this.panelDatos.TabIndex = 2;
+            // 
+            // panelGrid
+            // 
+            this.panelGrid.Controls.Add(this.DataGridUsuario);
+            this.panelGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelGrid.Location = new System.Drawing.Point(0, 0);
+            this.panelGrid.Name = "panelGrid";
+            this.panelGrid.Size = new System.Drawing.Size(525, 423);
+            this.panelGrid.TabIndex = 3;
             // 
             // FrmUsuario
             // 
@@ -469,7 +470,6 @@
             this.panel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
             this.groupUsuario.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -483,9 +483,10 @@
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel11.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderUsuario)).EndInit();
+            this.panelDatos.ResumeLayout(false);
+            this.panelGrid.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -495,8 +496,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel4;
         private Syncfusion.WinForms.DataGrid.SfDataGrid DataGridUsuario;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.GroupBox groupUsuario;
@@ -525,5 +524,7 @@
         private System.Windows.Forms.TextBox ContraseniaDosControl;
         private System.Windows.Forms.TextBox PasswordControl;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Panel panelGrid;
+        private System.Windows.Forms.Panel panelDatos;
     }
 }

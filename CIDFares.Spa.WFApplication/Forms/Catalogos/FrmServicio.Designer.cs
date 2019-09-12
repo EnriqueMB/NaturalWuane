@@ -45,6 +45,7 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn17 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -68,8 +69,9 @@
             this.panel1.Controls.Add(this.lblTitle);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1238, 68);
+            this.panel1.Size = new System.Drawing.Size(928, 55);
             this.panel1.TabIndex = 0;
             // 
             // lblTitle
@@ -77,10 +79,9 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblTitle.Location = new System.Drawing.Point(50, 22);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitle.Location = new System.Drawing.Point(38, 18);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(112, 29);
+            this.lblTitle.Size = new System.Drawing.Size(86, 24);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Servicios";
             // 
@@ -88,9 +89,10 @@
             // 
             this.panel2.Controls.Add(this.flpnlButtons);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 456);
+            this.panel2.Location = new System.Drawing.Point(0, 371);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1238, 80);
+            this.panel2.Size = new System.Drawing.Size(928, 65);
             this.panel2.TabIndex = 1;
             // 
             // flpnlButtons
@@ -100,10 +102,9 @@
             this.flpnlButtons.Controls.Add(this.btnNuevo);
             this.flpnlButtons.Controls.Add(this.btnModificar);
             this.flpnlButtons.Controls.Add(this.btnEliminar);
-            this.flpnlButtons.Location = new System.Drawing.Point(630, 17);
-            this.flpnlButtons.Margin = new System.Windows.Forms.Padding(4);
+            this.flpnlButtons.Location = new System.Drawing.Point(472, 14);
             this.flpnlButtons.Name = "flpnlButtons";
-            this.flpnlButtons.Size = new System.Drawing.Size(604, 39);
+            this.flpnlButtons.Size = new System.Drawing.Size(453, 32);
             this.flpnlButtons.TabIndex = 4;
             // 
             // btnNuevo
@@ -112,10 +113,9 @@
             this.btnNuevo.FlatAppearance.BorderSize = 0;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.Location = new System.Drawing.Point(4, 4);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNuevo.Location = new System.Drawing.Point(3, 3);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(164, 36);
+            this.btnNuevo.Size = new System.Drawing.Size(123, 29);
             this.btnNuevo.TabIndex = 0;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
@@ -127,10 +127,9 @@
             this.btnModificar.FlatAppearance.BorderSize = 0;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btnModificar.Location = new System.Drawing.Point(176, 4);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModificar.Location = new System.Drawing.Point(132, 3);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(164, 36);
+            this.btnModificar.Size = new System.Drawing.Size(123, 29);
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
@@ -142,10 +141,9 @@
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btnEliminar.Location = new System.Drawing.Point(348, 4);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminar.Location = new System.Drawing.Point(261, 3);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(164, 36);
+            this.btnEliminar.Size = new System.Drawing.Size(123, 29);
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -155,9 +153,10 @@
             // 
             this.pnlGrid.Controls.Add(this.dgServicio);
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlGrid.Location = new System.Drawing.Point(0, 68);
+            this.pnlGrid.Location = new System.Drawing.Point(0, 55);
+            this.pnlGrid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(1238, 388);
+            this.pnlGrid.Size = new System.Drawing.Size(928, 316);
             this.pnlGrid.TabIndex = 2;
             // 
             // dgServicio
@@ -200,6 +199,7 @@
             gridTextColumn7.MappingName = "Precio";
             gridTextColumn8.AllowEditing = false;
             gridTextColumn8.AllowGrouping = false;
+            gridTextColumn8.Format = "H:mm";
             gridTextColumn8.HeaderText = "Duracion";
             gridTextColumn8.MappingName = "Duracion";
             gridTextColumn9.AllowEditing = false;
@@ -240,6 +240,10 @@
             gridTextColumn16.Format = "P";
             gridTextColumn16.HeaderText = "Porcentaje";
             gridTextColumn16.MappingName = "Porcentaje100";
+            gridTextColumn17.AllowGrouping = false;
+            gridTextColumn17.HeaderText = "PorcentajePaquete";
+            gridTextColumn17.MappingName = "PorcentajePaquete";
+            gridTextColumn17.Visible = false;
             this.dgServicio.Columns.Add(gridTextColumn1);
             this.dgServicio.Columns.Add(gridTextColumn2);
             this.dgServicio.Columns.Add(gridTextColumn3);
@@ -256,13 +260,13 @@
             this.dgServicio.Columns.Add(gridTextColumn14);
             this.dgServicio.Columns.Add(gridTextColumn15);
             this.dgServicio.Columns.Add(gridTextColumn16);
+            this.dgServicio.Columns.Add(gridTextColumn17);
             this.dgServicio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgServicio.Location = new System.Drawing.Point(0, 0);
-            this.dgServicio.Margin = new System.Windows.Forms.Padding(4);
             this.dgServicio.Name = "dgServicio";
             this.dgServicio.PreviewRowHeightMode = Syncfusion.WinForms.DataGrid.Enums.PreviewRowHeightMode.Auto;
-            this.dgServicio.Size = new System.Drawing.Size(1238, 388);
+            this.dgServicio.Size = new System.Drawing.Size(928, 316);
             this.dgServicio.TabIndex = 1;
             this.dgServicio.Text = "sfDataGrid1";
             // 
@@ -272,12 +276,13 @@
             // 
             // FrmServicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1238, 536);
+            this.ClientSize = new System.Drawing.Size(928, 436);
             this.Controls.Add(this.pnlGrid);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmServicio";
             this.Text = "FrmServicio";
             this.Load += new System.EventHandler(this.FrmServicio_Load);

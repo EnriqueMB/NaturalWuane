@@ -42,6 +42,9 @@ namespace CIDFares.Spa.Business.ViewModels.General
         public string Nombres { get; set; }
 
         public int IdTurnoEmpleado { get; set; }
+
+        public string[] ReglaUsuario { get; set; }
+        public int IdSucursal { get; set; }
         #endregion
 
         #region Propiedades Privadas
@@ -80,6 +83,8 @@ namespace CIDFares.Spa.Business.ViewModels.General
                 IdEmpleado = x.IdEmpleado;
                 Nombres = x.Nombres;
                 IdTurnoEmpleado = x.IdTurnoEmpleado;
+                ReglaUsuario = x.ReglaUsuario;
+                IdSucursal = x.IdSucursal;
                 return x.IsValid;
             }
             catch (Exception ex)

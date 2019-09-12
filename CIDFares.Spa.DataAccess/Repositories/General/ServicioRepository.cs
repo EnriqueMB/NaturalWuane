@@ -48,6 +48,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         //string cadena = dr.GetString(dr.GetOrdinal("Duracion"));
                         //item.Duracion = TimeSpan.Parse(cadena);
                         item.Duracion = dr.GetDateTime(dr.GetOrdinal("Duracion"));
+                        item.PorcentajePaquete = dr.GetDecimal(dr.GetOrdinal("PorcentajePaquete"));
                         Lista.Add(item);
                     }
                     return Lista;
@@ -86,6 +87,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@UpdateFoto", element.UpdateFoto);
                     dynamicParameters.Add("@fotob64", element.FotoBase64);
                     dynamicParameters.Add("@urlFoto", element.UrlFoto);
+                    dynamicParameters.Add("@PorcentajeP", element.PorcentajePaquete);
                     var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_AC_Servicio]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;
@@ -124,14 +126,22 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
 
         public async Task<string> ObtenerFoto(int IdServicio)
         {
-            using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+            try
             {
-                conexion.Open();
-                var dynamicParameters = new DynamicParameters();
-                dynamicParameters.Add("@idServicio", IdServicio);
-                var dr = await conexion.ExecuteScalarAsync<string>("[Catalogo].[SPCID_Get_ObtenerFotoServicio]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                return dr.ToString();
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@idServicio", IdServicio);
+                    var dr = await conexion.ExecuteScalarAsync<string>("[Catalogo].[SPCID_Get_ObtenerFotoServicio]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return dr;
+                }
             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
         }
 
         public async Task<IEnumerable<Servicio>> GetAllAsync()
@@ -168,6 +178,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         Item.IEPS = dr.GetDecimal(dr.GetOrdinal("IEPS"));
                         Item.FotoBase64 = dr.GetString(dr.GetOrdinal("FotoBase64"));
                         Item.UrlFoto = dr.GetString(dr.GetOrdinal("UrlLocalImagen"));
+                        Item.PorcentajePaquete = dr.GetDecimal(dr.GetOrdinal("PorcentajeP"));
                         Lista.Add(Item);
                     }
                     dr.Close();
@@ -251,6 +262,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@UpdateFoto", element.UpdateFoto);
                     dynamicParameters.Add("@fotob64", element.FotoBase64);
                     dynamicParameters.Add("@urlFoto", element.UrlFoto);
+                    dynamicParameters.Add("@PorcentajeP", element.PorcentajePaquete);
                     var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_AC_Servicio]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;

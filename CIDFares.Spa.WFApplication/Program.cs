@@ -14,6 +14,10 @@ using System;
 using System.Windows.Forms;
 using CIDFares.Spa.Business.ViewModels.Ventas;
 using CIDFares.Spa.WFApplication.Forms.Compras;
+using CIDFares.Spa.WFApplication.Forms.Cuestionarios;
+using CIDFares.Spa.Business.ViewModels.Usuarios;
+using CIDFares.Spa.Business.ViewModels.Compras;
+
 
 namespace CIDFares.Spa.WFApplication
 {
@@ -29,7 +33,6 @@ namespace CIDFares.Spa.WFApplication
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
             Application.Run(new FrmCapturaCita());
-            // Application.Run(new FrmHomeD());
         }
 
         public static void InitializeContainer()
@@ -58,6 +61,12 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ProductoValidator, IValidator<ProductoViewModel>>();
             ServiceLocator.Instance.Register<SucursalValidator, IValidator<SucursalViewModel>>();
             ServiceLocator.Instance.Register<VentaValidator, IValidator<VentasViewModel>>();            
+            ServiceLocator.Instance.Register<VentaValidator, IValidator<VentasViewModel>>();
+            ServiceLocator.Instance.Register<EncuestaValidator, IValidator<EncuestasViewModel>>();
+            ServiceLocator.Instance.Register<EmpleadoValidator, IValidator<EmpleadoViewModel>>();
+            ServiceLocator.Instance.Register<ReglaValidator, IValidator<ReglaPerfilViewModel>>();
+            ServiceLocator.Instance.Register<PaqueteValidator, IValidator<PaqueteViewModel>>();
+            ServiceLocator.Instance.Register<CompraValidator, IValidator<ComprasViewModel>>();
         }
 
         private static void RegisterViewModelDependencies()
@@ -77,7 +86,11 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<SucursalViewModel>();
             ServiceLocator.Instance.Register<ProveedorACompraViewModel>();
             ServiceLocator.Instance.Register<CapturaCitaViewModel>();
-
+            ServiceLocator.Instance.Register<EncuestasViewModel>();
+            ServiceLocator.Instance.Register<EmpleadoViewModel>();
+            ServiceLocator.Instance.Register<ReglaPerfilViewModel>();
+            ServiceLocator.Instance.Register<PaqueteViewModel>();
+            ServiceLocator.Instance.Register<ComprasViewModel>();
         }
     }
 }

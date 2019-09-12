@@ -80,6 +80,30 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
+        public Task<Guid> EsCuentaEmpleadoUnico(string Nombre, string ApellidoPat, string ApellidoMat)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<Guid> EsCuentaEmpleadoUnico(Guid Empleado)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdEmpleado", Empleado);
+                    var dr = await conexion.ExecuteScalarAsync<Guid>("[Usuario].[SPCID_ValidaUnicaCuentaEmpleado]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return dr;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<Guid> EsCuentaUnica(string Cuenta)
         {
             try
@@ -119,11 +143,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     while (dr.Read())
                     {
                         item = new Usuario();
-                        item.IdCuentaUsuario = dr.GetGuid(dr.GetOrdinal("IdCuentaUsuario"));
-                        //item.LocalId = dr.GetInt32(dr.GetOrdinal("LocalId"));
+                        item.IdCuentaUsuario = dr.GetGuid(dr.GetOrdinal("IdCuentaUsuario"));                    
                         item.Cuenta = dr.GetString(dr.GetOrdinal("Cuenta"));
-                        //item.PasswordHash = dr.GetString(dr.GetOrdinal("PasswordHash"));
-                        //item.ConstraseniaDos = dr.GetString(dr.GetOrdinal("ContraseniaDos"));
                         item.IdRol = dr.GetInt32(dr.GetOrdinal("IdRol"));
                         item.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
                         item.IdEmpleado = dr.GetGuid(dr.GetOrdinal("IdEmpleado"));

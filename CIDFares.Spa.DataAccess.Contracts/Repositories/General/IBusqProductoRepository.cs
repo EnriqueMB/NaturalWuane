@@ -11,5 +11,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
     public interface IBusqProductoRepository : IBaseRepository<BusqueProducto>
     {
         Task<IEnumerable<BusqueProducto>> GetBusquedaProductoAsync(bool BitNombre, string BusqNombre, bool BitClaveCodigo, string BusqClaveCodigo);
+
+        Task<IEnumerable<BusqueProducto>> GetBusquedaProductoCompraAsync(bool BitNombre, string BusqNombre, bool BitClaveCodigo, string BusqClaveCodigo);
     }
 }

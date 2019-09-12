@@ -29,7 +29,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<ProveedorViewModel>();
-            
+
+            btnNuevo.Visible = CurrentSession.PermisoUsuario("13");
+            btnModificar.Visible = CurrentSession.PermisoUsuario("14");
+            btnEliminar.Visible = CurrentSession.PermisoUsuario("15");
         }
 
         #region Metodos
@@ -49,20 +52,23 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 throw ex;
             }
         }
-        /*
-        private async void CargarDatosAsync()
+
+
+        private void GetDataAsync()
         {
             try
             {
-                await Model.CargarDatos();
+                CIDWait.Show(async () => {
+                    await Model.GetAll();
+                    await Task.Delay(1000);
+                }, "Espere");
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
-        }*/
-
+        }
+    
         private Proveedor ObtenerSeleccionado()
         {
             try
@@ -75,7 +81,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
         #endregion
@@ -146,19 +152,18 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
 
-        private async void btnModificar_Click(object sender, EventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)
         {
             try
             {
-                var item = ObtenerSeleccionado();
+                Proveedor item = ObtenerSeleccionado();
                 if (item != null)
                 {
 
-                    FrmProveedor Proveedor = new FrmProveedor(ObtenerSeleccionado());
+                    FrmProveedor Proveedor = new FrmProveedor(item.IdProveedor);
                     Proveedor.ShowDialog();
-                    await Model.GetAll();
-                   // Model.State = EntityState.Update;
-                    //CargarDatosAsync();
+                    Proveedor.Dispose();
+                    GetDataAsync();
 
                 }
                 else

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CIDFares.Spa.DataAccess.Contracts.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,5 +28,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.DTOs.Requests
 
         public int IdSucursal { get; set; }
 
+        public string[] ReglaUsuario { get; set; }
     }
 }

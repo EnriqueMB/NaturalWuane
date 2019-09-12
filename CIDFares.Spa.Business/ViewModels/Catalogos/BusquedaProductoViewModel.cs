@@ -46,8 +46,26 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
+        public async Task GetAllProducto()
+        {
+            try
+            {
+                var x = await Repository.GetBusquedaProductoCompraAsync(this.BuscarNombre, this.BusquedaNombre, this.BuscaClaveCodigo, this.BusquedaClaveCodigo);
+                ListaBusquedaProducto.Clear();
+                foreach (var item in x)
+                {
+                    ListaBusquedaProducto.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         #region Binding(Variables)
-        
+
         private string _BusquedaNombre;
         public string BusquedaNombre
         {

@@ -59,7 +59,9 @@ namespace CIDFares.Spa.WFApplication.Validations
                 .NotEmpty().WithMessage("NO DEBE DEJAR EL CAMPO DE REPRESENTANTE VACIO");
 
             RuleFor(x => x.RFC)
-                .NotEmpty().WithMessage("NO DEBE DEJAR EL CAMPO DE RFC VACIO");
+               .Matches(@"^([A-ZÑ&]{3,4})?(?:-?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01]))?(?:-?)?([A-Z\d]{2})([A\d])$").WithMessage("EL REGISTRO FEDERAL DEL CONTRIBUYENTES (RFC) NO TIENE EL FORMATO CORRECTO.")
+               .NotEmpty().WithMessage("NO DEBE DEJAR EL CAMPO DE RFC VACIO");
+           
 
             RuleFor(x => x.Direccion)
                 .NotEmpty().WithMessage("NO DEBE DEJAR EL CAMPO DE DIRECCION VACIO");

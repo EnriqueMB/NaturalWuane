@@ -105,22 +105,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 throw ex;
             }
         }
-        /*
-        public async Task LlenarListaPais()
-        {
-            try
-            {
-                var listaPais = await PaisRepository.GetComboPais();
-                foreach (var item in listaPais)
-                {
-                    ListaPais.Add(item);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }*/
+       
         
         #region Combo pais
         public void GetListaPais(IEnumerable<Pais> pais)
@@ -199,45 +184,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
         #endregion
 
-        /*
-        public async Task LlenarListaEstado(int IdPais)
-        {
-            try
-            {
-                var listaEstado = await EstadoRepository.GetComboEstado(IdPais);
-
-                ListaEstado.Clear();
-                foreach (var item in listaEstado)
-                {
-                    ListaEstado.Add(item);
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }*/
-        /*
-          public async Task LlenarListaMunicipio(int IdEstado)
-          {
-              try
-              {
-                  var listaMunicipio = await MunicipioRepository.GetComboMunicipio(IdEstado);
-                  ListaMunicipio.Clear();
-                  foreach (var item in listaMunicipio)
-                  {
-                      ListaMunicipio.Add(item);
-                  }
-              }
-              catch (Exception ex)
-              {
-
-                  throw ex;
-              }
-          }
-          */
+        
         public async Task<int> Remove(Guid IdUsuario)
         {
             try
@@ -250,36 +197,33 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 throw ex;
             }
         }
-        /*
+        
         public async Task CargarDatos()
         {
             try
             {
                 Proveedor proveedor;
-                proveedor = await Repository.GetProveedorXId(PDatos.IdProveedor);
-                PDatos.IdProveedor = proveedor.IdProveedor;
-                PDatos.Clave = proveedor.Clave;
-                PDatos.NombreComercial = proveedor.NombreComercial;
-                PDatos.RazonSocial = proveedor.RazonSocial;
-                PDatos.Representante = proveedor.Representante;
-                PDatos.RFC = proveedor.RFC;
-                PDatos.Direccion = proveedor.Direccion;
-                PDatos.Telefono = proveedor.Telefono;
-                PDatos.CorreoElectronico = proveedor.CorreoElectronico;
-                PDatos.CodigoPostal =  proveedor.CodigoPostal;
-                PDatos.IdPais = proveedor.IdPais;
-                PDatos.Pais = proveedor.Pais;
-                PDatos.IdEstado = proveedor.IdEstado;
-                PDatos.Estado = proveedor.Estado;
-                PDatos.IdMunicipio = proveedor.IdMunicipio;
-                PDatos.Municipio = proveedor.Municipio;
+                proveedor = await Repository.GetAsync(IdProveedor);
+                Clave = proveedor.Clave;
+                NombreComercial = proveedor.NombreComercial;
+                RazonSocial = proveedor.RazonSocial;
+                Representante = proveedor.Representante;
+                RFC = proveedor.RFC;
+                Direccion = proveedor.Direccion;
+                Telefono = proveedor.Telefono;
+                CorreoElectronico = proveedor.CorreoElectronico;
+                CodigoPostal =  proveedor.CodigoPostal;
+                IdPais = proveedor.IdPais;
+                IdEstado = proveedor.IdEstado;
+                IdMunicipio = proveedor.IdMunicipio;
+           
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        */
+        
         public async Task<Proveedor> GuardarCambios(Guid IdUsuario)
         {
             try

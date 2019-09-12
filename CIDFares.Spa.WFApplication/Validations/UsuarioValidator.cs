@@ -27,9 +27,7 @@ namespace CIDFares.Spa.WFApplication.Validations
                     return value.Equals("");
 
                 }).When(x => !x.Modificar).WithMessage("DEBE INGRESAR LA CONTRASEÑA.");
-              //  .Equal((x) => x.Password)
-              //  .WithMessage("LAS CONTRASEÑAS NO COINCIDEN."); ;
-
+             
             RuleFor(passdos => passdos.ContraseniaDos)
               .Equal((x) => x.Password)
               .WithMessage("LAS CONTRASEÑAS NO COINCIDEN.");
@@ -55,8 +53,23 @@ namespace CIDFares.Spa.WFApplication.Validations
                  })
                     .WithMessage("EL NOMBRE DE LA CUENTA YA EXISTE");
 
+            RuleFor(x => x.IdEmpleado)
+                .NotEmpty()
+                .MustAsync(async (Empleado, x, context) =>
+                {
 
-
+                    Guid result = await usuarioService.EsCuentaEmpleadoUnico(Empleado.IdEmpleado);
+                    if (result != Guid.Empty)
+                    {
+                        if (result == Empleado.IdCuentaUsuario)
+                            return true;
+                        else
+                            return false;
+                    }
+                    else
+                        return true;
+                })
+                    .WithMessage("EL EMPLEADO TIENE CUENTA YA EXISTEN");
 
             RuleFor(x => x.IdRol)
                  .NotEqual(0)
