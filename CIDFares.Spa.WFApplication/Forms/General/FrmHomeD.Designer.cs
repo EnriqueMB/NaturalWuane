@@ -62,10 +62,10 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panelCantenedor3 = new System.Windows.Forms.Panel();
-            this.btnConfiguracion = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panelConfiguracion = new System.Windows.Forms.Panel();
             this.btnPermisos = new System.Windows.Forms.Button();
+            this.btnConfiguracion = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelCantenedor.SuspendLayout();
             this.panelContenedor1.SuspendLayout();
             this.panelCantenedor2.SuspendLayout();
@@ -191,23 +191,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.247812F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.247812F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00196F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(50, 681);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // btn_Cuestionario
-            // 
-            this.btn_Cuestionario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_Cuestionario.FlatAppearance.BorderSize = 0;
-            this.btn_Cuestionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Cuestionario.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Cuestionario.Location = new System.Drawing.Point(3, 465);
-            this.btn_Cuestionario.Name = "btn_Cuestionario";
-            this.btn_Cuestionario.Size = new System.Drawing.Size(44, 36);
-            this.btn_Cuestionario.TabIndex = 12;
-            this.btn_Cuestionario.Text = "Cuestionario";
-            this.btn_Cuestionario.UseVisualStyleBackColor = true;
-            this.btn_Cuestionario.Click += new System.EventHandler(this.Btn_Cuestionario_Click);
-            // 
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143061F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143061F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143061F));
@@ -225,13 +208,27 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(50, 681);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // btn_Cuestionario
+            // 
+            this.btn_Cuestionario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_Cuestionario.FlatAppearance.BorderSize = 0;
+            this.btn_Cuestionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cuestionario.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cuestionario.Location = new System.Drawing.Point(3, 465);
+            this.btn_Cuestionario.Name = "btn_Cuestionario";
+            this.btn_Cuestionario.Size = new System.Drawing.Size(44, 36);
+            this.btn_Cuestionario.TabIndex = 12;
+            this.btn_Cuestionario.Text = "Cuestionario";
+            this.btn_Cuestionario.UseVisualStyleBackColor = true;
+            this.btn_Cuestionario.Click += new System.EventHandler(this.Btn_Cuestionario_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnCompras);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 443);
+            this.panel2.Location = new System.Drawing.Point(3, 423);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(44, 33);
+            this.panel2.Size = new System.Drawing.Size(44, 36);
             this.panel2.TabIndex = 0;
             // 
             // btnCompras
@@ -242,7 +239,7 @@
             this.btnCompras.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCompras.Location = new System.Drawing.Point(0, 0);
             this.btnCompras.Name = "btnCompras";
-            this.btnCompras.Size = new System.Drawing.Size(44, 33);
+            this.btnCompras.Size = new System.Drawing.Size(44, 36);
             this.btnCompras.TabIndex = 11;
             this.btnCompras.Text = "Cmp";
             this.toolTip1.SetToolTip(this.btnCompras, "COMPRAS");
@@ -253,9 +250,9 @@
             // 
             this.panelFormaPago.Controls.Add(this.btnFormaPago);
             this.panelFormaPago.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelFormaPago.Location = new System.Drawing.Point(3, 311);
+            this.panelFormaPago.Location = new System.Drawing.Point(3, 297);
             this.panelFormaPago.Name = "panelFormaPago";
-            this.panelFormaPago.Size = new System.Drawing.Size(44, 38);
+            this.panelFormaPago.Size = new System.Drawing.Size(44, 36);
             this.panelFormaPago.TabIndex = 6;
             // 
             // btnFormaPago
@@ -266,7 +263,7 @@
             this.btnFormaPago.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFormaPago.Location = new System.Drawing.Point(0, 0);
             this.btnFormaPago.Name = "btnFormaPago";
-            this.btnFormaPago.Size = new System.Drawing.Size(44, 38);
+            this.btnFormaPago.Size = new System.Drawing.Size(44, 36);
             this.btnFormaPago.TabIndex = 6;
             this.btnFormaPago.Text = "Frm P";
             this.toolTip1.SetToolTip(this.btnFormaPago, "FORMA DE PAGO");
@@ -277,9 +274,9 @@
             // 
             this.panelUsuario.Controls.Add(this.btnUsuario);
             this.panelUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelUsuario.Location = new System.Drawing.Point(3, 267);
+            this.panelUsuario.Location = new System.Drawing.Point(3, 255);
             this.panelUsuario.Name = "panelUsuario";
-            this.panelUsuario.Size = new System.Drawing.Size(44, 38);
+            this.panelUsuario.Size = new System.Drawing.Size(44, 36);
             this.panelUsuario.TabIndex = 5;
             // 
             // btnUsuario
@@ -290,7 +287,7 @@
             this.btnUsuario.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuario.Location = new System.Drawing.Point(0, 0);
             this.btnUsuario.Name = "btnUsuario";
-            this.btnUsuario.Size = new System.Drawing.Size(44, 38);
+            this.btnUsuario.Size = new System.Drawing.Size(44, 36);
             this.btnUsuario.TabIndex = 5;
             this.btnUsuario.Text = "Usua";
             this.toolTip1.SetToolTip(this.btnUsuario, "USUARIO");
@@ -301,9 +298,9 @@
             // 
             this.panelServicio.Controls.Add(this.btnServicio);
             this.panelServicio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelServicio.Location = new System.Drawing.Point(3, 223);
+            this.panelServicio.Location = new System.Drawing.Point(3, 213);
             this.panelServicio.Name = "panelServicio";
-            this.panelServicio.Size = new System.Drawing.Size(44, 38);
+            this.panelServicio.Size = new System.Drawing.Size(44, 36);
             this.panelServicio.TabIndex = 4;
             // 
             // btnServicio
@@ -314,7 +311,7 @@
             this.btnServicio.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnServicio.Location = new System.Drawing.Point(0, 0);
             this.btnServicio.Name = "btnServicio";
-            this.btnServicio.Size = new System.Drawing.Size(44, 38);
+            this.btnServicio.Size = new System.Drawing.Size(44, 36);
             this.btnServicio.TabIndex = 4;
             this.btnServicio.Text = "Serv";
             this.toolTip1.SetToolTip(this.btnServicio, "SERVICIO");
@@ -325,9 +322,9 @@
             // 
             this.panelProducto.Controls.Add(this.btnProducto);
             this.panelProducto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelProducto.Location = new System.Drawing.Point(3, 179);
+            this.panelProducto.Location = new System.Drawing.Point(3, 171);
             this.panelProducto.Name = "panelProducto";
-            this.panelProducto.Size = new System.Drawing.Size(44, 38);
+            this.panelProducto.Size = new System.Drawing.Size(44, 36);
             this.panelProducto.TabIndex = 3;
             // 
             // btnProducto
@@ -338,7 +335,7 @@
             this.btnProducto.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProducto.Location = new System.Drawing.Point(0, 0);
             this.btnProducto.Name = "btnProducto";
-            this.btnProducto.Size = new System.Drawing.Size(44, 38);
+            this.btnProducto.Size = new System.Drawing.Size(44, 36);
             this.btnProducto.TabIndex = 3;
             this.btnProducto.Text = "Prod";
             this.toolTip1.SetToolTip(this.btnProducto, "PRODUCTO");
@@ -349,9 +346,9 @@
             // 
             this.panelCategoria.Controls.Add(this.btnCategoria);
             this.panelCategoria.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCategoria.Location = new System.Drawing.Point(3, 135);
+            this.panelCategoria.Location = new System.Drawing.Point(3, 129);
             this.panelCategoria.Name = "panelCategoria";
-            this.panelCategoria.Size = new System.Drawing.Size(44, 38);
+            this.panelCategoria.Size = new System.Drawing.Size(44, 36);
             this.panelCategoria.TabIndex = 2;
             // 
             // btnCategoria
@@ -362,7 +359,7 @@
             this.btnCategoria.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCategoria.Location = new System.Drawing.Point(0, 0);
             this.btnCategoria.Name = "btnCategoria";
-            this.btnCategoria.Size = new System.Drawing.Size(44, 38);
+            this.btnCategoria.Size = new System.Drawing.Size(44, 36);
             this.btnCategoria.TabIndex = 4;
             this.btnCategoria.Text = "Catg";
             this.toolTip1.SetToolTip(this.btnCategoria, "CATEGORIA");
@@ -373,9 +370,9 @@
             // 
             this.panelProveedor.Controls.Add(this.btnProveedor);
             this.panelProveedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelProveedor.Location = new System.Drawing.Point(3, 91);
+            this.panelProveedor.Location = new System.Drawing.Point(3, 87);
             this.panelProveedor.Name = "panelProveedor";
-            this.panelProveedor.Size = new System.Drawing.Size(44, 38);
+            this.panelProveedor.Size = new System.Drawing.Size(44, 36);
             this.panelProveedor.TabIndex = 1;
             // 
             // btnProveedor
@@ -386,7 +383,7 @@
             this.btnProveedor.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProveedor.Location = new System.Drawing.Point(0, 0);
             this.btnProveedor.Name = "btnProveedor";
-            this.btnProveedor.Size = new System.Drawing.Size(44, 38);
+            this.btnProveedor.Size = new System.Drawing.Size(44, 36);
             this.btnProveedor.TabIndex = 4;
             this.btnProveedor.Text = "Prov";
             this.toolTip1.SetToolTip(this.btnProveedor, "PROVEEDOR");
@@ -397,9 +394,9 @@
             // 
             this.panelCliente.Controls.Add(this.btnCliente);
             this.panelCliente.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCliente.Location = new System.Drawing.Point(3, 47);
+            this.panelCliente.Location = new System.Drawing.Point(3, 45);
             this.panelCliente.Name = "panelCliente";
-            this.panelCliente.Size = new System.Drawing.Size(44, 38);
+            this.panelCliente.Size = new System.Drawing.Size(44, 36);
             this.panelCliente.TabIndex = 0;
             // 
             // btnCliente
@@ -411,30 +408,20 @@
             this.btnCliente.ForeColor = System.Drawing.Color.Black;
             this.btnCliente.Location = new System.Drawing.Point(0, 0);
             this.btnCliente.Name = "btnCliente";
-            this.btnCliente.Size = new System.Drawing.Size(44, 38);
+            this.btnCliente.Size = new System.Drawing.Size(44, 36);
             this.btnCliente.TabIndex = 2;
             this.btnCliente.Text = "Clte";
             this.toolTip1.SetToolTip(this.btnCliente, "CLIENTE");
             this.btnCliente.UseVisualStyleBackColor = true;
             this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::CIDFares.Spa.WFApplication.Properties.Resources.logo_2;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(44, 36);
-            this.panel1.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.panel1, "AMA SER BELLA");
-            // 
             // panelVenta
             // 
             this.panelVenta.Controls.Add(this.btnVenta);
             this.panelVenta.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelVenta.Location = new System.Drawing.Point(3, 355);
+            this.panelVenta.Location = new System.Drawing.Point(3, 339);
             this.panelVenta.Name = "panelVenta";
-            this.panelVenta.Size = new System.Drawing.Size(44, 38);
+            this.panelVenta.Size = new System.Drawing.Size(44, 36);
             this.panelVenta.TabIndex = 7;
             // 
             // btnVenta
@@ -445,7 +432,7 @@
             this.btnVenta.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVenta.Location = new System.Drawing.Point(0, 0);
             this.btnVenta.Name = "btnVenta";
-            this.btnVenta.Size = new System.Drawing.Size(44, 38);
+            this.btnVenta.Size = new System.Drawing.Size(44, 36);
             this.btnVenta.TabIndex = 7;
             this.btnVenta.Text = "Vnt";
             this.toolTip1.SetToolTip(this.btnVenta, "VENTA");
@@ -456,9 +443,9 @@
             // 
             this.panelSucursal.Controls.Add(this.btnSucursale);
             this.panelSucursal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSucursal.Location = new System.Drawing.Point(3, 399);
+            this.panelSucursal.Location = new System.Drawing.Point(3, 381);
             this.panelSucursal.Name = "panelSucursal";
-            this.panelSucursal.Size = new System.Drawing.Size(44, 38);
+            this.panelSucursal.Size = new System.Drawing.Size(44, 36);
             this.panelSucursal.TabIndex = 8;
             // 
             // btnSucursale
@@ -469,7 +456,7 @@
             this.btnSucursale.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSucursale.Location = new System.Drawing.Point(0, 0);
             this.btnSucursale.Name = "btnSucursale";
-            this.btnSucursale.Size = new System.Drawing.Size(44, 38);
+            this.btnSucursale.Size = new System.Drawing.Size(44, 36);
             this.btnSucursale.TabIndex = 8;
             this.btnSucursale.Text = "Sucr";
             this.toolTip1.SetToolTip(this.btnSucursale, "SUCURSAL");
@@ -479,7 +466,7 @@
             // btnSalir
             // 
             this.btnSalir.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSalir.Location = new System.Drawing.Point(3, 556);
+            this.btnSalir.Location = new System.Drawing.Point(3, 581);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(44, 23);
             this.btnSalir.TabIndex = 10;
@@ -497,33 +484,6 @@
             this.panelCantenedor3.Name = "panelCantenedor3";
             this.panelCantenedor3.Size = new System.Drawing.Size(954, 610);
             this.panelCantenedor3.TabIndex = 1;
-            // 
-            // btnConfiguracion
-            // 
-            this.btnConfiguracion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnConfiguracion.FlatAppearance.BorderSize = 0;
-            this.btnConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfiguracion.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfiguracion.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.ajustes;
-            this.btnConfiguracion.Location = new System.Drawing.Point(909, 12);
-            this.btnConfiguracion.Name = "btnConfiguracion";
-            this.btnConfiguracion.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnConfiguracion.Size = new System.Drawing.Size(33, 31);
-            this.btnConfiguracion.TabIndex = 6;
-            this.toolTip1.SetToolTip(this.btnConfiguracion, "CONFIGURACIÓN");
-            this.btnConfiguracion.UseVisualStyleBackColor = true;
-            this.btnConfiguracion.Click += new System.EventHandler(this.btnConfiguracion_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::CIDFares.Spa.WFApplication.Properties.Resources.logo_2;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(44, 38);
-            this.panel1.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.panel1, "AMA SER BELLA");
             // 
             // panelConfiguracion
             // 
@@ -550,6 +510,33 @@
             this.btnPermisos.Text = "Permisos";
             this.btnPermisos.UseVisualStyleBackColor = false;
             this.btnPermisos.Click += new System.EventHandler(this.btnPermisos_Click);
+            // 
+            // btnConfiguracion
+            // 
+            this.btnConfiguracion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnConfiguracion.FlatAppearance.BorderSize = 0;
+            this.btnConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfiguracion.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfiguracion.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.ajustes;
+            this.btnConfiguracion.Location = new System.Drawing.Point(909, 12);
+            this.btnConfiguracion.Name = "btnConfiguracion";
+            this.btnConfiguracion.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnConfiguracion.Size = new System.Drawing.Size(33, 31);
+            this.btnConfiguracion.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.btnConfiguracion, "CONFIGURACIÓN");
+            this.btnConfiguracion.UseVisualStyleBackColor = true;
+            this.btnConfiguracion.Click += new System.EventHandler(this.btnConfiguracion_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::CIDFares.Spa.WFApplication.Properties.Resources.logo_2;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(44, 36);
+            this.panel1.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.panel1, "AMA SER BELLA");
             // 
             // FrmHomeD
             // 

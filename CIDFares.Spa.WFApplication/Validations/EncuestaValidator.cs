@@ -14,8 +14,7 @@ namespace CIDFares.Spa.WFApplication.Validations
         #region Constructor
         public EncuestaValidator()
         {
-            RuleFor(x => x.NombreEncuesta)
-                .NotNull()
+            RuleFor(x => x.NombreEncuesta)               
                 .NotEmpty()
                 .WithMessage("INGRESE EL NOMBRE DE LA ENCUESTA.")
                 .MaximumLength(80).WithMessage("EL NOMBRE NO PUEDE SER MAYOR A 80 CARACTERES.");
