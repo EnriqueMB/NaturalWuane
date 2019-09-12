@@ -32,8 +32,12 @@
             this.panelCantenedor = new System.Windows.Forms.Panel();
             this.panelContenedor1 = new System.Windows.Forms.Panel();
             this.panelCantenedor2 = new System.Windows.Forms.Panel();
+            this.panelCantenedor3 = new System.Windows.Forms.Panel();
+            this.panelConfiguracion = new System.Windows.Forms.Panel();
+            this.btnPermisos = new System.Windows.Forms.Button();
             this.panelColor = new System.Windows.Forms.Panel();
             this.panelHoraAler = new System.Windows.Forms.Panel();
+            this.btnConfiguracion = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -54,6 +58,7 @@
             this.btnProveedor = new System.Windows.Forms.Button();
             this.panelCliente = new System.Windows.Forms.Panel();
             this.btnCliente = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelVenta = new System.Windows.Forms.Panel();
             this.btnVenta = new System.Windows.Forms.Button();
             this.panelSucursal = new System.Windows.Forms.Panel();
@@ -61,14 +66,11 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.panelCantenedor3 = new System.Windows.Forms.Panel();
-            this.btnConfiguracion = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panelConfiguracion = new System.Windows.Forms.Panel();
-            this.btnPermisos = new System.Windows.Forms.Button();
             this.panelCantenedor.SuspendLayout();
             this.panelContenedor1.SuspendLayout();
             this.panelCantenedor2.SuspendLayout();
+            this.panelCantenedor3.SuspendLayout();
+            this.panelConfiguracion.SuspendLayout();
             this.panelHoraAler.SuspendLayout();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanel1)).BeginInit();
@@ -84,8 +86,6 @@
             this.panelCliente.SuspendLayout();
             this.panelVenta.SuspendLayout();
             this.panelSucursal.SuspendLayout();
-            this.panelCantenedor3.SuspendLayout();
-            this.panelConfiguracion.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelCantenedor
@@ -118,6 +118,43 @@
             this.panelCantenedor2.Size = new System.Drawing.Size(954, 630);
             this.panelCantenedor2.TabIndex = 1;
             // 
+            // panelCantenedor3
+            // 
+            this.panelCantenedor3.BackgroundImage = global::CIDFares.Spa.WFApplication.Properties.Resources.fondo2;
+            this.panelCantenedor3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelCantenedor3.Controls.Add(this.panelConfiguracion);
+            this.panelCantenedor3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCantenedor3.Location = new System.Drawing.Point(0, 0);
+            this.panelCantenedor3.Name = "panelCantenedor3";
+            this.panelCantenedor3.Size = new System.Drawing.Size(954, 610);
+            this.panelCantenedor3.TabIndex = 1;
+            // 
+            // panelConfiguracion
+            // 
+            this.panelConfiguracion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelConfiguracion.BackColor = System.Drawing.Color.White;
+            this.panelConfiguracion.Controls.Add(this.btnPermisos);
+            this.panelConfiguracion.Location = new System.Drawing.Point(819, 0);
+            this.panelConfiguracion.Name = "panelConfiguracion";
+            this.panelConfiguracion.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.panelConfiguracion.Size = new System.Drawing.Size(135, 100);
+            this.panelConfiguracion.TabIndex = 0;
+            this.panelConfiguracion.Visible = false;
+            // 
+            // btnPermisos
+            // 
+            this.btnPermisos.BackColor = System.Drawing.Color.White;
+            this.btnPermisos.FlatAppearance.BorderSize = 0;
+            this.btnPermisos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPermisos.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPermisos.Location = new System.Drawing.Point(0, 0);
+            this.btnPermisos.Name = "btnPermisos";
+            this.btnPermisos.Size = new System.Drawing.Size(135, 46);
+            this.btnPermisos.TabIndex = 0;
+            this.btnPermisos.Text = "Permisos";
+            this.btnPermisos.UseVisualStyleBackColor = false;
+            this.btnPermisos.Click += new System.EventHandler(this.btnPermisos_Click);
+            // 
             // panelColor
             // 
             this.panelColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
@@ -136,6 +173,23 @@
             this.panelHoraAler.Name = "panelHoraAler";
             this.panelHoraAler.Size = new System.Drawing.Size(954, 55);
             this.panelHoraAler.TabIndex = 0;
+            // 
+            // btnConfiguracion
+            // 
+            this.btnConfiguracion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnConfiguracion.FlatAppearance.BorderSize = 0;
+            this.btnConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfiguracion.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfiguracion.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.ajustes;
+            this.btnConfiguracion.Location = new System.Drawing.Point(909, 12);
+            this.btnConfiguracion.Name = "btnConfiguracion";
+            this.btnConfiguracion.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnConfiguracion.Size = new System.Drawing.Size(33, 31);
+            this.btnConfiguracion.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.btnConfiguracion, "CONFIGURACIÓN");
+            this.btnConfiguracion.UseVisualStyleBackColor = true;
+            this.btnConfiguracion.Click += new System.EventHandler(this.btnConfiguracion_Click);
             // 
             // panelMenu
             // 
@@ -487,70 +541,6 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // panelCantenedor3
-            // 
-            this.panelCantenedor3.BackgroundImage = global::CIDFares.Spa.WFApplication.Properties.Resources.fondo2;
-            this.panelCantenedor3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelCantenedor3.Controls.Add(this.panelConfiguracion);
-            this.panelCantenedor3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCantenedor3.Location = new System.Drawing.Point(0, 0);
-            this.panelCantenedor3.Name = "panelCantenedor3";
-            this.panelCantenedor3.Size = new System.Drawing.Size(954, 610);
-            this.panelCantenedor3.TabIndex = 1;
-            // 
-            // btnConfiguracion
-            // 
-            this.btnConfiguracion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnConfiguracion.FlatAppearance.BorderSize = 0;
-            this.btnConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfiguracion.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfiguracion.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.ajustes;
-            this.btnConfiguracion.Location = new System.Drawing.Point(909, 12);
-            this.btnConfiguracion.Name = "btnConfiguracion";
-            this.btnConfiguracion.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnConfiguracion.Size = new System.Drawing.Size(33, 31);
-            this.btnConfiguracion.TabIndex = 6;
-            this.toolTip1.SetToolTip(this.btnConfiguracion, "CONFIGURACIÓN");
-            this.btnConfiguracion.UseVisualStyleBackColor = true;
-            this.btnConfiguracion.Click += new System.EventHandler(this.btnConfiguracion_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::CIDFares.Spa.WFApplication.Properties.Resources.logo_2;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(44, 38);
-            this.panel1.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.panel1, "AMA SER BELLA");
-            // 
-            // panelConfiguracion
-            // 
-            this.panelConfiguracion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelConfiguracion.BackColor = System.Drawing.Color.White;
-            this.panelConfiguracion.Controls.Add(this.btnPermisos);
-            this.panelConfiguracion.Location = new System.Drawing.Point(819, 0);
-            this.panelConfiguracion.Name = "panelConfiguracion";
-            this.panelConfiguracion.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panelConfiguracion.Size = new System.Drawing.Size(135, 100);
-            this.panelConfiguracion.TabIndex = 0;
-            this.panelConfiguracion.Visible = false;
-            // 
-            // btnPermisos
-            // 
-            this.btnPermisos.BackColor = System.Drawing.Color.White;
-            this.btnPermisos.FlatAppearance.BorderSize = 0;
-            this.btnPermisos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPermisos.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPermisos.Location = new System.Drawing.Point(0, 0);
-            this.btnPermisos.Name = "btnPermisos";
-            this.btnPermisos.Size = new System.Drawing.Size(135, 46);
-            this.btnPermisos.TabIndex = 0;
-            this.btnPermisos.Text = "Permisos";
-            this.btnPermisos.UseVisualStyleBackColor = false;
-            this.btnPermisos.Click += new System.EventHandler(this.btnPermisos_Click);
-            // 
             // FrmHomeD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -564,6 +554,8 @@
             this.panelCantenedor.ResumeLayout(false);
             this.panelContenedor1.ResumeLayout(false);
             this.panelCantenedor2.ResumeLayout(false);
+            this.panelCantenedor3.ResumeLayout(false);
+            this.panelConfiguracion.ResumeLayout(false);
             this.panelHoraAler.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanel1)).EndInit();
@@ -579,8 +571,6 @@
             this.panelCliente.ResumeLayout(false);
             this.panelVenta.ResumeLayout(false);
             this.panelSucursal.ResumeLayout(false);
-            this.panelCantenedor3.ResumeLayout(false);
-            this.panelConfiguracion.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

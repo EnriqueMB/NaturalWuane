@@ -36,6 +36,7 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.panelGridDatos = new System.Windows.Forms.Panel();
@@ -68,6 +69,7 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.PanelTitulo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnBusqueda = new System.Windows.Forms.Button();
@@ -76,7 +78,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.PanelPrincipal.SuspendLayout();
             this.PanelContenedor.SuspendLayout();
             this.panelGridDatos.SuspendLayout();
@@ -153,6 +154,10 @@
             gridTextColumn7.HeaderText = "FechaNacimiento";
             gridTextColumn7.MappingName = "FechaNacimiento";
             gridTextColumn7.Visible = false;
+            gridTextColumn8.AllowEditing = false;
+            gridTextColumn8.HeaderText = "Column8";
+            gridTextColumn8.MappingName = "TieneTarjeta";
+            gridTextColumn8.Visible = false;
             this.sfDataGridCliente.Columns.Add(gridTextColumn1);
             this.sfDataGridCliente.Columns.Add(gridTextColumn2);
             this.sfDataGridCliente.Columns.Add(gridTextColumn3);
@@ -160,6 +165,7 @@
             this.sfDataGridCliente.Columns.Add(gridTextColumn5);
             this.sfDataGridCliente.Columns.Add(gridTextColumn6);
             this.sfDataGridCliente.Columns.Add(gridTextColumn7);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn8);
             this.sfDataGridCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridCliente.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridCliente.Name = "sfDataGridCliente";
@@ -493,6 +499,20 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(390, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(123, 29);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Cliente Frec.";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // PanelTitulo
             // 
             this.PanelTitulo.Controls.Add(this.panel1);
@@ -563,20 +583,6 @@
             // 
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(390, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 29);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Cliente Frec.";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmCliente
             // 

@@ -2,16 +2,72 @@
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using CIDFares.Spa.DataAccess.Contracts.Validations;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CIDFares.Spa.Business.ViewModels.General
 {
-    public class ProductosMonederoViewModel : Validable
+    public class ProductosMonederoViewModel : Validable, INotifyPropertyChanged
     {
+        #region Binding
+        private int _IdProducto;
+        public int IdProducto
+        {
+            get { return _IdProducto; }
+            set { _IdProducto = value; }
+        }
+
+        private int _PuntoMonedero;
+
+        public int PuntosMonedero
+        {
+            get { return _PuntoMonedero; }
+            set { _PuntoMonedero = value; OnPropertyChanged(nameof(PuntosDescuento)); }
+        }
+
+        private bool _AplicaDescuento;
+
+        public bool AplicaDescuento
+        {
+            get { return _AplicaDescuento; }
+            set { _AplicaDescuento = value; OnPropertyChanged(nameof(AplicaDescuento)); }
+        }
+
+        private bool _EsMonto;
+
+        public bool EsMonto
+        {
+            get { return _EsMonto; }
+            set { _EsMonto = value; OnPropertyChanged(nameof(EsMonto)); }
+        }
+
+        private int _PuntosDescuento;
+
+        public int PuntosDescuento
+        {
+            get { return _PuntosDescuento; }
+            set { _PuntosDescuento = value; OnPropertyChanged(nameof(PuntosDescuento)); }
+        }
+
+        private decimal _Monto;
+
+        public decimal Monto
+        {
+            get { return _Monto; }
+            set { _Monto = value; OnPropertyChanged("Monto"); }
+        }
+
+        #region InotifyPropertyChanged Members
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
+
+        #endregion
         #region Propiedades Privadas
         private IProductosMonederoRepository Repository { get; set; }
         #endregion
@@ -25,8 +81,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
             Repository = repository;
         }
         #endregion
-        private int _IdProducto;
-
+        
         #region Metodos
         public async Task GetPuntosMonedero()
         {
@@ -76,63 +131,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
         }
         #endregion
 
-        #region Binding
-        public int IdProducto
-        {
-            get { return _IdProducto; }
-            set { _IdProducto = value; }
-        }
-
-        private int _PuntoMonedero;
-
-        public int PuntosMonedero
-        {
-            get { return _PuntoMonedero; }
-            set { _PuntoMonedero = value; OnPropertyChanged(nameof(PuntosDescuento)); }
-        }
-
-        private bool _AplicaDescuento;
-
-        public bool AplicaDescuento
-        {
-            get { return _AplicaDescuento; }
-            set { _AplicaDescuento = value; OnPropertyChanged(nameof(AplicaDescuento)); }
-        }
-
-        private bool _EsMonto;
-
-        public bool EsMonto
-        {
-            get { return _EsMonto; }
-            set { _EsMonto = value; OnPropertyChanged(nameof(EsMonto)); }
-        }
-
-        private int _PuntosDescuento;
-
-        public int PuntosDescuento
-        {
-            get { return _PuntosDescuento; }
-            set { _PuntosDescuento = value; OnPropertyChanged(nameof(PuntosDescuento)); }
-        }
-
-        private decimal _Monto;
-
-        public decimal Monto
-        {
-            get { return _Monto; }
-            set { _Monto = value; OnPropertyChanged(nameof(Monto)); }
-        }
-
-        #region InotifyPropertyChanged Members
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        #endregion
-        #endregion
+        
 
     }
 }
