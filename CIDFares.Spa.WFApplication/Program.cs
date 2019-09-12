@@ -28,7 +28,7 @@ namespace CIDFares.Spa.WFApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
-            Application.Run(new FrmLogin());
+            Application.Run(new FrmCapturaCita());
             // Application.Run(new FrmHomeD());
         }
 
@@ -57,7 +57,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ProveedorValidator, IValidator<ProveedorViewModel>>();
             ServiceLocator.Instance.Register<ProductoValidator, IValidator<ProductoViewModel>>();
             ServiceLocator.Instance.Register<SucursalValidator, IValidator<SucursalViewModel>>();
-            ServiceLocator.Instance.Register<VentaValidator, IValidator<VentasViewModel>>();
+            ServiceLocator.Instance.Register<VentaValidator, IValidator<VentasViewModel>>();            
         }
 
         private static void RegisterViewModelDependencies()
@@ -76,6 +76,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ProveedorViewModel>();
             ServiceLocator.Instance.Register<SucursalViewModel>();
             ServiceLocator.Instance.Register<ProveedorACompraViewModel>();
+            ServiceLocator.Instance.Register<CapturaCitaViewModel>();
 
         }
     }

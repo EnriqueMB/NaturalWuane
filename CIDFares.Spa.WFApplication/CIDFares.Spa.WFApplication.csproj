@@ -143,6 +143,12 @@
     <Compile Include="Forms\Catalogos\FrmServicioNuevo.Designer.cs">
       <DependentUpon>FrmServicioNuevo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Citas\FrmCapturaCitaNuevo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Citas\FrmCapturaCitaNuevo.Designer.cs">
+      <DependentUpon>FrmCapturaCitaNuevo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Compras\FrmCompra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,12 @@
     </Compile>
     <Compile Include="Forms\Ventas\FrmBuscarCliente.Designer.cs">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Citas\FrmCapturaCita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Citas\FrmCapturaCita.Designer.cs">
+      <DependentUpon>FrmCapturaCita.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Ventas\FrmSeleccionarPago.cs">
       <SubType>Form</SubType>
@@ -261,6 +273,9 @@
     <EmbeddedResource Include="Forms\Catalogos\FrmServicioNuevo.resx">
       <DependentUpon>FrmServicioNuevo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Citas\FrmCapturaCitaNuevo.resx">
+      <DependentUpon>FrmCapturaCitaNuevo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compras\FrmCompra.resx">
       <DependentUpon>FrmCompra.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,9 +300,12 @@
     <EmbeddedResource Include="Forms\Ventas\FrmBuscarCliente.resx">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Citas\FrmCapturaCita.resx">
+      <DependentUpon>FrmCapturaCita.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmSeleccionarPago.resx">
       <DependentUpon>FrmSeleccionarPago.cs</DependentUpon>
-      </EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmBuscarServicio.resx">
       <DependentUpon>FrmBuscarServicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -360,6 +378,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fondo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\holaNW2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

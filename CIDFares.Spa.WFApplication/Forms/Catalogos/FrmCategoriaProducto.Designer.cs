@@ -40,6 +40,7 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.pnlGrid = new System.Windows.Forms.Panel();
+            this.dgCat = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.gbCat = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -49,15 +50,14 @@
             this.DescripcionControl = new System.Windows.Forms.TextBox();
             this.NombreControl = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dgCat = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.pnlHeader.SuspendLayout();
             this.pnlBtns.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlGrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCat)).BeginInit();
             this.gbCat.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgCat)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -65,7 +65,7 @@
             this.pnlHeader.Controls.Add(this.label3);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(1224, 68);
             this.pnlHeader.TabIndex = 0;
@@ -87,7 +87,7 @@
             this.pnlBtns.Controls.Add(this.flowLayoutPanel1);
             this.pnlBtns.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBtns.Location = new System.Drawing.Point(0, 582);
-            this.pnlBtns.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlBtns.Margin = new System.Windows.Forms.Padding(4);
             this.pnlBtns.Name = "pnlBtns";
             this.pnlBtns.Size = new System.Drawing.Size(1224, 79);
             this.pnlBtns.TabIndex = 1;
@@ -100,7 +100,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnModificar);
             this.flowLayoutPanel1.Controls.Add(this.btnEliminar);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(324, 27);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(673, 39);
             this.flowLayoutPanel1.TabIndex = 4;
@@ -112,7 +112,7 @@
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.Location = new System.Drawing.Point(4, 4);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(164, 36);
             this.btnNuevo.TabIndex = 0;
@@ -127,7 +127,7 @@
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.btnModificar.Location = new System.Drawing.Point(176, 4);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(164, 36);
             this.btnModificar.TabIndex = 1;
@@ -142,7 +142,7 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.btnEliminar.Location = new System.Drawing.Point(348, 4);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(164, 36);
             this.btnEliminar.TabIndex = 2;
@@ -156,10 +156,42 @@
             this.pnlGrid.Controls.Add(this.gbCat);
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(0, 68);
-            this.pnlGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlGrid.Margin = new System.Windows.Forms.Padding(4);
             this.pnlGrid.Name = "pnlGrid";
             this.pnlGrid.Size = new System.Drawing.Size(1224, 514);
             this.pnlGrid.TabIndex = 2;
+            // 
+            // dgCat
+            // 
+            this.dgCat.AccessibleName = "Table";
+            this.dgCat.AllowEditing = false;
+            this.dgCat.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            gridTextColumn1.AllowEditing = false;
+            gridTextColumn1.AllowGrouping = false;
+            gridTextColumn1.HeaderText = "Column1";
+            gridTextColumn1.MappingName = "IdCategoriaProducto";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.AllowEditing = false;
+            gridTextColumn2.AllowFiltering = true;
+            gridTextColumn2.AllowGrouping = false;
+            gridTextColumn2.HeaderText = "Nombre";
+            gridTextColumn2.MappingName = "Nombre";
+            gridTextColumn3.AllowEditing = false;
+            gridTextColumn3.AllowGrouping = false;
+            gridTextColumn3.HeaderText = "Descripción";
+            gridTextColumn3.MappingName = "Descripcion";
+            this.dgCat.Columns.Add(gridTextColumn1);
+            this.dgCat.Columns.Add(gridTextColumn2);
+            this.dgCat.Columns.Add(gridTextColumn3);
+            this.dgCat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgCat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgCat.Location = new System.Drawing.Point(0, 0);
+            this.dgCat.Margin = new System.Windows.Forms.Padding(4);
+            this.dgCat.Name = "dgCat";
+            this.dgCat.PreviewRowHeightMode = Syncfusion.WinForms.DataGrid.Enums.PreviewRowHeightMode.Auto;
+            this.dgCat.Size = new System.Drawing.Size(840, 514);
+            this.dgCat.TabIndex = 1;
+            this.dgCat.Text = "sfDataGrid1";
             // 
             // gbCat
             // 
@@ -171,9 +203,9 @@
             this.gbCat.Dock = System.Windows.Forms.DockStyle.Right;
             this.gbCat.Enabled = false;
             this.gbCat.Location = new System.Drawing.Point(840, 0);
-            this.gbCat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbCat.Margin = new System.Windows.Forms.Padding(4);
             this.gbCat.Name = "gbCat";
-            this.gbCat.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbCat.Padding = new System.Windows.Forms.Padding(4);
             this.gbCat.Size = new System.Drawing.Size(384, 514);
             this.gbCat.TabIndex = 0;
             this.gbCat.TabStop = false;
@@ -187,7 +219,7 @@
             this.flowLayoutPanel2.Controls.Add(this.btnGuardar);
             this.flowLayoutPanel2.Controls.Add(this.btnCancelar);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(21, 411);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(347, 82);
             this.flowLayoutPanel2.TabIndex = 7;
@@ -199,7 +231,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.btnGuardar.Location = new System.Drawing.Point(4, 4);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(164, 36);
             this.btnGuardar.TabIndex = 4;
@@ -214,7 +246,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.btnCancelar.Location = new System.Drawing.Point(176, 4);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(164, 36);
             this.btnCancelar.TabIndex = 5;
@@ -252,7 +284,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DescripcionControl.Location = new System.Drawing.Point(33, 191);
-            this.DescripcionControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DescripcionControl.Margin = new System.Windows.Forms.Padding(4);
             this.DescripcionControl.Multiline = true;
             this.DescripcionControl.Name = "DescripcionControl";
             this.DescripcionControl.Size = new System.Drawing.Size(320, 192);
@@ -265,7 +297,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.NombreControl.Location = new System.Drawing.Point(33, 103);
-            this.NombreControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NombreControl.Margin = new System.Windows.Forms.Padding(4);
             this.NombreControl.Name = "NombreControl";
             this.NombreControl.Size = new System.Drawing.Size(320, 22);
             this.NombreControl.TabIndex = 0;
@@ -275,33 +307,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // dgCat
-            // 
-            this.dgCat.AccessibleName = "Table";
-            gridTextColumn2.AllowFiltering = true;
-            gridTextColumn1.AllowGrouping = false;
-            gridTextColumn1.HeaderText = "Column1";
-            gridTextColumn1.MappingName = "IdCategoriaProducto";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.AllowGrouping = false;
-            gridTextColumn2.HeaderText = "Nombre";
-            gridTextColumn2.MappingName = "Nombre";
-            gridTextColumn3.AllowGrouping = false;
-            gridTextColumn3.HeaderText = "Descripción";
-            gridTextColumn3.MappingName = "Descripcion";
-            this.dgCat.Columns.Add(gridTextColumn1);
-            this.dgCat.Columns.Add(gridTextColumn2);
-            this.dgCat.Columns.Add(gridTextColumn3);
-            this.dgCat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgCat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgCat.Location = new System.Drawing.Point(0, 0);
-            this.dgCat.Margin = new System.Windows.Forms.Padding(4);
-            this.dgCat.Name = "dgCat";
-            this.dgCat.PreviewRowHeightMode = Syncfusion.WinForms.DataGrid.Enums.PreviewRowHeightMode.Auto;
-            this.dgCat.Size = new System.Drawing.Size(840, 514);
-            this.dgCat.TabIndex = 1;
-            this.dgCat.Text = "sfDataGrid1";
-            // 
             // FrmCategoriaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -310,7 +315,7 @@
             this.Controls.Add(this.pnlGrid);
             this.Controls.Add(this.pnlBtns);
             this.Controls.Add(this.pnlHeader);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCategoriaProducto";
             this.Text = "FrmCategoriaProducto";
             this.pnlHeader.ResumeLayout(false);
@@ -318,11 +323,11 @@
             this.pnlBtns.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgCat)).EndInit();
             this.gbCat.ResumeLayout(false);
             this.gbCat.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgCat)).EndInit();
             this.ResumeLayout(false);
 
         }
