@@ -48,6 +48,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
 
+
         private void IniciarBinding()
         {
             try
