@@ -37,6 +37,7 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_Cuestionario = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCompras = new System.Windows.Forms.Button();
             this.panelFormaPago = new System.Windows.Forms.Panel();
@@ -160,6 +161,7 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.btn_Cuestionario, 0, 11);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 10);
             this.tableLayoutPanel1.Controls.Add(this.panelFormaPago, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.panelUsuario, 0, 6);
@@ -171,11 +173,41 @@
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panelVenta, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.panelSucursal, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.btnSalir, 0, 11);
+            this.tableLayoutPanel1.Controls.Add(this.btnSalir, 0, 12);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 13;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.250491F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.250491F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.250491F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.250491F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.250491F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.250491F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.250491F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.250491F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.250491F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.247991F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.247812F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.247812F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00196F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(50, 681);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // btn_Cuestionario
+            // 
+            this.btn_Cuestionario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_Cuestionario.FlatAppearance.BorderSize = 0;
+            this.btn_Cuestionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cuestionario.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cuestionario.Location = new System.Drawing.Point(3, 465);
+            this.btn_Cuestionario.Name = "btn_Cuestionario";
+            this.btn_Cuestionario.Size = new System.Drawing.Size(44, 36);
+            this.btn_Cuestionario.TabIndex = 12;
+            this.btn_Cuestionario.Text = "Cuestionario";
+            this.btn_Cuestionario.UseVisualStyleBackColor = true;
+            this.btn_Cuestionario.Click += new System.EventHandler(this.Btn_Cuestionario_Click);
+            // 
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143061F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143061F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.143061F));
@@ -386,6 +418,16 @@
             this.btnCliente.UseVisualStyleBackColor = true;
             this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::CIDFares.Spa.WFApplication.Properties.Resources.logo_2;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(44, 36);
+            this.panel1.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.panel1, "AMA SER BELLA");
+            // 
             // panelVenta
             // 
             this.panelVenta.Controls.Add(this.btnVenta);
@@ -578,6 +620,7 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnCompras;
+        private System.Windows.Forms.Button btn_Cuestionario;
         private System.Windows.Forms.Button btnConfiguracion;
         private System.Windows.Forms.Panel panelConfiguracion;
         private System.Windows.Forms.Button btnPermisos;
