@@ -49,6 +49,8 @@
             this.IEPSMontoControl = new System.Windows.Forms.CheckBox();
             this.AplicaIEPSControl = new System.Windows.Forms.CheckBox();
             this.pnlAplicaIva = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.PorcentajePControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.label8 = new System.Windows.Forms.Label();
             this.IdTipoIvaControl = new System.Windows.Forms.ComboBox();
             this.pnlDesc = new System.Windows.Forms.Panel();
@@ -74,8 +76,6 @@
             this.BtnSeleccionar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.PorcentajePControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            this.label10 = new System.Windows.Forms.Label();
             this.pnlHeader.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.flButtons.SuspendLayout();
@@ -86,6 +86,7 @@
             this.pnlAplicaIEPS.SuspendLayout();
             this.gbRadioButtons.SuspendLayout();
             this.pnlAplicaIva.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PorcentajePControl)).BeginInit();
             this.pnlDesc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DescripcionControl)).BeginInit();
             this.pnlDuracion.SuspendLayout();
@@ -99,7 +100,6 @@
             this.pnlFoto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PorcentajePControl)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -250,7 +250,7 @@
             // 
             // IEPSControl
             // 
-            this.IEPSControl.BeforeTouchSize = new System.Drawing.Size(78, 23);
+            this.IEPSControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
             this.IEPSControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.IEPSControl.Location = new System.Drawing.Point(28, 37);
             this.IEPSControl.Margin = new System.Windows.Forms.Padding(2);
@@ -360,6 +360,29 @@
             this.pnlAplicaIva.Size = new System.Drawing.Size(196, 75);
             this.pnlAplicaIva.TabIndex = 6;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(96, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(97, 18);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "% Descuento";
+            // 
+            // PorcentajePControl
+            // 
+            this.PorcentajePControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
+            this.PorcentajePControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.PorcentajePControl.Location = new System.Drawing.Point(103, 35);
+            this.PorcentajePControl.Margin = new System.Windows.Forms.Padding(2);
+            this.PorcentajePControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.PorcentajePControl.Multiline = true;
+            this.PorcentajePControl.Name = "PorcentajePControl";
+            this.PorcentajePControl.Size = new System.Drawing.Size(78, 23);
+            this.PorcentajePControl.TabIndex = 8;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -393,7 +416,7 @@
             // 
             // DescripcionControl
             // 
-            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(78, 23);
+            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
             this.DescripcionControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.DescripcionControl.Location = new System.Drawing.Point(8, 30);
             this.DescripcionControl.Margin = new System.Windows.Forms.Padding(2);
@@ -495,7 +518,7 @@
             // 
             // ClaveControl
             // 
-            this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(78, 23);
+            this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
             this.ClaveControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ClaveControl.Location = new System.Drawing.Point(8, 32);
             this.ClaveControl.Margin = new System.Windows.Forms.Padding(2);
@@ -623,29 +646,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // PorcentajePControl
-            // 
-            this.PorcentajePControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
-            this.PorcentajePControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.PorcentajePControl.Location = new System.Drawing.Point(103, 35);
-            this.PorcentajePControl.Margin = new System.Windows.Forms.Padding(2);
-            this.PorcentajePControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.PorcentajePControl.Multiline = true;
-            this.PorcentajePControl.Name = "PorcentajePControl";
-            this.PorcentajePControl.Size = new System.Drawing.Size(78, 23);
-            this.PorcentajePControl.TabIndex = 8;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(96, 9);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(97, 18);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "% Descuento";
-            // 
             // FrmServicioNuevo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -675,6 +675,7 @@
             this.gbRadioButtons.PerformLayout();
             this.pnlAplicaIva.ResumeLayout(false);
             this.pnlAplicaIva.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PorcentajePControl)).EndInit();
             this.pnlDesc.ResumeLayout(false);
             this.pnlDesc.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DescripcionControl)).EndInit();
@@ -694,7 +695,6 @@
             this.pnlFoto.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PorcentajePControl)).EndInit();
             this.ResumeLayout(false);
 
         }

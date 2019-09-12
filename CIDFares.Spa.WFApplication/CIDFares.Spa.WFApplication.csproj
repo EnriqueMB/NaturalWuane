@@ -264,6 +264,18 @@
     <Compile Include="Forms\Ventas\FrmBuscarCliente.Designer.cs">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Ventas\FrmBuscarVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmBuscarVentas.Designer.cs">
+      <DependentUpon>FrmBuscarVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmCancelacionVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmCancelacionVenta.Designer.cs">
+      <DependentUpon>FrmCancelacionVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Ventas\FrmSeleccionarPago.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -398,6 +410,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmBuscarCliente.resx">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ventas\FrmBuscarVentas.resx">
+      <DependentUpon>FrmBuscarVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ventas\FrmCancelacionVenta.resx">
+      <DependentUpon>FrmCancelacionVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmSeleccionarPago.resx">
       <DependentUpon>FrmSeleccionarPago.cs</DependentUpon>

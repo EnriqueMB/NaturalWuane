@@ -31,6 +31,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@Pagado", 1);
                     dynamicParameters.Add("@IdCliente", element.ClienteVenta.IdCliente);
                     dynamicParameters.Add("@IdUsuario", IdUsuario);
+                    dynamicParameters.Add("@IdTurno", element.IdTurno);
                     var result = await conexion.ExecuteScalarAsync<int>("[Venta].[spCID_A_Venta]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;
@@ -62,6 +63,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@IdCliente", element.ClienteVenta.IdCliente);
                     dynamicParameters.Add("@IdUsuario", IdUsuario);
                     dynamicParameters.Add("@IdSucursal", IdSucursal);
+                    dynamicParameters.Add("@IdTurno", element.IdTurno);
                     var result = await conexion.ExecuteScalarAsync<int>("[Venta].[spCID_A_Venta]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;
@@ -133,6 +135,43 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     parametros.Add("@Cantidad", Cantidad);
                     var result = await conexion.ExecuteScalarAsync<int>("[Venta].[SPCID_CheckCantidadProducto]", param: parametros, commandType: CommandType.StoredProcedure);
                     return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<IEnumerable<Venta>> GetVentaDiasSucursalActiva(object FechaActual, object IdSucursal, object Folio)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    List<Venta> Lista = new List<Venta>();
+                    Venta item;
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@Folio", Folio);
+                    dynamicParameters.Add("@FECHA", FechaActual);
+                    dynamicParameters.Add("IdSucursal", IdSucursal);
+                    var dr = await conexion.ExecuteReaderAsync("[Venta].[SPCID_Get_VentasDias]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    while (dr.Read())
+                    {
+                        item = new Venta();
+                        item.IdVenta = dr.GetGuid(dr.GetOrdinal("IdVenta"));
+                        item.LocalId = dr.GetInt32(dr.GetOrdinal("LocalId"));
+                        item.Folio = dr.GetString(dr.GetOrdinal("Clave"));
+                        item.FechaVenta = dr.GetDateTime(dr.GetOrdinal("FechaVenta"));
+                        item.SubTotal = dr.GetDecimal(dr.GetOrdinal("Subtotal"));
+                        item.PorcentajeIva = dr.GetDecimal(dr.GetOrdinal("Iva"));
+                        item.Total = dr.GetDecimal(dr.GetOrdinal("Total"));
+                        item.ClienteVenta.NombreCompleto = dr.GetString(dr.GetOrdinal("NombreCompleto"));
+                        item.SucursalDatos.Nombre = dr.GetString(dr.GetOrdinal("NombreSucursal"));
+                        Lista.Add(item);
+                    }
+                    return Lista;
                 }
             }
             catch (Exception ex)
