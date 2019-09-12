@@ -2,6 +2,7 @@
 using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Library.Controls.CIDWait.Code;
+using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
@@ -50,9 +51,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         {
             try
             {
+                Model.State = EntityState.Create;
                 FrmNuevaEncuesta _NEncuesta = new FrmNuevaEncuesta();
                 _NEncuesta.ShowDialog();
                 _NEncuesta.Dispose();
+                LlenarLista();
             }
             catch (Exception ex)
             {
@@ -61,14 +64,26 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             }
         }
 
-        private void BtnModificarEncuesta_Click(object sender, EventArgs e)
+        private async void BtnModificarEncuesta_Click(object sender, EventArgs e)
         {
             try
             {
+                Model.State = EntityState.Update;
+
                 var item = ObtenerSeleccionado();
                 if (item != null)
                 {
+                    Model.IdEncuesta = item.IdEncuesta;
+                    var result =  await Model.ObtenerEncuestaXId();
+                  
+                    if (result != null)
+                    {
+                        FrmNuevaEncuesta _encuesta = new FrmNuevaEncuesta(result);
+                        _encuesta.ShowDialog();
+                        _encuesta.Dispose();
 
+                        LlenarLista();
+                    }                    
                 }
                 else
                 {

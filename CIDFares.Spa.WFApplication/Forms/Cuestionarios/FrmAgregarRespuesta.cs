@@ -21,7 +21,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         #region Propiedades
         private Preguntas item;
         public EncuestasViewModel Model { get; set; }
-        public List<Respuestas> ListaRespuesta = new List<Respuestas>();
+        //public List<Respuestas> ListaRespuesta = new List<Respuestas>();
         #endregion
 
         #region Constructor
@@ -40,7 +40,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             {
                 if (!string.IsNullOrEmpty(Model.Respuesta))
                 {
-                    LLenarListaRespuestas(CargarDatosR());
+                    //LLenarListaRespuestas(CargarDatosR());
+                    CargarDatosR();
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else
@@ -90,7 +92,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         #endregion
 
         #region Metodos
-        private Respuestas CargarDatosR()
+        public Respuestas CargarDatosR()
         {
             try
             {
@@ -98,9 +100,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 dato.Respuesta = RespuestaControl.Text;
                 dato.pregunta = item.Pregunta;
                 dato.IdPregunta = item.IdPregunta;
-                dato.IdRespuesta = Guid.NewGuid();
-                item.Respuesta.Add(dato);
-
+                dato.IdRespuesta = Guid.NewGuid();         
+                //item.Respuesta.Add(dato);
                 return dato;
             }
             catch (Exception ex)
@@ -108,17 +109,17 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 throw ex;
             }
         }
-        public void LLenarListaRespuestas(Respuestas value)
-        {
-            try
-            {
-                ListaRespuesta.Add(value);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        //public void LLenarListaRespuestas(Respuestas value)
+        //{
+        //    try
+        //    {
+        //        ListaRespuesta.Add(value);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
 
         private void IniciarBinding()
         {

@@ -25,10 +25,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
     {
         #region Propiedades
         public EncuestasViewModel Model { get; set; }
-        public BindingList<Preguntas> ListaPreguntas;
+        //public BindingList<Preguntas> ListaPreguntas;
         //public List<Respuestas> ListaRespuesta;
         private List<Preguntas> list;
-        private List<Preguntas> PreguntasEncuesta = new List<Preguntas>();
+        //private List<Preguntas> PreguntasEncuesta = new List<Preguntas>();
         #endregion
 
         #region Constructor   
@@ -36,7 +36,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<EncuestasViewModel>();
-            ListaPreguntas = new BindingList<Preguntas>();
+            //ListaPreguntas = new BindingList<Preguntas>();
             //ListaRespuesta = new List<Respuestas>();
             list = _Preguntax;
         }
@@ -100,7 +100,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             {
                 if (!string.IsNullOrEmpty(Model.Pregunta))
                 {
-                    LLenarListaPreguntas(CargarDatos());
+                    //LLenarListaPreguntas(CargarDatos());
+                    CargarDatos();
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else
@@ -146,7 +148,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             }
         }
 
-        private Preguntas CargarDatos()
+        public Preguntas CargarDatos()
         {
             try
             {
@@ -169,7 +171,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 }
                 if (checkDepende.Checked)
                 {
-                    dato.IdPreguntaDepende = Paux.IdPregunta.ToString();
+                    dato.IdPreguntaDepende = Paux.IdPregunta;
                     dato.DependePregunta = Paux.Pregunta;
                 }
                 
@@ -181,18 +183,18 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             }
         }
 
-        public void LLenarListaPreguntas(Preguntas value)
-        {
-            try
-            {
-                ListaPreguntas.Add(value);
+        //public void LLenarListaPreguntas(Preguntas value)
+        //{
+        //    try
+        //    {
+        //        ListaPreguntas.Add(value);
 
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
 
         private Preguntas ObtenerItemSeleccionado()
         {

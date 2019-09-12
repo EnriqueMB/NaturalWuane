@@ -1,9 +1,11 @@
-﻿using CIDFares.Spa.DataAccess.Contracts.Entities;
+﻿using CIDFares.Spa.DataAccess.Contracts.DTOs.Requests;
+using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using CIDFares.Spa.DataAccess.Repositories.Base;
 using Dapper;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -131,9 +133,59 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
+        public async Task<EncuestaRequest> ObtenerEncuestaXId(Guid Idencuesta)
+        {
+            try
+            {
+                EncuestaRequest request = new EncuestaRequest();
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdEncuesta", Idencuesta);             
+                    using (var dr = conexion.QueryMultipleAsync("[Catalogo].[spCID_Get_EncuestaXId]", param: dynamicParameters, commandType: CommandType.StoredProcedure).Result)
+                    {
+                        request.dtoEncuesta = dr.ReadFirstOrDefault<Cuestionario>();
+                        request.dtoPreguntas = new BindingList<Preguntas>(dr.Read<Preguntas>().ToList());
+                        request.dtoRespuestas = new BindingList<Respuestas>(dr.Read<Respuestas>().ToList());
+                    }
+                    return request;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public Task<Cuestionario> UpdateAsync(Cuestionario element, object IdUsuario)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<int> UpdateEncuesta(Guid IdEncuesta,string NombreEncuesta, int TipoEncuesta, Guid IdUsuario, DataTable tblPregunta, DataTable tblRespuesta)
+        {
+            try
+            {
+                using (IDbConnection conexion =  new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdEncuesta", IdEncuesta);
+                    dynamicParameters.Add("@IdUsuario", IdUsuario);
+                    dynamicParameters.Add("@NombreEncuesta", NombreEncuesta);
+                    dynamicParameters.Add("@IdTipoEncuesta", TipoEncuesta);
+                    dynamicParameters.Add("@TblPregunta", tblPregunta, DbType.Object);
+                    dynamicParameters.Add("@TblRespuesta", tblRespuesta, DbType.Object);
+
+                    var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[spCID_C_Encuesta]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
     }

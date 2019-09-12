@@ -2,8 +2,10 @@
 using CIDFares.Library.Code.Helpers;
 using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
+using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.CrossCutting.Services;
+using CIDFares.Spa.DataAccess.Contracts.DTOs.Requests;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
 using CIDFares.Spa.WFApplication.Session;
@@ -23,9 +25,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
     public partial class FrmNuevaEncuesta : Form
     {
         #region Propiedades
-        public EncuestasViewModel Model { get; set; }
-        public BindingList<Preguntas> PreguntasEncuesta = new BindingList<Preguntas>();
-        private BindingList<Respuestas> RespuestasEncuesta = new BindingList<Respuestas>();
+        public EncuestasViewModel Model { get; set; }        
+        public EncuestaRequest request { get; set; }
         #endregion
 
         #region Constructor
@@ -33,9 +34,20 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<EncuestasViewModel>();
-            this.dtgPreguntas.AllowDrop = true;
+            this.dtgPreguntas.AllowDrop = true;   
         }
 
+        public FrmNuevaEncuesta(EncuestaRequest _value)
+        {
+            InitializeComponent();
+            Model = ServiceLocator.Instance.Resolve<EncuestasViewModel>();
+            request = _value;
+            Model.ListaPregunta = _value.dtoPreguntas;
+            Model.ListaRespuesta = _value.dtoRespuestas;
+            Model.IdEncuesta = _value.dtoEncuesta.IdEncuesta;
+            Model.State = EntityState.Update;
+            Model.NombreEncuesta = request.dtoEncuesta.NombreEncuesta;
+        }
         #endregion
 
         #region Eventos
@@ -43,10 +55,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         {
             try
             {
+                IniciarBinding();
                 InitProperty();
                 await Model.InitComboTipoEncuesta();
-                IniciarBinding();  
-                
+
+                if (Model.State == EntityState.Update)
+                {
+                    LLenarGriPregunta();
+                    LLenarGridRespuesta();
+                    CargarDatos();
+                }
             }
             catch (Exception ex)
             {
@@ -76,7 +94,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 throw ex;
             }
         }
-
         private void BtnCancelarEncuesta_Click(object sender, EventArgs e)
         {
             try
@@ -92,17 +109,21 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         {
             try
             {
-                var listauax = PreguntasEncuesta.Where(dto => dto.TipoPregunta.Equals("SI/NO"));
+                //var listauax = PreguntasEncuesta.Where(dto => dto.TipoPregunta.Equals("SI/NO"));
+                var listauax = Model.ListaPregunta.Where(dto => dto.TipoPregunta.Equals("SI/NO"));
                 FrmAgregarPregunta _Pregunta = new FrmAgregarPregunta(listauax.ToList());
                 _Pregunta.ShowDialog();
                 _Pregunta.Dispose();
 
-                var x = _Pregunta.ListaPreguntas;
-                foreach (var item in x)
+                if (_Pregunta.DialogResult == DialogResult.OK)
                 {
-                    this.PreguntasEncuesta.Add(item);
-                }
-                CargarGridPreguntas();
+                   
+                    var x = _Pregunta.CargarDatos();
+                    Model.ListaPregunta.Add(x);
+                    //this.PreguntasEncuesta.Add(x);
+                }                
+
+                //CargarGridPreguntas();
 
             }
             catch (Exception ex)
@@ -114,33 +135,37 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         {
             try
             {
-                PreguntasEncuesta.ToList().ForEach(x => x.Orden = PreguntasEncuesta.IndexOf(x));              
+                //PreguntasEncuesta.ToList().ForEach(x => x.Orden = PreguntasEncuesta.IndexOf(x));
+                Model.ListaPregunta.ToList().ForEach(x => x.Orden = Model.ListaPregunta.IndexOf(x));
                 this.CleanErrors(errorProvider1, typeof(EncuestasViewModel));
                 var validationResults = Model.Validate();
                 validationResults.ToString();
 
                 if (validationResults.IsValid)
-                {                   
-                    Model.TblPregunta = ObtenerTablaPreguntas(PreguntasEncuesta.ToList());
-                    Model.TblRespuesta =  ObtenerTablaRepuestas(RespuestasEncuesta.ToList());
+                {
+                    //Model.TblPregunta = ObtenerTablaPreguntas(PreguntasEncuesta.ToList());
+                    Model.TblPregunta = ObtenerTablaPreguntas(Model.ListaPregunta.ToList());
+                    //Model.TblRespuesta = ObtenerTablaRepuestas(RespuestasEncuesta.ToList());
+                    Model.TblRespuesta = ObtenerTablaRepuestas(Model.ListaRespuesta.ToList());
 
-                    if (this.PreguntasEncuesta.Count > 0)
+                    if (this.Model.ListaPregunta.Count > 0)
                     {
-                        int x =  await Model.GuardarEncuesta(CurrentSession.IdCuentaUsuario);
+                        int x = await Model.GuardarEncuesta(CurrentSession.IdCuentaUsuario);
 
                         if (x == 1)
                         {
-                            CIDMessageBox.ShowAlert(Messages.SystemName,Messages.SuccessMessage, TypeMessage.informacion);
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.informacion);
+                            this.Close();
                         }
                         else
                         {
-                            CIDMessageBox.ShowAlert(Messages.SystemName,Messages.ErrorMessage, TypeMessage.error);
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
                         }
                     }
                     else
                     {
-                       CIDMessageBox.ShowAlert(Messages.SystemName, "LA ENCUESTA DEBE CONTENER AL MENOS UNA PREGUNTA", TypeMessage.informacion);                   
-                    }     
+                        CIDMessageBox.ShowAlert(Messages.SystemName, "LA ENCUESTA DEBE CONTENER AL MENOS UNA PREGUNTA", TypeMessage.informacion);
+                    }
                 }
                 else
                 {
@@ -160,9 +185,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             {
                 var item = ObtenerSeleccionado();
                 if (item != null)
-                {
-                    this.PreguntasEncuesta.Remove(item);
-                    this.CargarGridPreguntas();
+                {              
+                    this.Model.ListaPregunta.Remove(item);              
                 }
                 else
                 {
@@ -180,9 +204,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             {
                 var item = Seleccionado();
                 if (item != null)
-                {
-                    this.RespuestasEncuesta.Remove(item);
-                    this.CargarGridPreguntas();
+                {              
+                    this.Model.ListaRespuesta.Remove(item);               
                 }
                 else
                 {
@@ -204,17 +227,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 {
                     if (item.TipoPregunta == "MULTIPLE")
                     {
-                        //FrmAgregarPregunta _Resp = new FrmAgregarPregunta(2,item.Pregunta,item.IdPregunta, PreguntasEncuesta.ToList());
                         FrmAgregarRespuesta _Resp = new FrmAgregarRespuesta(item);
                         _Resp.ShowDialog();
                         _Resp.Dispose();
-
-                        var x = _Resp.ListaRespuesta;
-                        foreach (var value in x)
+                        if (_Resp.DialogResult == DialogResult.OK)
                         {
-                            this.RespuestasEncuesta.Add(value);
-                        }
-                        CargarGridRespuesta();
+                            var x = _Resp.CargarDatosR();                 
+                            this.Model.ListaRespuesta.Add(x);
+                        }               
                     }
                     else
                     {
@@ -244,8 +264,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                     {
                         //Preguntas pregunta = new Preguntas { IdPregunta = item.IdPregunta, Pregunta = item.Pregunta, Respuesta = item.Respuesta, TipoPregunta = item.TipoPregunta };
                         //this.PreguntasEncuesta.Remove(PreguntasEncuesta.Find(x=> x.IdPregunta.Equals(item.IdPregunta)));
-                        this.PreguntasEncuesta.Remove(item);
-                        this.PreguntasEncuesta.Insert(RowToMove - 2, item);
+                        //this.PreguntasEncuesta.Remove(item);
+                        this.Model.ListaPregunta.Remove(item);
+                        //this.PreguntasEncuesta.Insert(RowToMove - 2, item);
+                        this.Model.ListaPregunta.Insert(RowToMove - 2, item);
                     }
                     else
                     {
@@ -268,12 +290,15 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 {
                     int RowToMove = this.dtgPreguntas.CurrentCell.RowIndex;
 
-                    if (RowToMove < PreguntasEncuesta.Count)
+                    //if (RowToMove < PreguntasEncuesta.Count)
+                    if (RowToMove < Model.ListaPregunta.Count)
                     {
                         //Preguntas pregunta = new Preguntas { IdPregunta = item.IdPregunta, Pregunta = item.Pregunta, Respuesta = item.Respuesta, TipoPregunta = item.TipoPregunta };
                         //this.PreguntasEncuesta.Remove(PreguntasEncuesta.Find(x=> x.IdPregunta.Equals(item.IdPregunta)));
-                        this.PreguntasEncuesta.Remove(item);
-                        this.PreguntasEncuesta.Insert(RowToMove, item);
+                        //this.PreguntasEncuesta.Remove(item);
+                        this.Model.ListaPregunta.Remove(item);
+                        //this.PreguntasEncuesta.Insert(RowToMove, item);
+                        this.Model.ListaPregunta.Insert(RowToMove, item);
                     }
                     else
                     {
@@ -288,21 +313,49 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         }
         #endregion
 
+        public void LLenarGriPregunta()
+        {
+            try
+            {
+                this.dtgPreguntas.DataSource = Model.ListaPregunta;
+            }
+            catch (Exception ex)
+            {
+                CIDMessageBox.ShowAlert(Messages.SystemName, ex.Message.ToString(), TypeMessage.error);
+            }
+        }
+
+        public void LLenarGridRespuesta()
+        {
+            try
+            {
+                this.dtgRespuestas.DataSource = Model.ListaRespuesta;
+            }
+            catch (Exception ex)
+            {
+                CIDMessageBox.ShowAlert(Messages.SystemName, ex.Message.ToString(), TypeMessage.error);
+            }
+        }
         #region Metodos
         private void IniciarBinding()
         {
             try
             {
-                NombreEncuestaControl.DataBindings.Add("Text",Model, "NombreEncuesta",true,DataSourceUpdateMode.OnPropertyChanged);
+                NombreEncuestaControl.DataBindings.Add("Text", Model, "NombreEncuesta", true, DataSourceUpdateMode.OnPropertyChanged);
 
                 IdTipoEncuestaControl.DataBindings.Add("SelectedValue", Model, "IdTipoEncuesta", true, DataSourceUpdateMode.OnPropertyChanged);
                 IdTipoEncuestaControl.DataBindings.Add("DataSource", Model, "_ListaTipoEncuesta", true, DataSourceUpdateMode.OnPropertyChanged);
                 IniciarComboTE();
 
+                this.dtgPreguntas.AutoGenerateColumns = false;
+                dtgPreguntas.DataBindings.Add("DataSource", Model, "ListaPregunta", true, DataSourceUpdateMode.OnPropertyChanged);
+
+                this.dtgRespuestas.AutoGenerateColumns = false;
+                dtgRespuestas.DataBindings.Add("DataSource", Model, "ListaRespuesta", true, DataSourceUpdateMode.OnPropertyChanged);
             }
             catch (Exception ex)
             {
-                CIDMessageBox.ShowAlert(Messages.SystemName,ex.Message.ToString(), TypeMessage.error);
+                CIDMessageBox.ShowAlert(Messages.SystemName, ex.Message.ToString(), TypeMessage.error);
             }
         }
 
@@ -318,36 +371,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 CIDMessageBox.ShowAlert(Messages.SystemName, ex.Message.ToString(), TypeMessage.error);
             }
         }
-        private void CargarGridPreguntas()
-        {
-            try
-            {
-                //dtgPreguntas.DataSource = null;
-                BindingSource Source = new BindingSource();
-                Source.DataSource = PreguntasEncuesta;//.Clone();
-                this.dtgPreguntas.AutoGenerateColumns = false;
-                this.dtgPreguntas.DataSource = Source;
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        private void CargarGridRespuesta()
-        {
-            try
-            {
-                BindingSource SourceR = new BindingSource();
-                SourceR.DataSource = this.RespuestasEncuesta;
-                this.dtgRespuestas.AutoGenerateColumns = false;
-                this.dtgRespuestas.DataSource = SourceR;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+       
         public Preguntas ObtenerSeleccionado()
         {
             try
@@ -386,13 +410,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             {
                 DataTable TablaP = new DataTable();
                 TablaP.Columns.Add("IdPregunta", typeof(Guid));
-                TablaP.Columns.Add("Pregunta",typeof(string));
+                TablaP.Columns.Add("Pregunta", typeof(string));
                 TablaP.Columns.Add("TipoPregunta", typeof(string));
-                TablaP.Columns.Add("DependeDe",typeof(Guid));
+                TablaP.Columns.Add("DependeDe", typeof(Guid));
                 TablaP.Columns.Add("Orden", typeof(int));
                 foreach (var item in Lista)
                 {
-                    TablaP.Rows.Add(new object[] { item.IdPregunta,item.Pregunta,item.TipoPregunta, item.IdPreguntaDepende,item.Orden });
+                    TablaP.Rows.Add(new object[] { item.IdPregunta, item.Pregunta, item.TipoPregunta, item.IdPreguntaDepende, item.Orden });
                 }
                 return TablaP;
             }
@@ -401,18 +425,17 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 throw ex;
             }
         }
-
         private DataTable ObtenerTablaRepuestas(List<Respuestas> ListaR)
         {
             try
             {
                 DataTable TablaR = new DataTable();
                 TablaR.Columns.Add("IdRespuesta", typeof(Guid));
-                TablaR.Columns.Add("Respuesta",typeof(string));               
-                TablaR.Columns.Add("IdPregunta",typeof(Guid));
+                TablaR.Columns.Add("Respuesta", typeof(string));
+                TablaR.Columns.Add("IdPregunta", typeof(Guid));
                 foreach (var item in ListaR)
                 {
-                    TablaR.Rows.Add(new object[] { item.IdRespuesta,item.Respuesta,item.IdPregunta});
+                    TablaR.Rows.Add(new object[] { item.IdRespuesta, item.Respuesta, item.IdPregunta });
                 }
                 return TablaR;
             }
@@ -421,8 +444,20 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 throw ex;
             }
         }
-        #endregion
+        #endregion       
 
+        private void CargarDatos()
+        {
+            try
+            {
+                Model.NombreEncuesta = request.dtoEncuesta.NombreEncuesta;
+                Model.IdTipoEncuesta = request.dtoEncuesta.IdTipoEncuesta;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
     }
 }
