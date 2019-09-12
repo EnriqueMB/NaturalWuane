@@ -153,9 +153,46 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
 
         }
 
-        public Task<Proveedor> GetAsync(object id)
+        public async Task<Proveedor> GetAsync(object id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    Proveedor item = new Proveedor();
+
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdProveedor", id);
+                    var dr = await conexion.ExecuteReaderAsync("[Catalogo].[SPCID_Get_ProveedorXId]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    while (dr.Read())
+                    {
+                        item = new Proveedor();
+                       
+                        item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
+                        item.NombreComercial = dr.GetString(dr.GetOrdinal("NombreComercial"));
+                        item.RazonSocial = dr.GetString(dr.GetOrdinal("RazonSocial"));
+                        item.Representante = dr.GetString(dr.GetOrdinal("Representante"));
+                        item.RFC = dr.GetString(dr.GetOrdinal("RFC"));
+                        item.Direccion = dr.GetString(dr.GetOrdinal("Direccion"));
+                        item.Telefono = dr.GetString(dr.GetOrdinal("Telefono"));
+                        item.CorreoElectronico = dr.GetString(dr.GetOrdinal("CorreoElectronico"));
+                        item.CodigoPostal = dr.GetString(dr.GetOrdinal("CodigoPostal"));
+                        item.IdPais = !dr.IsDBNull(dr.GetOrdinal("IdPais")) ? dr.GetInt32(dr.GetOrdinal("IdPais")) : 0;
+                        item.IdEstado = !dr.IsDBNull(dr.GetOrdinal("IdEstado")) ? dr.GetInt32(dr.GetOrdinal("IdEstado")) : 0;
+                        item.IdMunicipio = !dr.IsDBNull(dr.GetOrdinal("IdMunicipio")) ? dr.GetInt32(dr.GetOrdinal("IdMunicipio")) : 0;
+                       
+                    }
+                    dr.Close();
+                    return item;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public async Task<IEnumerable<Proveedor>> GetBusquedaProveedorAsync(string Busqueda)
@@ -206,52 +243,9 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public async Task<Proveedor> GetProveedorXId(Guid IdProveedor)
+        public  Task<Proveedor> GetProveedorXId(Guid IdProveedor)
         {
-            try
-            {
-                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
-                {
-                    conexion.Open();
-                    Proveedor item = new Proveedor();
-                    
-                    var dynamicParameters = new DynamicParameters();
-                    dynamicParameters.Add("@IdProveedor", IdProveedor);
-                    var dr = await conexion.ExecuteReaderAsync("[Catalogo].[SPCID_Get_ProveedorXId]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                    while (dr.Read())
-                    {
-                        item = new Proveedor();
-                        item.IdProveedor = dr.GetGuid(dr.GetOrdinal("IdProveedor"));
-                        item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
-                        item.NombreComercial = dr.GetString(dr.GetOrdinal("NombreComercial"));
-                        item.RazonSocial = dr.GetString(dr.GetOrdinal("RazonSocial"));
-                        item.Representante = dr.GetString(dr.GetOrdinal("Representante"));
-                        item.RFC = dr.GetString(dr.GetOrdinal("RFC"));
-                        item.Direccion = dr.GetString(dr.GetOrdinal("Direccion"));
-                        item.Telefono = dr.GetString(dr.GetOrdinal("Telefono"));
-                        item.CorreoElectronico = dr.GetString(dr.GetOrdinal("CorreoElectronico"));
-                        item.CodigoPostal = dr.GetString(dr.GetOrdinal("CodigoPostal"));
-
-                        item.IdPais = dr.GetInt32(dr.GetOrdinal("IdPais"));
-                        item.Pais = dr.GetString(dr.GetOrdinal("Pais"));
-                        item.IdEstado = dr.GetInt32(dr.GetOrdinal("IdEstado"));
-                        item.Estado = dr.GetString(dr.GetOrdinal("Estado"));
-                        item.IdMunicipio = dr.GetInt32(dr.GetOrdinal("IdMunicipio"));
-                        item.Municipio = dr.GetString(dr.GetOrdinal("Municipio"));
-
-
-                      
-                    }
-                    return item;
-
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-
+            throw new NotImplementedException();
         }
 
         public Task<int> NameExistAsync(string name)
