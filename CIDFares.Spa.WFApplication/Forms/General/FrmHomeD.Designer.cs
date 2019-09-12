@@ -67,6 +67,11 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button1 = new System.Windows.Forms.Button();
+            this.panelCantenedor3 = new System.Windows.Forms.Panel();
+            this.panelConfiguracion = new System.Windows.Forms.Panel();
+            this.btnPermisos = new System.Windows.Forms.Button();
+            this.btnConfiguracion = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelCantenedor.SuspendLayout();
             this.panelContenedor1.SuspendLayout();
             this.panelCantenedor2.SuspendLayout();
@@ -471,16 +476,6 @@
             this.btnCliente.UseVisualStyleBackColor = true;
             this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::CIDFares.Spa.WFApplication.Properties.Resources.logo_2;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(44, 36);
-            this.panel1.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.panel1, "AMA SER BELLA");
-            // 
             // panelVenta
             // 
             this.panelVenta.Controls.Add(this.btnVenta);
@@ -549,6 +544,69 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // panelCantenedor3
+            // 
+            this.panelCantenedor3.BackgroundImage = global::CIDFares.Spa.WFApplication.Properties.Resources.fondo2;
+            this.panelCantenedor3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelCantenedor3.Controls.Add(this.panelConfiguracion);
+            this.panelCantenedor3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCantenedor3.Location = new System.Drawing.Point(0, 0);
+            this.panelCantenedor3.Name = "panelCantenedor3";
+            this.panelCantenedor3.Size = new System.Drawing.Size(954, 610);
+            this.panelCantenedor3.TabIndex = 1;
+            // 
+            // panelConfiguracion
+            // 
+            this.panelConfiguracion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelConfiguracion.BackColor = System.Drawing.Color.White;
+            this.panelConfiguracion.Controls.Add(this.btnPermisos);
+            this.panelConfiguracion.Location = new System.Drawing.Point(819, 0);
+            this.panelConfiguracion.Name = "panelConfiguracion";
+            this.panelConfiguracion.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.panelConfiguracion.Size = new System.Drawing.Size(135, 100);
+            this.panelConfiguracion.TabIndex = 0;
+            this.panelConfiguracion.Visible = false;
+            // 
+            // btnPermisos
+            // 
+            this.btnPermisos.BackColor = System.Drawing.Color.White;
+            this.btnPermisos.FlatAppearance.BorderSize = 0;
+            this.btnPermisos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPermisos.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPermisos.Location = new System.Drawing.Point(0, 0);
+            this.btnPermisos.Name = "btnPermisos";
+            this.btnPermisos.Size = new System.Drawing.Size(135, 46);
+            this.btnPermisos.TabIndex = 0;
+            this.btnPermisos.Text = "Permisos";
+            this.btnPermisos.UseVisualStyleBackColor = false;
+            this.btnPermisos.Click += new System.EventHandler(this.btnPermisos_Click);
+            // 
+            // btnConfiguracion
+            // 
+            this.btnConfiguracion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnConfiguracion.FlatAppearance.BorderSize = 0;
+            this.btnConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfiguracion.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfiguracion.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.ajustes;
+            this.btnConfiguracion.Location = new System.Drawing.Point(909, 12);
+            this.btnConfiguracion.Name = "btnConfiguracion";
+            this.btnConfiguracion.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnConfiguracion.Size = new System.Drawing.Size(33, 31);
+            this.btnConfiguracion.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.btnConfiguracion, "CONFIGURACIÓN");
+            this.btnConfiguracion.UseVisualStyleBackColor = true;
+            this.btnConfiguracion.Click += new System.EventHandler(this.btnConfiguracion_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::CIDFares.Spa.WFApplication.Properties.Resources.logo_2;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(44, 36);
+            this.panel1.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.panel1, "AMA SER BELLA");
             // 
             // FrmHomeD
             // 
