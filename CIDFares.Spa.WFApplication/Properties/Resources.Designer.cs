@@ -133,6 +133,16 @@ namespace CIDFares.Spa.WFApplication.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Recurso_10_3x {
+            get {
+                object obj = ResourceManager.GetObject("Recurso 10@3x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap UsuarioL2 {
             get {
                 object obj = ResourceManager.GetObject("UsuarioL2", resourceCulture);

@@ -108,9 +108,12 @@ namespace CIDFares.Spa.WFApplication.Forms.General
 
         private void btnSucursale_Click(object sender, EventArgs e)
         {
-            FrmSucursalesGrid frmSucursalesGrid = new FrmSucursalesGrid();
-            frmSucursalesGrid.ShowDialog();
-            frmSucursalesGrid.Dispose();
+            //FrmSucursalesGrid frmSucursalesGrid = new FrmSucursalesGrid();
+            //frmSucursalesGrid.ShowDialog();
+            //frmSucursalesGrid.Dispose();
+            FrmProductosMonedero frmProductosMonedero = new FrmProductosMonedero();
+            frmProductosMonedero.ShowDialog();
+            frmProductosMonedero.Dispose();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
