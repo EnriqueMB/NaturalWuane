@@ -17,6 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CIDFares.Spa.WFApplication.Session;
 
 namespace CIDFares.Spa.WFApplication.Forms.Ventas
 {
@@ -163,6 +164,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             FechaControl.Text = DateTime.Now.ToString("dd/MM/yyyy");
             rbtProducto.Checked = true;
+            Model.IdTurno = CurrentSession.IdTurnoEmpleado;
         }
 
         private void btnTotal_Click(object sender, EventArgs e)
