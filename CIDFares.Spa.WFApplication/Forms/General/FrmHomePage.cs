@@ -232,6 +232,12 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             SlideCatalogo(btnProducto);
             GetPanel(new FrmProductoGrid());
         }
+
+        private void BtnPaquete_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnPaquete);
+            GetPanel(new FrmPaquete());
+        }
         #endregion
 
         #region Eventos click de Generales
@@ -257,7 +263,12 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         {
             SlideGenerales(btnCuestionario);
             GetPanel(new FrmEncuesta());
-        }   
+        }
+        private void BtnMonedero_Click(object sender, EventArgs e)
+        {
+            SlideGenerales(btnMonedero);
+            GetPanel(new FrmProductosMonedero());
+        }
         #endregion
 
         #endregion
@@ -367,6 +378,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 throw ex;
             }
         }
+
 
         private void SlideGenerales(Button button)
         {

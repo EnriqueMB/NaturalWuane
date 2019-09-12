@@ -32,12 +32,8 @@
             this.panelCantenedor = new System.Windows.Forms.Panel();
             this.panelContenedor1 = new System.Windows.Forms.Panel();
             this.panelCantenedor2 = new System.Windows.Forms.Panel();
-            this.panelCantenedor3 = new System.Windows.Forms.Panel();
-            this.panelConfiguracion = new System.Windows.Forms.Panel();
-            this.btnPermisos = new System.Windows.Forms.Button();
             this.panelColor = new System.Windows.Forms.Panel();
             this.panelHoraAler = new System.Windows.Forms.Panel();
-            this.btnConfiguracion = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -58,7 +54,6 @@
             this.btnProveedor = new System.Windows.Forms.Button();
             this.panelCliente = new System.Windows.Forms.Panel();
             this.btnCliente = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panelVenta = new System.Windows.Forms.Panel();
             this.btnVenta = new System.Windows.Forms.Button();
             this.panelSucursal = new System.Windows.Forms.Panel();
