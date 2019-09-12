@@ -157,6 +157,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                Model.State = EntityState.Create;
                 groupBoxCliente.Enabled = true;
                 ClaveControl.Visible = false;
                 LimpiarPropiedades();
