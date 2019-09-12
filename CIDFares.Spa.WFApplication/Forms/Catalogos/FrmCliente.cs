@@ -130,6 +130,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 throw ex;
             }
         }
+        
         #endregion
 
         #region Evento

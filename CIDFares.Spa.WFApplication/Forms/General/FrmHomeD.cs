@@ -95,5 +95,12 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             frmCompra.ShowDialog();
             frmCompra.Dispose();
         }
+
+        private void btnPuesto_Click(object sender, EventArgs e)
+        {
+            FrmPuesto puesto = new FrmPuesto();
+            puesto.ShowDialog();
+            puesto.Dispose();
+        }
     }
 }

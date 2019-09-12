@@ -38,6 +38,8 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnCompras = new System.Windows.Forms.Button();
             this.panelFormaPago = new System.Windows.Forms.Panel();
             this.btnFormaPago = new System.Windows.Forms.Button();
             this.panelUsuario = new System.Windows.Forms.Panel();
@@ -60,15 +62,16 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnCompras = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnPuesto = new System.Windows.Forms.Button();
             this.panelCantenedor.SuspendLayout();
             this.panelContenedor1.SuspendLayout();
             this.panelCantenedor2.SuspendLayout();
+            this.panelCantenedor3.SuspendLayout();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanel1)).BeginInit();
             this.gradientPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panelFormaPago.SuspendLayout();
             this.panelUsuario.SuspendLayout();
             this.panelServicio.SuspendLayout();
@@ -78,7 +81,6 @@
             this.panelCliente.SuspendLayout();
             this.panelVenta.SuspendLayout();
             this.panelSucursal.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelCantenedor
@@ -115,6 +117,7 @@
             // 
             this.panelCantenedor3.BackgroundImage = global::CIDFares.Spa.WFApplication.Properties.Resources.fondo2;
             this.panelCantenedor3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelCantenedor3.Controls.Add(this.btnPuesto);
             this.panelCantenedor3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCantenedor3.Location = new System.Drawing.Point(0, 0);
             this.panelCantenedor3.Name = "panelCantenedor3";
@@ -194,6 +197,30 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(50, 681);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnCompras);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 453);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(44, 33);
+            this.panel2.TabIndex = 0;
+            // 
+            // btnCompras
+            // 
+            this.btnCompras.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCompras.FlatAppearance.BorderSize = 0;
+            this.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompras.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCompras.Location = new System.Drawing.Point(0, 0);
+            this.btnCompras.Name = "btnCompras";
+            this.btnCompras.Size = new System.Drawing.Size(44, 33);
+            this.btnCompras.TabIndex = 11;
+            this.btnCompras.Text = "Cmp";
+            this.toolTip1.SetToolTip(this.btnCompras, "COMPRAS");
+            this.btnCompras.UseVisualStyleBackColor = true;
+            this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
             // 
             // panelFormaPago
             // 
@@ -432,29 +459,15 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // btnCompras
+            // btnPuesto
             // 
-            this.btnCompras.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCompras.FlatAppearance.BorderSize = 0;
-            this.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCompras.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompras.Location = new System.Drawing.Point(0, 0);
-            this.btnCompras.Name = "btnCompras";
-            this.btnCompras.Size = new System.Drawing.Size(44, 33);
-            this.btnCompras.TabIndex = 11;
-            this.btnCompras.Text = "Cmp";
-            this.toolTip1.SetToolTip(this.btnCompras, "COMPRAS");
-            this.btnCompras.UseVisualStyleBackColor = true;
-            this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnCompras);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 453);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(44, 33);
-            this.panel2.TabIndex = 0;
+            this.btnPuesto.Location = new System.Drawing.Point(19, 400);
+            this.btnPuesto.Name = "btnPuesto";
+            this.btnPuesto.Size = new System.Drawing.Size(60, 40);
+            this.btnPuesto.TabIndex = 0;
+            this.btnPuesto.Text = "Puesto";
+            this.btnPuesto.UseVisualStyleBackColor = true;
+            this.btnPuesto.Click += new System.EventHandler(this.btnPuesto_Click);
             // 
             // FrmHomeD
             // 
@@ -469,10 +482,12 @@
             this.panelCantenedor.ResumeLayout(false);
             this.panelContenedor1.ResumeLayout(false);
             this.panelCantenedor2.ResumeLayout(false);
+            this.panelCantenedor3.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanel1)).EndInit();
             this.gradientPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.panelFormaPago.ResumeLayout(false);
             this.panelUsuario.ResumeLayout(false);
             this.panelServicio.ResumeLayout(false);
@@ -482,7 +497,6 @@
             this.panelCliente.ResumeLayout(false);
             this.panelVenta.ResumeLayout(false);
             this.panelSucursal.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -522,5 +536,6 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnCompras;
+        private System.Windows.Forms.Button btnPuesto;
     }
 }

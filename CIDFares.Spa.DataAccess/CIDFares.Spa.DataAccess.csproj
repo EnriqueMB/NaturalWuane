@@ -37,6 +37,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,6 +61,7 @@
     <Compile Include="Repositories\General\ProductoRepository.cs" />
     <Compile Include="Repositories\General\ProveedorACompraRepository.cs" />
     <Compile Include="Repositories\General\ProveedorRepository.cs" />
+    <Compile Include="Repositories\General\PuestoRepository.cs" />
     <Compile Include="Repositories\General\RolRepository.cs" />
     <Compile Include="Repositories\General\ServicioRepository.cs" />
     <Compile Include="Repositories\General\SucursalRepository.cs" />
