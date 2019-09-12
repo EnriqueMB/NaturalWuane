@@ -109,12 +109,10 @@ namespace CIDFares.Spa.WFApplication.Forms.General
 
         private void btnSucursale_Click(object sender, EventArgs e)
         {
-            //FrmSucursalesGrid frmSucursalesGrid = new FrmSucursalesGrid();
-            //frmSucursalesGrid.ShowDialog();
-            //frmSucursalesGrid.Dispose();
-            FrmProductosMonedero frmProductosMonedero = new FrmProductosMonedero();
-            frmProductosMonedero.ShowDialog();
-            frmProductosMonedero.Dispose();
+            FrmSucursalesGrid frmSucursalesGrid = new FrmSucursalesGrid();
+            frmSucursalesGrid.ShowDialog();
+            frmSucursalesGrid.Dispose();
+
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -151,6 +149,13 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             frmReglas.Dispose();
             BotonesPerfil();
             panelConfiguracion.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmProductosMonedero frmProductosMonedero = new FrmProductosMonedero();
+            frmProductosMonedero.ShowDialog();
+            frmProductosMonedero.Dispose();
         }
     }
 }
