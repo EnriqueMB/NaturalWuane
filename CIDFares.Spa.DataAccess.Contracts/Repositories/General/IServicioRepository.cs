@@ -12,7 +12,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
     {
         Task<IEnumerable<Servicio>> GetBusqServicioAsync(bool BitNombre, string BusqNombre, bool BitClaveCodigo, string BusqClaveCodigo);
         Task<string> ObtenerFoto(int IdServicio);
-        Task<string> ExisteClave(object clave);
+        Task<int> ExisteClave(object clave);
         //Task<int> AddFotoProducto(Producto entity, object IdUsuario);
     }
 }

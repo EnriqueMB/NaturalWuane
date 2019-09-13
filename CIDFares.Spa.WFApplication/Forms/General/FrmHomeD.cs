@@ -153,9 +153,11 @@ namespace CIDFares.Spa.WFApplication.Forms.General
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FrmProductosMonedero frmProductosMonedero = new FrmProductosMonedero();
-            frmProductosMonedero.ShowDialog();
-            frmProductosMonedero.Dispose();
+            FrmEmpleadoGrid frmEmpleadoGrid = new FrmEmpleadoGrid();
+            frmEmpleadoGrid.ShowDialog();
+            //FrmProductosMonedero frmProductosMonedero = new FrmProductosMonedero();
+            //frmProductosMonedero.ShowDialog();
+            //frmProductosMonedero.Dispose();
         }
     }
 }

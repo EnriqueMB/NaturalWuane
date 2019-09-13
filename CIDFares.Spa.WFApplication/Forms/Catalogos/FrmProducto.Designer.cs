@@ -650,11 +650,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(157, 3);
+            this.label4.Location = new System.Drawing.Point(151, 3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 17);
+            this.label4.Size = new System.Drawing.Size(115, 17);
             this.label4.TabIndex = 58;
-            this.label4.Text = "% DESCUENTO";
+            this.label4.Text = "% DESC. PAQUETE";
             // 
             // CostoProductoControl
             // 

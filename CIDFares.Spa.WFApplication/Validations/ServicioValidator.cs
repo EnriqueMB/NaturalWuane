@@ -44,13 +44,13 @@ namespace CIDFares.Spa.WFApplication.Validations
                 .MaximumLength(20).WithMessage("MÁXIMO 20 CARACTERES")
                  .MustAsync(async (ser, x, context) =>
                  {
-                     string result = await servicioRepository.ExisteClave(ser.Clave);
-                     if (result != null)
+                     int result = await servicioRepository.ExisteClave(ser.Clave);
+                     if (result > 0)
                      {
-                         if (result == ser.Clave)
-                             return false;
-                         else
+                         if (result == ser.IdServicio)
                              return true;
+                         else
+                             return false;
                      }
                      else
                          return true;

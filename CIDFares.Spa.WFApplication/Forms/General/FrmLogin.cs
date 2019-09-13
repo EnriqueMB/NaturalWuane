@@ -48,7 +48,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             try
             {
                 this.Visible = false;
-                var HomeForm = new FrmHome();
+                var HomeForm = new FrmHomeD();
                 HomeForm.ShowDialog();
                 HomeForm.Dispose();
                 this.Visible = true;

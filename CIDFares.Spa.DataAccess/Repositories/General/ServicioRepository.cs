@@ -254,7 +254,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public async Task<string> ExisteClave(object Clave)
+        public async Task<int> ExisteClave(object Clave)
         {
             try
             {
@@ -264,7 +264,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@Opcion", 14);
                     dynamicParameters.Add("@Nombre", Clave);
-                    var dr = await conexion.ExecuteScalarAsync<string>("[General].[SPCID_ValidarNombre]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var dr = await conexion.ExecuteScalarAsync<int>("[General].[SPCID_ValidarNombre]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     return dr;
                 }
             }
