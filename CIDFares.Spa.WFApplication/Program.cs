@@ -16,7 +16,8 @@ using CIDFares.Spa.Business.ViewModels.Ventas;
 using CIDFares.Spa.WFApplication.Forms.Compras;
 using CIDFares.Spa.Business.ViewModels.Usuarios;
 using CIDFares.Spa.Business.ViewModels.Compras;
-
+using CIDFares.Spa.WFApplication.Forms.Promociones;
+using CIDFares.Spa.Business.ViewModels.Promociones;
 
 namespace CIDFares.Spa.WFApplication
 {
@@ -31,7 +32,7 @@ namespace CIDFares.Spa.WFApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
-            Application.Run(new FrmLogin());
+            Application.Run(new FrmNuevaPromocion());
 
         }
 
@@ -88,7 +89,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ReglaPerfilViewModel>();
             ServiceLocator.Instance.Register<PaqueteViewModel>();
             ServiceLocator.Instance.Register<ComprasViewModel>();
-
+            ServiceLocator.Instance.Register<PromocionViewModel>();
 
         }
     }
