@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridCheckBoxColumn gridCheckBoxColumn1 = new Syncfusion.WinForms.DataGrid.GridCheckBoxColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GroupColumnDescription groupColumnDescription1 = new Syncfusion.WinForms.DataGrid.GroupColumnDescription();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridCheckBoxColumn gridCheckBoxColumn2 = new Syncfusion.WinForms.DataGrid.GridCheckBoxColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GroupColumnDescription groupColumnDescription2 = new Syncfusion.WinForms.DataGrid.GroupColumnDescription();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.panelCentral = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -78,9 +78,9 @@
             this.panelCentral.Controls.Add(this.panel3);
             this.panelCentral.Controls.Add(this.panel2);
             this.panelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCentral.Location = new System.Drawing.Point(0, 59);
+            this.panelCentral.Location = new System.Drawing.Point(0, 58);
             this.panelCentral.Name = "panelCentral";
-            this.panelCentral.Size = new System.Drawing.Size(937, 417);
+            this.panelCentral.Size = new System.Drawing.Size(937, 418);
             this.panelCentral.TabIndex = 3;
             // 
             // panel3
@@ -89,7 +89,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(277, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(660, 417);
+            this.panel3.Size = new System.Drawing.Size(660, 418);
             this.panel3.TabIndex = 1;
             // 
             // groupBox2
@@ -101,7 +101,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(660, 417);
+            this.groupBox2.Size = new System.Drawing.Size(660, 418);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Reglas";
@@ -123,44 +123,44 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ListaRegla.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.AllowGrouping = false;
-            gridTextColumn1.AllowResizing = true;
-            gridTextColumn1.HeaderText = "Column1";
-            gridTextColumn1.MappingName = "IdRegla";
-            gridTextColumn1.Visible = false;
-            gridCheckBoxColumn1.AllowCheckBoxOnHeader = true;
-            gridCheckBoxColumn1.AllowGrouping = false;
-            gridCheckBoxColumn1.AllowResizing = true;
-            gridCheckBoxColumn1.AllowThreeState = true;
-            gridCheckBoxColumn1.HeaderText = "AplicaRegla";
-            gridCheckBoxColumn1.MappingName = "ReglaAsignada";
-            gridCheckBoxColumn1.Width = 30D;
-            gridTextColumn2.AllowGrouping = false;
-            gridTextColumn2.AllowResizing = true;
-            gridTextColumn2.HeaderText = "Nombre Permiso";
-            gridTextColumn2.MappingName = "NombrePermiso";
-            gridTextColumn2.Visible = false;
-            gridTextColumn3.AllowGrouping = false;
-            gridTextColumn3.AllowResizing = true;
-            gridTextColumn3.HeaderText = "Regla";
-            gridTextColumn3.MappingName = "NombreRegla";
-            gridTextColumn3.Width = 300D;
-            gridTextColumn4.AllowGrouping = false;
-            gridTextColumn4.AllowResizing = true;
-            gridTextColumn4.HeaderText = "Descripción";
-            gridTextColumn4.MappingName = "Descripcion";
-            this.ListaRegla.Columns.Add(gridTextColumn1);
-            this.ListaRegla.Columns.Add(gridCheckBoxColumn1);
-            this.ListaRegla.Columns.Add(gridTextColumn2);
-            this.ListaRegla.Columns.Add(gridTextColumn3);
-            this.ListaRegla.Columns.Add(gridTextColumn4);
+            gridTextColumn5.AllowGrouping = false;
+            gridTextColumn5.AllowResizing = true;
+            gridTextColumn5.HeaderText = "Column1";
+            gridTextColumn5.MappingName = "IdRegla";
+            gridTextColumn5.Visible = false;
+            gridCheckBoxColumn2.AllowCheckBoxOnHeader = true;
+            gridCheckBoxColumn2.AllowGrouping = false;
+            gridCheckBoxColumn2.AllowResizing = true;
+            gridCheckBoxColumn2.AllowThreeState = true;
+            gridCheckBoxColumn2.HeaderText = "AplicaRegla";
+            gridCheckBoxColumn2.MappingName = "ReglaAsignada";
+            gridCheckBoxColumn2.Width = 30D;
+            gridTextColumn6.AllowGrouping = false;
+            gridTextColumn6.AllowResizing = true;
+            gridTextColumn6.HeaderText = "Nombre Permiso";
+            gridTextColumn6.MappingName = "NombrePermiso";
+            gridTextColumn6.Visible = false;
+            gridTextColumn7.AllowGrouping = false;
+            gridTextColumn7.AllowResizing = true;
+            gridTextColumn7.HeaderText = "Regla";
+            gridTextColumn7.MappingName = "NombreRegla";
+            gridTextColumn7.Width = 300D;
+            gridTextColumn8.AllowGrouping = false;
+            gridTextColumn8.AllowResizing = true;
+            gridTextColumn8.HeaderText = "Descripción";
+            gridTextColumn8.MappingName = "Descripcion";
+            this.ListaRegla.Columns.Add(gridTextColumn5);
+            this.ListaRegla.Columns.Add(gridCheckBoxColumn2);
+            this.ListaRegla.Columns.Add(gridTextColumn6);
+            this.ListaRegla.Columns.Add(gridTextColumn7);
+            this.ListaRegla.Columns.Add(gridTextColumn8);
             this.ListaRegla.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            groupColumnDescription1.ColumnName = "NombrePermiso";
-            this.ListaRegla.GroupColumnDescriptions.Add(groupColumnDescription1);
+            groupColumnDescription2.ColumnName = "NombrePermiso";
+            this.ListaRegla.GroupColumnDescriptions.Add(groupColumnDescription2);
             this.ListaRegla.Location = new System.Drawing.Point(6, 22);
             this.ListaRegla.Name = "ListaRegla";
             this.ListaRegla.PreviewRowHeightMode = Syncfusion.WinForms.DataGrid.Enums.PreviewRowHeightMode.Auto;
-            this.ListaRegla.Size = new System.Drawing.Size(648, 392);
+            this.ListaRegla.Size = new System.Drawing.Size(648, 393);
             this.ListaRegla.Style.GroupDropAreaItemStyle.Font.Facename = "Century Gothic";
             this.ListaRegla.Style.GroupDropAreaItemStyle.Font.Size = 12F;
             this.ListaRegla.Style.HeaderStyle.Font.Facename = "Century Gothic";
@@ -174,7 +174,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(277, 417);
+            this.panel2.Size = new System.Drawing.Size(277, 418);
             this.panel2.TabIndex = 0;
             // 
             // groupBox1
@@ -187,7 +187,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(277, 417);
+            this.groupBox1.Size = new System.Drawing.Size(277, 418);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Perfil";
@@ -252,12 +252,12 @@
             // 
             // pnlHead
             // 
-            this.pnlHead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.pnlHead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.pnlHead.Controls.Add(this.label2);
             this.pnlHead.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHead.Location = new System.Drawing.Point(0, 0);
             this.pnlHead.Name = "pnlHead";
-            this.pnlHead.Size = new System.Drawing.Size(937, 59);
+            this.pnlHead.Size = new System.Drawing.Size(937, 58);
             this.pnlHead.TabIndex = 0;
             // 
             // label2
@@ -281,6 +281,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(937, 476);
             this.Controls.Add(this.pnlPrincipal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmReglasPerfil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmReglasPerfil";

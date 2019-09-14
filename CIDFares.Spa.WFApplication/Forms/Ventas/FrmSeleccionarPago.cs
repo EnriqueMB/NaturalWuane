@@ -31,12 +31,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             InitializeComponent();
             Model = model;
-            GridFormaPago.Columns["Seleccionar"].AllowEditing = true;
-            this.GridFormaPago.Style.HeaderStyle.Borders.Top = new GridBorder(GridBorderStyle.None);
-            this.GridFormaPago.Style.HeaderStyle.Borders.Left = new GridBorder(GridBorderStyle.None);
-            this.GridFormaPago.Style.HeaderStyle.Borders.Right = new GridBorder(GridBorderStyle.None);
-            this.GridFormaPago.Style.CellStyle.Borders.All = new GridBorder(GridBorderStyle.None);
-            this.EfectivoControl.Focus();
             model.GetAllAsync(); 
             IniciarBinding();
         }
@@ -55,43 +49,15 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             }
         }
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pnlPagarWithFormaPago_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_Enter(object sender, EventArgs e)
-        {
-            //if(EfectivoControl.Text == "$0")
-            //{
-            //    EfectivoControl.Text = "$ ";
-            //    EfectivoControl.ForeColor = Color.FromArgb(60, 186, 60);
-            //}
-        }
-
-        private void EfectivoControl_Leave(object sender, EventArgs e)
-        {
-            //if (EfectivoControl.Text == "$" || EfectivoControl.Text == "")
-            //{
-            //    EfectivoControl.Text = "$0";
-            //    EfectivoControl.ForeColor = Color.Silver;
-            //}
-        }
-
         private void FrmSeleccionarPago_Load(object sender, EventArgs e)
         {
-            this.EfectivoControl.Focus();
             TotalControl.Text = Model.Total.ToString("C2");
+
+            GridFormaPago.Columns["Seleccionar"].AllowEditing = true;
+            this.GridFormaPago.Style.HeaderStyle.Borders.Top = new GridBorder(GridBorderStyle.None);
+            this.GridFormaPago.Style.HeaderStyle.Borders.Left = new GridBorder(GridBorderStyle.None);
+            this.GridFormaPago.Style.HeaderStyle.Borders.Right = new GridBorder(GridBorderStyle.None);
+            this.GridFormaPago.Style.CellStyle.Borders.All = new GridBorder(GridBorderStyle.None);
         }
 
         private DataTable ObtenerDatosTabla(BindingList<FormaPago> Lista)
@@ -266,19 +232,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 throw ex;
             }
         }
-
-        private void GridFormaPago_CellCheckBoxClick(object sender, Syncfusion.WinForms.DataGrid.Events.CellCheckBoxClickEventArgs e)
-        {
-        //    BindingList<FormaPago> ListaFormaPago = (BindingList<FormaPago>)GridFormaPago.DataSource;
-
-        //    var z = Model.ListaFormaPago.Where(p => p.Seleccionar == false).Select(u => {
-        //        u.Cantidad = 0; return u;
-        //    }).ToList();
-        //    if (z.Count > 0)
-        //    {
-        //        this.GridFormaPago.Refresh();
-        //    }
-            
-        }
+        
     }
 }

@@ -26,7 +26,6 @@ namespace CIDFares.Spa.WFApplication.Forms.General
 
         private void BotonesPerfil()
         {
-            //btnCategoria.Enabled = CurrentSession.PermisoUsuario("1,2,3");
             EnabledButton(btnCategoria, CurrentSession.PermisoUsuario("1,2,3"));
             EnabledButton(btnCliente, CurrentSession.PermisoUsuario("4,5,6"));
             EnabledButton(btnFormaPago, CurrentSession.PermisoUsuario("7,8,9"));
@@ -37,7 +36,6 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             EnabledButton(btnUsuario,CurrentSession.PermisoUsuario("22,23,24"));
             EnabledButton(btnVenta,CurrentSession.PermisoUsuario("25"));
             EnabledButton(btnCompras,CurrentSession.PermisoUsuario("26"));
-
             btnConfiguracion.Visible = CurrentSession.PermisoUsuario("27");
             EnabledButton(btnPermisos,CurrentSession.PermisoUsuario("27"));
         }

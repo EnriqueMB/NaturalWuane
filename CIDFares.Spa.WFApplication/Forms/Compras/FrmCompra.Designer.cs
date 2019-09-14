@@ -29,31 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlTitulos = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.FlpBotones = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ClaveProveedor = new System.Windows.Forms.Label();
-            this.lblDireccionControl = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblTelefonoControl = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblRepresentanteControl = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Np = new System.Windows.Forms.Label();
-            this.bntnAgregarProvedor = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupProducto = new System.Windows.Forms.GroupBox();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -68,19 +57,29 @@
             this.SubtotalControl = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.sfDataGrid1 = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ClaveProveedorControl = new System.Windows.Forms.Label();
+            this.ClaveProveedor = new System.Windows.Forms.Label();
+            this.lblDireccionControl = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblTelefonoControl = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblRepresentanteControl = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Np = new System.Windows.Forms.Label();
+            this.bntnAgregarProvedor = new System.Windows.Forms.Button();
             this.panelBrnProducto = new System.Windows.Forms.Panel();
             this.FolioCompraControl = new System.Windows.Forms.Label();
             this.lblVenta = new System.Windows.Forms.Label();
             this.FechaControl = new System.Windows.Forms.Label();
             this.btnProducto = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.ClaveProveedorControl = new System.Windows.Forms.Label();
             this.pnlTitulos.SuspendLayout();
             this.FlpBotones.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupProducto.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -88,9 +87,10 @@
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.panelBrnProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTitulos
@@ -100,14 +100,14 @@
             this.pnlTitulos.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitulos.Location = new System.Drawing.Point(0, 0);
             this.pnlTitulos.Name = "pnlTitulos";
-            this.pnlTitulos.Size = new System.Drawing.Size(994, 44);
+            this.pnlTitulos.Size = new System.Drawing.Size(994, 58);
             this.pnlTitulos.TabIndex = 4;
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(12, 9);
+            this.lblTitulo.Location = new System.Drawing.Point(12, 18);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(93, 25);
             this.lblTitulo.TabIndex = 180;
@@ -120,7 +120,7 @@
             this.FlpBotones.Controls.Add(this.BtnAgregar);
             this.FlpBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.FlpBotones.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.FlpBotones.Location = new System.Drawing.Point(0, 394);
+            this.FlpBotones.Location = new System.Drawing.Point(0, 399);
             this.FlpBotones.Name = "FlpBotones";
             this.FlpBotones.Padding = new System.Windows.Forms.Padding(10, 20, 10, 0);
             this.FlpBotones.Size = new System.Drawing.Size(994, 56);
@@ -165,10 +165,189 @@
             this.panel1.Controls.Add(this.panel8);
             this.panel1.Controls.Add(this.panelBrnProducto);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 44);
+            this.panel1.Location = new System.Drawing.Point(0, 58);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(994, 350);
+            this.panel1.Size = new System.Drawing.Size(994, 341);
             this.panel1.TabIndex = 6;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.panel2);
+            this.panel8.Controls.Add(this.panel3);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(0, 37);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(994, 304);
+            this.panel8.TabIndex = 19;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.groupProducto);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(835, 304);
+            this.panel2.TabIndex = 17;
+            // 
+            // groupProducto
+            // 
+            this.groupProducto.BackColor = System.Drawing.Color.White;
+            this.groupProducto.Controls.Add(this.panel5);
+            this.groupProducto.Controls.Add(this.panel4);
+            this.groupProducto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupProducto.Location = new System.Drawing.Point(0, 0);
+            this.groupProducto.Name = "groupProducto";
+            this.groupProducto.Size = new System.Drawing.Size(835, 304);
+            this.groupProducto.TabIndex = 0;
+            this.groupProducto.TabStop = false;
+            this.groupProducto.Text = "Compra";
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.panel7);
+            this.panel5.Controls.Add(this.panel6);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(3, 238);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(829, 63);
+            this.panel5.TabIndex = 2;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.btnEliminar);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(527, 63);
+            this.panel7.TabIndex = 1;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(9, 9);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(126, 52);
+            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.label5);
+            this.panel6.Controls.Add(this.TotalControl);
+            this.panel6.Controls.Add(this.label4);
+            this.panel6.Controls.Add(this.IvaControl);
+            this.panel6.Controls.Add(this.label6);
+            this.panel6.Controls.Add(this.SubtotalControl);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel6.Location = new System.Drawing.Point(527, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(302, 63);
+            this.panel6.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(129, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(27, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "IVA:";
+            // 
+            // TotalControl
+            // 
+            this.TotalControl.AutoSize = true;
+            this.TotalControl.Location = new System.Drawing.Point(175, 48);
+            this.TotalControl.Name = "TotalControl";
+            this.TotalControl.Size = new System.Drawing.Size(31, 13);
+            this.TotalControl.TabIndex = 11;
+            this.TotalControl.Text = "$000";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(123, 48);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(34, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Total:";
+            // 
+            // IvaControl
+            // 
+            this.IvaControl.AutoSize = true;
+            this.IvaControl.Location = new System.Drawing.Point(175, 26);
+            this.IvaControl.Name = "IvaControl";
+            this.IvaControl.Size = new System.Drawing.Size(27, 13);
+            this.IvaControl.TabIndex = 10;
+            this.IvaControl.Text = "16%";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(107, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Subtotal:";
+            // 
+            // SubtotalControl
+            // 
+            this.SubtotalControl.AutoSize = true;
+            this.SubtotalControl.Location = new System.Drawing.Point(175, 3);
+            this.SubtotalControl.Name = "SubtotalControl";
+            this.SubtotalControl.Size = new System.Drawing.Size(31, 13);
+            this.SubtotalControl.TabIndex = 9;
+            this.SubtotalControl.Text = "$000";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.sfDataGrid1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(3, 16);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(829, 222);
+            this.panel4.TabIndex = 1;
+            // 
+            // sfDataGrid1
+            // 
+            this.sfDataGrid1.AccessibleName = "Table";
+            this.sfDataGrid1.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            gridTextColumn1.HeaderText = "Column1";
+            gridTextColumn1.MappingName = "IdProducto";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.HeaderText = "Nombre";
+            gridTextColumn2.MappingName = "Nombre";
+            gridTextColumn3.HeaderText = "Cantidad";
+            gridTextColumn3.MappingName = "Cantidad";
+            gridTextColumn4.Format = "C";
+            gridTextColumn4.HeaderText = "Costo";
+            gridTextColumn4.MappingName = "PrecioCosto";
+            gridTextColumn5.Format = "C";
+            gridTextColumn5.HeaderText = "Subtotal";
+            gridTextColumn5.MappingName = "Subtotal";
+            gridTextColumn6.Format = "C";
+            gridTextColumn6.HeaderText = "Iva";
+            gridTextColumn6.MappingName = "PorcentajeIva";
+            gridTextColumn7.Format = "C";
+            gridTextColumn7.HeaderText = "Total";
+            gridTextColumn7.MappingName = "Total";
+            this.sfDataGrid1.Columns.Add(gridTextColumn1);
+            this.sfDataGrid1.Columns.Add(gridTextColumn2);
+            this.sfDataGrid1.Columns.Add(gridTextColumn3);
+            this.sfDataGrid1.Columns.Add(gridTextColumn4);
+            this.sfDataGrid1.Columns.Add(gridTextColumn5);
+            this.sfDataGrid1.Columns.Add(gridTextColumn6);
+            this.sfDataGrid1.Columns.Add(gridTextColumn7);
+            this.sfDataGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sfDataGrid1.Location = new System.Drawing.Point(0, 0);
+            this.sfDataGrid1.Name = "sfDataGrid1";
+            this.sfDataGrid1.ShowRowHeaderErrorIcon = false;
+            this.sfDataGrid1.Size = new System.Drawing.Size(829, 222);
+            this.sfDataGrid1.TabIndex = 0;
+            this.sfDataGrid1.Text = "sfDataGrid1";
             // 
             // panel3
             // 
@@ -177,7 +356,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(835, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(159, 313);
+            this.panel3.Size = new System.Drawing.Size(159, 304);
             this.panel3.TabIndex = 18;
             // 
             // groupBox1
@@ -196,10 +375,19 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(159, 313);
+            this.groupBox1.Size = new System.Drawing.Size(159, 304);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos proveedor";
+            // 
+            // ClaveProveedorControl
+            // 
+            this.ClaveProveedorControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClaveProveedorControl.AutoSize = true;
+            this.ClaveProveedorControl.Location = new System.Drawing.Point(17, 59);
+            this.ClaveProveedorControl.Name = "ClaveProveedorControl";
+            this.ClaveProveedorControl.Size = new System.Drawing.Size(0, 13);
+            this.ClaveProveedorControl.TabIndex = 26;
             // 
             // ClaveProveedor
             // 
@@ -304,175 +492,6 @@
             this.bntnAgregarProvedor.UseVisualStyleBackColor = false;
             this.bntnAgregarProvedor.Click += new System.EventHandler(this.bntnAgregarProvedor_Click);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.groupProducto);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(835, 313);
-            this.panel2.TabIndex = 17;
-            // 
-            // groupProducto
-            // 
-            this.groupProducto.BackColor = System.Drawing.Color.White;
-            this.groupProducto.Controls.Add(this.panel5);
-            this.groupProducto.Controls.Add(this.panel4);
-            this.groupProducto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupProducto.Location = new System.Drawing.Point(0, 0);
-            this.groupProducto.Name = "groupProducto";
-            this.groupProducto.Size = new System.Drawing.Size(835, 313);
-            this.groupProducto.TabIndex = 0;
-            this.groupProducto.TabStop = false;
-            this.groupProducto.Text = "Compra";
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.panel7);
-            this.panel5.Controls.Add(this.panel6);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 238);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(829, 72);
-            this.panel5.TabIndex = 2;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.btnEliminar);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(527, 72);
-            this.panel7.TabIndex = 1;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(9, 9);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(126, 52);
-            this.btnEliminar.TabIndex = 2;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.label5);
-            this.panel6.Controls.Add(this.TotalControl);
-            this.panel6.Controls.Add(this.label4);
-            this.panel6.Controls.Add(this.IvaControl);
-            this.panel6.Controls.Add(this.label6);
-            this.panel6.Controls.Add(this.SubtotalControl);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(527, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(302, 72);
-            this.panel6.TabIndex = 0;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(129, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(27, 13);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "IVA:";
-            // 
-            // TotalControl
-            // 
-            this.TotalControl.AutoSize = true;
-            this.TotalControl.Location = new System.Drawing.Point(175, 48);
-            this.TotalControl.Name = "TotalControl";
-            this.TotalControl.Size = new System.Drawing.Size(31, 13);
-            this.TotalControl.TabIndex = 11;
-            this.TotalControl.Text = "$000";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(123, 48);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Total:";
-            // 
-            // IvaControl
-            // 
-            this.IvaControl.AutoSize = true;
-            this.IvaControl.Location = new System.Drawing.Point(175, 26);
-            this.IvaControl.Name = "IvaControl";
-            this.IvaControl.Size = new System.Drawing.Size(27, 13);
-            this.IvaControl.TabIndex = 10;
-            this.IvaControl.Text = "16%";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(107, 3);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Subtotal:";
-            // 
-            // SubtotalControl
-            // 
-            this.SubtotalControl.AutoSize = true;
-            this.SubtotalControl.Location = new System.Drawing.Point(175, 3);
-            this.SubtotalControl.Name = "SubtotalControl";
-            this.SubtotalControl.Size = new System.Drawing.Size(31, 13);
-            this.SubtotalControl.TabIndex = 9;
-            this.SubtotalControl.Text = "$000";
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.sfDataGrid1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(3, 16);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(829, 222);
-            this.panel4.TabIndex = 1;
-            // 
-            // sfDataGrid1
-            // 
-            this.sfDataGrid1.AccessibleName = "Table";
-            this.sfDataGrid1.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn8.HeaderText = "Column1";
-            gridTextColumn8.MappingName = "IdProducto";
-            gridTextColumn8.Visible = false;
-            gridTextColumn9.HeaderText = "Nombre";
-            gridTextColumn9.MappingName = "Nombre";
-            gridTextColumn10.HeaderText = "Cantidad";
-            gridTextColumn10.MappingName = "Cantidad";
-            gridTextColumn11.Format = "C";
-            gridTextColumn11.HeaderText = "Costo";
-            gridTextColumn11.MappingName = "PrecioCosto";
-            gridTextColumn12.Format = "C";
-            gridTextColumn12.HeaderText = "Subtotal";
-            gridTextColumn12.MappingName = "Subtotal";
-            gridTextColumn13.Format = "C";
-            gridTextColumn13.HeaderText = "Iva";
-            gridTextColumn13.MappingName = "PorcentajeIva";
-            gridTextColumn14.Format = "C";
-            gridTextColumn14.HeaderText = "Total";
-            gridTextColumn14.MappingName = "Total";
-            this.sfDataGrid1.Columns.Add(gridTextColumn8);
-            this.sfDataGrid1.Columns.Add(gridTextColumn9);
-            this.sfDataGrid1.Columns.Add(gridTextColumn10);
-            this.sfDataGrid1.Columns.Add(gridTextColumn11);
-            this.sfDataGrid1.Columns.Add(gridTextColumn12);
-            this.sfDataGrid1.Columns.Add(gridTextColumn13);
-            this.sfDataGrid1.Columns.Add(gridTextColumn14);
-            this.sfDataGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sfDataGrid1.Location = new System.Drawing.Point(0, 0);
-            this.sfDataGrid1.Name = "sfDataGrid1";
-            this.sfDataGrid1.ShowRowHeaderErrorIcon = false;
-            this.sfDataGrid1.Size = new System.Drawing.Size(829, 222);
-            this.sfDataGrid1.TabIndex = 0;
-            this.sfDataGrid1.Text = "sfDataGrid1";
-            // 
             // panelBrnProducto
             // 
             this.panelBrnProducto.BackColor = System.Drawing.Color.White;
@@ -537,33 +556,15 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.panel2);
-            this.panel8.Controls.Add(this.panel3);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(0, 37);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(994, 313);
-            this.panel8.TabIndex = 19;
-            // 
-            // ClaveProveedorControl
-            // 
-            this.ClaveProveedorControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ClaveProveedorControl.AutoSize = true;
-            this.ClaveProveedorControl.Location = new System.Drawing.Point(17, 59);
-            this.ClaveProveedorControl.Name = "ClaveProveedorControl";
-            this.ClaveProveedorControl.Size = new System.Drawing.Size(0, 13);
-            this.ClaveProveedorControl.TabIndex = 26;
-            // 
             // FrmCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(994, 450);
+            this.ClientSize = new System.Drawing.Size(994, 455);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.FlpBotones);
             this.Controls.Add(this.pnlTitulos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCompra";
             this.Text = "FrmCompra";
             this.Load += new System.EventHandler(this.FrmCompra_Load);
@@ -571,9 +572,7 @@
             this.pnlTitulos.PerformLayout();
             this.FlpBotones.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.panel8.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.groupProducto.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -582,10 +581,12 @@
             this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panelBrnProducto.ResumeLayout(false);
             this.panelBrnProducto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

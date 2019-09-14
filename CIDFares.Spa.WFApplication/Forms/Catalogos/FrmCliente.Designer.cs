@@ -110,9 +110,9 @@
             this.PanelContenedor.Controls.Add(this.panelGridDatos);
             this.PanelContenedor.Controls.Add(this.PabelBTN);
             this.PanelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelContenedor.Location = new System.Drawing.Point(0, 49);
+            this.PanelContenedor.Location = new System.Drawing.Point(0, 58);
             this.PanelContenedor.Name = "PanelContenedor";
-            this.PanelContenedor.Size = new System.Drawing.Size(1176, 578);
+            this.PanelContenedor.Size = new System.Drawing.Size(1176, 569);
             this.PanelContenedor.TabIndex = 1;
             // 
             // panelGridDatos
@@ -123,7 +123,7 @@
             this.panelGridDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGridDatos.Location = new System.Drawing.Point(0, 0);
             this.panelGridDatos.Name = "panelGridDatos";
-            this.panelGridDatos.Size = new System.Drawing.Size(1176, 531);
+            this.panelGridDatos.Size = new System.Drawing.Size(1176, 522);
             this.panelGridDatos.TabIndex = 1;
             // 
             // sfDataGridCliente
@@ -169,7 +169,7 @@
             this.sfDataGridCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridCliente.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridCliente.Name = "sfDataGridCliente";
-            this.sfDataGridCliente.Size = new System.Drawing.Size(770, 531);
+            this.sfDataGridCliente.Size = new System.Drawing.Size(770, 522);
             this.sfDataGridCliente.TabIndex = 1;
             this.sfDataGridCliente.Text = "sfDataGrid1";
             // 
@@ -179,7 +179,7 @@
             this.PanelCapturaDatos.Dock = System.Windows.Forms.DockStyle.Right;
             this.PanelCapturaDatos.Location = new System.Drawing.Point(770, 0);
             this.PanelCapturaDatos.Name = "PanelCapturaDatos";
-            this.PanelCapturaDatos.Size = new System.Drawing.Size(406, 531);
+            this.PanelCapturaDatos.Size = new System.Drawing.Size(406, 522);
             this.PanelCapturaDatos.TabIndex = 0;
             // 
             // groupBoxCliente
@@ -205,7 +205,7 @@
             this.groupBoxCliente.ForeColor = System.Drawing.Color.Black;
             this.groupBoxCliente.Location = new System.Drawing.Point(0, 0);
             this.groupBoxCliente.Name = "groupBoxCliente";
-            this.groupBoxCliente.Size = new System.Drawing.Size(406, 531);
+            this.groupBoxCliente.Size = new System.Drawing.Size(406, 522);
             this.groupBoxCliente.TabIndex = 0;
             this.groupBoxCliente.TabStop = false;
             this.groupBoxCliente.Text = "Datos de cliente";
@@ -441,7 +441,7 @@
             // 
             this.PabelBTN.Controls.Add(this.flowLayoutPanel2);
             this.PabelBTN.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PabelBTN.Location = new System.Drawing.Point(0, 531);
+            this.PabelBTN.Location = new System.Drawing.Point(0, 522);
             this.PabelBTN.Name = "PabelBTN";
             this.PabelBTN.Size = new System.Drawing.Size(1176, 47);
             this.PabelBTN.TabIndex = 0;
@@ -520,7 +520,7 @@
             this.PanelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelTitulo.Location = new System.Drawing.Point(0, 0);
             this.PanelTitulo.Name = "PanelTitulo";
-            this.PanelTitulo.Size = new System.Drawing.Size(1176, 49);
+            this.PanelTitulo.Size = new System.Drawing.Size(1176, 58);
             this.PanelTitulo.TabIndex = 0;
             // 
             // panel1
@@ -531,7 +531,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(386, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(790, 49);
+            this.panel1.Size = new System.Drawing.Size(790, 58);
             this.panel1.TabIndex = 2;
             // 
             // BtnBusqueda
@@ -553,7 +553,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(24, 13);
+            this.label9.Location = new System.Drawing.Point(24, 19);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(135, 20);
             this.label9.TabIndex = 5;
@@ -561,7 +561,7 @@
             // 
             // BusquedaControl
             // 
-            this.BusquedaControl.Location = new System.Drawing.Point(162, 15);
+            this.BusquedaControl.Location = new System.Drawing.Point(162, 20);
             this.BusquedaControl.MaxLength = 200;
             this.BusquedaControl.Name = "BusquedaControl";
             this.BusquedaControl.Size = new System.Drawing.Size(355, 20);
@@ -573,7 +573,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(22, 13);
+            this.label3.Location = new System.Drawing.Point(22, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 22);
             this.label3.TabIndex = 1;
@@ -590,6 +590,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1176, 627);
             this.Controls.Add(this.PanelPrincipal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCliente";
