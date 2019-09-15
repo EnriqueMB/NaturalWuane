@@ -69,7 +69,7 @@
             this.pnlTitulos.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitulos.Location = new System.Drawing.Point(0, 0);
             this.pnlTitulos.Name = "pnlTitulos";
-            this.pnlTitulos.Size = new System.Drawing.Size(1048, 70);
+            this.pnlTitulos.Size = new System.Drawing.Size(1048, 58);
             this.pnlTitulos.TabIndex = 2;
             // 
             // btnLimpiarBusqueda
@@ -81,7 +81,7 @@
             this.btnLimpiarBusqueda.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarBusqueda.ForeColor = System.Drawing.Color.White;
             this.btnLimpiarBusqueda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLimpiarBusqueda.Location = new System.Drawing.Point(856, 23);
+            this.btnLimpiarBusqueda.Location = new System.Drawing.Point(856, 16);
             this.btnLimpiarBusqueda.Name = "btnLimpiarBusqueda";
             this.btnLimpiarBusqueda.Size = new System.Drawing.Size(130, 28);
             this.btnLimpiarBusqueda.TabIndex = 183;
@@ -93,7 +93,7 @@
             // 
             this.BusquedaControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BusquedaControl.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BusquedaControl.Location = new System.Drawing.Point(334, 32);
+            this.BusquedaControl.Location = new System.Drawing.Point(329, 20);
             this.BusquedaControl.Name = "BusquedaControl";
             this.BusquedaControl.Size = new System.Drawing.Size(355, 19);
             this.BusquedaControl.TabIndex = 182;
@@ -107,7 +107,7 @@
             this.btnBusqueda.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBusqueda.ForeColor = System.Drawing.Color.White;
             this.btnBusqueda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBusqueda.Location = new System.Drawing.Point(706, 23);
+            this.btnBusqueda.Location = new System.Drawing.Point(704, 16);
             this.btnBusqueda.Name = "btnBusqueda";
             this.btnBusqueda.Size = new System.Drawing.Size(130, 28);
             this.btnBusqueda.TabIndex = 181;
@@ -119,7 +119,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(12, 9);
+            this.lblTitulo.Location = new System.Drawing.Point(12, 16);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(114, 25);
             this.lblTitulo.TabIndex = 180;
@@ -193,9 +193,9 @@
             // 
             this.pnlContainer.Controls.Add(this.dataGridMain1);
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContainer.Location = new System.Drawing.Point(0, 70);
+            this.pnlContainer.Location = new System.Drawing.Point(0, 58);
             this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(1048, 458);
+            this.pnlContainer.Size = new System.Drawing.Size(1048, 470);
             this.pnlContainer.TabIndex = 4;
             // 
             // dataGridMain1
@@ -274,7 +274,7 @@
             this.dataGridMain1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridMain1.Location = new System.Drawing.Point(0, 0);
             this.dataGridMain1.Name = "dataGridMain1";
-            this.dataGridMain1.Size = new System.Drawing.Size(1048, 458);
+            this.dataGridMain1.Size = new System.Drawing.Size(1048, 470);
             this.dataGridMain1.TabIndex = 0;
             this.dataGridMain1.Text = "sfDataGrid1";
             // 
@@ -286,6 +286,7 @@
             this.Controls.Add(this.pnlContainer);
             this.Controls.Add(this.FlpBotones);
             this.Controls.Add(this.pnlTitulos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmProductoGrid";
             this.Text = "FrmProductoGrid";
             this.Shown += new System.EventHandler(this.FrmProductoGrid_Shown);

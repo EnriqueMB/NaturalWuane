@@ -157,6 +157,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                Model.State = EntityState.Create;
                 groupBoxCliente.Enabled = true;
                 ClaveControl.Visible = false;
                 LimpiarPropiedades();
@@ -304,9 +305,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                this.groupBoxCliente.Enabled = false;
-                this.LimpiarPropiedades();
-                this.CleanErrors(errorProvider1, typeof(ClienteViewModel));
+                if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmCancelInput) == DialogResult.OK)
+                {
+                    this.groupBoxCliente.Enabled = false;
+                    this.LimpiarPropiedades();
+                    this.CleanErrors(errorProvider1, typeof(ClienteViewModel));
+                }
             }
             catch (Exception ex)
             {
@@ -348,5 +352,52 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
         #endregion
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               var item = ObtenerSeleccionado();
+               if (item != null)
+                {
+                    if (!Convert.ToBoolean(item.TieneTarjeta))
+                    {
+                        FrmClaveTarjeta frmClaveTarjeta = new FrmClaveTarjeta();
+                        frmClaveTarjeta.ShowDialog();
+                        if (frmClaveTarjeta.DialogResult == DialogResult.OK)
+                        {
+                            Model.IdCliente = item.IdCliente;
+                            var resul = await Model.SetMonedero(CurrentSession.IdCuentaUsuario, frmClaveTarjeta.ClaveTarjeta, 1);
+                            if (resul == 1)
+                                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                            else
+                                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+                        }
+                    }
+                    else
+                    {
+                        if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, "EL cliente ya cuenta con una tarjeta. ¿Desea Cambiarla?") == DialogResult.OK)
+                        {
+                            FrmClaveTarjeta frmClaveTarjeta = new FrmClaveTarjeta();
+                            frmClaveTarjeta.ShowDialog();
+                            if (frmClaveTarjeta.DialogResult == DialogResult.OK)
+                            {
+                                Model.IdCliente = item.IdCliente;
+                                var resul = await Model.SetMonedero(CurrentSession.IdCuentaUsuario, frmClaveTarjeta.ClaveTarjeta, 2);
+                                if (resul == 1)
+                                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                                else
+                                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+                            }
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -40,6 +40,22 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             this.BuquedaClaveCodigoControl.Focus();
         }
 
+        public FrmBusquedaProducto(int cant)
+        {
+            InitializeComponent();
+            Model = ServiceLocator.Instance.Resolve<BusquedaProductoViewModel>();
+            producto = new BusqueProducto();
+            IniciarBinding();
+            BusClaveBarraControl.CheckedChanged -= BusClaveBarraControl_CheckedChanged;
+            BusClaveBarraControl.Checked = false;
+            BusClaveBarraControl.CheckedChanged += BusClaveBarraControl_CheckedChanged;
+            this.Model.BuscaClaveCodigo = true;
+            this.ActiveControl = this.BuquedaClaveCodigoControl;
+            this.BuquedaClaveCodigoControl.Focus();
+            CantidadProductoControl.Visible = false;
+            Model.CantidadProducto = cant;
+        }
+
         #region Metodo
 
         private void IniciarBinding()

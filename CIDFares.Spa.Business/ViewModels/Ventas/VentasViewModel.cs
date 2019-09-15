@@ -19,12 +19,16 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         #region Propiedades privadas
         private IFormaPagoRepository RepositoryFormaPago { get; set; }
         private IVentaRepository Repository { get; set; }
+        private IServicioRepository ServicioRepository { get; set; }
+        public IBusqProductoRepository BusqProductoRepository { get; set; }
         #endregion
 
         #region Propiedades públicas
         public ClienteViewModel ModelCliente{ get; set; }
         public BindingList<Venta> Listaventa { get; set; }
         public BindingList<FormaPago> ListaFormaPago { get; set; }
+        public BindingList<BusqueProducto> ListaBusquedaProducto { get; set; }
+        public BindingList<Servicio> ListaServicio { get; set; }
         public DataTable TablaFormaPago { get; set; }
         public DataTable TablaProducto { get; set; }
         public DataTable TablaServicio { get; set; }
@@ -32,13 +36,20 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         #endregion
 
         #region Constructor
-        public VentasViewModel(IFormaPagoRepository formaPagoRepository, IVentaRepository ventaRepository)
+        public VentasViewModel(IFormaPagoRepository formaPagoRepository, IVentaRepository ventaRepository, IBusqProductoRepository busqProductoRepository, IServicioRepository servicioRepository)
         {
+            ServicioRepository = servicioRepository;
             Repository = ventaRepository;
             RepositoryFormaPago = formaPagoRepository;
+            BusqProductoRepository = busqProductoRepository;
             ModelCliente = ServiceLocator.Instance.Resolve<ClienteViewModel>();
             Listaventa = new BindingList<Venta>();
             ListaFormaPago = new BindingList<FormaPago>();
+            ListaBusquedaProducto = new BindingList<BusqueProducto>();
+            ListaServicio = new BindingList<Servicio>();
+            this.FechaVenta = DateTime.Now;
+            this.IdSucursal = 1;
+            //this.Folio = string.Empty;
             GetAllAsync();
             GetFolio();
         }
@@ -80,11 +91,61 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 throw ex;
             }
         }
+
+        public async Task GetBusquedaRapida(int TipoBusqueda, string Busqueda)
+        {
+            try
+            {
+                if(TipoBusqueda == 1)
+                {
+                    var x = await BusqProductoRepository.GetBusquedaProductoAsync(false, Busqueda, true, Busqueda);
+                    ListaBusquedaProducto.Clear();
+                    foreach (var item in x)
+                    {
+                        ListaBusquedaProducto.Add(item);
+                    }
+                }
+                else if(TipoBusqueda == 2)
+                {
+                    var x = await ServicioRepository.GetBusqServicioAsync(false, Busqueda, true, Busqueda);
+                    ListaServicio.Clear();
+                    foreach (var item in x)
+                    {
+                        ListaServicio.Add(item);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<int> CheckCantidadProducto(int IdProducto, int Cantidad)
+        {
+            try
+            {
+                return await Repository.CheckCantidadProducto(IdProducto, Cantidad);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task GetVentaFechaDiaIdSucursal()
+        {
+           var x = await Repository.GetVentaDiasSucursalActiva(this.FechaVenta, this.IdSucursal, this.Folio);
+            Listaventa.Clear();
+            foreach (var item in x)
+            {
+                Listaventa.Add(item);
+            }
+        }
         #endregion
 
         #region Binding
         private decimal _Total;
-
         public decimal Total
         {
             get { return _Total; }
@@ -96,7 +157,6 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         }
 
         private decimal _SubTotal;
-
         public decimal SubTotal
         {
             get { return _SubTotal; }
@@ -108,7 +168,6 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         }
 
         private decimal _Iva;
-
         public decimal Iva
         {
             get { return _Iva; }
@@ -120,7 +179,6 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         }
 
         private decimal _Efectivo;
-
         public decimal Efectivo
         {
             get { return _Efectivo; }
@@ -132,7 +190,6 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         }
 
         private Guid _IdCliente;
-
         public Guid IdCliente
         {
             get { return _IdCliente; }
@@ -144,7 +201,6 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         }
 
         private string  _Folio;
-
         public string Folio
         {
             get { return _Folio; }
@@ -156,7 +212,6 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         }
         
         private string _FolioCliente;
-
         public string FolioCliente
         {
             get { return _FolioCliente; }
@@ -166,6 +221,41 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 OnPropertyChanged(nameof(FolioCliente));
             }
         }
+
+        private int _IdTurno;
+        public int IdTurno
+        {
+            get { return _IdTurno; }
+            set
+            {
+                _IdTurno = value;
+                OnPropertyChanged(nameof(IdTurno));
+            }
+        }
+
+        private DateTime _FechaVenta;
+        public DateTime FechaVenta
+        {
+            get { return _FechaVenta; }
+            set
+            {
+                _FechaVenta = value;
+                OnPropertyChanged(nameof(FechaVenta));
+            }
+        }
+
+        private int _IdSucursal;
+
+        public int IdSucursal
+        {
+            get { return _IdSucursal; }
+            set
+            {
+                _IdSucursal = value;
+                OnPropertyChanged(nameof(IdSucursal));
+            }
+        }
+
 
         #endregion
 
@@ -189,7 +279,8 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 PorcentajeIva = this.Iva,
                 TablaProducto = TablaProducto,
                 TablaFormaPago = TablaFormaPago,
-                TablaServicio = TablaServicio
+                TablaServicio = TablaServicio,
+                IdTurno = this.IdTurno
             };
             return await Repository.AddWithIdSucursalAsync(model, idCuentaUsuario, IdSucursal);
         }

@@ -17,7 +17,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
     public class ServicioRepository : Repository, IServicioRepository
     {
         #region Interfaces Implementadas
-
         public async Task<IEnumerable<Servicio>> GetBusqServicioAsync(bool BitNombre, string BusqNombre, bool BitClaveCodigo, string BusqClaveCodigo)
         {
             try
@@ -59,10 +58,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
-
-        #endregion        
-          
-        public async Task<Servicio> AddAsync(Servicio element, object IdUsuario)
+        public async Task<int> NameExistAsync(string name)
         {
             try
             {
@@ -70,11 +66,30 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 {
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
-                    dynamicParameters.Add("@Opcion", 1);
+                    dynamicParameters.Add("@Opcion", 8);
+                    dynamicParameters.Add("@Nombre", name.Trim());
+                    var dr = await conexion.ExecuteScalarAsync<int>("[General].[SPCID_ValidarNombre]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return dr;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task<Servicio> UpdateAsync(Servicio element, object IdUsuario)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@Opcion", 2);
                     dynamicParameters.Add("@idServicio", element.IdServicio);
                     dynamicParameters.Add("@idTipoServicio", element.IdTipoServicio);
                     dynamicParameters.Add("@idTipoIva", element.IdTipoIva);
-                    dynamicParameters.Add("@clave", element.Clave);                    
+                    dynamicParameters.Add("@clave", element.Clave);
                     dynamicParameters.Add("@nombre", element.Nombre);
                     dynamicParameters.Add("@desc", element.Descripcion);
                     dynamicParameters.Add("@precio", element.Precio);
@@ -87,6 +102,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@UpdateFoto", element.UpdateFoto);
                     dynamicParameters.Add("@fotob64", element.FotoBase64);
                     dynamicParameters.Add("@urlFoto", element.UrlFoto);
+                    dynamicParameters.Add("@PorcentajeP", element.PorcentajePaquete);
                     var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_AC_Servicio]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;
@@ -96,8 +112,43 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             {
                 throw ex;
             }
-        }        
-
+        }
+        public async Task<Servicio> AddAsync(Servicio element, object IdUsuario)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@Opcion", 1);
+                    dynamicParameters.Add("@idServicio", element.IdServicio);
+                    dynamicParameters.Add("@idTipoServicio", element.IdTipoServicio);
+                    dynamicParameters.Add("@idTipoIva", element.IdTipoIva);
+                    dynamicParameters.Add("@clave", element.Clave);
+                    dynamicParameters.Add("@nombre", element.Nombre);
+                    dynamicParameters.Add("@desc", element.Descripcion);
+                    dynamicParameters.Add("@precio", element.Precio);
+                    dynamicParameters.Add("@duracion", element.Duracion);
+                    dynamicParameters.Add("@aplicaIva", element.AplicaIva);
+                    dynamicParameters.Add("@aplicaIEPS", element.AplicaIEPS);
+                    dynamicParameters.Add("@iEPSMonto", element.IEPSMonto);
+                    dynamicParameters.Add("@iEPS", element.IEPS);
+                    dynamicParameters.Add("@user", IdUsuario);
+                    dynamicParameters.Add("@UpdateFoto", element.UpdateFoto);
+                    dynamicParameters.Add("@fotob64", element.FotoBase64);
+                    dynamicParameters.Add("@urlFoto", element.UrlFoto);
+                    dynamicParameters.Add("@PorcentajeP", element.PorcentajePaquete);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_AC_Servicio]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    element.Resultado = result;
+                    return element;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public async Task<int> DeleteAsync(object idServicio, object IdUsuario)
         {
             try
@@ -116,13 +167,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             {
                 throw ex;
             }
-        }        
-
-        public Task<bool> ExistAsync(object id)
-        {
-            throw new NotImplementedException();
         }
-
         public async Task<string> ObtenerFoto(int IdServicio)
         {
             try
@@ -140,16 +185,15 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             {
                 throw ex;
             }
-            
-        }
 
+        }
         public async Task<IEnumerable<Servicio>> GetAllAsync()
         {
             try
             {
                 using (IDbConnection conexion = new SqlConnection(WebConnectionString))
                 {
-                    conexion.Open();                    
+                    conexion.Open();
                     List<Servicio> Lista = new List<Servicio>();
                     Servicio Item;
                     var dr = await conexion.ExecuteReaderAsync("[Catalogo].[SPCID_Get_Servicio]", commandType: CommandType.StoredProcedure);
@@ -175,8 +219,9 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         Item.AplicaIEPS = dr.GetBoolean(dr.GetOrdinal("AplicaIEPS"));
                         Item.IEPSMonto = dr.GetBoolean(dr.GetOrdinal("IEPSMonto"));
                         Item.IEPS = dr.GetDecimal(dr.GetOrdinal("IEPS"));
-                        Item.FotoBase64 = dr.GetString(dr.GetOrdinal("FotoBase64"));
-                        Item.UrlFoto = dr.GetString(dr.GetOrdinal("UrlLocalImagen"));
+                        //Item.FotoBase64 = dr.GetString(dr.GetOrdinal("FotoBase64"));
+                       // Item.UrlFoto = dr.GetString(dr.GetOrdinal("UrlLocalImagen"));
+                        Item.PorcentajePaquete = dr.GetDecimal(dr.GetOrdinal("PorcentajeP"));
                         Lista.Add(Item);
                     }
                     dr.Close();
@@ -189,6 +234,47 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
             //[Catalogo].[SPCID_Get_Servicio]
         }
+        public async Task<bool> ExistAsync(object id)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@Opcion", 8);
+                    dynamicParameters.Add("@Nombre", id);
+                    var dr = await conexion.ExecuteScalarAsync<bool>("[General].[SPCID_ValidarNombre]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return dr;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<int> ExisteClave(object Clave)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@Opcion", 14);
+                    dynamicParameters.Add("@Nombre", Clave);
+                    var dr = await conexion.ExecuteScalarAsync<int>("[General].[SPCID_ValidarNombre]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return dr;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        #endregion
 
         public Task<Servicio> GetAsync(object id)
         {
@@ -215,60 +301,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         //    }
         //}
 
-        public async Task<int> NameExistAsync(string name)
-        {
-            try
-            {
-                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
-                {
-                    conexion.Open();
-                    var dynamicParameters = new DynamicParameters();
-                    dynamicParameters.Add("@Opcion", 8);
-                    dynamicParameters.Add("@Nombre", name.Trim());
-                    var dr = await conexion.ExecuteScalarAsync<int>("[General].[SPCID_ValidarNombre]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                    return dr;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public async Task<Servicio> UpdateAsync(Servicio element, object IdUsuario)
-        {
-            try
-            {
-                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
-                {
-                    conexion.Open();
-                    var dynamicParameters = new DynamicParameters();
-                    dynamicParameters.Add("@Opcion", 2);
-                    dynamicParameters.Add("@idServicio", element.IdServicio);
-                    dynamicParameters.Add("@idTipoServicio", element.IdTipoServicio);
-                    dynamicParameters.Add("@idTipoIva", element.IdTipoIva);
-                    dynamicParameters.Add("@clave", element.Clave);
-                    dynamicParameters.Add("@nombre", element.Nombre);
-                    dynamicParameters.Add("@desc", element.Descripcion);
-                    dynamicParameters.Add("@precio", element.Precio);
-                    dynamicParameters.Add("@duracion", element.Duracion);
-                    dynamicParameters.Add("@aplicaIva", element.AplicaIva);
-                    dynamicParameters.Add("@aplicaIEPS", element.AplicaIEPS);
-                    dynamicParameters.Add("@iEPSMonto", element.IEPSMonto);
-                    dynamicParameters.Add("@iEPS", element.IEPS);
-                    dynamicParameters.Add("@user", IdUsuario);
-                    dynamicParameters.Add("@UpdateFoto", element.UpdateFoto);
-                    dynamicParameters.Add("@fotob64", element.FotoBase64);
-                    dynamicParameters.Add("@urlFoto", element.UrlFoto);
-                    var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_AC_Servicio]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                    element.Resultado = result;
-                    return element;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        
     }
 }

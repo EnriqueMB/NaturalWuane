@@ -42,6 +42,15 @@
             this.pnlGeneral = new System.Windows.Forms.Panel();
             this.pnlAcciones = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BtnBusqueda = new System.Windows.Forms.Button();
+            this.BusquedaControl = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.rbtPaquete = new System.Windows.Forms.RadioButton();
+            this.rbtServicio = new System.Windows.Forms.RadioButton();
+            this.rbtProducto = new System.Windows.Forms.RadioButton();
             this.PnlVentas = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pnlGrid = new System.Windows.Forms.Panel();
@@ -77,11 +86,13 @@
             this.btnPaquetes = new System.Windows.Forms.Button();
             this.btnServicio = new System.Windows.Forms.Button();
             this.btnProducto = new System.Windows.Forms.Button();
-            this.PnlVentaGrid = new System.Windows.Forms.Panel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.PnlVentaGrid = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnlGeneral.SuspendLayout();
             this.pnlAcciones.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.PnlVentas.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.pnlGrid.SuspendLayout();
@@ -98,6 +109,7 @@
             this.pnlBotonCobrar.SuspendLayout();
             this.pnlBotonesGenerales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTotal
@@ -118,12 +130,13 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(1, 45);
+            this.btnEliminar.Location = new System.Drawing.Point(3, 22);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(126, 52);
+            this.btnEliminar.Size = new System.Drawing.Size(158, 52);
             this.btnEliminar.TabIndex = 1;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -141,7 +154,7 @@
             this.pnlGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGeneral.Location = new System.Drawing.Point(0, 0);
             this.pnlGeneral.Name = "pnlGeneral";
-            this.pnlGeneral.Size = new System.Drawing.Size(1012, 544);
+            this.pnlGeneral.Size = new System.Drawing.Size(1110, 579);
             this.pnlGeneral.TabIndex = 1;
             // 
             // pnlAcciones
@@ -149,22 +162,124 @@
             this.pnlAcciones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlAcciones.Controls.Add(this.groupBox2);
-            this.pnlAcciones.Location = new System.Drawing.Point(880, 119);
+            this.pnlAcciones.Location = new System.Drawing.Point(943, 119);
             this.pnlAcciones.Name = "pnlAcciones";
-            this.pnlAcciones.Size = new System.Drawing.Size(129, 367);
+            this.pnlAcciones.Size = new System.Drawing.Size(164, 402);
             this.pnlAcciones.TabIndex = 7;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.panel1);
+            this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.btnEliminar);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(129, 367);
+            this.groupBox2.Size = new System.Drawing.Size(164, 402);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 90);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 20);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Cantidad";
+            // 
+            // txtCantidad
+            // 
+            this.txtCantidad.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtCantidad.Location = new System.Drawing.Point(7, 113);
+            this.txtCantidad.MaxLength = 200;
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(138, 26);
+            this.txtCantidad.TabIndex = 16;
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(134, 20);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Clave / C. Barras";
+            // 
+            // BtnBusqueda
+            // 
+            this.BtnBusqueda.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.BtnBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BtnBusqueda.FlatAppearance.BorderSize = 0;
+            this.BtnBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBusqueda.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBusqueda.Location = new System.Drawing.Point(38, 159);
+            this.BtnBusqueda.Name = "BtnBusqueda";
+            this.BtnBusqueda.Size = new System.Drawing.Size(89, 26);
+            this.BtnBusqueda.TabIndex = 14;
+            this.BtnBusqueda.Text = "Buscar";
+            this.BtnBusqueda.UseVisualStyleBackColor = false;
+            this.BtnBusqueda.Click += new System.EventHandler(this.BtnBusqueda_Click);
+            // 
+            // BusquedaControl
+            // 
+            this.BusquedaControl.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.BusquedaControl.Location = new System.Drawing.Point(6, 52);
+            this.BusquedaControl.MaxLength = 200;
+            this.BusquedaControl.Name = "BusquedaControl";
+            this.BusquedaControl.Size = new System.Drawing.Size(138, 26);
+            this.BusquedaControl.TabIndex = 9;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.rbtPaquete);
+            this.groupBox4.Controls.Add(this.rbtServicio);
+            this.groupBox4.Controls.Add(this.rbtProducto);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox4.Location = new System.Drawing.Point(3, 74);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(158, 118);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Tipo Busqueda";
+            // 
+            // rbtPaquete
+            // 
+            this.rbtPaquete.AutoSize = true;
+            this.rbtPaquete.Location = new System.Drawing.Point(7, 86);
+            this.rbtPaquete.Name = "rbtPaquete";
+            this.rbtPaquete.Size = new System.Drawing.Size(90, 24);
+            this.rbtPaquete.TabIndex = 2;
+            this.rbtPaquete.TabStop = true;
+            this.rbtPaquete.Text = "Paquete";
+            this.rbtPaquete.UseVisualStyleBackColor = true;
+            // 
+            // rbtServicio
+            // 
+            this.rbtServicio.AutoSize = true;
+            this.rbtServicio.Location = new System.Drawing.Point(6, 56);
+            this.rbtServicio.Name = "rbtServicio";
+            this.rbtServicio.Size = new System.Drawing.Size(85, 24);
+            this.rbtServicio.TabIndex = 1;
+            this.rbtServicio.TabStop = true;
+            this.rbtServicio.Text = "Servicio";
+            this.rbtServicio.UseVisualStyleBackColor = true;
+            // 
+            // rbtProducto
+            // 
+            this.rbtProducto.AutoSize = true;
+            this.rbtProducto.Location = new System.Drawing.Point(7, 26);
+            this.rbtProducto.Name = "rbtProducto";
+            this.rbtProducto.Size = new System.Drawing.Size(95, 24);
+            this.rbtProducto.TabIndex = 0;
+            this.rbtProducto.TabStop = true;
+            this.rbtProducto.Text = "Producto";
+            this.rbtProducto.UseVisualStyleBackColor = true;
             // 
             // PnlVentas
             // 
@@ -174,7 +289,7 @@
             this.PnlVentas.Controls.Add(this.groupBox3);
             this.PnlVentas.Location = new System.Drawing.Point(226, 119);
             this.PnlVentas.Name = "PnlVentas";
-            this.PnlVentas.Size = new System.Drawing.Size(651, 367);
+            this.PnlVentas.Size = new System.Drawing.Size(717, 402);
             this.PnlVentas.TabIndex = 6;
             // 
             // groupBox3
@@ -186,7 +301,7 @@
             this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(651, 367);
+            this.groupBox3.Size = new System.Drawing.Size(717, 402);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Ventas";
@@ -199,7 +314,7 @@
             this.pnlGrid.Controls.Add(this.sfDataGridVenta);
             this.pnlGrid.Location = new System.Drawing.Point(3, 61);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(645, 224);
+            this.pnlGrid.Size = new System.Drawing.Size(711, 259);
             this.pnlGrid.TabIndex = 3;
             // 
             // sfDataGridVenta
@@ -248,7 +363,7 @@
             this.sfDataGridVenta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridVenta.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridVenta.Name = "sfDataGridVenta";
-            this.sfDataGridVenta.Size = new System.Drawing.Size(645, 224);
+            this.sfDataGridVenta.Size = new System.Drawing.Size(711, 259);
             this.sfDataGridVenta.Style.CellStyle.Font.Facename = "Century Gothic";
             this.sfDataGridVenta.Style.CellStyle.Font.Size = 11F;
             this.sfDataGridVenta.Style.HeaderStyle.Font.Facename = "Century Gothic";
@@ -260,9 +375,9 @@
             // 
             this.pnlTotalesGeneral.Controls.Add(this.pnlTotales);
             this.pnlTotalesGeneral.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlTotalesGeneral.Location = new System.Drawing.Point(3, 282);
+            this.pnlTotalesGeneral.Location = new System.Drawing.Point(3, 317);
             this.pnlTotalesGeneral.Name = "pnlTotalesGeneral";
-            this.pnlTotalesGeneral.Size = new System.Drawing.Size(645, 82);
+            this.pnlTotalesGeneral.Size = new System.Drawing.Size(711, 82);
             this.pnlTotalesGeneral.TabIndex = 2;
             // 
             // pnlTotales
@@ -274,7 +389,7 @@
             this.pnlTotales.Controls.Add(this.label6);
             this.pnlTotales.Controls.Add(this.SubtotalControl);
             this.pnlTotales.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlTotales.Location = new System.Drawing.Point(446, 0);
+            this.pnlTotales.Location = new System.Drawing.Point(512, 0);
             this.pnlTotales.Name = "pnlTotales";
             this.pnlTotales.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.pnlTotales.Size = new System.Drawing.Size(199, 82);
@@ -342,14 +457,14 @@
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(3, 22);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(645, 39);
+            this.pnlHeader.Size = new System.Drawing.Size(711, 39);
             this.pnlHeader.TabIndex = 1;
             // 
             // pnlFecha
             // 
             this.pnlFecha.Controls.Add(this.FechaControl);
             this.pnlFecha.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlFecha.Location = new System.Drawing.Point(445, 0);
+            this.pnlFecha.Location = new System.Drawing.Point(511, 0);
             this.pnlFecha.Name = "pnlFecha";
             this.pnlFecha.Size = new System.Drawing.Size(200, 39);
             this.pnlFecha.TabIndex = 4;
@@ -391,7 +506,7 @@
             this.pnlCliente.Controls.Add(this.groupBox1);
             this.pnlCliente.Location = new System.Drawing.Point(3, 119);
             this.pnlCliente.Name = "pnlCliente";
-            this.pnlCliente.Size = new System.Drawing.Size(217, 367);
+            this.pnlCliente.Size = new System.Drawing.Size(217, 402);
             this.pnlCliente.TabIndex = 5;
             // 
             // groupBox1
@@ -406,7 +521,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(217, 367);
+            this.groupBox1.Size = new System.Drawing.Size(217, 402);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del cliente";
@@ -468,9 +583,9 @@
             this.pnlFooter.Controls.Add(this.pnlFooterLeft);
             this.pnlFooter.Controls.Add(this.pnlFooterRight);
             this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFooter.Location = new System.Drawing.Point(0, 483);
+            this.pnlFooter.Location = new System.Drawing.Point(0, 518);
             this.pnlFooter.Name = "pnlFooter";
-            this.pnlFooter.Size = new System.Drawing.Size(1012, 61);
+            this.pnlFooter.Size = new System.Drawing.Size(1110, 61);
             this.pnlFooter.TabIndex = 4;
             // 
             // pnlFooterLeft
@@ -479,14 +594,14 @@
             this.pnlFooterLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlFooterLeft.Location = new System.Drawing.Point(0, 0);
             this.pnlFooterLeft.Name = "pnlFooterLeft";
-            this.pnlFooterLeft.Size = new System.Drawing.Size(851, 61);
+            this.pnlFooterLeft.Size = new System.Drawing.Size(949, 61);
             this.pnlFooterLeft.TabIndex = 2;
             // 
             // pnlBotonCobrar
             // 
             this.pnlBotonCobrar.Controls.Add(this.btnTotal);
             this.pnlBotonCobrar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlBotonCobrar.Location = new System.Drawing.Point(663, 0);
+            this.pnlBotonCobrar.Location = new System.Drawing.Point(761, 0);
             this.pnlBotonCobrar.Name = "pnlBotonCobrar";
             this.pnlBotonCobrar.Size = new System.Drawing.Size(188, 61);
             this.pnlBotonCobrar.TabIndex = 1;
@@ -494,7 +609,7 @@
             // pnlFooterRight
             // 
             this.pnlFooterRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlFooterRight.Location = new System.Drawing.Point(851, 0);
+            this.pnlFooterRight.Location = new System.Drawing.Point(949, 0);
             this.pnlFooterRight.Name = "pnlFooterRight";
             this.pnlFooterRight.Size = new System.Drawing.Size(161, 61);
             this.pnlFooterRight.TabIndex = 1;
@@ -507,9 +622,9 @@
             this.pnlBotonesGenerales.Controls.Add(this.btnServicio);
             this.pnlBotonesGenerales.Controls.Add(this.btnProducto);
             this.pnlBotonesGenerales.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlBotonesGenerales.Location = new System.Drawing.Point(0, 52);
+            this.pnlBotonesGenerales.Location = new System.Drawing.Point(0, 58);
             this.pnlBotonesGenerales.Name = "pnlBotonesGenerales";
-            this.pnlBotonesGenerales.Size = new System.Drawing.Size(1012, 64);
+            this.pnlBotonesGenerales.Size = new System.Drawing.Size(1110, 64);
             this.pnlBotonesGenerales.TabIndex = 2;
             // 
             // btnCliente
@@ -575,25 +690,39 @@
             this.btnProducto.UseVisualStyleBackColor = true;
             this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // PnlVentaGrid
             // 
             this.PnlVentaGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
             this.PnlVentaGrid.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnlVentaGrid.Location = new System.Drawing.Point(0, 0);
             this.PnlVentaGrid.Name = "PnlVentaGrid";
-            this.PnlVentaGrid.Size = new System.Drawing.Size(1012, 52);
+            this.PnlVentaGrid.Size = new System.Drawing.Size(1110, 58);
             this.PnlVentaGrid.TabIndex = 0;
             // 
-            // errorProvider1
+            // panel1
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.BusquedaControl);
+            this.panel1.Controls.Add(this.txtCantidad);
+            this.panel1.Controls.Add(this.BtnBusqueda);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 192);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(158, 207);
+            this.panel1.TabIndex = 18;
             // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1012, 544);
+            this.ClientSize = new System.Drawing.Size(1110, 579);
             this.Controls.Add(this.pnlGeneral);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
@@ -601,6 +730,8 @@
             this.pnlGeneral.ResumeLayout(false);
             this.pnlAcciones.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.PnlVentas.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
@@ -621,13 +752,14 @@
             this.pnlBotonCobrar.ResumeLayout(false);
             this.pnlBotonesGenerales.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Panel pnlGeneral;
-        private System.Windows.Forms.Panel PnlVentaGrid;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnTotal;
         private System.Windows.Forms.Panel pnlBotonesGenerales;
@@ -668,5 +800,16 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Panel pnlFecha;
         private System.Windows.Forms.Label FechaControl;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.RadioButton rbtPaquete;
+        private System.Windows.Forms.RadioButton rbtServicio;
+        private System.Windows.Forms.RadioButton rbtProducto;
+        private System.Windows.Forms.Button BtnBusqueda;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtCantidad;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox BusquedaControl;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel PnlVentaGrid;
     }
 }

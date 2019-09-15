@@ -43,6 +43,9 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panelGrid = new System.Windows.Forms.Panel();
+            this.DataGridUsuario = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            this.panelDatos = new System.Windows.Forms.Panel();
             this.groupUsuario = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -64,14 +67,14 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.DataGridUsuario = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.errorProviderUsuario = new System.Windows.Forms.ErrorProvider(this.components);
-            this.panelDatos = new System.Windows.Forms.Panel();
-            this.panelGrid = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panelGrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridUsuario)).BeginInit();
+            this.panelDatos.SuspendLayout();
             this.groupUsuario.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -80,10 +83,7 @@
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderUsuario)).BeginInit();
-            this.panelDatos.SuspendLayout();
-            this.panelGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -92,14 +92,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1017, 62);
+            this.panel1.Size = new System.Drawing.Size(1017, 58);
             this.panel1.TabIndex = 0;
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 14.25F);
-            this.lblUsuario.Location = new System.Drawing.Point(12, 23);
+            this.lblUsuario.Location = new System.Drawing.Point(12, 18);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(82, 22);
             this.lblUsuario.TabIndex = 0;
@@ -168,10 +168,60 @@
             this.panel3.Controls.Add(this.panelGrid);
             this.panel3.Controls.Add(this.panelDatos);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 62);
+            this.panel3.Location = new System.Drawing.Point(0, 58);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1017, 423);
+            this.panel3.Size = new System.Drawing.Size(1017, 427);
             this.panel3.TabIndex = 2;
+            // 
+            // panelGrid
+            // 
+            this.panelGrid.Controls.Add(this.DataGridUsuario);
+            this.panelGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelGrid.Location = new System.Drawing.Point(0, 0);
+            this.panelGrid.Name = "panelGrid";
+            this.panelGrid.Size = new System.Drawing.Size(525, 427);
+            this.panelGrid.TabIndex = 3;
+            // 
+            // DataGridUsuario
+            // 
+            this.DataGridUsuario.AccessibleName = "Table";
+            this.DataGridUsuario.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            gridTextColumn1.HeaderText = "Column1";
+            gridTextColumn1.MappingName = "IdCuentaUsuario";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.HeaderText = "Cuenta";
+            gridTextColumn2.MappingName = "Cuenta";
+            gridTextColumn3.HeaderText = "IdRol";
+            gridTextColumn3.MappingName = "IdRol";
+            gridTextColumn3.Visible = false;
+            gridTextColumn4.HeaderText = "Rol";
+            gridTextColumn4.MappingName = "Nombre";
+            gridTextColumn5.HeaderText = "Column7";
+            gridTextColumn5.MappingName = "IdEmpleado";
+            gridTextColumn5.Visible = false;
+            gridTextColumn6.HeaderText = "Nombre empleado";
+            gridTextColumn6.MappingName = "Nombres";
+            this.DataGridUsuario.Columns.Add(gridTextColumn1);
+            this.DataGridUsuario.Columns.Add(gridTextColumn2);
+            this.DataGridUsuario.Columns.Add(gridTextColumn3);
+            this.DataGridUsuario.Columns.Add(gridTextColumn4);
+            this.DataGridUsuario.Columns.Add(gridTextColumn5);
+            this.DataGridUsuario.Columns.Add(gridTextColumn6);
+            this.DataGridUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DataGridUsuario.Location = new System.Drawing.Point(0, 0);
+            this.DataGridUsuario.Name = "DataGridUsuario";
+            this.DataGridUsuario.Size = new System.Drawing.Size(525, 427);
+            this.DataGridUsuario.TabIndex = 0;
+            this.DataGridUsuario.Text = "sfDataGrid1";
+            // 
+            // panelDatos
+            // 
+            this.panelDatos.Controls.Add(this.groupUsuario);
+            this.panelDatos.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelDatos.Location = new System.Drawing.Point(525, 0);
+            this.panelDatos.Name = "panelDatos";
+            this.panelDatos.Size = new System.Drawing.Size(492, 427);
+            this.panelDatos.TabIndex = 2;
             // 
             // groupUsuario
             // 
@@ -180,7 +230,7 @@
             this.groupUsuario.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.groupUsuario.Location = new System.Drawing.Point(0, 0);
             this.groupUsuario.Name = "groupUsuario";
-            this.groupUsuario.Size = new System.Drawing.Size(492, 423);
+            this.groupUsuario.Size = new System.Drawing.Size(492, 427);
             this.groupUsuario.TabIndex = 0;
             this.groupUsuario.TabStop = false;
             this.groupUsuario.Text = "Datos usuario";
@@ -399,60 +449,10 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // DataGridUsuario
-            // 
-            this.DataGridUsuario.AccessibleName = "Table";
-            this.DataGridUsuario.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.HeaderText = "Column1";
-            gridTextColumn1.MappingName = "IdCuentaUsuario";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.HeaderText = "Cuenta";
-            gridTextColumn2.MappingName = "Cuenta";
-            gridTextColumn3.HeaderText = "IdRol";
-            gridTextColumn3.MappingName = "IdRol";
-            gridTextColumn3.Visible = false;
-            gridTextColumn4.HeaderText = "Rol";
-            gridTextColumn4.MappingName = "Nombre";
-            gridTextColumn5.HeaderText = "Column7";
-            gridTextColumn5.MappingName = "IdEmpleado";
-            gridTextColumn5.Visible = false;
-            gridTextColumn6.HeaderText = "Nombre empleado";
-            gridTextColumn6.MappingName = "Nombres";
-            this.DataGridUsuario.Columns.Add(gridTextColumn1);
-            this.DataGridUsuario.Columns.Add(gridTextColumn2);
-            this.DataGridUsuario.Columns.Add(gridTextColumn3);
-            this.DataGridUsuario.Columns.Add(gridTextColumn4);
-            this.DataGridUsuario.Columns.Add(gridTextColumn5);
-            this.DataGridUsuario.Columns.Add(gridTextColumn6);
-            this.DataGridUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DataGridUsuario.Location = new System.Drawing.Point(0, 0);
-            this.DataGridUsuario.Name = "DataGridUsuario";
-            this.DataGridUsuario.Size = new System.Drawing.Size(525, 423);
-            this.DataGridUsuario.TabIndex = 0;
-            this.DataGridUsuario.Text = "sfDataGrid1";
-            // 
             // errorProviderUsuario
             // 
             this.errorProviderUsuario.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProviderUsuario.ContainerControl = this;
-            // 
-            // panelDatos
-            // 
-            this.panelDatos.Controls.Add(this.groupUsuario);
-            this.panelDatos.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelDatos.Location = new System.Drawing.Point(525, 0);
-            this.panelDatos.Name = "panelDatos";
-            this.panelDatos.Size = new System.Drawing.Size(492, 423);
-            this.panelDatos.TabIndex = 2;
-            // 
-            // panelGrid
-            // 
-            this.panelGrid.Controls.Add(this.DataGridUsuario);
-            this.panelGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelGrid.Location = new System.Drawing.Point(0, 0);
-            this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(525, 423);
-            this.panelGrid.TabIndex = 3;
             // 
             // FrmUsuario
             // 
@@ -462,6 +462,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmUsuario";
             this.Text = "FrmUsuario";
             this.Shown += new System.EventHandler(this.FrmUsuario_Shown);
@@ -470,6 +471,9 @@
             this.panel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panelGrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridUsuario)).EndInit();
+            this.panelDatos.ResumeLayout(false);
             this.groupUsuario.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -483,10 +487,7 @@
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderUsuario)).EndInit();
-            this.panelDatos.ResumeLayout(false);
-            this.panelGrid.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -29,23 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn17 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn18 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn19 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn20 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn21 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn22 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn23 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn24 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn25 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn26 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn27 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn28 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn29 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn30 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn31 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn32 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.BuscarControl = new System.Windows.Forms.TextBox();
             this.lblProveedor = new System.Windows.Forms.Label();
@@ -67,21 +68,33 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnBuscar);
             this.panel1.Controls.Add(this.BuscarControl);
             this.panel1.Controls.Add(this.lblProveedor);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1239, 70);
+            this.panel1.Size = new System.Drawing.Size(1239, 58);
             this.panel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(749, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(132, 13);
+            this.label1.TabIndex = 184;
+            this.label1.Text = "Clave o nombre comercial:";
             // 
             // btnBuscar
             // 
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnBuscar.Location = new System.Drawing.Point(1104, 22);
+            this.btnBuscar.Location = new System.Drawing.Point(1104, 15);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(123, 29);
             this.btnBuscar.TabIndex = 183;
@@ -91,7 +104,8 @@
             // 
             // BuscarControl
             // 
-            this.BuscarControl.Location = new System.Drawing.Point(896, 27);
+            this.BuscarControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BuscarControl.Location = new System.Drawing.Point(896, 21);
             this.BuscarControl.Name = "BuscarControl";
             this.BuscarControl.Size = new System.Drawing.Size(193, 20);
             this.BuscarControl.TabIndex = 182;
@@ -101,7 +115,7 @@
             // 
             this.lblProveedor.AutoSize = true;
             this.lblProveedor.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProveedor.Location = new System.Drawing.Point(12, 42);
+            this.lblProveedor.Location = new System.Drawing.Point(12, 15);
             this.lblProveedor.Name = "lblProveedor";
             this.lblProveedor.Size = new System.Drawing.Size(123, 25);
             this.lblProveedor.TabIndex = 181;
@@ -169,71 +183,71 @@
             // 
             this.panel3.Controls.Add(this.DataGridProveedor);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 70);
+            this.panel3.Location = new System.Drawing.Point(0, 58);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1239, 341);
+            this.panel3.Size = new System.Drawing.Size(1239, 353);
             this.panel3.TabIndex = 2;
             // 
             // DataGridProveedor
             // 
             this.DataGridProveedor.AccessibleName = "Table";
             this.DataGridProveedor.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.HeaderText = "Column1";
-            gridTextColumn1.MappingName = "IdProveedor";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.HeaderText = "Clave";
-            gridTextColumn2.MappingName = "Clave";
-            gridTextColumn3.HeaderText = "Nombre comercial";
-            gridTextColumn3.MappingName = "NombreComercial";
-            gridTextColumn4.HeaderText = "Razon social";
-            gridTextColumn4.MappingName = "RazonSocial";
-            gridTextColumn5.HeaderText = "Representante";
-            gridTextColumn5.MappingName = "Representante";
-            gridTextColumn6.HeaderText = "RFC";
-            gridTextColumn6.MappingName = "RFC";
-            gridTextColumn7.HeaderText = "Dirección";
-            gridTextColumn7.MappingName = "Direccion";
-            gridTextColumn8.HeaderText = "Telefono";
-            gridTextColumn8.MappingName = "Telefono";
-            gridTextColumn9.HeaderText = "Correo electronico";
-            gridTextColumn9.MappingName = "CorreoElectronico";
-            gridTextColumn10.HeaderText = "Código postal";
-            gridTextColumn10.MappingName = "CodigoPostal";
-            gridTextColumn11.HeaderText = "IdPais";
-            gridTextColumn11.MappingName = "IdPais";
-            gridTextColumn11.Visible = false;
-            gridTextColumn12.HeaderText = "País";
-            gridTextColumn12.MappingName = "Pais";
-            gridTextColumn13.HeaderText = "Column15";
-            gridTextColumn13.MappingName = "IdEstado";
-            gridTextColumn13.Visible = false;
-            gridTextColumn14.HeaderText = "Estado";
-            gridTextColumn14.MappingName = "Estado";
-            gridTextColumn15.HeaderText = "Column17";
-            gridTextColumn15.MappingName = "IdMunicipio";
-            gridTextColumn15.Visible = false;
-            gridTextColumn16.HeaderText = "Municipio";
-            gridTextColumn16.MappingName = "Municipio";
-            this.DataGridProveedor.Columns.Add(gridTextColumn1);
-            this.DataGridProveedor.Columns.Add(gridTextColumn2);
-            this.DataGridProveedor.Columns.Add(gridTextColumn3);
-            this.DataGridProveedor.Columns.Add(gridTextColumn4);
-            this.DataGridProveedor.Columns.Add(gridTextColumn5);
-            this.DataGridProveedor.Columns.Add(gridTextColumn6);
-            this.DataGridProveedor.Columns.Add(gridTextColumn7);
-            this.DataGridProveedor.Columns.Add(gridTextColumn8);
-            this.DataGridProveedor.Columns.Add(gridTextColumn9);
-            this.DataGridProveedor.Columns.Add(gridTextColumn10);
-            this.DataGridProveedor.Columns.Add(gridTextColumn11);
-            this.DataGridProveedor.Columns.Add(gridTextColumn12);
-            this.DataGridProveedor.Columns.Add(gridTextColumn13);
-            this.DataGridProveedor.Columns.Add(gridTextColumn14);
-            this.DataGridProveedor.Columns.Add(gridTextColumn15);
-            this.DataGridProveedor.Columns.Add(gridTextColumn16);
+            gridTextColumn17.HeaderText = "Column1";
+            gridTextColumn17.MappingName = "IdProveedor";
+            gridTextColumn17.Visible = false;
+            gridTextColumn18.HeaderText = "Clave";
+            gridTextColumn18.MappingName = "Clave";
+            gridTextColumn19.HeaderText = "Nombre comercial";
+            gridTextColumn19.MappingName = "NombreComercial";
+            gridTextColumn20.HeaderText = "Razon social";
+            gridTextColumn20.MappingName = "RazonSocial";
+            gridTextColumn21.HeaderText = "Representante";
+            gridTextColumn21.MappingName = "Representante";
+            gridTextColumn22.HeaderText = "RFC";
+            gridTextColumn22.MappingName = "RFC";
+            gridTextColumn23.HeaderText = "Dirección";
+            gridTextColumn23.MappingName = "Direccion";
+            gridTextColumn24.HeaderText = "Telefono";
+            gridTextColumn24.MappingName = "Telefono";
+            gridTextColumn25.HeaderText = "Correo electronico";
+            gridTextColumn25.MappingName = "CorreoElectronico";
+            gridTextColumn26.HeaderText = "Código postal";
+            gridTextColumn26.MappingName = "CodigoPostal";
+            gridTextColumn27.HeaderText = "IdPais";
+            gridTextColumn27.MappingName = "IdPais";
+            gridTextColumn27.Visible = false;
+            gridTextColumn28.HeaderText = "País";
+            gridTextColumn28.MappingName = "Pais";
+            gridTextColumn29.HeaderText = "Column15";
+            gridTextColumn29.MappingName = "IdEstado";
+            gridTextColumn29.Visible = false;
+            gridTextColumn30.HeaderText = "Estado";
+            gridTextColumn30.MappingName = "Estado";
+            gridTextColumn31.HeaderText = "Column17";
+            gridTextColumn31.MappingName = "IdMunicipio";
+            gridTextColumn31.Visible = false;
+            gridTextColumn32.HeaderText = "Municipio";
+            gridTextColumn32.MappingName = "Municipio";
+            this.DataGridProveedor.Columns.Add(gridTextColumn17);
+            this.DataGridProveedor.Columns.Add(gridTextColumn18);
+            this.DataGridProveedor.Columns.Add(gridTextColumn19);
+            this.DataGridProveedor.Columns.Add(gridTextColumn20);
+            this.DataGridProveedor.Columns.Add(gridTextColumn21);
+            this.DataGridProveedor.Columns.Add(gridTextColumn22);
+            this.DataGridProveedor.Columns.Add(gridTextColumn23);
+            this.DataGridProveedor.Columns.Add(gridTextColumn24);
+            this.DataGridProveedor.Columns.Add(gridTextColumn25);
+            this.DataGridProveedor.Columns.Add(gridTextColumn26);
+            this.DataGridProveedor.Columns.Add(gridTextColumn27);
+            this.DataGridProveedor.Columns.Add(gridTextColumn28);
+            this.DataGridProveedor.Columns.Add(gridTextColumn29);
+            this.DataGridProveedor.Columns.Add(gridTextColumn30);
+            this.DataGridProveedor.Columns.Add(gridTextColumn31);
+            this.DataGridProveedor.Columns.Add(gridTextColumn32);
             this.DataGridProveedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataGridProveedor.Location = new System.Drawing.Point(0, 0);
             this.DataGridProveedor.Name = "DataGridProveedor";
-            this.DataGridProveedor.Size = new System.Drawing.Size(1239, 341);
+            this.DataGridProveedor.Size = new System.Drawing.Size(1239, 353);
             this.DataGridProveedor.TabIndex = 0;
             this.DataGridProveedor.Text = "sfDataGrid1";
             // 
@@ -249,6 +263,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmProveedorGrid";
             this.Text = "FrmProveedorGrid";
             this.Shown += new System.EventHandler(this.FrmProveedorGrid_Shown);
@@ -277,5 +292,6 @@
         private System.Windows.Forms.TextBox BuscarControl;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.ErrorProvider errorGridProveedor;
+        private System.Windows.Forms.Label label1;
     }
 }

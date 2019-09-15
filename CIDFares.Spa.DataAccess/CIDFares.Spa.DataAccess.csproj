@@ -49,7 +49,9 @@
     <Compile Include="Repositories\General\BusquedaProductoRepository.cs" />
     <Compile Include="Repositories\General\CategoriaProductoRepository.cs" />
     <Compile Include="Repositories\General\ClienteRepository.cs" />
+    <Compile Include="Repositories\General\CompraRepository.cs" />
     <Compile Include="Repositories\General\EmpleadoRepository.cs" />
+    <Compile Include="Repositories\General\CuestionarioRepository.cs" />
     <Compile Include="Repositories\General\EstadoRepository.cs" />
     <Compile Include="Repositories\General\FormaPagoRepository.cs" />
     <Compile Include="Repositories\Base\Repository.cs" />
@@ -59,6 +61,7 @@
     <Compile Include="Repositories\General\PaisRepository.cs" />
     <Compile Include="Repositories\General\PaqueteRepository.cs" />
     <Compile Include="Repositories\General\ProductoRepository.cs" />
+    <Compile Include="Repositories\General\ProductosMonederoRepository.cs" />
     <Compile Include="Repositories\General\ProveedorACompraRepository.cs" />
     <Compile Include="Repositories\General\ProveedorRepository.cs" />
     <Compile Include="Repositories\General\PuestoRepository.cs" />

@@ -11,7 +11,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         #region Constructor
         public Producto()
         {
-            
             Nombre = string.Empty;
         }
         #endregion
@@ -39,6 +38,8 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public Decimal Porcentaje { get; set; }
         public string AplicaIvaStr { get; set; }
         public Guid Usuario { get; set; }
+        public decimal CostoProducto { get; set; }
+        public decimal PorcentajeP { get; set; }
         //foto
         public string Base64String { get; set; }
         public string UrlFoto { get; set; }
