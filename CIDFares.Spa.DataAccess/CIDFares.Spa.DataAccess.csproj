@@ -62,6 +62,7 @@
     <Compile Include="Repositories\General\ProveedorACompraRepository.cs" />
     <Compile Include="Repositories\General\ProveedorRepository.cs" />
     <Compile Include="Repositories\General\PuestoRepository.cs" />
+    <Compile Include="Repositories\General\RegistroEntradaSalidaRepository.cs" />
     <Compile Include="Repositories\General\ReglaPerfilRepository.cs" />
     <Compile Include="Repositories\General\RolRepository.cs" />
     <Compile Include="Repositories\General\ServicioRepository.cs" />

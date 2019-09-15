@@ -209,6 +209,18 @@
     <Compile Include="Forms\General\FrmLogin.designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\General\FrmRegistroEntradaSalida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\General\FrmRegistroEntradaSalida.Designer.cs">
+      <DependentUpon>FrmRegistroEntradaSalida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\General\FrmRegistroPasswordEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\General\FrmRegistroPasswordEmpleado.Designer.cs">
+      <DependentUpon>FrmRegistroPasswordEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Usuarios\FrmReglasPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +268,7 @@
     <Compile Include="Validations\EmpleadoValidator.cs" />
     <Compile Include="Validations\PaqueteValidator.cs" />
     <Compile Include="Validations\ProveedorValidator.cs" />
+    <Compile Include="Validations\RegistroEntradaSalidaValidator.cs" />
     <Compile Include="Validations\ReglaValidator.cs" />
     <Compile Include="Validations\ServicioValidator.cs" />
     <Compile Include="Validations\SucursalValidator.cs" />
@@ -326,6 +339,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\General\FrmRegistroEntradaSalida.resx">
+      <DependentUpon>FrmRegistroEntradaSalida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\General\FrmRegistroPasswordEmpleado.resx">
+      <DependentUpon>FrmRegistroPasswordEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Usuarios\FrmReglasPerfil.resx">
       <DependentUpon>FrmReglasPerfil.cs</DependentUpon>
