@@ -76,7 +76,6 @@
             this.lblPrecioMayoreo = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.IdAplicaIvaControl = new System.Windows.Forms.ComboBox();
-            this.AplicaIvaControl = new System.Windows.Forms.CheckBox();
             this.ClaveSat = new System.Windows.Forms.Panel();
             this.PorcentajePControl = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -126,7 +125,7 @@
             this.lblSubtitle.Location = new System.Drawing.Point(27, 34);
             this.lblSubtitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSubtitle.Name = "lblSubtitle";
-            this.lblSubtitle.Size = new System.Drawing.Size(101, 15);
+            this.lblSubtitle.Size = new System.Drawing.Size(102, 15);
             this.lblSubtitle.TabIndex = 182;
             this.lblSubtitle.Text = "NUEVO REGISTRO";
             // 
@@ -600,7 +599,6 @@
             // panel14
             // 
             this.panel14.Controls.Add(this.IdAplicaIvaControl);
-            this.panel14.Controls.Add(this.AplicaIvaControl);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(3, 211);
             this.panel14.Name = "panel14";
@@ -610,22 +608,10 @@
             // IdAplicaIvaControl
             // 
             this.IdAplicaIvaControl.FormattingEnabled = true;
-            this.IdAplicaIvaControl.Location = new System.Drawing.Point(130, 15);
+            this.IdAplicaIvaControl.Location = new System.Drawing.Point(9, 15);
             this.IdAplicaIvaControl.Name = "IdAplicaIvaControl";
-            this.IdAplicaIvaControl.Size = new System.Drawing.Size(251, 21);
+            this.IdAplicaIvaControl.Size = new System.Drawing.Size(265, 21);
             this.IdAplicaIvaControl.TabIndex = 6;
-            // 
-            // AplicaIvaControl
-            // 
-            this.AplicaIvaControl.AutoSize = true;
-            this.AplicaIvaControl.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.AplicaIvaControl.Location = new System.Drawing.Point(25, 14);
-            this.AplicaIvaControl.Name = "AplicaIvaControl";
-            this.AplicaIvaControl.Size = new System.Drawing.Size(89, 21);
-            this.AplicaIvaControl.TabIndex = 1;
-            this.AplicaIvaControl.Text = "APLICA IVA";
-            this.AplicaIvaControl.UseVisualStyleBackColor = true;
-            this.AplicaIvaControl.CheckedChanged += new System.EventHandler(this.AplicaIvaControl_CheckedChanged);
             // 
             // ClaveSat
             // 
@@ -757,7 +743,6 @@
             this.pnlPrecio.ResumeLayout(false);
             this.pnlPrecio.PerformLayout();
             this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
             this.ClaveSat.ResumeLayout(false);
             this.ClaveSat.PerformLayout();
             this.panel13.ResumeLayout(false);
@@ -816,7 +801,6 @@
         private System.Windows.Forms.Label lblPrecioMayoreo;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.CheckBox StockControl;
-        private System.Windows.Forms.CheckBox AplicaIvaControl;
         private System.Windows.Forms.Panel ClaveSat;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt RutaControl;
         private System.Windows.Forms.CheckBox GenerarCodigoBarrasControl;

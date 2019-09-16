@@ -404,6 +404,11 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             }
         }
 
+        private void btnEmpleado_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnPaquete);
+            GetPanel(new FrmEmpleadoGrid());
+        }
 
         private void SlideGenerales(Button button)
         {

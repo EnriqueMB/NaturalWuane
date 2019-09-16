@@ -55,7 +55,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             PrecioPublicoControl.DataBindings.Add("Text", Model, "PrecioPublico", true, DataSourceUpdateMode.OnPropertyChanged, "", "C2");
             PrecioMayoreoControl.DataBindings.Add("Text", Model, "PrecioMayoreo", true, DataSourceUpdateMode.OnPropertyChanged, "", "C2");
             PrecioMenudeoControl.DataBindings.Add("Text", Model, "PrecioMenudeo", true, DataSourceUpdateMode.OnPropertyChanged, "", "C2");
-            AplicaIvaControl.DataBindings.Add("Checked", Model, "AplicaIva", true, DataSourceUpdateMode.OnPropertyChanged);
+            //AplicaIvaControl.DataBindings.Add("Checked", Model, "AplicaIva", true, DataSourceUpdateMode.OnPropertyChanged);
             StockControl.DataBindings.Add("Checked", Model, "Stock", true, DataSourceUpdateMode.OnPropertyChanged);
             StockMaxControl.DataBindings.Add("Text", Model, "StockMax", true, DataSourceUpdateMode.OnPropertyChanged);
             StockMinControl.DataBindings.Add("Text", Model, "StockMin", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -149,7 +149,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 Model.PrecioPublico = 0;
                 Model.PrecioMayoreo = 0;
                 Model.PrecioMenudeo = 0;
-                Model.AplicaIva = false;
+                Model.IdAplicaIva = 0;
                 Model.Stock = false;
                 Model.StockMax =0;
                 Model.StockMin = 0;
@@ -229,6 +229,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                BtnSeleccionar.Enabled = false;
                 OpenFileDialog BuscarImagen = new OpenFileDialog();
                 BuscarImagen.Filter = "Image Files|*.png;*.jpg;*.bmp";
                 BuscarImagen.FileName = "";
@@ -256,6 +257,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmPersonal ~ BtnSeleccionar_Click_1(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
+            finally
+            {
+                BtnSeleccionar.Enabled = true;
+            }
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -275,6 +280,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                IniciarBinding();
+
                 var x = await Model.GetListaCataegoriaProduto();
                 Model.LlenarListaCategoria(x);
 
@@ -287,8 +294,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 StockControl.Checked = false;
                 StockMinControl.Enabled = false;
                 StockMaxControl.Enabled = false;
-                IdAplicaIvaControl.Enabled = false;
-                IniciarBinding();
+               // IdAplicaIvaControl.Enabled = false;
+                
 
                 if (Model.State == EntityState.Update)
                 {
@@ -297,7 +304,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         if (Model.Foto == null)
                             Model.Foto = Properties.Resources.imagen_subir;
                         await Task.Delay(2000);
-                    }, "Cargando productos");
+                    }, "Cargando producto");
                     lblSubtitle.Text = Model.Nombre;
                 }
                 else
@@ -339,17 +346,17 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 CodigoBarrasControl.Text = string.Empty;
             }
         }
-        private void AplicaIvaControl_CheckedChanged(object sender, EventArgs e)
-        {
-            if (AplicaIvaControl.Checked == true)
-            {
-                IdAplicaIvaControl.Enabled = true;
-            }
-            else if (AplicaIvaControl.Checked == false)
-            {
-                IdAplicaIvaControl.Enabled = false;
-            }
-        }
+        //private void AplicaIvaControl_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (AplicaIvaControl.Checked == true)
+        //    {
+        //        IdAplicaIvaControl.Enabled = true;
+        //    }
+        //    else if (AplicaIvaControl.Checked == false)
+        //    {
+        //        IdAplicaIvaControl.Enabled = false;
+        //    }
+        //}
         private void PrecioPublicoControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
