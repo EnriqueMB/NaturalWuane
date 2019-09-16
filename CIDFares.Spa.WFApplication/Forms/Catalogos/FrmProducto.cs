@@ -158,6 +158,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 Model.Descripcion = string.Empty;
                 Model.CostoProducto = 0;
                 Model.PorcentajeP = 0;
+                Model.CodigoBarras = string.Empty;
             }
             catch (Exception)
             {
@@ -294,9 +295,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 StockControl.Checked = false;
                 StockMinControl.Enabled = false;
                 StockMaxControl.Enabled = false;
-               // IdAplicaIvaControl.Enabled = false;
-                
-
+               
                 if (Model.State == EntityState.Update)
                 {
                     CIDWait.Show(async () => {
@@ -346,17 +345,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 CodigoBarrasControl.Text = string.Empty;
             }
         }
-        //private void AplicaIvaControl_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    if (AplicaIvaControl.Checked == true)
-        //    {
-        //        IdAplicaIvaControl.Enabled = true;
-        //    }
-        //    else if (AplicaIvaControl.Checked == false)
-        //    {
-        //        IdAplicaIvaControl.Enabled = false;
-        //    }
-        //}
         private void PrecioPublicoControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))

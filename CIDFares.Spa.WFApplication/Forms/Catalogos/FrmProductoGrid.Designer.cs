@@ -42,7 +42,6 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlTitulos = new System.Windows.Forms.Panel();
             this.btnLimpiarBusqueda = new System.Windows.Forms.Button();
             this.BusquedaControl = new System.Windows.Forms.TextBox();
@@ -251,11 +250,8 @@
             gridTextColumn13.MappingName = "ClaveSat";
             gridTextColumn13.Visible = false;
             gridTextColumn14.AllowEditing = false;
-            gridTextColumn14.HeaderText = "IVA";
-            gridTextColumn14.MappingName = "AplicaIvaStr";
-            gridTextColumn15.AllowEditing = false;
-            gridTextColumn15.HeaderText = "Porcentaje Iva";
-            gridTextColumn15.MappingName = "Porcentaje";
+            gridTextColumn14.HeaderText = "Porcentaje Iva";
+            gridTextColumn14.MappingName = "Porcentaje";
             this.dataGridMain1.Columns.Add(gridTextColumn1);
             this.dataGridMain1.Columns.Add(gridTextColumn2);
             this.dataGridMain1.Columns.Add(gridTextColumn3);
@@ -270,7 +266,6 @@
             this.dataGridMain1.Columns.Add(gridTextColumn12);
             this.dataGridMain1.Columns.Add(gridTextColumn13);
             this.dataGridMain1.Columns.Add(gridTextColumn14);
-            this.dataGridMain1.Columns.Add(gridTextColumn15);
             this.dataGridMain1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridMain1.Location = new System.Drawing.Point(0, 0);
             this.dataGridMain1.Name = "dataGridMain1";
