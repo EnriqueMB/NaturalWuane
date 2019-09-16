@@ -295,7 +295,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 StockControl.Checked = false;
                 StockMinControl.Enabled = false;
                 StockMaxControl.Enabled = false;
-               
+                Model.IdAplicaIva = 1;
+
                 if (Model.State == EntityState.Update)
                 {
                     CIDWait.Show(async () => {

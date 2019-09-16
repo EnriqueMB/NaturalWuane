@@ -115,8 +115,9 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                     {
                         
                         FrmRegistroPasswordEmpleado registro = new FrmRegistroPasswordEmpleado(Resultado,Model.Tipo);
-                        registro.ShowDialog();
+                        registro.ShowDialog();                        
                         registro.Close();
+                        LimpiarPropiedades();
                     }
                     else
                     {
@@ -135,6 +136,29 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
-        
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                WindowState = FormWindowState.Minimized;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                    this.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

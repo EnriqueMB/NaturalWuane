@@ -15,8 +15,9 @@ namespace CIDFares.Spa.WFApplication.Validations
         public RegistroEntradaSalidaValidator(IRegistroEntradaSalidaRepository Servicio)
         {
             RuleFor(Registro => Registro.CodigoBarra)
-           .NotEmpty().When(x => x.Codigo)
+           .NotEmpty()//.When(x => x.Codigo)
            .WithMessage("INGRESE EL CODIGO DE BARRA.")
+           //.When(x => x.Codigo)
            .MustAsync(async (Registro, x, context) =>
             {
 

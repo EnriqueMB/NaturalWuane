@@ -39,6 +39,8 @@
             this.TipoControl = new System.Windows.Forms.ComboBox();
             this.CodigoBarraControl = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnMinimizar = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlCentral.SuspendLayout();
@@ -47,18 +49,20 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnMinimizar);
+            this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.lblTitulo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(389, 60);
+            this.panel1.Size = new System.Drawing.Size(389, 80);
             this.panel1.TabIndex = 2;
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(20, 9);
+            this.lblTitulo.Location = new System.Drawing.Point(10, 39);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(313, 25);
             this.lblTitulo.TabIndex = 181;
@@ -112,9 +116,9 @@
             this.pnlCentral.Controls.Add(this.TipoControl);
             this.pnlCentral.Controls.Add(this.CodigoBarraControl);
             this.pnlCentral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlCentral.Location = new System.Drawing.Point(0, 60);
+            this.pnlCentral.Location = new System.Drawing.Point(0, 80);
             this.pnlCentral.Name = "pnlCentral";
-            this.pnlCentral.Size = new System.Drawing.Size(389, 84);
+            this.pnlCentral.Size = new System.Drawing.Size(389, 64);
             this.pnlCentral.TabIndex = 4;
             // 
             // lblClave
@@ -146,6 +150,38 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimizar.FlatAppearance.BorderSize = 0;
+            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizar.ForeColor = System.Drawing.Color.Transparent;
+            this.btnMinimizar.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.minimizarO;
+            this.btnMinimizar.Location = new System.Drawing.Point(327, 2);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(28, 28);
+            this.btnMinimizar.TabIndex = 183;
+            this.btnMinimizar.UseVisualStyleBackColor = true;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(78)))), ((int)(((byte)(68)))));
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.ForeColor = System.Drawing.Color.Transparent;
+            this.btnClose.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.cerrarO;
+            this.btnClose.Location = new System.Drawing.Point(359, 1);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(28, 28);
+            this.btnClose.TabIndex = 182;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // FrmRegistroEntradaSalida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,6 +190,8 @@
             this.Controls.Add(this.pnlCentral);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximumSize = new System.Drawing.Size(389, 219);
             this.Name = "FrmRegistroEntradaSalida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRegistroEntradaSalida";
@@ -180,5 +218,7 @@
         private System.Windows.Forms.TextBox CodigoBarraControl;
         private System.Windows.Forms.Label lblClave;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        public System.Windows.Forms.Button btnMinimizar;
+        public System.Windows.Forms.Button btnClose;
     }
 }
