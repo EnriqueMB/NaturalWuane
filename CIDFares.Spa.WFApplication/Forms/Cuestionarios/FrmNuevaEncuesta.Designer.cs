@@ -38,6 +38,8 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo gridBordersInfo1 = new Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo();
             this.FlpBotones = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancelarEncuesta = new System.Windows.Forms.Button();
             this.btnNuevaEncuesta = new System.Windows.Forms.Button();
@@ -169,12 +171,11 @@
             this.btnEliminarRespuesta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarRespuesta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarRespuesta.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarRespuesta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarRespuesta.Location = new System.Drawing.Point(603, 106);
+            this.btnEliminarRespuesta.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.minus35px;
+            this.btnEliminarRespuesta.Location = new System.Drawing.Point(607, 109);
             this.btnEliminarRespuesta.Name = "btnEliminarRespuesta";
-            this.btnEliminarRespuesta.Size = new System.Drawing.Size(53, 36);
+            this.btnEliminarRespuesta.Size = new System.Drawing.Size(47, 36);
             this.btnEliminarRespuesta.TabIndex = 16;
-            this.btnEliminarRespuesta.Text = "-";
             this.btnEliminarRespuesta.UseVisualStyleBackColor = false;
             this.btnEliminarRespuesta.Click += new System.EventHandler(this.BtnEliminarRespuesta_Click);
             // 
@@ -186,12 +187,11 @@
             this.btnAgregarRespuesta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarRespuesta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarRespuesta.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarRespuesta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarRespuesta.Location = new System.Drawing.Point(603, 67);
+            this.btnAgregarRespuesta.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.plus35Px;
+            this.btnAgregarRespuesta.Location = new System.Drawing.Point(607, 67);
             this.btnAgregarRespuesta.Name = "btnAgregarRespuesta";
-            this.btnAgregarRespuesta.Size = new System.Drawing.Size(53, 36);
+            this.btnAgregarRespuesta.Size = new System.Drawing.Size(47, 36);
             this.btnAgregarRespuesta.TabIndex = 17;
-            this.btnAgregarRespuesta.Text = "+";
             this.btnAgregarRespuesta.UseVisualStyleBackColor = false;
             this.btnAgregarRespuesta.Click += new System.EventHandler(this.BtnAgregarRespuesta_Click);
             // 
@@ -274,12 +274,12 @@
             this.btnEliminarPregunta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarPregunta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarPregunta.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarPregunta.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.minus35px;
             this.btnEliminarPregunta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarPregunta.Location = new System.Drawing.Point(603, 106);
+            this.btnEliminarPregunta.Location = new System.Drawing.Point(607, 109);
             this.btnEliminarPregunta.Name = "btnEliminarPregunta";
-            this.btnEliminarPregunta.Size = new System.Drawing.Size(53, 36);
+            this.btnEliminarPregunta.Size = new System.Drawing.Size(47, 36);
             this.btnEliminarPregunta.TabIndex = 15;
-            this.btnEliminarPregunta.Text = "-";
             this.btnEliminarPregunta.UseVisualStyleBackColor = false;
             this.btnEliminarPregunta.Click += new System.EventHandler(this.BtnEliminarPregunta_Click);
             // 
@@ -291,12 +291,11 @@
             this.btnBajar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBajar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBajar.ForeColor = System.Drawing.Color.White;
-            this.btnBajar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBajar.Location = new System.Drawing.Point(603, 190);
+            this.btnBajar.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.chevrondown35px;
+            this.btnBajar.Location = new System.Drawing.Point(607, 193);
             this.btnBajar.Name = "btnBajar";
-            this.btnBajar.Size = new System.Drawing.Size(53, 36);
+            this.btnBajar.Size = new System.Drawing.Size(47, 36);
             this.btnBajar.TabIndex = 15;
-            this.btnBajar.Text = "^";
             this.btnBajar.UseVisualStyleBackColor = false;
             this.btnBajar.Click += new System.EventHandler(this.BtnBajar_Click);
             // 
@@ -308,12 +307,11 @@
             this.btnSubir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubir.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubir.ForeColor = System.Drawing.Color.White;
-            this.btnSubir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSubir.Location = new System.Drawing.Point(603, 148);
+            this.btnSubir.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.chevronup35px;
+            this.btnSubir.Location = new System.Drawing.Point(607, 151);
             this.btnSubir.Name = "btnSubir";
-            this.btnSubir.Size = new System.Drawing.Size(53, 36);
+            this.btnSubir.Size = new System.Drawing.Size(47, 36);
             this.btnSubir.TabIndex = 15;
-            this.btnSubir.Text = "^";
             this.btnSubir.UseVisualStyleBackColor = false;
             this.btnSubir.Click += new System.EventHandler(this.BtnSubir_Click);
             // 
@@ -325,12 +323,12 @@
             this.btnAgregarPregunta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarPregunta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarPregunta.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarPregunta.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.plus35Px;
             this.btnAgregarPregunta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarPregunta.Location = new System.Drawing.Point(603, 67);
+            this.btnAgregarPregunta.Location = new System.Drawing.Point(607, 67);
             this.btnAgregarPregunta.Name = "btnAgregarPregunta";
-            this.btnAgregarPregunta.Size = new System.Drawing.Size(53, 36);
+            this.btnAgregarPregunta.Size = new System.Drawing.Size(47, 36);
             this.btnAgregarPregunta.TabIndex = 15;
-            this.btnAgregarPregunta.Text = "+";
             this.btnAgregarPregunta.UseVisualStyleBackColor = false;
             this.btnAgregarPregunta.Click += new System.EventHandler(this.BtnAgregarPregunta_Click);
             // 
@@ -373,14 +371,20 @@
             gridTextColumn9.AllowDragging = true;
             gridTextColumn9.AllowEditing = false;
             gridTextColumn9.AllowFiltering = true;
-            gridTextColumn9.HeaderText = "DEPENDE";
-            gridTextColumn9.MappingName = "IdPreguntaDepende";
-            gridTextColumn9.Visible = false;
+            gridTextColumn9.HeaderText = "CUANDO SEA";
+            gridTextColumn9.MappingName = "ActivarCuando";
+            gridTextColumn10.AllowDragging = true;
+            gridTextColumn10.AllowEditing = false;
+            gridTextColumn10.AllowFiltering = true;
+            gridTextColumn10.HeaderText = "DEPENDE";
+            gridTextColumn10.MappingName = "IdPreguntaDepende";
+            gridTextColumn10.Visible = false;
             this.dtgPreguntas.Columns.Add(gridTextColumn5);
             this.dtgPreguntas.Columns.Add(gridTextColumn6);
             this.dtgPreguntas.Columns.Add(gridTextColumn7);
             this.dtgPreguntas.Columns.Add(gridTextColumn8);
             this.dtgPreguntas.Columns.Add(gridTextColumn9);
+            this.dtgPreguntas.Columns.Add(gridTextColumn10);
             this.dtgPreguntas.Location = new System.Drawing.Point(6, 19);
             this.dtgPreguntas.Name = "dtgPreguntas";
             this.dtgPreguntas.RowHeight = 21;
@@ -397,6 +401,9 @@
             this.dtgPreguntas.Style.HeaderStyle.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dtgPreguntas.Style.HeaderStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dtgPreguntas.Style.IndentCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
+            this.dtgPreguntas.Style.RowHeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            gridBordersInfo1.Bottom = new Syncfusion.WinForms.DataGrid.Styles.GridBorder(Syncfusion.WinForms.DataGrid.Styles.GridBorderStyle.Solid, System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0))))));
+            this.dtgPreguntas.Style.RowHeaderStyle.Borders = gridBordersInfo1;
             this.dtgPreguntas.TabIndex = 1;
             this.dtgPreguntas.Text = "dataGridsf1";
             // 

@@ -555,5 +555,20 @@
   <ItemGroup>
     <None Include="Resources\notificacion2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus35Px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus35px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chevrondown35px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chevronup35px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -86,7 +86,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             {
                 var x = this.NombreEncuestaControl.SelectionStart;
                 this.NombreEncuestaControl.Text = this.NombreEncuestaControl.Text.ToUpper();
-                this.NombreEncuestaControl.Text = this.NombreEncuestaControl.Text.Replace("Á", "A").Replace("É", "E").Replace("Í", "I").Replace("Ó", "O").Replace("Ú", "U").Replace("´", "").Replace("  ", " ");
+                //this.NombreEncuestaControl.Text = this.NombreEncuestaControl.Text.Replace("Á", "A").Replace("É", "E").Replace("Í", "I").Replace("Ó", "O").Replace("Ú", "U").Replace("´", "").Replace("  ", " ");
                 this.NombreEncuestaControl.SelectionStart = x;
             }
             catch (Exception ex)
@@ -135,17 +135,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         {
             try
             {
-                //PreguntasEncuesta.ToList().ForEach(x => x.Orden = PreguntasEncuesta.IndexOf(x));
+                this.btnNuevaEncuesta.Enabled = false;
+
                 Model.ListaPregunta.ToList().ForEach(x => x.Orden = Model.ListaPregunta.IndexOf(x));
                 this.CleanErrors(errorProvider1, typeof(EncuestasViewModel));
                 var validationResults = Model.Validate();
                 validationResults.ToString();
 
                 if (validationResults.IsValid)
-                {
-                    //Model.TblPregunta = ObtenerTablaPreguntas(PreguntasEncuesta.ToList());
-                    Model.TblPregunta = ObtenerTablaPreguntas(Model.ListaPregunta.ToList());
-                    //Model.TblRespuesta = ObtenerTablaRepuestas(RespuestasEncuesta.ToList());
+                {                   
+                    Model.TblPregunta = ObtenerTablaPreguntas(Model.ListaPregunta.ToList());                    
                     Model.TblRespuesta = ObtenerTablaRepuestas(Model.ListaRespuesta.ToList());
 
                     if (this.Model.ListaPregunta.Count > 0)
@@ -177,6 +176,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmNuevaEncuesta ~ BtnNuevaEncuesta_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
 
+            }
+            finally
+            {
+                this.btnNuevaEncuesta.Enabled = true;
             }
         }
         private void BtnEliminarPregunta_Click(object sender, EventArgs e)
@@ -263,11 +266,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                     if (RowToMove > 1)
                     {
                         //Preguntas pregunta = new Preguntas { IdPregunta = item.IdPregunta, Pregunta = item.Pregunta, Respuesta = item.Respuesta, TipoPregunta = item.TipoPregunta };
-                        //this.PreguntasEncuesta.Remove(PreguntasEncuesta.Find(x=> x.IdPregunta.Equals(item.IdPregunta)));
-                        //this.PreguntasEncuesta.Remove(item);
-                        this.Model.ListaPregunta.Remove(item);
-                        //this.PreguntasEncuesta.Insert(RowToMove - 2, item);
+                        //this.PreguntasEncuesta.Remove(PreguntasEncuesta.Find(x=> x.IdPregunta.Equals(item.IdPregunta)));     
+                        this.Model.ListaPregunta.Remove(item);      
                         this.Model.ListaPregunta.Insert(RowToMove - 2, item);
+
                     }
                     else
                     {
@@ -289,15 +291,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 if (item != null)
                 {
                     int RowToMove = this.dtgPreguntas.CurrentCell.RowIndex;
-
-                    //if (RowToMove < PreguntasEncuesta.Count)
+         
                     if (RowToMove < Model.ListaPregunta.Count)
                     {
                         //Preguntas pregunta = new Preguntas { IdPregunta = item.IdPregunta, Pregunta = item.Pregunta, Respuesta = item.Respuesta, TipoPregunta = item.TipoPregunta };
-                        //this.PreguntasEncuesta.Remove(PreguntasEncuesta.Find(x=> x.IdPregunta.Equals(item.IdPregunta)));
-                        //this.PreguntasEncuesta.Remove(item);
-                        this.Model.ListaPregunta.Remove(item);
-                        //this.PreguntasEncuesta.Insert(RowToMove, item);
+                        //this.PreguntasEncuesta.Remove(PreguntasEncuesta.Find(x=> x.IdPregunta.Equals(item.IdPregunta)));                    
+                        this.Model.ListaPregunta.Remove(item);                    
                         this.Model.ListaPregunta.Insert(RowToMove, item);
                     }
                     else
@@ -413,10 +412,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 TablaP.Columns.Add("Pregunta", typeof(string));
                 TablaP.Columns.Add("TipoPregunta", typeof(string));
                 TablaP.Columns.Add("DependeDe", typeof(Guid));
+                TablaP.Columns.Add("ActivarCuando", typeof(string));
                 TablaP.Columns.Add("Orden", typeof(int));
                 foreach (var item in Lista)
                 {
-                    TablaP.Rows.Add(new object[] { item.IdPregunta, item.Pregunta, item.TipoPregunta, item.IdPreguntaDepende, item.Orden });
+                    TablaP.Rows.Add(new object[] { item.IdPregunta, item.Pregunta, item.TipoPregunta, item.IdPreguntaDepende,item.ActivarCuando,item.Orden });
                 }
                 return TablaP;
             }
