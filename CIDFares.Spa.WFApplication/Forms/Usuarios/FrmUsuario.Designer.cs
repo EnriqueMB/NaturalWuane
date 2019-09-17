@@ -43,6 +43,9 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panelGrid = new System.Windows.Forms.Panel();
+            this.DataGridUsuario = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            this.panelDatos = new System.Windows.Forms.Panel();
             this.groupUsuario = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -64,14 +67,14 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.DataGridUsuario = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.errorProviderUsuario = new System.Windows.Forms.ErrorProvider(this.components);
-            this.panelDatos = new System.Windows.Forms.Panel();
-            this.panelGrid = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panelGrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridUsuario)).BeginInit();
+            this.panelDatos.SuspendLayout();
             this.groupUsuario.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -80,10 +83,7 @@
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderUsuario)).BeginInit();
-            this.panelDatos.SuspendLayout();
-            this.panelGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -101,9 +101,9 @@
             this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 14.25F);
             this.lblUsuario.Location = new System.Drawing.Point(12, 23);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(82, 22);
+            this.lblUsuario.Size = new System.Drawing.Size(92, 22);
             this.lblUsuario.TabIndex = 0;
-            this.lblUsuario.Text = "Usuarios";
+            this.lblUsuario.Text = "USUARIO";
             // 
             // panel2
             // 
@@ -126,40 +126,40 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
+            this.btnNuevo.BackColor = System.Drawing.Color.White;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btnNuevo.Location = new System.Drawing.Point(3, 3);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(123, 29);
             this.btnNuevo.TabIndex = 7;
-            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.Text = "NUEVO";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnModificar
             // 
-            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(132)))), ((int)(((byte)(51)))));
+            this.btnModificar.BackColor = System.Drawing.Color.White;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btnModificar.Location = new System.Drawing.Point(132, 3);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(123, 29);
             this.btnModificar.TabIndex = 8;
-            this.btnModificar.Text = "Modificar";
+            this.btnModificar.Text = "MODIFICAR";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnEliminar.BackColor = System.Drawing.Color.White;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btnEliminar.Location = new System.Drawing.Point(261, 3);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(123, 29);
             this.btnEliminar.TabIndex = 9;
-            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -172,6 +172,56 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1017, 423);
             this.panel3.TabIndex = 2;
+            // 
+            // panelGrid
+            // 
+            this.panelGrid.Controls.Add(this.DataGridUsuario);
+            this.panelGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelGrid.Location = new System.Drawing.Point(0, 0);
+            this.panelGrid.Name = "panelGrid";
+            this.panelGrid.Size = new System.Drawing.Size(525, 423);
+            this.panelGrid.TabIndex = 3;
+            // 
+            // DataGridUsuario
+            // 
+            this.DataGridUsuario.AccessibleName = "Table";
+            this.DataGridUsuario.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            gridTextColumn1.HeaderText = "Column1";
+            gridTextColumn1.MappingName = "IdCuentaUsuario";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.HeaderText = "Cuenta";
+            gridTextColumn2.MappingName = "Cuenta";
+            gridTextColumn3.HeaderText = "IdRol";
+            gridTextColumn3.MappingName = "IdRol";
+            gridTextColumn3.Visible = false;
+            gridTextColumn4.HeaderText = "Rol";
+            gridTextColumn4.MappingName = "Nombre";
+            gridTextColumn5.HeaderText = "Column7";
+            gridTextColumn5.MappingName = "IdEmpleado";
+            gridTextColumn5.Visible = false;
+            gridTextColumn6.HeaderText = "Nombre empleado";
+            gridTextColumn6.MappingName = "Nombres";
+            this.DataGridUsuario.Columns.Add(gridTextColumn1);
+            this.DataGridUsuario.Columns.Add(gridTextColumn2);
+            this.DataGridUsuario.Columns.Add(gridTextColumn3);
+            this.DataGridUsuario.Columns.Add(gridTextColumn4);
+            this.DataGridUsuario.Columns.Add(gridTextColumn5);
+            this.DataGridUsuario.Columns.Add(gridTextColumn6);
+            this.DataGridUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DataGridUsuario.Location = new System.Drawing.Point(0, 0);
+            this.DataGridUsuario.Name = "DataGridUsuario";
+            this.DataGridUsuario.Size = new System.Drawing.Size(525, 423);
+            this.DataGridUsuario.TabIndex = 0;
+            this.DataGridUsuario.Text = "sfDataGrid1";
+            // 
+            // panelDatos
+            // 
+            this.panelDatos.Controls.Add(this.groupUsuario);
+            this.panelDatos.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelDatos.Location = new System.Drawing.Point(525, 0);
+            this.panelDatos.Name = "panelDatos";
+            this.panelDatos.Size = new System.Drawing.Size(492, 423);
+            this.panelDatos.TabIndex = 2;
             // 
             // groupUsuario
             // 
@@ -329,6 +379,7 @@
             // 
             // IdRolControl
             // 
+            this.IdRolControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IdRolControl.FormattingEnabled = true;
             this.IdRolControl.Location = new System.Drawing.Point(0, 23);
             this.IdRolControl.Name = "IdRolControl";
@@ -347,6 +398,7 @@
             // 
             // IdEmpleadoControl
             // 
+            this.IdEmpleadoControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IdEmpleadoControl.FormattingEnabled = true;
             this.IdEmpleadoControl.Location = new System.Drawing.Point(4, 27);
             this.IdEmpleadoControl.Name = "IdEmpleadoControl";
@@ -375,84 +427,34 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btnCancelar.Location = new System.Drawing.Point(262, 17);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(123, 29);
             this.btnCancelar.TabIndex = 7;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
+            this.btnGuardar.BackColor = System.Drawing.Color.White;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btnGuardar.Location = new System.Drawing.Point(92, 17);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(123, 29);
             this.btnGuardar.TabIndex = 6;
-            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // DataGridUsuario
-            // 
-            this.DataGridUsuario.AccessibleName = "Table";
-            this.DataGridUsuario.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.HeaderText = "Column1";
-            gridTextColumn1.MappingName = "IdCuentaUsuario";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.HeaderText = "Cuenta";
-            gridTextColumn2.MappingName = "Cuenta";
-            gridTextColumn3.HeaderText = "IdRol";
-            gridTextColumn3.MappingName = "IdRol";
-            gridTextColumn3.Visible = false;
-            gridTextColumn4.HeaderText = "Rol";
-            gridTextColumn4.MappingName = "Nombre";
-            gridTextColumn5.HeaderText = "Column7";
-            gridTextColumn5.MappingName = "IdEmpleado";
-            gridTextColumn5.Visible = false;
-            gridTextColumn6.HeaderText = "Nombre empleado";
-            gridTextColumn6.MappingName = "Nombres";
-            this.DataGridUsuario.Columns.Add(gridTextColumn1);
-            this.DataGridUsuario.Columns.Add(gridTextColumn2);
-            this.DataGridUsuario.Columns.Add(gridTextColumn3);
-            this.DataGridUsuario.Columns.Add(gridTextColumn4);
-            this.DataGridUsuario.Columns.Add(gridTextColumn5);
-            this.DataGridUsuario.Columns.Add(gridTextColumn6);
-            this.DataGridUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DataGridUsuario.Location = new System.Drawing.Point(0, 0);
-            this.DataGridUsuario.Name = "DataGridUsuario";
-            this.DataGridUsuario.Size = new System.Drawing.Size(525, 423);
-            this.DataGridUsuario.TabIndex = 0;
-            this.DataGridUsuario.Text = "sfDataGrid1";
             // 
             // errorProviderUsuario
             // 
             this.errorProviderUsuario.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProviderUsuario.ContainerControl = this;
-            // 
-            // panelDatos
-            // 
-            this.panelDatos.Controls.Add(this.groupUsuario);
-            this.panelDatos.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelDatos.Location = new System.Drawing.Point(525, 0);
-            this.panelDatos.Name = "panelDatos";
-            this.panelDatos.Size = new System.Drawing.Size(492, 423);
-            this.panelDatos.TabIndex = 2;
-            // 
-            // panelGrid
-            // 
-            this.panelGrid.Controls.Add(this.DataGridUsuario);
-            this.panelGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelGrid.Location = new System.Drawing.Point(0, 0);
-            this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(525, 423);
-            this.panelGrid.TabIndex = 3;
             // 
             // FrmUsuario
             // 
@@ -470,6 +472,9 @@
             this.panel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panelGrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridUsuario)).EndInit();
+            this.panelDatos.ResumeLayout(false);
             this.groupUsuario.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -483,10 +488,7 @@
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderUsuario)).EndInit();
-            this.panelDatos.ResumeLayout(false);
-            this.panelGrid.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
