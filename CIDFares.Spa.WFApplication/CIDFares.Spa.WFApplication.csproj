@@ -271,6 +271,12 @@
     <Compile Include="Forms\Ventas\FrmBuscarCliente.Designer.cs">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Ventas\FrmBuscarPaquete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmBuscarPaquete.Designer.cs">
+      <DependentUpon>FrmBuscarPaquete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Ventas\FrmBuscarVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -421,6 +427,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmBuscarCliente.resx">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ventas\FrmBuscarPaquete.resx">
+      <DependentUpon>FrmBuscarPaquete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmBuscarVentas.resx">
       <DependentUpon>FrmBuscarVentas.cs</DependentUpon>

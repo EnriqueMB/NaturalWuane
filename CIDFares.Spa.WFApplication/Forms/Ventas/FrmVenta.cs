@@ -493,6 +493,56 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                         }
                     }
                 }
+                else
+                if (IdTipo == 3)
+                {
+                    var paquetes = (Paquetes)objetoX;
+                    if (Model.Listaventa.Count == 0)
+                    {
+                        Model.Listaventa.Add(new Venta
+                        {
+                            IdGenerico = paquetes.IdPaquete,
+                            IdTipo = paquetes.IdTipo,
+                            Cantidad = paquetes.CantidadServicio,
+                            Nombre = paquetes.Nombre,
+                            Precio = paquetes.MontoPaquete,
+                            PorcentajeIva = 0,
+                            Total = paquetes.CantidadServicio * paquetes.MontoPaquete,
+                            SubTotal = paquetes.CantidadServicio * paquetes.MontoPaquete //- (paquetes.MontoPaquete * (paquetes. / 100))
+                        });
+                        TotalVenta();
+                    }
+                    else
+                    {
+                        var x = Model.Listaventa.Where(p => p.IdGenerico == paquetes.IdPaquete && p.IdTipo == paquetes.IdTipo).Select(u => {
+                            u.Cantidad += paquetes.CantidadServicio;
+                            u.Precio = paquetes.MontoPaquete; //- (paquetes.MontoPaquete * (paquetes.ProcentajeIva / 100));
+                            u.PorcentajeIva = 0; //(paquetes. * (paquetes.ProcentajeIva / 100));
+                            u.Total = u.Cantidad * paquetes.MontoPaquete;
+                            u.SubTotal = u.Cantidad * u.Precio; return u;
+                        }).ToList();
+                        if (x.Count == 1)
+                        {
+                            this.sfDataGridVenta.Refresh();
+                            TotalVenta();
+                        }
+                        else
+                        {
+                            Model.Listaventa.Add(new Venta
+                            {
+                                IdGenerico = paquetes.IdPaquete,
+                                IdTipo = paquetes.IdTipo,
+                                Cantidad = paquetes.CantidadServicio,
+                                Nombre = paquetes.Nombre,
+                                Precio = paquetes.MontoPaquete, //- (paquetes.MontoPaquete * (paquetes.ProcentajeIva / 100)),
+                                PorcentajeIva = 0,// (paquetes.MontoPaquete * (paquetes.ProcentajeIva / 100)),
+                                Total = paquetes.CantidadServicio * paquetes.MontoPaquete,
+                                SubTotal = paquetes.CantidadServicio * paquetes.MontoPaquete// - (paquetes.PrecioPublico * (paquetes.ProcentajeIva / 100))
+                            });
+                            TotalVenta();
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -550,6 +600,17 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                                 LLenarGrid2(item, item.IdTipoServicio);
                             }
                         }
+                        else if (rbtPaquete.Checked == true)
+                        {
+                            await Model.GetBusquedaRapida(3, BusquedaControl.Text);
+                            if (Model.ListaPaquete.Count == 1)
+                            {
+                                var item = Model.ListaPaquete.ElementAt(0);
+                                item.IdTipoServicio = 3;
+                                item.CantidadServicio = 1;
+                                LLenarGrid2(item, item.IdTipoServicio);
+                            }
+                        }
                     }
                     else
                         errorProvider1.SetError(txtCantidad, "Ingrese la cantidad deseada");
@@ -576,6 +637,28 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             else if (Char.IsWhiteSpace(e.KeyChar))
                 e.Handled = true;
         }
+
+        private void btnPaquetes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmBuscarPaquete paquete = new FrmBuscarPaquete();
+                paquete.ShowDialog();
+                if (paquete.paquetes.IdPaquete != 0)
+                {
+                    int Tipo = 3;
+                    Tipo = paquete.IDTipo;
+                    LLenarGrid2(paquete.paquetes, Tipo);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmBuscarVenta ~ btnProducto_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
+            }
+        }
+       
         //CALCULO DE EL IEPS
         //public decimal DesglosaIeps(out decimal PrecioSinIvaSinIeps)
         //{
