@@ -123,6 +123,16 @@ namespace CIDFares.Spa.WFApplication.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap chevrondown35px {
+            get {
+                object obj = ResourceManager.GetObject("chevrondown35px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chevronizquierda {
             get {
                 object obj = ResourceManager.GetObject("chevronizquierda", resourceCulture);
@@ -136,6 +146,16 @@ namespace CIDFares.Spa.WFApplication.Properties {
         internal static System.Drawing.Bitmap chevronizquierdaO {
             get {
                 object obj = ResourceManager.GetObject("chevronizquierdaO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap chevronup35px {
+            get {
+                object obj = ResourceManager.GetObject("chevronup35px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,6 +243,16 @@ namespace CIDFares.Spa.WFApplication.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap minus35px {
+            get {
+                object obj = ResourceManager.GetObject("minus35px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap naturalmenu {
             get {
                 object obj = ResourceManager.GetObject("naturalmenu", resourceCulture);
@@ -273,14 +303,26 @@ namespace CIDFares.Spa.WFApplication.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Recurso_10_3x
-        {
-            get
-            {
+        internal static System.Drawing.Bitmap plus35Px {
+            get {
+                object obj = ResourceManager.GetObject("plus35Px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Recurso_10_3x {
+            get {
                 object obj = ResourceManager.GetObject("Recurso 10@3x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap restaurarO {
             get {
                 object obj = ResourceManager.GetObject("restaurarO", resourceCulture);
