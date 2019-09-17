@@ -114,7 +114,7 @@
             this.pnlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitulo.Location = new System.Drawing.Point(0, 0);
             this.pnlTitulo.Name = "pnlTitulo";
-            this.pnlTitulo.Size = new System.Drawing.Size(800, 45);
+            this.pnlTitulo.Size = new System.Drawing.Size(800, 58);
             this.pnlTitulo.TabIndex = 9;
             // 
             // label3
@@ -122,7 +122,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(12, 11);
+            this.label3.Location = new System.Drawing.Point(12, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 22);
             this.label3.TabIndex = 0;
@@ -164,11 +164,11 @@
             this.dtgEncuestas.Columns.Add(gridTextColumn3);
             this.dtgEncuestas.Columns.Add(gridTextColumn4);
             this.dtgEncuestas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgEncuestas.Location = new System.Drawing.Point(0, 45);
+            this.dtgEncuestas.Location = new System.Drawing.Point(0, 58);
             this.dtgEncuestas.Name = "dtgEncuestas";
             this.dtgEncuestas.RowHeight = 21;
             this.dtgEncuestas.ShowGroupDropArea = true;
-            this.dtgEncuestas.Size = new System.Drawing.Size(800, 331);
+            this.dtgEncuestas.Size = new System.Drawing.Size(800, 318);
             this.dtgEncuestas.Style.CellStyle.TextColor = System.Drawing.Color.Black;
             this.dtgEncuestas.Style.GroupDropAreaItemStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.dtgEncuestas.Style.GroupDropAreaItemStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -191,6 +191,7 @@
             this.Controls.Add(this.dtgEncuestas);
             this.Controls.Add(this.pnlTitulo);
             this.Controls.Add(this.FlpBotones);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmEncuesta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCuestionarios";

@@ -92,14 +92,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1017, 62);
+            this.panel1.Size = new System.Drawing.Size(1017, 58);
             this.panel1.TabIndex = 0;
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 14.25F);
-            this.lblUsuario.Location = new System.Drawing.Point(12, 23);
+            this.lblUsuario.Location = new System.Drawing.Point(12, 18);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(92, 22);
             this.lblUsuario.TabIndex = 0;
@@ -168,9 +168,9 @@
             this.panel3.Controls.Add(this.panelGrid);
             this.panel3.Controls.Add(this.panelDatos);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 62);
+            this.panel3.Location = new System.Drawing.Point(0, 58);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1017, 423);
+            this.panel3.Size = new System.Drawing.Size(1017, 427);
             this.panel3.TabIndex = 2;
             // 
             // panelGrid
@@ -230,7 +230,7 @@
             this.groupUsuario.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.groupUsuario.Location = new System.Drawing.Point(0, 0);
             this.groupUsuario.Name = "groupUsuario";
-            this.groupUsuario.Size = new System.Drawing.Size(492, 423);
+            this.groupUsuario.Size = new System.Drawing.Size(492, 427);
             this.groupUsuario.TabIndex = 0;
             this.groupUsuario.TabStop = false;
             this.groupUsuario.Text = "Datos usuario";
@@ -464,6 +464,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmUsuario";
             this.Text = "FrmUsuario";
             this.Shown += new System.EventHandler(this.FrmUsuario_Shown);

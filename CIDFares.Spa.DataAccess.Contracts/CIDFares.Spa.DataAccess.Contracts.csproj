@@ -68,6 +68,7 @@
     <Compile Include="Entities\Municipio.cs" />
     <Compile Include="Entities\Pais.cs" />
     <Compile Include="Entities\Iva.cs" />
+    <Compile Include="Entities\RegistroEntradaSalida.cs" />
     <Compile Include="Entities\Preguntas.cs" />
     <Compile Include="Entities\ReglasRol.cs" />
     <Compile Include="Entities\PaqueteDetalle.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="Repositories\General\IProveedorACompraRepository.cs" />
     <Compile Include="Repositories\General\IProveedorRepository.cs" />
     <Compile Include="Repositories\General\IPuestoRepository.cs" />
+    <Compile Include="Repositories\General\IRegistroEntradaSalidaRepository.cs" />
     <Compile Include="Repositories\General\IReglaPerfilRepository.cs" />
     <Compile Include="Repositories\General\IServicioRepository.cs" />
     <Compile Include="Repositories\General\ISucursalRepository.cs" />

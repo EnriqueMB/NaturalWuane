@@ -49,7 +49,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             {
                 var x = this.PreguntaControl.SelectionStart;
                 this.PreguntaControl.Text = this.PreguntaControl.Text.ToUpper();
-                this.PreguntaControl.Text = this.PreguntaControl.Text.Replace("Á", "A").Replace("É", "E").Replace("Í", "I").Replace("Ó", "O").Replace("Ú", "U").Replace("´", "").Replace("  ", " ");
+                //this.PreguntaControl.Text = this.PreguntaControl.Text.Replace("Á", "A").Replace("É", "E").Replace("Í", "I").Replace("Ó", "O").Replace("Ú", "U").Replace("´", "").Replace("  ", " ");
                 this.PreguntaControl.SelectionStart = x;
             }
             catch (Exception ex)
@@ -85,19 +85,22 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 Height = 497;                
                 IniciarComboTE();
                 lblTitulo.Visible = true;
-                cmbPreguntas.Visible = true;               
+                cmbPreguntas.Visible = true;
+                groupBox2.Visible = true;
             }
             else
             {               
-                Height = 385;
-                lblTitulo.Visible = false;
+                Height = 385;            
                 cmbPreguntas.Visible = false;
+                groupBox2.Visible = false;
             }
         }
         private void BtnGuardarPregunta_Click(object sender, EventArgs e)
         {
             try
             {
+                this.btnGuardarPregunta.Enabled = false;
+
                 if (!string.IsNullOrEmpty(Model.Pregunta))
                 {
                     //LLenarListaPreguntas(CargarDatos());
@@ -114,6 +117,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             {
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmAgregarPregunta ~ BtnGuardarPregunta_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+            finally
+            {
+                this.btnGuardarPregunta.Enabled = true;
             }
         }
         #endregion
@@ -173,8 +180,18 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 {
                     dato.IdPreguntaDepende = Paux.IdPregunta;
                     dato.DependePregunta = Paux.Pregunta;
+
+                    if (rbtSi.Checked)
+                    {
+                        dato.ActivarCuando = "SI";
+                    }
+                    else
+                    {
+                        dato.ActivarCuando = "NO";
+                    }
                 }
-                
+
+               
                 return dato;
             }
             catch (Exception ex)

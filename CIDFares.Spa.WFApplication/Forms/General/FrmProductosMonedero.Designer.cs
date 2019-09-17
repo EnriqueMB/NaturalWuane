@@ -35,7 +35,10 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.PuntosMonederoControl = new Syncfusion.Windows.Forms.Tools.CurrencyTextBox();
             this.DescuentoGroup = new System.Windows.Forms.GroupBox();
+            this.MontoControl = new Syncfusion.Windows.Forms.Tools.CurrencyTextBox();
+            this.PuntosDescuentoControl = new Syncfusion.Windows.Forms.Tools.CurrencyTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbTipoDescuento = new System.Windows.Forms.Label();
@@ -46,17 +49,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.IdProductoControl = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.PuntosMonederoControl = new Syncfusion.Windows.Forms.Tools.CurrencyTextBox();
-            this.PuntosDescuentoControl = new Syncfusion.Windows.Forms.Tools.CurrencyTextBox();
-            this.MontoControl = new Syncfusion.Windows.Forms.Tools.CurrencyTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.DescuentoGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PuntosMonederoControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PuntosDescuentoControl)).BeginInit();
+            this.DescuentoGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MontoControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PuntosDescuentoControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -137,6 +137,32 @@
             this.panel3.Size = new System.Drawing.Size(408, 354);
             this.panel3.TabIndex = 2;
             // 
+            // PuntosMonederoControl
+            // 
+            this.PuntosMonederoControl.BeforeTouchSize = new System.Drawing.Size(244, 27);
+            this.PuntosMonederoControl.Culture = new System.Globalization.CultureInfo("es-MX");
+            this.PuntosMonederoControl.CurrencyDecimalDigits = 0;
+            this.PuntosMonederoControl.CurrencySymbol = "";
+            this.PuntosMonederoControl.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.PuntosMonederoControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PuntosMonederoControl.Location = new System.Drawing.Point(17, 113);
+            this.PuntosMonederoControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.PuntosMonederoControl.MinValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.PuntosMonederoControl.Name = "PuntosMonederoControl";
+            this.PuntosMonederoControl.NullString = "";
+            this.PuntosMonederoControl.Size = new System.Drawing.Size(244, 27);
+            this.PuntosMonederoControl.SpecialCultureValue = Syncfusion.Windows.Forms.Tools.SpecialCultureValues.None;
+            this.PuntosMonederoControl.TabIndex = 49;
+            this.PuntosMonederoControl.Text = "0";
+            // 
             // DescuentoGroup
             // 
             this.DescuentoGroup.Controls.Add(this.MontoControl);
@@ -152,6 +178,58 @@
             this.DescuentoGroup.TabIndex = 48;
             this.DescuentoGroup.TabStop = false;
             this.DescuentoGroup.Text = "Puntos Descuento";
+            // 
+            // MontoControl
+            // 
+            this.MontoControl.BeforeTouchSize = new System.Drawing.Size(244, 27);
+            this.MontoControl.Culture = new System.Globalization.CultureInfo("es-MX");
+            this.MontoControl.CurrencyDecimalDigits = 0;
+            this.MontoControl.CurrencySymbol = "";
+            this.MontoControl.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.MontoControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MontoControl.Location = new System.Drawing.Point(162, 133);
+            this.MontoControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.MontoControl.MinValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.MontoControl.Name = "MontoControl";
+            this.MontoControl.NullString = "";
+            this.MontoControl.Size = new System.Drawing.Size(189, 27);
+            this.MontoControl.SpecialCultureValue = Syncfusion.Windows.Forms.Tools.SpecialCultureValues.None;
+            this.MontoControl.TabIndex = 53;
+            this.MontoControl.Text = "0";
+            // 
+            // PuntosDescuentoControl
+            // 
+            this.PuntosDescuentoControl.BeforeTouchSize = new System.Drawing.Size(244, 27);
+            this.PuntosDescuentoControl.Culture = new System.Globalization.CultureInfo("es-MX");
+            this.PuntosDescuentoControl.CurrencyDecimalDigits = 0;
+            this.PuntosDescuentoControl.CurrencySymbol = "";
+            this.PuntosDescuentoControl.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.PuntosDescuentoControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PuntosDescuentoControl.Location = new System.Drawing.Point(18, 59);
+            this.PuntosDescuentoControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.PuntosDescuentoControl.MinValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.PuntosDescuentoControl.Name = "PuntosDescuentoControl";
+            this.PuntosDescuentoControl.NullString = "";
+            this.PuntosDescuentoControl.Size = new System.Drawing.Size(244, 27);
+            this.PuntosDescuentoControl.SpecialCultureValue = Syncfusion.Windows.Forms.Tools.SpecialCultureValues.None;
+            this.PuntosDescuentoControl.TabIndex = 50;
+            this.PuntosDescuentoControl.Text = "0";
             // 
             // label5
             // 
@@ -255,84 +333,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // PuntosMonederoControl
-            // 
-            this.PuntosMonederoControl.BeforeTouchSize = new System.Drawing.Size(189, 27);
-            this.PuntosMonederoControl.Culture = new System.Globalization.CultureInfo("es-MX");
-            this.PuntosMonederoControl.CurrencyDecimalDigits = 0;
-            this.PuntosMonederoControl.CurrencySymbol = "";
-            this.PuntosMonederoControl.DecimalValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.PuntosMonederoControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PuntosMonederoControl.Location = new System.Drawing.Point(17, 113);
-            this.PuntosMonederoControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.PuntosMonederoControl.MinValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.PuntosMonederoControl.Name = "PuntosMonederoControl";
-            this.PuntosMonederoControl.NullString = "";
-            this.PuntosMonederoControl.Size = new System.Drawing.Size(244, 27);
-            this.PuntosMonederoControl.SpecialCultureValue = Syncfusion.Windows.Forms.Tools.SpecialCultureValues.None;
-            this.PuntosMonederoControl.TabIndex = 49;
-            this.PuntosMonederoControl.Text = "0";
-            // 
-            // PuntosDescuentoControl
-            // 
-            this.PuntosDescuentoControl.BeforeTouchSize = new System.Drawing.Size(189, 27);
-            this.PuntosDescuentoControl.Culture = new System.Globalization.CultureInfo("es-MX");
-            this.PuntosDescuentoControl.CurrencyDecimalDigits = 0;
-            this.PuntosDescuentoControl.CurrencySymbol = "";
-            this.PuntosDescuentoControl.DecimalValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.PuntosDescuentoControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PuntosDescuentoControl.Location = new System.Drawing.Point(18, 59);
-            this.PuntosDescuentoControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.PuntosDescuentoControl.MinValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.PuntosDescuentoControl.Name = "PuntosDescuentoControl";
-            this.PuntosDescuentoControl.NullString = "";
-            this.PuntosDescuentoControl.Size = new System.Drawing.Size(244, 27);
-            this.PuntosDescuentoControl.SpecialCultureValue = Syncfusion.Windows.Forms.Tools.SpecialCultureValues.None;
-            this.PuntosDescuentoControl.TabIndex = 50;
-            this.PuntosDescuentoControl.Text = "0";
-            // 
-            // MontoControl
-            // 
-            this.MontoControl.BeforeTouchSize = new System.Drawing.Size(189, 27);
-            this.MontoControl.Culture = new System.Globalization.CultureInfo("es-MX");
-            this.MontoControl.CurrencyDecimalDigits = 0;
-            this.MontoControl.CurrencySymbol = "";
-            this.MontoControl.DecimalValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.MontoControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MontoControl.Location = new System.Drawing.Point(162, 133);
-            this.MontoControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.MontoControl.MinValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.MontoControl.Name = "MontoControl";
-            this.MontoControl.NullString = "";
-            this.MontoControl.Size = new System.Drawing.Size(189, 27);
-            this.MontoControl.SpecialCultureValue = Syncfusion.Windows.Forms.Tools.SpecialCultureValues.None;
-            this.MontoControl.TabIndex = 53;
-            this.MontoControl.Text = "0";
-            // 
             // FrmProductosMonedero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -341,7 +341,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmProductosMonedero";
             this.Text = "FrmProductosMonedero";
             this.Load += new System.EventHandler(this.FrmProductosMonedero_Load);
@@ -350,12 +350,12 @@
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PuntosMonederoControl)).EndInit();
             this.DescuentoGroup.ResumeLayout(false);
             this.DescuentoGroup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PuntosMonederoControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PuntosDescuentoControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MontoControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PuntosDescuentoControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }

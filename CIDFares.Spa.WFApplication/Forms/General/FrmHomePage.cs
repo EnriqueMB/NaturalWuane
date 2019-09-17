@@ -5,6 +5,7 @@ using CIDFares.Spa.WFApplication.Forms.Compras;
 using CIDFares.Spa.WFApplication.Forms.Cuestionarios;
 using CIDFares.Spa.WFApplication.Forms.Usuarios;
 using CIDFares.Spa.WFApplication.Forms.Ventas;
+using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -94,6 +95,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             try
             {
                 Maximizar();
+                BotonesPerfil();
             }
             catch (Exception ex)
             {
@@ -314,6 +316,28 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         }
         #endregion
 
+        #region Botones para permisos de usuario
+        private void BotonesPerfil()
+        {
+            EnabledButton(btnCategoria, CurrentSession.PermisoUsuario("1,2,3"));
+            EnabledButton(btnCliente, CurrentSession.PermisoUsuario("4,5,6"));
+            EnabledButton(btnFormaPago, CurrentSession.PermisoUsuario("7,8,9"));
+            EnabledButton(btnProducto, CurrentSession.PermisoUsuario("10,11,12"));
+            EnabledButton(btnProveedor, CurrentSession.PermisoUsuario("13,14,15"));
+            EnabledButton(btnServicio, CurrentSession.PermisoUsuario("16,17,18"));
+            EnabledButton(btnSucursal, CurrentSession.PermisoUsuario("19,20,21"));
+            EnabledButton(btnUsuario, CurrentSession.PermisoUsuario("22,23,24"));
+            EnabledButton(btnVenta, CurrentSession.PermisoUsuario("25"));
+            EnabledButton(btnCompras, CurrentSession.PermisoUsuario("26"));
+            EnabledButton(btnPermiso, CurrentSession.PermisoUsuario("27"));
+        }
+
+        private void EnabledButton(Button boton, bool permiso)
+        {
+            boton.Enabled = permiso;
+        }
+        #endregion
+
         public void Maximizar()
         {
             try
@@ -363,6 +387,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         {
             SlideUsuarios(btnPermiso);
             GetPanel(new FrmReglasPerfil());
+            BotonesPerfil();
         }
 
         private void BtnUsuarios_Click(object sender, EventArgs e)
@@ -379,6 +404,27 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             }
         }
 
+        private void btnEmpleado_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnEmpleado);
+            GetPanel(new FrmEmpleadoGrid());
+        }
+
+        private void btnEntradaSalida_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SlideCatalogo(btnEntradaSalida);
+                FrmRegistroEntradaSalida registro = new FrmRegistroEntradaSalida();
+                registro.ShowDialog();
+                
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
 
         private void SlideGenerales(Button button)
         {

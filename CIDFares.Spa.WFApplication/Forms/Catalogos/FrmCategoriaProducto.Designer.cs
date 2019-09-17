@@ -293,6 +293,7 @@
             this.Controls.Add(this.pnlGrid);
             this.Controls.Add(this.pnlBtns);
             this.Controls.Add(this.pnlHeader);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCategoriaProducto";
             this.Text = "FrmCategoriaProducto";
             this.pnlHeader.ResumeLayout(false);

@@ -46,7 +46,7 @@
             this.btnGuardarRespuesta.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarRespuesta.ForeColor = System.Drawing.Color.White;
             this.btnGuardarRespuesta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardarRespuesta.Location = new System.Drawing.Point(421, 192);
+            this.btnGuardarRespuesta.Location = new System.Drawing.Point(421, 198);
             this.btnGuardarRespuesta.Name = "btnGuardarRespuesta";
             this.btnGuardarRespuesta.Size = new System.Drawing.Size(130, 28);
             this.btnGuardarRespuesta.TabIndex = 19;

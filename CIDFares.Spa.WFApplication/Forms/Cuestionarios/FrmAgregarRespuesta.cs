@@ -38,6 +38,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         {
             try
             {
+                this.btnGuardarRespuesta.Enabled = false;
+
                 if (!string.IsNullOrEmpty(Model.Respuesta))
                 {
                     //LLenarListaRespuestas(CargarDatosR());
@@ -52,7 +54,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             }
             catch (Exception ex)
             {
-                throw ex;
+                CIDMessageBox.ShowAlert(Messages.SystemName, ex.Message.ToString(), TypeMessage.error);
+            }
+            finally
+            {
+                this.btnGuardarRespuesta.Enabled = true;
             }
         }
         private void FrmAgregarRespuesta_Load(object sender, EventArgs e)
@@ -67,12 +73,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             {
                 var x = this.RespuestaControl.SelectionStart;
                 this.RespuestaControl.Text = this.RespuestaControl.Text.ToUpper();
-                this.RespuestaControl.Text = this.RespuestaControl.Text.Replace("Á", "A").Replace("É", "E").Replace("Í", "I").Replace("Ó", "O").Replace("Ú", "U").Replace("´", "").Replace("  ", " ");
+                //this.RespuestaControl.Text = this.RespuestaControl.Text.Replace("Á", "A").Replace("É", "E").Replace("Í", "I").Replace("Ó", "O").Replace("Ú", "U").Replace("´", "").Replace("  ", " ");
                 this.RespuestaControl.SelectionStart = x;
             }
             catch (Exception ex)
             {
-                throw ex;
+                CIDMessageBox.ShowAlert(Messages.SystemName, ex.Message.ToString(), TypeMessage.error);
             }
         }
         private void RespuestaControl_KeyPress(object sender, KeyPressEventArgs e)
@@ -109,17 +115,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 throw ex;
             }
         }
-        //public void LLenarListaRespuestas(Respuestas value)
-        //{
-        //    try
-        //    {
-        //        ListaRespuesta.Add(value);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
 
         private void IniciarBinding()
         {

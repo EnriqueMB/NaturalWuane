@@ -16,6 +16,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public Guid IdPregunta { get; set; }
         public string Pregunta { get; set; }
         public string TipoPregunta { get; set; }
+        public string ActivarCuando { get; set; } 
         public Guid IdPreguntaDepende { get; set; }
         public string DependePregunta { get; set; }
         public int Orden { get; set; }

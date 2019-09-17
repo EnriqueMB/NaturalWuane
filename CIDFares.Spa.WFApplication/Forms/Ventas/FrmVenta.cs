@@ -212,6 +212,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 FolioClienteControl.Text = "";
                 FechaControl.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 FotoControl.Image = Properties.Resources.imagen_subir;
+                BusquedaControl.Text = "";
+                txtCantidad.Text= "";
             }
             catch (Exception)
             {

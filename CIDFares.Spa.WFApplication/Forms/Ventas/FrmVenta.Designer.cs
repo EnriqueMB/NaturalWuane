@@ -86,8 +86,9 @@
             this.btnPaquetes = new System.Windows.Forms.Button();
             this.btnServicio = new System.Windows.Forms.Button();
             this.btnProducto = new System.Windows.Forms.Button();
-            this.PnlVentaGrid = new System.Windows.Forms.Panel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.PnlVentaGrid = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnlGeneral.SuspendLayout();
             this.pnlAcciones.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -108,6 +109,7 @@
             this.pnlBotonCobrar.SuspendLayout();
             this.pnlBotonesGenerales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTotal
@@ -128,12 +130,13 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(24, 30);
+            this.btnEliminar.Location = new System.Drawing.Point(3, 22);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(126, 52);
+            this.btnEliminar.Size = new System.Drawing.Size(158, 52);
             this.btnEliminar.TabIndex = 1;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -166,11 +169,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.txtCantidad);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.BtnBusqueda);
-            this.groupBox2.Controls.Add(this.BusquedaControl);
+            this.groupBox2.Controls.Add(this.panel1);
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.btnEliminar);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -184,8 +183,9 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 306);
+            this.label2.Location = new System.Drawing.Point(3, 90);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 20);
             this.label2.TabIndex = 17;
@@ -194,7 +194,7 @@
             // txtCantidad
             // 
             this.txtCantidad.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtCantidad.Location = new System.Drawing.Point(13, 335);
+            this.txtCantidad.Location = new System.Drawing.Point(7, 113);
             this.txtCantidad.MaxLength = 200;
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(138, 26);
@@ -203,8 +203,9 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 237);
+            this.label1.Location = new System.Drawing.Point(3, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(134, 20);
             this.label1.TabIndex = 15;
@@ -217,7 +218,7 @@
             this.BtnBusqueda.FlatAppearance.BorderSize = 0;
             this.BtnBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBusqueda.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBusqueda.Location = new System.Drawing.Point(33, 367);
+            this.BtnBusqueda.Location = new System.Drawing.Point(38, 159);
             this.BtnBusqueda.Name = "BtnBusqueda";
             this.BtnBusqueda.Size = new System.Drawing.Size(89, 26);
             this.BtnBusqueda.TabIndex = 14;
@@ -228,7 +229,7 @@
             // BusquedaControl
             // 
             this.BusquedaControl.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BusquedaControl.Location = new System.Drawing.Point(12, 266);
+            this.BusquedaControl.Location = new System.Drawing.Point(6, 52);
             this.BusquedaControl.MaxLength = 200;
             this.BusquedaControl.Name = "BusquedaControl";
             this.BusquedaControl.Size = new System.Drawing.Size(138, 26);
@@ -239,9 +240,10 @@
             this.groupBox4.Controls.Add(this.rbtPaquete);
             this.groupBox4.Controls.Add(this.rbtServicio);
             this.groupBox4.Controls.Add(this.rbtProducto);
-            this.groupBox4.Location = new System.Drawing.Point(6, 107);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox4.Location = new System.Drawing.Point(3, 74);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(155, 118);
+            this.groupBox4.Size = new System.Drawing.Size(158, 118);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tipo Busqueda";
@@ -620,7 +622,7 @@
             this.pnlBotonesGenerales.Controls.Add(this.btnServicio);
             this.pnlBotonesGenerales.Controls.Add(this.btnProducto);
             this.pnlBotonesGenerales.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlBotonesGenerales.Location = new System.Drawing.Point(0, 52);
+            this.pnlBotonesGenerales.Location = new System.Drawing.Point(0, 58);
             this.pnlBotonesGenerales.Name = "pnlBotonesGenerales";
             this.pnlBotonesGenerales.Size = new System.Drawing.Size(1110, 64);
             this.pnlBotonesGenerales.TabIndex = 2;
@@ -688,18 +690,31 @@
             this.btnProducto.UseVisualStyleBackColor = true;
             this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // PnlVentaGrid
             // 
             this.PnlVentaGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
             this.PnlVentaGrid.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnlVentaGrid.Location = new System.Drawing.Point(0, 0);
             this.PnlVentaGrid.Name = "PnlVentaGrid";
-            this.PnlVentaGrid.Size = new System.Drawing.Size(1110, 52);
+            this.PnlVentaGrid.Size = new System.Drawing.Size(1110, 58);
             this.PnlVentaGrid.TabIndex = 0;
             // 
-            // errorProvider1
+            // panel1
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.BusquedaControl);
+            this.panel1.Controls.Add(this.txtCantidad);
+            this.panel1.Controls.Add(this.BtnBusqueda);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 192);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(158, 207);
+            this.panel1.TabIndex = 18;
             // 
             // FrmVenta
             // 
@@ -707,6 +722,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1110, 579);
             this.Controls.Add(this.pnlGeneral);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
@@ -714,7 +730,6 @@
             this.pnlGeneral.ResumeLayout(false);
             this.pnlAcciones.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.PnlVentas.ResumeLayout(false);
@@ -737,13 +752,14 @@
             this.pnlBotonCobrar.ResumeLayout(false);
             this.pnlBotonesGenerales.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Panel pnlGeneral;
-        private System.Windows.Forms.Panel PnlVentaGrid;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnTotal;
         private System.Windows.Forms.Panel pnlBotonesGenerales;
@@ -793,5 +809,7 @@
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox BusquedaControl;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel PnlVentaGrid;
     }
 }

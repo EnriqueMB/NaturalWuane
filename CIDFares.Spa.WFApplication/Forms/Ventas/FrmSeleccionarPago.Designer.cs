@@ -35,6 +35,7 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo gridBordersInfo1 = new Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
+            this.ErrorControl = new System.Windows.Forms.Label();
             this.pnlEfectivo = new System.Windows.Forms.Panel();
             this.EfectivoControl = new Syncfusion.Windows.Forms.Tools.CurrencyTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -51,7 +52,6 @@
             this.CambioControl = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ErrorControl = new System.Windows.Forms.Label();
             this.PanelPrincipal.SuspendLayout();
             this.pnlEfectivo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EfectivoControl)).BeginInit();
@@ -74,6 +74,14 @@
             this.PanelPrincipal.Name = "PanelPrincipal";
             this.PanelPrincipal.Size = new System.Drawing.Size(442, 536);
             this.PanelPrincipal.TabIndex = 0;
+            // 
+            // ErrorControl
+            // 
+            this.ErrorControl.AutoSize = true;
+            this.ErrorControl.Location = new System.Drawing.Point(401, 163);
+            this.ErrorControl.Name = "ErrorControl";
+            this.ErrorControl.Size = new System.Drawing.Size(0, 13);
+            this.ErrorControl.TabIndex = 12;
             // 
             // pnlEfectivo
             // 
@@ -103,6 +111,11 @@
             this.EfectivoControl.ForeColor = System.Drawing.Color.Silver;
             this.EfectivoControl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.EfectivoControl.Location = new System.Drawing.Point(102, 34);
+            this.EfectivoControl.MaxValue = new decimal(new int[] {
+            -727379968,
+            232,
+            0,
+            0});
             this.EfectivoControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.EfectivoControl.MinimumSize = new System.Drawing.Size(8, 4);
             this.EfectivoControl.MinValue = new decimal(new int[] {
@@ -115,7 +128,7 @@
             this.EfectivoControl.PositiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
             this.EfectivoControl.SelectAllOnFocus = false;
             this.EfectivoControl.Size = new System.Drawing.Size(222, 34);
-            this.EfectivoControl.TabIndex = 11;
+            this.EfectivoControl.TabIndex = 1;
             this.EfectivoControl.Text = "$0.00";
             this.EfectivoControl.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.EfectivoControl.ThemeStyle.FocusBorderColor = System.Drawing.Color.Gray;
@@ -169,7 +182,7 @@
             this.GridFormaPago.Name = "GridFormaPago";
             this.GridFormaPago.SelectionMode = Syncfusion.WinForms.DataGrid.Enums.GridSelectionMode.Extended;
             this.GridFormaPago.SelectionUnit = Syncfusion.WinForms.DataGrid.Enums.SelectionUnit.Cell;
-            this.GridFormaPago.Size = new System.Drawing.Size(364, 207);
+            this.GridFormaPago.Size = new System.Drawing.Size(379, 207);
             gridBordersInfo1.Bottom = new Syncfusion.WinForms.DataGrid.Styles.GridBorder(Syncfusion.WinForms.DataGrid.Styles.GridBorderStyle.Standard, System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204))))));
             this.GridFormaPago.Style.AddNewRowStyle.Borders = gridBordersInfo1;
             this.GridFormaPago.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -185,7 +198,6 @@
             this.GridFormaPago.TabIndex = 7;
             this.GridFormaPago.Text = "sfDataGrid1";
             this.GridFormaPago.CurrentCellEndEdit += new Syncfusion.WinForms.DataGrid.Events.CurrentCellEndEditEventHandler(this.GridFormaPago_CurrentCellEndEdit);
-            this.GridFormaPago.CellCheckBoxClick += new Syncfusion.WinForms.DataGrid.Events.CellCheckBoxClickEventHandler(this.GridFormaPago_CellCheckBoxClick);
             this.GridFormaPago.TextChanged += new System.EventHandler(this.GridFormaPago_TextChanged);
             // 
             // panel3
@@ -260,7 +272,7 @@
             this.pnlCambio.Location = new System.Drawing.Point(0, 0);
             this.pnlCambio.Name = "pnlCambio";
             this.pnlCambio.Size = new System.Drawing.Size(441, 548);
-            this.pnlCambio.TabIndex = 1;
+            this.pnlCambio.TabIndex = 17;
             this.pnlCambio.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCambio_Paint);
             // 
             // label5
@@ -316,14 +328,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // ErrorControl
-            // 
-            this.ErrorControl.AutoSize = true;
-            this.ErrorControl.Location = new System.Drawing.Point(401, 163);
-            this.ErrorControl.Name = "ErrorControl";
-            this.ErrorControl.Size = new System.Drawing.Size(0, 13);
-            this.ErrorControl.TabIndex = 12;
             // 
             // FrmSeleccionarPago
             // 
