@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -45,6 +46,12 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             //Model.Codigo = true;
 
         }
+        #endregion
+        #region Mover la ventana
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsp, int wparam, int lparam);
         #endregion
         #region metodos
         public void Iniciarbinding()
@@ -154,6 +161,19 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             try
             {
                     this.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, 0x112, 0xf012, 0);
             }
             catch (Exception ex)
             {

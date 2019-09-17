@@ -412,8 +412,18 @@ namespace CIDFares.Spa.WFApplication.Forms.General
 
         private void btnEntradaSalida_Click(object sender, EventArgs e)
         {
-            SlideCatalogo(btnEntradaSalida);
-            GetPanel(new FrmRegistroEntradaSalida());
+            try
+            {
+                SlideCatalogo(btnEntradaSalida);
+                FrmRegistroEntradaSalida registro = new FrmRegistroEntradaSalida();
+                registro.ShowDialog();
+                
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         private void SlideGenerales(Button button)

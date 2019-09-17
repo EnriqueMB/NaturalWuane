@@ -297,7 +297,7 @@
             // RutaControl
             // 
             this.RutaControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            this.RutaControl.BeforeTouchSize = new System.Drawing.Size(298, 35);
+            this.RutaControl.BeforeTouchSize = new System.Drawing.Size(70, 27);
             this.RutaControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RutaControl.CornerRadius = 2;
             this.RutaControl.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -388,6 +388,7 @@
             // 
             // IdCategoriaProductoControl
             // 
+            this.IdCategoriaProductoControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IdCategoriaProductoControl.FormattingEnabled = true;
             this.IdCategoriaProductoControl.Location = new System.Drawing.Point(6, 13);
             this.IdCategoriaProductoControl.Name = "IdCategoriaProductoControl";
@@ -416,6 +417,7 @@
             // 
             // IdUnidadMedidaControl
             // 
+            this.IdUnidadMedidaControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IdUnidadMedidaControl.FormattingEnabled = true;
             this.IdUnidadMedidaControl.Location = new System.Drawing.Point(6, 19);
             this.IdUnidadMedidaControl.Name = "IdUnidadMedidaControl";
@@ -607,6 +609,7 @@
             // 
             // IdAplicaIvaControl
             // 
+            this.IdAplicaIvaControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IdAplicaIvaControl.FormattingEnabled = true;
             this.IdAplicaIvaControl.Location = new System.Drawing.Point(9, 15);
             this.IdAplicaIvaControl.Name = "IdAplicaIvaControl";
