@@ -78,6 +78,9 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
                         item.Sexo = Convert.ToChar(dr.GetString(dr.GetOrdinal("Sexo")));
                         item.TieneTarjeta = dr.GetBoolean(dr.GetOrdinal("TieneMonedero"));
+                        if (!dr.IsDBNull(dr.GetOrdinal("PuntosMonedero")))
+                            item.PuntosMonedero = dr.GetInt32(dr.GetOrdinal("PuntosMonedero"));
+                        //item.PuntosMonedero = !dr.IsDBNull(dr.GetOrdinal("PuntosMonedero")) ? dr.GetDecimal(dr.GetOrdinal("PuntosMonedero")) : Decimal.Zero;
                         Lista.Add(item);
                     }
                     return Lista;
