@@ -262,8 +262,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     {
                         v = 1;
                         Console.WriteLine("Detalle");
-                        await Model.GetCitaDetalle(x);
-                        FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo();
+                        //await Model.GetCitaDetalle(x);
+                        FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo(x);
                         f.ShowDialog();
                         Model.State = EntityState.Update;
                         break;
@@ -272,7 +272,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 if (v != 1)
                 {
                     Console.WriteLine("Nuevo");
-                    FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo();
+                    FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo(x);
                     f.ShowDialog();
                     Model.State = EntityState.Create;
                 }
