@@ -49,6 +49,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.IdProductoControl = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+
+            this.label3 = new System.Windows.Forms.Label();
+            this.PrecioControl = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -83,7 +86,7 @@
             this.panel2.Controls.Add(this.btnGuardar);
             this.panel2.Controls.Add(this.btnCancelar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 422);
+            this.panel2.Location = new System.Drawing.Point(0, 415);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(408, 68);
             this.panel2.TabIndex = 1;
@@ -124,6 +127,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.PrecioControl);
             this.panel3.Controls.Add(this.PuntosMonederoControl);
             this.panel3.Controls.Add(this.DescuentoGroup);
             this.panel3.Controls.Add(this.AplicaDescuentoControl);
@@ -134,7 +139,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 68);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(408, 354);
+            this.panel3.Size = new System.Drawing.Size(408, 347);
             this.panel3.TabIndex = 2;
             // 
             // PuntosMonederoControl
@@ -149,7 +154,7 @@
             0,
             0});
             this.PuntosMonederoControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PuntosMonederoControl.Location = new System.Drawing.Point(17, 113);
+            this.PuntosMonederoControl.Location = new System.Drawing.Point(17, 112);
             this.PuntosMonederoControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.PuntosMonederoControl.MinValue = new decimal(new int[] {
             0,
@@ -172,7 +177,7 @@
             this.DescuentoGroup.Controls.Add(this.lbTipoDescuento);
             this.DescuentoGroup.Controls.Add(this.EsMontoControl);
             this.DescuentoGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DescuentoGroup.Location = new System.Drawing.Point(17, 164);
+            this.DescuentoGroup.Location = new System.Drawing.Point(17, 162);
             this.DescuentoGroup.Name = "DescuentoGroup";
             this.DescuentoGroup.Size = new System.Drawing.Size(369, 175);
             this.DescuentoGroup.TabIndex = 48;
@@ -276,7 +281,7 @@
             // 
             this.AplicaDescuentoControl.AutoSize = true;
             this.AplicaDescuentoControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AplicaDescuentoControl.Location = new System.Drawing.Point(293, 113);
+            this.AplicaDescuentoControl.Location = new System.Drawing.Point(293, 112);
             this.AplicaDescuentoControl.Name = "AplicaDescuentoControl";
             this.AplicaDescuentoControl.Size = new System.Drawing.Size(98, 24);
             this.AplicaDescuentoControl.TabIndex = 47;
@@ -288,7 +293,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 83);
+            this.label2.Location = new System.Drawing.Point(13, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(134, 21);
             this.label2.TabIndex = 46;
@@ -323,21 +328,41 @@
             // 
             // IdProductoControl
             // 
+            this.IdProductoControl.Enabled = false;
             this.IdProductoControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IdProductoControl.Location = new System.Drawing.Point(17, 37);
             this.IdProductoControl.Name = "IdProductoControl";
-            this.IdProductoControl.Size = new System.Drawing.Size(244, 27);
+            this.IdProductoControl.Size = new System.Drawing.Size(183, 27);
             this.IdProductoControl.TabIndex = 0;
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(208, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 21);
+            this.label3.TabIndex = 51;
+            this.label3.Text = "Precio";
+            // 
+            // PrecioControl
+            // 
+            this.PrecioControl.Enabled = false;
+            this.PrecioControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrecioControl.Location = new System.Drawing.Point(206, 37);
+            this.PrecioControl.Name = "PrecioControl";
+            this.PrecioControl.Size = new System.Drawing.Size(69, 27);
+            this.PrecioControl.TabIndex = 50;
+            // 
             // FrmProductosMonedero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(408, 490);
+            this.ClientSize = new System.Drawing.Size(408, 483);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -382,5 +407,7 @@
         private Syncfusion.Windows.Forms.Tools.CurrencyTextBox PuntosMonederoControl;
         private Syncfusion.Windows.Forms.Tools.CurrencyTextBox MontoControl;
         private Syncfusion.Windows.Forms.Tools.CurrencyTextBox PuntosDescuentoControl;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox PrecioControl;
     }
 }
