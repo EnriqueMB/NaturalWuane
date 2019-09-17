@@ -104,7 +104,7 @@
             this.pnlHeader.Controls.Add(this.lblTitle);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlHeader.Margin = new System.Windows.Forms.Padding(2);
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(821, 50);
             this.pnlHeader.TabIndex = 0;
@@ -125,7 +125,7 @@
             this.pnlButtons.Controls.Add(this.flButtons);
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlButtons.Location = new System.Drawing.Point(0, 273);
-            this.pnlButtons.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlButtons.Margin = new System.Windows.Forms.Padding(2);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Size = new System.Drawing.Size(821, 67);
             this.pnlButtons.TabIndex = 1;
@@ -175,7 +175,7 @@
             this.pnlGrid.Controls.Add(this.pnlFoto);
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(0, 50);
-            this.pnlGrid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlGrid.Margin = new System.Windows.Forms.Padding(2);
             this.pnlGrid.Name = "pnlGrid";
             this.pnlGrid.Size = new System.Drawing.Size(821, 223);
             this.pnlGrid.TabIndex = 2;
@@ -197,7 +197,7 @@
             this.tableLayoutPanel1.Controls.Add(this.pnlServicio, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.MaximumSize = new System.Drawing.Size(610, 216);
             this.tableLayoutPanel1.MinimumSize = new System.Drawing.Size(610, 216);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -216,7 +216,7 @@
             this.pnlIEPS.Controls.Add(this.label6);
             this.pnlIEPS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlIEPS.Location = new System.Drawing.Point(403, 139);
-            this.pnlIEPS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlIEPS.Margin = new System.Windows.Forms.Padding(2);
             this.pnlIEPS.Name = "pnlIEPS";
             this.pnlIEPS.Size = new System.Drawing.Size(205, 75);
             this.pnlIEPS.TabIndex = 8;
@@ -250,7 +250,7 @@
             this.IEPSControl.BeforeTouchSize = new System.Drawing.Size(162, 23);
             this.IEPSControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.IEPSControl.Location = new System.Drawing.Point(28, 37);
-            this.IEPSControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.IEPSControl.Margin = new System.Windows.Forms.Padding(2);
             this.IEPSControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.IEPSControl.Multiline = true;
             this.IEPSControl.Name = "IEPSControl";
@@ -276,7 +276,7 @@
             this.pnlAplicaIEPS.Controls.Add(this.AplicaIEPSControl);
             this.pnlAplicaIEPS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlAplicaIEPS.Location = new System.Drawing.Point(202, 139);
-            this.pnlAplicaIEPS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlAplicaIEPS.Margin = new System.Windows.Forms.Padding(2);
             this.pnlAplicaIEPS.Name = "pnlAplicaIEPS";
             this.pnlAplicaIEPS.Size = new System.Drawing.Size(197, 75);
             this.pnlAplicaIEPS.TabIndex = 7;
@@ -286,9 +286,9 @@
             this.gbRadioButtons.Controls.Add(this.rbPorcentajeControl);
             this.gbRadioButtons.Controls.Add(this.rbMontoControl);
             this.gbRadioButtons.Location = new System.Drawing.Point(22, 25);
-            this.gbRadioButtons.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbRadioButtons.Margin = new System.Windows.Forms.Padding(2);
             this.gbRadioButtons.Name = "gbRadioButtons";
-            this.gbRadioButtons.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbRadioButtons.Padding = new System.Windows.Forms.Padding(2);
             this.gbRadioButtons.Size = new System.Drawing.Size(80, 44);
             this.gbRadioButtons.TabIndex = 3;
             this.gbRadioButtons.TabStop = false;
@@ -299,7 +299,7 @@
             this.rbPorcentajeControl.AutoSize = true;
             this.rbPorcentajeControl.Checked = true;
             this.rbPorcentajeControl.Location = new System.Drawing.Point(0, 25);
-            this.rbPorcentajeControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbPorcentajeControl.Margin = new System.Windows.Forms.Padding(2);
             this.rbPorcentajeControl.Name = "rbPorcentajeControl";
             this.rbPorcentajeControl.Size = new System.Drawing.Size(76, 17);
             this.rbPorcentajeControl.TabIndex = 1;
@@ -311,7 +311,7 @@
             // 
             this.rbMontoControl.AutoSize = true;
             this.rbMontoControl.Location = new System.Drawing.Point(0, 6);
-            this.rbMontoControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbMontoControl.Margin = new System.Windows.Forms.Padding(2);
             this.rbMontoControl.Name = "rbMontoControl";
             this.rbMontoControl.Size = new System.Drawing.Size(55, 17);
             this.rbMontoControl.TabIndex = 0;
@@ -323,7 +323,7 @@
             // 
             this.IEPSMontoControl.AutoSize = true;
             this.IEPSMontoControl.Location = new System.Drawing.Point(115, 10);
-            this.IEPSMontoControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.IEPSMontoControl.Margin = new System.Windows.Forms.Padding(2);
             this.IEPSMontoControl.Name = "IEPSMontoControl";
             this.IEPSMontoControl.Size = new System.Drawing.Size(56, 17);
             this.IEPSMontoControl.TabIndex = 2;
@@ -335,7 +335,7 @@
             // 
             this.AplicaIEPSControl.AutoSize = true;
             this.AplicaIEPSControl.Location = new System.Drawing.Point(22, 10);
-            this.AplicaIEPSControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AplicaIEPSControl.Margin = new System.Windows.Forms.Padding(2);
             this.AplicaIEPSControl.Name = "AplicaIEPSControl";
             this.AplicaIEPSControl.Size = new System.Drawing.Size(94, 17);
             this.AplicaIEPSControl.TabIndex = 1;
@@ -350,7 +350,7 @@
             this.pnlAplicaIva.Controls.Add(this.IdTipoIvaControl);
             this.pnlAplicaIva.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlAplicaIva.Location = new System.Drawing.Point(2, 139);
-            this.pnlAplicaIva.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlAplicaIva.Margin = new System.Windows.Forms.Padding(2);
             this.pnlAplicaIva.Name = "pnlAplicaIva";
             this.pnlAplicaIva.Size = new System.Drawing.Size(196, 75);
             this.pnlAplicaIva.TabIndex = 6;
@@ -370,7 +370,7 @@
             // 
             this.IdTipoIvaControl.FormattingEnabled = true;
             this.IdTipoIvaControl.Location = new System.Drawing.Point(15, 37);
-            this.IdTipoIvaControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.IdTipoIvaControl.Margin = new System.Windows.Forms.Padding(2);
             this.IdTipoIvaControl.Name = "IdTipoIvaControl";
             this.IdTipoIvaControl.Size = new System.Drawing.Size(72, 21);
             this.IdTipoIvaControl.TabIndex = 1;
@@ -381,7 +381,7 @@
             this.pnlDesc.Controls.Add(this.label4);
             this.pnlDesc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDesc.Location = new System.Drawing.Point(403, 73);
-            this.pnlDesc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlDesc.Margin = new System.Windows.Forms.Padding(2);
             this.pnlDesc.Name = "pnlDesc";
             this.pnlDesc.Size = new System.Drawing.Size(205, 62);
             this.pnlDesc.TabIndex = 5;
@@ -391,7 +391,7 @@
             this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(162, 23);
             this.DescripcionControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.DescripcionControl.Location = new System.Drawing.Point(8, 30);
-            this.DescripcionControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DescripcionControl.Margin = new System.Windows.Forms.Padding(2);
             this.DescripcionControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.DescripcionControl.Multiline = true;
             this.DescripcionControl.Name = "DescripcionControl";
@@ -415,7 +415,7 @@
             this.pnlDuracion.Controls.Add(this.label3);
             this.pnlDuracion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDuracion.Location = new System.Drawing.Point(202, 73);
-            this.pnlDuracion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlDuracion.Margin = new System.Windows.Forms.Padding(2);
             this.pnlDuracion.Name = "pnlDuracion";
             this.pnlDuracion.Size = new System.Drawing.Size(197, 62);
             this.pnlDuracion.TabIndex = 4;
@@ -449,7 +449,7 @@
             this.pnlPrecio.Controls.Add(this.label2);
             this.pnlPrecio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPrecio.Location = new System.Drawing.Point(2, 73);
-            this.pnlPrecio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlPrecio.Margin = new System.Windows.Forms.Padding(2);
             this.pnlPrecio.Name = "pnlPrecio";
             this.pnlPrecio.Size = new System.Drawing.Size(196, 62);
             this.pnlPrecio.TabIndex = 3;
@@ -459,7 +459,7 @@
             this.PrecioControl.BeforeTouchSize = new System.Drawing.Size(162, 23);
             this.PrecioControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.PrecioControl.Location = new System.Drawing.Point(11, 30);
-            this.PrecioControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PrecioControl.Margin = new System.Windows.Forms.Padding(2);
             this.PrecioControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.PrecioControl.Multiline = true;
             this.PrecioControl.Name = "PrecioControl";
@@ -483,7 +483,7 @@
             this.pnlClave.Controls.Add(this.label5);
             this.pnlClave.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlClave.Location = new System.Drawing.Point(403, 2);
-            this.pnlClave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlClave.Margin = new System.Windows.Forms.Padding(2);
             this.pnlClave.Name = "pnlClave";
             this.pnlClave.Size = new System.Drawing.Size(205, 67);
             this.pnlClave.TabIndex = 2;
@@ -493,7 +493,7 @@
             this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(162, 23);
             this.ClaveControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ClaveControl.Location = new System.Drawing.Point(8, 32);
-            this.ClaveControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ClaveControl.Margin = new System.Windows.Forms.Padding(2);
             this.ClaveControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.ClaveControl.Multiline = true;
             this.ClaveControl.Name = "ClaveControl";
@@ -517,7 +517,7 @@
             this.pnlTipoServicio.Controls.Add(this.IdTipoServicioControl);
             this.pnlTipoServicio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlTipoServicio.Location = new System.Drawing.Point(202, 2);
-            this.pnlTipoServicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlTipoServicio.Margin = new System.Windows.Forms.Padding(2);
             this.pnlTipoServicio.Name = "pnlTipoServicio";
             this.pnlTipoServicio.Size = new System.Drawing.Size(197, 67);
             this.pnlTipoServicio.TabIndex = 1;
@@ -537,7 +537,7 @@
             // 
             this.IdTipoServicioControl.FormattingEnabled = true;
             this.IdTipoServicioControl.Location = new System.Drawing.Point(4, 35);
-            this.IdTipoServicioControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.IdTipoServicioControl.Margin = new System.Windows.Forms.Padding(2);
             this.IdTipoServicioControl.Name = "IdTipoServicioControl";
             this.IdTipoServicioControl.Size = new System.Drawing.Size(164, 21);
             this.IdTipoServicioControl.TabIndex = 0;
@@ -548,7 +548,7 @@
             this.pnlServicio.Controls.Add(this.NombreControl);
             this.pnlServicio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlServicio.Location = new System.Drawing.Point(2, 2);
-            this.pnlServicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlServicio.Margin = new System.Windows.Forms.Padding(2);
             this.pnlServicio.Name = "pnlServicio";
             this.pnlServicio.Size = new System.Drawing.Size(196, 67);
             this.pnlServicio.TabIndex = 0;
@@ -569,7 +569,7 @@
             this.NombreControl.BeforeTouchSize = new System.Drawing.Size(162, 23);
             this.NombreControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.NombreControl.Location = new System.Drawing.Point(11, 35);
-            this.NombreControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NombreControl.Margin = new System.Windows.Forms.Padding(2);
             this.NombreControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.NombreControl.Multiline = true;
             this.NombreControl.Name = "NombreControl";
@@ -582,7 +582,7 @@
             this.pnlFoto.Controls.Add(this.BtnSeleccionar);
             this.pnlFoto.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlFoto.Location = new System.Drawing.Point(614, 0);
-            this.pnlFoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlFoto.Margin = new System.Windows.Forms.Padding(2);
             this.pnlFoto.Name = "pnlFoto";
             this.pnlFoto.Size = new System.Drawing.Size(207, 223);
             this.pnlFoto.TabIndex = 1;
@@ -626,7 +626,7 @@
             this.Controls.Add(this.pnlGrid);
             this.Controls.Add(this.pnlButtons);
             this.Controls.Add(this.pnlHeader);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(837, 379);
             this.MinimumSize = new System.Drawing.Size(837, 379);
             this.Name = "FrmServicioNuevo";

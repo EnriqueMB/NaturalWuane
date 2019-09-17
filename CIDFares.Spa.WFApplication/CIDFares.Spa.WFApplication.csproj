@@ -221,11 +221,35 @@
     <Compile Include="Forms\Promociones\FrmNuevaPromocion.Designer.cs">
       <DependentUpon>FrmNuevaPromocion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Promociones\FrmPromocionMxN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Promociones\FrmPromocionMxN.Designer.cs">
+      <DependentUpon>FrmPromocionMxN.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Promociones\FrmPromocion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Promociones\FrmPromocion.Designer.cs">
       <DependentUpon>FrmPromocion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Promociones\FrmPromocionDescuento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Promociones\FrmPromocionDescuento.Designer.cs">
+      <DependentUpon>FrmPromocionDescuento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Promociones\FrmPromocionNxN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Promociones\FrmPromocionNxN.Designer.cs">
+      <DependentUpon>FrmPromocionNxN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Promociones\FrmSeleccione.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Promociones\FrmSeleccione.Designer.cs">
+      <DependentUpon>FrmSeleccione.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Usuarios\FrmReglasPerfil.cs">
       <SubType>Form</SubType>
@@ -352,8 +376,20 @@
     <EmbeddedResource Include="Forms\Promociones\FrmNuevaPromocion.resx">
       <DependentUpon>FrmNuevaPromocion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Promociones\FrmPromocionMxN.resx">
+      <DependentUpon>FrmPromocionMxN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Promociones\FrmPromocion.resx">
       <DependentUpon>FrmPromocion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Promociones\FrmPromocionDescuento.resx">
+      <DependentUpon>FrmPromocionDescuento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Promociones\FrmPromocionNxN.resx">
+      <DependentUpon>FrmPromocionNxN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Promociones\FrmSeleccione.resx">
+      <DependentUpon>FrmSeleccione.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Usuarios\FrmReglasPerfil.resx">
       <DependentUpon>FrmReglasPerfil.cs</DependentUpon>

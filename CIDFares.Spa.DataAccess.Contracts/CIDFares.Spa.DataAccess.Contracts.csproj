@@ -78,6 +78,7 @@
     <Compile Include="Entities\Rol.cs" />
     <Compile Include="Entities\Servicio.cs" />
     <Compile Include="Entities\Sucursal.cs" />
+    <Compile Include="Entities\TipoPromocion.cs" />
     <Compile Include="Entities\TipoServicio.cs" />
     <Compile Include="Entities\TipoSucursal.cs" />
     <Compile Include="Entities\Turno.cs" />

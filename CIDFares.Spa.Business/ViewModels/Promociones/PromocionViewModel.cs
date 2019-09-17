@@ -19,6 +19,7 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
 
         #region Propiedades públicas
         public BindingList<Promocion> ListaPromocion { get; set; }
+        public BindingList<TipoPromocion> ListaTipoPromocion { get; set; }
         public EntityState State { get; set; }
         #endregion
 
@@ -27,7 +28,7 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
         {
             Repository = formaPagoRepository;
             ListaPromocion = new BindingList<Promocion>();
-            GetAllAsync();
+            ListaTipoPromocion = new BindingList<TipoPromocion>();
         }
         #endregion
 
@@ -45,32 +46,53 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
                 throw ex;
             }
         }
-        
 
-        
-        #endregion
+        #region combo tipo promoción 
 
-        #region Binding
-        private int _IdFormaPago;
-
-        public int IdFormaPago
+        public void LlenarTipoPromocion(IEnumerable<TipoPromocion> tipoPromocions)
         {
-            get { return _IdFormaPago; }
-            set
+            ListaTipoPromocion.Clear();
+            foreach (var item in tipoPromocions)
             {
-                _IdFormaPago = value;
-                OnPropertyChanged(nameof(IdFormaPago));
+                ListaTipoPromocion.Add(item);
             }
         }
 
-        private Guid? _IdUsuarioL;
-        public Guid? IdUsuarioL
+        public async Task<IEnumerable<TipoPromocion>> GetListaTipoPromocion()
         {
-            get { return _IdUsuarioL; }
+            try
+            {
+                var tipoPromocion = await Repository.LlenarComboTipoPromocion();
+                return tipoPromocion;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion
+
+        #endregion
+
+        #region Binding
+        private int _IdTipoPromocion;
+
+        public int IdTipoPromocion
+        {
+            get { return _IdTipoPromocion; }
+            set { _IdTipoPromocion = value; OnPropertyChanged("IdTipoPromocion"); }
+        }
+
+        private bool _EsProducto;
+
+        public bool EsProducto
+        {
+            get { return _EsProducto; }
             set
             {
-                _IdUsuarioL = value;
-                OnPropertyChanged(nameof(IdUsuarioL));
+                _EsProducto = value;
+                OnPropertyChanged(nameof(EsProducto));
             }
         }
 
@@ -86,7 +108,20 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
             }
         }
 
+        private BusqueProducto _Producto;
+
+        public BusqueProducto Producto
+        {
+            get { return _Producto; }
+            set {
+                _Producto = value;
+                OnPropertyChanged(nameof(Producto));
+            }
+        }
+
+
         private string _Descripcion;
+
         public string Descripcion
         {
             get { return _Descripcion; }
