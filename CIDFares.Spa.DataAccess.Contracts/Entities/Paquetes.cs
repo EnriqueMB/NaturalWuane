@@ -22,7 +22,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public int Result { get; set; }
         public List<PaqueteDetalle> ListaDetallePaquete { get; set; }
         public int CantidadServicio { get; set; }
-        public int IdTipoServicio { get; set; }
         public int IdTipo { get; set; }
     }
 }

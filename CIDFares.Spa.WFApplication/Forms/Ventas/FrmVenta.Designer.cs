@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.btnTotal = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.pnlGeneral = new System.Windows.Forms.Panel();
@@ -71,6 +71,7 @@
             this.lblVenta = new System.Windows.Forms.Label();
             this.pnlCliente = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.FotoControl = new System.Windows.Forms.PictureBox();
             this.FolioClienteControl = new System.Windows.Forms.Label();
             this.DireccionControl = new System.Windows.Forms.Label();
             this.TelefonoControl = new System.Windows.Forms.Label();
@@ -88,7 +89,6 @@
             this.btnProducto = new System.Windows.Forms.Button();
             this.PnlVentaGrid = new System.Windows.Forms.Panel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.FotoControl = new System.Windows.Forms.PictureBox();
             this.pnlGeneral.SuspendLayout();
             this.pnlAcciones.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -104,18 +104,18 @@
             this.pnlFecha.SuspendLayout();
             this.pnlCliente.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
             this.pnlFooter.SuspendLayout();
             this.pnlFooterLeft.SuspendLayout();
             this.pnlBotonCobrar.SuspendLayout();
             this.pnlBotonesGenerales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
             this.SuspendLayout();
             // 
             // btnTotal
             // 
-            this.btnTotal.BackColor = System.Drawing.Color.White;
-            this.btnTotal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnTotal.FlatAppearance.BorderSize = 0;
             this.btnTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTotal.ForeColor = System.Drawing.Color.Black;
@@ -335,44 +335,44 @@
             this.sfDataGridVenta.AccessibleName = "Table";
             this.sfDataGridVenta.AllowEditing = false;
             this.sfDataGridVenta.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn9.AllowEditing = false;
-            gridTextColumn9.HeaderText = "ID";
-            gridTextColumn9.MappingName = "IdGenerico";
-            gridTextColumn9.Visible = false;
-            gridTextColumn10.AllowEditing = false;
-            gridTextColumn10.HeaderText = "Nombre";
-            gridTextColumn10.MappingName = "Nombre";
-            gridTextColumn11.AllowEditing = false;
-            gridTextColumn11.HeaderText = "Cantidad";
-            gridTextColumn11.MappingName = "Cantidad";
-            gridTextColumn12.AllowEditing = false;
-            gridTextColumn12.Format = "c2";
-            gridTextColumn12.HeaderText = "Precio";
-            gridTextColumn12.MappingName = "Precio";
-            gridTextColumn13.AllowEditing = false;
-            gridTextColumn13.Format = "c2";
-            gridTextColumn13.HeaderText = "SubTotal";
-            gridTextColumn13.MappingName = "SubTotal";
-            gridTextColumn14.AllowEditing = false;
-            gridTextColumn14.Format = "c2";
-            gridTextColumn14.HeaderText = "Iva";
-            gridTextColumn14.MappingName = "PorcentajeIva";
-            gridTextColumn15.AllowEditing = false;
-            gridTextColumn15.Format = "c2";
-            gridTextColumn15.HeaderText = "Total";
-            gridTextColumn15.MappingName = "Total";
-            gridTextColumn16.AllowEditing = false;
-            gridTextColumn16.HeaderText = "Tipo";
-            gridTextColumn16.MappingName = "IdTipo";
-            gridTextColumn16.Visible = false;
-            this.sfDataGridVenta.Columns.Add(gridTextColumn9);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn10);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn11);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn12);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn13);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn14);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn15);
-            this.sfDataGridVenta.Columns.Add(gridTextColumn16);
+            gridTextColumn1.AllowEditing = false;
+            gridTextColumn1.HeaderText = "ID";
+            gridTextColumn1.MappingName = "IdGenerico";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.AllowEditing = false;
+            gridTextColumn2.HeaderText = "Nombre";
+            gridTextColumn2.MappingName = "Nombre";
+            gridTextColumn3.AllowEditing = false;
+            gridTextColumn3.HeaderText = "Cantidad";
+            gridTextColumn3.MappingName = "Cantidad";
+            gridTextColumn4.AllowEditing = false;
+            gridTextColumn4.Format = "c2";
+            gridTextColumn4.HeaderText = "Precio";
+            gridTextColumn4.MappingName = "Precio";
+            gridTextColumn5.AllowEditing = false;
+            gridTextColumn5.Format = "c2";
+            gridTextColumn5.HeaderText = "SubTotal";
+            gridTextColumn5.MappingName = "SubTotal";
+            gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.Format = "c2";
+            gridTextColumn6.HeaderText = "Iva";
+            gridTextColumn6.MappingName = "PorcentajeIva";
+            gridTextColumn7.AllowEditing = false;
+            gridTextColumn7.Format = "c2";
+            gridTextColumn7.HeaderText = "Total";
+            gridTextColumn7.MappingName = "Total";
+            gridTextColumn8.AllowEditing = false;
+            gridTextColumn8.HeaderText = "Tipo";
+            gridTextColumn8.MappingName = "IdTipo";
+            gridTextColumn8.Visible = false;
+            this.sfDataGridVenta.Columns.Add(gridTextColumn1);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn2);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn3);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn4);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn5);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn6);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn7);
+            this.sfDataGridVenta.Columns.Add(gridTextColumn8);
             this.sfDataGridVenta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridVenta.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridVenta.Name = "sfDataGridVenta";
@@ -538,6 +538,17 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del cliente";
+            // 
+            // FotoControl
+            // 
+            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FotoControl.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.imagen_subir;
+            this.FotoControl.Location = new System.Drawing.Point(19, 62);
+            this.FotoControl.Name = "FotoControl";
+            this.FotoControl.Size = new System.Drawing.Size(158, 145);
+            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.FotoControl.TabIndex = 7;
+            this.FotoControl.TabStop = false;
             // 
             // FolioClienteControl
             // 
@@ -706,17 +717,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // FotoControl
-            // 
-            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FotoControl.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.imagen_subir;
-            this.FotoControl.Location = new System.Drawing.Point(19, 62);
-            this.FotoControl.Name = "FotoControl";
-            this.FotoControl.Size = new System.Drawing.Size(158, 145);
-            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.FotoControl.TabIndex = 7;
-            this.FotoControl.TabStop = false;
-            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -749,12 +749,12 @@
             this.pnlCliente.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
             this.pnlFooter.ResumeLayout(false);
             this.pnlFooterLeft.ResumeLayout(false);
             this.pnlBotonCobrar.ResumeLayout(false);
             this.pnlBotonesGenerales.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
             this.ResumeLayout(false);
 
         }

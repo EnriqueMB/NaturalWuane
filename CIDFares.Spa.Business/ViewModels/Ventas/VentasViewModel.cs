@@ -34,6 +34,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         public DataTable TablaFormaPago { get; set; }
         public DataTable TablaProducto { get; set; }
         public DataTable TablaServicio { get; set; }
+        public DataTable TablaPaquete { get; set; }
         public EntityState State { get; set; }
         #endregion
 
@@ -293,6 +294,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 TablaProducto = TablaProducto,
                 TablaFormaPago = TablaFormaPago,
                 TablaServicio = TablaServicio,
+                TablaPaquete = TablaPaquete,
                 IdTurno = this.IdTurno
             };
             return await Repository.AddWithIdSucursalAsync(model, idCuentaUsuario, IdSucursal);

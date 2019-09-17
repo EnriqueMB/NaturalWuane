@@ -118,7 +118,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 {
                     var firstItem = Model.ListaPaquete.ElementAt(0);
                     var item = firstItem;
-                    item.IdTipoServicio = this.IDTipo = 3;
+                    item.IdTipo = this.IDTipo = 3;
                     item.CantidadServicio = 1;
                     paquetes = item;
                     this.Close();
@@ -128,7 +128,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     var item = ObtenerSeleccionado();
                     if (item != null)
                     {
-                        item.IdTipoServicio = this.IDTipo = 3;
+                        item.IdTipo = this.IDTipo = 3;
                         item.CantidadServicio = Model.Cantidad;
                         if (item.CantidadServicio > 0)
                         {

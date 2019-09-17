@@ -158,6 +158,27 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             return Tabla;
         }
 
+        private DataTable ObtenerTablaPaquete(BindingList<Venta> Lista)
+        {
+            Model.ListaPaquete.Clear();
+            Paquetes paquete = new Paquetes();
+            DataTable Tabla = new DataTable();
+            Tabla.Columns.Add("IdPaquete", typeof(int));
+            Tabla.Columns.Add("Cantidad", typeof(decimal));
+            Tabla.Columns.Add("Total", typeof(decimal));
+            foreach (var item in Lista)
+            {
+                if (item.IdTipo == 3)
+                {
+                    paquete.IdPaquete = item.IdGenerico;
+                    paquete.Nombre = item.Nombre;
+                    Model.ListaPaquete.Add(paquete);
+                    Tabla.Rows.Add(new object[] { item.IdGenerico, item.Cantidad, item.Total });
+                }
+            }
+            return Tabla;
+        }
+
         #endregion
 
         private void FrmVenta_Load(object sender, EventArgs e)
@@ -169,17 +190,23 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
 
         private void btnTotal_Click(object sender, EventArgs e)
         {
-            BindingList<Venta> ListaProductos = (BindingList<Venta>)sfDataGridVenta.DataSource;
+            BindingList<Venta> Lista = (BindingList<Venta>)sfDataGridVenta.DataSource;
             this.CleanErrors(errorProvider1, typeof(VentasViewModel));
             var validationResults = Model.Validate();
             validationResults.ToString();
 
             if (validationResults.IsValid)
             {
-                if (ListaProductos.Count > 0)
+                if (Lista.Count > 0)
                 {
-                    Model.TablaProducto = ObtenerTablaProducto(ListaProductos);
-                    Model.TablaServicio = ObtenerTablaServicio(ListaProductos);
+                    Model.TablaProducto = ObtenerTablaProducto(Lista);
+                    Model.TablaServicio = ObtenerTablaServicio(Lista);
+                    Model.TablaPaquete = ObtenerTablaPaquete(Lista);
+                    if (Model.TablaPaquete.Rows.Count > 0)
+                    { FrmPaqueteVenta paquete = new FrmPaqueteVenta(Model);
+                        paquete.ShowDialog();
+                    }
+
                     FrmSeleccionarPago pago = new FrmSeleccionarPago(Model);
                     pago.ShowDialog();
                     if (pago.resultado)
@@ -606,9 +633,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                             if (Model.ListaPaquete.Count == 1)
                             {
                                 var item = Model.ListaPaquete.ElementAt(0);
-                                item.IdTipoServicio = 3;
+                                item.IdTipo = 3;
                                 item.CantidadServicio = 1;
-                                LLenarGrid2(item, item.IdTipoServicio);
+                                LLenarGrid2(item, item.IdTipo);
                             }
                         }
                     }
