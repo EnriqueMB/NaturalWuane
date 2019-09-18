@@ -37,6 +37,8 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             Model.PuntosDescuento = 0;
             Model.EsMonto = false;
             Model.Monto = 0;
+            IdProductoControl.Text = "";
+            PrecioControl.Text = "";
         }
         private void IniciarBinding()
         {
@@ -64,6 +66,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 if (Producto.producto.IdProducto != 0)
                 {
                     IdProductoControl.Text = Producto.producto.Nombre;
+                    PrecioControl.Text = Producto.producto.PrecioPublico.ToString();
                     Model.IdProducto = Producto.producto.IdProducto;
                     await Model.GetPuntosMonedero();
                 }
@@ -94,6 +97,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                     if (result > 0)
                     {
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                        LimpiarPropiedades();
                     }
                     else
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
