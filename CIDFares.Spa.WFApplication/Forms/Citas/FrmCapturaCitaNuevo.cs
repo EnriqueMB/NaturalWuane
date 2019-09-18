@@ -61,8 +61,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         {
             try
             {
+                ClienteControl.DataBindings.Add("Text", Model, "Cliente", true, DataSourceUpdateMode.OnPropertyChanged);
                 FechaCitaControl.DataBindings.Add("Value", Model, "Fechacita", true, DataSourceUpdateMode.OnPropertyChanged);
-                HoraCitaControl.DataBindings.Add("Value", Model, "Fechacita", true, DataSourceUpdateMode.OnPropertyChanged);
+                HoraCitaControl.DataBindings.Add("Value", Model, "HoraCita", true, DataSourceUpdateMode.OnPropertyChanged);
 
                 this.dgmCita.AutoGenerateColumns = false;
                 dgmCita.DataBindings.Add("DataSource", Model, "ListaCapturaCitaDetalle", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -138,7 +139,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             FrmBuscarCliente f = new FrmBuscarCliente();
             f.ShowDialog();
             Model.IdCliente = f.cliente.IdCliente;
-            ClienteControl.Text = f.cliente.NombreCompleto;
+            Model.Cliente = f.cliente.NombreCompleto;
+            //ClienteControl.Text = f.cliente.NombreCompleto;
         }
 
         private async void btnGuardar_Click_1(object sender, EventArgs e)
@@ -148,27 +150,26 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 btnGuardar.Enabled = false;
                 BindingList<CapturaCita> ListaServicio = (BindingList<CapturaCita>)dgmServicio.DataSource;
                 Model.TablaGServicio = ObtenerDatosTabla(ListaServicio);
-                //this.CleanErrors(errorProvider1, typeof(CapturaCitaViewModel));
-                //var validationResults = Model.Validate();
-                //validationResults.ToString();
-
-                //if (validationResults.IsValid)
-                //{
-                //var aux = Model.Duracion;
-                //var otroAux = DuracionControl.Value;
-                var Resul = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario, CurrentSession.IdSucursal);
-                    //if (Resul.Resultado == 1)
-                    //{
-                    //    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
-                    //    LimpiarPropiedades();
-                    //    //await Model.GetAllAsync();
-                    //    this.Close();
-                    //}
-                    //else
+                this.CleanErrors(errorProvider1, typeof(CapturaCitaViewModel));
+                var validationResults = Model.Validate();
+                validationResults.ToString();
+                if (validationResults.IsValid)
+                {
+                    //var aux = Model.Duracion;
+                    //var otroAux = DuracionControl.Value;
+                    var Resul = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario, CurrentSession.IdSucursal);
+                    if (Resul.Resultado == 1)
+                    {
+                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                        //LimpiarPropiedades();
+                        ////await Model.GetAllAsync();
+                        this.Close();
+                    }
+                    else
                         CIDMessageBox.ShowAlert(Messages.ErrorMessage, "Error", TypeMessage.error);
-                //}
-                //else
-                //    this.ShowErrors(errorProvider1, typeof(ServicioViewModel), validationResults);
+                }
+                else
+                    this.ShowErrors(errorProvider1, typeof(CapturaCitaViewModel), validationResults);
             }
             catch (Exception ex)
             {

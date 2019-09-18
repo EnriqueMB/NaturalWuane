@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlButtons = new System.Windows.Forms.Panel();
@@ -47,6 +47,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gbCita = new System.Windows.Forms.GroupBox();
+            this.btnEliminarServicio = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpFechafin = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaFinal = new System.Windows.Forms.DateTimePicker();
@@ -54,15 +55,14 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblServicios = new System.Windows.Forms.Label();
             this.dgmServicio = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            this.btnBuscarServicio = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.HoraCitaControl = new System.Windows.Forms.DateTimePicker();
             this.FechaCitaControl = new System.Windows.Forms.DateTimePicker();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.ClienteControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgmCita = new Syncfusion.WinForms.DataGrid.SfDataGrid();
-            this.btnEliminarServicio = new System.Windows.Forms.Button();
-            this.btnBuscarServicio = new System.Windows.Forms.Button();
-            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlHeader.SuspendLayout();
             this.pnlButtons.SuspendLayout();
@@ -193,6 +193,24 @@
             this.gbCita.TabIndex = 12;
             this.gbCita.TabStop = false;
             // 
+            // btnEliminarServicio
+            // 
+            this.btnEliminarServicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnEliminarServicio.FlatAppearance.BorderSize = 0;
+            this.btnEliminarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarServicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarServicio.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.eliminar;
+            this.btnEliminarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarServicio.Location = new System.Drawing.Point(493, 147);
+            this.btnEliminarServicio.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminarServicio.Name = "btnEliminarServicio";
+            this.btnEliminarServicio.Size = new System.Drawing.Size(162, 32);
+            this.btnEliminarServicio.TabIndex = 28;
+            this.btnEliminarServicio.Text = " Elimnar Servicio";
+            this.btnEliminarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminarServicio.UseVisualStyleBackColor = false;
+            this.btnEliminarServicio.Click += new System.EventHandler(this.btnEliminarServicio_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -265,37 +283,55 @@
             this.dgmServicio.AllowEditing = false;
             this.dgmServicio.AllowResizingColumns = true;
             this.dgmServicio.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn5.AllowEditing = false;
-            gridTextColumn5.AllowResizing = true;
-            gridTextColumn5.HeaderText = "IdServicio";
-            gridTextColumn5.MappingName = "IdServicio";
-            gridTextColumn5.Visible = false;
-            gridTextColumn6.AllowEditing = false;
-            gridTextColumn6.AllowMultiline = true;
-            gridTextColumn6.AllowResizing = true;
-            gridTextColumn6.HeaderText = "Servicio";
-            gridTextColumn6.MappingName = "Servicio";
-            gridTextColumn7.AllowEditing = false;
-            gridTextColumn7.AllowResizing = true;
-            gridTextColumn7.Format = "HH:mm";
-            gridTextColumn7.HeaderText = "Inicio";
-            gridTextColumn7.MappingName = "FechaIServicio";
-            gridTextColumn7.MaximumWidth = 110D;
-            gridTextColumn8.AllowEditing = false;
-            gridTextColumn8.AllowResizing = true;
-            gridTextColumn8.Format = "HH:mm";
-            gridTextColumn8.HeaderText = "Fin";
-            gridTextColumn8.MappingName = "FechaFServicio";
-            gridTextColumn8.MaximumWidth = 110D;
-            this.dgmServicio.Columns.Add(gridTextColumn5);
-            this.dgmServicio.Columns.Add(gridTextColumn6);
-            this.dgmServicio.Columns.Add(gridTextColumn7);
-            this.dgmServicio.Columns.Add(gridTextColumn8);
+            gridTextColumn9.AllowEditing = false;
+            gridTextColumn9.AllowResizing = true;
+            gridTextColumn9.HeaderText = "IdServicio";
+            gridTextColumn9.MappingName = "IdServicio";
+            gridTextColumn9.Visible = false;
+            gridTextColumn10.AllowEditing = false;
+            gridTextColumn10.AllowMultiline = true;
+            gridTextColumn10.AllowResizing = true;
+            gridTextColumn10.HeaderText = "Servicio";
+            gridTextColumn10.MappingName = "Servicio";
+            gridTextColumn11.AllowEditing = false;
+            gridTextColumn11.AllowResizing = true;
+            gridTextColumn11.Format = "HH:mm";
+            gridTextColumn11.HeaderText = "Inicio";
+            gridTextColumn11.MappingName = "FechaIServicio";
+            gridTextColumn11.MaximumWidth = 110D;
+            gridTextColumn12.AllowEditing = false;
+            gridTextColumn12.AllowResizing = true;
+            gridTextColumn12.Format = "HH:mm";
+            gridTextColumn12.HeaderText = "Fin";
+            gridTextColumn12.MappingName = "FechaFServicio";
+            gridTextColumn12.MaximumWidth = 110D;
+            this.dgmServicio.Columns.Add(gridTextColumn9);
+            this.dgmServicio.Columns.Add(gridTextColumn10);
+            this.dgmServicio.Columns.Add(gridTextColumn11);
+            this.dgmServicio.Columns.Add(gridTextColumn12);
             this.dgmServicio.Location = new System.Drawing.Point(16, 193);
             this.dgmServicio.Name = "dgmServicio";
             this.dgmServicio.Size = new System.Drawing.Size(641, 260);
             this.dgmServicio.TabIndex = 18;
             this.dgmServicio.Text = "sfDataGrid1";
+            // 
+            // btnBuscarServicio
+            // 
+            this.btnBuscarServicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnBuscarServicio.FlatAppearance.BorderSize = 0;
+            this.btnBuscarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarServicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarServicio.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar;
+            this.btnBuscarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarServicio.Location = new System.Drawing.Point(304, 147);
+            this.btnBuscarServicio.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarServicio.Name = "btnBuscarServicio";
+            this.btnBuscarServicio.Size = new System.Drawing.Size(162, 32);
+            this.btnBuscarServicio.TabIndex = 17;
+            this.btnBuscarServicio.Text = "Agregar Servicio";
+            this.btnBuscarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarServicio.UseVisualStyleBackColor = false;
+            this.btnBuscarServicio.Click += new System.EventHandler(this.btnBuscarServicio_Click_1);
             // 
             // btnGuardar
             // 
@@ -335,17 +371,40 @@
             this.FechaCitaControl.Size = new System.Drawing.Size(269, 28);
             this.FechaCitaControl.TabIndex = 14;
             // 
+            // btnBuscarCliente
+            // 
+            this.btnBuscarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnBuscarCliente.FlatAppearance.BorderSize = 0;
+            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCliente.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar;
+            this.btnBuscarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(446, 27);
+            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Size = new System.Drawing.Size(96, 32);
+            this.btnBuscarCliente.TabIndex = 13;
+            this.btnBuscarCliente.Text = "Cliente";
+            this.btnBuscarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarCliente.UseVisualStyleBackColor = false;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click_1);
+            // 
             // ClienteControl
             // 
-            this.ClienteControl.BeforeTouchSize = new System.Drawing.Size(254, 49);
+            this.ClienteControl.BackColor = System.Drawing.Color.White;
+            this.ClienteControl.BeforeTouchSize = new System.Drawing.Size(364, 49);
+            this.ClienteControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
+            this.ClienteControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ClienteControl.Enabled = false;
+            this.ClienteControl.FocusBorderColor = System.Drawing.Color.Transparent;
             this.ClienteControl.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClienteControl.Location = new System.Drawing.Point(18, 22);
-            this.ClienteControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.ClienteControl.Location = new System.Drawing.Point(41, 19);
+            this.ClienteControl.Metrocolor = System.Drawing.Color.Transparent;
             this.ClienteControl.Multiline = true;
             this.ClienteControl.Name = "ClienteControl";
-            this.ClienteControl.Size = new System.Drawing.Size(254, 49);
+            this.ClienteControl.Size = new System.Drawing.Size(364, 49);
             this.ClienteControl.TabIndex = 12;
+            this.ClienteControl.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pnlGrid
             // 
@@ -363,97 +422,43 @@
             this.dgmCita.AllowResizingColumns = true;
             this.dgmCita.AutoExpandGroups = true;
             this.dgmCita.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn9.AllowEditing = false;
-            gridTextColumn9.AllowResizing = true;
-            gridTextColumn9.HeaderText = "IdCita";
-            gridTextColumn9.MappingName = "IdCita";
-            gridTextColumn9.Visible = false;
-            gridTextColumn10.AllowEditing = false;
-            gridTextColumn10.AllowResizing = true;
-            gridTextColumn10.HeaderText = "IdCliente";
-            gridTextColumn10.MappingName = "IdCliente";
-            gridTextColumn10.Visible = false;
-            gridTextColumn11.AllowEditing = false;
-            gridTextColumn11.AllowResizing = true;
-            gridTextColumn11.HeaderText = "Cliente";
-            gridTextColumn11.MappingName = "NombreCompleto";
-            gridTextColumn12.AllowEditing = false;
-            gridTextColumn12.AllowResizing = true;
-            gridTextColumn12.Format = "HH:mm";
-            gridTextColumn12.HeaderText = "Hora";
-            gridTextColumn12.MappingName = "FechaCita";
-            gridTextColumn12.MaximumWidth = 150D;
-            gridTextColumn13.AllowEditing = false;
-            gridTextColumn13.AllowMultiline = true;
-            gridTextColumn13.AllowResizing = true;
-            gridTextColumn13.HeaderText = "Observaciones";
-            gridTextColumn13.MappingName = "Observaciones";
-            gridTextColumn13.Visible = false;
-            this.dgmCita.Columns.Add(gridTextColumn9);
-            this.dgmCita.Columns.Add(gridTextColumn10);
-            this.dgmCita.Columns.Add(gridTextColumn11);
-            this.dgmCita.Columns.Add(gridTextColumn12);
-            this.dgmCita.Columns.Add(gridTextColumn13);
+            gridTextColumn1.AllowEditing = false;
+            gridTextColumn1.AllowResizing = true;
+            gridTextColumn1.HeaderText = "IdCita";
+            gridTextColumn1.MappingName = "IdCita";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.AllowEditing = false;
+            gridTextColumn2.AllowResizing = true;
+            gridTextColumn2.HeaderText = "IdCliente";
+            gridTextColumn2.MappingName = "IdCliente";
+            gridTextColumn2.Visible = false;
+            gridTextColumn3.AllowEditing = false;
+            gridTextColumn3.AllowResizing = true;
+            gridTextColumn3.HeaderText = "Cliente";
+            gridTextColumn3.MappingName = "NombreCompleto";
+            gridTextColumn4.AllowEditing = false;
+            gridTextColumn4.AllowResizing = true;
+            gridTextColumn4.Format = "HH:mm";
+            gridTextColumn4.HeaderText = "Hora";
+            gridTextColumn4.MappingName = "FechaCita";
+            gridTextColumn4.MaximumWidth = 150D;
+            gridTextColumn14.AllowEditing = false;
+            gridTextColumn14.AllowMultiline = true;
+            gridTextColumn14.AllowResizing = true;
+            gridTextColumn14.HeaderText = "Observaciones";
+            gridTextColumn14.MappingName = "Observaciones";
+            gridTextColumn14.Visible = false;
+            this.dgmCita.Columns.Add(gridTextColumn1);
+            this.dgmCita.Columns.Add(gridTextColumn2);
+            this.dgmCita.Columns.Add(gridTextColumn3);
+            this.dgmCita.Columns.Add(gridTextColumn4);
+            this.dgmCita.Columns.Add(gridTextColumn14);
             this.dgmCita.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgmCita.Location = new System.Drawing.Point(0, 0);
             this.dgmCita.Name = "dgmCita";
             this.dgmCita.Size = new System.Drawing.Size(601, 606);
             this.dgmCita.TabIndex = 0;
             this.dgmCita.Text = "sfDataGrid1";
-            // 
-            // btnEliminarServicio
-            // 
-            this.btnEliminarServicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnEliminarServicio.FlatAppearance.BorderSize = 0;
-            this.btnEliminarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarServicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarServicio.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.eliminar;
-            this.btnEliminarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarServicio.Location = new System.Drawing.Point(493, 147);
-            this.btnEliminarServicio.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEliminarServicio.Name = "btnEliminarServicio";
-            this.btnEliminarServicio.Size = new System.Drawing.Size(162, 32);
-            this.btnEliminarServicio.TabIndex = 28;
-            this.btnEliminarServicio.Text = " Elimnar Servicio";
-            this.btnEliminarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminarServicio.UseVisualStyleBackColor = false;
-            this.btnEliminarServicio.Click += new System.EventHandler(this.btnEliminarServicio_Click);
-            // 
-            // btnBuscarServicio
-            // 
-            this.btnBuscarServicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnBuscarServicio.FlatAppearance.BorderSize = 0;
-            this.btnBuscarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarServicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarServicio.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar;
-            this.btnBuscarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarServicio.Location = new System.Drawing.Point(304, 147);
-            this.btnBuscarServicio.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscarServicio.Name = "btnBuscarServicio";
-            this.btnBuscarServicio.Size = new System.Drawing.Size(162, 32);
-            this.btnBuscarServicio.TabIndex = 17;
-            this.btnBuscarServicio.Text = "Agregar Servicio";
-            this.btnBuscarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscarServicio.UseVisualStyleBackColor = false;
-            this.btnBuscarServicio.Click += new System.EventHandler(this.btnBuscarServicio_Click_1);
-            // 
-            // btnBuscarCliente
-            // 
-            this.btnBuscarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnBuscarCliente.FlatAppearance.BorderSize = 0;
-            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarCliente.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar;
-            this.btnBuscarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarCliente.Location = new System.Drawing.Point(446, 23);
-            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(96, 32);
-            this.btnBuscarCliente.TabIndex = 13;
-            this.btnBuscarCliente.Text = "Cliente";
-            this.btnBuscarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscarCliente.UseVisualStyleBackColor = false;
-            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click_1);
             // 
             // errorProvider1
             // 

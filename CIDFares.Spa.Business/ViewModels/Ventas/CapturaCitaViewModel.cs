@@ -248,6 +248,18 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
+        private DateTime _HoraCita;
+
+        public DateTime HoraCita
+        {
+            get { return _HoraCita; }
+            set
+            {
+                _HoraCita = FechaCita;
+                OnPropertyChanged(nameof(HoraCita));
+            }
+        }
+
         private DateTime _FechaIServicio;
 
         public DateTime FechaIServicio
@@ -317,6 +329,18 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             {
                 _EstadoCita = value;
                 OnPropertyChanged(nameof(EstadoCita));
+            }
+        }
+
+        private string _Cliente;
+
+        public string Cliente
+        {
+            get { return _Cliente; }
+            set
+            {
+                _Cliente = value;
+                OnPropertyChanged(nameof(Cliente));
             }
         }
 

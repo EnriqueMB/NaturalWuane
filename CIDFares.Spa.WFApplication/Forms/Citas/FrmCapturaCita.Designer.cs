@@ -119,6 +119,7 @@
             // 
             // FechaInicioControl
             // 
+            this.FechaInicioControl.Enabled = false;
             this.FechaInicioControl.Location = new System.Drawing.Point(466, 41);
             this.FechaInicioControl.Name = "FechaInicioControl";
             this.FechaInicioControl.Size = new System.Drawing.Size(269, 22);
@@ -153,6 +154,9 @@
             this.mcCita2.Name = "mcCita2";
             this.mcCita2.SelectedDate = new System.DateTime(2019, 9, 10, 0, 0, 0, 0);
             this.mcCita2.Size = new System.Drawing.Size(1155, 882);
+            this.mcCita2.Style.Cell.CellHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.mcCita2.Style.Cell.SelectedCellBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.mcCita2.Style.Cell.SelectedCellHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.mcCita2.TabIndex = 0;
             this.mcCita2.Text = "sfCalendar1";
             this.mcCita2.Click += new System.EventHandler(this.mcCita2_Click);

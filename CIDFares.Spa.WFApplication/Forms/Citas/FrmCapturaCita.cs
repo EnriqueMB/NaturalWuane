@@ -255,27 +255,35 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             try
             {
                 int v = 0;
-                DateTime? x = this.mcCita2.SelectedDate;                                
-                foreach (var item in Model.ListaCapturaCita)
+                DateTime? x = this.mcCita2.SelectedDate;
+                if (x.Value.Date >= DateTime.Now.Date)
                 {
-                    if (item.FechaCita.Date == x.Value.Date)
+                    foreach (var item in Model.ListaCapturaCita)
                     {
-                        v = 1;
-                        Console.WriteLine("Detalle");
-                        //await Model.GetCitaDetalle(x);
+                        if (item.FechaCita.Date == x.Value.Date)
+                        {
+                            v = 1;
+                            Console.WriteLine("Detalle");
+                            //await Model.GetCitaDetalle(x);
+                            FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo(x);
+                            f.ShowDialog();
+                            Model.State = EntityState.Update;
+                            break;
+                        }
+                    }
+                    if (v != 1)
+                    {
+                        Console.WriteLine("Nuevo");
                         FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo(x);
                         f.ShowDialog();
-                        Model.State = EntityState.Update;
-                        break;
-                    }                    
+                        Model.State = EntityState.Create;
+                    }
                 }
-                if (v != 1)
+                else
                 {
-                    Console.WriteLine("Nuevo");
-                    FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo(x);
-                    f.ShowDialog();
-                    Model.State = EntityState.Create;
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.FechaSelectMessage, TypeMessage.informacion);
                 }
+                
                 //Model.GetAllAsync();
             }
             catch (Exception ex)

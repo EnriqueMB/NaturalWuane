@@ -28,7 +28,8 @@ namespace CIDFares.Spa.WFApplication.Constants
         public const string ConfirmCancelInput = "¿DESEA CANCELAR ESTE REGISTRO?";
         public const string ServicioSelectMessage = "SELECCIONE UN SERVICIO";
         public const string CitaSelectMessage = "SELECCIONE UNA CITA";
-        
+        public const string FechaSelectMessage = "SELECCIONA UNA FECHA POSTERIOR O IGUAL A LA HOY";
+
 
     }
 }
