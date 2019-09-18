@@ -52,6 +52,7 @@
     <Compile Include="Repositories\General\CompraRepository.cs" />
     <Compile Include="Repositories\General\EmpleadoRepository.cs" />
     <Compile Include="Repositories\General\CuestionarioRepository.cs" />
+    <Compile Include="Repositories\General\EntradaSalidaAlmacenRepository.cs" />
     <Compile Include="Repositories\General\EstadoRepository.cs" />
     <Compile Include="Repositories\General\FormaPagoRepository.cs" />
     <Compile Include="Repositories\Base\Repository.cs" />
