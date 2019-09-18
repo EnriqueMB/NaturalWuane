@@ -28,11 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            this.components = new System.ComponentModel.Container();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlButtons = new System.Windows.Forms.Panel();
@@ -42,30 +47,33 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gbCita = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtpFechafin = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaFinal = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblServicios = new System.Windows.Forms.Label();
-            this.sfDataGrid1 = new Syncfusion.WinForms.DataGrid.SfDataGrid();
-            this.btnBuscarServicio = new System.Windows.Forms.Button();
+            this.dgmServicio = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.btnBuscarCliente = new System.Windows.Forms.Button();
+            this.HoraCitaControl = new System.Windows.Forms.DateTimePicker();
+            this.FechaCitaControl = new System.Windows.Forms.DateTimePicker();
             this.ClienteControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgmCita = new Syncfusion.WinForms.DataGrid.SfDataGrid();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.btnEliminarServicio = new System.Windows.Forms.Button();
+            this.btnBuscarServicio = new System.Windows.Forms.Button();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlHeader.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gbCita.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgmServicio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteControl)).BeginInit();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgmCita)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -155,51 +163,84 @@
             // 
             this.panel1.Controls.Add(this.gbCita);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(856, 89);
+            this.panel1.Location = new System.Drawing.Point(601, 89);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(413, 606);
+            this.panel1.Size = new System.Drawing.Size(668, 606);
             this.panel1.TabIndex = 2;
             // 
             // gbCita
             // 
+            this.gbCita.BackColor = System.Drawing.Color.White;
+            this.gbCita.Controls.Add(this.btnEliminarServicio);
             this.gbCita.Controls.Add(this.label2);
-            this.gbCita.Controls.Add(this.dateTimePicker3);
-            this.gbCita.Controls.Add(this.dateTimePicker4);
+            this.gbCita.Controls.Add(this.dtpFechafin);
+            this.gbCita.Controls.Add(this.dtpFechaFinal);
             this.gbCita.Controls.Add(this.label1);
             this.gbCita.Controls.Add(this.btnCancelar);
             this.gbCita.Controls.Add(this.lblServicios);
-            this.gbCita.Controls.Add(this.sfDataGrid1);
+            this.gbCita.Controls.Add(this.dgmServicio);
             this.gbCita.Controls.Add(this.btnBuscarServicio);
             this.gbCita.Controls.Add(this.btnGuardar);
-            this.gbCita.Controls.Add(this.dateTimePicker1);
-            this.gbCita.Controls.Add(this.dateTimePicker2);
+            this.gbCita.Controls.Add(this.HoraCitaControl);
+            this.gbCita.Controls.Add(this.FechaCitaControl);
             this.gbCita.Controls.Add(this.btnBuscarCliente);
             this.gbCita.Controls.Add(this.ClienteControl);
             this.gbCita.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbCita.Enabled = false;
             this.gbCita.Location = new System.Drawing.Point(0, 0);
             this.gbCita.Name = "gbCita";
-            this.gbCita.Size = new System.Drawing.Size(413, 606);
+            this.gbCita.Size = new System.Drawing.Size(668, 606);
             this.gbCita.TabIndex = 12;
             this.gbCita.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(25, 468);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(30, 20);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Fin";
+            // 
+            // dtpFechafin
+            // 
+            this.dtpFechafin.CustomFormat = "HH:mm";
+            this.dtpFechafin.Enabled = false;
+            this.dtpFechafin.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechafin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFechafin.Location = new System.Drawing.Point(323, 496);
+            this.dtpFechafin.Name = "dtpFechafin";
+            this.dtpFechafin.ShowUpDown = true;
+            this.dtpFechafin.Size = new System.Drawing.Size(70, 28);
+            this.dtpFechafin.TabIndex = 26;
+            // 
+            // dtpFechaFinal
+            // 
+            this.dtpFechaFinal.Enabled = false;
+            this.dtpFechaFinal.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaFinal.Location = new System.Drawing.Point(18, 496);
+            this.dtpFechaFinal.Name = "dtpFechaFinal";
+            this.dtpFechaFinal.Size = new System.Drawing.Size(269, 28);
+            this.dtpFechaFinal.TabIndex = 25;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(25, 79);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(27, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 20);
+            this.label1.Size = new System.Drawing.Size(51, 23);
             this.label1.TabIndex = 21;
             this.label1.Text = "Inicio";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(148)))), ((int)(((byte)(65)))));
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnCancelar.Location = new System.Drawing.Point(207, 547);
+            this.btnCancelar.Font = new System.Drawing.Font("Montserrat SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelar.Location = new System.Drawing.Point(345, 547);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(164, 36);
@@ -211,98 +252,95 @@
             // lblServicios
             // 
             this.lblServicios.AutoSize = true;
-            this.lblServicios.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblServicios.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblServicios.Location = new System.Drawing.Point(23, 147);
             this.lblServicios.Name = "lblServicios";
-            this.lblServicios.Size = new System.Drawing.Size(110, 32);
+            this.lblServicios.Size = new System.Drawing.Size(89, 24);
             this.lblServicios.TabIndex = 19;
             this.lblServicios.Text = "Servicios";
             // 
-            // sfDataGrid1
+            // dgmServicio
             // 
-            this.sfDataGrid1.AccessibleName = "Table";
-            this.sfDataGrid1.Location = new System.Drawing.Point(16, 193);
-            this.sfDataGrid1.Name = "sfDataGrid1";
-            this.sfDataGrid1.Size = new System.Drawing.Size(376, 251);
-            this.sfDataGrid1.TabIndex = 18;
-            this.sfDataGrid1.Text = "sfDataGrid1";
-            // 
-            // btnBuscarServicio
-            // 
-            this.btnBuscarServicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnBuscarServicio.FlatAppearance.BorderSize = 0;
-            this.btnBuscarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarServicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarServicio.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar;
-            this.btnBuscarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarServicio.Location = new System.Drawing.Point(207, 147);
-            this.btnBuscarServicio.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscarServicio.Name = "btnBuscarServicio";
-            this.btnBuscarServicio.Size = new System.Drawing.Size(162, 32);
-            this.btnBuscarServicio.TabIndex = 17;
-            this.btnBuscarServicio.Text = "Buscar Servicio";
-            this.btnBuscarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscarServicio.UseVisualStyleBackColor = false;
-            this.btnBuscarServicio.Click += new System.EventHandler(this.btnBuscarServicio_Click_1);
+            this.dgmServicio.AccessibleName = "Table";
+            this.dgmServicio.AllowEditing = false;
+            this.dgmServicio.AllowResizingColumns = true;
+            this.dgmServicio.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            gridTextColumn5.AllowEditing = false;
+            gridTextColumn5.AllowResizing = true;
+            gridTextColumn5.HeaderText = "IdServicio";
+            gridTextColumn5.MappingName = "IdServicio";
+            gridTextColumn5.Visible = false;
+            gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.AllowMultiline = true;
+            gridTextColumn6.AllowResizing = true;
+            gridTextColumn6.HeaderText = "Servicio";
+            gridTextColumn6.MappingName = "Servicio";
+            gridTextColumn7.AllowEditing = false;
+            gridTextColumn7.AllowResizing = true;
+            gridTextColumn7.Format = "HH:mm";
+            gridTextColumn7.HeaderText = "Inicio";
+            gridTextColumn7.MappingName = "FechaIServicio";
+            gridTextColumn7.MaximumWidth = 110D;
+            gridTextColumn8.AllowEditing = false;
+            gridTextColumn8.AllowResizing = true;
+            gridTextColumn8.Format = "HH:mm";
+            gridTextColumn8.HeaderText = "Fin";
+            gridTextColumn8.MappingName = "FechaFServicio";
+            gridTextColumn8.MaximumWidth = 110D;
+            this.dgmServicio.Columns.Add(gridTextColumn5);
+            this.dgmServicio.Columns.Add(gridTextColumn6);
+            this.dgmServicio.Columns.Add(gridTextColumn7);
+            this.dgmServicio.Columns.Add(gridTextColumn8);
+            this.dgmServicio.Location = new System.Drawing.Point(16, 193);
+            this.dgmServicio.Name = "dgmServicio";
+            this.dgmServicio.Size = new System.Drawing.Size(641, 260);
+            this.dgmServicio.TabIndex = 18;
+            this.dgmServicio.Text = "sfDataGrid1";
             // 
             // btnGuardar
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.BackColor = System.Drawing.Color.Transparent;
+            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.Black;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(29, 547);
+            this.btnGuardar.Location = new System.Drawing.Point(159, 547);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(156, 36);
             this.btnGuardar.TabIndex = 16;
             this.btnGuardar.Text = "Guardar Cita";
-            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
             // 
-            // dateTimePicker1
+            // HoraCitaControl
             // 
-            this.dateTimePicker1.CustomFormat = "HH:mm";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(315, 107);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.ShowUpDown = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(66, 22);
-            this.dateTimePicker1.TabIndex = 15;
+            this.HoraCitaControl.CustomFormat = "HH:mm";
+            this.HoraCitaControl.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HoraCitaControl.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.HoraCitaControl.Location = new System.Drawing.Point(323, 109);
+            this.HoraCitaControl.Name = "HoraCitaControl";
+            this.HoraCitaControl.ShowUpDown = true;
+            this.HoraCitaControl.Size = new System.Drawing.Size(82, 28);
+            this.HoraCitaControl.TabIndex = 15;
             // 
-            // dateTimePicker2
+            // FechaCitaControl
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(16, 107);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(269, 22);
-            this.dateTimePicker2.TabIndex = 14;
-            // 
-            // btnBuscarCliente
-            // 
-            this.btnBuscarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnBuscarCliente.FlatAppearance.BorderSize = 0;
-            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarCliente.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar;
-            this.btnBuscarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarCliente.Location = new System.Drawing.Point(296, 31);
-            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(96, 32);
-            this.btnBuscarCliente.TabIndex = 13;
-            this.btnBuscarCliente.Text = "Cliente";
-            this.btnBuscarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscarCliente.UseVisualStyleBackColor = false;
-            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click_1);
+            this.FechaCitaControl.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FechaCitaControl.Location = new System.Drawing.Point(18, 109);
+            this.FechaCitaControl.Name = "FechaCitaControl";
+            this.FechaCitaControl.Size = new System.Drawing.Size(269, 28);
+            this.FechaCitaControl.TabIndex = 14;
             // 
             // ClienteControl
             // 
             this.ClienteControl.BeforeTouchSize = new System.Drawing.Size(254, 49);
             this.ClienteControl.Enabled = false;
             this.ClienteControl.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClienteControl.Location = new System.Drawing.Point(16, 23);
+            this.ClienteControl.Location = new System.Drawing.Point(18, 22);
             this.ClienteControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.ClienteControl.Multiline = true;
             this.ClienteControl.Name = "ClienteControl";
@@ -315,73 +353,111 @@
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(0, 89);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(856, 606);
+            this.pnlGrid.Size = new System.Drawing.Size(601, 606);
             this.pnlGrid.TabIndex = 3;
             // 
             // dgmCita
             // 
             this.dgmCita.AccessibleName = "Table";
+            this.dgmCita.AllowEditing = false;
             this.dgmCita.AllowResizingColumns = true;
             this.dgmCita.AutoExpandGroups = true;
             this.dgmCita.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.AllowResizing = true;
-            gridTextColumn1.HeaderText = "IdCita";
-            gridTextColumn1.MappingName = "IdCita";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.AllowResizing = true;
-            gridTextColumn2.HeaderText = "IdCliente";
-            gridTextColumn2.MappingName = "IdCliente";
-            gridTextColumn2.Visible = false;
-            gridTextColumn3.AllowResizing = true;
-            gridTextColumn3.HeaderText = "Cliente";
-            gridTextColumn3.MappingName = "NombreCompleto";
-            gridTextColumn4.AllowResizing = true;
-            gridTextColumn4.Format = "HH:mm";
-            gridTextColumn4.HeaderText = "Fecha";
-            gridTextColumn4.MappingName = "FechaCita";
-            gridTextColumn5.AllowResizing = true;
-            gridTextColumn5.HeaderText = "Observaciones";
-            gridTextColumn5.MappingName = "Observaciones";
-            this.dgmCita.Columns.Add(gridTextColumn1);
-            this.dgmCita.Columns.Add(gridTextColumn2);
-            this.dgmCita.Columns.Add(gridTextColumn3);
-            this.dgmCita.Columns.Add(gridTextColumn4);
-            this.dgmCita.Columns.Add(gridTextColumn5);
+            gridTextColumn9.AllowEditing = false;
+            gridTextColumn9.AllowResizing = true;
+            gridTextColumn9.HeaderText = "IdCita";
+            gridTextColumn9.MappingName = "IdCita";
+            gridTextColumn9.Visible = false;
+            gridTextColumn10.AllowEditing = false;
+            gridTextColumn10.AllowResizing = true;
+            gridTextColumn10.HeaderText = "IdCliente";
+            gridTextColumn10.MappingName = "IdCliente";
+            gridTextColumn10.Visible = false;
+            gridTextColumn11.AllowEditing = false;
+            gridTextColumn11.AllowResizing = true;
+            gridTextColumn11.HeaderText = "Cliente";
+            gridTextColumn11.MappingName = "NombreCompleto";
+            gridTextColumn12.AllowEditing = false;
+            gridTextColumn12.AllowResizing = true;
+            gridTextColumn12.Format = "HH:mm";
+            gridTextColumn12.HeaderText = "Hora";
+            gridTextColumn12.MappingName = "FechaCita";
+            gridTextColumn12.MaximumWidth = 150D;
+            gridTextColumn13.AllowEditing = false;
+            gridTextColumn13.AllowMultiline = true;
+            gridTextColumn13.AllowResizing = true;
+            gridTextColumn13.HeaderText = "Observaciones";
+            gridTextColumn13.MappingName = "Observaciones";
+            gridTextColumn13.Visible = false;
+            this.dgmCita.Columns.Add(gridTextColumn9);
+            this.dgmCita.Columns.Add(gridTextColumn10);
+            this.dgmCita.Columns.Add(gridTextColumn11);
+            this.dgmCita.Columns.Add(gridTextColumn12);
+            this.dgmCita.Columns.Add(gridTextColumn13);
             this.dgmCita.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgmCita.Location = new System.Drawing.Point(0, 0);
             this.dgmCita.Name = "dgmCita";
-            this.dgmCita.Size = new System.Drawing.Size(856, 606);
+            this.dgmCita.Size = new System.Drawing.Size(601, 606);
             this.dgmCita.TabIndex = 0;
             this.dgmCita.Text = "sfDataGrid1";
             // 
-            // label2
+            // btnEliminarServicio
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(25, 468);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 20);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "Fin";
+            this.btnEliminarServicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnEliminarServicio.FlatAppearance.BorderSize = 0;
+            this.btnEliminarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarServicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarServicio.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.eliminar;
+            this.btnEliminarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarServicio.Location = new System.Drawing.Point(493, 147);
+            this.btnEliminarServicio.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminarServicio.Name = "btnEliminarServicio";
+            this.btnEliminarServicio.Size = new System.Drawing.Size(162, 32);
+            this.btnEliminarServicio.TabIndex = 28;
+            this.btnEliminarServicio.Text = " Elimnar Servicio";
+            this.btnEliminarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminarServicio.UseVisualStyleBackColor = false;
+            this.btnEliminarServicio.Click += new System.EventHandler(this.btnEliminarServicio_Click);
             // 
-            // dateTimePicker3
+            // btnBuscarServicio
             // 
-            this.dateTimePicker3.CustomFormat = "HH:mm";
-            this.dateTimePicker3.Enabled = false;
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker3.Location = new System.Drawing.Point(315, 496);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.ShowUpDown = true;
-            this.dateTimePicker3.Size = new System.Drawing.Size(66, 22);
-            this.dateTimePicker3.TabIndex = 26;
+            this.btnBuscarServicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnBuscarServicio.FlatAppearance.BorderSize = 0;
+            this.btnBuscarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarServicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarServicio.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar;
+            this.btnBuscarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarServicio.Location = new System.Drawing.Point(304, 147);
+            this.btnBuscarServicio.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarServicio.Name = "btnBuscarServicio";
+            this.btnBuscarServicio.Size = new System.Drawing.Size(162, 32);
+            this.btnBuscarServicio.TabIndex = 17;
+            this.btnBuscarServicio.Text = "Agregar Servicio";
+            this.btnBuscarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarServicio.UseVisualStyleBackColor = false;
+            this.btnBuscarServicio.Click += new System.EventHandler(this.btnBuscarServicio_Click_1);
             // 
-            // dateTimePicker4
+            // btnBuscarCliente
             // 
-            this.dateTimePicker4.Enabled = false;
-            this.dateTimePicker4.Location = new System.Drawing.Point(16, 496);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(269, 22);
-            this.dateTimePicker4.TabIndex = 25;
+            this.btnBuscarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnBuscarCliente.FlatAppearance.BorderSize = 0;
+            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCliente.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar;
+            this.btnBuscarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(446, 23);
+            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Size = new System.Drawing.Size(96, 32);
+            this.btnBuscarCliente.TabIndex = 13;
+            this.btnBuscarCliente.Text = "Cliente";
+            this.btnBuscarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarCliente.UseVisualStyleBackColor = false;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click_1);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmCapturaCitaNuevo
             // 
@@ -402,10 +478,11 @@
             this.panel1.ResumeLayout(false);
             this.gbCita.ResumeLayout(false);
             this.gbCita.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgmServicio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteControl)).EndInit();
             this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgmCita)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -425,16 +502,18 @@
         private System.Windows.Forms.GroupBox gbCita;
         private System.Windows.Forms.Button btnBuscarServicio;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker HoraCitaControl;
+        private System.Windows.Forms.DateTimePicker FechaCitaControl;
         private System.Windows.Forms.Button btnBuscarCliente;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt ClienteControl;
         private System.Windows.Forms.Label lblServicios;
-        private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGrid1;
+        private Syncfusion.WinForms.DataGrid.SfDataGrid dgmServicio;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.DateTimePicker dtpFechafin;
+        private System.Windows.Forms.DateTimePicker dtpFechaFinal;
+        private System.Windows.Forms.Button btnEliminarServicio;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

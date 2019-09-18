@@ -26,7 +26,9 @@ namespace CIDFares.Spa.WFApplication.Constants
         public const string ErrorBusqueda = "OCURRIÓ UN ERROR AL BUSCAR LOS DATOS";
         public const string CategoryIsOcuped = "ESTA CATEGORÍA CONTIENE PRODUCTOS EXISTENTES";
         public const string ConfirmCancelInput = "¿DESEA CANCELAR ESTE REGISTRO?";
+        public const string ServicioSelectMessage = "SELECCIONE UN SERVICIO";
         public const string CitaSelectMessage = "SELECCIONE UNA CITA";
+        
 
     }
 }

@@ -5,6 +5,7 @@ using CIDFares.Spa.DataAccess.Contracts.Validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,8 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         #region Propiedades públicas
         public BindingList<CapturaCita> ListaCapturaCita { get; set; }
         public BindingList<CapturaCita> ListaCapturaCitaDetalle { get; set; }
+        public BindingList<CapturaCita> ListaCapturaCitaDetalleServicio { get; set; }
+        public DataTable TablaGServicio { get; set; }
         //List<Syncfusion.WinForms.Input.SpecialDate> list = new List<Syncfusion.WinForms.Input.SpecialDate>();
         public EntityState State { get; set; }
         #endregion
@@ -31,43 +34,62 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             Repository = capturaCitaRepository;
             ListaCapturaCita = new BindingList<CapturaCita>();
             ListaCapturaCitaDetalle = new BindingList<CapturaCita>();
+            ListaCapturaCitaDetalleServicio = new BindingList<CapturaCita>();
         }
         #endregion
 
         #region Metodos
-        //public async Task GetAllAsync()
-        //{
-        //    try
-        //    {
-        //        var x = await Repository.GetAllAsync();
-        //        ListaCapturaCita.Clear();
-        //        foreach (var item in x)
-        //        {
-        //            ListaCapturaCita.Add(item);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
-        //public async Task GetSpecialDates()
-        //{
-        //    try
-        //    {
-        //        var x = await Repository.GetCitaXPeriodo(this.FechaInicio, this.FechaFinal);
-        //        ListaCapturaCita.Clear();
-        //        foreach (var item in x)
-        //        {
-        //            ListaCapturaCita.Add(item);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
 
-        //        throw ex;
-        //    }
-        //}
+        public DataTable obtenerTabla()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("IdServicio", typeof(int));
+                dt.Columns.Add("FechaInicio", typeof(DateTime));
+                dt.Columns.Add("FechaFinal", typeof(DateTime));
+                foreach (var item in ListaCapturaCitaDetalleServicio)
+                {
+                    dt.Rows.Add(item);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<CapturaCita> GuardarCambios(Guid IdUsuario, int IdSucursal)
+        {
+            try
+            {
+                CapturaCita model = new CapturaCita
+                {
+                    IdCita = IdCita,
+                    IdServicio = IdServicio,
+                    Servicio = Servicio,
+                    IdCliente = IdCliente,
+                    FechaCita = FechaCita,
+                    //FechaIServicio = FechaIServicio,
+                    //FechaFServicio = FechaFServicio,
+                    TablaServicio = TablaGServicio,                                        
+                };
+                if (State == EntityState.Create)
+                {
+                    return await Repository.AddCita(model, IdUsuario, IdSucursal);
+                }
+                else if (State == EntityState.Update)
+                {
+                    return await Repository.UpdateAsync(model, IdUsuario);
+                }
+                return model;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public async Task GetCitaXPeriodo()
         {
@@ -96,6 +118,24 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 foreach (var item in x)
                 {
                     ListaCapturaCitaDetalle.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public async Task GetCitaDetalleServicio(Guid idCita)
+        {
+            try
+            {
+                var x = await Repository.GetCitaDetalleServicio(idCita);
+                ListaCapturaCitaDetalleServicio.Clear();
+                foreach (var item in x)
+                {
+                    ListaCapturaCitaDetalleServicio.Add(item);
                 }
             }
             catch (Exception ex)
@@ -148,6 +188,18 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
+        private int _IdServicio;
+
+        public int IdServicio
+        {
+            get { return _IdServicio; }
+            set
+            {
+                _IdServicio = value;
+                OnPropertyChanged(nameof(IdServicio));
+            }
+        }
+
         private int _IdEstadoCita;
 
         public int IdEstadoCita
@@ -193,6 +245,30 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             {
                 _FechaCita = value;
                 OnPropertyChanged(nameof(FechaCita));
+            }
+        }
+
+        private DateTime _FechaIServicio;
+
+        public DateTime FechaIServicio
+        {
+            get { return _FechaIServicio; }
+            set
+            {
+                _FechaIServicio = value;
+                OnPropertyChanged(nameof(FechaIServicio));
+            }
+        }
+
+        private DateTime _FechaFServicio;
+
+        public DateTime FechaFServicio
+        {
+            get { return _FechaFServicio; }
+            set
+            {
+                _FechaFServicio = value;
+                OnPropertyChanged(nameof(FechaFServicio));
             }
         }
 
