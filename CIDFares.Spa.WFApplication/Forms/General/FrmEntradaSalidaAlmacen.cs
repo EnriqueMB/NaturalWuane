@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -51,7 +52,24 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             TipoControl.DisplayMember = "Nombre";
             TipoControl.ValueMember = "Id";
         }
-        #endregion
 
+        public void IniciarBinding()
+        {
+            TipoControl.DataBindings.Add("SelectedValue", Model, "Tipo", true, DataSourceUpdateMode.OnPropertyChanged);
+            FechaControl.DataBindings.Add("Text", Model, "Fecha", true, DataSourceUpdateMode.OnPropertyChanged);
+            IniciarCombos();
+        }
+        #endregion
+      
+        private void pcMas_Click(object sender, EventArgs e)
+        {
+            FrmProductoEntradaSalida ES = new FrmProductoEntradaSalida();
+            ES.ShowDialog();
+        }
+
+        private void FrmEntradaSalidaAlmacen_Load(object sender, EventArgs e)
+        {
+            IniciarBinding();
+        }
     }
 }

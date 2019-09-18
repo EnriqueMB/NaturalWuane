@@ -426,6 +426,12 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             }
         }
 
+        private void btnAlmacen_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnEmpleado);
+            GetPanel(new FrmEntradaSalidaAlmacen());
+        }
+
         private void SlideGenerales(Button button)
         {
             SlidePanelgenerales.Visible = true;

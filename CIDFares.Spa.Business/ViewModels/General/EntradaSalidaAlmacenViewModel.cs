@@ -15,33 +15,75 @@ namespace CIDFares.Spa.Business.ViewModels.General
     {
         #region proppiedades privadas
         private IEntradaSalidaAlmacenRepository IRepository { get; set; }
-        private IProductoRepository BusqProductoRepository { get; set; }
+        private IProductoRepository IProductoRepository { get; set; }
         #endregion
 
         #region propiedades publicas
         public DataTable TablaEntradaAlmacen { get; set; }
         public DataTable TablaSalidaAlmacen { get; set; }
-        public BindingList<BusqueProducto> ListaBusquedaProducto { get; set; }
+       // public BindingList<BusqueProducto> ListaBusquedaProducto { get; set; }
+        public BindingList<Producto> ListaProducto { get; set; }
         #endregion
 
         #region constructor
-        public EntradaSalidaAlmacenViewModel(IEntradaSalidaAlmacenRepository repository, IProductoRepository BusquedaRepository)
+        public EntradaSalidaAlmacenViewModel(IEntradaSalidaAlmacenRepository repository, IProductoRepository ProductoRepository)
         {
             IRepository = repository;
-            BusqProductoRepository = BusquedaRepository;
-            ListaBusquedaProducto = new BindingList<BusqueProducto>();
+            IProductoRepository = ProductoRepository;
+            ListaProducto = new BindingList<Producto>();
             #region  Binding
-
+            Folio = string.Empty;
+            Busqueda = string.Empty;
+            Tipo = 0;
+            Cantidad = 0;
+            Fecha = DateTime.Now;
             #endregion
         }
         #endregion
 
         #region Metodos
+        public async Task CargarDatos()
+        {
+            try
+            {
+                var x = await IProductoRepository.CargarDatos();
+                ListaProducto.Clear();
+                foreach (var item in x)
+                {
+
+                    ListaProducto.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public async Task GetBusqueda()
+        {
+            try
+            {
+                var x = await IProductoRepository.GetBusquedaAsync(this.Busqueda);
+                ListaProducto.Clear();
+                foreach (var item in x)
+                {
+                    
+                    ListaProducto.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
 
         #endregion
 
         #region Binding
-        
+
 
         private string _Folio;
 
@@ -50,7 +92,16 @@ namespace CIDFares.Spa.Business.ViewModels.General
             get { return _Folio; }
             set { _Folio = value; OnPropertyChanged("Folio"); }
         }
-
+        private string _Busqueda;
+        public string Busqueda
+        {
+            get { return _Busqueda; }
+            set
+            {
+                _Busqueda = value;
+                OnPropertyChanged(nameof(Busqueda));
+            }
+        }
         private int _Tipo;
 
         public int Tipo

@@ -28,23 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEntradaSalidaAlmacen));
             this.pnlTop = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.FechaControl = new System.Windows.Forms.DateTimePicker();
+            this.lblTipo = new System.Windows.Forms.Label();
+            this.TipoControl = new System.Windows.Forms.ComboBox();
             this.pblButtom = new System.Windows.Forms.Panel();
             this.pblCenter = new System.Windows.Forms.Panel();
             this.sfDataGrid1 = new Syncfusion.WinForms.DataGrid.SfDataGrid();
-            this.TipoControl = new System.Windows.Forms.ComboBox();
-            this.lblTipo = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
+            this.pcMas = new System.Windows.Forms.PictureBox();
             this.pnlTop.SuspendLayout();
             this.pblCenter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMas)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
             // 
+            this.pnlTop.Controls.Add(this.pcMas);
             this.pnlTop.Controls.Add(this.label1);
-            this.pnlTop.Controls.Add(this.dateTimePicker1);
+            this.pnlTop.Controls.Add(this.FechaControl);
             this.pnlTop.Controls.Add(this.lblTipo);
             this.pnlTop.Controls.Add(this.TipoControl);
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -52,6 +56,46 @@
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(772, 111);
             this.pnlTop.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(402, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 18);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "FECHA";
+            // 
+            // FechaControl
+            // 
+            this.FechaControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FechaControl.Location = new System.Drawing.Point(405, 70);
+            this.FechaControl.Name = "FechaControl";
+            this.FechaControl.Size = new System.Drawing.Size(200, 20);
+            this.FechaControl.TabIndex = 2;
+            // 
+            // lblTipo
+            // 
+            this.lblTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTipo.AutoSize = true;
+            this.lblTipo.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipo.Location = new System.Drawing.Point(612, 48);
+            this.lblTipo.Name = "lblTipo";
+            this.lblTipo.Size = new System.Drawing.Size(39, 18);
+            this.lblTipo.TabIndex = 1;
+            this.lblTipo.Text = "TIPO";
+            // 
+            // TipoControl
+            // 
+            this.TipoControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TipoControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TipoControl.FormattingEnabled = true;
+            this.TipoControl.Location = new System.Drawing.Point(615, 69);
+            this.TipoControl.Name = "TipoControl";
+            this.TipoControl.Size = new System.Drawing.Size(123, 21);
+            this.TipoControl.TabIndex = 0;
             // 
             // pblButtom
             // 
@@ -80,41 +124,16 @@
             this.sfDataGrid1.TabIndex = 0;
             this.sfDataGrid1.Text = "sfDataGrid1";
             // 
-            // TipoControl
+            // pcMas
             // 
-            this.TipoControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TipoControl.FormattingEnabled = true;
-            this.TipoControl.Location = new System.Drawing.Point(615, 69);
-            this.TipoControl.Name = "TipoControl";
-            this.TipoControl.Size = new System.Drawing.Size(123, 21);
-            this.TipoControl.TabIndex = 0;
-            // 
-            // lblTipo
-            // 
-            this.lblTipo.AutoSize = true;
-            this.lblTipo.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipo.Location = new System.Drawing.Point(612, 48);
-            this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(39, 18);
-            this.lblTipo.TabIndex = 1;
-            this.lblTipo.Text = "TIPO";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(405, 70);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(402, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 18);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "FECHA";
+            this.pcMas.Image = ((System.Drawing.Image)(resources.GetObject("pcMas.Image")));
+            this.pcMas.Location = new System.Drawing.Point(12, 12);
+            this.pcMas.Name = "pcMas";
+            this.pcMas.Size = new System.Drawing.Size(45, 46);
+            this.pcMas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcMas.TabIndex = 4;
+            this.pcMas.TabStop = false;
+            this.pcMas.Click += new System.EventHandler(this.pcMas_Click);
             // 
             // FrmEntradaSalidaAlmacen
             // 
@@ -127,10 +146,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmEntradaSalidaAlmacen";
             this.Text = "FrmEntradaSalidaAlmacen";
+            this.Load += new System.EventHandler(this.FrmEntradaSalidaAlmacen_Load);
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
             this.pblCenter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -144,6 +165,7 @@
         private System.Windows.Forms.ComboBox TipoControl;
         private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGrid1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker FechaControl;
+        private System.Windows.Forms.PictureBox pcMas;
     }
 }
