@@ -87,6 +87,29 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
+        public async Task<BindingList<CapturaCita>> ValidarFechaServicio(DateTime? fecha)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    List<CapturaCita> Lista = new List<CapturaCita>();
+                    //CapturaCita Item;
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@fechaCita", fecha);
+                    //dynamicParameters.Add("@estadoCita", 5);
+                    //var mapeo = await conexion.QueryAsync<CapturaCita>
+                    var dr = await conexion.QueryAsync<CapturaCita>("[Cita].[SPCID_Get_CitaDetalle]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return new BindingList<CapturaCita>(dr.ToList());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<BindingList<CapturaCita>> GetCitaDetalleServicio(Guid idCita)
         {
             try

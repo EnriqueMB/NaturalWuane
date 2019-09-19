@@ -255,7 +255,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             get { return _HoraCita; }
             set
             {
-                _HoraCita = FechaCita;
+                _HoraCita = value;//FechaCita;
                 OnPropertyChanged(nameof(HoraCita));
             }
         }

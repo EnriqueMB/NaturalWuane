@@ -33,7 +33,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             lblTitle.Text = Convert.ToDateTime(fecha).ToString("dddd, dd MMMM yyyy").ToUpper();
             Model = ServiceLocator.Instance.Resolve<CapturaCitaViewModel>();
             Model.GetCitaDetalle(fecha);
-            Model.FechaCita = DateTime.Now;
+            Model.HoraCita = DateTime.Now;
+            string cf = fecha.Value.ToShortDateString() + " " + Model.HoraCita.ToLongTimeString();
+            Model.FechaCita = Convert.ToDateTime(cf);            
+                       
         }
 
         public FrmCapturaCitaNuevo(Guid IdCuenta, DateTime? fech)
@@ -132,6 +135,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         {
             gbCita.Enabled = true;
             btnBuscarCliente.Visible = true;
+            //var bb = Model.FechaCita;
         }
 
         private void btnBuscarCliente_Click_1(object sender, EventArgs e)
@@ -149,27 +153,38 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             {
                 btnGuardar.Enabled = false;
                 BindingList<CapturaCita> ListaServicio = (BindingList<CapturaCita>)dgmServicio.DataSource;
-                Model.TablaGServicio = ObtenerDatosTabla(ListaServicio);
+                Model.TablaGServicio = ObtenerDatosTabla(ListaServicio);                
+                string cf = Model.FechaCita.ToShortDateString() + " " + Model.HoraCita.ToLongTimeString();
+                Model.FechaCita = Convert.ToDateTime(cf);
                 this.CleanErrors(errorProvider1, typeof(CapturaCitaViewModel));
                 var validationResults = Model.Validate();
-                validationResults.ToString();
-                if (validationResults.IsValid)
+                validationResults.ToString();                
+                if (Model.ListaCapturaCitaDetalleServicio.Count > 0)
                 {
-                    //var aux = Model.Duracion;
-                    //var otroAux = DuracionControl.Value;
-                    var Resul = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario, CurrentSession.IdSucursal);
-                    if (Resul.Resultado == 1)
+                    if (validationResults.IsValid)
                     {
-                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
-                        //LimpiarPropiedades();
-                        ////await Model.GetAllAsync();
-                        this.Close();
+
+                        //var aux = Model.Duracion;
+                        //var otroAux = DuracionControl.Value;
+                        var Resul = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario, CurrentSession.IdSucursal);
+                        if (Resul.Resultado == 1)
+                        {
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                            //LimpiarPropiedades();
+                            ////await Model.GetAllAsync();
+                            this.Close();
+                        }
+                        else
+                            CIDMessageBox.ShowAlert(Messages.ErrorMessage, "Error", TypeMessage.error);
                     }
                     else
-                        CIDMessageBox.ShowAlert(Messages.ErrorMessage, "Error", TypeMessage.error);
+                        this.ShowErrors(errorProvider1, typeof(CapturaCitaViewModel), validationResults);
                 }
                 else
+                {
+                    errorProvider1.SetError(lblErrorControl, "SELECCIONE AL MENOS UN SERVICIO");
                     this.ShowErrors(errorProvider1, typeof(CapturaCitaViewModel), validationResults);
+                }
             }
             catch (Exception ex)
             {
@@ -184,19 +199,25 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
 
         private void btnBuscarServicio_Click_1(object sender, EventArgs e)
         {
+            //var bb = Model.FechaCita;
             FrmBuscarServicio bs = new FrmBuscarServicio();
             bs.ShowDialog();
             if (bs.servicio.IdServicio > 0)
             {
                 agregarServicioLista(bs.servicio);
             }
+            dtpFechaFinal.Value =  Model.ListaCapturaCitaDetalleServicio.Last().FechaFServicio;
             //Model.IdCliente = f.cliente.IdCliente;
             //tbCliente.Text = f.cliente.NombreCompleto;
         }
 
         private void agregarServicioLista(Servicio ex)
         {
-            
+            string cf = Model.FechaCita.ToShortDateString() + " " + Model.HoraCita.ToLongTimeString();
+            Model.FechaCita = Convert.ToDateTime(cf);
+
+            //var bb = Model.FechaCita;
+
             if (Model.ListaCapturaCitaDetalleServicio.Count == 0)
             {
                 HoraCitaControl.Enabled = true;
@@ -214,7 +235,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 var UltimaFecha = DateTime.Now;
 
                List<CapturaCita> Data = Model.ListaCapturaCitaDetalleServicio.Skip(Math.Max(0, Model.ListaCapturaCitaDetalleServicio.Count - 4)).Select(x => { UltimaFecha = x.FechaFServicio; return x; }).ToList();
-
+                //var gg = Model.FechaCita;
                     Model.ListaCapturaCitaDetalleServicio.Add(new CapturaCita
                     {
                         IdServicio = ex.IdServicio,
@@ -241,7 +262,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                     await Model.GetCitaDetalleServicio(item.IdCita);                    
                     int count = dgmServicio.RowCount-1;
                     DateTime c2 = Model.FechaCita.AddHours(count);
-                    dtpFechafin.Value = c2;
+                    //dtpFechafin.Value = c2;
                     //DateTime c = item.FechaCita.AddHours(Model.ListaCapturaCitaDetalleServicio.Count);
                     //Model.GetAllAsync(); Metodo que carga datos
                 }
@@ -265,13 +286,24 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         private void btnEliminarServicio_Click(object sender, EventArgs e)
         {
             try
-            {
+            {                
+                List<CapturaCita> Data;
+                Servicio ex;
                 var item = ObtenerSeleccionadoServicio();
                 if (item != null)
                 {
                     Model.ListaCapturaCitaDetalleServicio.Remove(item);
                     //DateTime c = item.FechaCita.AddHours(Model.ListaCapturaCitaDetalleServicio.Count);
                     //Model.GetAllAsync(); Metodo que carga datos
+                    Data = Model.ListaCapturaCitaDetalleServicio.ToList();
+                    Model.ListaCapturaCitaDetalleServicio.Clear();
+                    foreach (var servicio in Data)
+                    {
+                        ex = new Servicio();
+                        ex.IdServicio = servicio.IdServicio;
+                        ex.Nombre = servicio.Servicio;
+                        agregarServicioLista(ex);
+                    }                    
                 }
                 else
                     CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ServicioSelectMessage, TypeMessage.informacion);
@@ -281,6 +313,65 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 throw ex;
             }
         }
+
+        private void HoraCitaControl_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Model.ListaCapturaCitaDetalleServicio.Count > 0)
+                {
+                    Model.HoraCita = HoraCitaControl.Value;
+                    Servicio ex;
+                    List<CapturaCita> Data = Model.ListaCapturaCitaDetalleServicio.ToList();
+                    Model.ListaCapturaCitaDetalleServicio.Clear();
+                    foreach (var servicio in Data)
+                    {
+                        ex = new Servicio();
+                        ex.IdServicio = servicio.IdServicio;
+                        ex.Nombre = servicio.Servicio;
+                        agregarServicioLista(ex);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        //private void agregarServicioLista(List<CapturaCita> data)
+        //{
+        //    string cf = Model.FechaCita.ToShortDateString() + " " + Model.HoraCita.ToLongTimeString();
+        //    Model.FechaCita = Convert.ToDateTime(cf);
+
+        //    if (Model.ListaCapturaCitaDetalleServicio.Count == 0)
+        //    {
+        //        HoraCitaControl.Enabled = true;
+        //        Model.ListaCapturaCitaDetalleServicio.Add(new CapturaCita
+        //        {
+        //            IdServicio = ex.IdServicio,
+        //            Servicio = ex.Nombre,
+        //            FechaIServicio = Model.FechaCita,
+        //            FechaFServicio = Model.FechaCita.AddHours(1)
+        //        });
+
+        //    }
+        //    else
+        //    {
+        //        var UltimaFecha = DateTime.Now;
+
+        //        List<CapturaCita> Data = Model.ListaCapturaCitaDetalleServicio.Skip(Math.Max(0, Model.ListaCapturaCitaDetalleServicio.Count - 4)).Select(x => { UltimaFecha = x.FechaFServicio; return x; }).ToList();
+
+        //        Model.ListaCapturaCitaDetalleServicio.Add(new CapturaCita
+        //        {
+        //            IdServicio = ex.IdServicio,
+        //            Servicio = ex.Nombre,
+        //            FechaIServicio = UltimaFecha,
+        //            FechaFServicio = UltimaFecha.AddHours(1)
+        //        });
+
+        //    }
+        //}
 
         //private void btnGuardar_MouseHover(object sender, EventArgs e)
         //{

@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlButtons = new System.Windows.Forms.Panel();
@@ -49,8 +49,6 @@
             this.gbCita = new System.Windows.Forms.GroupBox();
             this.btnEliminarServicio = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.dtpFechafin = new System.Windows.Forms.DateTimePicker();
-            this.dtpFechaFinal = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblServicios = new System.Windows.Forms.Label();
@@ -64,6 +62,8 @@
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgmCita = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblErrorControl = new System.Windows.Forms.Label();
+            this.dtpFechaFinal = new System.Windows.Forms.DateTimePicker();
             this.pnlHeader.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -171,10 +171,10 @@
             // gbCita
             // 
             this.gbCita.BackColor = System.Drawing.Color.White;
+            this.gbCita.Controls.Add(this.dtpFechaFinal);
+            this.gbCita.Controls.Add(this.lblErrorControl);
             this.gbCita.Controls.Add(this.btnEliminarServicio);
             this.gbCita.Controls.Add(this.label2);
-            this.gbCita.Controls.Add(this.dtpFechafin);
-            this.gbCita.Controls.Add(this.dtpFechaFinal);
             this.gbCita.Controls.Add(this.label1);
             this.gbCita.Controls.Add(this.btnCancelar);
             this.gbCita.Controls.Add(this.lblServicios);
@@ -221,32 +221,11 @@
             this.label2.TabIndex = 27;
             this.label2.Text = "Fin";
             // 
-            // dtpFechafin
-            // 
-            this.dtpFechafin.CustomFormat = "HH:mm";
-            this.dtpFechafin.Enabled = false;
-            this.dtpFechafin.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechafin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFechafin.Location = new System.Drawing.Point(323, 496);
-            this.dtpFechafin.Name = "dtpFechafin";
-            this.dtpFechafin.ShowUpDown = true;
-            this.dtpFechafin.Size = new System.Drawing.Size(70, 28);
-            this.dtpFechafin.TabIndex = 26;
-            // 
-            // dtpFechaFinal
-            // 
-            this.dtpFechaFinal.Enabled = false;
-            this.dtpFechaFinal.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaFinal.Location = new System.Drawing.Point(18, 496);
-            this.dtpFechaFinal.Name = "dtpFechaFinal";
-            this.dtpFechaFinal.Size = new System.Drawing.Size(269, 28);
-            this.dtpFechaFinal.TabIndex = 25;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(27, 81);
+            this.label1.Location = new System.Drawing.Point(27, 78);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 23);
             this.label1.TabIndex = 21;
@@ -280,35 +259,32 @@
             // dgmServicio
             // 
             this.dgmServicio.AccessibleName = "Table";
-            this.dgmServicio.AllowEditing = false;
             this.dgmServicio.AllowResizingColumns = true;
             this.dgmServicio.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn9.AllowEditing = false;
-            gridTextColumn9.AllowResizing = true;
-            gridTextColumn9.HeaderText = "IdServicio";
-            gridTextColumn9.MappingName = "IdServicio";
-            gridTextColumn9.Visible = false;
-            gridTextColumn10.AllowEditing = false;
-            gridTextColumn10.AllowMultiline = true;
-            gridTextColumn10.AllowResizing = true;
-            gridTextColumn10.HeaderText = "Servicio";
-            gridTextColumn10.MappingName = "Servicio";
-            gridTextColumn11.AllowEditing = false;
-            gridTextColumn11.AllowResizing = true;
-            gridTextColumn11.Format = "HH:mm";
-            gridTextColumn11.HeaderText = "Inicio";
-            gridTextColumn11.MappingName = "FechaIServicio";
-            gridTextColumn11.MaximumWidth = 110D;
-            gridTextColumn12.AllowEditing = false;
-            gridTextColumn12.AllowResizing = true;
-            gridTextColumn12.Format = "HH:mm";
-            gridTextColumn12.HeaderText = "Fin";
-            gridTextColumn12.MappingName = "FechaFServicio";
-            gridTextColumn12.MaximumWidth = 110D;
-            this.dgmServicio.Columns.Add(gridTextColumn9);
-            this.dgmServicio.Columns.Add(gridTextColumn10);
-            this.dgmServicio.Columns.Add(gridTextColumn11);
-            this.dgmServicio.Columns.Add(gridTextColumn12);
+            gridTextColumn1.AllowEditing = false;
+            gridTextColumn1.AllowResizing = true;
+            gridTextColumn1.HeaderText = "IdServicio";
+            gridTextColumn1.MappingName = "IdServicio";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.AllowEditing = false;
+            gridTextColumn2.AllowMultiline = true;
+            gridTextColumn2.AllowResizing = true;
+            gridTextColumn2.HeaderText = "Servicio";
+            gridTextColumn2.MappingName = "Servicio";
+            gridTextColumn3.AllowEditing = false;
+            gridTextColumn3.AllowResizing = true;
+            gridTextColumn3.HeaderText = "Inicio";
+            gridTextColumn3.MappingName = "FechaIServicio";
+            gridTextColumn3.MaximumWidth = 110D;
+            gridTextColumn4.AllowEditing = false;
+            gridTextColumn4.AllowResizing = true;
+            gridTextColumn4.HeaderText = "Fin";
+            gridTextColumn4.MappingName = "FechaFServicio";
+            gridTextColumn4.MaximumWidth = 110D;
+            this.dgmServicio.Columns.Add(gridTextColumn1);
+            this.dgmServicio.Columns.Add(gridTextColumn2);
+            this.dgmServicio.Columns.Add(gridTextColumn3);
+            this.dgmServicio.Columns.Add(gridTextColumn4);
             this.dgmServicio.Location = new System.Drawing.Point(16, 193);
             this.dgmServicio.Name = "dgmServicio";
             this.dgmServicio.Size = new System.Drawing.Size(641, 260);
@@ -357,18 +333,19 @@
             this.HoraCitaControl.CustomFormat = "HH:mm";
             this.HoraCitaControl.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HoraCitaControl.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.HoraCitaControl.Location = new System.Drawing.Point(323, 109);
+            this.HoraCitaControl.Location = new System.Drawing.Point(41, 109);
             this.HoraCitaControl.Name = "HoraCitaControl";
             this.HoraCitaControl.ShowUpDown = true;
-            this.HoraCitaControl.Size = new System.Drawing.Size(82, 28);
+            this.HoraCitaControl.Size = new System.Drawing.Size(93, 28);
             this.HoraCitaControl.TabIndex = 15;
+            this.HoraCitaControl.ValueChanged += new System.EventHandler(this.HoraCitaControl_ValueChanged);
             // 
             // FechaCitaControl
             // 
             this.FechaCitaControl.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FechaCitaControl.Location = new System.Drawing.Point(18, 109);
+            this.FechaCitaControl.Location = new System.Drawing.Point(159, 109);
             this.FechaCitaControl.Name = "FechaCitaControl";
-            this.FechaCitaControl.Size = new System.Drawing.Size(269, 28);
+            this.FechaCitaControl.Size = new System.Drawing.Size(403, 28);
             this.FechaCitaControl.TabIndex = 14;
             // 
             // btnBuscarCliente
@@ -422,37 +399,37 @@
             this.dgmCita.AllowResizingColumns = true;
             this.dgmCita.AutoExpandGroups = true;
             this.dgmCita.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.AllowEditing = false;
-            gridTextColumn1.AllowResizing = true;
-            gridTextColumn1.HeaderText = "IdCita";
-            gridTextColumn1.MappingName = "IdCita";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.AllowEditing = false;
-            gridTextColumn2.AllowResizing = true;
-            gridTextColumn2.HeaderText = "IdCliente";
-            gridTextColumn2.MappingName = "IdCliente";
-            gridTextColumn2.Visible = false;
-            gridTextColumn3.AllowEditing = false;
-            gridTextColumn3.AllowResizing = true;
-            gridTextColumn3.HeaderText = "Cliente";
-            gridTextColumn3.MappingName = "NombreCompleto";
-            gridTextColumn4.AllowEditing = false;
-            gridTextColumn4.AllowResizing = true;
-            gridTextColumn4.Format = "HH:mm";
-            gridTextColumn4.HeaderText = "Hora";
-            gridTextColumn4.MappingName = "FechaCita";
-            gridTextColumn4.MaximumWidth = 150D;
-            gridTextColumn14.AllowEditing = false;
-            gridTextColumn14.AllowMultiline = true;
-            gridTextColumn14.AllowResizing = true;
-            gridTextColumn14.HeaderText = "Observaciones";
-            gridTextColumn14.MappingName = "Observaciones";
-            gridTextColumn14.Visible = false;
-            this.dgmCita.Columns.Add(gridTextColumn1);
-            this.dgmCita.Columns.Add(gridTextColumn2);
-            this.dgmCita.Columns.Add(gridTextColumn3);
-            this.dgmCita.Columns.Add(gridTextColumn4);
-            this.dgmCita.Columns.Add(gridTextColumn14);
+            gridTextColumn5.AllowEditing = false;
+            gridTextColumn5.AllowResizing = true;
+            gridTextColumn5.HeaderText = "IdCita";
+            gridTextColumn5.MappingName = "IdCita";
+            gridTextColumn5.Visible = false;
+            gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.AllowResizing = true;
+            gridTextColumn6.HeaderText = "IdCliente";
+            gridTextColumn6.MappingName = "IdCliente";
+            gridTextColumn6.Visible = false;
+            gridTextColumn7.AllowEditing = false;
+            gridTextColumn7.AllowResizing = true;
+            gridTextColumn7.HeaderText = "Cliente";
+            gridTextColumn7.MappingName = "NombreCompleto";
+            gridTextColumn8.AllowEditing = false;
+            gridTextColumn8.AllowResizing = true;
+            gridTextColumn8.Format = "HH:mm";
+            gridTextColumn8.HeaderText = "Hora";
+            gridTextColumn8.MappingName = "FechaCita";
+            gridTextColumn8.MaximumWidth = 150D;
+            gridTextColumn9.AllowEditing = false;
+            gridTextColumn9.AllowMultiline = true;
+            gridTextColumn9.AllowResizing = true;
+            gridTextColumn9.HeaderText = "Observaciones";
+            gridTextColumn9.MappingName = "Observaciones";
+            gridTextColumn9.Visible = false;
+            this.dgmCita.Columns.Add(gridTextColumn5);
+            this.dgmCita.Columns.Add(gridTextColumn6);
+            this.dgmCita.Columns.Add(gridTextColumn7);
+            this.dgmCita.Columns.Add(gridTextColumn8);
+            this.dgmCita.Columns.Add(gridTextColumn9);
             this.dgmCita.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgmCita.Location = new System.Drawing.Point(0, 0);
             this.dgmCita.Name = "dgmCita";
@@ -462,7 +439,26 @@
             // 
             // errorProvider1
             // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
+            // 
+            // lblErrorControl
+            // 
+            this.lblErrorControl.AutoSize = true;
+            this.lblErrorControl.Location = new System.Drawing.Point(118, 153);
+            this.lblErrorControl.Name = "lblErrorControl";
+            this.lblErrorControl.Size = new System.Drawing.Size(0, 17);
+            this.lblErrorControl.TabIndex = 29;
+            // 
+            // dtpFechaFinal
+            // 
+            this.dtpFechaFinal.CustomFormat = "dd MMMM yyyy, HH:mm tt";
+            this.dtpFechaFinal.Font = new System.Drawing.Font("Montserrat", 10.2F);
+            this.dtpFechaFinal.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFechaFinal.Location = new System.Drawing.Point(41, 503);
+            this.dtpFechaFinal.Name = "dtpFechaFinal";
+            this.dtpFechaFinal.Size = new System.Drawing.Size(410, 28);
+            this.dtpFechaFinal.TabIndex = 30;
             // 
             // FrmCapturaCitaNuevo
             // 
@@ -516,9 +512,9 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dtpFechafin;
-        private System.Windows.Forms.DateTimePicker dtpFechaFinal;
         private System.Windows.Forms.Button btnEliminarServicio;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label lblErrorControl;
+        private System.Windows.Forms.DateTimePicker dtpFechaFinal;
     }
 }

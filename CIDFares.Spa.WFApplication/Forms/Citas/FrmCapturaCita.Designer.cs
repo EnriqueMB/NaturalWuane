@@ -159,7 +159,6 @@
             this.mcCita2.Style.Cell.SelectedCellHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.mcCita2.TabIndex = 0;
             this.mcCita2.Text = "sfCalendar1";
-            this.mcCita2.Click += new System.EventHandler(this.mcCita2_Click);
             this.mcCita2.DoubleClick += new System.EventHandler(this.mcCita2_DoubleClick);
             // 
             // FrmCapturaCita

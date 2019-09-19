@@ -250,8 +250,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         }
 
         private async void mcCita2_DoubleClick(object sender, EventArgs e)
-        {
-            
+        {                      
             try
             {
                 int v = 0;
@@ -291,11 +290,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmCapturaCita ~ mcCita2_DoubleClick(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
-        }
-
-        private void mcCita2_Click(object sender, EventArgs e)
-        {
-
-        }
+        }        
     }
 }
