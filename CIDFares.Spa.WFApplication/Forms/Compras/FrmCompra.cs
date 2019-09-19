@@ -143,21 +143,21 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
                     ModelCompra.ListaCompra.Add(new Compra
                     {
                         IdCompraProducto = Producto.IdProducto,
-                        Cantidad = Producto.CantidaProducto,
+                        Cantidad = Producto.CantidadProducto,
                         Nombre = Producto.Nombre,
                         PrecioCosto = Producto.CostoProducto,
-                        PorcentajeIva = (Producto.CostoProducto * (Producto.ProcentajeIva / 100)),
-                        Total = Producto.CantidaProducto * Producto.CostoProducto,
-                        SubTotal = Producto.CantidaProducto * Producto.CostoProducto - (Producto.CostoProducto * (Producto.ProcentajeIva / 100))
+                        PorcentajeIva = (Producto.CostoProducto * (Producto.PorcentajeIva / 100)),
+                        Total = Producto.CantidadProducto * Producto.CostoProducto,
+                        SubTotal = Producto.CantidadProducto * Producto.CostoProducto - (Producto.CostoProducto * (Producto.PorcentajeIva / 100))
                     });
                     TotalCompra();
                 }
                 else
                 {
                     var x = ModelCompra.ListaCompra.Where(p => p.IdCompraProducto == Producto.IdProducto).Select(u => {
-                        u.Cantidad += Producto.CantidaProducto;
+                        u.Cantidad += Producto.CantidadProducto;
                         u.PrecioCosto = Producto.CostoProducto;
-                        u.PorcentajeIva += (Producto.CostoProducto * (Producto.ProcentajeIva / 100));
+                        u.PorcentajeIva += (Producto.CostoProducto * (Producto.PorcentajeIva / 100));
                         u.Total = u.Cantidad * Producto.CostoProducto;
                         u.SubTotal = u.Cantidad * u.PrecioCosto; return u;
                     }).ToList();
@@ -171,12 +171,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
                         ModelCompra.ListaCompra.Add(new Compra
                         {
                             IdCompraProducto = Producto.IdProducto,
-                            Cantidad = Producto.CantidaProducto,
+                            Cantidad = Producto.CantidadProducto,
                             Nombre = Producto.Nombre,
                             PrecioCosto = Producto.CostoProducto,
-                            PorcentajeIva = (Producto.CostoProducto * (Producto.ProcentajeIva / 100)),
-                            Total = Producto.CantidaProducto * Producto.CostoProducto,
-                            SubTotal = Producto.CantidaProducto * Producto.CostoProducto - (Producto.CostoProducto * (Producto.ProcentajeIva / 100))
+                            PorcentajeIva = (Producto.CostoProducto * (Producto.PorcentajeIva / 100)),
+                            Total = Producto.CantidadProducto * Producto.CostoProducto,
+                            SubTotal = Producto.CantidadProducto * Producto.CostoProducto - (Producto.CostoProducto * (Producto.PorcentajeIva / 100))
                         });
                         TotalCompra();
                     }

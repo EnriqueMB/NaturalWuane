@@ -235,7 +235,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     int cantidadActual = 0;
                     int cantidadBusqueda = 0;
                     cantidadActual = Convert.ToInt32(cantidadAnterior);
-                    cantidadBusqueda = cantidadActual + Convert.ToInt32(item.CantidaProducto);
+                    cantidadBusqueda = cantidadActual + Convert.ToInt32(item.CantidadProducto);
                     var result = await Model.CheckCantidadProducto(item.IdProducto, cantidadBusqueda);
                     if (result == -1)
                     {
@@ -262,21 +262,21 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 {
                     Model.Listaventa.Add(new Venta { IdGenerico = Producto.IdProducto,
                                                     IdTipo = Producto.IdTipo,
-                                                    Cantidad = Producto.CantidaProducto,
+                                                    Cantidad = Producto.CantidadProducto,
                                                     Nombre = Producto.Nombre,
-                                                    Precio = Producto.PrecioPublico-(Producto.PrecioPublico*(Producto.ProcentajeIva/100)),
-                                                    PorcentajeIva = (Producto.PrecioPublico * (Producto.ProcentajeIva / 100)),
-                                                    Total = Producto.CantidaProducto * Producto.PrecioPublico,
-                                                    SubTotal = Producto.CantidaProducto * Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100))
+                                                    Precio = Producto.PrecioPublico-(Producto.PrecioPublico*(Producto.PorcentajeIva / 100)),
+                                                    PorcentajeIva = (Producto.PrecioPublico * (Producto.PorcentajeIva / 100)),
+                                                    Total = Producto.CantidadProducto * Producto.PrecioPublico,
+                                                    SubTotal = Producto.CantidadProducto * Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajeIva / 100))
                     });
                     TotalVenta();
                 }
                 else
                 {
                     var x = Model.Listaventa.Where(p => p.IdGenerico == Producto.IdProducto && p.IdTipo == Producto.IdTipo).Select(u => {
-                        u.Cantidad += Producto.CantidaProducto;
-                        u.Precio = Producto.PrecioPublico-(Producto.PrecioPublico*(Producto.ProcentajeIva/100));
-                        u.PorcentajeIva += (Producto.PrecioPublico * (Producto.ProcentajeIva / 100));
+                        u.Cantidad += Producto.CantidadProducto;
+                        u.Precio = Producto.PrecioPublico-(Producto.PrecioPublico*(Producto.PorcentajeIva / 100));
+                        u.PorcentajeIva += (Producto.PrecioPublico * (Producto.PorcentajeIva / 100));
                         u.Total = u.Cantidad * Producto.PrecioPublico ;
                         u.SubTotal = u.Cantidad * u.Precio; return u; }).ToList();
                     if (x.Count == 1)
@@ -289,12 +289,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                         Model.Listaventa.Add(new Venta {
                             IdGenerico = Producto.IdProducto,
                             IdTipo = Producto.IdTipo,
-                            Cantidad = Producto.CantidaProducto,
+                            Cantidad = Producto.CantidadProducto,
                             Nombre = Producto.Nombre,
-                            Precio = Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100)),
-                            PorcentajeIva = (Producto.PrecioPublico * (Producto.ProcentajeIva / 100)),
-                            Total = Producto.CantidaProducto * Producto.PrecioPublico,
-                            SubTotal = Producto.CantidaProducto * Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100))
+                            Precio = Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajeIva / 100)),
+                            PorcentajeIva = (Producto.PrecioPublico * (Producto.PorcentajeIva / 100)),
+                            Total = Producto.CantidadProducto * Producto.PrecioPublico,
+                            SubTotal = Producto.CantidadProducto * Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajeIva / 100))
                         });
                         TotalVenta();
                     }
@@ -415,21 +415,21 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                         {
                             IdGenerico = Producto.IdProducto,
                             IdTipo = Producto.IdTipo,
-                            Cantidad = Producto.CantidaProducto,
+                            Cantidad = Producto.CantidadProducto,
                             Nombre = Producto.Nombre,
-                            Precio = Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100)),
-                            PorcentajeIva = (Producto.PrecioPublico * (Producto.ProcentajeIva / 100)),
-                            Total = Producto.CantidaProducto * Producto.PrecioPublico,
-                            SubTotal = Producto.CantidaProducto * Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100))
+                            Precio = Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajeIva / 100)),
+                            PorcentajeIva = (Producto.PrecioPublico * (Producto.PorcentajeIva / 100)),
+                            Total = Producto.CantidadProducto * Producto.PrecioPublico,
+                            SubTotal = Producto.CantidadProducto * Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajeIva / 100))
                         });
                         TotalVenta();
                     }
                     else
                     {
                         var x = Model.Listaventa.Where(p => p.IdGenerico == Producto.IdProducto && p.IdTipo == Producto.IdTipo).Select(u => {
-                            u.Cantidad += Producto.CantidaProducto;
-                            u.Precio = Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100));
-                            u.PorcentajeIva += (Producto.PrecioPublico * (Producto.ProcentajeIva / 100));
+                            u.Cantidad += Producto.CantidadProducto;
+                            u.Precio = Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajeIva / 100));
+                            u.PorcentajeIva += (Producto.PrecioPublico * (Producto.PorcentajeIva / 100));
                             u.Total = u.Cantidad * Producto.PrecioPublico;
                             u.SubTotal = u.Cantidad * u.Precio; return u;
                         }).ToList();
@@ -444,12 +444,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                             {
                                 IdGenerico = Producto.IdProducto,
                                 IdTipo = Producto.IdTipo,
-                                Cantidad = Producto.CantidaProducto,
+                                Cantidad = Producto.CantidadProducto,
                                 Nombre = Producto.Nombre,
-                                Precio = Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100)),
-                                PorcentajeIva = (Producto.PrecioPublico * (Producto.ProcentajeIva / 100)),
-                                Total = Producto.CantidaProducto * Producto.PrecioPublico,
-                                SubTotal = Producto.CantidaProducto * Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100))
+                                Precio = Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajeIva / 100)),
+                                PorcentajeIva = (Producto.PrecioPublico * (Producto.PorcentajeIva / 100)),
+                                Total = Producto.CantidadProducto * Producto.PrecioPublico,
+                                SubTotal = Producto.CantidadProducto * Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajeIva / 100))
                             });
                             TotalVenta();
                         }                       
@@ -545,7 +545,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                                 var result = await Model.CheckCantidadProducto(item.IdProducto, cantidadBusqueda);
                                 if (result == -1)
                                 {
-                                    item.CantidaProducto = cantidad;
+                                    item.CantidadProducto = cantidad;
                                     LLenarGrid2(item, item.IdTipo);
                                 }
                                 else if(result != -1)

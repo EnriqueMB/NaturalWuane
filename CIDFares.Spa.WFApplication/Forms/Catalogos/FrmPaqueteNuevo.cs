@@ -251,12 +251,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                             IdGenerico = Producto.IdProducto,
                             IdTipo = Producto.IdTipo,
                             Tipo = "Producto",
-                            Cantidad = Producto.CantidaProducto,
+                            Cantidad = Producto.CantidadProducto,
                             Nombre = Producto.Nombre,
                             Precios = Producto.PrecioPublico,
-                            PrecioSinDescuento = Producto.CantidaProducto * Producto.PrecioPublico,
+                            PrecioSinDescuento = Producto.CantidadProducto * Producto.PrecioPublico,
                             PorcentajeDescuento = Producto.PorcentajePaquete,
-                            PrecioDescuento = Producto.CantidaProducto * (Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajePaquete / 100)))
+                            PrecioDescuento = Producto.CantidadProducto * (Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajePaquete / 100)))
                         });
                         TotalVenta();
                     }
@@ -264,7 +264,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     {
                         List<PaqueteDetalle> x = Model.ListaDetallePaquete.Where(p => p.IdGenerico == Producto.IdProducto && p.IdTipo == Producto.IdTipo).Select(u =>
                         {
-                            u.Cantidad += Producto.CantidaProducto;
+                            u.Cantidad += Producto.CantidadProducto;
                             u.PrecioSinDescuento = u.Cantidad * Producto.PrecioPublico;
                             u.PrecioDescuento += Producto.PrecioPublico - (Producto.PrecioPublico * (u.PorcentajeDescuento / 100));
                             return u;
@@ -281,12 +281,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                                 IdGenerico = Producto.IdProducto,
                                 IdTipo = Producto.IdTipo,
                                 Tipo = "Producto",
-                                Cantidad = Producto.CantidaProducto,
+                                Cantidad = Producto.CantidadProducto,
                                 Nombre = Producto.Nombre,
                                 Precios = Producto.PrecioPublico,
-                                PrecioSinDescuento = Producto.CantidaProducto * Producto.PrecioPublico,
+                                PrecioSinDescuento = Producto.CantidadProducto * Producto.PrecioPublico,
                                 PorcentajeDescuento = Producto.PorcentajePaquete,
-                                PrecioDescuento = Producto.CantidaProducto * (Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajePaquete / 100)))
+                                PrecioDescuento = Producto.CantidadProducto * (Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajePaquete / 100)))
                             });
                             TotalVenta();
                         }

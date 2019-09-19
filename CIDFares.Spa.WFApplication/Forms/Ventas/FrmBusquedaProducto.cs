@@ -139,7 +139,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     {
                         var item = Model.ListaBusquedaProducto.ElementAt(0);
                         item.IdTipo = this.IDTipo = 1;
-                        item.CantidaProducto = Model.CantidadProducto;
+                        item.CantidadProducto = Model.CantidadProducto;
                         producto = item;
                         this.Close();
                     }
@@ -152,7 +152,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     if (item != null)
                     {
                         item.IdTipo = this.IDTipo = 1;
-                        item.CantidaProducto = Model.CantidadProducto;
+                        item.CantidadProducto = Model.CantidadProducto;
                         if (Model.CantidadProducto > 0)
                         {
                             producto = item;
