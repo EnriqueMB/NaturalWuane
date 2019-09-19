@@ -88,9 +88,12 @@
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Entities\UnidadMedida.cs" />
     <Compile Include="Entities\Venta.cs" />
+    <Compile Include="Entities\VentaDetalle.cs" />
+    <Compile Include="Entities\VentasCancelaciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\IBaseRepository.cs" />
     <Compile Include="Repositories\General\IBusqProductoRepository.cs" />
+    <Compile Include="Repositories\General\ICancelacionVentaRepository.cs" />
     <Compile Include="Repositories\General\ICategoriaProductoRepository.cs" />
     <Compile Include="Repositories\General\IClienteRepository.cs" />
     <Compile Include="Entities\FormaPago.cs" />

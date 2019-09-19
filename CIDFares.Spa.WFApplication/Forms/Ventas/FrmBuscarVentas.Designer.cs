@@ -170,6 +170,7 @@
             this.dataGridsfBVentas.Style.IndentCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
             this.dataGridsfBVentas.TabIndex = 1;
             this.dataGridsfBVentas.Text = "dataGridsf1";
+            this.dataGridsfBVentas.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.DataGridsfBVentas_CellDoubleClick);
             // 
             // panelbtn
             // 
@@ -224,6 +225,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panelGeneral);
             this.Name = "FrmBuscarVentas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBuscarVentas";
             this.Load += new System.EventHandler(this.FrmBuscarVentas_Load);
             this.panelGeneral.ResumeLayout(false);

@@ -47,8 +47,6 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             ListaFormaPago = new BindingList<FormaPago>();
             ListaBusquedaProducto = new BindingList<BusqueProducto>();
             ListaServicio = new BindingList<Servicio>();
-            this.FechaVenta = DateTime.Now;
-            this.IdSucursal = 1;
             //this.Folio = string.Empty;
             GetAllAsync();
             GetFolio();
@@ -253,6 +251,18 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             {
                 _IdSucursal = value;
                 OnPropertyChanged(nameof(IdSucursal));
+            }
+        }
+
+        private Guid _IdVenta;  
+
+        public Guid IdVenta
+        {
+            get { return _IdVenta; }
+            set
+            {
+                _IdVenta = value;
+                OnPropertyChanged(nameof(IdVenta));
             }
         }
 

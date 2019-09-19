@@ -25,15 +25,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         public Servicio servicio { get; set; }
         #endregion
 
+        #region Constructor
         public FrmBuscarServicio()
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<ServicioViewModel>();
             servicio = new Servicio();
         }
+        #endregion
 
         #region Metodos
-
         private void IniciarBinding()
         {
             try
@@ -54,7 +55,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 throw ex;
             }
         }
-
         private Servicio ObtenerSeleccionado()
         {
             try
@@ -70,7 +70,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 throw ex;
             }
         }
-
         public async void MetodoBuscar()
         {
             try
@@ -106,19 +105,23 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 throw ex;
             }
         }
-
         public void AgregarRegistro()
         {
             try
             {
                 if (Model.ListaServicio.Count == 1)
                 {
-                    var firstItem = Model.ListaServicio.ElementAt(0);
-                    var item = firstItem;
-                    item.IdTipoServicio = this.IDTipo = 2;
-                    item.CantidadServicio = 1;
-                    servicio = item;
-                    this.Close();
+                    if (Model.Cantidad > 0)
+                    {
+                        var firstItem = Model.ListaServicio.ElementAt(0);
+                        var item = firstItem;
+                        item.IdTipoServicio = this.IDTipo = 2;
+                        item.CantidadServicio = Model.Cantidad;
+                        servicio = item;
+                        this.Close();
+                    }
+                    else
+                        errorProvider1.SetError(CantidadServicioControl, "LA CANTIDAD DE SERVICIO TIENE QUE SER MAYOR A CERO.");
                 }
                 else
                 {
@@ -145,11 +148,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 throw ex;
             }
         }
-
         #endregion
 
         #region Eventos
-
         private void FrmBuscarServicio_Load(object sender, EventArgs e)
         {
             try
@@ -168,7 +169,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
             }
         }
-
         private void BandClaveControl_CheckedChanged(object sender, EventArgs e)
         {
             try
@@ -203,7 +203,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
             }
         }
-
         private void BandNombreControl_CheckedChanged(object sender, EventArgs e)
         {
             try
@@ -239,7 +238,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
             }
         }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             try
@@ -252,7 +250,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
             }
         }
-
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -265,7 +262,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
             }
         }
-
         private void BuquedaClaveControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
@@ -281,7 +277,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
             }
         }
-
         private void NombreControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
@@ -297,7 +292,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
             }
         }
-
         private void sfDataGridBusqServicio_CellDoubleClick(object sender, Syncfusion.WinForms.DataGrid.Events.CellClickEventArgs e)
         {
             try
@@ -310,7 +304,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
             }
         }
-
         #endregion
     }
 }

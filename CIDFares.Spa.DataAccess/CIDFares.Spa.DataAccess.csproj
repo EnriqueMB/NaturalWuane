@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\General\BusquedaProductoRepository.cs" />
+    <Compile Include="Repositories\General\CancelacionVentaRepository.cs" />
     <Compile Include="Repositories\General\CategoriaProductoRepository.cs" />
     <Compile Include="Repositories\General\ClienteRepository.cs" />
     <Compile Include="Repositories\General\CompraRepository.cs" />
