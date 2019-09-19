@@ -288,7 +288,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             }
         }
 
-        private void btnProducto_Click(object sender, EventArgs e)
+        private async void btnProducto_Click(object sender, EventArgs e)
         {
             try
             {
@@ -296,8 +296,20 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 Producto.ShowDialog();
                 if (Producto.producto.IdProducto != 0)
                 {
-                    var IdTipo = Producto.IDTipo;
-                    LLenarGrid2(Producto.producto, IdTipo);
+                    var item = Producto.producto;
+                    decimal cantidadAnterior = BuscarCantidad(item);
+                    int cantidadActual = 0;
+                    int cantidadBusqueda = 0;
+                    cantidadActual = Convert.ToInt32(cantidadAnterior);
+                    cantidadBusqueda = cantidadActual + Convert.ToInt32(item.CantidaProducto);
+                    var result = await Model.CheckCantidadProducto(item.IdProducto, cantidadBusqueda);
+                    if (result == -1)
+                    {
+                        var IdTipo = Producto.IDTipo;
+                        LLenarGrid2(Producto.producto, IdTipo);
+                    }
+                    else if (result != -1)
+                        CIDMessageBox.ShowAlert(Messages.SystemName, "No hay suficiente productos. La cantidad existente es: " + result.ToString(), TypeMessage.error);
                     //LLenarGrid(Producto.producto);
                 }
             }
@@ -644,16 +656,17 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                                 item.IdTipo = 1;
                                 decimal cantidadAnterior = BuscarCantidad(item);
                                 int cantidadActual = 0;
+                                int cantidadBusqueda = 0;
                                 cantidadActual = Convert.ToInt32(cantidadAnterior);
-                                cantidad += cantidadActual;
-                                var result = await Model.CheckCantidadProducto(item.IdProducto, cantidad);
+                                cantidadBusqueda = cantidadActual + cantidad;
+                                var result = await Model.CheckCantidadProducto(item.IdProducto, cantidadBusqueda);
                                 if (result == -1)
                                 {
                                     item.CantidaProducto = cantidad;
                                     LLenarGrid2(item, item.IdTipo);
                                 }
                                 else if(result != -1)
-                                    CIDMessageBox.ShowAlert(Messages.SystemName, "No hay suficiente productos. La cantidad existente es: "+result.ToString(), TypeMessage.error);
+                                    CIDMessageBox.ShowAlert(Messages.SystemName, "No hay suficientes productos. La cantidad existente es: "+result.ToString(), TypeMessage.error);
                             }
                         }
                         else if (rbtServicio.Checked == true)

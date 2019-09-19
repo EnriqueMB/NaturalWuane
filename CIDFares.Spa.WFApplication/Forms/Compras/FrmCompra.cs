@@ -310,5 +310,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
+
+       
     }
 }

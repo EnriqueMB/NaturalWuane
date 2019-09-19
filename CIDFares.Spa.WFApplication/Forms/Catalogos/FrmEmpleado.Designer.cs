@@ -347,6 +347,7 @@
             this.SexoControl.BackColor = System.Drawing.Color.White;
             this.SexoControl.BeforeTouchSize = new System.Drawing.Size(215, 21);
             this.SexoControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Adjust;
+            this.SexoControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SexoControl.FlatBorderColor = System.Drawing.Color.BurlyWood;
             this.SexoControl.Location = new System.Drawing.Point(4, 28);
             this.SexoControl.MetroBorderColor = System.Drawing.Color.Black;
@@ -354,7 +355,6 @@
             this.SexoControl.Size = new System.Drawing.Size(215, 21);
             this.SexoControl.Style = Syncfusion.Windows.Forms.VisualStyle.Metro;
             this.SexoControl.TabIndex = 51;
-            this.SexoControl.Text = "comboBoxAdv1";
             this.SexoControl.ThemeName = "Metro";
             // 
             // panel9
@@ -434,6 +434,7 @@
             // 
             // IdTurnoControl
             // 
+            this.IdTurnoControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IdTurnoControl.FormattingEnabled = true;
             this.IdTurnoControl.Location = new System.Drawing.Point(4, 29);
             this.IdTurnoControl.Name = "IdTurnoControl";
@@ -462,6 +463,7 @@
             // 
             // IdPuestoControl
             // 
+            this.IdPuestoControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IdPuestoControl.FormattingEnabled = true;
             this.IdPuestoControl.Location = new System.Drawing.Point(4, 28);
             this.IdPuestoControl.Name = "IdPuestoControl";
@@ -539,7 +541,7 @@
             // RutaControl
             // 
             this.RutaControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            this.RutaControl.BeforeTouchSize = new System.Drawing.Size(298, 35);
+            this.RutaControl.BeforeTouchSize = new System.Drawing.Size(70, 27);
             this.RutaControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RutaControl.CornerRadius = 2;
             this.RutaControl.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -660,6 +662,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FrmEmpleado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEmpleado";
             this.Load += new System.EventHandler(this.FrmEmpleado_Load);
             this.panel1.ResumeLayout(false);

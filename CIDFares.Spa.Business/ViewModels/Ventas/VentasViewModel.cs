@@ -270,6 +270,18 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
+        private Guid _IdVenta;  
+
+        public Guid IdVenta
+        {
+            get { return _IdVenta; }
+            set
+            {
+                _IdVenta = value;
+                OnPropertyChanged(nameof(IdVenta));
+            }
+        }
+
 
         #endregion
 

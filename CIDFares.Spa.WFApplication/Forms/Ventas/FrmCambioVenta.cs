@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CIDFares.Spa.WFApplication.Forms.Ventas
 {
-    public partial class FrmCancelacionVenta : Form
+    public partial class FrmCambioVenta : Form
     {
-        public FrmCancelacionVenta()
+        public FrmCambioVenta()
         {
             InitializeComponent();
         }

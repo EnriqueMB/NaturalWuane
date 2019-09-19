@@ -89,7 +89,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 ListaProducto.Clear();
                 foreach (var item in x)
                 {
-                    item.AplicaIvaStr = item.AplicaIva ? "SI" : "NO";
                     item.StockStr = item.Stock ? "SI" : "NO";
                     ListaProducto.Add(item);
                 }
