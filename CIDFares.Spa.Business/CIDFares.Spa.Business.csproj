@@ -68,6 +68,7 @@
     <Compile Include="ViewModels\General\RegistroEntradaSalidaViewModel.cs" />
     <Compile Include="ViewModels\Usuarios\ReglaPerfilViewModel.cs" />
     <Compile Include="ViewModels\General\ProductosMonederoViewModel.cs" />
+    <Compile Include="ViewModels\Ventas\CancelacionVentaViewModel.cs" />
     <Compile Include="ViewModels\Ventas\SeleccionarPagoViewModel.cs" />
     <Compile Include="ViewModels\General\SucursalViewModel.cs" />
     <Compile Include="ViewModels\Ventas\VentasViewModel.cs" />

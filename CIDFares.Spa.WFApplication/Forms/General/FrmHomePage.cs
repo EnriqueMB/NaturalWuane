@@ -271,6 +271,13 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             SlideGenerales(btnMonedero);
             GetPanel(new FrmProductosMonedero());
         }
+
+
+        private void BtnCancelacionVenta_Click(object sender, EventArgs e)
+        {
+            SlideGenerales(btnCancelacionVenta);
+            GetPanel(new FrmCancelacion());
+        }
         #endregion
 
         #endregion
@@ -425,7 +432,6 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 throw ex;
             }
         }
-
         private void SlideGenerales(Button button)
         {
             SlidePanelgenerales.Visible = true;

@@ -135,11 +135,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             {
                 if (Model.ListaBusquedaProducto.Count == 1)
                 {
-                    var item = Model.ListaBusquedaProducto.ElementAt(0);
-                    item.IdTipo = this.IDTipo = 1;
-                    item.CantidaProducto = 1;
-                    producto = item;
-                    this.Close();
+                    if (Model.CantidadProducto > 0)
+                    {
+                        var item = Model.ListaBusquedaProducto.ElementAt(0);
+                        item.IdTipo = this.IDTipo = 1;
+                        item.CantidaProducto = Model.CantidadProducto;
+                        producto = item;
+                        this.Close();
+                    }
+                    else
+                        errorProvider1.SetError(CantidadProductoControl, "LA CANTIDAD DE PRODUCTO TIENE QUE SER MAYOR A CERO.");
                 }
                 else
                 {
