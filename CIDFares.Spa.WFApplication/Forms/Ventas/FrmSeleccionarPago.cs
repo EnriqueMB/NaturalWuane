@@ -232,6 +232,18 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 throw ex;
             }
         }
-        
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

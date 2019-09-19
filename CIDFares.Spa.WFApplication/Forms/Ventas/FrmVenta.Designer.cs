@@ -422,9 +422,9 @@
             this.TotalControl.AutoSize = true;
             this.TotalControl.Location = new System.Drawing.Point(79, 59);
             this.TotalControl.Name = "TotalControl";
-            this.TotalControl.Size = new System.Drawing.Size(41, 20);
+            this.TotalControl.Size = new System.Drawing.Size(25, 20);
             this.TotalControl.TabIndex = 5;
-            this.TotalControl.Text = "$340";
+            this.TotalControl.Text = "$0";
             // 
             // label4
             // 

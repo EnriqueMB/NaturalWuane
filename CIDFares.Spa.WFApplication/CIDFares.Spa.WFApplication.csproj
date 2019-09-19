@@ -588,5 +588,8 @@
   <ItemGroup>
     <None Include="Resources\chevronup35px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerrar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

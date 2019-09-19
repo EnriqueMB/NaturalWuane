@@ -54,7 +54,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             {
                 FolioClienteControl.DataBindings.Add("Text", Model, "FolioCliente", true, DataSourceUpdateMode.OnPropertyChanged);
 
-                TotalControl.DataBindings.Add("Text", Model, "Total", true, DataSourceUpdateMode.OnPropertyChanged);
+                //TotalControl.DataBindings.Add("Text", Model, "Total", true, DataSourceUpdateMode.OnPropertyChanged);
                 IvaControl.DataBindings.Add("Text", Model, "Iva", true, DataSourceUpdateMode.OnPropertyChanged);
                 SubtotalControl.DataBindings.Add("Text", Model, "Subtotal", true, DataSourceUpdateMode.OnPropertyChanged);
                 FolioVentaControl.DataBindings.Add("Text", Model, "Folio", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -158,25 +158,58 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             return Tabla;
         }
 
-        private DataTable ObtenerTablaPaquete(BindingList<Venta> Lista)
+        //private DataTable ObtenerTablaPaquete(BindingList<Venta> Lista)
+        //{
+        //    Model.ListaPaquete.Clear();
+        //    Paquetes paquete;
+        //    DataTable Tabla = new DataTable();
+        //    Tabla.Columns.Add("IdPaquete", typeof(int));
+        //    Tabla.Columns.Add("Cantidad", typeof(decimal));
+        //    Tabla.Columns.Add("Total", typeof(decimal));
+        //    foreach (var item in Lista)
+        //    {
+        //        if (item.IdTipo == 3)
+        //        {
+           
+        //            paquete = new Paquetes();
+        //            paquete.PorcentajePago = 50;
+        //            paquete.IdPaquete = item.IdGenerico;
+        //            paquete.Nombre = item.Nombre;
+        //            paquete.MontoPaquete = item.Total;
+        //            paquete.CantidadServicio = (int)item.Cantidad;
+        //            paquete.Seleccionar = true;
+        //            paquete.PagoMinimo = paquete.MontoPaquete - (paquete.MontoPaquete * (paquete.PorcentajePago / 100));
+        //            paquete.Abono = paquete.MontoPaquete;
+        //            Model.ListaPaquete.Add(paquete);
+        //            Tabla.Rows.Add(new object[] { item.IdGenerico, item.Cantidad, item.Total });
+        //        }
+        //    }
+        //    return Tabla;
+        //}
+
+        private void ObtenerLista(BindingList<Venta> Lista)
         {
             Model.ListaPaquete.Clear();
-            Paquetes paquete = new Paquetes();
-            DataTable Tabla = new DataTable();
-            Tabla.Columns.Add("IdPaquete", typeof(int));
-            Tabla.Columns.Add("Cantidad", typeof(decimal));
-            Tabla.Columns.Add("Total", typeof(decimal));
+            Paquetes paquete;
             foreach (var item in Lista)
             {
                 if (item.IdTipo == 3)
                 {
+
+                    paquete = new Paquetes();
+                    paquete.PorcentajePago = 50;
                     paquete.IdPaquete = item.IdGenerico;
                     paquete.Nombre = item.Nombre;
+                    paquete.MontoPaquete = item.Total;
+                    paquete.CantidadServicio = (int)item.Cantidad;
+                    paquete.Seleccionar = true;
+                    paquete.PagoMinimo = paquete.MontoPaquete - (paquete.MontoPaquete * (paquete.PorcentajePago / 100));
+                    paquete.Abono = paquete.MontoPaquete;
+                    paquete.PorPagar = paquete.MontoPaquete - paquete.Abono;
                     Model.ListaPaquete.Add(paquete);
-                    Tabla.Rows.Add(new object[] { item.IdGenerico, item.Cantidad, item.Total });
                 }
             }
-            return Tabla;
+            
         }
 
         #endregion
@@ -201,16 +234,21 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 {
                     Model.TablaProducto = ObtenerTablaProducto(Lista);
                     Model.TablaServicio = ObtenerTablaServicio(Lista);
-                    Model.TablaPaquete = ObtenerTablaPaquete(Lista);
-                    if (Model.TablaPaquete.Rows.Count > 0)
-                    { FrmPaqueteVenta paquete = new FrmPaqueteVenta(Model);
+                    ObtenerLista(Lista);
+                    if (Model.ListaPaquete.Count > 0)
+                    {
+                        FrmPaqueteVenta paquete = new FrmPaqueteVenta(Model);
                         paquete.ShowDialog();
+                        if (paquete.resultado)
+                            LimpiarPropiedades();
                     }
-
-                    FrmSeleccionarPago pago = new FrmSeleccionarPago(Model);
-                    pago.ShowDialog();
-                    if (pago.resultado)
-                        LimpiarPropiedades();
+                    else
+                    {
+                        FrmSeleccionarPago pago = new FrmSeleccionarPago(Model);
+                        pago.ShowDialog();
+                        if (pago.resultado)
+                            LimpiarPropiedades();
+                    }
                 }
                 else
                     errorProvider1.SetError(FolioVentaControl, "Seleccione al menos un articulo.");
@@ -241,6 +279,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 FotoControl.Image = Properties.Resources.imagen_subir;
                 BusquedaControl.Text = "";
                 txtCantidad.Text= "";
+                TotalControl.Text = "0";
             }
             catch (Exception)
             {
@@ -368,6 +407,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 decimal SubTotal = Model.Listaventa.Sum(x => x.SubTotal);
                 decimal Iva = Model.Listaventa.Sum(x => x.PorcentajeIva);
                 TotalControl.Text = total.ToString("C2");
+                Model.Total = total;
                 SubtotalControl.Text = SubTotal.ToString("C2");
                 IvaControl.Text = Iva.ToString("C2");
             }
