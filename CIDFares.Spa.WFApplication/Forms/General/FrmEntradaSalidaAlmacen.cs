@@ -48,6 +48,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<EntradaSalidaAlmacenViewModel>();
             Model.GetFolio();
+            dataGridsf1.ShowGroupDropArea = false;
         }
         #endregion
 
@@ -58,9 +59,9 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         {
             try
             {
-                if (sfDataGrid1.SelectedItems.Count == 1)
+                if (dataGridsf1.SelectedItems.Count == 1)
                 {
-                    return (object)sfDataGrid1.SelectedItem;
+                    return (object)dataGridsf1.SelectedItem;
                 }
                 return null;
             }
@@ -113,7 +114,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                     }).ToList();
                     if (x.Count == 1)
                     {
-                        this.sfDataGrid1.Refresh();
+                        this.dataGridsf1.Refresh();
 
                     }
                     else
@@ -160,10 +161,10 @@ namespace CIDFares.Spa.WFApplication.Forms.General
 
         public void IniciarBinding()
         {
-            sfDataGrid1.AutoGenerateColumns = false;
+            dataGridsf1.AutoGenerateColumns = false;
             TipoControl.DataBindings.Add("SelectedValue", Model, "Tipo", true, DataSourceUpdateMode.OnPropertyChanged);
             FechaControl.DataBindings.Add("Text", Model, "Fecha", true, DataSourceUpdateMode.OnPropertyChanged);
-            sfDataGrid1.DataBindings.Add("DataSource", Model, "ListaProducto", true, DataSourceUpdateMode.OnPropertyChanged);
+            dataGridsf1.DataBindings.Add("DataSource", Model, "ListaProducto", true, DataSourceUpdateMode.OnPropertyChanged);
             FolioProductoControl.DataBindings.Add("Text", Model, "Folio", true, DataSourceUpdateMode.OnPropertyChanged);
             MotivoControl.DataBindings.Add("Text", Model, "Motivo", true, DataSourceUpdateMode.OnPropertyChanged);
             IniciarCombos();
@@ -270,7 +271,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         {
             try
             {
-                BindingList<EntradaSalidaAlmacen> ListaProductos = (BindingList<EntradaSalidaAlmacen>)sfDataGrid1.DataSource;
+                BindingList<EntradaSalidaAlmacen> ListaProductos = (BindingList<EntradaSalidaAlmacen>)dataGridsf1.DataSource;
                 this.CleanErrors(errorProvider1, typeof(EntradaSalidaAlmacenViewModel));
                 var validationResults = Model.Validate();
                 validationResults.ToString();

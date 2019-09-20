@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlTop = new System.Windows.Forms.Panel();
             this.pblButtom = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -48,18 +48,18 @@
             this.TipoControl = new System.Windows.Forms.ComboBox();
             this.pnlCenter = new System.Windows.Forms.Panel();
             this.pnlGrid = new System.Windows.Forms.Panel();
-            this.sfDataGrid1 = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.panel4 = new System.Windows.Forms.Panel();
             this.FolioProductoControl = new System.Windows.Forms.Label();
             this.lblProducto = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dataGridsf1 = new CIDFares.Library.Controls.CIDDataGridsf.DataGridsf();
             this.pblButtom.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlCenter.SuspendLayout();
             this.pnlGrid.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridsf1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -204,45 +204,12 @@
             // 
             // pnlGrid
             // 
-            this.pnlGrid.Controls.Add(this.sfDataGrid1);
+            this.pnlGrid.Controls.Add(this.dataGridsf1);
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(0, 0);
             this.pnlGrid.Name = "pnlGrid";
             this.pnlGrid.Size = new System.Drawing.Size(498, 301);
             this.pnlGrid.TabIndex = 1;
-            // 
-            // sfDataGrid1
-            // 
-            this.sfDataGrid1.AccessibleName = "Table";
-            this.sfDataGrid1.AllowEditing = false;
-            this.sfDataGrid1.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn6.AllowEditing = false;
-            gridTextColumn6.HeaderText = "IdProducto";
-            gridTextColumn6.MappingName = "IdProducto";
-            gridTextColumn6.Visible = false;
-            gridTextColumn7.AllowEditing = false;
-            gridTextColumn7.HeaderText = "Clave";
-            gridTextColumn7.MappingName = "Clave";
-            gridTextColumn8.AllowEditing = false;
-            gridTextColumn8.HeaderText = "Nombre";
-            gridTextColumn8.MappingName = "Nombre";
-            gridTextColumn9.AllowEditing = false;
-            gridTextColumn9.HeaderText = "Cantidad";
-            gridTextColumn9.MappingName = "Cantidad";
-            gridTextColumn10.AllowEditing = false;
-            gridTextColumn10.HeaderText = "Descripcion";
-            gridTextColumn10.MappingName = "Descripcion";
-            this.sfDataGrid1.Columns.Add(gridTextColumn6);
-            this.sfDataGrid1.Columns.Add(gridTextColumn7);
-            this.sfDataGrid1.Columns.Add(gridTextColumn8);
-            this.sfDataGrid1.Columns.Add(gridTextColumn9);
-            this.sfDataGrid1.Columns.Add(gridTextColumn10);
-            this.sfDataGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sfDataGrid1.Location = new System.Drawing.Point(0, 0);
-            this.sfDataGrid1.Name = "sfDataGrid1";
-            this.sfDataGrid1.Size = new System.Drawing.Size(498, 301);
-            this.sfDataGrid1.TabIndex = 0;
-            this.sfDataGrid1.Text = "sfDataGrid1";
             // 
             // panel4
             // 
@@ -285,6 +252,65 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // dataGridsf1
+            // 
+            this.dataGridsf1.AccessibleName = "Table";
+            this.dataGridsf1.AllowDraggingColumns = true;
+            this.dataGridsf1.AllowEditing = false;
+            this.dataGridsf1.AllowFiltering = true;
+            this.dataGridsf1.AutoExpandGroups = true;
+            this.dataGridsf1.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            this.dataGridsf1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
+            gridTextColumn1.AllowDragging = true;
+            gridTextColumn1.AllowEditing = false;
+            gridTextColumn1.AllowFiltering = true;
+            gridTextColumn1.HeaderText = "IdProducto";
+            gridTextColumn1.MappingName = "IdProducto";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.AllowDragging = true;
+            gridTextColumn2.AllowEditing = false;
+            gridTextColumn2.AllowFiltering = true;
+            gridTextColumn2.HeaderText = "Clave";
+            gridTextColumn2.MappingName = "Clave";
+            gridTextColumn3.AllowDragging = true;
+            gridTextColumn3.AllowEditing = false;
+            gridTextColumn3.AllowFiltering = true;
+            gridTextColumn3.HeaderText = "Nombre";
+            gridTextColumn3.MappingName = "Nombre";
+            gridTextColumn4.AllowDragging = true;
+            gridTextColumn4.AllowEditing = false;
+            gridTextColumn4.AllowFiltering = true;
+            gridTextColumn4.HeaderText = "Cantidad";
+            gridTextColumn4.MappingName = "Cantidad";
+            gridTextColumn5.AllowDragging = true;
+            gridTextColumn5.AllowEditing = false;
+            gridTextColumn5.AllowFiltering = true;
+            gridTextColumn5.HeaderText = "Descripcion";
+            gridTextColumn5.MappingName = "Descripcion";
+            this.dataGridsf1.Columns.Add(gridTextColumn1);
+            this.dataGridsf1.Columns.Add(gridTextColumn2);
+            this.dataGridsf1.Columns.Add(gridTextColumn3);
+            this.dataGridsf1.Columns.Add(gridTextColumn4);
+            this.dataGridsf1.Columns.Add(gridTextColumn5);
+            this.dataGridsf1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridsf1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridsf1.Name = "dataGridsf1";
+            this.dataGridsf1.RowHeight = 21;
+            this.dataGridsf1.Size = new System.Drawing.Size(498, 301);
+            this.dataGridsf1.Style.CellStyle.TextColor = System.Drawing.Color.Black;
+            this.dataGridsf1.Style.GroupDropAreaItemStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.dataGridsf1.Style.GroupDropAreaItemStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.dataGridsf1.Style.GroupDropAreaStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
+            this.dataGridsf1.Style.GroupDropAreaStyle.TextColor = System.Drawing.Color.Black;
+            this.dataGridsf1.Style.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.dataGridsf1.Style.HeaderStyle.Font.Bold = false;
+            this.dataGridsf1.Style.HeaderStyle.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(64)))), ((int)(((byte)(23)))));
+            this.dataGridsf1.Style.HeaderStyle.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridsf1.Style.HeaderStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridsf1.Style.IndentCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
+            this.dataGridsf1.TabIndex = 1;
+            this.dataGridsf1.Text = "dataGridsf1";
+            // 
             // FrmEntradaSalidaAlmacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -301,10 +327,10 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.pnlCenter.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridsf1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -325,10 +351,10 @@
         private System.Windows.Forms.ComboBox TipoControl;
         private System.Windows.Forms.Panel pnlCenter;
         private System.Windows.Forms.Panel pnlGrid;
-        private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGrid1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label FolioProductoControl;
         private System.Windows.Forms.Label lblProducto;
+        private Library.Controls.CIDDataGridsf.DataGridsf dataGridsf1;
     }
 }
