@@ -182,6 +182,43 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
+
+        public async Task<IEnumerable<Paquetes>> GetBusqPaqueteAsync(bool BitNombre, string BusqNombre, bool BitClaveCodigo, string BusqClaveCodigo)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    List<Paquetes> Lista = new List<Paquetes>();
+                    Paquetes item;
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@BitNombre", BitNombre);
+                    dynamicParameters.Add("@BusquedaNombre", BusqNombre);
+                    dynamicParameters.Add("@BitCodigo", BitClaveCodigo);
+                    dynamicParameters.Add("@BusquedaCodigo", BusqClaveCodigo);
+                    var dr = await conexion.ExecuteReaderAsync("[Venta].[SPCID_Get_ObtenerBusquedaPaquete]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    while (dr.Read())
+                    {
+                        item = new Paquetes();
+                        item.IdPaquete = dr.GetInt32(dr.GetOrdinal("IdPaquete"));
+                        item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
+                        item.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
+                        item.NPersona = dr.GetString(dr.GetOrdinal("NumeroPersona"));
+                        item.NPago = dr.GetString(dr.GetOrdinal("NumeroPago"));
+                        item.FechaVencimiento = dr.GetDateTime(dr.GetOrdinal("FechaVencimiento"));
+                        item.Descripcion = dr.GetString(dr.GetOrdinal("Descripcion"));
+                        item.MontoPaquete = dr.GetDecimal(dr.GetOrdinal("MontoPaquete"));
+                        Lista.Add(item);
+                    }
+                    return Lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
 
         #region Metodos No Implementado
@@ -189,7 +226,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         public Task<bool> ExistAsync(object id)
         {
             throw new NotImplementedException();
-        }      
+        }
 
         #endregion
 

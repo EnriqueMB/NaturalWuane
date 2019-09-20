@@ -17,24 +17,26 @@ using System.Windows.Forms;
 
 namespace CIDFares.Spa.WFApplication.Forms.Ventas
 {
-    public partial class FrmBuscarServicio : Form
+    public partial class FrmBuscarPaquete : Form
     {
         #region Propiedades Públicas
-        public ServicioViewModel Model { get; set; }
+        public PaqueteViewModel Model { get; set; }
         public int IDTipo { get; set; }
-        public Servicio servicio { get; set; }
+        public Paquetes paquetes { get; set; }
         #endregion
 
-        #region Constructor
-        public FrmBuscarServicio()
+        #region Contructor
+
+        public FrmBuscarPaquete()
         {
             InitializeComponent();
-            Model = ServiceLocator.Instance.Resolve<ServicioViewModel>();
-            servicio = new Servicio();
+            Model = ServiceLocator.Instance.Resolve<PaqueteViewModel>();
+            paquetes = new Paquetes();
         }
         #endregion
-
+        
         #region Metodos
+
         private void IniciarBinding()
         {
             try
@@ -47,21 +49,22 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
 
                 CantidadServicioControl.DataBindings.Add("Text", Model, "Cantidad", true, DataSourceUpdateMode.OnPropertyChanged);
 
-                this.sfDataGridBusqServicio.AutoGenerateColumns = false;
-                sfDataGridBusqServicio.DataBindings.Add("DataSource", Model, "ListaServicio", true, DataSourceUpdateMode.OnPropertyChanged);
+                this.sfDataGridPaquete.AutoGenerateColumns = false;
+                sfDataGridPaquete.DataBindings.Add("DataSource", Model, "ListaPaquete", true, DataSourceUpdateMode.OnPropertyChanged);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        private Servicio ObtenerSeleccionado()
+
+        private Paquetes ObtenerSeleccionado()
         {
             try
             {
-                if (sfDataGridBusqServicio.SelectedItems.Count == 1)
+                if (sfDataGridPaquete.SelectedItems.Count == 1)
                 {
-                    return (Servicio)sfDataGridBusqServicio.SelectedItem;
+                    return (Paquetes)sfDataGridPaquete.SelectedItem;
                 }
                 return null;
             }
@@ -70,6 +73,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 throw ex;
             }
         }
+
         public async void MetodoBuscar()
         {
             try
@@ -79,19 +83,19 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     if (!string.IsNullOrEmpty(Model.Clave))
                     {
                         errorProvider1.Clear();
-                        await Model.BusquedaServicio();
-                        if (Model.ListaServicio.Count == 0)
+                        await Model.BusquedaPaquete();
+                        if (Model.ListaPaquete.Count == 0)
                             CIDMessageBox.ShowAlert(Messages.SystemName, "LA BUSQUEDA REALIZADA NO SE ENCUENTA EN LA BASE DE DATOS.", TypeMessage.informacion);
-                        else if (Model.ListaServicio.Count == 1)
+                        else if (Model.ListaPaquete.Count == 1)
                             this.AgregarRegistro();
                     }
                     else if (!string.IsNullOrEmpty(Model.Nombre))
                     {
                         errorProvider1.Clear();
-                        await Model.BusquedaServicio();
-                        if (Model.ListaServicio.Count == 0)
+                        await Model.BusquedaPaquete();
+                        if (Model.ListaPaquete.Count == 0)
                             CIDMessageBox.ShowAlert(Messages.SystemName, "LA BUSQUEDA REALIZADA NO SE ENCUENTA EN LA BASE DE DATOS.", TypeMessage.informacion);
-                        else if (Model.ListaServicio.Count == 1)
+                        else if (Model.ListaPaquete.Count == 1)
                             this.AgregarRegistro();
                     }
                     else
@@ -105,34 +109,30 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 throw ex;
             }
         }
+
         public void AgregarRegistro()
         {
             try
             {
-                if (Model.ListaServicio.Count == 1)
+                if (Model.ListaPaquete.Count == 1)
                 {
-                    if (Model.Cantidad > 0)
-                    {
-                        var firstItem = Model.ListaServicio.ElementAt(0);
-                        var item = firstItem;
-                        item.IdTipoServicio = this.IDTipo = 2;
-                        item.CantidadServicio = Model.Cantidad;
-                        servicio = item;
-                        this.Close();
-                    }
-                    else
-                        errorProvider1.SetError(CantidadServicioControl, "LA CANTIDAD DE SERVICIO TIENE QUE SER MAYOR A CERO.");
+                    var firstItem = Model.ListaPaquete.ElementAt(0);
+                    var item = firstItem;
+                    item.IdTipo = this.IDTipo = 3;
+                    item.CantidadServicio = 1;
+                    paquetes = item;
+                    this.Close();
                 }
                 else
                 {
                     var item = ObtenerSeleccionado();
                     if (item != null)
                     {
-                        item.IdTipoServicio = this.IDTipo = 2;
+                        item.IdTipo = this.IDTipo = 3;
                         item.CantidadServicio = Model.Cantidad;
                         if (item.CantidadServicio > 0)
                         {
-                            servicio = item;
+                            paquetes = item;
                             this.Close();
                         }
                         else
@@ -148,10 +148,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 throw ex;
             }
         }
+
         #endregion
 
         #region Eventos
-        private void FrmBuscarServicio_Load(object sender, EventArgs e)
+
+        private void FrmBuscarPaquete_Load(object sender, EventArgs e)
         {
             try
             {
@@ -169,6 +171,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
             }
         }
+
         private void BandClaveControl_CheckedChanged(object sender, EventArgs e)
         {
             try
@@ -203,6 +206,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
             }
         }
+
         private void BandNombreControl_CheckedChanged(object sender, EventArgs e)
         {
             try
@@ -238,6 +242,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
             }
         }
+        
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             try
@@ -250,6 +255,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
             }
         }
+
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -262,6 +268,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
             }
         }
+
         private void BuquedaClaveControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
@@ -277,6 +284,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
             }
         }
+
         private void NombreControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
@@ -292,7 +300,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
             }
         }
-        private void sfDataGridBusqServicio_CellDoubleClick(object sender, Syncfusion.WinForms.DataGrid.Events.CellClickEventArgs e)
+
+        private void sfDataGridPaquete_CellDoubleClick(object sender, Syncfusion.WinForms.DataGrid.Events.CellClickEventArgs e)
         {
             try
             {
@@ -304,6 +313,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
             }
         }
+
         #endregion
+        
     }
 }

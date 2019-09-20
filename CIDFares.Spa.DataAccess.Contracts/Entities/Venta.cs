@@ -32,6 +32,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public DataTable TablaFormaPago { get; set; }
         public DataTable TablaProducto { get; set; }
         public DataTable TablaServicio{ get; set; }
+        public DataTable TablaPaquete { get; set; }
 
         public int Resultado { get; set; }
         public string Folio { get; set; }

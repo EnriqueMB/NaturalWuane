@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
 {
-    public interface IPaqueteRepository : IBaseRepository<Paquetes>
+    public interface ICancelacionVentaRepository : IBaseRepository<VentasCancelaciones>
     {
-        Task<IEnumerable<Paquetes>> GetBusqPaqueteAsync(bool BitNombre, string BusqNombre, bool BitClaveCodigo, string BusqClaveCodigo);
+
     }
 }

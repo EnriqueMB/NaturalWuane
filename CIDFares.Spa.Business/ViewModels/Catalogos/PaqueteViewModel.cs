@@ -33,6 +33,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             Repository = paqueteRepository;
             ListaPaquete = new BindingList<Paquetes>();
             ListaDetallePaquete = new BindingList<PaqueteDetalle>();
+            this.Cantidad = 1;
         }
 
         #endregion
@@ -114,6 +115,24 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             {
 
                 throw ex;
+            }
+        }
+
+        public async Task BusquedaPaquete()
+        {
+            try
+            {
+                var x = await Repository.GetBusqPaqueteAsync(this.BandNombre, this.Nombre, this.BandClave, this.Clave);
+                ListaPaquete.Clear();
+                foreach (var item in x)
+                {
+                    ListaPaquete.Add(item);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
         #endregion
@@ -218,7 +237,34 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
+        private bool _BandNombre;
+        public bool BandNombre
+        {
+            get { return _BandNombre; }
+            set
+            {
+                _BandNombre = value;
+                OnPropertyChanged(nameof(BandNombre));
+            }
+        }
 
+        private bool _BandClave;
+        public bool BandClave
+        {
+            get { return _BandClave; }
+            set
+            {
+                _BandClave = value;
+                OnPropertyChanged(nameof(BandClave));
+            }
+        }
+
+        private int _Cantidad;
+        public int Cantidad
+        {
+            get { return _Cantidad; }
+            set { _Cantidad = value; }
+        }
         #region InotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;

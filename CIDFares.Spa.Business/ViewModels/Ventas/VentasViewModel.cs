@@ -20,6 +20,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         private IFormaPagoRepository RepositoryFormaPago { get; set; }
         private IVentaRepository Repository { get; set; }
         private IServicioRepository ServicioRepository { get; set; }
+        private IPaqueteRepository PaqueteRepository { get; set; }
         public IBusqProductoRepository BusqProductoRepository { get; set; }
         #endregion
 
@@ -29,16 +30,19 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         public BindingList<FormaPago> ListaFormaPago { get; set; }
         public BindingList<BusqueProducto> ListaBusquedaProducto { get; set; }
         public BindingList<Servicio> ListaServicio { get; set; }
+        public BindingList<Paquetes> ListaPaquete { get; set; }
         public DataTable TablaFormaPago { get; set; }
         public DataTable TablaProducto { get; set; }
         public DataTable TablaServicio { get; set; }
+        public DataTable TablaPaquete { get; set; }
         public EntityState State { get; set; }
         #endregion
 
         #region Constructor
-        public VentasViewModel(IFormaPagoRepository formaPagoRepository, IVentaRepository ventaRepository, IBusqProductoRepository busqProductoRepository, IServicioRepository servicioRepository)
+        public VentasViewModel(IFormaPagoRepository formaPagoRepository, IVentaRepository ventaRepository, IBusqProductoRepository busqProductoRepository, IServicioRepository servicioRepository, IPaqueteRepository paqueteRepository)
         {
             ServicioRepository = servicioRepository;
+            PaqueteRepository = paqueteRepository;
             Repository = ventaRepository;
             RepositoryFormaPago = formaPagoRepository;
             BusqProductoRepository = busqProductoRepository;
@@ -47,6 +51,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             ListaFormaPago = new BindingList<FormaPago>();
             ListaBusquedaProducto = new BindingList<BusqueProducto>();
             ListaServicio = new BindingList<Servicio>();
+            ListaPaquete = new BindingList<Paquetes>();
             this.FechaVenta = DateTime.Now;
             this.IdSucursal = 1;
             //this.Folio = string.Empty;
@@ -112,6 +117,15 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                     foreach (var item in x)
                     {
                         ListaServicio.Add(item);
+                    }
+                }
+                else if (TipoBusqueda == 3)
+                {
+                    var x = await PaqueteRepository.GetBusqPaqueteAsync(false, Busqueda, true, Busqueda);
+                    ListaPaquete.Clear();
+                    foreach (var item in x)
+                    {
+                        ListaPaquete.Add(item);
                     }
                 }
             }
@@ -256,6 +270,18 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
+        private Guid _IdVenta;  
+
+        public Guid IdVenta
+        {
+            get { return _IdVenta; }
+            set
+            {
+                _IdVenta = value;
+                OnPropertyChanged(nameof(IdVenta));
+            }
+        }
+
 
         #endregion
 
@@ -280,6 +306,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 TablaProducto = TablaProducto,
                 TablaFormaPago = TablaFormaPago,
                 TablaServicio = TablaServicio,
+                TablaPaquete = TablaPaquete,
                 IdTurno = this.IdTurno
             };
             return await Repository.AddWithIdSucursalAsync(model, idCuentaUsuario, IdSucursal);
