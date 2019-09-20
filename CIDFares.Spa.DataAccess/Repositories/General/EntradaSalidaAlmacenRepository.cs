@@ -30,7 +30,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@UsuarioAlta", IdUsuario);
                     dynamicParameters.Add("@IdSucursal", 1);
                     dynamicParameters.Add("@Cantidad", element.Cantidad);
-                    var result = await conexion.ExecuteScalarAsync<int>("[Venta].[spCID_A_Venta]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    dynamicParameters.Add("@Motivo", element.Motivo);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Inventario].[SPCID_A_EntradaSalida]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;
                 }
@@ -59,6 +60,24 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         public Task<EntradaSalidaAlmacen> GetAsync(object id)
         {
             throw new NotImplementedException();
+        }
+
+        public async  Task<string> GetFolio()
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    var result = await conexion.ExecuteScalarAsync<string>("[Inventario].[SPCID_Get_FolioEntradaSalida]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public Task<int> NameExistAsync(string name)

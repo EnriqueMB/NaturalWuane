@@ -10,5 +10,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
 {
    public interface IEntradaSalidaAlmacenRepository :IBaseRepository<EntradaSalidaAlmacen>
     {
+        Task<string> GetFolio();
     }
 }

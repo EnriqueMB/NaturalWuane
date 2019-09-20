@@ -16,23 +16,25 @@ namespace CIDFares.Spa.Business.ViewModels.General
         #region proppiedades privadas
         private IEntradaSalidaAlmacenRepository IRepository { get; set; }
         private IProductoRepository IProductoRepository { get; set; }
+        private IVentaRepository VentaRepository { get; set; }
         #endregion
 
         #region propiedades publicas
         public DataTable TablaEntradaAlmacen { get; set; }
         public DataTable TablaSalidaAlmacen { get; set; }
        // public BindingList<BusqueProducto> ListaBusquedaProducto { get; set; }
-        public BindingList<Producto> ListaProducto { get; set; }
+        public BindingList<EntradaSalidaAlmacen> ListaProducto { get; set; }
         #endregion
 
         #region constructor
-        public EntradaSalidaAlmacenViewModel(IEntradaSalidaAlmacenRepository repository, IProductoRepository ProductoRepository)
+        public EntradaSalidaAlmacenViewModel(IEntradaSalidaAlmacenRepository repository, IProductoRepository ProductoRepository, IVentaRepository Venta)
         {
             IRepository = repository;
             IProductoRepository = ProductoRepository;
-            ListaProducto = new BindingList<Producto>();
+            VentaRepository = Venta;
+            ListaProducto = new BindingList<EntradaSalidaAlmacen>();
             #region  Binding
-            Folio = string.Empty;
+           // Folio = string.Empty;
             Busqueda = string.Empty;
             Tipo = 0;
             Cantidad = 0;
@@ -42,36 +44,39 @@ namespace CIDFares.Spa.Business.ViewModels.General
         #endregion
 
         #region Metodos
-        public async Task CargarDatos()
+        public async Task<EntradaSalidaAlmacen> GuardarEntradaSalida(Guid IdUsuario)
+        {
+            EntradaSalidaAlmacen model = new EntradaSalidaAlmacen
+            {
+                TablaEntradaAlmacen = this.TablaEntradaAlmacen,
+                TablaSalidaAlmacen = this.TablaSalidaAlmacen,
+                Folio = this.Folio,
+                Tipo = this.Tipo,
+                Fecha = this.Fecha,
+                Cantidad = this.Cantidad,
+                Motivo = this.Motivo
+               
+            };
+            return await IRepository.AddAsync(model, IdUsuario);
+        }
+
+        public async Task<int> CheckCantidadProducto(int IdProducto, int Cantidad)
         {
             try
             {
-                var x = await IProductoRepository.CargarDatos();
-                ListaProducto.Clear();
-                foreach (var item in x)
-                {
-
-                    ListaProducto.Add(item);
-                }
+                return await VentaRepository.CheckCantidadProducto(IdProducto, Cantidad);
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
 
-        public async Task GetBusqueda()
+        public async Task GetFolio()
         {
             try
             {
-                var x = await IProductoRepository.GetBusquedaAsync(this.Busqueda);
-                ListaProducto.Clear();
-                foreach (var item in x)
-                {
-                    
-                    ListaProducto.Add(item);
-                }
+                this.Folio = await IRepository.GetFolio();
             }
             catch (Exception ex)
             {
@@ -124,6 +129,14 @@ namespace CIDFares.Spa.Business.ViewModels.General
         {
             get { return _Fecha; }
             set { _Fecha = value; OnPropertyChanged("Fecha"); }
+        }
+
+        private string _Motivi;
+
+        public string Motivo
+        {
+            get { return _Motivi; }
+            set { _Motivi = value; OnPropertyChanged("Motivo"); }
         }
 
         #endregion
