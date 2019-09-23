@@ -104,6 +104,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                         Cantidad = Convert.ToInt32(Producto.CantidaProducto),
                         Nombre = Producto.Nombre
                     });
+                    CantidadProducto();
 
                 }
                 else
@@ -115,6 +116,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                     if (x.Count == 1)
                     {
                         this.dataGridsf1.Refresh();
+                        CantidadProducto();
 
                     }
                     else
@@ -126,7 +128,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                             Cantidad = Convert.ToInt32(Producto.CantidaProducto),
                             Nombre = Producto.Nombre
                         });
-
+                        CantidadProducto();
 
                     }
                 }
@@ -145,6 +147,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             Model.Tipo = 2;
             Model.Motivo = string.Empty;
             Model.GetFolio();
+            Model.Cantidad = 0;
         }
         public void IniciarCombos()
         {
@@ -167,13 +170,24 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             dataGridsf1.DataBindings.Add("DataSource", Model, "ListaProducto", true, DataSourceUpdateMode.OnPropertyChanged);
             FolioProductoControl.DataBindings.Add("Text", Model, "Folio", true, DataSourceUpdateMode.OnPropertyChanged);
             MotivoControl.DataBindings.Add("Text", Model, "Motivo", true, DataSourceUpdateMode.OnPropertyChanged);
+            CantidadControl.DataBindings.Add("Text", Model, "Cantidad", true, DataSourceUpdateMode.OnPropertyChanged);
             IniciarCombos();
         }
-        #endregion
 
+        public void CantidadProducto()
+        {
+            try
+            {
+                int Cantidad = Model.ListaProducto.Sum(x => x.Cantidad);
+                CantidadControl.Text = Convert.ToString(Cantidad);
 
-        #region Eventos
-        private async void btnNuevo_Click_1(object sender, EventArgs e)
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async void NuevoProducto()
         {
             try
             {
@@ -202,6 +216,22 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
+        #endregion
+
+
+        #region Eventos
+        private  void btnNuevo_Click_1(object sender, EventArgs e)
+        { 
+            try
+            {
+                NuevoProducto();
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmEntradaSalidaAlmacen ~ pcMas_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
+            }
+        }
         private void FrmEntradaSalidaAlmacen_Load(object sender, EventArgs e)
         {
             try
@@ -223,6 +253,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 if (item != null)
                 {
                     Model.ListaProducto.Remove(item);
+                    CantidadProducto();
                 }
                 else
                     CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
@@ -300,11 +331,6 @@ namespace CIDFares.Spa.WFApplication.Forms.General
 
                 throw ex;
             }
-
-        }
-
-
-
-
+        }       
     }
 }
