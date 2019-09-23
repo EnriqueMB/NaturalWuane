@@ -211,7 +211,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             try
             {
                 List<SpecialDate> listsd = new List<SpecialDate>();
-                await Model.GetCitaXPeriodo();                
+                await Model.GetCitaXPeriodo(CurrentSession.IdSucursal);                
                 Image newimage = Image.FromFile("c:\\holanw2.png");
                 foreach (var item in Model.ListaCapturaCita)
                 {

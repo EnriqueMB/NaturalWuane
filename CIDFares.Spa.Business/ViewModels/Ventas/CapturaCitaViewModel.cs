@@ -23,6 +23,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         public BindingList<CapturaCita> ListaCapturaCita { get; set; }
         public BindingList<CapturaCita> ListaCapturaCitaDetalle { get; set; }
         public BindingList<CapturaCita> ListaCapturaCitaDetalleServicio { get; set; }
+        public BindingList<CapturaCita> ListaHoras { get; set; }
         public DataTable TablaGServicio { get; set; }
         //List<Syncfusion.WinForms.Input.SpecialDate> list = new List<Syncfusion.WinForms.Input.SpecialDate>();
         public EntityState State { get; set; }
@@ -35,6 +36,8 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             ListaCapturaCita = new BindingList<CapturaCita>();
             ListaCapturaCitaDetalle = new BindingList<CapturaCita>();
             ListaCapturaCitaDetalleServicio = new BindingList<CapturaCita>();
+            ListaHoras = new BindingList<CapturaCita>();
+            IdHora = new TimeSpan();
         }
         #endregion
 
@@ -67,12 +70,8 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 CapturaCita model = new CapturaCita
                 {
                     IdCita = IdCita,
-                    IdServicio = IdServicio,
-                    Servicio = Servicio,
                     IdCliente = IdCliente,
-                    FechaCita = FechaCita,
-                    //FechaIServicio = FechaIServicio,
-                    //FechaFServicio = FechaFServicio,
+                    //FechaCita = FechaCita,
                     TablaServicio = TablaGServicio,                                        
                 };
                 if (State == EntityState.Create)
@@ -91,11 +90,74 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
-        public async Task GetCitaXPeriodo()
+        public async Task<int> DeleteAsync(Guid idUsuario)
         {
             try
             {
-                var x = await Repository.GetCitaXPeriodo(this.FechaInicio, this.FechaFinal);
+                return await Repository.DeleteAsync(IdCita, idUsuario);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public async Task<CapturaCita> BusyService(Guid idUsuario)
+        {
+            try
+            {
+                CapturaCita model = new CapturaCita
+                {                    
+                    TablaServicio = TablaGServicio,
+                };
+                return await Repository.BusyService(model, idUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        #region ComboHoras
+        public void LlenarListaHoras(IEnumerable<CapturaCita> cbHoras)
+        {
+            try
+            {
+                ListaHoras.Clear();
+                foreach (var item in cbHoras)
+                {
+                    ListaHoras.Add(item);
+                }
+                if(cbHoras.Count() > 0)
+                {
+                    IdHora = ListaHoras[0].IdHora;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task<IEnumerable<CapturaCita>> GetListaHoras(DateTime f, DateTime primeraHora)
+        {
+            try
+            {
+                var cbHoras = await Repository.LlenarComboHoras(f, primeraHora);
+                return cbHoras;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion
+
+        public async Task GetCitaXPeriodo(int IdSucursal)
+        {
+            try
+            {
+                var x = await Repository.GetCitaXPeriodo(this.FechaInicio, this.FechaFinal, IdSucursal);
                 ListaCapturaCita.Clear();
                 foreach (var item in x)
                 {
@@ -109,11 +171,11 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
-        public async Task GetCitaDetalle(DateTime? fecha)
+        public async Task GetCitaDetalle(DateTime? fecha, int IdSucursal)
         {
             try
             {
-                var x = await Repository.GetCitaDetalle(fecha);
+                var x = await Repository.GetCitaDetalle(fecha, IdSucursal);
                 ListaCapturaCitaDetalle.Clear();
                 foreach (var item in x)
                 {
@@ -145,22 +207,22 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
-        public async Task<CapturaCita> GuardarCita(Guid idCuentaUsuario, int IdSucursal)
-        {
-            CapturaCita model = new CapturaCita
-            {
-                //ClienteVenta = new Cliente { IdCliente = this.IdCliente },
-                //Folio = this.Folio,
-                //SubTotal = this.SubTotal,
-                //Total = this.Total,
-                //Efectivo = this.Efectivo,
-                //PorcentajeIva = this.Iva,
-                //TablaProducto = TablaProducto,
-                //TablaFormaPago = TablaFormaPago,
-                //TablaServicio = TablaServicio
-            };
-            return await Repository.AddCita(model, idCuentaUsuario, IdSucursal);
-        }
+        //public async Task<CapturaCita> GuardarCita(Guid idCuentaUsuario, int IdSucursal)
+        //{
+        //    CapturaCita model = new CapturaCita
+        //    {
+        //        //ClienteVenta = new Cliente { IdCliente = this.IdCliente },
+        //        //Folio = this.Folio,
+        //        //SubTotal = this.SubTotal,
+        //        //Total = this.Total,
+        //        //Efectivo = this.Efectivo,
+        //        //PorcentajeIva = this.Iva,
+        //        //TablaProducto = TablaProducto,
+        //        //TablaFormaPago = TablaFormaPago,
+        //        //TablaServicio = TablaServicio
+        //    };
+        //    return await Repository.AddCita(model, idCuentaUsuario, IdSucursal);
+        //}
         #endregion
 
         #region Binding
@@ -353,6 +415,30 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             {
                 _Servicio = value;
                 OnPropertyChanged(nameof(Servicio));
+            }
+        }
+
+        private TimeSpan _IdHora;
+
+        public TimeSpan IdHora
+        {
+            get { return _IdHora; }
+            set
+            {
+                _IdHora = value;
+                OnPropertyChanged(nameof(IdHora));
+            }
+        }
+
+        private string _Hora;
+
+        public string Hora
+        {
+            get { return _Hora; }
+            set
+            {
+                _Hora = value;
+                OnPropertyChanged(nameof(Hora));
             }
         }
         #endregion

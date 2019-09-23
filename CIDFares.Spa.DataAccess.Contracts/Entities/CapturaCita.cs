@@ -12,6 +12,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public CapturaCita()
         {
             TablaServicio = new DataTable();
+            IdHora = new TimeSpan();
         }
         public Guid IdCita { get; set; }
         public Guid IdCliente { get; set; }
@@ -27,5 +28,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public DataTable TablaServicio { get; set; }
 
         public int Resultado { get; set; }
+        public TimeSpan IdHora { get; set; }
+        public string Hora { get; set; }
     }
 }

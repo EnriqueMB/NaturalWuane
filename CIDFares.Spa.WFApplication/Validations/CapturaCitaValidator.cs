@@ -16,24 +16,24 @@ namespace CIDFares.Spa.WFApplication.Validations
                 .NotEmpty()
                 .WithMessage("SELECCIONE UN CLIENTE.");
 
-            RuleFor(cap => cap.FechaCita)
-                .MustAsync(async (cap, x, context) =>
-                {
-                    //DateTime var = await generarNominaService.FechaLimite();
+            //RuleFor(cap => cap.FechaCita)
+            //    .MustAsync(async (cap, x, context) =>
+            //    {
+            //        //DateTime var = await generarNominaService.FechaLimite();
 
-                    int value = DateTime.Compare(cap.FechaCita, DateTime.Now);
-                    if (value > 0)
-                    {
-                        return true;
-                    }
-                    else if (value < 0)
-                    {
-                        return false;
-                    }
-                    else
-                        return true;
-                })
-                .WithMessage("LA FECHA DE LA CITA DEBE SER IGUAL O MAYOR A LA FECHA ACTUAL.");
+            //        int value = DateTime.Compare(cap.FechaCita, DateTime.Now);
+            //        if (value > 0)
+            //        {
+            //            return true;
+            //        }
+            //        else if (value < 0)
+            //        {
+            //            return false;
+            //        }
+            //        else
+            //            return true;
+            //    })
+            //    .WithMessage("LA FECHA DE LA CITA DEBE SER IGUAL O MAYOR A LA FECHA ACTUAL.");
 
             //RuleFor(cap => cap.HoraCita)
             //   .MustAsync(async (cap, x, context) =>
