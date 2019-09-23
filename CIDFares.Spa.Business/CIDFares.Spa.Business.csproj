@@ -65,6 +65,7 @@
     <Compile Include="ViewModels\Catalogos\ServicioViewModel.cs" />
     <Compile Include="ViewModels\Compras\ComprasViewModel.cs" />
     <Compile Include="ViewModels\General\EntradaSalidaAlmacenViewModel.cs" />
+    <Compile Include="ViewModels\General\InventarioFisicoViewModel.cs" />
     <Compile Include="ViewModels\General\LoginViewModel.cs" />
     <Compile Include="ViewModels\General\RegistroEntradaSalidaViewModel.cs" />
     <Compile Include="ViewModels\Usuarios\ReglaPerfilViewModel.cs" />

@@ -102,6 +102,7 @@
     <Compile Include="Repositories\General\IEntradaSalidaAlmacenRepository.cs" />
     <Compile Include="Repositories\General\IEstadoRepository.cs" />
     <Compile Include="Repositories\General\IFormaPagoRepository.cs" />
+    <Compile Include="Repositories\General\IInventarioFisicoRepository.cs" />
     <Compile Include="Repositories\General\IIvaRepository.cs" />
     <Compile Include="Repositories\General\ILoginRepository.cs" />
     <Compile Include="Repositories\General\IMunicipioRepository.cs" />
