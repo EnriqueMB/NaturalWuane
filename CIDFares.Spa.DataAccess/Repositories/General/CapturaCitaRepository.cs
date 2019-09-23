@@ -250,7 +250,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public async Task<CapturaCita> BusyService(CapturaCita element, object IdSucursal)
+        public async Task<int> BusyService(CapturaCita element, object IdSucursal)
         {
             try
             {
@@ -259,11 +259,11 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();                    
                     dynamicParameters.Add("@TablaServicio", element.TablaServicio, DbType.Object);                                                            
-                    dynamicParameters.Add("@idEstadoCita", 5);
+                    dynamicParameters.Add("@estadoCita", 5);
                     dynamicParameters.Add("@idSucursal", 1/*IdSucursal*/);                                        
                     var result = await conexion.ExecuteScalarAsync<int>("[Cita].[SPCID_Validar_CitaXHorarioServicio]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                    element.Resultado = result;
-                    return element;
+                    //element.Resultado = result;
+                    return result;
                 }
             }
             catch (Exception ex)

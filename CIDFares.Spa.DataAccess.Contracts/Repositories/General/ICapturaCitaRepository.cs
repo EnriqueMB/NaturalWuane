@@ -18,6 +18,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
         Task<CapturaCita> AddCita(CapturaCita element, object IdUsuario, object IdSucursal);
         Task<BindingList<CapturaCita>> ValidarFechaServicio(DateTime? fecha);
         Task<IEnumerable<CapturaCita>> LlenarComboHoras(DateTime f, DateTime primeraHora);
-        Task<CapturaCita> BusyService(CapturaCita element, object IdSucursal);
+        Task<int> BusyService(CapturaCita element, object IdSucursal);
     }
 }

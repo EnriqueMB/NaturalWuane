@@ -103,7 +103,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
-        public async Task<CapturaCita> BusyService(Guid idUsuario)
+        public async Task<int> BusyService(Guid idUsuario)
         {
             try
             {

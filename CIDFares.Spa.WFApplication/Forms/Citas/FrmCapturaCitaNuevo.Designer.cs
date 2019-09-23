@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn17 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn18 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlButtons = new System.Windows.Forms.Panel();
@@ -67,6 +67,7 @@
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgmCita = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblCitaOcupadaControl = new System.Windows.Forms.Label();
             this.pnlHeader.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -175,6 +176,7 @@
             // gbCita
             // 
             this.gbCita.BackColor = System.Drawing.Color.White;
+            this.gbCita.Controls.Add(this.lblCitaOcupadaControl);
             this.gbCita.Controls.Add(this.HorasControl);
             this.gbCita.Controls.Add(this.label1);
             this.gbCita.Controls.Add(this.HoraCitaControl);
@@ -318,30 +320,31 @@
             this.dgmServicio.AccessibleName = "Table";
             this.dgmServicio.AllowResizingColumns = true;
             this.dgmServicio.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn12.AllowEditing = false;
-            gridTextColumn12.AllowResizing = true;
-            gridTextColumn12.HeaderText = "IdServicio";
-            gridTextColumn12.MappingName = "IdServicio";
-            gridTextColumn12.Visible = false;
-            gridTextColumn13.AllowEditing = false;
-            gridTextColumn13.AllowMultiline = true;
-            gridTextColumn13.AllowResizing = true;
-            gridTextColumn13.HeaderText = "Servicio";
-            gridTextColumn13.MappingName = "Servicio";
-            gridTextColumn14.AllowEditing = false;
-            gridTextColumn14.AllowResizing = true;
-            gridTextColumn14.HeaderText = "Inicio";
-            gridTextColumn14.MappingName = "FechaIServicio";
-            gridTextColumn14.MaximumWidth = 110D;
-            gridTextColumn15.AllowEditing = false;
-            gridTextColumn15.AllowResizing = true;
-            gridTextColumn15.HeaderText = "Fin";
-            gridTextColumn15.MappingName = "FechaFServicio";
-            gridTextColumn15.MaximumWidth = 110D;
-            this.dgmServicio.Columns.Add(gridTextColumn12);
-            this.dgmServicio.Columns.Add(gridTextColumn13);
-            this.dgmServicio.Columns.Add(gridTextColumn14);
-            this.dgmServicio.Columns.Add(gridTextColumn15);
+            gridTextColumn1.AllowEditing = false;
+            gridTextColumn1.AllowResizing = true;
+            gridTextColumn1.HeaderText = "IdServicio";
+            gridTextColumn1.MappingName = "IdServicio";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.AllowEditing = false;
+            gridTextColumn2.AllowMultiline = true;
+            gridTextColumn2.AllowResizing = true;
+            gridTextColumn2.HeaderText = "Servicio";
+            gridTextColumn2.MappingName = "Servicio";
+            gridTextColumn3.AllowEditing = false;
+            gridTextColumn3.AllowResizing = true;
+            gridTextColumn3.HeaderText = "Inicio";
+            gridTextColumn3.MappingName = "FechaIServicio";
+            gridTextColumn3.MaximumWidth = 110D;
+            gridTextColumn4.AllowEditing = false;
+            gridTextColumn4.AllowResizing = true;
+            gridTextColumn4.Format = "HH:mm";
+            gridTextColumn4.HeaderText = "Fin";
+            gridTextColumn4.MappingName = "FechaFServicio";
+            gridTextColumn4.MaximumWidth = 110D;
+            this.dgmServicio.Columns.Add(gridTextColumn1);
+            this.dgmServicio.Columns.Add(gridTextColumn2);
+            this.dgmServicio.Columns.Add(gridTextColumn3);
+            this.dgmServicio.Columns.Add(gridTextColumn4);
             this.dgmServicio.Location = new System.Drawing.Point(27, 186);
             this.dgmServicio.Name = "dgmServicio";
             this.dgmServicio.Size = new System.Drawing.Size(382, 117);
@@ -436,47 +439,47 @@
             this.dgmCita.AllowResizingColumns = true;
             this.dgmCita.AutoExpandGroups = true;
             this.dgmCita.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.AllowEditing = false;
-            gridTextColumn1.AllowResizing = true;
-            gridTextColumn1.HeaderText = "IdCita";
-            gridTextColumn1.MappingName = "IdCita";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.AllowEditing = false;
-            gridTextColumn2.AllowResizing = true;
-            gridTextColumn2.HeaderText = "IdCliente";
-            gridTextColumn2.MappingName = "IdCliente";
-            gridTextColumn2.Visible = false;
-            gridTextColumn3.AllowEditing = false;
-            gridTextColumn3.AllowResizing = true;
-            gridTextColumn3.HeaderText = "IdServicio";
-            gridTextColumn3.MappingName = "IdServicio";
-            gridTextColumn3.Visible = false;
-            gridTextColumn4.AllowEditing = false;
-            gridTextColumn4.AllowResizing = true;
-            gridTextColumn4.HeaderText = "Cliente";
-            gridTextColumn4.MappingName = "NombreCompleto";
-            gridTextColumn16.AllowEditing = false;
-            gridTextColumn16.AllowResizing = true;
-            gridTextColumn16.HeaderText = "Servicio";
-            gridTextColumn16.MappingName = "Servicio";
-            gridTextColumn17.AllowEditing = false;
-            gridTextColumn17.AllowResizing = true;
-            gridTextColumn17.Format = "HH:mm";
-            gridTextColumn17.HeaderText = "Hora";
-            gridTextColumn17.MappingName = "FechaIServicio";
-            gridTextColumn17.MaximumWidth = 150D;
-            gridTextColumn18.AllowEditing = false;
-            gridTextColumn18.AllowResizing = true;
-            gridTextColumn18.HeaderText = "FechaFServicio";
-            gridTextColumn18.MappingName = "FechaFServicio";
-            gridTextColumn18.Visible = false;
-            this.dgmCita.Columns.Add(gridTextColumn1);
-            this.dgmCita.Columns.Add(gridTextColumn2);
-            this.dgmCita.Columns.Add(gridTextColumn3);
-            this.dgmCita.Columns.Add(gridTextColumn4);
-            this.dgmCita.Columns.Add(gridTextColumn16);
-            this.dgmCita.Columns.Add(gridTextColumn17);
-            this.dgmCita.Columns.Add(gridTextColumn18);
+            gridTextColumn5.AllowEditing = false;
+            gridTextColumn5.AllowResizing = true;
+            gridTextColumn5.HeaderText = "IdCita";
+            gridTextColumn5.MappingName = "IdCita";
+            gridTextColumn5.Visible = false;
+            gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.AllowResizing = true;
+            gridTextColumn6.HeaderText = "IdCliente";
+            gridTextColumn6.MappingName = "IdCliente";
+            gridTextColumn6.Visible = false;
+            gridTextColumn7.AllowEditing = false;
+            gridTextColumn7.AllowResizing = true;
+            gridTextColumn7.HeaderText = "IdServicio";
+            gridTextColumn7.MappingName = "IdServicio";
+            gridTextColumn7.Visible = false;
+            gridTextColumn8.AllowEditing = false;
+            gridTextColumn8.AllowResizing = true;
+            gridTextColumn8.HeaderText = "Cliente";
+            gridTextColumn8.MappingName = "NombreCompleto";
+            gridTextColumn9.AllowEditing = false;
+            gridTextColumn9.AllowResizing = true;
+            gridTextColumn9.HeaderText = "Servicio";
+            gridTextColumn9.MappingName = "Servicio";
+            gridTextColumn10.AllowEditing = false;
+            gridTextColumn10.AllowResizing = true;
+            gridTextColumn10.Format = "HH:mm";
+            gridTextColumn10.HeaderText = "Hora";
+            gridTextColumn10.MappingName = "FechaIServicio";
+            gridTextColumn10.MaximumWidth = 150D;
+            gridTextColumn11.AllowEditing = false;
+            gridTextColumn11.AllowResizing = true;
+            gridTextColumn11.HeaderText = "FechaFServicio";
+            gridTextColumn11.MappingName = "FechaFServicio";
+            gridTextColumn11.Visible = false;
+            this.dgmCita.Columns.Add(gridTextColumn5);
+            this.dgmCita.Columns.Add(gridTextColumn6);
+            this.dgmCita.Columns.Add(gridTextColumn7);
+            this.dgmCita.Columns.Add(gridTextColumn8);
+            this.dgmCita.Columns.Add(gridTextColumn9);
+            this.dgmCita.Columns.Add(gridTextColumn10);
+            this.dgmCita.Columns.Add(gridTextColumn11);
             this.dgmCita.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgmCita.Location = new System.Drawing.Point(0, 0);
             this.dgmCita.Name = "dgmCita";
@@ -488,6 +491,14 @@
             // 
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
+            // 
+            // lblCitaOcupadaControl
+            // 
+            this.lblCitaOcupadaControl.AutoSize = true;
+            this.lblCitaOcupadaControl.Location = new System.Drawing.Point(350, 98);
+            this.lblCitaOcupadaControl.Name = "lblCitaOcupadaControl";
+            this.lblCitaOcupadaControl.Size = new System.Drawing.Size(0, 17);
+            this.lblCitaOcupadaControl.TabIndex = 35;
             // 
             // FrmCapturaCitaNuevo
             // 
@@ -546,5 +557,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker HoraCitaControl;
         private System.Windows.Forms.DateTimePicker FechaCitaControl;
+        private System.Windows.Forms.Label lblCitaOcupadaControl;
     }
 }
