@@ -67,6 +67,10 @@
     <Compile Include="Entities\Pais.cs" />
     <Compile Include="Entities\Iva.cs" />
     <Compile Include="Entities\Promocion.cs" />
+    <Compile Include="Entities\PromocionGeneral.cs" />
+    <Compile Include="Entities\PromocionDescuento.cs" />
+    <Compile Include="Entities\PromocionDias.cs" />
+    <Compile Include="Entities\PromocionNxN.cs" />
     <Compile Include="Entities\ReglasRol.cs" />
     <Compile Include="Entities\PaqueteDetalle.cs" />
     <Compile Include="Entities\Paquetes.cs" />

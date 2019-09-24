@@ -12,5 +12,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
     public interface IPromocionRepository : IBaseRepository<Promocion>
     {
         Task<BindingList<TipoPromocion>> LlenarComboTipoPromocion();
+        Task<PromocionDescuento> AddPromocionDescuento(PromocionDescuento model, Guid idUsuario);
+        Task<PromocionNxN> AddPromocionNxN(PromocionNxN model, Guid idUsuario);
     }
 }

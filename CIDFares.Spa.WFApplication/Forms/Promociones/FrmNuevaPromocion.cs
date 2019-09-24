@@ -30,7 +30,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
         #endregion
 
         #region Métodos
-        private void GetPanel(object Formhijo)
+        public void GetPanel(object Formhijo)
         {
             try
             {
@@ -113,11 +113,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                     FrmBusquedaProducto buscar = new FrmBusquedaProducto(1);
                     buscar.ShowDialog();
                     descuento.Agregar(buscar.producto);
+                    Model.IdGenerico = buscar.producto.IdProducto;
+                    Model.Nombre = buscar.producto.Nombre;
                 }
                 else
                 {
                     FrmBuscarServicio buscar = new FrmBuscarServicio();
                     buscar.ShowDialog();
+                    descuento.Agregar(buscar.servicio);
+                    Model.IdGenerico = buscar.servicio.IdServicio;
+                    Model.Nombre = buscar.servicio.Nombre;
                 }
                 
             }
@@ -145,10 +150,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                         break;
                     case 1: GetPanel(descuento);
                         break;
-                    case 2: GetPanel(new FrmPromocionNxN()); break;
-                    case 3: GetPanel(new FrmPromocionMxN()); break;
+                    case 2: GetPanel(new FrmPromocionNxN(Model)); break;
+                    case 3: GetPanel(new FrmPromocionMxN(Model)); break;
                     default: DescripcionControl.Text = "Error"; break ;
                 }
+                
             }
             catch (Exception)
             {

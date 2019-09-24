@@ -29,27 +29,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.CantidadGratisControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.NombreProductoControl = new System.Windows.Forms.Label();
+            this.DescuentoControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.label2 = new System.Windows.Forms.Label();
             this.EsMontoControl = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbProcentaje = new System.Windows.Forms.RadioButton();
+            this.rbMonto = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.NombreProductoControl = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CantidadGratisControl)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DescuentoControl)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -105,12 +108,13 @@
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(167, 33);
             this.btnAgregar.TabIndex = 0;
-            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.Text = "Siguiente";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.CantidadGratisControl);
+            this.groupBox3.Controls.Add(this.DescuentoControl);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.EsMontoControl);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -122,39 +126,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Promocion";
             // 
-            // CantidadGratisControl
+            // DescuentoControl
             // 
-            this.CantidadGratisControl.BeforeTouchSize = new System.Drawing.Size(298, 35);
-            this.CantidadGratisControl.Location = new System.Drawing.Point(19, 32);
-            this.CantidadGratisControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.CantidadGratisControl.Name = "CantidadGratisControl";
-            this.CantidadGratisControl.Size = new System.Drawing.Size(93, 23);
-            this.CantidadGratisControl.TabIndex = 4;
-            this.CantidadGratisControl.Text = "4";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.NombreProductoControl);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(33, 33);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(639, 63);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            // 
-            // NombreProductoControl
-            // 
-            this.NombreProductoControl.BackColor = System.Drawing.Color.Transparent;
-            this.NombreProductoControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.NombreProductoControl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NombreProductoControl.ForeColor = System.Drawing.Color.Black;
-            this.NombreProductoControl.Location = new System.Drawing.Point(3, 19);
-            this.NombreProductoControl.Name = "NombreProductoControl";
-            this.NombreProductoControl.Size = new System.Drawing.Size(633, 41);
-            this.NombreProductoControl.TabIndex = 3;
-            this.NombreProductoControl.Text = "Coca cola ";
-            this.NombreProductoControl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.DescuentoControl.BeforeTouchSize = new System.Drawing.Size(60, 23);
+            this.DescuentoControl.Location = new System.Drawing.Point(19, 32);
+            this.DescuentoControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.DescuentoControl.Name = "DescuentoControl";
+            this.DescuentoControl.Size = new System.Drawing.Size(93, 23);
+            this.DescuentoControl.TabIndex = 4;
+            this.DescuentoControl.Text = "0";
             // 
             // label2
             // 
@@ -183,8 +163,8 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Controls.Add(this.radioButton1);
+            this.groupBox2.Controls.Add(this.rbProcentaje);
+            this.groupBox2.Controls.Add(this.rbMonto);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(33, 102);
@@ -203,36 +183,64 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(613, 52);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Seleccione si el descuento es con un monto o un descuento";
+            this.label3.Text = "Seleccione si el descuento es con un monto o un descuento por porcentaje";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // radioButton2
+            // rbProcentaje
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.ForeColor = System.Drawing.Color.Black;
-            this.radioButton2.Location = new System.Drawing.Point(12, 66);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(95, 21);
-            this.radioButton2.TabIndex = 5;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Descuento";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.rbProcentaje.AutoSize = true;
+            this.rbProcentaje.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbProcentaje.ForeColor = System.Drawing.Color.Black;
+            this.rbProcentaje.Location = new System.Drawing.Point(12, 66);
+            this.rbProcentaje.Name = "rbProcentaje";
+            this.rbProcentaje.Size = new System.Drawing.Size(96, 21);
+            this.rbProcentaje.TabIndex = 5;
+            this.rbProcentaje.TabStop = true;
+            this.rbProcentaje.Text = "Porcentaje";
+            this.rbProcentaje.UseVisualStyleBackColor = true;
+            this.rbProcentaje.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
-            // radioButton1
+            // rbMonto
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.ForeColor = System.Drawing.Color.Black;
-            this.radioButton1.Location = new System.Drawing.Point(12, 40);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(68, 21);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Monto";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.rbMonto.AutoSize = true;
+            this.rbMonto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbMonto.ForeColor = System.Drawing.Color.Black;
+            this.rbMonto.Location = new System.Drawing.Point(12, 40);
+            this.rbMonto.Name = "rbMonto";
+            this.rbMonto.Size = new System.Drawing.Size(68, 21);
+            this.rbMonto.TabIndex = 4;
+            this.rbMonto.TabStop = true;
+            this.rbMonto.Text = "Monto";
+            this.rbMonto.UseVisualStyleBackColor = true;
+            this.rbMonto.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.NombreProductoControl);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(33, 33);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(639, 63);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            // 
+            // NombreProductoControl
+            // 
+            this.NombreProductoControl.BackColor = System.Drawing.Color.Transparent;
+            this.NombreProductoControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NombreProductoControl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NombreProductoControl.ForeColor = System.Drawing.Color.Black;
+            this.NombreProductoControl.Location = new System.Drawing.Point(3, 19);
+            this.NombreProductoControl.Name = "NombreProductoControl";
+            this.NombreProductoControl.Size = new System.Drawing.Size(633, 41);
+            this.NombreProductoControl.TabIndex = 3;
+            this.NombreProductoControl.Text = "Coca cola ";
+            this.NombreProductoControl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmPromocionDescuento
             // 
@@ -249,10 +257,11 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CantidadGratisControl)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DescuentoControl)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -266,12 +275,13 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.GroupBox groupBox3;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt CantidadGratisControl;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt DescuentoControl;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label EsMontoControl;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbProcentaje;
+        private System.Windows.Forms.RadioButton rbMonto;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

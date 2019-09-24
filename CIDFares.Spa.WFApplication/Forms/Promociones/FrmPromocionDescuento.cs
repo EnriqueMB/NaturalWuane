@@ -14,6 +14,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
 {
     public partial class FrmPromocionDescuento : Form
     {
+        public bool EsSiguiente { get; set; }
         public PromocionViewModel Model { get; set; }
         public BusqueProducto Producto { get; set; }
         public FrmPromocionDescuento(PromocionViewModel model)
@@ -27,8 +28,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
         {
             try
             {
-
+                rbMonto.DataBindings.Add("Checked", Model, "EsMonto", true, DataSourceUpdateMode.OnPropertyChanged);
                 NombreProductoControl.DataBindings.Add("Text", Model, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
+                DescuentoControl.DataBindings.Add("Text", Model, "Descuento", true, DataSourceUpdateMode.OnPropertyChanged);
             }
             catch (Exception ex)
             {
@@ -38,7 +40,24 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
+            try
+            {
+                if (rbProcentaje.Checked)
+                {
+                    EsMontoControl.Text = "%";
+                    Model.EsMonto = false;
+                }
+                else if (rbMonto.Checked)
+                {
+                    EsMontoControl.Text = "$";
+                    Model.EsMonto = true;
+                }
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
         }
 
         public void Agregar(BusqueProducto producto)
@@ -46,6 +65,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             try
             {
                 Model.Nombre = producto.Nombre;
+                Model.IdGenerico = producto.IdProducto;
             }
             catch (Exception)
             {
@@ -63,6 +83,59 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
         {
             try
             {
+                rbMonto.Checked = true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (String.IsNullOrEmpty(Model.Nombre))
+                    errorProvider1.SetError(NombreProductoControl, "Selecione un producto o servicio");
+                else
+                {
+                    FrmPromocionDias dias = new FrmPromocionDias(Model);
+                    dias.ShowDialog();
+                    if (dias.Resultado == 1)
+                        LimpiarPropiedades();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void LimpiarPropiedades()
+        {
+            try
+            {
+                Model.EsMonto = true;
+                Model.Nombre = String.Empty;
+                Model.IdGenerico = 0;
+                Model.EsProducto = true;
+                Model.Descuento = 0;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        internal void Agregar(Servicio servicio)
+        {
+            try
+            {
+                Model.Nombre = servicio.Nombre;
+                Model.IdGenerico = servicio.IdServicio;
             }
             catch (Exception)
             {

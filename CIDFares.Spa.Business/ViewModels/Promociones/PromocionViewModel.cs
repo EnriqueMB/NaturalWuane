@@ -47,6 +47,79 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
             }
         }
 
+        public async Task<PromocionDescuento> GuardarPromocionDescuento(Guid IdUsuario)
+        {
+            try
+            {
+                PromocionDescuento model = new PromocionDescuento();
+                model.Promocion.IdTipoPromocion = this.IdTipoPromocion;
+                model.Promocion.IdGenerico = this.IdGenerico;
+                model.Promocion.EsProducto = this.EsProducto;
+                model.EsMonto = this.EsMonto;
+                model.Descuento = this.Descuento;
+                model.PromocionDias.EsPeriodo = this.EsPeriodo;
+                model.PromocionDias.FechaFinal = this.FechaInicio;
+                model.PromocionDias.FechaInicio = this.FechaInicio;
+                model.PromocionDias.Lunes = this.Lunes;
+                model.PromocionDias.Martes = this.Martes;
+                model.PromocionDias.Miercoles = this.Miercoles;
+                model.PromocionDias.Jueves = this.Jueves;
+                model.PromocionDias.Viernes = this.Viernes;
+                model.PromocionDias.Sabado = this.Sabado;
+                model.PromocionDias.Domingo = this.Domingo;
+                model.PromocionDias.Limite = this.Limite;
+                if (State == EntityState.Create)
+                {
+                    return await Repository.AddPromocionDescuento(model, IdUsuario);
+                }
+                //else if (State == EntityState.Update)
+                //{
+                //    return await Repository.UpdateAsync(model, IdUsuario);
+                //}
+                return model;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<PromocionNxN> GuardarPromocionNxN(Guid IdUsuario)
+        {
+            try
+            {
+                PromocionNxN model = new PromocionNxN();
+                model.Promocion.IdTipoPromocion = this.IdTipoPromocion;
+                model.Promocion.IdGenerico = this.IdGenerico;
+                model.Promocion.EsProducto = this.EsProducto;
+                model.Cantidad = this.Cantidad;
+                model.CantidadGratis = this.CantidadGratis;
+                model.PromocionDias.EsPeriodo = this.EsPeriodo;
+                model.PromocionDias.FechaFinal = this.FechaInicio;
+                model.PromocionDias.FechaInicio = this.FechaInicio;
+                model.PromocionDias.Lunes = this.Lunes;
+                model.PromocionDias.Martes = this.Martes;
+                model.PromocionDias.Miercoles = this.Miercoles;
+                model.PromocionDias.Jueves = this.Jueves;
+                model.PromocionDias.Viernes = this.Viernes;
+                model.PromocionDias.Sabado = this.Sabado;
+                model.PromocionDias.Domingo = this.Domingo;
+                model.PromocionDias.Limite = this.Limite;
+                if (State == EntityState.Create)
+                {
+                    return await Repository.AddPromocionNxN(model, IdUsuario);
+                }
+                //else if (State == EntityState.Update)
+                //{
+                //    return await Repository.UpdateAsync(model, IdUsuario);
+                //}
+                return model;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #region combo tipo promoción 
 
         public void LlenarTipoPromocion(IEnumerable<TipoPromocion> tipoPromocions)
@@ -118,7 +191,8 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
                 OnPropertyChanged(nameof(Producto));
             }
         }
-
+        
+       
 
         private string _Descripcion;
 
@@ -129,6 +203,200 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
             {
                 _Descripcion = value;
                 OnPropertyChanged(nameof(Descripcion));
+            }
+        }
+
+        private bool _EsMonto;
+
+        public bool EsMonto
+        {
+            get { return _EsMonto; }
+            set
+            {
+                _EsMonto = value;
+                OnPropertyChanged(nameof(EsMonto));
+            }
+        }
+
+        private decimal _Descuento;
+
+        public decimal Descuento
+        {
+            get { return _Descuento; }
+            set
+            {
+                _Descuento = value;
+                OnPropertyChanged(nameof(Descuento));
+            }
+
+        }
+
+        private bool _EsPeriodo;
+
+        public bool EsPeriodo
+        {
+            get { return _EsPeriodo; }
+            set
+            {
+                _EsPeriodo = value;
+                OnPropertyChanged(nameof(EsPeriodo));
+            }
+        }
+
+        private DateTime _FechaInicio;
+
+        public DateTime FechaInicio
+        {
+            get { return _FechaInicio; }
+            set
+            {
+                _FechaInicio = value;
+                OnPropertyChanged(nameof(FechaInicio));
+            }
+        }
+
+        private DateTime _FechaFin;
+
+        public DateTime FechaFin
+        {
+            get { return _FechaFin; }
+            set
+            {
+                _FechaFin = value;
+                OnPropertyChanged(nameof(FechaFin));
+            }
+        }
+
+        private bool _Lunes;
+
+        public bool Lunes
+        {
+            get { return _Lunes; }
+            set
+            {
+                _Lunes = value;
+                OnPropertyChanged(nameof(Lunes));
+            }
+        }
+
+        private bool _Martes;
+
+        public bool Martes
+        {
+            get { return _Martes; }
+            set
+            {
+                _Martes = value;
+                OnPropertyChanged(nameof(Martes));
+            }
+        }
+
+        private bool _Miercoles;
+
+        public bool Miercoles
+        {
+            get { return _Miercoles; }
+            set
+            {
+                _Miercoles = value;
+                OnPropertyChanged(nameof(Miercoles));
+            }
+        }
+
+        private bool _Jueves;
+
+        public bool Jueves
+        {
+            get { return _Jueves; }
+            set
+            {
+                _Jueves = value;
+                OnPropertyChanged(nameof(Jueves));
+            }
+        }
+
+        private bool _Viernes;
+
+        public bool Viernes
+        {
+            get { return _Viernes; }
+            set
+            {
+                _Viernes = value;
+                OnPropertyChanged(nameof(Viernes));
+            }
+        }
+
+        private bool _Sabado;
+
+        public bool Sabado
+        {
+            get { return _Sabado; }
+            set
+            {
+                _Sabado = value;
+                OnPropertyChanged(nameof(Sabado));
+            }
+        }
+
+        private bool _Domingo;
+
+        public bool Domingo
+        {
+            get { return _Domingo; }
+            set
+            {
+                _Domingo = value;
+                OnPropertyChanged(nameof(Domingo));
+            }
+        }
+
+        private int _IdGenerico;
+
+        public int IdGenerico
+        {
+            get { return _IdGenerico; }
+            set
+            {
+                _IdGenerico = value;
+                OnPropertyChanged(nameof(IdGenerico));
+            }
+        }
+
+        private int _Limite;
+
+        public int Limite
+        {
+            get { return _Limite; }
+            set
+            {
+                _Limite = value;
+                OnPropertyChanged(nameof(Limite));
+            }
+        }
+
+        //Promocion N * N
+        private int _Cantidad;
+
+        public int Cantidad
+        {
+            get { return _Cantidad; }
+            set
+            {
+                _Cantidad = value;
+                OnPropertyChanged(nameof(Cantidad));
+            }
+        }
+
+        private int _CantidadGratis;
+
+        public int CantidadGratis
+        {
+            get { return _CantidadGratis; }
+            set
+            {
+                _CantidadGratis = value;
+                OnPropertyChanged(nameof(CantidadGratis));
             }
         }
         #endregion
