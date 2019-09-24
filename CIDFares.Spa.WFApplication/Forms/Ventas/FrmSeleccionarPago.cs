@@ -2,6 +2,7 @@
 using CIDFares.Library.Code.Helpers;
 using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
+using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.Business.ViewModels.Ventas;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
@@ -27,12 +28,25 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         public VentasViewModel Model { get; set; }
         public bool resultado { get; set; }
         public decimal TotalFormaPago;
+        public bool EsAbono = false;
+
         public FrmSeleccionarPago(VentasViewModel model)
         {
             InitializeComponent();
             Model = model;
             model.GetAllAsync(); 
             IniciarBinding();
+        }
+
+        public FrmSeleccionarPago(PaqueteViewModel model)
+        {
+            InitializeComponent();
+            Model = ServiceLocator.Instance.Resolve<VentasViewModel>();
+            Model.ModelPaquete = model;
+            Model.Total = model.Total;
+            Model.GetAllAsync();
+            IniciarBinding();
+            EsAbono = true;
         }
 
         private void IniciarBinding()
@@ -77,9 +91,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
 
         private async void btnCobrar_Click(object sender, EventArgs e)
         {
-
             try
             {
+                Venta Resultado = new Venta();
+                int res;
                 BindingList<FormaPago> ListaFormaPago = (BindingList<FormaPago>)GridFormaPago.DataSource;
                 this.CleanErrors(errorProvider1, typeof(VentasViewModel));
                 TotalVenta();
@@ -93,7 +108,15 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                         if (Model.Efectivo >= EfectivoIngresado)
                         {
                             Model.TablaFormaPago = ObtenerDatosTabla(ListaFormaPago);
-                            Venta Resultado = await Model.GuardarVenta(CurrentSession.IdCuentaUsuario, CurrentSession.IdSucursal);
+
+                            if (EsAbono)
+                            {
+                                res = await Model.GuardarAbono(CurrentSession.IdCuentaUsuario);
+                                Resultado.Resultado = res;
+                            }
+                            else
+                                Resultado = await Model.GuardarVenta(CurrentSession.IdCuentaUsuario, CurrentSession.IdSucursal);
+
                             if (Resultado.Resultado == 1)
                             {
                                 pnlCambio.BringToFront();

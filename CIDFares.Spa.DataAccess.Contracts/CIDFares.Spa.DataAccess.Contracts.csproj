@@ -59,6 +59,8 @@
   <ItemGroup>
     <Compile Include="DTOs\Requests\EncuestaRequest.cs" />
     <Compile Include="DTOs\Requests\LoginRequests.cs" />
+    <Compile Include="Entities\AbonoPaquete.cs" />
+    <Compile Include="Entities\AbonoPaqueteDetalle.cs" />
     <Compile Include="Entities\BusqueProducto.cs" />
     <Compile Include="Entities\CategoriaProducto.cs" />
     <Compile Include="Entities\Cliente.cs" />

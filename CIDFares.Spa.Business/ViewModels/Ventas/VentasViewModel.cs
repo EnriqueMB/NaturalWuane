@@ -25,7 +25,8 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         #endregion
 
         #region Propiedades públicas
-        public ClienteViewModel ModelCliente{ get; set; }
+        public ClienteViewModel ModelCliente { get; set; }
+        public PaqueteViewModel ModelPaquete { get; set; }
         public BindingList<Venta> Listaventa { get; set; }
         public BindingList<FormaPago> ListaFormaPago { get; set; }
         public BindingList<BusqueProducto> ListaBusquedaProducto { get; set; }
@@ -47,6 +48,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             RepositoryFormaPago = formaPagoRepository;
             BusqProductoRepository = busqProductoRepository;
             ModelCliente = ServiceLocator.Instance.Resolve<ClienteViewModel>();
+            ModelPaquete = ServiceLocator.Instance.Resolve<PaqueteViewModel>();
             Listaventa = new BindingList<Venta>();
             ListaFormaPago = new BindingList<FormaPago>();
             ListaBusquedaProducto = new BindingList<BusqueProducto>();
@@ -101,7 +103,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         {
             try
             {
-                if(TipoBusqueda == 1)
+                if (TipoBusqueda == 1)
                 {
                     var x = await BusqProductoRepository.GetBusquedaProductoAsync(false, Busqueda, true, Busqueda);
                     ListaBusquedaProducto.Clear();
@@ -110,7 +112,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                         ListaBusquedaProducto.Add(item);
                     }
                 }
-                else if(TipoBusqueda == 2)
+                else if (TipoBusqueda == 2)
                 {
                     var x = await ServicioRepository.GetBusqServicioAsync(false, Busqueda, true, Busqueda);
                     ListaServicio.Clear();
@@ -149,7 +151,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
 
         public async Task GetVentaFechaDiaIdSucursal()
         {
-           var x = await Repository.GetVentaDiasSucursalActiva(this.FechaVenta, this.IdSucursal, this.Folio);
+            var x = await Repository.GetVentaDiasSucursalActiva(this.FechaVenta, this.IdSucursal, this.Folio);
             Listaventa.Clear();
             foreach (var item in x)
             {
@@ -214,7 +216,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
-        private string  _Folio;
+        private string _Folio;
         public string Folio
         {
             get { return _Folio; }
@@ -224,7 +226,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 OnPropertyChanged(nameof(Folio));
             }
         }
-        
+
         private string _FolioCliente;
         public string FolioCliente
         {
@@ -270,7 +272,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
-        private Guid _IdVenta;  
+        private Guid _IdVenta;
 
         public Guid IdVenta
         {
@@ -311,6 +313,18 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             };
             return await Repository.AddWithIdSucursalAsync(model, idCuentaUsuario, IdSucursal);
         }
+
+        public async Task<int> GuardarAbono(Guid idCuentaUsuario)
+        {
+            AbonoPaquete model = new AbonoPaquete
+            {
+                TablaFormaPago = TablaFormaPago,
+                TablaPaquete = ModelPaquete.TablaAbonoPaquete,
+                IdTurno = this.IdTurno
+            };
+            return await PaqueteRepository.AddAbonoAsync(model, idCuentaUsuario);
+        }
         #endregion
     }
+
 }

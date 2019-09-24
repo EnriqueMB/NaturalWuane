@@ -5,6 +5,7 @@ using CIDFares.Spa.WFApplication.Forms.Compras;
 using CIDFares.Spa.WFApplication.Forms.Cuestionarios;
 using CIDFares.Spa.WFApplication.Forms.Usuarios;
 using CIDFares.Spa.WFApplication.Forms.Ventas;
+using CIDFares.Spa.WFApplication.Forms.Paquete;
 using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
@@ -432,6 +433,13 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 throw ex;
             }
         }
+
+        private void btnAbonarPaquete_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnAbonarPaquete);
+            GetPanel(new FrmAbonarPaquete());
+        }
+
         private void SlideGenerales(Button button)
         {
             SlidePanelgenerales.Visible = true;

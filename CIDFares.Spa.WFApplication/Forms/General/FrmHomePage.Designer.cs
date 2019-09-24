@@ -103,6 +103,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAbonarPaquete = new System.Windows.Forms.Button();
             this.pnl_MenuVertical.SuspendLayout();
             this.pnlMenu.SuspendLayout();
             this.pnlMenuPrincipal.SuspendLayout();
@@ -750,6 +751,7 @@
             // pnlGenerales
             // 
             this.pnlGenerales.BackColor = System.Drawing.Color.White;
+            this.pnlGenerales.Controls.Add(this.btnAbonarPaquete);
             this.pnlGenerales.Controls.Add(this.btnEntradaSalida);
             this.pnlGenerales.Controls.Add(this.btnCancelacionVenta);
             this.pnlGenerales.Controls.Add(this.SlidePanelgenerales);
@@ -1203,6 +1205,24 @@
             this.panel2.Size = new System.Drawing.Size(1066, 31);
             this.panel2.TabIndex = 0;
             // 
+            // btnAbonarPaquete
+            // 
+            this.btnAbonarPaquete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.btnAbonarPaquete.FlatAppearance.BorderSize = 0;
+            this.btnAbonarPaquete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnAbonarPaquete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbonarPaquete.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbonarPaquete.ForeColor = System.Drawing.Color.Black;
+            this.btnAbonarPaquete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAbonarPaquete.Location = new System.Drawing.Point(10, 264);
+            this.btnAbonarPaquete.Name = "btnAbonarPaquete";
+            this.btnAbonarPaquete.Size = new System.Drawing.Size(193, 35);
+            this.btnAbonarPaquete.TabIndex = 28;
+            this.btnAbonarPaquete.Text = "ABONAR PAQUETE";
+            this.btnAbonarPaquete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAbonarPaquete.UseVisualStyleBackColor = false;
+            this.btnAbonarPaquete.Click += new System.EventHandler(this.btnAbonarPaquete_Click);
+            // 
             // FrmHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1327,5 +1347,6 @@
         private System.Windows.Forms.Button btnEmpleado;
         private System.Windows.Forms.Button btnEntradaSalida;
         private System.Windows.Forms.Button btnCancelacionVenta;
+        private System.Windows.Forms.Button btnAbonarPaquete;
     }
 }
