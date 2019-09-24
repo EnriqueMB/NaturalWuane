@@ -47,6 +47,7 @@
             // 
             // pnlHeader
             // 
+            this.pnlHeader.BackColor = System.Drawing.Color.White;
             this.pnlHeader.Controls.Add(this.FechaFinalControl);
             this.pnlHeader.Controls.Add(this.btnBuscar);
             this.pnlHeader.Controls.Add(this.lblFechaFinal);
@@ -61,18 +62,19 @@
             // 
             // FechaFinalControl
             // 
-            this.FechaFinalControl.Location = new System.Drawing.Point(754, 40);
+            this.FechaFinalControl.Location = new System.Drawing.Point(722, 44);
             this.FechaFinalControl.Name = "FechaFinalControl";
             this.FechaFinalControl.Size = new System.Drawing.Size(269, 22);
             this.FechaFinalControl.TabIndex = 6;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(1056, 23);
+            this.btnBuscar.Location = new System.Drawing.Point(1024, 27);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(119, 32);
@@ -86,7 +88,7 @@
             this.lblFechaFinal.AutoSize = true;
             this.lblFechaFinal.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaFinal.ForeColor = System.Drawing.Color.Black;
-            this.lblFechaFinal.Location = new System.Drawing.Point(749, 0);
+            this.lblFechaFinal.Location = new System.Drawing.Point(717, 4);
             this.lblFechaFinal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaFinal.Name = "lblFechaFinal";
             this.lblFechaFinal.Size = new System.Drawing.Size(150, 30);
@@ -98,7 +100,7 @@
             this.lblFechaInicio.AutoSize = true;
             this.lblFechaInicio.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaInicio.ForeColor = System.Drawing.Color.Black;
-            this.lblFechaInicio.Location = new System.Drawing.Point(464, 0);
+            this.lblFechaInicio.Location = new System.Drawing.Point(432, 4);
             this.lblFechaInicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaInicio.Name = "lblFechaInicio";
             this.lblFechaInicio.Size = new System.Drawing.Size(166, 30);
@@ -120,13 +122,14 @@
             // FechaInicioControl
             // 
             this.FechaInicioControl.Enabled = false;
-            this.FechaInicioControl.Location = new System.Drawing.Point(466, 41);
+            this.FechaInicioControl.Location = new System.Drawing.Point(434, 45);
             this.FechaInicioControl.Name = "FechaInicioControl";
             this.FechaInicioControl.Size = new System.Drawing.Size(269, 22);
             this.FechaInicioControl.TabIndex = 0;
             // 
             // pnlButtons
             // 
+            this.pnlButtons.BackColor = System.Drawing.Color.White;
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlButtons.Location = new System.Drawing.Point(0, 961);
             this.pnlButtons.Name = "pnlButtons";
