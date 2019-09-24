@@ -20,33 +20,43 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         private IFormaPagoRepository RepositoryFormaPago { get; set; }
         private IVentaRepository Repository { get; set; }
         private IServicioRepository ServicioRepository { get; set; }
+        private IPaqueteRepository PaqueteRepository { get; set; }
         public IBusqProductoRepository BusqProductoRepository { get; set; }
         #endregion
 
         #region Propiedades públicas
-        public ClienteViewModel ModelCliente{ get; set; }
+        public ClienteViewModel ModelCliente { get; set; }
+        public PaqueteViewModel ModelPaquete { get; set; }
         public BindingList<Venta> Listaventa { get; set; }
         public BindingList<FormaPago> ListaFormaPago { get; set; }
         public BindingList<BusqueProducto> ListaBusquedaProducto { get; set; }
         public BindingList<Servicio> ListaServicio { get; set; }
+        public BindingList<Paquetes> ListaPaquete { get; set; }
         public DataTable TablaFormaPago { get; set; }
         public DataTable TablaProducto { get; set; }
         public DataTable TablaServicio { get; set; }
+        public DataTable TablaPaquete { get; set; }
         public EntityState State { get; set; }
         #endregion
 
         #region Constructor
-        public VentasViewModel(IFormaPagoRepository formaPagoRepository, IVentaRepository ventaRepository, IBusqProductoRepository busqProductoRepository, IServicioRepository servicioRepository)
+        public VentasViewModel(IFormaPagoRepository formaPagoRepository, IVentaRepository ventaRepository, IBusqProductoRepository busqProductoRepository, IServicioRepository servicioRepository, IPaqueteRepository paqueteRepository)
         {
             ServicioRepository = servicioRepository;
+            PaqueteRepository = paqueteRepository;
             Repository = ventaRepository;
             RepositoryFormaPago = formaPagoRepository;
             BusqProductoRepository = busqProductoRepository;
             ModelCliente = ServiceLocator.Instance.Resolve<ClienteViewModel>();
+            ModelPaquete = ServiceLocator.Instance.Resolve<PaqueteViewModel>();
             Listaventa = new BindingList<Venta>();
             ListaFormaPago = new BindingList<FormaPago>();
             ListaBusquedaProducto = new BindingList<BusqueProducto>();
             ListaServicio = new BindingList<Servicio>();
+            ListaPaquete = new BindingList<Paquetes>();
+            this.FechaVenta = DateTime.Now;
+            this.IdSucursal = 1;
+            //this.Folio = string.Empty;
             GetAllAsync();
             GetFolio();
         }
@@ -93,7 +103,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         {
             try
             {
-                if(TipoBusqueda == 1)
+                if (TipoBusqueda == 1)
                 {
                     var x = await BusqProductoRepository.GetBusquedaProductoAsync(false, Busqueda, true, Busqueda);
                     ListaBusquedaProducto.Clear();
@@ -102,13 +112,22 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                         ListaBusquedaProducto.Add(item);
                     }
                 }
-                else if(TipoBusqueda == 2)
+                else if (TipoBusqueda == 2)
                 {
                     var x = await ServicioRepository.GetBusqServicioAsync(false, Busqueda, true, Busqueda);
                     ListaServicio.Clear();
                     foreach (var item in x)
                     {
                         ListaServicio.Add(item);
+                    }
+                }
+                else if (TipoBusqueda == 3)
+                {
+                    var x = await PaqueteRepository.GetBusqPaqueteAsync(false, Busqueda, true, Busqueda);
+                    ListaPaquete.Clear();
+                    foreach (var item in x)
+                    {
+                        ListaPaquete.Add(item);
                     }
                 }
             }
@@ -129,11 +148,20 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 throw ex;
             }
         }
+
+        public async Task GetVentaFechaDiaIdSucursal()
+        {
+            var x = await Repository.GetVentaDiasSucursalActiva(this.FechaVenta, this.IdSucursal, this.Folio);
+            Listaventa.Clear();
+            foreach (var item in x)
+            {
+                Listaventa.Add(item);
+            }
+        }
         #endregion
 
         #region Binding
         private decimal _Total;
-
         public decimal Total
         {
             get { return _Total; }
@@ -145,7 +173,6 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         }
 
         private decimal _SubTotal;
-
         public decimal SubTotal
         {
             get { return _SubTotal; }
@@ -157,7 +184,6 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         }
 
         private decimal _Iva;
-
         public decimal Iva
         {
             get { return _Iva; }
@@ -169,7 +195,6 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         }
 
         private decimal _Efectivo;
-
         public decimal Efectivo
         {
             get { return _Efectivo; }
@@ -181,7 +206,6 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         }
 
         private Guid _IdCliente;
-
         public Guid IdCliente
         {
             get { return _IdCliente; }
@@ -192,8 +216,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
-        private string  _Folio;
-
+        private string _Folio;
         public string Folio
         {
             get { return _Folio; }
@@ -203,9 +226,8 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 OnPropertyChanged(nameof(Folio));
             }
         }
-        
-        private string _FolioCliente;
 
+        private string _FolioCliente;
         public string FolioCliente
         {
             get { return _FolioCliente; }
@@ -215,6 +237,53 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 OnPropertyChanged(nameof(FolioCliente));
             }
         }
+
+        private int _IdTurno;
+        public int IdTurno
+        {
+            get { return _IdTurno; }
+            set
+            {
+                _IdTurno = value;
+                OnPropertyChanged(nameof(IdTurno));
+            }
+        }
+
+        private DateTime _FechaVenta;
+        public DateTime FechaVenta
+        {
+            get { return _FechaVenta; }
+            set
+            {
+                _FechaVenta = value;
+                OnPropertyChanged(nameof(FechaVenta));
+            }
+        }
+
+        private int _IdSucursal;
+
+        public int IdSucursal
+        {
+            get { return _IdSucursal; }
+            set
+            {
+                _IdSucursal = value;
+                OnPropertyChanged(nameof(IdSucursal));
+            }
+        }
+
+        private Guid _IdVenta;
+
+        public Guid IdVenta
+        {
+            get { return _IdVenta; }
+            set
+            {
+                _IdVenta = value;
+                OnPropertyChanged(nameof(IdVenta));
+            }
+        }
+
 
         #endregion
 
@@ -238,10 +307,24 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 PorcentajeIva = this.Iva,
                 TablaProducto = TablaProducto,
                 TablaFormaPago = TablaFormaPago,
-                TablaServicio = TablaServicio
+                TablaServicio = TablaServicio,
+                TablaPaquete = TablaPaquete,
+                IdTurno = this.IdTurno
             };
             return await Repository.AddWithIdSucursalAsync(model, idCuentaUsuario, IdSucursal);
         }
+
+        public async Task<int> GuardarAbono(Guid idCuentaUsuario)
+        {
+            AbonoPaquete model = new AbonoPaquete
+            {
+                TablaFormaPago = TablaFormaPago,
+                TablaPaquete = ModelPaquete.TablaAbonoPaquete,
+                IdTurno = this.IdTurno
+            };
+            return await PaqueteRepository.AddAbonoAsync(model, idCuentaUsuario);
+        }
         #endregion
     }
+
 }

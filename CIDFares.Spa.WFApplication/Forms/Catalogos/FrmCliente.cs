@@ -360,17 +360,44 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                var item = ObtenerSeleccionado();
                if (item != null)
                 {
-                    FrmClaveTarjeta frmClaveTarjeta = new FrmClaveTarjeta();
-                    frmClaveTarjeta.ShowDialog();
-                    if(frmClaveTarjeta.DialogResult == DialogResult.OK)
+                    if (!Convert.ToBoolean(item.TieneTarjeta))
                     {
-                        Model.IdCliente = item.IdCliente;
-                        var resul = await Model.SetMonedero(CurrentSession.IdCuentaUsuario, frmClaveTarjeta.ClaveTarjeta);
-                        if(resul == 1)
-                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
-                        else
-                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+                        FrmClaveTarjeta frmClaveTarjeta = new FrmClaveTarjeta();
+                        frmClaveTarjeta.ShowDialog();
+                        if (frmClaveTarjeta.DialogResult == DialogResult.OK)
+                        {
+                            Model.IdCliente = item.IdCliente;
+                            var resul = await Model.SetMonedero(CurrentSession.IdCuentaUsuario, frmClaveTarjeta.ClaveTarjeta, 1);
+                            if (resul == 1)
+                            {
+                                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                                await Model.GetAll();
+                            }
+                            else
+                                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+                        }
                     }
+                    else
+                    {
+                        if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, "EL cliente ya cuenta con una tarjeta. ¿Desea Cambiarla?") == DialogResult.OK)
+                        {
+                            FrmClaveTarjeta frmClaveTarjeta = new FrmClaveTarjeta();
+                            frmClaveTarjeta.ShowDialog();
+                            if (frmClaveTarjeta.DialogResult == DialogResult.OK)
+                            {
+                                Model.IdCliente = item.IdCliente;
+                                var resul = await Model.SetMonedero(CurrentSession.IdCuentaUsuario, frmClaveTarjeta.ClaveTarjeta, 2);
+                                if (resul == 1)
+                                {
+                                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                                    await Model.GetAll();
+                                }
+                                else
+                                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+                            }
+                        }
+                    }
+
                 }
             }
             catch (Exception ex)

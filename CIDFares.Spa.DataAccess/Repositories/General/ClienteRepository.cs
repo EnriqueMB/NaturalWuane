@@ -77,6 +77,10 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.Rfc = dr.GetString(dr.GetOrdinal("Rfc"));
                         item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
                         item.Sexo = Convert.ToChar(dr.GetString(dr.GetOrdinal("Sexo")));
+                        item.TieneTarjeta = dr.GetBoolean(dr.GetOrdinal("TieneMonedero"));
+                        if (!dr.IsDBNull(dr.GetOrdinal("PuntosMonedero")))
+                            item.PuntosMonedero = dr.GetInt32(dr.GetOrdinal("PuntosMonedero"));
+                        //item.PuntosMonedero = !dr.IsDBNull(dr.GetOrdinal("PuntosMonedero")) ? dr.GetDecimal(dr.GetOrdinal("PuntosMonedero")) : Decimal.Zero;
                         Lista.Add(item);
                     }
                     return Lista;
@@ -192,7 +196,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public async Task<int> SetMonederoCliente(object IdCliente, object IdUsuario, string ClaveTarjeta)
+        public async Task<int> SetMonederoCliente(object IdCliente, object IdUsuario, string ClaveTarjeta, int Opcion)
         {
             try
             {
@@ -203,6 +207,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     parametros.Add("@ClaveTarjeta", ClaveTarjeta);
                     parametros.Add("@IdCliente", IdCliente);
                     parametros.Add("@IdUsuario", IdUsuario);
+                    parametros.Add("@Opcion", Opcion);
                     var result = await conexion.ExecuteScalarAsync<int>("[Cliente].[SPCID_A_TarjetaMonederoCliente]", param: parametros, commandType: CommandType.StoredProcedure);
                     return result;
                 }

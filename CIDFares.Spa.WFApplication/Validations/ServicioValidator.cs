@@ -41,7 +41,21 @@ namespace CIDFares.Spa.WFApplication.Validations
             RuleFor(ser => ser.Clave)
                 .NotEmpty()
                 .WithMessage("INGRESE UNA CLAVE")
-                .MaximumLength(20).WithMessage("MÁXIMO 20 CARACTERES");
+                .MaximumLength(20).WithMessage("MÁXIMO 20 CARACTERES")
+                 .MustAsync(async (ser, x, context) =>
+                 {
+                     int result = await servicioRepository.ExisteClave(ser.Clave);
+                     if (result > 0)
+                     {
+                         if (result == ser.IdServicio)
+                             return true;
+                         else
+                             return false;
+                     }
+                     else
+                         return true;
+                 })
+                .WithMessage("LA CLAVE DE SERVICIO YA EXISTE");
 
             RuleFor(ser => ser.Precio)
                 .GreaterThan(0)

@@ -100,15 +100,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         #endregion
 
-        private void sfDataGrid1_Click(object sender, EventArgs e)
-        {
-
-        }
         #region Botones
         private async void btnEliminar_Click(object sender, EventArgs e)
         {
             try
             {
+                btnEliminar.Enabled = false;
                 var item = ObtenerSeleccionado();
                 if (item != null)
                 {
@@ -134,12 +131,17 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmEmpleadoGrid ~  btnEliminar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
+            finally
+            {
+                btnEliminar.Enabled = true;
+            }
         }
 
         private async void btnBusqueda_Click(object sender, EventArgs e)
         {
             try
             {
+                errorProvider1.Clear();
                 if (!string.IsNullOrEmpty(Model.Busqueda))
                 {
                     await Model.GetBusqueda();
@@ -147,7 +149,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 }
                 else
                 {
-                     errorProvider1.SetError(BusquedaControl, "INGRESE EL CAMPO BUSQUEDA. Y NO PUEDE SER MAYOR A 200 CARACTERES");
+                     errorProvider1.SetError(BusquedaControl, "INGRESE EL CAMPO BUSQUEDA.");
                 }
             }
             catch (Exception ex)
@@ -168,6 +170,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                btnModificar.Enabled = false;
                 var item = ObtenerSeleccionado();
                 if (item != null)
                 {
@@ -185,13 +188,17 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmEmpleadoGrid ~ btnModificar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
+            finally
+            {
+                btnModificar.Enabled = true;
+            }
         }
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             try
             {
-                
+                BtnNuevo.Enabled = false;
                 FrmEmpleado Empleado = new FrmEmpleado();
                 Empleado.ShowDialog();
                 Model.State = EntityState.Create;
@@ -201,6 +208,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmEmpleadoGrid ~ BtnNuevo_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+            finally
+            {
+                BtnNuevo.Enabled = true;
             }
         }
         #endregion

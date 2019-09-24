@@ -40,6 +40,22 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             this.BuquedaClaveCodigoControl.Focus();
         }
 
+        public FrmBusquedaProducto(int cant)
+        {
+            InitializeComponent();
+            Model = ServiceLocator.Instance.Resolve<BusquedaProductoViewModel>();
+            producto = new BusqueProducto();
+            IniciarBinding();
+            BusClaveBarraControl.CheckedChanged -= BusClaveBarraControl_CheckedChanged;
+            BusClaveBarraControl.Checked = false;
+            BusClaveBarraControl.CheckedChanged += BusClaveBarraControl_CheckedChanged;
+            this.Model.BuscaClaveCodigo = true;
+            this.ActiveControl = this.BuquedaClaveCodigoControl;
+            this.BuquedaClaveCodigoControl.Focus();
+            CantidadProductoControl.Visible = false;
+            Model.CantidadProducto = cant;
+        }
+
         #region Metodo
 
         private void IniciarBinding()
@@ -119,11 +135,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             {
                 if (Model.ListaBusquedaProducto.Count == 1)
                 {
-                    var item = Model.ListaBusquedaProducto.ElementAt(0);
-                    item.IdTipo = this.IDTipo = 1;
-                    item.CantidaProducto = 1;
-                    producto = item;
-                    this.Close();
+                    if (Model.CantidadProducto > 0)
+                    {
+                        var item = Model.ListaBusquedaProducto.ElementAt(0);
+                        item.IdTipo = this.IDTipo = 1;
+                        item.CantidadProducto = Model.CantidadProducto;
+                        producto = item;
+                        this.Close();
+                    }
+                    else
+                        errorProvider1.SetError(CantidadProductoControl, "LA CANTIDAD DE PRODUCTO TIENE QUE SER MAYOR A CERO.");
                 }
                 else
                 {
@@ -131,7 +152,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     if (item != null)
                     {
                         item.IdTipo = this.IDTipo = 1;
-                        item.CantidaProducto = Model.CantidadProducto;
+                        item.CantidadProducto = Model.CantidadProducto;
                         if (Model.CantidadProducto > 0)
                         {
                             producto = item;

@@ -40,8 +40,12 @@
             this.checkDepende = new System.Windows.Forms.CheckBox();
             this.cmbPreguntas = new System.Windows.Forms.ComboBox();
             this.lblcmb = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbtSi = new System.Windows.Forms.RadioButton();
+            this.rbtNo = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -149,7 +153,7 @@
             // 
             this.cmbPreguntas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPreguntas.FormattingEnabled = true;
-            this.cmbPreguntas.Location = new System.Drawing.Point(15, 339);
+            this.cmbPreguntas.Location = new System.Drawing.Point(12, 348);
             this.cmbPreguntas.Name = "cmbPreguntas";
             this.cmbPreguntas.Size = new System.Drawing.Size(321, 26);
             this.cmbPreguntas.TabIndex = 47;
@@ -166,11 +170,47 @@
             this.lblcmb.Text = "PREGUNTA DE LA CUAL DEPENDE";
             this.lblcmb.Visible = false;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rbtNo);
+            this.groupBox2.Controls.Add(this.rbtSi);
+            this.groupBox2.Location = new System.Drawing.Point(342, 323);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(213, 58);
+            this.groupBox2.TabIndex = 49;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "PREGUNATAR CUANDO SEA";
+            this.groupBox2.Visible = false;
+            // 
+            // rbtSi
+            // 
+            this.rbtSi.AutoSize = true;
+            this.rbtSi.Checked = true;
+            this.rbtSi.Location = new System.Drawing.Point(37, 25);
+            this.rbtSi.Name = "rbtSi";
+            this.rbtSi.Size = new System.Drawing.Size(35, 17);
+            this.rbtSi.TabIndex = 0;
+            this.rbtSi.TabStop = true;
+            this.rbtSi.Text = "SI";
+            this.rbtSi.UseVisualStyleBackColor = true;
+            // 
+            // rbtNo
+            // 
+            this.rbtNo.AutoSize = true;
+            this.rbtNo.Location = new System.Drawing.Point(126, 25);
+            this.rbtNo.Name = "rbtNo";
+            this.rbtNo.Size = new System.Drawing.Size(41, 17);
+            this.rbtNo.TabIndex = 0;
+            this.rbtNo.TabStop = true;
+            this.rbtNo.Text = "NO";
+            this.rbtNo.UseVisualStyleBackColor = true;
+            // 
             // FrmAgregarPregunta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(570, 458);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.cmbPreguntas);
             this.Controls.Add(this.lblcmb);
             this.Controls.Add(this.checkDepende);
@@ -185,6 +225,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,5 +245,8 @@
         private System.Windows.Forms.CheckBox checkDepende;
         private System.Windows.Forms.ComboBox cmbPreguntas;
         private System.Windows.Forms.Label lblcmb;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rbtNo;
+        private System.Windows.Forms.RadioButton rbtSi;
     }
 }

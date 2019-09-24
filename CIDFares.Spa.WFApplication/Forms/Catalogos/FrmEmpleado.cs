@@ -71,7 +71,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-              
+                btnGuardar.Enabled = false;
                 this.CleanErrors(errorProvider1, typeof(EmpleadoViewModel));
                 var validationResults = Model.Validate();
                 validationResults.ToString();
@@ -105,11 +105,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmEmpleado ~ btnGuardar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
+            finally
+            {
+                btnGuardar.Enabled = true;
+            }
         }
         private void BtnSeleccionar_Click(object sender, EventArgs e)
         {
             try
             {
+                BtnSeleccionar.Enabled = false;
                 OpenFileDialog BuscarImagen = new OpenFileDialog();
                 BuscarImagen.Filter = "Image Files|*.png;*.jpg;*.bmp";
                 BuscarImagen.FileName = "";
@@ -129,6 +134,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmEmpleado ~ BtnSeleccionar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+            finally
+            {
+                BtnSeleccionar.Enabled = true;
             }
         }
         #endregion

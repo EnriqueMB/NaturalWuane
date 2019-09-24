@@ -140,11 +140,11 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        public async Task<int> SetMonedero(Guid IdUsuario, string ClaveTarjeta)
+        public async Task<int> SetMonedero(Guid IdUsuario, string ClaveTarjeta, int Opcion)
         {
             try
             {
-                return await Repository.SetMonederoCliente(IdCliente, IdUsuario, ClaveTarjeta);
+                return await Repository.SetMonederoCliente(IdCliente, IdUsuario, ClaveTarjeta, Opcion);
             }
             catch (Exception ex)
             {
