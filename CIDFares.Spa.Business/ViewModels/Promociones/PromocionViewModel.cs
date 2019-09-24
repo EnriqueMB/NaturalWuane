@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.DataAccess.Contracts.Validations;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
+using System.Data;
 
 namespace CIDFares.Spa.Business.ViewModels.Promociones
 {
@@ -19,7 +20,10 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
 
         #region Propiedades públicas
         public BindingList<Promocion> ListaPromocion { get; set; }
+        public BindingList<PromocionMxN> ListaPromocionMxN { get; set; }
         public BindingList<TipoPromocion> ListaTipoPromocion { get; set; }
+        public DataTable TablaProducto { get; set; }
+        public DataTable TablaServicio { get; set; }
         public EntityState State { get; set; }
         #endregion
 
@@ -29,20 +33,26 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
             Repository = formaPagoRepository;
             ListaPromocion = new BindingList<Promocion>();
             ListaTipoPromocion = new BindingList<TipoPromocion>();
+            ListaPromocionMxN = new BindingList<PromocionMxN>();
+            GetAllAsync();
         }
         #endregion
 
         #region Metodos
-        public async Task<IEnumerable<Promocion>> GetAllAsync()
-            {
+        public async Task GetAllAsync()
+        {
             try
             {
-                var Puesto = await Repository.GetAllAsync();
-                    return Puesto;
-
+                var x = await Repository.GetAllAsync();
+                ListaPromocion.Clear();
+                foreach (var item in x)
+                {
+                    ListaPromocion.Add(item);
+                }
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
@@ -108,6 +118,44 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
                 if (State == EntityState.Create)
                 {
                     return await Repository.AddPromocionNxN(model, IdUsuario);
+                }
+                //else if (State == EntityState.Update)
+                //{
+                //    return await Repository.UpdateAsync(model, IdUsuario);
+                //}
+                return model;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<PromocionMxN> GuardarPromocionMxN(Guid IdUsuario)
+        {
+            try
+            {
+                PromocionMxN model = new PromocionMxN();
+                model.Promocion.IdTipoPromocion = this.IdTipoPromocion;
+                model.Promocion.IdGenerico = this.IdGenerico;
+                model.Promocion.EsProducto = this.EsProducto;
+                model.Cantidad = this.Cantidad;
+                model.TablaProducto = this.TablaProducto;
+                model.TablaServicio = this.TablaServicio;
+                model.PromocionDias.EsPeriodo = this.EsPeriodo;
+                model.PromocionDias.FechaFinal = this.FechaInicio;
+                model.PromocionDias.FechaInicio = this.FechaInicio;
+                model.PromocionDias.Lunes = this.Lunes;
+                model.PromocionDias.Martes = this.Martes;
+                model.PromocionDias.Miercoles = this.Miercoles;
+                model.PromocionDias.Jueves = this.Jueves;
+                model.PromocionDias.Viernes = this.Viernes;
+                model.PromocionDias.Sabado = this.Sabado;
+                model.PromocionDias.Domingo = this.Domingo;
+                model.PromocionDias.Limite = this.Limite;
+                if (State == EntityState.Create)
+                {
+                    return await Repository.AddPromocionMxN(model, IdUsuario);
                 }
                 //else if (State == EntityState.Update)
                 //{
@@ -399,6 +447,7 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
                 OnPropertyChanged(nameof(CantidadGratis));
             }
         }
+        
         #endregion
 
         #region InotifyPropertyChanged Members

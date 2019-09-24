@@ -32,7 +32,7 @@ namespace CIDFares.Spa.WFApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
-            Application.Run(new FrmNuevaPromocion());
+            Application.Run(new FrmPromocion());
 
         }
 

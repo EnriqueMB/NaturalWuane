@@ -14,5 +14,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
         Task<BindingList<TipoPromocion>> LlenarComboTipoPromocion();
         Task<PromocionDescuento> AddPromocionDescuento(PromocionDescuento model, Guid idUsuario);
         Task<PromocionNxN> AddPromocionNxN(PromocionNxN model, Guid idUsuario);
+        Task<PromocionMxN> AddPromocionMxN(PromocionMxN model, Guid idUsuario);
     }
 }

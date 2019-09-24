@@ -19,25 +19,24 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<PromocionViewModel>();
-            llenarForm();
+            this.IniciarBinding();
         }
 
-        public async void llenarForm()
+        private void IniciarBinding()
         {
             try
             {
-                var x = await Model.GetAllAsync();
-                foreach (var item in x)
-                {
-                    Agregar(item.Nombre, item.NombrePromocion);
-                }
-            }
-            catch (Exception)
-            {
+                this.SfGridPromocion.AutoGenerateColumns = false;
+                SfGridPromocion.DataBindings.Add("DataSource", Model, "ListaPromocion", true, DataSourceUpdateMode.OnPropertyChanged);
 
-                throw;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
+
+        
 
         private void Agregar (string titulo, string promocion)
         {
@@ -77,6 +76,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
         {
             Console.WriteLine("The threshold was reached.");
         }
-        
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

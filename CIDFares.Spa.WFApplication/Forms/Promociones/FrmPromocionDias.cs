@@ -108,6 +108,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                     PromocionNxN promocionNxN = await Model.GuardarPromocionNxN(CurrentSession.IdCuentaUsuario);
                     resultado = promocionNxN.Promocion.Resultado; 
                 }
+                else if (Model.IdTipoPromocion == 3)
+                {
+                    PromocionMxN promocionMxN = await Model.GuardarPromocionMxN(CurrentSession.IdCuentaUsuario);
+                    resultado = promocionMxN.Promocion.Resultado;
+                }
 
                 if (resultado == 1)
                 {

@@ -28,20 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo gridBordersInfo1 = new Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.CantidadGratisControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            this.label1 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnProducto = new System.Windows.Forms.Button();
+            this.btnServicio = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.GridPS = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.CantidadControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,17 +50,20 @@
             this.NombreProductoControl = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CantidadGratisControl)).BeginInit();
+            this.panel4.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GridPS)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadControl)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -91,14 +95,12 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.01651F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(705, 531);
             this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.flowLayoutPanel1);
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.button4);
-            this.groupBox3.Controls.Add(this.CantidadGratisControl);
-            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.panel3);
+            this.groupBox3.Controls.Add(this.panel2);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(33, 225);
@@ -108,146 +110,121 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Producto/Servicio gratis";
             // 
-            // flowLayoutPanel1
+            // panel3
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Controls.Add(this.panel2);
-            this.flowLayoutPanel1.Controls.Add(this.panel3);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 87);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(633, 78);
-            this.flowLayoutPanel1.TabIndex = 6;
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(314, 19);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(322, 146);
+            this.panel3.TabIndex = 11;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.btnEliminar);
+            this.panel4.Controls.Add(this.btnProducto);
+            this.panel4.Controls.Add(this.btnServicio);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(322, 146);
+            this.panel4.TabIndex = 9;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.White;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.Red;
+            this.btnEliminar.Location = new System.Drawing.Point(9, 90);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(85, 24);
+            this.btnEliminar.TabIndex = 9;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnProducto
+            // 
+            this.btnProducto.BackColor = System.Drawing.Color.White;
+            this.btnProducto.FlatAppearance.BorderSize = 0;
+            this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnProducto.Location = new System.Drawing.Point(9, 30);
+            this.btnProducto.Name = "btnProducto";
+            this.btnProducto.Size = new System.Drawing.Size(85, 24);
+            this.btnProducto.TabIndex = 5;
+            this.btnProducto.Text = "Producto";
+            this.btnProducto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProducto.UseVisualStyleBackColor = false;
+            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
+            // 
+            // btnServicio
+            // 
+            this.btnServicio.BackColor = System.Drawing.Color.White;
+            this.btnServicio.FlatAppearance.BorderSize = 0;
+            this.btnServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnServicio.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnServicio.Location = new System.Drawing.Point(9, 60);
+            this.btnServicio.Name = "btnServicio";
+            this.btnServicio.Size = new System.Drawing.Size(85, 24);
+            this.btnServicio.TabIndex = 8;
+            this.btnServicio.Text = "Servicio";
+            this.btnServicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnServicio.UseVisualStyleBackColor = false;
+            this.btnServicio.Click += new System.EventHandler(this.btnServicio_Click);
             // 
             // panel2
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Controls.Add(this.GridPS);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(3, 19);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(109, 25);
-            this.panel2.TabIndex = 0;
+            this.panel2.Size = new System.Drawing.Size(311, 146);
+            this.panel2.TabIndex = 10;
             // 
-            // button2
+            // GridPS
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.button2.Location = new System.Drawing.Point(85, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(22, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "X";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoEllipsis = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 23);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "2 Sabrita";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.button3);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(118, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(109, 25);
-            this.panel3.TabIndex = 7;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.button3.Location = new System.Drawing.Point(85, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(22, 23);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "X";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoEllipsis = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 23);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "1 Coca cola";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.button1.Location = new System.Drawing.Point(92, 31);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 24);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Producto";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.button4.Location = new System.Drawing.Point(177, 31);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(79, 24);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Servicio";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // CantidadGratisControl
-            // 
-            this.CantidadGratisControl.BeforeTouchSize = new System.Drawing.Size(75, 23);
-            this.CantidadGratisControl.Location = new System.Drawing.Point(6, 31);
-            this.CantidadGratisControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.CantidadGratisControl.Name = "CantidadGratisControl";
-            this.CantidadGratisControl.Size = new System.Drawing.Size(75, 23);
-            this.CantidadGratisControl.TabIndex = 4;
-            this.CantidadGratisControl.Text = "0";
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(0, 58);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(518, 25);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Cantidad de producto gratis";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.GridPS.AccessibleName = "Table";
+            this.GridPS.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            gridTextColumn1.HeaderText = "Column1";
+            gridTextColumn1.MappingName = "IdGenerico";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.HeaderText = "Cantidad";
+            gridTextColumn2.MappingName = "CantidadGratis";
+            gridTextColumn2.Width = 40D;
+            gridTextColumn3.AllowEditing = false;
+            gridTextColumn3.AllowGrouping = false;
+            gridTextColumn3.HeaderText = "Nombre";
+            gridTextColumn3.MappingName = "Nombre";
+            this.GridPS.Columns.Add(gridTextColumn1);
+            this.GridPS.Columns.Add(gridTextColumn2);
+            this.GridPS.Columns.Add(gridTextColumn3);
+            this.GridPS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GridPS.Location = new System.Drawing.Point(0, 0);
+            this.GridPS.Name = "GridPS";
+            this.GridPS.SelectionMode = Syncfusion.WinForms.DataGrid.Enums.GridSelectionMode.Extended;
+            this.GridPS.Size = new System.Drawing.Size(311, 146);
+            gridBordersInfo1.Bottom = new Syncfusion.WinForms.DataGrid.Styles.GridBorder(Syncfusion.WinForms.DataGrid.Styles.GridBorderStyle.Standard, System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204))))));
+            this.GridPS.Style.AddNewRowStyle.Borders = gridBordersInfo1;
+            this.GridPS.Style.BorderColor = System.Drawing.Color.White;
+            this.GridPS.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GridPS.Style.CellStyle.Font.Facename = "Century Gothic";
+            this.GridPS.Style.CellStyle.Font.Size = 11F;
+            this.GridPS.Style.CheckBoxStyle.CheckedBackColor = System.Drawing.Color.White;
+            this.GridPS.Style.CheckBoxStyle.CheckedBorderColor = System.Drawing.Color.White;
+            this.GridPS.Style.CheckBoxStyle.CheckedTickColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.GridPS.Style.CheckBoxStyle.IndeterminateBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.GridPS.Style.CurrentCellStyle.BorderColor = System.Drawing.Color.White;
+            this.GridPS.Style.HeaderStyle.Font.Facename = "Century Gothic";
+            this.GridPS.Style.HeaderStyle.Font.Size = 10F;
+            this.GridPS.TabIndex = 8;
+            this.GridPS.Text = "sfDataGrid1";
             // 
             // groupBox2
             // 
@@ -264,7 +241,7 @@
             // 
             // CantidadControl
             // 
-            this.CantidadControl.BeforeTouchSize = new System.Drawing.Size(75, 23);
+            this.CantidadControl.BeforeTouchSize = new System.Drawing.Size(60, 23);
             this.CantidadControl.Location = new System.Drawing.Point(6, 31);
             this.CantidadControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.CantidadControl.Name = "CantidadControl";
@@ -331,6 +308,23 @@
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Siguiente";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click_1);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(12, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(313, 23);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Seleccione productos o servicios de regalo";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmPromocionMxN
             // 
@@ -341,19 +335,20 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmPromocionMxN";
             this.Text = "FrmPromocionNxN";
+            this.Load += new System.EventHandler(this.FrmPromocionMxN_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.CantidadGratisControl)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GridPS)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadControl)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -367,19 +362,17 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.GroupBox groupBox3;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt CantidadGratisControl;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt CantidadControl;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnProducto;
+        private System.Windows.Forms.Button btnServicio;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel panel2;
+        private Syncfusion.WinForms.DataGrid.SfDataGrid GridPS;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
