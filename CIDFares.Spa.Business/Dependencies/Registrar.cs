@@ -38,7 +38,8 @@ namespace CIDFares.Spa.Business.Dependencies
             ServiceLocator.Instance.Register<PaqueteRepository, IPaqueteRepository>();
             ServiceLocator.Instance.Register<CompraRepository, ICompraRepository>();
             ServiceLocator.Instance.Register<ProductosMonederoRepository, IProductosMonederoRepository>();
-
+            ServiceLocator.Instance.Register<ConsultaRepository,IConsultaRepository>();
+            ServiceLocator.Instance.Register<OpcionRepository, IopcionesRepository>();           
         }
     }
 }

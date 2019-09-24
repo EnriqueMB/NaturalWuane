@@ -86,11 +86,11 @@
             // btnCancelarEncuesta
             // 
             this.btnCancelarEncuesta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelarEncuesta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnCancelarEncuesta.FlatAppearance.BorderSize = 0;
+            this.btnCancelarEncuesta.BackColor = System.Drawing.Color.White;
+            this.btnCancelarEncuesta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.btnCancelarEncuesta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarEncuesta.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarEncuesta.ForeColor = System.Drawing.Color.White;
+            this.btnCancelarEncuesta.ForeColor = System.Drawing.Color.Black;
             this.btnCancelarEncuesta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelarEncuesta.Location = new System.Drawing.Point(509, 23);
             this.btnCancelarEncuesta.Name = "btnCancelarEncuesta";
@@ -103,11 +103,11 @@
             // btnNuevaEncuesta
             // 
             this.btnNuevaEncuesta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNuevaEncuesta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
-            this.btnNuevaEncuesta.FlatAppearance.BorderSize = 0;
+            this.btnNuevaEncuesta.BackColor = System.Drawing.Color.White;
+            this.btnNuevaEncuesta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.btnNuevaEncuesta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevaEncuesta.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevaEncuesta.ForeColor = System.Drawing.Color.White;
+            this.btnNuevaEncuesta.ForeColor = System.Drawing.Color.Black;
             this.btnNuevaEncuesta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevaEncuesta.Location = new System.Drawing.Point(373, 23);
             this.btnNuevaEncuesta.Name = "btnNuevaEncuesta";

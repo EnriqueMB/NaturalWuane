@@ -20,6 +20,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public Guid IdPreguntaDepende { get; set; }
         public string DependePregunta { get; set; }
         public int Orden { get; set; }
+        public bool respuestasMultiples { get; set; }
         public List<Respuestas> Respuesta { get; set; }
     }
 }

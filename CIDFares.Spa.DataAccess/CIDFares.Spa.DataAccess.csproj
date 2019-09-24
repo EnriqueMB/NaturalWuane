@@ -50,6 +50,7 @@
     <Compile Include="Repositories\General\CategoriaProductoRepository.cs" />
     <Compile Include="Repositories\General\ClienteRepository.cs" />
     <Compile Include="Repositories\General\CompraRepository.cs" />
+    <Compile Include="Repositories\General\ConsultaRepository.cs" />
     <Compile Include="Repositories\General\EmpleadoRepository.cs" />
     <Compile Include="Repositories\General\CuestionarioRepository.cs" />
     <Compile Include="Repositories\General\EstadoRepository.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Repositories\General\IvaRepository.cs" />
     <Compile Include="Repositories\General\LoginRepository.cs" />
     <Compile Include="Repositories\General\MunicipioRepository.cs" />
+    <Compile Include="Repositories\General\OpcionRepository.cs" />
     <Compile Include="Repositories\General\PaisRepository.cs" />
     <Compile Include="Repositories\General\PaqueteRepository.cs" />
     <Compile Include="Repositories\General\ProductoRepository.cs" />

@@ -9,6 +9,11 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
     [Serializable]
     public class Cuestionario
     {
+        public Cuestionario()
+        {
+            ListaPreguntas = new List<Preguntas>();
+            ListaRespuestas = new List<Respuestas>();
+        }
         #region Propiedades
         public Guid IdEncuesta { get; set; }
         public int IdTipoEncuesta { get; set; }
@@ -18,6 +23,9 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         //public int IdPregunta { get; set; }
         //public Boolean esOpcionMultiple { get; set; }
 
+
+        public List<Preguntas> ListaPreguntas { get; set; }
+        public List<Respuestas> ListaRespuestas { get; set; }
         #endregion
     }
 }

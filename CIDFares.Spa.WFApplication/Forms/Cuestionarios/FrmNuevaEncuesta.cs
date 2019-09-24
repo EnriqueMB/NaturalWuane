@@ -34,7 +34,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<EncuestasViewModel>();
-            this.dtgPreguntas.AllowDrop = true;   
+            this.dtgPreguntas.AllowDrop = true;
+            label3.Text = "NUEVA ENCUESTA";
         }
 
         public FrmNuevaEncuesta(EncuestaRequest _value)
@@ -47,6 +48,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             Model.IdEncuesta = _value.dtoEncuesta.IdEncuesta;
             Model.State = EntityState.Update;
             Model.NombreEncuesta = request.dtoEncuesta.NombreEncuesta;
+            label3.Text = "MODIFICAR ENCUESTA";
         }
         #endregion
 
@@ -116,8 +118,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 _Pregunta.Dispose();
 
                 if (_Pregunta.DialogResult == DialogResult.OK)
-                {
-                   
+                {                   
                     var x = _Pregunta.CargarDatos();
                     Model.ListaPregunta.Add(x);
                     //this.PreguntasEncuesta.Add(x);

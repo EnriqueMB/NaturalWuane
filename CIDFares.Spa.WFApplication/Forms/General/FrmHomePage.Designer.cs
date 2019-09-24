@@ -44,6 +44,7 @@
             this.pnlCatalogo = new System.Windows.Forms.Panel();
             this.btnFormaPago = new System.Windows.Forms.Button();
             this.btnServicio = new System.Windows.Forms.Button();
+            this.btnPaquete = new System.Windows.Forms.Button();
             this.btnSucursal = new System.Windows.Forms.Button();
             this.btnCategoria = new System.Windows.Forms.Button();
             this.btnProducto = new System.Windows.Forms.Button();
@@ -69,6 +70,8 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.pnlGenerales = new System.Windows.Forms.Panel();
             this.SlidePanelgenerales = new System.Windows.Forms.Panel();
+            this.btnConsulta = new System.Windows.Forms.Button();
+            this.btnMonedero = new System.Windows.Forms.Button();
             this.btnCuestionario = new System.Windows.Forms.Button();
             this.btnUsuario = new System.Windows.Forms.Button();
             this.btnCompras = new System.Windows.Forms.Button();
@@ -98,8 +101,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnMonedero = new System.Windows.Forms.Button();
-            this.btnPaquete = new System.Windows.Forms.Button();
             this.pnl_MenuVertical.SuspendLayout();
             this.pnlMenu.SuspendLayout();
             this.pnlMenuPrincipal.SuspendLayout();
@@ -307,6 +308,7 @@
             this.btnConfiguracion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConfiguracion.UseVisualStyleBackColor = false;
             this.btnConfiguracion.Visible = false;
+            this.btnConfiguracion.Click += new System.EventHandler(this.BtnConfiguracion_Click);
             // 
             // pictureBox5
             // 
@@ -372,6 +374,24 @@
             this.btnServicio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnServicio.UseVisualStyleBackColor = false;
             this.btnServicio.Click += new System.EventHandler(this.BtnServicio_Click);
+            // 
+            // btnPaquete
+            // 
+            this.btnPaquete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.btnPaquete.FlatAppearance.BorderSize = 0;
+            this.btnPaquete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnPaquete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPaquete.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPaquete.ForeColor = System.Drawing.Color.Black;
+            this.btnPaquete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPaquete.Location = new System.Drawing.Point(10, 269);
+            this.btnPaquete.Name = "btnPaquete";
+            this.btnPaquete.Size = new System.Drawing.Size(193, 35);
+            this.btnPaquete.TabIndex = 26;
+            this.btnPaquete.Text = "     PAQUETE";
+            this.btnPaquete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPaquete.UseVisualStyleBackColor = false;
+            this.btnPaquete.Click += new System.EventHandler(this.BtnPaquete_Click);
             // 
             // btnSucursal
             // 
@@ -711,6 +731,7 @@
             // 
             this.pnlGenerales.BackColor = System.Drawing.Color.White;
             this.pnlGenerales.Controls.Add(this.SlidePanelgenerales);
+            this.pnlGenerales.Controls.Add(this.btnConsulta);
             this.pnlGenerales.Controls.Add(this.btnMonedero);
             this.pnlGenerales.Controls.Add(this.btnCuestionario);
             this.pnlGenerales.Controls.Add(this.btnUsuario);
@@ -729,6 +750,42 @@
             this.SlidePanelgenerales.Size = new System.Drawing.Size(10, 35);
             this.SlidePanelgenerales.TabIndex = 24;
             this.SlidePanelgenerales.Visible = false;
+            // 
+            // btnConsulta
+            // 
+            this.btnConsulta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.btnConsulta.FlatAppearance.BorderSize = 0;
+            this.btnConsulta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsulta.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsulta.ForeColor = System.Drawing.Color.Black;
+            this.btnConsulta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta.Location = new System.Drawing.Point(10, 190);
+            this.btnConsulta.Name = "btnConsulta";
+            this.btnConsulta.Size = new System.Drawing.Size(193, 35);
+            this.btnConsulta.TabIndex = 26;
+            this.btnConsulta.Text = "     CONSULTA";
+            this.btnConsulta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConsulta.UseVisualStyleBackColor = false;
+            this.btnConsulta.Click += new System.EventHandler(this.BtnConsulta_Click);
+            // 
+            // btnMonedero
+            // 
+            this.btnMonedero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.btnMonedero.FlatAppearance.BorderSize = 0;
+            this.btnMonedero.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnMonedero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMonedero.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMonedero.ForeColor = System.Drawing.Color.Black;
+            this.btnMonedero.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMonedero.Location = new System.Drawing.Point(10, 152);
+            this.btnMonedero.Name = "btnMonedero";
+            this.btnMonedero.Size = new System.Drawing.Size(193, 35);
+            this.btnMonedero.TabIndex = 26;
+            this.btnMonedero.Text = "     MONEDERO";
+            this.btnMonedero.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMonedero.UseVisualStyleBackColor = false;
+            this.btnMonedero.Click += new System.EventHandler(this.BtnMonedero_Click);
             // 
             // btnCuestionario
             // 
@@ -1107,42 +1164,6 @@
             this.panel2.Size = new System.Drawing.Size(1066, 31);
             this.panel2.TabIndex = 0;
             // 
-            // btnMonedero
-            // 
-            this.btnMonedero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.btnMonedero.FlatAppearance.BorderSize = 0;
-            this.btnMonedero.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
-            this.btnMonedero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMonedero.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMonedero.ForeColor = System.Drawing.Color.Black;
-            this.btnMonedero.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMonedero.Location = new System.Drawing.Point(10, 152);
-            this.btnMonedero.Name = "btnMonedero";
-            this.btnMonedero.Size = new System.Drawing.Size(193, 35);
-            this.btnMonedero.TabIndex = 26;
-            this.btnMonedero.Text = "     MONEDERO";
-            this.btnMonedero.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMonedero.UseVisualStyleBackColor = false;
-            this.btnMonedero.Click += new System.EventHandler(this.BtnMonedero_Click);
-            // 
-            // btnPaquete
-            // 
-            this.btnPaquete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.btnPaquete.FlatAppearance.BorderSize = 0;
-            this.btnPaquete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
-            this.btnPaquete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPaquete.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPaquete.ForeColor = System.Drawing.Color.Black;
-            this.btnPaquete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPaquete.Location = new System.Drawing.Point(10, 269);
-            this.btnPaquete.Name = "btnPaquete";
-            this.btnPaquete.Size = new System.Drawing.Size(193, 35);
-            this.btnPaquete.TabIndex = 26;
-            this.btnPaquete.Text = "     PAQUETE";
-            this.btnPaquete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPaquete.UseVisualStyleBackColor = false;
-            this.btnPaquete.Click += new System.EventHandler(this.BtnPaquete_Click);
-            // 
             // FrmHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1264,5 +1285,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnMonedero;
         private System.Windows.Forms.Button btnPaquete;
+        private System.Windows.Forms.Button btnConsulta;
     }
 }

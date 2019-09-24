@@ -271,6 +271,12 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             SlideGenerales(btnMonedero);
             GetPanel(new FrmProductosMonedero());
         }
+
+        private void BtnConsulta_Click(object sender, EventArgs e)
+        {
+            SlideGenerales(btnConsulta);
+            GetPanel(new FrmCapturaConsulta());
+        }
         #endregion
 
         #endregion
@@ -404,6 +410,10 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             }
         }
 
+        private void BtnConfiguracion_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void SlideGenerales(Button button)
         {

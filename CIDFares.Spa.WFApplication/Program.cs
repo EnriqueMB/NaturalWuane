@@ -67,6 +67,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<PaqueteValidator, IValidator<PaqueteViewModel>>();
             ServiceLocator.Instance.Register<CompraValidator, IValidator<ComprasViewModel>>();
             ServiceLocator.Instance.Register<ProductosMonederoValidator, IValidator<ProductosMonederoViewModel>>();
+            ServiceLocator.Instance.Register<ConsultaValidator, IValidator<CIDcontrolViewModel>>();
         }
 
         private static void RegisterViewModelDependencies()
@@ -90,9 +91,10 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ReglaPerfilViewModel>();
             ServiceLocator.Instance.Register<PaqueteViewModel>();
             ServiceLocator.Instance.Register<ComprasViewModel>();
-            ServiceLocator.Instance.Register<ProductosMonederoViewModel>();
-
-
+            ServiceLocator.Instance.Register<ProductosMonederoViewModel>();            
+            ServiceLocator.Instance.Register<ConsultaViewModel>();
+            ServiceLocator.Instance.Register<OpcionesViewModel>();
+            ServiceLocator.Instance.Register<CIDcontrolViewModel>();
         }
     }
 }

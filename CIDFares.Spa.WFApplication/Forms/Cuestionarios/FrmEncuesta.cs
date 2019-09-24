@@ -63,7 +63,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
-
         private async void BtnModificarEncuesta_Click(object sender, EventArgs e)
         {
             try

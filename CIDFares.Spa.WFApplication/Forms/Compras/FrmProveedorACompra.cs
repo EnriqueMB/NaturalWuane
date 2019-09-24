@@ -145,9 +145,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
                     Model.Representante = item.Representante;
                     Model.Telefono = item.Telefono;
                     Model.Direccion = item.Direccion;*/
-
-                    this.Close();
-
                 }
                 else
                     CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);

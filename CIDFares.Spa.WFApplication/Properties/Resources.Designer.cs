@@ -313,6 +313,16 @@ namespace CIDFares.Spa.WFApplication.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap plus35pxBlack {
+            get {
+                object obj = ResourceManager.GetObject("plus35pxBlack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Recurso_10_3x {
             get {
                 object obj = ResourceManager.GetObject("Recurso 10@3x", resourceCulture);
@@ -326,6 +336,16 @@ namespace CIDFares.Spa.WFApplication.Properties {
         internal static System.Drawing.Bitmap restaurarO {
             get {
                 object obj = ResourceManager.GetObject("restaurarO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search35px {
+            get {
+                object obj = ResourceManager.GetObject("search35px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

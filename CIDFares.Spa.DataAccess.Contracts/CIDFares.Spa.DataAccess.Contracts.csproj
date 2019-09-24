@@ -63,9 +63,11 @@
     <Compile Include="Entities\CategoriaProducto.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Compra.cs" />
+    <Compile Include="Entities\Consulta.cs" />
     <Compile Include="Entities\Cuestionario.cs" />
     <Compile Include="Entities\Estado.cs" />
     <Compile Include="Entities\Municipio.cs" />
+    <Compile Include="Entities\OpcionCuestionario.cs" />
     <Compile Include="Entities\Pais.cs" />
     <Compile Include="Entities\Iva.cs" />
     <Compile Include="Entities\Preguntas.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Repositories\General\IClienteRepository.cs" />
     <Compile Include="Entities\FormaPago.cs" />
     <Compile Include="Repositories\General\ICompraRepository.cs" />
+    <Compile Include="Repositories\General\IConsultaRepository.cs" />
     <Compile Include="Repositories\General\ICuestionarioRepository.cs" />
     <Compile Include="Repositories\General\IEmpleadoRepository.cs" />
     <Compile Include="Repositories\General\IEstadoRepository.cs" />
@@ -102,6 +105,7 @@
     <Compile Include="Repositories\General\IIvaRepository.cs" />
     <Compile Include="Repositories\General\ILoginRepository.cs" />
     <Compile Include="Repositories\General\IMunicipioRepository.cs" />
+    <Compile Include="Repositories\General\IopcionesRepository.cs" />
     <Compile Include="Repositories\General\IPaisRepository.cs" />
     <Compile Include="Repositories\General\IPaqueteRepository.cs" />
     <Compile Include="Repositories\General\IProductoRepository.cs" />
