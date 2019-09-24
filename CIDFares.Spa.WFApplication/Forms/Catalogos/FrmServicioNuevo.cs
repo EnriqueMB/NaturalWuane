@@ -54,14 +54,15 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {                
                 ClaveControl.DataBindings.Add("Text", Model, "Clave", true, DataSourceUpdateMode.OnPropertyChanged);
                 NombreControl.DataBindings.Add("Text", Model, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
-                PrecioControl.DataBindings.Add("Text", Model, "Precio", true, DataSourceUpdateMode.OnPropertyChanged);
+                PrecioControl.DataBindings.Add("Text", Model, "Precio", true, DataSourceUpdateMode.OnPropertyChanged, "", "C2");
                 //DuracionControl.DataBindings.Add("Text", Model, "Duracion", true, DataSourceUpdateMode.OnPropertyChanged);
                 DuracionControl.DataBindings.Add("Value", Model, "Duracion", true, DataSourceUpdateMode.OnPropertyChanged);
                 DescripcionControl.DataBindings.Add("Text", Model, "Descripcion", true, DataSourceUpdateMode.OnPropertyChanged);                
                 AplicaIEPSControl.DataBindings.Add("Checked", Model, "AplicaIEPS", true, DataSourceUpdateMode.OnPropertyChanged);
                 IEPSMontoControl.DataBindings.Add("Checked", Model, "IEPSMonto", true, DataSourceUpdateMode.OnPropertyChanged);
                 IEPSControl.DataBindings.Add("Text", Model, "IEPS", true, DataSourceUpdateMode.OnPropertyChanged);
-                FotoControl.DataBindings.Add("Image", Model, "Foto", true, DataSourceUpdateMode.OnPropertyChanged);                
+                FotoControl.DataBindings.Add("Image", Model, "Foto", true, DataSourceUpdateMode.OnPropertyChanged);
+                PorcentajePControl.DataBindings.Add("Text", Model, "PorcentajeP", true, DataSourceUpdateMode.OnPropertyChanged);
 
                 IdTipoIvaControl.DataBindings.Add("SelectedValue", Model, "IdTipoIva", true, DataSourceUpdateMode.OnPropertyChanged);
                 IdTipoIvaControl.DataBindings.Add("DataSource", Model, "ListaIva", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -116,6 +117,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 Model.IEPSMonto = infoServicio.IEPSMonto;
                 Model.IEPS = infoServicio.IEPS;
                 Model.Porcentaje = infoServicio.Porcentaje;
+                Model.PorcentajeP = infoServicio.PorcentajePaquete;
                 this.lblTitle.Text = infoServicio.Nombre;
                 await Model.GetFoto(Model.IdServicio);
                 if (!string.IsNullOrEmpty(Model.FotoBase64))
@@ -187,7 +189,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 }
                 else
                     this.ShowErrors(errorProvider1, typeof(ServicioViewModel), validationResults);
-
             }
             catch (Exception ex)
             {

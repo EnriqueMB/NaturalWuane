@@ -58,6 +58,8 @@
             this.IdUnidadMedidaControl = new System.Windows.Forms.ComboBox();
             this.lblUnidadMedida = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.ClaveSatControl = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.ClaveControl = new System.Windows.Forms.TextBox();
             this.Clave = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -74,10 +76,11 @@
             this.lblPrecioMayoreo = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.IdAplicaIvaControl = new System.Windows.Forms.ComboBox();
-            this.AplicaIvaControl = new System.Windows.Forms.CheckBox();
             this.ClaveSat = new System.Windows.Forms.Panel();
-            this.ClaveSatControl = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.PorcentajePControl = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.CostoProductoControl = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.GenerarCodigoBarrasControl = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -294,7 +297,7 @@
             // RutaControl
             // 
             this.RutaControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            this.RutaControl.BeforeTouchSize = new System.Drawing.Size(298, 35);
+            this.RutaControl.BeforeTouchSize = new System.Drawing.Size(70, 27);
             this.RutaControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RutaControl.CornerRadius = 2;
             this.RutaControl.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -385,6 +388,7 @@
             // 
             // IdCategoriaProductoControl
             // 
+            this.IdCategoriaProductoControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IdCategoriaProductoControl.FormattingEnabled = true;
             this.IdCategoriaProductoControl.Location = new System.Drawing.Point(6, 13);
             this.IdCategoriaProductoControl.Name = "IdCategoriaProductoControl";
@@ -413,6 +417,7 @@
             // 
             // IdUnidadMedidaControl
             // 
+            this.IdUnidadMedidaControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IdUnidadMedidaControl.FormattingEnabled = true;
             this.IdUnidadMedidaControl.Location = new System.Drawing.Point(6, 19);
             this.IdUnidadMedidaControl.Name = "IdUnidadMedidaControl";
@@ -431,6 +436,8 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.ClaveSatControl);
+            this.panel7.Controls.Add(this.label1);
             this.panel7.Controls.Add(this.ClaveControl);
             this.panel7.Controls.Add(this.Clave);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -439,11 +446,29 @@
             this.panel7.Size = new System.Drawing.Size(391, 46);
             this.panel7.TabIndex = 3;
             // 
+            // ClaveSatControl
+            // 
+            this.ClaveSatControl.Location = new System.Drawing.Point(149, 20);
+            this.ClaveSatControl.Name = "ClaveSatControl";
+            this.ClaveSatControl.Size = new System.Drawing.Size(125, 20);
+            this.ClaveSatControl.TabIndex = 55;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(148, 1);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 17);
+            this.label1.TabIndex = 54;
+            this.label1.Text = "CLAVE SAT";
+            // 
             // ClaveControl
             // 
-            this.ClaveControl.Location = new System.Drawing.Point(7, 20);
+            this.ClaveControl.Location = new System.Drawing.Point(6, 20);
+            this.ClaveControl.MaxLength = 20;
             this.ClaveControl.Name = "ClaveControl";
-            this.ClaveControl.Size = new System.Drawing.Size(268, 20);
+            this.ClaveControl.Size = new System.Drawing.Size(126, 20);
             this.ClaveControl.TabIndex = 4;
             // 
             // Clave
@@ -576,7 +601,6 @@
             // panel14
             // 
             this.panel14.Controls.Add(this.IdAplicaIvaControl);
-            this.panel14.Controls.Add(this.AplicaIvaControl);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(3, 211);
             this.panel14.Name = "panel14";
@@ -585,49 +609,59 @@
             // 
             // IdAplicaIvaControl
             // 
+            this.IdAplicaIvaControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IdAplicaIvaControl.FormattingEnabled = true;
-            this.IdAplicaIvaControl.Location = new System.Drawing.Point(130, 15);
+            this.IdAplicaIvaControl.Location = new System.Drawing.Point(9, 15);
             this.IdAplicaIvaControl.Name = "IdAplicaIvaControl";
-            this.IdAplicaIvaControl.Size = new System.Drawing.Size(251, 21);
+            this.IdAplicaIvaControl.Size = new System.Drawing.Size(265, 21);
             this.IdAplicaIvaControl.TabIndex = 6;
-            // 
-            // AplicaIvaControl
-            // 
-            this.AplicaIvaControl.AutoSize = true;
-            this.AplicaIvaControl.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.AplicaIvaControl.Location = new System.Drawing.Point(25, 14);
-            this.AplicaIvaControl.Name = "AplicaIvaControl";
-            this.AplicaIvaControl.Size = new System.Drawing.Size(89, 21);
-            this.AplicaIvaControl.TabIndex = 1;
-            this.AplicaIvaControl.Text = "APLICA IVA";
-            this.AplicaIvaControl.UseVisualStyleBackColor = true;
-            this.AplicaIvaControl.CheckedChanged += new System.EventHandler(this.AplicaIvaControl_CheckedChanged);
             // 
             // ClaveSat
             // 
-            this.ClaveSat.Controls.Add(this.ClaveSatControl);
-            this.ClaveSat.Controls.Add(this.label1);
+            this.ClaveSat.Controls.Add(this.PorcentajePControl);
+            this.ClaveSat.Controls.Add(this.label4);
+            this.ClaveSat.Controls.Add(this.CostoProductoControl);
+            this.ClaveSat.Controls.Add(this.label3);
             this.ClaveSat.Location = new System.Drawing.Point(400, 159);
             this.ClaveSat.Name = "ClaveSat";
             this.ClaveSat.Size = new System.Drawing.Size(391, 46);
             this.ClaveSat.TabIndex = 9;
             // 
-            // ClaveSatControl
+            // PorcentajePControl
             // 
-            this.ClaveSatControl.Location = new System.Drawing.Point(7, 20);
-            this.ClaveSatControl.Name = "ClaveSatControl";
-            this.ClaveSatControl.Size = new System.Drawing.Size(268, 20);
-            this.ClaveSatControl.TabIndex = 0;
+            this.PorcentajePControl.Location = new System.Drawing.Point(148, 23);
+            this.PorcentajePControl.MaxLength = 10;
+            this.PorcentajePControl.Name = "PorcentajePControl";
+            this.PorcentajePControl.Size = new System.Drawing.Size(127, 20);
+            this.PorcentajePControl.TabIndex = 59;
             // 
-            // label1
+            // label4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "CLAVE SAT";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(151, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(115, 17);
+            this.label4.TabIndex = 58;
+            this.label4.Text = "% DESC. PAQUETE";
+            // 
+            // CostoProductoControl
+            // 
+            this.CostoProductoControl.Location = new System.Drawing.Point(7, 23);
+            this.CostoProductoControl.MaxLength = 10;
+            this.CostoProductoControl.Name = "CostoProductoControl";
+            this.CostoProductoControl.Size = new System.Drawing.Size(125, 20);
+            this.CostoProductoControl.TabIndex = 57;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(8, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 17);
+            this.label3.TabIndex = 56;
+            this.label3.Text = "COSTO";
             // 
             // panel13
             // 
@@ -682,6 +716,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FrmProducto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmProducto";
             this.Load += new System.EventHandler(this.FrmProducto_Load);
             this.panel1.ResumeLayout(false);
@@ -712,7 +747,6 @@
             this.pnlPrecio.ResumeLayout(false);
             this.pnlPrecio.PerformLayout();
             this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
             this.ClaveSat.ResumeLayout(false);
             this.ClaveSat.PerformLayout();
             this.panel13.ResumeLayout(false);
@@ -771,12 +805,15 @@
         private System.Windows.Forms.Label lblPrecioMayoreo;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.CheckBox StockControl;
-        private System.Windows.Forms.CheckBox AplicaIvaControl;
         private System.Windows.Forms.Panel ClaveSat;
-        private System.Windows.Forms.TextBox ClaveSatControl;
-        private System.Windows.Forms.Label label1;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt RutaControl;
         private System.Windows.Forms.CheckBox GenerarCodigoBarrasControl;
         private System.Windows.Forms.ComboBox IdAplicaIvaControl;
+        private System.Windows.Forms.TextBox ClaveSatControl;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox PorcentajePControl;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox CostoProductoControl;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -25,5 +25,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public Guid IdUsuarioL { get; set; }
         public int Resultado { get; set; } 
         public int Edad { get; set; }
+        public bool TieneTarjeta { get; set; }
+        public int? PuntosMonedero { get; set; }
     }
 }

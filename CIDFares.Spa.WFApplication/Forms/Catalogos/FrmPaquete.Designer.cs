@@ -78,9 +78,9 @@
             // 
             this.panelGrid.Controls.Add(this.sfDataGridPaquete);
             this.panelGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelGrid.Location = new System.Drawing.Point(0, 64);
+            this.panelGrid.Location = new System.Drawing.Point(0, 58);
             this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(918, 353);
+            this.panelGrid.Size = new System.Drawing.Size(918, 359);
             this.panelGrid.TabIndex = 1;
             // 
             // sfDataGridPaquete
@@ -127,7 +127,7 @@
             this.sfDataGridPaquete.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridPaquete.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridPaquete.Name = "sfDataGridPaquete";
-            this.sfDataGridPaquete.Size = new System.Drawing.Size(918, 353);
+            this.sfDataGridPaquete.Size = new System.Drawing.Size(918, 359);
             this.sfDataGridPaquete.TabIndex = 3;
             this.sfDataGridPaquete.Text = "sfDataGrid1";
             // 
@@ -138,14 +138,14 @@
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitulo.Location = new System.Drawing.Point(0, 0);
             this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(918, 64);
+            this.panelTitulo.Size = new System.Drawing.Size(918, 58);
             this.panelTitulo.TabIndex = 0;
             // 
             // lblPaquete
             // 
             this.lblPaquete.AutoSize = true;
             this.lblPaquete.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPaquete.Location = new System.Drawing.Point(12, 20);
+            this.lblPaquete.Location = new System.Drawing.Point(12, 16);
             this.lblPaquete.Name = "lblPaquete";
             this.lblPaquete.Size = new System.Drawing.Size(95, 25);
             this.lblPaquete.TabIndex = 182;
@@ -219,6 +219,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(918, 478);
             this.Controls.Add(this.panelCantenedor);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmPaquete";
             this.Text = "FrmPaquete";
             this.Load += new System.EventHandler(this.FrmPaquete_Load);

@@ -36,6 +36,8 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.panelGridDatos = new System.Windows.Forms.Panel();
@@ -68,6 +70,7 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.PanelTitulo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnBusqueda = new System.Windows.Forms.Button();
@@ -108,9 +111,9 @@
             this.PanelContenedor.Controls.Add(this.panelGridDatos);
             this.PanelContenedor.Controls.Add(this.PabelBTN);
             this.PanelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelContenedor.Location = new System.Drawing.Point(0, 49);
+            this.PanelContenedor.Location = new System.Drawing.Point(0, 58);
             this.PanelContenedor.Name = "PanelContenedor";
-            this.PanelContenedor.Size = new System.Drawing.Size(1176, 578);
+            this.PanelContenedor.Size = new System.Drawing.Size(1176, 569);
             this.PanelContenedor.TabIndex = 1;
             // 
             // panelGridDatos
@@ -121,7 +124,7 @@
             this.panelGridDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGridDatos.Location = new System.Drawing.Point(0, 0);
             this.panelGridDatos.Name = "panelGridDatos";
-            this.panelGridDatos.Size = new System.Drawing.Size(1176, 531);
+            this.panelGridDatos.Size = new System.Drawing.Size(1176, 522);
             this.panelGridDatos.TabIndex = 1;
             // 
             // sfDataGridCliente
@@ -152,6 +155,14 @@
             gridTextColumn7.HeaderText = "FechaNacimiento";
             gridTextColumn7.MappingName = "FechaNacimiento";
             gridTextColumn7.Visible = false;
+            gridTextColumn8.AllowEditing = false;
+            gridTextColumn8.HeaderText = "nada";
+            gridTextColumn8.MappingName = "TieneTarjeta";
+            gridTextColumn8.Visible = false;
+            gridTextColumn9.AllowEditing = false;
+            gridTextColumn9.HeaderText = "Puntos monedero";
+            gridTextColumn9.MappingName = "PuntosMonedero";
+            gridTextColumn9.NullDisplayText = "S/ Monedero";
             this.sfDataGridCliente.Columns.Add(gridTextColumn1);
             this.sfDataGridCliente.Columns.Add(gridTextColumn2);
             this.sfDataGridCliente.Columns.Add(gridTextColumn3);
@@ -159,10 +170,12 @@
             this.sfDataGridCliente.Columns.Add(gridTextColumn5);
             this.sfDataGridCliente.Columns.Add(gridTextColumn6);
             this.sfDataGridCliente.Columns.Add(gridTextColumn7);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn8);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn9);
             this.sfDataGridCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridCliente.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridCliente.Name = "sfDataGridCliente";
-            this.sfDataGridCliente.Size = new System.Drawing.Size(770, 531);
+            this.sfDataGridCliente.Size = new System.Drawing.Size(770, 522);
             this.sfDataGridCliente.TabIndex = 1;
             this.sfDataGridCliente.Text = "sfDataGrid1";
             // 
@@ -172,7 +185,7 @@
             this.PanelCapturaDatos.Dock = System.Windows.Forms.DockStyle.Right;
             this.PanelCapturaDatos.Location = new System.Drawing.Point(770, 0);
             this.PanelCapturaDatos.Name = "PanelCapturaDatos";
-            this.PanelCapturaDatos.Size = new System.Drawing.Size(406, 531);
+            this.PanelCapturaDatos.Size = new System.Drawing.Size(406, 522);
             this.PanelCapturaDatos.TabIndex = 0;
             // 
             // groupBoxCliente
@@ -198,7 +211,7 @@
             this.groupBoxCliente.ForeColor = System.Drawing.Color.Black;
             this.groupBoxCliente.Location = new System.Drawing.Point(0, 0);
             this.groupBoxCliente.Name = "groupBoxCliente";
-            this.groupBoxCliente.Size = new System.Drawing.Size(406, 531);
+            this.groupBoxCliente.Size = new System.Drawing.Size(406, 522);
             this.groupBoxCliente.TabIndex = 0;
             this.groupBoxCliente.TabStop = false;
             this.groupBoxCliente.Text = "Datos de cliente";
@@ -434,7 +447,7 @@
             // 
             this.PabelBTN.Controls.Add(this.flowLayoutPanel2);
             this.PabelBTN.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PabelBTN.Location = new System.Drawing.Point(0, 531);
+            this.PabelBTN.Location = new System.Drawing.Point(0, 522);
             this.PabelBTN.Name = "PabelBTN";
             this.PabelBTN.Size = new System.Drawing.Size(1176, 47);
             this.PabelBTN.TabIndex = 0;
@@ -444,6 +457,7 @@
             this.flowLayoutPanel2.Controls.Add(this.btnNuevo);
             this.flowLayoutPanel2.Controls.Add(this.btnModificar);
             this.flowLayoutPanel2.Controls.Add(this.btnEliminar);
+            this.flowLayoutPanel2.Controls.Add(this.button1);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 6);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(767, 38);
@@ -491,6 +505,20 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(390, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(123, 29);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Cliente Frec.";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // PanelTitulo
             // 
             this.PanelTitulo.Controls.Add(this.panel1);
@@ -498,7 +526,7 @@
             this.PanelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelTitulo.Location = new System.Drawing.Point(0, 0);
             this.PanelTitulo.Name = "PanelTitulo";
-            this.PanelTitulo.Size = new System.Drawing.Size(1176, 49);
+            this.PanelTitulo.Size = new System.Drawing.Size(1176, 58);
             this.PanelTitulo.TabIndex = 0;
             // 
             // panel1
@@ -509,7 +537,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(386, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(790, 49);
+            this.panel1.Size = new System.Drawing.Size(790, 58);
             this.panel1.TabIndex = 2;
             // 
             // BtnBusqueda
@@ -531,7 +559,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(24, 13);
+            this.label9.Location = new System.Drawing.Point(24, 19);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(135, 20);
             this.label9.TabIndex = 5;
@@ -539,7 +567,7 @@
             // 
             // BusquedaControl
             // 
-            this.BusquedaControl.Location = new System.Drawing.Point(162, 15);
+            this.BusquedaControl.Location = new System.Drawing.Point(162, 20);
             this.BusquedaControl.MaxLength = 200;
             this.BusquedaControl.Name = "BusquedaControl";
             this.BusquedaControl.Size = new System.Drawing.Size(355, 20);
@@ -551,7 +579,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(22, 13);
+            this.label3.Location = new System.Drawing.Point(22, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 22);
             this.label3.TabIndex = 1;
@@ -568,6 +596,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1176, 627);
             this.Controls.Add(this.PanelPrincipal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCliente";
@@ -637,5 +666,6 @@
         private System.Windows.Forms.Button BtnBusqueda;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox BusquedaControl;
+        private System.Windows.Forms.Button button1;
     }
 }

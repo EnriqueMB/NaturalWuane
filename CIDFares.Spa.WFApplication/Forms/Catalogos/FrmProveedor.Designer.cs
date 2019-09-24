@@ -117,10 +117,10 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(1, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(221, 25);
+            this.lblTitulo.Size = new System.Drawing.Size(209, 25);
             this.lblTitulo.TabIndex = 182;
             this.lblTitulo.Text = "INGRESAR PROVEEDOR";
             // 
@@ -136,27 +136,27 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btnCancelar.Location = new System.Drawing.Point(434, 24);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(123, 29);
             this.btnCancelar.TabIndex = 8;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
+            this.btnGuardar.BackColor = System.Drawing.Color.White;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btnGuardar.Location = new System.Drawing.Point(243, 24);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(123, 29);
             this.btnGuardar.TabIndex = 7;
-            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -215,6 +215,7 @@
             this.ClaveControl.Name = "ClaveControl";
             this.ClaveControl.Size = new System.Drawing.Size(264, 20);
             this.ClaveControl.TabIndex = 1;
+            this.ClaveControl.TextChanged += new System.EventHandler(this.ClaveControl_TextChanged);
             // 
             // lblClave
             // 
@@ -242,6 +243,7 @@
             this.NombreComercialControl.Name = "NombreComercialControl";
             this.NombreComercialControl.Size = new System.Drawing.Size(264, 20);
             this.NombreComercialControl.TabIndex = 2;
+            this.NombreComercialControl.TextChanged += new System.EventHandler(this.NombreComercialControl_TextChanged);
             // 
             // lblcomercial
             // 
@@ -269,6 +271,7 @@
             this.RazonSocialControl.Name = "RazonSocialControl";
             this.RazonSocialControl.Size = new System.Drawing.Size(264, 20);
             this.RazonSocialControl.TabIndex = 2;
+            this.RazonSocialControl.TextChanged += new System.EventHandler(this.RazonSocialControl_TextChanged);
             // 
             // lblRazonSocial
             // 
@@ -296,6 +299,7 @@
             this.RepresentanteControl.Name = "RepresentanteControl";
             this.RepresentanteControl.Size = new System.Drawing.Size(264, 20);
             this.RepresentanteControl.TabIndex = 2;
+            this.RepresentanteControl.TextChanged += new System.EventHandler(this.RepresentanteControl_TextChanged);
             // 
             // lblRepresentante
             // 
@@ -323,6 +327,7 @@
             this.RFCControl.Name = "RFCControl";
             this.RFCControl.Size = new System.Drawing.Size(264, 20);
             this.RFCControl.TabIndex = 2;
+            this.RFCControl.TextChanged += new System.EventHandler(this.RFCControl_TextChanged);
             // 
             // lblRFC
             // 
@@ -350,6 +355,7 @@
             this.DireccionControl.Name = "DireccionControl";
             this.DireccionControl.Size = new System.Drawing.Size(264, 20);
             this.DireccionControl.TabIndex = 2;
+            this.DireccionControl.TextChanged += new System.EventHandler(this.DireccionControl_TextChanged);
             // 
             // lblDireccion
             // 
@@ -377,6 +383,7 @@
             this.TelefonoControl.Name = "TelefonoControl";
             this.TelefonoControl.Size = new System.Drawing.Size(264, 20);
             this.TelefonoControl.TabIndex = 2;
+            this.TelefonoControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TelefonoControl_KeyPress);
             // 
             // lblTelefono
             // 
@@ -431,6 +438,7 @@
             this.CodigoPostalControl.Name = "CodigoPostalControl";
             this.CodigoPostalControl.Size = new System.Drawing.Size(264, 20);
             this.CodigoPostalControl.TabIndex = 2;
+            this.CodigoPostalControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CodigoPostalControl_KeyPress);
             // 
             // lblCodigoPostal
             // 
@@ -454,6 +462,7 @@
             // 
             // IdPaisControl
             // 
+            this.IdPaisControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IdPaisControl.FormattingEnabled = true;
             this.IdPaisControl.Location = new System.Drawing.Point(7, 24);
             this.IdPaisControl.Name = "IdPaisControl";
@@ -483,6 +492,7 @@
             // 
             // IdEstadoControl
             // 
+            this.IdEstadoControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IdEstadoControl.FormattingEnabled = true;
             this.IdEstadoControl.Location = new System.Drawing.Point(3, 25);
             this.IdEstadoControl.Name = "IdEstadoControl";
@@ -512,6 +522,7 @@
             // 
             // IdMunicipioControl
             // 
+            this.IdMunicipioControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IdMunicipioControl.FormattingEnabled = true;
             this.IdMunicipioControl.Location = new System.Drawing.Point(3, 30);
             this.IdMunicipioControl.Name = "IdMunicipioControl";
@@ -541,6 +552,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FrmProveedor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmProveedor";
             this.Shown += new System.EventHandler(this.FrmProveedor_Shown);
             this.panel1.ResumeLayout(false);

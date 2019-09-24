@@ -57,11 +57,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\Requests\EncuestaRequest.cs" />
     <Compile Include="DTOs\Requests\LoginRequests.cs" />
+    <Compile Include="Entities\AbonoPaquete.cs" />
+    <Compile Include="Entities\AbonoPaqueteDetalle.cs" />
     <Compile Include="Entities\BusqueProducto.cs" />
     <Compile Include="Entities\CategoriaProducto.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Compra.cs" />
+    <Compile Include="Entities\Cuestionario.cs" />
     <Compile Include="Entities\Estado.cs" />
     <Compile Include="Entities\Municipio.cs" />
     <Compile Include="Entities\Pais.cs" />
@@ -72,13 +76,17 @@
     <Compile Include="Entities\PromocionDias.cs" />
     <Compile Include="Entities\PromocionMxN.cs" />
     <Compile Include="Entities\PromocionNxN.cs" />
+    <Compile Include="Entities\RegistroEntradaSalida.cs" />
+    <Compile Include="Entities\Preguntas.cs" />
     <Compile Include="Entities\ReglasRol.cs" />
     <Compile Include="Entities\PaqueteDetalle.cs" />
     <Compile Include="Entities\Paquetes.cs" />
     <Compile Include="Entities\Producto.cs" />
     <Compile Include="Entities\Empleado.cs" />
+    <Compile Include="Entities\ProductosMonedero.cs" />
     <Compile Include="Entities\Proveedor.cs" />
     <Compile Include="Entities\ProveedorACompra.cs" />
+    <Compile Include="Entities\Respuestas.cs" />
     <Compile Include="Entities\Puesto.cs" />
     <Compile Include="Entities\Rol.cs" />
     <Compile Include="Entities\Servicio.cs" />
@@ -90,13 +98,17 @@
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Entities\UnidadMedida.cs" />
     <Compile Include="Entities\Venta.cs" />
+    <Compile Include="Entities\VentaDetalle.cs" />
+    <Compile Include="Entities\VentasCancelaciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\IBaseRepository.cs" />
     <Compile Include="Repositories\General\IBusqProductoRepository.cs" />
+    <Compile Include="Repositories\General\ICancelacionVentaRepository.cs" />
     <Compile Include="Repositories\General\ICategoriaProductoRepository.cs" />
     <Compile Include="Repositories\General\IClienteRepository.cs" />
     <Compile Include="Entities\FormaPago.cs" />
     <Compile Include="Repositories\General\ICompraRepository.cs" />
+    <Compile Include="Repositories\General\ICuestionarioRepository.cs" />
     <Compile Include="Repositories\General\IEmpleadoRepository.cs" />
     <Compile Include="Repositories\General\IEstadoRepository.cs" />
     <Compile Include="Repositories\General\IFormaPagoRepository.cs" />
@@ -107,9 +119,11 @@
     <Compile Include="Repositories\General\IPaqueteRepository.cs" />
     <Compile Include="Repositories\General\IProductoRepository.cs" />
     <Compile Include="Repositories\General\IPromocionRepository.cs" />
+    <Compile Include="Repositories\General\IProductosMonederoRepository.cs" />
     <Compile Include="Repositories\General\IProveedorACompraRepository.cs" />
     <Compile Include="Repositories\General\IProveedorRepository.cs" />
     <Compile Include="Repositories\General\IPuestoRepository.cs" />
+    <Compile Include="Repositories\General\IRegistroEntradaSalidaRepository.cs" />
     <Compile Include="Repositories\General\IReglaPerfilRepository.cs" />
     <Compile Include="Repositories\General\IServicioRepository.cs" />
     <Compile Include="Repositories\General\ISucursalRepository.cs" />

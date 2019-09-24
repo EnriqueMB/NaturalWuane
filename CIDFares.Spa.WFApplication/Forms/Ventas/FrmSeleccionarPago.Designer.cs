@@ -35,6 +35,7 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo gridBordersInfo1 = new Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
+            this.ErrorControl = new System.Windows.Forms.Label();
             this.pnlEfectivo = new System.Windows.Forms.Panel();
             this.EfectivoControl = new Syncfusion.Windows.Forms.Tools.CurrencyTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -51,7 +52,7 @@
             this.CambioControl = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ErrorControl = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PanelPrincipal.SuspendLayout();
             this.pnlEfectivo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EfectivoControl)).BeginInit();
@@ -60,6 +61,7 @@
             this.panel1.SuspendLayout();
             this.pnlCambio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelPrincipal
@@ -74,6 +76,14 @@
             this.PanelPrincipal.Name = "PanelPrincipal";
             this.PanelPrincipal.Size = new System.Drawing.Size(442, 536);
             this.PanelPrincipal.TabIndex = 0;
+            // 
+            // ErrorControl
+            // 
+            this.ErrorControl.AutoSize = true;
+            this.ErrorControl.Location = new System.Drawing.Point(401, 163);
+            this.ErrorControl.Name = "ErrorControl";
+            this.ErrorControl.Size = new System.Drawing.Size(0, 13);
+            this.ErrorControl.TabIndex = 12;
             // 
             // pnlEfectivo
             // 
@@ -103,6 +113,11 @@
             this.EfectivoControl.ForeColor = System.Drawing.Color.Silver;
             this.EfectivoControl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.EfectivoControl.Location = new System.Drawing.Point(102, 34);
+            this.EfectivoControl.MaxValue = new decimal(new int[] {
+            -727379968,
+            232,
+            0,
+            0});
             this.EfectivoControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.EfectivoControl.MinimumSize = new System.Drawing.Size(8, 4);
             this.EfectivoControl.MinValue = new decimal(new int[] {
@@ -115,7 +130,7 @@
             this.EfectivoControl.PositiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
             this.EfectivoControl.SelectAllOnFocus = false;
             this.EfectivoControl.Size = new System.Drawing.Size(222, 34);
-            this.EfectivoControl.TabIndex = 11;
+            this.EfectivoControl.TabIndex = 1;
             this.EfectivoControl.Text = "$0.00";
             this.EfectivoControl.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.EfectivoControl.ThemeStyle.FocusBorderColor = System.Drawing.Color.Gray;
@@ -169,7 +184,7 @@
             this.GridFormaPago.Name = "GridFormaPago";
             this.GridFormaPago.SelectionMode = Syncfusion.WinForms.DataGrid.Enums.GridSelectionMode.Extended;
             this.GridFormaPago.SelectionUnit = Syncfusion.WinForms.DataGrid.Enums.SelectionUnit.Cell;
-            this.GridFormaPago.Size = new System.Drawing.Size(364, 207);
+            this.GridFormaPago.Size = new System.Drawing.Size(379, 207);
             gridBordersInfo1.Bottom = new Syncfusion.WinForms.DataGrid.Styles.GridBorder(Syncfusion.WinForms.DataGrid.Styles.GridBorderStyle.Standard, System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204))))));
             this.GridFormaPago.Style.AddNewRowStyle.Borders = gridBordersInfo1;
             this.GridFormaPago.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -185,7 +200,6 @@
             this.GridFormaPago.TabIndex = 7;
             this.GridFormaPago.Text = "sfDataGrid1";
             this.GridFormaPago.CurrentCellEndEdit += new Syncfusion.WinForms.DataGrid.Events.CurrentCellEndEditEventHandler(this.GridFormaPago_CurrentCellEndEdit);
-            this.GridFormaPago.CellCheckBoxClick += new Syncfusion.WinForms.DataGrid.Events.CellCheckBoxClickEventHandler(this.GridFormaPago_CellCheckBoxClick);
             this.GridFormaPago.TextChanged += new System.EventHandler(this.GridFormaPago_TextChanged);
             // 
             // panel3
@@ -216,6 +230,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.TotalControl);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -226,14 +241,14 @@
             // 
             // TotalControl
             // 
-            this.TotalControl.AutoSize = true;
             this.TotalControl.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.TotalControl.Location = new System.Drawing.Point(150, 66);
+            this.TotalControl.Location = new System.Drawing.Point(3, 66);
             this.TotalControl.Name = "TotalControl";
-            this.TotalControl.Size = new System.Drawing.Size(132, 56);
+            this.TotalControl.Size = new System.Drawing.Size(435, 56);
             this.TotalControl.TabIndex = 4;
             this.TotalControl.Text = "$300";
+            this.TotalControl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.TotalControl.Click += new System.EventHandler(this.TotalControl_Click);
             // 
             // label1
@@ -242,7 +257,7 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.label1.Location = new System.Drawing.Point(79, 29);
+            this.label1.Location = new System.Drawing.Point(79, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(296, 22);
             this.label1.TabIndex = 3;
@@ -260,7 +275,7 @@
             this.pnlCambio.Location = new System.Drawing.Point(0, 0);
             this.pnlCambio.Name = "pnlCambio";
             this.pnlCambio.Size = new System.Drawing.Size(441, 548);
-            this.pnlCambio.TabIndex = 1;
+            this.pnlCambio.TabIndex = 17;
             this.pnlCambio.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCambio_Paint);
             // 
             // label5
@@ -317,13 +332,16 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // ErrorControl
+            // pictureBox1
             // 
-            this.ErrorControl.AutoSize = true;
-            this.ErrorControl.Location = new System.Drawing.Point(401, 163);
-            this.ErrorControl.Name = "ErrorControl";
-            this.ErrorControl.Size = new System.Drawing.Size(0, 13);
-            this.ErrorControl.TabIndex = 12;
+            this.pictureBox1.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.cerrar;
+            this.pictureBox1.Location = new System.Drawing.Point(418, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // FrmSeleccionarPago
             // 
@@ -332,7 +350,7 @@
             this.ClientSize = new System.Drawing.Size(441, 548);
             this.Controls.Add(this.PanelPrincipal);
             this.Controls.Add(this.pnlCambio);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmSeleccionarPago";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmSeleccionarPago_Load);
@@ -348,6 +366,7 @@
             this.pnlCambio.ResumeLayout(false);
             this.pnlCambio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -372,5 +391,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label ErrorControl;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

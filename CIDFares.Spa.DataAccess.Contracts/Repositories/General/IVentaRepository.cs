@@ -12,5 +12,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
     {
         Task<string> GetFolio();
         Task<Venta> AddWithIdSucursalAsync(Venta element, object IdUsuario, object IdSucursal);
+        Task<int> CheckCantidadProducto(object IdProducto, int Cantidad);
+        Task<IEnumerable<Venta>> GetVentaDiasSucursalActiva(object FechaActual, object IdSucursal, object Folio);
     }
 }

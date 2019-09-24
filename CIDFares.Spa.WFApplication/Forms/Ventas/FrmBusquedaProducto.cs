@@ -53,9 +53,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             this.Model.BuscaClaveCodigo = true;
             this.ActiveControl = this.BuquedaClaveCodigoControl;
             this.BuquedaClaveCodigoControl.Focus();
+
             label1.Visible = false;
             CantidadProductoControl.Visible = false;
             BtnAgregar.Text = "Seleccionar";
+            CantidadProductoControl.Visible = false;
+            Model.CantidadProducto = cant;
         }
 
         #region Metodo
@@ -137,11 +140,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             {
                 if (Model.ListaBusquedaProducto.Count == 1)
                 {
-                    var item = Model.ListaBusquedaProducto.ElementAt(0);
-                    item.IdTipo = this.IDTipo = 1;
-                    item.CantidaProducto = 1;
-                    producto = item;
-                    this.Close();
+                    if (Model.CantidadProducto > 0)
+                    {
+                        var item = Model.ListaBusquedaProducto.ElementAt(0);
+                        item.IdTipo = this.IDTipo = 1;
+                        item.CantidadProducto = Model.CantidadProducto;
+                        producto = item;
+                        this.Close();
+                    }
+                    else
+                        errorProvider1.SetError(CantidadProductoControl, "LA CANTIDAD DE PRODUCTO TIENE QUE SER MAYOR A CERO.");
                 }
                 else
                 {
@@ -149,7 +157,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     if (item != null)
                     {
                         item.IdTipo = this.IDTipo = 1;
-                        item.CantidaProducto = Model.CantidadProducto;
+                        item.CantidadProducto = Model.CantidadProducto;
                         if (Model.CantidadProducto > 0)
                         {
                             producto = item;

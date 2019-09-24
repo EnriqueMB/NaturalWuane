@@ -48,6 +48,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
 
+
         private void IniciarBinding()
         {
             try
@@ -143,6 +144,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         if (result == 1)
                         {
                             CIDMessageBox.ShowAlert(Constants.Messages.SystemName, Constants.Messages.SuccessDeleteMessage, TypeMessage.correcto);
+                            GetDataAsync();
                         }
                         else
                             CIDMessageBox.ShowAlert(Constants.Messages.SystemName, Constants.Messages.SuccessDeleteMessage, TypeMessage.correcto);

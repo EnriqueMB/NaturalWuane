@@ -273,7 +273,6 @@
             this.sfDataGrid1.Columns.Add(gridTextColumn10);
             this.sfDataGrid1.Columns.Add(gridTextColumn11);
             this.sfDataGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
-           // this.sfDataGrid1.group
             groupColumnDescription1.ColumnName = "Turno";
             groupColumnDescription2.ColumnName = "Puesto";
             this.sfDataGrid1.GroupColumnDescriptions.Add(groupColumnDescription1);
@@ -284,7 +283,6 @@
             this.sfDataGrid1.Size = new System.Drawing.Size(963, 306);
             this.sfDataGrid1.TabIndex = 0;
             this.sfDataGrid1.Text = "sfDataGrid1";
-            this.sfDataGrid1.Click += new System.EventHandler(this.sfDataGrid1_Click);
             // 
             // errorProvider1
             // 
@@ -298,6 +296,7 @@
             this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.pnlTitulos);
             this.Controls.Add(this.FlpBotones);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmEmpleadoGrid";
             this.Text = "FrmEmpleadoGrid";
             this.Load += new System.EventHandler(this.FrmEmpleadoGrid_Load);

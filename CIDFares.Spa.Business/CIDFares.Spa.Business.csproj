@@ -55,6 +55,7 @@
     <Compile Include="ViewModels\Catalogos\BusquedaProductoViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\CategoriaProductoViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\ClienteViewModel.cs" />
+    <Compile Include="ViewModels\Catalogos\EncuestasViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\EmpleadoViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\FormaPagoViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\PaqueteViewModel.cs" />
@@ -65,7 +66,11 @@
     <Compile Include="ViewModels\Compras\ComprasViewModel.cs" />
     <Compile Include="ViewModels\General\LoginViewModel.cs" />
     <Compile Include="ViewModels\Promociones\PromocionViewModel.cs" />
+    <Compile Include="ViewModels\General\RegistroEntradaSalidaViewModel.cs" />
+    <Compile Include="ViewModels\Paquete\AbonoPaqueteDetalleViewModel.cs" />
     <Compile Include="ViewModels\Usuarios\ReglaPerfilViewModel.cs" />
+    <Compile Include="ViewModels\General\ProductosMonederoViewModel.cs" />
+    <Compile Include="ViewModels\Ventas\CancelacionVentaViewModel.cs" />
     <Compile Include="ViewModels\Ventas\SeleccionarPagoViewModel.cs" />
     <Compile Include="ViewModels\General\SucursalViewModel.cs" />
     <Compile Include="ViewModels\Ventas\VentasViewModel.cs" />
