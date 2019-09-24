@@ -24,8 +24,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         public BindingList<CapturaCita> ListaCapturaCitaDetalle { get; set; }
         public BindingList<CapturaCita> ListaCapturaCitaDetalleServicio { get; set; }
         public BindingList<CapturaCita> ListaHoras { get; set; }
-        public DataTable TablaGServicio { get; set; }
-        //List<Syncfusion.WinForms.Input.SpecialDate> list = new List<Syncfusion.WinForms.Input.SpecialDate>();
+        public DataTable TablaGServicio { get; set; }        
         public EntityState State { get; set; }
         #endregion
 
@@ -70,8 +69,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 CapturaCita model = new CapturaCita
                 {
                     IdCita = IdCita,
-                    IdCliente = IdCliente,
-                    //FechaCita = FechaCita,
+                    IdCliente = IdCliente,                    
                     TablaServicio = TablaGServicio,                                        
                 };
                 if (State == EntityState.Create)
@@ -205,24 +203,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
 
                 throw ex;
             }
-        }
-
-        //public async Task<CapturaCita> GuardarCita(Guid idCuentaUsuario, int IdSucursal)
-        //{
-        //    CapturaCita model = new CapturaCita
-        //    {
-        //        //ClienteVenta = new Cliente { IdCliente = this.IdCliente },
-        //        //Folio = this.Folio,
-        //        //SubTotal = this.SubTotal,
-        //        //Total = this.Total,
-        //        //Efectivo = this.Efectivo,
-        //        //PorcentajeIva = this.Iva,
-        //        //TablaProducto = TablaProducto,
-        //        //TablaFormaPago = TablaFormaPago,
-        //        //TablaServicio = TablaServicio
-        //    };
-        //    return await Repository.AddCita(model, idCuentaUsuario, IdSucursal);
-        //}
+        }        
         #endregion
 
         #region Binding

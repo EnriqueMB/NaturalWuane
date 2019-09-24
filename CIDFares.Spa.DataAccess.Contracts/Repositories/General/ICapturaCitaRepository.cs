@@ -10,8 +10,7 @@ using System.Threading.Tasks;
 namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
 {
     public interface ICapturaCitaRepository : IBaseRepository<CapturaCita>
-    {        
-        //Task<IEnumerable<CapturaCita>> GetCitaXPeriodo(DateTime fechaInicio, DateTime fechaFin);
+    {                
         Task<BindingList<CapturaCita>> GetCitaXPeriodo(DateTime fechaInicio, DateTime fechaFin, object IdSucursal);
         Task<BindingList<CapturaCita>> GetCitaDetalle(DateTime? fecha, object IdSucursal);
         Task<BindingList<CapturaCita>> GetCitaDetalleServicio(Guid idCita);

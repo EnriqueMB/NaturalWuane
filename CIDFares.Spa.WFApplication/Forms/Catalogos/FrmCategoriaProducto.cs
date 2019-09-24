@@ -9,13 +9,6 @@ using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
 using CIDFares.Spa.WFApplication.Session;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CIDFares.Spa.WFApplication.Forms.Catalogos
@@ -230,8 +223,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         private void NombreControl_TextChanged(object sender, EventArgs e)
         {
             var x = this.NombreControl.SelectionStart;
-            this.NombreControl.Text = this.NombreControl.Text.Replace("  ", " ");
-            //this.NombreControl.Select(this.NombreControl.Text.Length, 0);
+            this.NombreControl.Text = this.NombreControl.Text.Replace("  ", " ");            
             this.NombreControl.SelectionStart = x;
         }
 

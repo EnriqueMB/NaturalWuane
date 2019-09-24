@@ -12,12 +12,7 @@ using CIDFares.Spa.WFApplication.Session;
 using Syncfusion.WinForms.Input;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CIDFares.Spa.WFApplication.Forms.Ventas
@@ -95,7 +90,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             try
             {
-                //grpBoxFormaPago.Enabled = true;
                 LimpiarPropiedades();
                 Model.State = EntityState.Create;
                 this.CleanErrors(errorProvider1, typeof(CapturaCitaViewModel));
@@ -105,67 +99,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
 
                 throw ex;
             }
-        }
-
-        private void btnModificar_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                //var item = ObtenerSeleccionado();
-                //if (item != null)
-                //{
-                //    this.CleanErrors(errorProvider1, typeof(CapturaCitaViewModel));
-                //    //Model.IdFormaPago = item.IdFormaPago;
-                //    //Model.Nombre = item.Nombre;
-                //    //Model.Descripcion = item.Descripcion;
-                //    //grpBoxFormaPago.Enabled = true;
-                //    Model.State = EntityState.Update;
-                //}
-                //else
-                //    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
-            }
-            catch (Exception ex)
-            {
-
-                ErrorLogHelper.AddExcFileTxt(ex, "FrmFormaPago ~ btnModificar_Click(object sender, EventArgs e)");
-                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
-            }
-        }
-
-        private async void btnEliminar_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                //var item = ObtenerSeleccionado();
-                //if (item != null)
-                //{
-
-                //    if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmDeleteMessage) == DialogResult.OK)
-                //    {
-                //        //Model.IdFormaPago = item.IdFormaPago;
-                //        //grpBoxFormaPago.Enabled = false;
-                //        var result = 1;//await Model.DeleteAsync(CurrentSession.IdCuentaUsuario, Guid IdUser);
-                //        if (result == 1)
-                //        {
-                //            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.informacion);
-                //            LimpiarPropiedades();
-                //            this.CleanErrors(errorProvider1, typeof(CapturaCitaViewModel));
-                //            //await Model.GetAllAsync();
-                //        }
-                //        else
-                //            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.informacion);
-                //    }
-                //}
-                //else
-                //    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
-
-            }
-            catch (Exception ex)
-            {
-                ErrorLogHelper.AddExcFileTxt(ex, "FrmFormaPago ~ btnEliminar_Click(object sender, EventArgs e)");
-                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
-            }
-        }
+        }                
         #endregion
 
         private void FrmCapturaCita_Load(object sender, EventArgs e)
@@ -173,31 +107,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             try
             {
                 IniciarBinding();
-                LimpiarPropiedades();
-                //mcCita2
-                //mcCita2.SpecialDates = new DateTime[]
-                //{
-                //    new DateTime(2019,09,17),
-                //    new DateTime(2019,09, 15)
-                //};
-                //var x = await Repository.GetCitaXPeriodo(this.FechaInicio, this.FechaFinal);
-                //ListaCapturaCita.Clear();
-                //foreach (var item in x)
-                //{
-                //    ListaCapturaCita.Add(item);
-                //}
-                //SpecialDate specialDate = new SpecialDate();
-                //List<SpecialDate> list = new List<SpecialDate>();
-                
-                //DateTime[] array1 = new[] { DateTime.Now, DateTime.Now };
-                //DateTime[] array2 = new[] { DateTime.Today, DateTime.UtcNow };
-                //specialDate.Value = new DateTime(2019,09,11);
-                //specialDate.BackColor = System.Drawing.Color.Red;
-                //list.Add(specialDate);
-                //this.mcCita2.SpecialDates = list;
-                //mcCita2.SpecialDates.Add(list);
-                ////list.Add(array2);
-              // this.mcCita2.SpecialDates.Add(((Syncfusion.WinForms.Input.SpecialDate)(resources.GetObject("mcCita2.SpecialDates2"))));
+                LimpiarPropiedades();                
             }
             catch (Exception ex)
             {
@@ -229,23 +139,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmCapturaCita ~ btnBuscar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
             }
-        }
-
-        private async void monthCalendarAdv1_Load(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    await Model.GetCitaXPeriodo();
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw ex;
-            //}            
-        }
+        }       
 
         private void mcCita_Click(object sender, EventArgs e)
-        {            
-            //var x = this.mcCita.Value;
+        {                        
             Console.WriteLine("Hola");
         }
 
@@ -263,7 +160,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                         {
                             v = 1;
                             Console.WriteLine("Detalle");
-                            //await Model.GetCitaDetalle(x);
                             FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo(x);
                             f.ShowDialog();
                             Model.State = EntityState.Update;
@@ -281,9 +177,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 else
                 {
                     CIDMessageBox.ShowAlert(Messages.SystemName, Messages.FechaSelectMessage, TypeMessage.informacion);
-                }
-                
-                //Model.GetAllAsync();
+                }                                
             }
             catch (Exception ex)
             {

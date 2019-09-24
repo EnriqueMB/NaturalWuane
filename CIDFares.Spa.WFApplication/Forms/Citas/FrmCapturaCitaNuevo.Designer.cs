@@ -49,6 +49,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gbCita = new System.Windows.Forms.GroupBox();
+            this.lblCitaOcupadaControl = new System.Windows.Forms.Label();
             this.HorasControl = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.HoraCitaControl = new System.Windows.Forms.DateTimePicker();
@@ -67,7 +68,6 @@
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgmCita = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblCitaOcupadaControl = new System.Windows.Forms.Label();
             this.pnlHeader.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -199,6 +199,14 @@
             this.gbCita.Size = new System.Drawing.Size(486, 606);
             this.gbCita.TabIndex = 12;
             this.gbCita.TabStop = false;
+            // 
+            // lblCitaOcupadaControl
+            // 
+            this.lblCitaOcupadaControl.AutoSize = true;
+            this.lblCitaOcupadaControl.Location = new System.Drawing.Point(350, 98);
+            this.lblCitaOcupadaControl.Name = "lblCitaOcupadaControl";
+            this.lblCitaOcupadaControl.Size = new System.Drawing.Size(0, 17);
+            this.lblCitaOcupadaControl.TabIndex = 35;
             // 
             // HorasControl
             // 
@@ -332,22 +340,23 @@
             gridTextColumn2.MappingName = "Servicio";
             gridTextColumn3.AllowEditing = false;
             gridTextColumn3.AllowResizing = true;
+            gridTextColumn3.Format = "HH:mm";
             gridTextColumn3.HeaderText = "Inicio";
             gridTextColumn3.MappingName = "FechaIServicio";
-            gridTextColumn3.MaximumWidth = 110D;
+            gridTextColumn3.MaximumWidth = 50D;
             gridTextColumn4.AllowEditing = false;
             gridTextColumn4.AllowResizing = true;
             gridTextColumn4.Format = "HH:mm";
             gridTextColumn4.HeaderText = "Fin";
             gridTextColumn4.MappingName = "FechaFServicio";
-            gridTextColumn4.MaximumWidth = 110D;
+            gridTextColumn4.MaximumWidth = 50D;
             this.dgmServicio.Columns.Add(gridTextColumn1);
             this.dgmServicio.Columns.Add(gridTextColumn2);
             this.dgmServicio.Columns.Add(gridTextColumn3);
             this.dgmServicio.Columns.Add(gridTextColumn4);
             this.dgmServicio.Location = new System.Drawing.Point(27, 186);
             this.dgmServicio.Name = "dgmServicio";
-            this.dgmServicio.Size = new System.Drawing.Size(382, 117);
+            this.dgmServicio.Size = new System.Drawing.Size(428, 117);
             this.dgmServicio.TabIndex = 18;
             this.dgmServicio.Text = "sfDataGrid1";
             // 
@@ -491,14 +500,6 @@
             // 
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
-            // 
-            // lblCitaOcupadaControl
-            // 
-            this.lblCitaOcupadaControl.AutoSize = true;
-            this.lblCitaOcupadaControl.Location = new System.Drawing.Point(350, 98);
-            this.lblCitaOcupadaControl.Name = "lblCitaOcupadaControl";
-            this.lblCitaOcupadaControl.Size = new System.Drawing.Size(0, 17);
-            this.lblCitaOcupadaControl.TabIndex = 35;
             // 
             // FrmCapturaCitaNuevo
             // 
