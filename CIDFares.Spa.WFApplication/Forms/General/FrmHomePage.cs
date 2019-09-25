@@ -1,4 +1,6 @@
 ﻿using CIDFares.Library.Controls.CIDMessageBox.Code;
+using CIDFares.Spa.Business.ViewModels.Ventas;
+using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.WFApplication.Constants;
 using CIDFares.Spa.WFApplication.Forms.Catalogos;
 using CIDFares.Spa.WFApplication.Forms.Compras;
@@ -21,12 +23,16 @@ namespace CIDFares.Spa.WFApplication.Forms.General
 {
     public partial class FrmHomePage : Form
     {
+        #region  Propiedades públicas
+        public CambioVentaViewModel Model { get; set; }
+        #endregion
         #region Variables Globales
         int X, Y;
         #endregion
         public FrmHomePage()
         {
             InitializeComponent();
+            Model = ServiceLocator.Instance.Resolve<CambioVentaViewModel>();
         }
 
         #region Eventos
@@ -243,10 +249,32 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         #endregion
 
         #region Eventos click de Generales
-        private void BtnVenta_Click(object sender, EventArgs e)
+        private async void BtnVenta_Click(object sender, EventArgs e)
         {
-            SlideGenerales(btnVenta);
-            GetPanel(new FrmVenta());
+            try
+            {
+                var Resultado = await Model.CargarDatos(CurrentSession.IdSucursal, CurrentSession.IdEmpleado, CurrentSession.IdTurnoEmpleado);
+                if (Resultado != 1)
+                {
+                    SlideGenerales(btnVenta);
+                    GetPanel(new FrmVenta());
+                    
+                }
+                else
+                {
+                    FrmCambioVenta frm = new FrmCambioVenta();
+                    frm.ShowDialog();
+                    SlideGenerales(btnVenta);
+                    GetPanel(new FrmVenta());
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
         }
 
         private void BtnCompras_Click(object sender, EventArgs e)

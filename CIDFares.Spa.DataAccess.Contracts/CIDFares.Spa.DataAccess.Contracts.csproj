@@ -60,6 +60,7 @@
     <Compile Include="DTOs\Requests\EncuestaRequest.cs" />
     <Compile Include="DTOs\Requests\LoginRequests.cs" />
     <Compile Include="Entities\BusqueProducto.cs" />
+    <Compile Include="Entities\CambioVenta.cs" />
     <Compile Include="Entities\CategoriaProducto.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Compra.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\IBaseRepository.cs" />
     <Compile Include="Repositories\General\IBusqProductoRepository.cs" />
+    <Compile Include="Repositories\General\ICambioVentaRepository.cs" />
     <Compile Include="Repositories\General\ICategoriaProductoRepository.cs" />
     <Compile Include="Repositories\General\IClienteRepository.cs" />
     <Compile Include="Entities\FormaPago.cs" />
