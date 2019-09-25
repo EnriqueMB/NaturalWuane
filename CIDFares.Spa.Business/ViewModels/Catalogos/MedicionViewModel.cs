@@ -1,6 +1,7 @@
 ﻿using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
+using CIDFares.Spa.DataAccess.Contracts.Validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,26 +11,30 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.Business.ViewModels.Catalogos
 {
-    public class MedicionViewModel
+    public class MedicionViewModel: Validable, INotifyPropertyChanged
     {
         #region Propiedades Privadas
         private IMedicionRepository MedicionRepository { get; set; }
         private IListaMedicionRepository ListaMedicionRepository { get; set; }
+        private IUnidadMedidaRepository UnidadMedidaRepository { get; set; }
         #endregion
 
         #region Propiedades Publicas
         public BindingList<Medicion> ListaMedicion { get; set; }
         public BindingList<ListaMedicion> ListaValoresMedicion { get; set; }
+        public BindingList<UnidadMedida> ListaUnidadMedida { get; set; }
         public EntityState State { get; set; }
         #endregion
 
         #region Constructor
-        public MedicionViewModel(IMedicionRepository medicionRepository, IListaMedicionRepository listaMedicionRepository, BindingList<Medicion> listaMedicion, BindingList<ListaMedicion> listaValoresMedicion)
+        public MedicionViewModel(IMedicionRepository medicionRepository, IListaMedicionRepository listaMedicionRepository, IUnidadMedidaRepository unidadMedidaRepository)
         {
             MedicionRepository = medicionRepository;
             ListaMedicionRepository = listaMedicionRepository;
-            ListaMedicion = listaMedicion;
-            ListaValoresMedicion = listaValoresMedicion;
+            UnidadMedidaRepository = unidadMedidaRepository;
+            ListaMedicion = new BindingList<Medicion>(); 
+            ListaValoresMedicion = new BindingList<ListaMedicion>();
+            ListaUnidadMedida = new BindingList<UnidadMedida>();
         }
         #endregion
 
@@ -80,7 +85,36 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 throw ex;
             }
         }
-        public async Task<Medicion> GuardarCambios(object IdUsuario)
+
+        public async Task<IEnumerable<UnidadMedida>> GetListaUnidadMedida()
+        {
+            try
+            {
+                var lista = await UnidadMedidaRepository.LlenarComboUnidadMedida();
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void LlenarListaUnidadMedida(IEnumerable<UnidadMedida> lista)
+        {
+            try
+            {
+                ListaUnidadMedida.Clear();
+                foreach (var item in lista)
+                {
+                    ListaUnidadMedida.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task<Medicion> GuardarCambios(Guid IdUsuario)
         {
             try
             {
@@ -88,19 +122,21 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 if (State == EntityState.Create)
                 {
                     medicion.Nombre = Nombre;
-                    medicion.IdUnidaMedida = (EsAbierta == true) ? 0 : IdUnidaMedida;
+                    medicion.IdUnidaMedida = IdUnidaMedida;
                     medicion.EsAbierta = EsAbierta;
-                    medicion.IdListaMedicion = IdListaMedicion;
+                    medicion.IdListaMedicion = (EsAbierta == true) ? 0 : IdListaMedicion;
+                    medicion.IdUsuario = IdUsuario;
                     medicion = await MedicionRepository.AddAsync(medicion, IdUsuario);
 
                 }else if(State == EntityState.Update)
                 {
                     medicion.IdMedicion = IdMedicion;
                     medicion.Nombre = Nombre;
-                    medicion.IdUnidaMedida = (EsAbierta == true) ? 0 : IdUnidaMedida;
+                    medicion.IdUnidaMedida = IdUnidaMedida;
                     medicion.EsAbierta = EsAbierta;
-                    medicion.IdListaMedicion = IdListaMedicion;
-                    medicion = await MedicionRepository.AddAsync(medicion, IdUsuario);
+                    medicion.IdListaMedicion = (EsAbierta == true) ? 0 : IdListaMedicion;
+                    medicion.IdUsuario = IdUsuario;
+                    medicion = await MedicionRepository.UpdateAsync(medicion, IdUsuario);
                 }
                 return medicion;
             }
@@ -115,6 +151,32 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             try
             {
                 var result = await MedicionRepository.DeleteAsync(IdMedicion, IdUsuario);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<int> ValidarNombre()
+        {
+            try
+            {
+                var result = await MedicionRepository.NameExistAsync(Nombre.Trim());
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<int> DeleteListaMedicion(object IdUsuario)
+        {
+            try
+            {
+                var result = await ListaMedicionRepository.DeleteAsync(IdListaMedicion, IdUsuario);
                 return result;
             }
             catch (Exception ex)

@@ -58,6 +58,7 @@
     <Compile Include="ViewModels\Catalogos\EncuestasViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\EmpleadoViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\FormaPagoViewModel.cs" />
+    <Compile Include="ViewModels\Catalogos\ListaMedicionViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\MedicionViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\PaqueteViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\ProductoViewModel.cs" />

@@ -432,6 +432,13 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 throw ex;
             }
         }
+
+        private void btnMedicionPaciente_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnMedicionPaciente);
+            GetPanel(new FrmMedicionGrid());
+        }
+
         private void SlideGenerales(Button button)
         {
             SlidePanelgenerales.Visible = true;

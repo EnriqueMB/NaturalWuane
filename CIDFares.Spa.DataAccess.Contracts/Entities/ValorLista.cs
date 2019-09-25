@@ -10,7 +10,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
     {
         public int IdValorLista { get; set; }
         public string Valor { get; set; }
-        public int Posicion { get; set; }
         public Guid IdUsuario { get; set; }     
     }
 }

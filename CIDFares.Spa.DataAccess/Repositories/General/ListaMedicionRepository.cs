@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Dapper;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace CIDFares.Spa.DataAccess.Repositories.General
 {
@@ -19,7 +20,12 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 using (IDbConnection conexion = new SqlConnection(WebConnectionString))
                 {
                     conexion.Open();
-                    var result = await conexion.QueryFirstOrDefaultAsync<ListaMedicion>("[Catalogo].[SPCID_A_ListaMedicion]", param: element, commandType: CommandType.StoredProcedure);
+                    var Parametros = new DynamicParameters();
+                    Parametros.Add("@Nombre", element.Nombre);
+                    Parametros.Add("@Descripcion", element.Descripcion);
+                    Parametros.Add("@DatosValor", element.TablaValores, DbType.Object);
+                    Parametros.Add("@IdUsuario", element.IdUsuario);
+                    var result = await conexion.QueryFirstOrDefaultAsync<ListaMedicion>("[Catalogo].[SPCID_A_ListaMedicion]", param: Parametros, commandType: CommandType.StoredProcedure);
                     return result;
                 }
             }
@@ -79,8 +85,13 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 using (IDbConnection conexion = new SqlConnection(WebConnectionString))
                 {
                     conexion.Open();
-                    var lista = await conexion.QueryAsync<ValorLista>("[Catalogo].[SPCID_Get_ValoresListaMedicion]", commandType: CommandType.StoredProcedure);
-                    medicion.DatosValor = lista;
+                    var Parametros = new DynamicParameters();
+                    Parametros.Add("@IdListaMedicion", id);
+                    using (var lista = conexion.QueryMultipleAsync("[Catalogo].[SPCID_Get_ListaMedicionXId]", param: Parametros, commandType: CommandType.StoredProcedure).Result)
+                    {
+                        medicion = lista.ReadFirstOrDefault<ListaMedicion>();
+                        medicion.DatosValor = lista.Read<ValorLista>();
+                    }
                     return medicion;
                 }
             }
@@ -90,9 +101,24 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public Task<int> NameExistAsync(string name)
+        public async Task<int> NameExistAsync(string name)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var Parametros = new DynamicParameters();
+                    Parametros.Add("@Opcion", 16);
+                    Parametros.Add("@Nombre", name);
+                    var result = await conexion.ExecuteScalarAsync<int>("[General].[SPCID_ValidarNombre]", param: Parametros, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public async Task<ListaMedicion> UpdateAsync(ListaMedicion element, object IdUsuario)
@@ -102,7 +128,12 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 using (IDbConnection conexion = new SqlConnection(WebConnectionString))
                 {
                     conexion.Open();
-                    var result = await conexion.QueryFirstOrDefaultAsync<ListaMedicion>("[Catalogo].[SPCID_C_ListaMedicion]", param: element, commandType: CommandType.StoredProcedure);
+                    var Parametros = new DynamicParameters();
+                    Parametros.Add("@Nombre", element.Nombre);
+                    Parametros.Add("@Descripcion", element.Descripcion);
+                    Parametros.Add("@DatosValor", element.TablaValores, DbType.Object);
+                    Parametros.Add("@IdUsuario", element.IdUsuario);
+                    var result = await conexion.QueryFirstOrDefaultAsync<ListaMedicion>("[Catalogo].[SPCID_C_ListaMedicion]", param: Parametros, commandType: CommandType.StoredProcedure);
                     return result;
                 }
             }

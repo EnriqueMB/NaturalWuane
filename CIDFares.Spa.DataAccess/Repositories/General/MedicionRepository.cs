@@ -81,9 +81,24 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public Task<int> NameExistAsync(string name)
+        public async Task<int> NameExistAsync(string name)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var Parametros = new DynamicParameters();
+                    Parametros.Add("@Opcion", 17);
+                    Parametros.Add("@Nombre", name);
+                    var result = await conexion.ExecuteScalarAsync<int>("[General].[SPCID_ValidarNombre]", param: Parametros, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            { 
+                throw ex;
+            }
         }
 
         public async Task<Medicion> UpdateAsync(Medicion element, object IdUsuario)

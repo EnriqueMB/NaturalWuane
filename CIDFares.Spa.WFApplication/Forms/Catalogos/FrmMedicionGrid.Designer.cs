@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            this.components = new System.ComponentModel.Container();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.PnlHead = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.PnlFoot = new System.Windows.Forms.Panel();
@@ -39,43 +40,45 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.PnlBody = new System.Windows.Forms.Panel();
             this.PnlContainerGrid = new System.Windows.Forms.Panel();
-            this.sfDataGridCliente = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            this.sfDataGridMedicion = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.PnlContainerDatos = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.GroupMedicion = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.NombreCompletoControl = new System.Windows.Forms.TextBox();
+            this.NombreControl = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.SexoControl = new Syncfusion.Windows.Forms.Tools.ComboBoxAdv();
+            this.IdUnidaMedidaControl = new Syncfusion.Windows.Forms.Tools.ComboBoxAdv();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnEditarLista = new System.Windows.Forms.Button();
+            this.btnElimiarLista = new System.Windows.Forms.Button();
             this.BtnSeleccionar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxAdv1 = new Syncfusion.Windows.Forms.Tools.ComboBoxAdv();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.IdListaMedicionControl = new Syncfusion.Windows.Forms.Tools.ComboBoxAdv();
+            this.EsAbiertaControl = new System.Windows.Forms.CheckBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.PnlHead.SuspendLayout();
             this.PnlFoot.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.PnlBody.SuspendLayout();
             this.PnlContainerGrid.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sfDataGridCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sfDataGridMedicion)).BeginInit();
             this.PnlContainerDatos.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.GroupMedicion.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SexoControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdUnidaMedidaControl)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxAdv1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdListaMedicionControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlHead
@@ -112,7 +115,6 @@
             this.flowLayoutPanel2.Controls.Add(this.btnNuevo);
             this.flowLayoutPanel2.Controls.Add(this.btnModificar);
             this.flowLayoutPanel2.Controls.Add(this.btnEliminar);
-            this.flowLayoutPanel2.Controls.Add(this.button2);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 6);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(5, 15, 0, 0);
@@ -131,6 +133,7 @@
             this.btnNuevo.TabIndex = 3;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnModificar
             // 
@@ -144,6 +147,7 @@
             this.btnModificar.TabIndex = 4;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -157,19 +161,7 @@
             this.btnEliminar.TabIndex = 5;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(395, 18);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(123, 29);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Cliente Frec.";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // PnlBody
             // 
@@ -183,60 +175,61 @@
             // 
             // PnlContainerGrid
             // 
-            this.PnlContainerGrid.Controls.Add(this.sfDataGridCliente);
+            this.PnlContainerGrid.Controls.Add(this.sfDataGridMedicion);
             this.PnlContainerGrid.Location = new System.Drawing.Point(1, 0);
             this.PnlContainerGrid.Name = "PnlContainerGrid";
             this.PnlContainerGrid.Size = new System.Drawing.Size(710, 401);
             this.PnlContainerGrid.TabIndex = 1;
             // 
-            // sfDataGridCliente
+            // sfDataGridMedicion
             // 
-            this.sfDataGridCliente.AccessibleName = "Table";
-            this.sfDataGridCliente.AllowEditing = false;
-            this.sfDataGridCliente.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.AllowEditing = false;
-            gridTextColumn1.HeaderText = "Column1";
-            gridTextColumn1.MappingName = "IdMedicion";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.AllowEditing = false;
-            gridTextColumn2.HeaderText = "Nombre medicion";
-            gridTextColumn2.MappingName = "Nombre";
-            gridTextColumn3.AllowEditing = false;
-            gridTextColumn3.HeaderText = "Unidad medida";
-            gridTextColumn3.MappingName = "NombreUnidad";
-            gridTextColumn4.AllowEditing = false;
-            gridTextColumn4.HeaderText = "Valor";
-            gridTextColumn4.MappingName = "Valor";
-            this.sfDataGridCliente.Columns.Add(gridTextColumn1);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn2);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn3);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn4);
-            this.sfDataGridCliente.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sfDataGridCliente.Location = new System.Drawing.Point(0, 0);
-            this.sfDataGridCliente.Name = "sfDataGridCliente";
-            this.sfDataGridCliente.Size = new System.Drawing.Size(710, 401);
-            this.sfDataGridCliente.TabIndex = 2;
-            this.sfDataGridCliente.Text = "sfDataGrid1";
+            this.sfDataGridMedicion.AccessibleName = "Table";
+            this.sfDataGridMedicion.AllowEditing = false;
+            this.sfDataGridMedicion.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            gridTextColumn5.AllowEditing = false;
+            gridTextColumn5.HeaderText = "Column1";
+            gridTextColumn5.MappingName = "IdMedicion";
+            gridTextColumn5.Visible = false;
+            gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.HeaderText = "Nombre medicion";
+            gridTextColumn6.MappingName = "Nombre";
+            gridTextColumn7.AllowEditing = false;
+            gridTextColumn7.HeaderText = "Unidad medida";
+            gridTextColumn7.MappingName = "NombreUnidadMedida";
+            gridTextColumn8.AllowEditing = false;
+            gridTextColumn8.HeaderText = "Valor";
+            gridTextColumn8.MappingName = "NombreLista";
+            this.sfDataGridMedicion.Columns.Add(gridTextColumn5);
+            this.sfDataGridMedicion.Columns.Add(gridTextColumn6);
+            this.sfDataGridMedicion.Columns.Add(gridTextColumn7);
+            this.sfDataGridMedicion.Columns.Add(gridTextColumn8);
+            this.sfDataGridMedicion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sfDataGridMedicion.Location = new System.Drawing.Point(0, 0);
+            this.sfDataGridMedicion.Name = "sfDataGridMedicion";
+            this.sfDataGridMedicion.Size = new System.Drawing.Size(710, 401);
+            this.sfDataGridMedicion.TabIndex = 2;
+            this.sfDataGridMedicion.Text = "sfDataGrid1";
             // 
             // PnlContainerDatos
             // 
-            this.PnlContainerDatos.Controls.Add(this.groupBox1);
+            this.PnlContainerDatos.Controls.Add(this.GroupMedicion);
             this.PnlContainerDatos.Dock = System.Windows.Forms.DockStyle.Right;
             this.PnlContainerDatos.Location = new System.Drawing.Point(713, 0);
             this.PnlContainerDatos.Name = "PnlContainerDatos";
             this.PnlContainerDatos.Size = new System.Drawing.Size(339, 404);
             this.PnlContainerDatos.TabIndex = 0;
             // 
-            // groupBox1
+            // GroupMedicion
             // 
-            this.groupBox1.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.groupBox1.Location = new System.Drawing.Point(4, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(332, 392);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Datos medicion";
+            this.GroupMedicion.Controls.Add(this.tableLayoutPanel1);
+            this.GroupMedicion.Enabled = false;
+            this.GroupMedicion.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.GroupMedicion.Location = new System.Drawing.Point(4, 6);
+            this.GroupMedicion.Name = "GroupMedicion";
+            this.GroupMedicion.Size = new System.Drawing.Size(332, 392);
+            this.GroupMedicion.TabIndex = 0;
+            this.GroupMedicion.TabStop = false;
+            this.GroupMedicion.Text = "Datos medicion";
             // 
             // tableLayoutPanel1
             // 
@@ -279,6 +272,7 @@
             this.btnGuardar.TabIndex = 6;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelar
             // 
@@ -292,11 +286,12 @@
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.NombreCompletoControl);
+            this.panel1.Controls.Add(this.NombreControl);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(314, 83);
@@ -313,18 +308,20 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Nombre";
             // 
-            // NombreCompletoControl
+            // NombreControl
             // 
-            this.NombreCompletoControl.Location = new System.Drawing.Point(7, 44);
-            this.NombreCompletoControl.MaxLength = 200;
-            this.NombreCompletoControl.Name = "NombreCompletoControl";
-            this.NombreCompletoControl.Size = new System.Drawing.Size(297, 27);
-            this.NombreCompletoControl.TabIndex = 5;
+            this.NombreControl.Location = new System.Drawing.Point(7, 44);
+            this.NombreControl.MaxLength = 200;
+            this.NombreControl.Name = "NombreControl";
+            this.NombreControl.Size = new System.Drawing.Size(297, 27);
+            this.NombreControl.TabIndex = 5;
+            this.NombreControl.TextChanged += new System.EventHandler(this.NombreControl_TextChanged);
+            this.NombreControl.Leave += new System.EventHandler(this.NombreControl_Leave);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.SexoControl);
+            this.panel2.Controls.Add(this.IdUnidaMedidaControl);
             this.panel2.Location = new System.Drawing.Point(3, 92);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(314, 83);
@@ -341,47 +338,66 @@
             this.label8.TabIndex = 53;
             this.label8.Text = "Unidad medida";
             // 
-            // SexoControl
+            // IdUnidaMedidaControl
             // 
-            this.SexoControl.AutoComplete = false;
-            this.SexoControl.BackColor = System.Drawing.Color.White;
-            this.SexoControl.BeforeTouchSize = new System.Drawing.Size(193, 29);
-            this.SexoControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Adjust;
-            this.SexoControl.FlatBorderColor = System.Drawing.Color.BurlyWood;
-            this.SexoControl.Location = new System.Drawing.Point(7, 41);
-            this.SexoControl.MetroBorderColor = System.Drawing.Color.Black;
-            this.SexoControl.Name = "SexoControl";
-            this.SexoControl.Size = new System.Drawing.Size(193, 29);
-            this.SexoControl.Style = Syncfusion.Windows.Forms.VisualStyle.Metro;
-            this.SexoControl.TabIndex = 52;
-            this.SexoControl.Text = "comboBoxAdv1";
-            this.SexoControl.ThemeName = "Metro";
+            this.IdUnidaMedidaControl.AutoComplete = false;
+            this.IdUnidaMedidaControl.BackColor = System.Drawing.Color.White;
+            this.IdUnidaMedidaControl.BeforeTouchSize = new System.Drawing.Size(193, 29);
+            this.IdUnidaMedidaControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Adjust;
+            this.IdUnidaMedidaControl.FlatBorderColor = System.Drawing.Color.BurlyWood;
+            this.IdUnidaMedidaControl.Location = new System.Drawing.Point(7, 41);
+            this.IdUnidaMedidaControl.MetroBorderColor = System.Drawing.Color.Black;
+            this.IdUnidaMedidaControl.Name = "IdUnidaMedidaControl";
+            this.IdUnidaMedidaControl.Size = new System.Drawing.Size(193, 29);
+            this.IdUnidaMedidaControl.Style = Syncfusion.Windows.Forms.VisualStyle.Metro;
+            this.IdUnidaMedidaControl.TabIndex = 52;
+            this.IdUnidaMedidaControl.Text = "comboBoxAdv1";
+            this.IdUnidaMedidaControl.ThemeName = "Metro";
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.btnEditarLista);
+            this.panel3.Controls.Add(this.btnElimiarLista);
             this.panel3.Controls.Add(this.BtnSeleccionar);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.comboBoxAdv1);
-            this.panel3.Controls.Add(this.checkBox1);
+            this.panel3.Controls.Add(this.IdListaMedicionControl);
+            this.panel3.Controls.Add(this.EsAbiertaControl);
             this.panel3.Location = new System.Drawing.Point(3, 181);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(314, 83);
             this.panel3.TabIndex = 2;
             // 
-            // button1
+            // btnEditarLista
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(222, 42);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 29);
-            this.button1.TabIndex = 57;
-            this.button1.Text = "-";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnEditarLista.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarLista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(148)))), ((int)(((byte)(65)))));
+            this.btnEditarLista.FlatAppearance.BorderSize = 0;
+            this.btnEditarLista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarLista.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnEditarLista.ForeColor = System.Drawing.Color.White;
+            this.btnEditarLista.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditarLista.Location = new System.Drawing.Point(239, 42);
+            this.btnEditarLista.Name = "btnEditarLista";
+            this.btnEditarLista.Size = new System.Drawing.Size(32, 28);
+            this.btnEditarLista.TabIndex = 58;
+            this.btnEditarLista.Text = "E";
+            this.btnEditarLista.UseVisualStyleBackColor = false;
+            this.btnEditarLista.Click += new System.EventHandler(this.btnEditarLista_Click);
+            // 
+            // btnElimiarLista
+            // 
+            this.btnElimiarLista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.btnElimiarLista.FlatAppearance.BorderSize = 0;
+            this.btnElimiarLista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnElimiarLista.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnElimiarLista.ForeColor = System.Drawing.Color.White;
+            this.btnElimiarLista.Location = new System.Drawing.Point(206, 42);
+            this.btnElimiarLista.Name = "btnElimiarLista";
+            this.btnElimiarLista.Size = new System.Drawing.Size(30, 28);
+            this.btnElimiarLista.TabIndex = 57;
+            this.btnElimiarLista.Text = "-";
+            this.btnElimiarLista.UseVisualStyleBackColor = false;
+            this.btnElimiarLista.Click += new System.EventHandler(this.btnElimiarLista_Click);
             // 
             // BtnSeleccionar
             // 
@@ -392,12 +408,13 @@
             this.BtnSeleccionar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.BtnSeleccionar.ForeColor = System.Drawing.Color.White;
             this.BtnSeleccionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSeleccionar.Location = new System.Drawing.Point(272, 42);
+            this.BtnSeleccionar.Location = new System.Drawing.Point(274, 42);
             this.BtnSeleccionar.Name = "BtnSeleccionar";
             this.BtnSeleccionar.Size = new System.Drawing.Size(32, 28);
             this.BtnSeleccionar.TabIndex = 56;
             this.BtnSeleccionar.Text = "+";
             this.BtnSeleccionar.UseVisualStyleBackColor = false;
+            this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
             // 
             // label2
             // 
@@ -410,31 +427,36 @@
             this.label2.TabIndex = 55;
             this.label2.Text = "Valores";
             // 
-            // comboBoxAdv1
+            // IdListaMedicionControl
             // 
-            this.comboBoxAdv1.AutoComplete = false;
-            this.comboBoxAdv1.BackColor = System.Drawing.Color.White;
-            this.comboBoxAdv1.BeforeTouchSize = new System.Drawing.Size(193, 29);
-            this.comboBoxAdv1.Border3DStyle = System.Windows.Forms.Border3DStyle.Adjust;
-            this.comboBoxAdv1.FlatBorderColor = System.Drawing.Color.BurlyWood;
-            this.comboBoxAdv1.Location = new System.Drawing.Point(7, 41);
-            this.comboBoxAdv1.MetroBorderColor = System.Drawing.Color.Black;
-            this.comboBoxAdv1.Name = "comboBoxAdv1";
-            this.comboBoxAdv1.Size = new System.Drawing.Size(193, 29);
-            this.comboBoxAdv1.Style = Syncfusion.Windows.Forms.VisualStyle.Metro;
-            this.comboBoxAdv1.TabIndex = 54;
-            this.comboBoxAdv1.Text = "comboBoxAdv1";
-            this.comboBoxAdv1.ThemeName = "Metro";
+            this.IdListaMedicionControl.AutoComplete = false;
+            this.IdListaMedicionControl.BackColor = System.Drawing.Color.White;
+            this.IdListaMedicionControl.BeforeTouchSize = new System.Drawing.Size(193, 29);
+            this.IdListaMedicionControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Adjust;
+            this.IdListaMedicionControl.FlatBorderColor = System.Drawing.Color.BurlyWood;
+            this.IdListaMedicionControl.Location = new System.Drawing.Point(7, 41);
+            this.IdListaMedicionControl.MetroBorderColor = System.Drawing.Color.Black;
+            this.IdListaMedicionControl.Name = "IdListaMedicionControl";
+            this.IdListaMedicionControl.Size = new System.Drawing.Size(193, 29);
+            this.IdListaMedicionControl.Style = Syncfusion.Windows.Forms.VisualStyle.Metro;
+            this.IdListaMedicionControl.TabIndex = 54;
+            this.IdListaMedicionControl.Text = "comboBoxAdv1";
+            this.IdListaMedicionControl.ThemeName = "Metro";
             // 
-            // checkBox1
+            // EsAbiertaControl
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(222, 3);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(89, 25);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Es libre?";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.EsAbiertaControl.AutoSize = true;
+            this.EsAbiertaControl.Location = new System.Drawing.Point(222, 3);
+            this.EsAbiertaControl.Name = "EsAbiertaControl";
+            this.EsAbiertaControl.Size = new System.Drawing.Size(89, 25);
+            this.EsAbiertaControl.TabIndex = 0;
+            this.EsAbiertaControl.Text = "Es libre?";
+            this.EsAbiertaControl.UseVisualStyleBackColor = true;
+            this.EsAbiertaControl.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmMedicionGrid
             // 
@@ -454,19 +476,20 @@
             this.flowLayoutPanel2.ResumeLayout(false);
             this.PnlBody.ResumeLayout(false);
             this.PnlContainerGrid.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.sfDataGridCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sfDataGridMedicion)).EndInit();
             this.PnlContainerDatos.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.GroupMedicion.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SexoControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdUnidaMedidaControl)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxAdv1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdListaMedicionControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -478,29 +501,30 @@
         private System.Windows.Forms.Panel PnlBody;
         private System.Windows.Forms.Panel PnlContainerGrid;
         private System.Windows.Forms.Panel PnlContainerDatos;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox GroupMedicion;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox NombreCompletoControl;
+        private System.Windows.Forms.TextBox NombreControl;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label8;
-        private Syncfusion.Windows.Forms.Tools.ComboBoxAdv SexoControl;
+        private Syncfusion.Windows.Forms.Tools.ComboBoxAdv IdUnidaMedidaControl;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
-        private Syncfusion.Windows.Forms.Tools.ComboBoxAdv comboBoxAdv1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private Syncfusion.Windows.Forms.Tools.ComboBoxAdv IdListaMedicionControl;
+        private System.Windows.Forms.CheckBox EsAbiertaControl;
         private System.Windows.Forms.Button BtnSeleccionar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnElimiarLista;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
-        private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGridCliente;
+        private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGridMedicion;
+        private System.Windows.Forms.Button btnEditarLista;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
