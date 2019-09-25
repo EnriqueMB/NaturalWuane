@@ -70,6 +70,7 @@
             this.BtnConfigEquipos = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pnlGenerales = new System.Windows.Forms.Panel();
+            this.btnAbonarPaquete = new System.Windows.Forms.Button();
             this.btnEntradaSalida = new System.Windows.Forms.Button();
             this.btnCancelacionVenta = new System.Windows.Forms.Button();
             this.SlidePanelgenerales = new System.Windows.Forms.Panel();
@@ -103,7 +104,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnAbonarPaquete = new System.Windows.Forms.Button();
+            this.btnPromociones = new System.Windows.Forms.Button();
             this.pnl_MenuVertical.SuspendLayout();
             this.pnlMenu.SuspendLayout();
             this.pnlMenuPrincipal.SuspendLayout();
@@ -151,9 +152,9 @@
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.White;
             this.pnlMenu.Controls.Add(this.pnlMenuPrincipal);
+            this.pnlMenu.Controls.Add(this.pnlCatalogo);
             this.pnlMenu.Controls.Add(this.pnlNomina);
             this.pnlMenu.Controls.Add(this.pnlUsuarios);
-            this.pnlMenu.Controls.Add(this.pnlCatalogo);
             this.pnlMenu.Controls.Add(this.pnlConfiguracion);
             this.pnlMenu.Controls.Add(this.pnlGenerales);
             this.pnlMenu.Location = new System.Drawing.Point(0, 174);
@@ -176,7 +177,7 @@
             this.pnlMenuPrincipal.Controls.Add(this.pictureBox5);
             this.pnlMenuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.pnlMenuPrincipal.Name = "pnlMenuPrincipal";
-            this.pnlMenuPrincipal.Size = new System.Drawing.Size(213, 368);
+            this.pnlMenuPrincipal.Size = new System.Drawing.Size(213, 385);
             this.pnlMenuPrincipal.TabIndex = 9;
             // 
             // btnUsuarios
@@ -527,6 +528,7 @@
             // pnlCatalogo
             // 
             this.pnlCatalogo.BackColor = System.Drawing.Color.White;
+            this.pnlCatalogo.Controls.Add(this.btnPromociones);
             this.pnlCatalogo.Controls.Add(this.btnEmpleado);
             this.pnlCatalogo.Controls.Add(this.btnFormaPago);
             this.pnlCatalogo.Controls.Add(this.btnServicio);
@@ -539,7 +541,7 @@
             this.pnlCatalogo.Controls.Add(this.slidePanelCatalogo);
             this.pnlCatalogo.Location = new System.Drawing.Point(0, 0);
             this.pnlCatalogo.Name = "pnlCatalogo";
-            this.pnlCatalogo.Size = new System.Drawing.Size(213, 385);
+            this.pnlCatalogo.Size = new System.Drawing.Size(213, 394);
             this.pnlCatalogo.TabIndex = 31;
             // 
             // btnEmpleado
@@ -764,6 +766,24 @@
             this.pnlGenerales.Name = "pnlGenerales";
             this.pnlGenerales.Size = new System.Drawing.Size(213, 462);
             this.pnlGenerales.TabIndex = 13;
+            // 
+            // btnAbonarPaquete
+            // 
+            this.btnAbonarPaquete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.btnAbonarPaquete.FlatAppearance.BorderSize = 0;
+            this.btnAbonarPaquete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnAbonarPaquete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbonarPaquete.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbonarPaquete.ForeColor = System.Drawing.Color.Black;
+            this.btnAbonarPaquete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAbonarPaquete.Location = new System.Drawing.Point(10, 264);
+            this.btnAbonarPaquete.Name = "btnAbonarPaquete";
+            this.btnAbonarPaquete.Size = new System.Drawing.Size(193, 35);
+            this.btnAbonarPaquete.TabIndex = 28;
+            this.btnAbonarPaquete.Text = "ABONAR PAQUETE";
+            this.btnAbonarPaquete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAbonarPaquete.UseVisualStyleBackColor = false;
+            this.btnAbonarPaquete.Click += new System.EventHandler(this.btnAbonarPaquete_Click);
             // 
             // btnEntradaSalida
             // 
@@ -1205,23 +1225,23 @@
             this.panel2.Size = new System.Drawing.Size(1066, 31);
             this.panel2.TabIndex = 0;
             // 
-            // btnAbonarPaquete
+            // btnPromociones
             // 
-            this.btnAbonarPaquete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.btnAbonarPaquete.FlatAppearance.BorderSize = 0;
-            this.btnAbonarPaquete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
-            this.btnAbonarPaquete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAbonarPaquete.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAbonarPaquete.ForeColor = System.Drawing.Color.Black;
-            this.btnAbonarPaquete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAbonarPaquete.Location = new System.Drawing.Point(10, 264);
-            this.btnAbonarPaquete.Name = "btnAbonarPaquete";
-            this.btnAbonarPaquete.Size = new System.Drawing.Size(193, 35);
-            this.btnAbonarPaquete.TabIndex = 28;
-            this.btnAbonarPaquete.Text = "ABONAR PAQUETE";
-            this.btnAbonarPaquete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAbonarPaquete.UseVisualStyleBackColor = false;
-            this.btnAbonarPaquete.Click += new System.EventHandler(this.btnAbonarPaquete_Click);
+            this.btnPromociones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.btnPromociones.FlatAppearance.BorderSize = 0;
+            this.btnPromociones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnPromociones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPromociones.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPromociones.ForeColor = System.Drawing.Color.Black;
+            this.btnPromociones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPromociones.Location = new System.Drawing.Point(10, 350);
+            this.btnPromociones.Name = "btnPromociones";
+            this.btnPromociones.Size = new System.Drawing.Size(193, 35);
+            this.btnPromociones.TabIndex = 28;
+            this.btnPromociones.Text = "PROMOCIONES";
+            this.btnPromociones.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPromociones.UseVisualStyleBackColor = false;
+            this.btnPromociones.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmHomePage
             // 
@@ -1348,5 +1368,6 @@
         private System.Windows.Forms.Button btnEntradaSalida;
         private System.Windows.Forms.Button btnCancelacionVenta;
         private System.Windows.Forms.Button btnAbonarPaquete;
+        private System.Windows.Forms.Button btnPromociones;
     }
 }

@@ -81,5 +81,36 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
         {
 
         }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            GetPanel(new FrmNuevaPromocion());
+            //FrmNuevaPromocion nuevo = new FrmNuevaPromocion();
+            //nuevo.ShowDialog();
+        }
+        
+        public void GetPanel(object Formhijo)
+        {
+            try
+            {
+                if (this.panelContenedor.Controls.Count > 0)
+                {
+                    this.panelContenedor.Controls.RemoveAt(0);
+                }
+                Form Fchild = Formhijo as Form;
+                Fchild.TopLevel = false;
+                Fchild.Dock = DockStyle.Fill;
+                this.panelContenedor.Controls.Add(Fchild);
+                this.panelContenedor.Tag = Fchild;
+                Fchild.Dock = DockStyle.Fill;
+                Fchild.Show();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
     }
 }

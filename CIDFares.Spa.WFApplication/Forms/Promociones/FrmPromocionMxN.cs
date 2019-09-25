@@ -95,11 +95,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             PromocionMxN item = new PromocionMxN();
             item.Nombre = producto.Nombre;
             item.IDGenerico = producto.IdProducto;
-            item.CantidadGratis =(int)producto.CantidaProducto;
+            item.CantidadGratis =(int)producto.CantidadProducto;
             item.IdTipo = producto.IdTipo;
 
             var x = Model.ListaPromocionMxN.Where(p => p.IDGenerico == producto.IdProducto).Select(u => {
-                u.CantidadGratis +=(int)producto.CantidaProducto; return u;
+                u.CantidadGratis +=(int)producto.CantidadProducto; return u;
             }).ToList();
             if (x.Count == 1)
             {

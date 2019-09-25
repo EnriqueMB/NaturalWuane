@@ -17,6 +17,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CIDFares.Spa.DataAccess.Contracts.Entities;
+using CIDFares.Spa.WFApplication.Forms.Promociones;
 
 namespace CIDFares.Spa.WFApplication.Forms.General
 {
@@ -438,6 +440,12 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         {
             SlideCatalogo(btnAbonarPaquete);
             GetPanel(new FrmAbonarPaquete());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnPromociones);
+            GetPanel(new FrmPromocion());
         }
 
         private void SlideGenerales(Button button)

@@ -58,7 +58,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             CantidadProductoControl.Visible = false;
             BtnAgregar.Text = "Seleccionar";
             CantidadProductoControl.Visible = false;
-            Model.CantidadProducto = cant;
+            Model.CantidadProducto = tipoBusqueda;
         }
 
         #region Metodo

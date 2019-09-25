@@ -178,5 +178,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 button1.Text = "Buscar servicio";
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.panelContenedor.Controls.RemoveAt(0);
+        }
     }
 }

@@ -42,8 +42,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.grbBuscarServProd = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.panelOpcines.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -58,11 +58,10 @@
             // 
             this.panelOpcines.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.panelOpcines.Controls.Add(this.tableLayoutPanel1);
-            this.panelOpcines.Controls.Add(this.panel1);
             this.panelOpcines.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelOpcines.Location = new System.Drawing.Point(0, 0);
             this.panelOpcines.Name = "panelOpcines";
-            this.panelOpcines.Size = new System.Drawing.Size(236, 531);
+            this.panelOpcines.Size = new System.Drawing.Size(274, 531);
             this.panelOpcines.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -75,14 +74,15 @@
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.ForeColor = System.Drawing.Color.Coral;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 58);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(20);
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(236, 473);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(274, 531);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panel2
@@ -91,9 +91,9 @@
             this.panel2.Controls.Add(this.gbTipoPromocion);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.ForeColor = System.Drawing.Color.DimGray;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Location = new System.Drawing.Point(23, 23);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(230, 151);
+            this.panel2.Size = new System.Drawing.Size(230, 157);
             this.panel2.TabIndex = 0;
             // 
             // gbTipoPromocion
@@ -105,7 +105,7 @@
             this.gbTipoPromocion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbTipoPromocion.Location = new System.Drawing.Point(0, 0);
             this.gbTipoPromocion.Name = "gbTipoPromocion";
-            this.gbTipoPromocion.Size = new System.Drawing.Size(230, 151);
+            this.gbTipoPromocion.Size = new System.Drawing.Size(230, 157);
             this.gbTipoPromocion.TabIndex = 0;
             this.gbTipoPromocion.TabStop = false;
             this.gbTipoPromocion.Text = "Tipo de promocion";
@@ -139,9 +139,9 @@
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.grServProd);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 160);
+            this.panel3.Location = new System.Drawing.Point(23, 186);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(230, 151);
+            this.panel3.Size = new System.Drawing.Size(230, 157);
             this.panel3.TabIndex = 1;
             // 
             // grServProd
@@ -153,7 +153,7 @@
             this.grServProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grServProd.Location = new System.Drawing.Point(0, 0);
             this.grServProd.Name = "grServProd";
-            this.grServProd.Size = new System.Drawing.Size(230, 151);
+            this.grServProd.Size = new System.Drawing.Size(230, 157);
             this.grServProd.TabIndex = 1;
             this.grServProd.TabStop = false;
             this.grServProd.Text = "Producto o servicio";
@@ -202,19 +202,20 @@
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.Controls.Add(this.grbBuscarServProd);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 317);
+            this.panel4.Location = new System.Drawing.Point(23, 349);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(230, 153);
+            this.panel4.Size = new System.Drawing.Size(230, 159);
             this.panel4.TabIndex = 2;
             // 
             // grbBuscarServProd
             // 
+            this.grbBuscarServProd.Controls.Add(this.button2);
             this.grbBuscarServProd.Controls.Add(this.button1);
             this.grbBuscarServProd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grbBuscarServProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbBuscarServProd.Location = new System.Drawing.Point(0, 0);
             this.grbBuscarServProd.Name = "grbBuscarServProd";
-            this.grbBuscarServProd.Size = new System.Drawing.Size(230, 153);
+            this.grbBuscarServProd.Size = new System.Drawing.Size(230, 159);
             this.grbBuscarServProd.TabIndex = 1;
             this.grbBuscarServProd.TabStop = false;
             // 
@@ -231,23 +232,27 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(236, 58);
-            this.panel1.TabIndex = 0;
-            // 
             // panelContenedor
             // 
             this.panelContenedor.BackColor = System.Drawing.Color.White;
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(236, 0);
+            this.panelContenedor.Location = new System.Drawing.Point(274, 0);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(705, 531);
+            this.panelContenedor.Size = new System.Drawing.Size(667, 531);
             this.panelContenedor.TabIndex = 1;
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(0, 131);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(72, 22);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "<---";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FrmNuevaPromocion
             // 
@@ -256,7 +261,7 @@
             this.ClientSize = new System.Drawing.Size(941, 531);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.panelOpcines);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmNuevaPromocion";
             this.Text = "FrmNuevaPromocion";
             this.Load += new System.EventHandler(this.FrmNuevaPromocion_Load);
@@ -277,7 +282,6 @@
 
         private System.Windows.Forms.Panel panelOpcines;
         private System.Windows.Forms.Panel panelContenedor;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
@@ -291,5 +295,6 @@
         private System.Windows.Forms.RadioButton rbProducto;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

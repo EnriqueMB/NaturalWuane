@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo gridBordersInfo1 = new Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo gridBordersInfo2 = new Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnProducto = new System.Windows.Forms.Button();
             this.btnServicio = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.NombreProductoControl = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -87,7 +87,7 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(30);
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(20);
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.79568F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.16005F));
@@ -103,9 +103,9 @@
             this.groupBox3.Controls.Add(this.panel2);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(33, 225);
+            this.groupBox3.Location = new System.Drawing.Point(23, 223);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(639, 168);
+            this.groupBox3.Size = new System.Drawing.Size(659, 175);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Producto/Servicio gratis";
@@ -116,7 +116,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(314, 19);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(322, 146);
+            this.panel3.Size = new System.Drawing.Size(342, 153);
             this.panel3.TabIndex = 11;
             // 
             // panel4
@@ -128,8 +128,20 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(322, 146);
+            this.panel4.Size = new System.Drawing.Size(342, 153);
             this.panel4.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(12, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(313, 23);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Seleccione productos o servicios de regalo";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnEliminar
             // 
@@ -185,33 +197,33 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(3, 19);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(311, 146);
+            this.panel2.Size = new System.Drawing.Size(311, 153);
             this.panel2.TabIndex = 10;
             // 
             // GridPS
             // 
             this.GridPS.AccessibleName = "Table";
             this.GridPS.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.HeaderText = "Column1";
-            gridTextColumn1.MappingName = "IdGenerico";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.HeaderText = "Cantidad";
-            gridTextColumn2.MappingName = "CantidadGratis";
-            gridTextColumn2.Width = 40D;
-            gridTextColumn3.AllowEditing = false;
-            gridTextColumn3.AllowGrouping = false;
-            gridTextColumn3.HeaderText = "Nombre";
-            gridTextColumn3.MappingName = "Nombre";
-            this.GridPS.Columns.Add(gridTextColumn1);
-            this.GridPS.Columns.Add(gridTextColumn2);
-            this.GridPS.Columns.Add(gridTextColumn3);
+            gridTextColumn4.HeaderText = "Column1";
+            gridTextColumn4.MappingName = "IdGenerico";
+            gridTextColumn4.Visible = false;
+            gridTextColumn5.HeaderText = "Cantidad";
+            gridTextColumn5.MappingName = "CantidadGratis";
+            gridTextColumn5.Width = 40D;
+            gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.AllowGrouping = false;
+            gridTextColumn6.HeaderText = "Nombre";
+            gridTextColumn6.MappingName = "Nombre";
+            this.GridPS.Columns.Add(gridTextColumn4);
+            this.GridPS.Columns.Add(gridTextColumn5);
+            this.GridPS.Columns.Add(gridTextColumn6);
             this.GridPS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridPS.Location = new System.Drawing.Point(0, 0);
             this.GridPS.Name = "GridPS";
             this.GridPS.SelectionMode = Syncfusion.WinForms.DataGrid.Enums.GridSelectionMode.Extended;
-            this.GridPS.Size = new System.Drawing.Size(311, 146);
-            gridBordersInfo1.Bottom = new Syncfusion.WinForms.DataGrid.Styles.GridBorder(Syncfusion.WinForms.DataGrid.Styles.GridBorderStyle.Standard, System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204))))));
-            this.GridPS.Style.AddNewRowStyle.Borders = gridBordersInfo1;
+            this.GridPS.Size = new System.Drawing.Size(311, 153);
+            gridBordersInfo2.Bottom = new Syncfusion.WinForms.DataGrid.Styles.GridBorder(Syncfusion.WinForms.DataGrid.Styles.GridBorderStyle.Standard, System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204))))));
+            this.GridPS.Style.AddNewRowStyle.Borders = gridBordersInfo2;
             this.GridPS.Style.BorderColor = System.Drawing.Color.White;
             this.GridPS.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GridPS.Style.CellStyle.Font.Facename = "Century Gothic";
@@ -232,16 +244,16 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(33, 102);
+            this.groupBox2.Location = new System.Drawing.Point(23, 95);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(639, 117);
+            this.groupBox2.Size = new System.Drawing.Size(659, 122);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Producto en promocion";
             // 
             // CantidadControl
             // 
-            this.CantidadControl.BeforeTouchSize = new System.Drawing.Size(60, 23);
+            this.CantidadControl.BeforeTouchSize = new System.Drawing.Size(75, 23);
             this.CantidadControl.Location = new System.Drawing.Point(6, 31);
             this.CantidadControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.CantidadControl.Name = "CantidadControl";
@@ -266,9 +278,9 @@
             this.groupBox1.Controls.Add(this.NombreProductoControl);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(33, 33);
+            this.groupBox1.Location = new System.Drawing.Point(23, 23);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(639, 63);
+            this.groupBox1.Size = new System.Drawing.Size(659, 66);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -280,7 +292,7 @@
             this.NombreProductoControl.ForeColor = System.Drawing.Color.Black;
             this.NombreProductoControl.Location = new System.Drawing.Point(3, 19);
             this.NombreProductoControl.Name = "NombreProductoControl";
-            this.NombreProductoControl.Size = new System.Drawing.Size(633, 41);
+            this.NombreProductoControl.Size = new System.Drawing.Size(653, 44);
             this.NombreProductoControl.TabIndex = 3;
             this.NombreProductoControl.Text = "Coca cola ";
             this.NombreProductoControl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -288,10 +300,11 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.btnAgregar);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(33, 399);
+            this.groupBox4.Location = new System.Drawing.Point(23, 404);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(639, 93);
+            this.groupBox4.Size = new System.Drawing.Size(659, 104);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             // 
@@ -309,18 +322,6 @@
             this.btnAgregar.Text = "Siguiente";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click_1);
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(12, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(313, 23);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Seleccione productos o servicios de regalo";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // errorProvider1
             // 
