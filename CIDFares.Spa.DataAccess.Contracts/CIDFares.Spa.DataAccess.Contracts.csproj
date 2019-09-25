@@ -67,6 +67,7 @@
     <Compile Include="Entities\CategoriaProducto.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Compra.cs" />
+    <Compile Include="Entities\CompraCancelacion.cs" />
     <Compile Include="Entities\Cuestionario.cs" />
     <Compile Include="Entities\Estado.cs" />
     <Compile Include="Entities\ListaMedicion.cs" />
