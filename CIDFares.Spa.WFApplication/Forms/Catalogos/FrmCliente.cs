@@ -369,7 +369,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                             Model.IdCliente = item.IdCliente;
                             var resul = await Model.SetMonedero(CurrentSession.IdCuentaUsuario, frmClaveTarjeta.ClaveTarjeta, 1);
                             if (resul == 1)
+                            {
                                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                                await Model.GetAll();
+                            }
                             else
                                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
                         }
@@ -385,7 +388,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                                 Model.IdCliente = item.IdCliente;
                                 var resul = await Model.SetMonedero(CurrentSession.IdCuentaUsuario, frmClaveTarjeta.ClaveTarjeta, 2);
                                 if (resul == 1)
+                                {
                                     CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                                    await Model.GetAll();
+                                }
                                 else
                                     CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
                             }

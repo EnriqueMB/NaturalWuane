@@ -5,6 +5,7 @@ using CIDFares.Spa.WFApplication.Forms.Compras;
 using CIDFares.Spa.WFApplication.Forms.Cuestionarios;
 using CIDFares.Spa.WFApplication.Forms.Usuarios;
 using CIDFares.Spa.WFApplication.Forms.Ventas;
+using CIDFares.Spa.WFApplication.Forms.Paquete;
 using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
@@ -271,11 +272,15 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             SlideGenerales(btnMonedero);
             GetPanel(new FrmProductosMonedero());
         }
-
         private void BtnConsulta_Click(object sender, EventArgs e)
         {
             SlideGenerales(btnConsulta);
             GetPanel(new FrmCapturaConsulta());
+        }
+        private void BtnCancelacionVenta_Click(object sender, EventArgs e)
+        {
+            SlideGenerales(btnCancelacionVenta);
+            GetPanel(new FrmCancelacion());
         }
         #endregion
 
@@ -410,9 +415,42 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             }
         }
 
+
         private void BtnConfiguracion_Click(object sender, EventArgs e)
         {
+        }
+        private void btnEmpleado_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnEmpleado);
+            GetPanel(new FrmEmpleadoGrid());
+        }
 
+        private void btnEntradaSalida_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SlideCatalogo(btnEntradaSalida);
+                FrmRegistroEntradaSalida registro = new FrmRegistroEntradaSalida();
+                registro.ShowDialog();
+                
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        private void btnMedicionPaciente_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnMedicionPaciente);
+            GetPanel(new FrmMedicionGrid());
+        }
+
+        private void btnAbonarPaquete_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnAbonarPaquete);
+            GetPanel(new FrmAbonarPaquete());
         }
 
         private void SlideGenerales(Button button)

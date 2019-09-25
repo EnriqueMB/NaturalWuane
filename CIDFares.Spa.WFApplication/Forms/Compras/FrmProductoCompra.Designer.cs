@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.panelBuscador = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.ErrorControl = new System.Windows.Forms.Label();
@@ -62,7 +62,7 @@
             // 
             // panelBuscador
             // 
-            this.panelBuscador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.panelBuscador.BackColor = System.Drawing.Color.White;
             this.panelBuscador.Controls.Add(this.label3);
             this.panelBuscador.Controls.Add(this.ErrorControl);
             this.panelBuscador.Controls.Add(this.NombreControl);
@@ -148,15 +148,14 @@
             // BtnBusqueda
             // 
             this.BtnBusqueda.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BtnBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.BtnBusqueda.FlatAppearance.BorderSize = 0;
+            this.BtnBusqueda.BackColor = System.Drawing.Color.White;
             this.BtnBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBusqueda.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnBusqueda.Location = new System.Drawing.Point(787, 14);
             this.BtnBusqueda.Name = "BtnBusqueda";
             this.BtnBusqueda.Size = new System.Drawing.Size(89, 26);
             this.BtnBusqueda.TabIndex = 15;
-            this.BtnBusqueda.Text = "Buscar";
+            this.BtnBusqueda.Text = "BUSCAR";
             this.BtnBusqueda.UseVisualStyleBackColor = false;
             this.BtnBusqueda.Click += new System.EventHandler(this.BtnBusqueda_Click);
             // 
@@ -164,12 +163,12 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(12, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 21);
+            this.label2.Size = new System.Drawing.Size(169, 21);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Buscar producto";
+            this.label2.Text = "BUSCAR PRODUCTO";
             // 
             // panelProducto
             // 
@@ -184,26 +183,26 @@
             // 
             this.GridBuscarProducto.AccessibleName = "Table";
             this.GridBuscarProducto.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.HeaderText = "Column1";
-            gridTextColumn1.MappingName = "IdProducto";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.HeaderText = "Clave";
-            gridTextColumn2.MappingName = "Clave";
-            gridTextColumn3.HeaderText = "Nombre";
-            gridTextColumn3.MappingName = "Nombre";
-            gridTextColumn4.HeaderText = "Categoria";
-            gridTextColumn4.MappingName = "NombreCategoria";
-            gridTextColumn5.HeaderText = "Unidad medida";
-            gridTextColumn5.MappingName = "UnidadMedida";
-            gridTextColumn6.Format = "C";
-            gridTextColumn6.HeaderText = "Costo";
-            gridTextColumn6.MappingName = "CostoProducto";
-            this.GridBuscarProducto.Columns.Add(gridTextColumn1);
-            this.GridBuscarProducto.Columns.Add(gridTextColumn2);
-            this.GridBuscarProducto.Columns.Add(gridTextColumn3);
-            this.GridBuscarProducto.Columns.Add(gridTextColumn4);
-            this.GridBuscarProducto.Columns.Add(gridTextColumn5);
-            this.GridBuscarProducto.Columns.Add(gridTextColumn6);
+            gridTextColumn7.HeaderText = "Column1";
+            gridTextColumn7.MappingName = "IdProducto";
+            gridTextColumn7.Visible = false;
+            gridTextColumn8.HeaderText = "Clave";
+            gridTextColumn8.MappingName = "Clave";
+            gridTextColumn9.HeaderText = "Nombre";
+            gridTextColumn9.MappingName = "Nombre";
+            gridTextColumn10.HeaderText = "Categoria";
+            gridTextColumn10.MappingName = "NombreCategoria";
+            gridTextColumn11.HeaderText = "Unidad medida";
+            gridTextColumn11.MappingName = "UnidadMedida";
+            gridTextColumn12.Format = "C";
+            gridTextColumn12.HeaderText = "Costo";
+            gridTextColumn12.MappingName = "CostoProducto";
+            this.GridBuscarProducto.Columns.Add(gridTextColumn7);
+            this.GridBuscarProducto.Columns.Add(gridTextColumn8);
+            this.GridBuscarProducto.Columns.Add(gridTextColumn9);
+            this.GridBuscarProducto.Columns.Add(gridTextColumn10);
+            this.GridBuscarProducto.Columns.Add(gridTextColumn11);
+            this.GridBuscarProducto.Columns.Add(gridTextColumn12);
             this.GridBuscarProducto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridBuscarProducto.Location = new System.Drawing.Point(0, 0);
             this.GridBuscarProducto.Name = "GridBuscarProducto";
@@ -213,6 +212,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.CantidadControl);
             this.panel1.Controls.Add(this.BtnAgregar);
             this.panel1.Controls.Add(this.label1);
@@ -224,7 +224,7 @@
             // 
             // CantidadControl
             // 
-            this.CantidadControl.Location = new System.Drawing.Point(23, 194);
+            this.CantidadControl.Location = new System.Drawing.Point(23, 206);
             this.CantidadControl.Name = "CantidadControl";
             this.CantidadControl.Size = new System.Drawing.Size(125, 20);
             this.CantidadControl.TabIndex = 13;
@@ -232,15 +232,14 @@
             // BtnAgregar
             // 
             this.BtnAgregar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BtnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.BtnAgregar.FlatAppearance.BorderSize = 0;
+            this.BtnAgregar.BackColor = System.Drawing.Color.White;
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAgregar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAgregar.Location = new System.Drawing.Point(23, 249);
             this.BtnAgregar.Name = "BtnAgregar";
-            this.BtnAgregar.Size = new System.Drawing.Size(139, 29);
+            this.BtnAgregar.Size = new System.Drawing.Size(139, 48);
             this.BtnAgregar.TabIndex = 12;
-            this.BtnAgregar.Text = "Agregar compra";
+            this.BtnAgregar.Text = "AGREGAR COMPRA";
             this.BtnAgregar.UseVisualStyleBackColor = false;
             this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
@@ -250,7 +249,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 217);
+            this.label1.Location = new System.Drawing.Point(3, 171);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(163, 20);
             this.label1.TabIndex = 9;
@@ -269,6 +268,7 @@
             this.Controls.Add(this.panelProducto);
             this.Controls.Add(this.panelBuscador);
             this.Name = "FrmProductoCompra";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmProductoCompra";
             this.panelBuscador.ResumeLayout(false);
             this.panelBuscador.PerformLayout();

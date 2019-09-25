@@ -283,7 +283,6 @@
             this.sfDataGrid1.Size = new System.Drawing.Size(963, 306);
             this.sfDataGrid1.TabIndex = 0;
             this.sfDataGrid1.Text = "sfDataGrid1";
-            this.sfDataGrid1.Click += new System.EventHandler(this.sfDataGrid1_Click);
             // 
             // errorProvider1
             // 

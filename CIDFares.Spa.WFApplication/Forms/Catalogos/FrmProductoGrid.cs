@@ -48,6 +48,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                BtnNuevo.Enabled = false;
                 FrmProducto producto = new FrmProducto();
                 producto.ShowDialog();
                 Model.State = EntityState.Create;
@@ -58,12 +59,17 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmProductoGrid ~ BtnNuevo_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
+            finally
+            {
+                BtnNuevo.Enabled = true;
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             try
             {
+                btnModificar.Enabled = false;
                 var item = ObtenerSeleccionado();
                 if (item != null)
                 {
@@ -81,12 +87,17 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmProductoGrid ~ btnModificar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
+            finally
+            {
+                btnModificar.Enabled = true;
+            }
         }
 
         private async void btnEliminar_Click(object sender, EventArgs e)
         {
             try
             {
+                btnEliminar.Enabled = false;
                 var item = ObtenerSeleccionado();
                 if (item != null)
                 {
@@ -111,6 +122,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmProductoGrid ~ btnEliminar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+            finally
+            {
+                btnEliminar.Enabled = true;
             }
         }
         #endregion
