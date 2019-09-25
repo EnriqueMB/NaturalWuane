@@ -54,7 +54,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             {
                 FolioClienteControl.DataBindings.Add("Text", Model, "FolioCliente", true, DataSourceUpdateMode.OnPropertyChanged);
 
-                TotalControl.DataBindings.Add("Text", Model, "Total", true, DataSourceUpdateMode.OnPropertyChanged);
+                //TotalControl.DataBindings.Add("Text", Model, "Total", true, DataSourceUpdateMode.OnPropertyChanged);
                 IvaControl.DataBindings.Add("Text", Model, "Iva", true, DataSourceUpdateMode.OnPropertyChanged);
                 SubtotalControl.DataBindings.Add("Text", Model, "Subtotal", true, DataSourceUpdateMode.OnPropertyChanged);
                 FolioVentaControl.DataBindings.Add("Text", Model, "Folio", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -158,6 +158,60 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             return Tabla;
         }
 
+        //private DataTable ObtenerTablaPaquete(BindingList<Venta> Lista)
+        //{
+        //    Model.ListaPaquete.Clear();
+        //    Paquetes paquete;
+        //    DataTable Tabla = new DataTable();
+        //    Tabla.Columns.Add("IdPaquete", typeof(int));
+        //    Tabla.Columns.Add("Cantidad", typeof(decimal));
+        //    Tabla.Columns.Add("Total", typeof(decimal));
+        //    foreach (var item in Lista)
+        //    {
+        //        if (item.IdTipo == 3)
+        //        {
+           
+        //            paquete = new Paquetes();
+        //            paquete.PorcentajePago = 50;
+        //            paquete.IdPaquete = item.IdGenerico;
+        //            paquete.Nombre = item.Nombre;
+        //            paquete.MontoPaquete = item.Total;
+        //            paquete.CantidadServicio = (int)item.Cantidad;
+        //            paquete.Seleccionar = true;
+        //            paquete.PagoMinimo = paquete.MontoPaquete - (paquete.MontoPaquete * (paquete.PorcentajePago / 100));
+        //            paquete.Abono = paquete.MontoPaquete;
+        //            Model.ListaPaquete.Add(paquete);
+        //            Tabla.Rows.Add(new object[] { item.IdGenerico, item.Cantidad, item.Total });
+        //        }
+        //    }
+        //    return Tabla;
+        //}
+
+        private void ObtenerLista(BindingList<Venta> Lista)
+        {
+            Model.ListaPaquete.Clear();
+            Paquetes paquete;
+            foreach (var item in Lista)
+            {
+                if (item.IdTipo == 3)
+                {
+
+                    paquete = new Paquetes();
+                    paquete.PorcentajePago = 50;
+                    paquete.IdPaquete = item.IdGenerico;
+                    paquete.Nombre = item.Nombre;
+                    paquete.MontoPaquete = item.Total;
+                    paquete.CantidadServicio = (int)item.Cantidad;
+                    paquete.Seleccionar = true;
+                    paquete.PagoMinimo = paquete.MontoPaquete - (paquete.MontoPaquete * (paquete.PorcentajePago / 100));
+                    paquete.Abono = paquete.MontoPaquete;
+                    paquete.PorPagar = paquete.MontoPaquete - paquete.Abono;
+                    Model.ListaPaquete.Add(paquete);
+                }
+            }
+            
+        }
+
         #endregion
 
         private void FrmVenta_Load(object sender, EventArgs e)
@@ -169,21 +223,32 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
 
         private void btnTotal_Click(object sender, EventArgs e)
         {
-            BindingList<Venta> ListaProductos = (BindingList<Venta>)sfDataGridVenta.DataSource;
+            BindingList<Venta> Lista = (BindingList<Venta>)sfDataGridVenta.DataSource;
             this.CleanErrors(errorProvider1, typeof(VentasViewModel));
             var validationResults = Model.Validate();
             validationResults.ToString();
 
             if (validationResults.IsValid)
             {
-                if (ListaProductos.Count > 0)
+                if (Lista.Count > 0)
                 {
-                    Model.TablaProducto = ObtenerTablaProducto(ListaProductos);
-                    Model.TablaServicio = ObtenerTablaServicio(ListaProductos);
-                    FrmSeleccionarPago pago = new FrmSeleccionarPago(Model);
-                    pago.ShowDialog();
-                    if (pago.resultado)
-                        LimpiarPropiedades();
+                    Model.TablaProducto = ObtenerTablaProducto(Lista);
+                    Model.TablaServicio = ObtenerTablaServicio(Lista);
+                    ObtenerLista(Lista);
+                    if (Model.ListaPaquete.Count > 0)
+                    {
+                        FrmPaqueteVenta paquete = new FrmPaqueteVenta(Model);
+                        paquete.ShowDialog();
+                        if (paquete.resultado)
+                            LimpiarPropiedades();
+                    }
+                    else
+                    {
+                        FrmSeleccionarPago pago = new FrmSeleccionarPago(Model);
+                        pago.ShowDialog();
+                        if (pago.resultado)
+                            LimpiarPropiedades();
+                    }
                 }
                 else
                     errorProvider1.SetError(FolioVentaControl, "Seleccione al menos un articulo.");
@@ -214,6 +279,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 FotoControl.Image = Properties.Resources.imagen_subir;
                 BusquedaControl.Text = "";
                 txtCantidad.Text= "";
+                TotalControl.Text = "0";
             }
             catch (Exception)
             {
@@ -235,7 +301,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     int cantidadActual = 0;
                     int cantidadBusqueda = 0;
                     cantidadActual = Convert.ToInt32(cantidadAnterior);
-                    cantidadBusqueda = cantidadActual + Convert.ToInt32(item.CantidaProducto);
+                    cantidadBusqueda = cantidadActual + Convert.ToInt32(item.CantidadProducto);
                     var result = await Model.CheckCantidadProducto(item.IdProducto, cantidadBusqueda);
                     if (result == -1)
                     {
@@ -262,21 +328,21 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 {
                     Model.Listaventa.Add(new Venta { IdGenerico = Producto.IdProducto,
                                                     IdTipo = Producto.IdTipo,
-                                                    Cantidad = Producto.CantidaProducto,
+                                                    Cantidad = Producto.CantidadProducto,
                                                     Nombre = Producto.Nombre,
-                                                    Precio = Producto.PrecioPublico-(Producto.PrecioPublico*(Producto.ProcentajeIva/100)),
-                                                    PorcentajeIva = (Producto.PrecioPublico * (Producto.ProcentajeIva / 100)),
-                                                    Total = Producto.CantidaProducto * Producto.PrecioPublico,
-                                                    SubTotal = Producto.CantidaProducto * Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100))
+                                                    Precio = Producto.PrecioPublico-(Producto.PrecioPublico*(Producto.PorcentajeIva / 100)),
+                                                    PorcentajeIva = (Producto.PrecioPublico * (Producto.PorcentajeIva / 100)),
+                                                    Total = Producto.CantidadProducto * Producto.PrecioPublico,
+                                                    SubTotal = Producto.CantidadProducto * Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajeIva / 100))
                     });
                     TotalVenta();
                 }
                 else
                 {
                     var x = Model.Listaventa.Where(p => p.IdGenerico == Producto.IdProducto && p.IdTipo == Producto.IdTipo).Select(u => {
-                        u.Cantidad += Producto.CantidaProducto;
-                        u.Precio = Producto.PrecioPublico-(Producto.PrecioPublico*(Producto.ProcentajeIva/100));
-                        u.PorcentajeIva += (Producto.PrecioPublico * (Producto.ProcentajeIva / 100));
+                        u.Cantidad += Producto.CantidadProducto;
+                        u.Precio = Producto.PrecioPublico-(Producto.PrecioPublico*(Producto.PorcentajeIva / 100));
+                        u.PorcentajeIva += (Producto.PrecioPublico * (Producto.PorcentajeIva / 100));
                         u.Total = u.Cantidad * Producto.PrecioPublico ;
                         u.SubTotal = u.Cantidad * u.Precio; return u; }).ToList();
                     if (x.Count == 1)
@@ -289,12 +355,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                         Model.Listaventa.Add(new Venta {
                             IdGenerico = Producto.IdProducto,
                             IdTipo = Producto.IdTipo,
-                            Cantidad = Producto.CantidaProducto,
+                            Cantidad = Producto.CantidadProducto,
                             Nombre = Producto.Nombre,
-                            Precio = Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100)),
-                            PorcentajeIva = (Producto.PrecioPublico * (Producto.ProcentajeIva / 100)),
-                            Total = Producto.CantidaProducto * Producto.PrecioPublico,
-                            SubTotal = Producto.CantidaProducto * Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100))
+                            Precio = Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajeIva / 100)),
+                            PorcentajeIva = (Producto.PrecioPublico * (Producto.PorcentajeIva / 100)),
+                            Total = Producto.CantidadProducto * Producto.PrecioPublico,
+                            SubTotal = Producto.CantidadProducto * Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajeIva / 100))
                         });
                         TotalVenta();
                     }
@@ -353,6 +419,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 decimal SubTotal = Model.Listaventa.Sum(x => x.SubTotal);
                 decimal Iva = Model.Listaventa.Sum(x => x.PorcentajeIva);
                 TotalControl.Text = total.ToString("C2");
+                Model.Total = total;
                 SubtotalControl.Text = SubTotal.ToString("C2");
                 IvaControl.Text = Iva.ToString("C2");
             }
@@ -415,21 +482,21 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                         {
                             IdGenerico = Producto.IdProducto,
                             IdTipo = Producto.IdTipo,
-                            Cantidad = Producto.CantidaProducto,
+                            Cantidad = Producto.CantidadProducto,
                             Nombre = Producto.Nombre,
-                            Precio = Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100)),
-                            PorcentajeIva = (Producto.PrecioPublico * (Producto.ProcentajeIva / 100)),
-                            Total = Producto.CantidaProducto * Producto.PrecioPublico,
-                            SubTotal = Producto.CantidaProducto * Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100))
+                            Precio = Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajeIva / 100)),
+                            PorcentajeIva = (Producto.PrecioPublico * (Producto.PorcentajeIva / 100)),
+                            Total = Producto.CantidadProducto * Producto.PrecioPublico,
+                            SubTotal = Producto.CantidadProducto * Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajeIva / 100))
                         });
                         TotalVenta();
                     }
                     else
                     {
                         var x = Model.Listaventa.Where(p => p.IdGenerico == Producto.IdProducto && p.IdTipo == Producto.IdTipo).Select(u => {
-                            u.Cantidad += Producto.CantidaProducto;
-                            u.Precio = Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100));
-                            u.PorcentajeIva += (Producto.PrecioPublico * (Producto.ProcentajeIva / 100));
+                            u.Cantidad += Producto.CantidadProducto;
+                            u.Precio = Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajeIva / 100));
+                            u.PorcentajeIva += (Producto.PrecioPublico * (Producto.PorcentajeIva / 100));
                             u.Total = u.Cantidad * Producto.PrecioPublico;
                             u.SubTotal = u.Cantidad * u.Precio; return u;
                         }).ToList();
@@ -444,12 +511,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                             {
                                 IdGenerico = Producto.IdProducto,
                                 IdTipo = Producto.IdTipo,
-                                Cantidad = Producto.CantidaProducto,
+                                Cantidad = Producto.CantidadProducto,
                                 Nombre = Producto.Nombre,
-                                Precio = Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100)),
-                                PorcentajeIva = (Producto.PrecioPublico * (Producto.ProcentajeIva / 100)),
-                                Total = Producto.CantidaProducto * Producto.PrecioPublico,
-                                SubTotal = Producto.CantidaProducto * Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.ProcentajeIva / 100))
+                                Precio = Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajeIva / 100)),
+                                PorcentajeIva = (Producto.PrecioPublico * (Producto.PorcentajeIva / 100)),
+                                Total = Producto.CantidadProducto * Producto.PrecioPublico,
+                                SubTotal = Producto.CantidadProducto * Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajeIva / 100))
                             });
                             TotalVenta();
                         }                       
@@ -505,6 +572,56 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                         }
                     }
                 }
+                else
+                if (IdTipo == 3)
+                {
+                    var paquetes = (Paquetes)objetoX;
+                    if (Model.Listaventa.Count == 0)
+                    {
+                        Model.Listaventa.Add(new Venta
+                        {
+                            IdGenerico = paquetes.IdPaquete,
+                            IdTipo = paquetes.IdTipo,
+                            Cantidad = paquetes.CantidadServicio,
+                            Nombre = paquetes.Nombre,
+                            Precio = paquetes.MontoPaquete,
+                            PorcentajeIva = 0,
+                            Total = paquetes.CantidadServicio * paquetes.MontoPaquete,
+                            SubTotal = paquetes.CantidadServicio * paquetes.MontoPaquete //- (paquetes.MontoPaquete * (paquetes. / 100))
+                        });
+                        TotalVenta();
+                    }
+                    else
+                    {
+                        var x = Model.Listaventa.Where(p => p.IdGenerico == paquetes.IdPaquete && p.IdTipo == paquetes.IdTipo).Select(u => {
+                            u.Cantidad += paquetes.CantidadServicio;
+                            u.Precio = paquetes.MontoPaquete; //- (paquetes.MontoPaquete * (paquetes.ProcentajeIva / 100));
+                            u.PorcentajeIva = 0; //(paquetes. * (paquetes.ProcentajeIva / 100));
+                            u.Total = u.Cantidad * paquetes.MontoPaquete;
+                            u.SubTotal = u.Cantidad * u.Precio; return u;
+                        }).ToList();
+                        if (x.Count == 1)
+                        {
+                            this.sfDataGridVenta.Refresh();
+                            TotalVenta();
+                        }
+                        else
+                        {
+                            Model.Listaventa.Add(new Venta
+                            {
+                                IdGenerico = paquetes.IdPaquete,
+                                IdTipo = paquetes.IdTipo,
+                                Cantidad = paquetes.CantidadServicio,
+                                Nombre = paquetes.Nombre,
+                                Precio = paquetes.MontoPaquete, //- (paquetes.MontoPaquete * (paquetes.ProcentajeIva / 100)),
+                                PorcentajeIva = 0,// (paquetes.MontoPaquete * (paquetes.ProcentajeIva / 100)),
+                                Total = paquetes.CantidadServicio * paquetes.MontoPaquete,
+                                SubTotal = paquetes.CantidadServicio * paquetes.MontoPaquete// - (paquetes.PrecioPublico * (paquetes.ProcentajeIva / 100))
+                            });
+                            TotalVenta();
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -545,7 +662,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                                 var result = await Model.CheckCantidadProducto(item.IdProducto, cantidadBusqueda);
                                 if (result == -1)
                                 {
-                                    item.CantidaProducto = cantidad;
+                                    item.CantidadProducto = cantidad;
                                     LLenarGrid2(item, item.IdTipo);
                                 }
                                 else if(result != -1)
@@ -561,6 +678,17 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                                 item.IdTipoServicio = 2;
                                 item.CantidadServicio = 1;
                                 LLenarGrid2(item, item.IdTipoServicio);
+                            }
+                        }
+                        else if (rbtPaquete.Checked == true)
+                        {
+                            await Model.GetBusquedaRapida(3, BusquedaControl.Text);
+                            if (Model.ListaPaquete.Count == 1)
+                            {
+                                var item = Model.ListaPaquete.ElementAt(0);
+                                item.IdTipo = 3;
+                                item.CantidadServicio = 1;
+                                LLenarGrid2(item, item.IdTipo);
                             }
                         }
                     }
@@ -589,6 +717,28 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             else if (Char.IsWhiteSpace(e.KeyChar))
                 e.Handled = true;
         }
+
+        private void btnPaquetes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmBuscarPaquete paquete = new FrmBuscarPaquete();
+                paquete.ShowDialog();
+                if (paquete.paquetes.IdPaquete != 0)
+                {
+                    int Tipo = 3;
+                    Tipo = paquete.IDTipo;
+                    LLenarGrid2(paquete.paquetes, Tipo);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmBuscarVenta ~ btnProducto_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
+            }
+        }
+       
         //CALCULO DE EL IEPS
         //public decimal DesglosaIeps(out decimal PrecioSinIvaSinIeps)
         //{

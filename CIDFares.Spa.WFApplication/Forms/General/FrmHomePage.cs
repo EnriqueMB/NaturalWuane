@@ -7,6 +7,7 @@ using CIDFares.Spa.WFApplication.Forms.Compras;
 using CIDFares.Spa.WFApplication.Forms.Cuestionarios;
 using CIDFares.Spa.WFApplication.Forms.Usuarios;
 using CIDFares.Spa.WFApplication.Forms.Ventas;
+using CIDFares.Spa.WFApplication.Forms.Paquete;
 using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
@@ -299,6 +300,13 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             SlideGenerales(btnMonedero);
             GetPanel(new FrmProductosMonedero());
         }
+
+
+        private void BtnCancelacionVenta_Click(object sender, EventArgs e)
+        {
+            SlideGenerales(btnCancelacionVenta);
+            GetPanel(new FrmCancelacion());
+        }
         #endregion
 
         #endregion
@@ -452,6 +460,25 @@ namespace CIDFares.Spa.WFApplication.Forms.General
 
                 throw ex;
             }
+        }
+
+        private void btnMedicionPaciente_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnMedicionPaciente);
+            GetPanel(new FrmMedicionGrid());
+        }
+
+        private void btnAbonarPaquete_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnAbonarPaquete);
+            GetPanel(new FrmAbonarPaquete());
+
+        }
+
+        private void btnCita_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnCita);
+            GetPanel(new FrmCapturaCita());
         }
 
         private void SlideGenerales(Button button)
