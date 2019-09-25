@@ -136,6 +136,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {
                 Model.State = EntityState.Create;
                 GroupMedicion.Enabled = true;
+                pnlBotonesDatos.Enabled = true;
                 LimpiarPropiedades();
             }
             catch (Exception ex)
@@ -152,6 +153,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 if (item != null)
                 {
                     GroupMedicion.Enabled = true;
+                    pnlBotonesDatos.Enabled = true;
                     Model.State = EntityState.Update;
                     Model.IdMedicion = item.IdMedicion;
                     Model.IdUnidaMedida = item.IdUnidaMedida;
@@ -213,6 +215,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {
                 LimpiarPropiedades();
                 GroupMedicion.Enabled = false;
+                pnlBotonesDatos.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -224,7 +227,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                btnGuardar.Enabled = false;
+                //btnGuardar.Enabled = false;
+                pnlBotonesDatos.Enabled = false;
                 this.CleanErrors(errorProvider1, typeof(MedicionViewModel));
                 var validation = Model.Validate();
                 if (validation.IsValid)
@@ -246,6 +250,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             catch (Exception ex)
             {
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+            finally
+            {
+                pnlBotonesDatos.Enabled = true;
             }
         }
 
@@ -333,6 +341,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                             var ListaMedicion = await Model.GetListaMedicionsAsync();
                             Model.LlenarListaMedicion(ListaMedicion);
                             IdListaMedicionControl.SelectedValue = 0;
+                            LimpiarPropiedades();
+                            await Model.GetAll();
                         }
                         else
                             CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.error);

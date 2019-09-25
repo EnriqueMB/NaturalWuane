@@ -239,5 +239,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             ValorControl.Text = ValorControl.Text.Replace("  ", " ");
             ValorControl.Select(ValorControl.Text.Length, 0);
         }
+
+        private void ValorControl_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BtnAgregar.Focus();
+                BtnAgregar_Click(sender, e);
+            }
+        }
     }
 }

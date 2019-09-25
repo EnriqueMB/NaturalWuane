@@ -206,5 +206,14 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         {
             Application.Exit();
         }
+
+        private void UserPasswordControl_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BtnLogin.Focus();
+                BtnLogin_Click(sender, e);
+            }
+        }
     }
 }

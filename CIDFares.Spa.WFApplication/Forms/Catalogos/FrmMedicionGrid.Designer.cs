@@ -36,6 +36,9 @@
             this.PnlHead = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.PnlFoot = new System.Windows.Forms.Panel();
+            this.pnlBotonesDatos = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -46,25 +49,23 @@
             this.PnlContainerDatos = new System.Windows.Forms.Panel();
             this.GroupMedicion = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.NombreControl = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.IdUnidaMedidaControl = new Syncfusion.Windows.Forms.Tools.ComboBoxAdv();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.EsAbiertaControl = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnEditarLista = new System.Windows.Forms.Button();
+            this.IdListaMedicionControl = new Syncfusion.Windows.Forms.Tools.ComboBoxAdv();
             this.btnElimiarLista = new System.Windows.Forms.Button();
             this.BtnSeleccionar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.IdListaMedicionControl = new Syncfusion.Windows.Forms.Tools.ComboBoxAdv();
-            this.EsAbiertaControl = new System.Windows.Forms.CheckBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.PnlHead.SuspendLayout();
             this.PnlFoot.SuspendLayout();
+            this.pnlBotonesDatos.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.PnlBody.SuspendLayout();
             this.PnlContainerGrid.SuspendLayout();
@@ -72,11 +73,10 @@
             this.PnlContainerDatos.SuspendLayout();
             this.GroupMedicion.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IdUnidaMedidaControl)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IdListaMedicionControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -103,12 +103,53 @@
             // 
             // PnlFoot
             // 
+            this.PnlFoot.Controls.Add(this.pnlBotonesDatos);
             this.PnlFoot.Controls.Add(this.flowLayoutPanel2);
             this.PnlFoot.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PnlFoot.Location = new System.Drawing.Point(0, 498);
             this.PnlFoot.Name = "PnlFoot";
             this.PnlFoot.Size = new System.Drawing.Size(1052, 76);
             this.PnlFoot.TabIndex = 1;
+            // 
+            // pnlBotonesDatos
+            // 
+            this.pnlBotonesDatos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlBotonesDatos.Controls.Add(this.btnGuardar);
+            this.pnlBotonesDatos.Controls.Add(this.btnCancelar);
+            this.pnlBotonesDatos.Enabled = false;
+            this.pnlBotonesDatos.Location = new System.Drawing.Point(717, 6);
+            this.pnlBotonesDatos.Name = "pnlBotonesDatos";
+            this.pnlBotonesDatos.Padding = new System.Windows.Forms.Padding(35, 17, 17, 17);
+            this.pnlBotonesDatos.Size = new System.Drawing.Size(330, 67);
+            this.pnlBotonesDatos.TabIndex = 53;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnGuardar.Location = new System.Drawing.Point(38, 20);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(123, 29);
+            this.btnGuardar.TabIndex = 6;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnCancelar.Location = new System.Drawing.Point(167, 20);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(123, 29);
+            this.btnCancelar.TabIndex = 7;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -175,6 +216,9 @@
             // 
             // PnlContainerGrid
             // 
+            this.PnlContainerGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PnlContainerGrid.Controls.Add(this.sfDataGridMedicion);
             this.PnlContainerGrid.Location = new System.Drawing.Point(1, 0);
             this.PnlContainerGrid.Name = "PnlContainerGrid";
@@ -236,10 +280,9 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 31);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -247,46 +290,9 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(320, 357);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.btnGuardar);
-            this.flowLayoutPanel1.Controls.Add(this.btnCancelar);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 270);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(25);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(314, 84);
-            this.flowLayoutPanel1.TabIndex = 53;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnGuardar.Location = new System.Drawing.Point(28, 28);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(123, 29);
-            this.btnGuardar.TabIndex = 6;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnCancelar.Location = new System.Drawing.Point(157, 28);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(123, 29);
-            this.btnCancelar.TabIndex = 7;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // panel1
             // 
@@ -313,7 +319,7 @@
             this.NombreControl.Location = new System.Drawing.Point(7, 44);
             this.NombreControl.MaxLength = 200;
             this.NombreControl.Name = "NombreControl";
-            this.NombreControl.Size = new System.Drawing.Size(297, 27);
+            this.NombreControl.Size = new System.Drawing.Size(280, 27);
             this.NombreControl.TabIndex = 5;
             this.NombreControl.TextChanged += new System.EventHandler(this.NombreControl_TextChanged);
             this.NombreControl.Leave += new System.EventHandler(this.NombreControl_Leave);
@@ -342,30 +348,55 @@
             // 
             this.IdUnidaMedidaControl.AutoComplete = false;
             this.IdUnidaMedidaControl.BackColor = System.Drawing.Color.White;
-            this.IdUnidaMedidaControl.BeforeTouchSize = new System.Drawing.Size(193, 29);
+            this.IdUnidaMedidaControl.BeforeTouchSize = new System.Drawing.Size(280, 29);
             this.IdUnidaMedidaControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Adjust;
+            this.IdUnidaMedidaControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IdUnidaMedidaControl.FlatBorderColor = System.Drawing.Color.BurlyWood;
             this.IdUnidaMedidaControl.Location = new System.Drawing.Point(7, 41);
             this.IdUnidaMedidaControl.MetroBorderColor = System.Drawing.Color.Black;
             this.IdUnidaMedidaControl.Name = "IdUnidaMedidaControl";
-            this.IdUnidaMedidaControl.Size = new System.Drawing.Size(193, 29);
+            this.IdUnidaMedidaControl.Size = new System.Drawing.Size(280, 29);
             this.IdUnidaMedidaControl.Style = Syncfusion.Windows.Forms.VisualStyle.Metro;
             this.IdUnidaMedidaControl.TabIndex = 52;
-            this.IdUnidaMedidaControl.Text = "comboBoxAdv1";
             this.IdUnidaMedidaControl.ThemeName = "Metro";
             // 
-            // panel3
+            // groupBox1
             // 
-            this.panel3.Controls.Add(this.btnEditarLista);
-            this.panel3.Controls.Add(this.btnElimiarLista);
-            this.panel3.Controls.Add(this.BtnSeleccionar);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.IdListaMedicionControl);
-            this.panel3.Controls.Add(this.EsAbiertaControl);
-            this.panel3.Location = new System.Drawing.Point(3, 181);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(314, 83);
-            this.panel3.TabIndex = 2;
+            this.groupBox1.Controls.Add(this.EsAbiertaControl);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.btnEditarLista);
+            this.groupBox1.Controls.Add(this.IdListaMedicionControl);
+            this.groupBox1.Controls.Add(this.btnElimiarLista);
+            this.groupBox1.Controls.Add(this.BtnSeleccionar);
+            this.groupBox1.Location = new System.Drawing.Point(3, 181);
+            this.groupBox1.Name = "groupBox1";
+            this.tableLayoutPanel1.SetRowSpan(this.groupBox1, 2);
+            this.groupBox1.Size = new System.Drawing.Size(311, 173);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Valores";
+            // 
+            // EsAbiertaControl
+            // 
+            this.EsAbiertaControl.AutoSize = true;
+            this.EsAbiertaControl.Location = new System.Drawing.Point(215, 26);
+            this.EsAbiertaControl.Name = "EsAbiertaControl";
+            this.EsAbiertaControl.Size = new System.Drawing.Size(89, 25);
+            this.EsAbiertaControl.TabIndex = 0;
+            this.EsAbiertaControl.Text = "Es libre?";
+            this.EsAbiertaControl.UseVisualStyleBackColor = true;
+            this.EsAbiertaControl.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(7, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(128, 20);
+            this.label2.TabIndex = 55;
+            this.label2.Text = "Listas de valores";
             // 
             // btnEditarLista
             // 
@@ -373,29 +404,45 @@
             this.btnEditarLista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(148)))), ((int)(((byte)(65)))));
             this.btnEditarLista.FlatAppearance.BorderSize = 0;
             this.btnEditarLista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditarLista.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnEditarLista.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnEditarLista.ForeColor = System.Drawing.Color.White;
             this.btnEditarLista.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditarLista.Location = new System.Drawing.Point(239, 42);
+            this.btnEditarLista.Location = new System.Drawing.Point(104, 122);
             this.btnEditarLista.Name = "btnEditarLista";
-            this.btnEditarLista.Size = new System.Drawing.Size(32, 28);
-            this.btnEditarLista.TabIndex = 58;
-            this.btnEditarLista.Text = "E";
+            this.btnEditarLista.Size = new System.Drawing.Size(85, 28);
+            this.btnEditarLista.TabIndex = 61;
+            this.btnEditarLista.Text = "Modificar";
             this.btnEditarLista.UseVisualStyleBackColor = false;
             this.btnEditarLista.Click += new System.EventHandler(this.btnEditarLista_Click);
+            // 
+            // IdListaMedicionControl
+            // 
+            this.IdListaMedicionControl.AutoComplete = false;
+            this.IdListaMedicionControl.BackColor = System.Drawing.Color.White;
+            this.IdListaMedicionControl.BeforeTouchSize = new System.Drawing.Size(280, 29);
+            this.IdListaMedicionControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Adjust;
+            this.IdListaMedicionControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.IdListaMedicionControl.FlatBorderColor = System.Drawing.Color.BurlyWood;
+            this.IdListaMedicionControl.Location = new System.Drawing.Point(7, 67);
+            this.IdListaMedicionControl.MetroBorderColor = System.Drawing.Color.Black;
+            this.IdListaMedicionControl.Name = "IdListaMedicionControl";
+            this.IdListaMedicionControl.Size = new System.Drawing.Size(280, 29);
+            this.IdListaMedicionControl.Style = Syncfusion.Windows.Forms.VisualStyle.Metro;
+            this.IdListaMedicionControl.TabIndex = 54;
+            this.IdListaMedicionControl.ThemeName = "Metro";
             // 
             // btnElimiarLista
             // 
             this.btnElimiarLista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
             this.btnElimiarLista.FlatAppearance.BorderSize = 0;
             this.btnElimiarLista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnElimiarLista.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnElimiarLista.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnElimiarLista.ForeColor = System.Drawing.Color.White;
-            this.btnElimiarLista.Location = new System.Drawing.Point(206, 42);
+            this.btnElimiarLista.Location = new System.Drawing.Point(202, 122);
             this.btnElimiarLista.Name = "btnElimiarLista";
-            this.btnElimiarLista.Size = new System.Drawing.Size(30, 28);
-            this.btnElimiarLista.TabIndex = 57;
-            this.btnElimiarLista.Text = "-";
+            this.btnElimiarLista.Size = new System.Drawing.Size(85, 28);
+            this.btnElimiarLista.TabIndex = 60;
+            this.btnElimiarLista.Text = "Eliminar";
             this.btnElimiarLista.UseVisualStyleBackColor = false;
             this.btnElimiarLista.Click += new System.EventHandler(this.btnElimiarLista_Click);
             // 
@@ -405,57 +452,20 @@
             this.BtnSeleccionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
             this.BtnSeleccionar.FlatAppearance.BorderSize = 0;
             this.BtnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSeleccionar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.BtnSeleccionar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.BtnSeleccionar.ForeColor = System.Drawing.Color.White;
             this.BtnSeleccionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSeleccionar.Location = new System.Drawing.Point(274, 42);
+            this.BtnSeleccionar.Location = new System.Drawing.Point(7, 122);
             this.BtnSeleccionar.Name = "BtnSeleccionar";
-            this.BtnSeleccionar.Size = new System.Drawing.Size(32, 28);
-            this.BtnSeleccionar.TabIndex = 56;
-            this.BtnSeleccionar.Text = "+";
+            this.BtnSeleccionar.Size = new System.Drawing.Size(85, 28);
+            this.BtnSeleccionar.TabIndex = 59;
+            this.BtnSeleccionar.Text = "Agregar";
             this.BtnSeleccionar.UseVisualStyleBackColor = false;
             this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(3, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 20);
-            this.label2.TabIndex = 55;
-            this.label2.Text = "Valores";
-            // 
-            // IdListaMedicionControl
-            // 
-            this.IdListaMedicionControl.AutoComplete = false;
-            this.IdListaMedicionControl.BackColor = System.Drawing.Color.White;
-            this.IdListaMedicionControl.BeforeTouchSize = new System.Drawing.Size(193, 29);
-            this.IdListaMedicionControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Adjust;
-            this.IdListaMedicionControl.FlatBorderColor = System.Drawing.Color.BurlyWood;
-            this.IdListaMedicionControl.Location = new System.Drawing.Point(7, 41);
-            this.IdListaMedicionControl.MetroBorderColor = System.Drawing.Color.Black;
-            this.IdListaMedicionControl.Name = "IdListaMedicionControl";
-            this.IdListaMedicionControl.Size = new System.Drawing.Size(193, 29);
-            this.IdListaMedicionControl.Style = Syncfusion.Windows.Forms.VisualStyle.Metro;
-            this.IdListaMedicionControl.TabIndex = 54;
-            this.IdListaMedicionControl.Text = "comboBoxAdv1";
-            this.IdListaMedicionControl.ThemeName = "Metro";
-            // 
-            // EsAbiertaControl
-            // 
-            this.EsAbiertaControl.AutoSize = true;
-            this.EsAbiertaControl.Location = new System.Drawing.Point(222, 3);
-            this.EsAbiertaControl.Name = "EsAbiertaControl";
-            this.EsAbiertaControl.Size = new System.Drawing.Size(89, 25);
-            this.EsAbiertaControl.TabIndex = 0;
-            this.EsAbiertaControl.Text = "Es libre?";
-            this.EsAbiertaControl.UseVisualStyleBackColor = true;
-            this.EsAbiertaControl.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // errorProvider1
             // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
             // FrmMedicionGrid
@@ -473,6 +483,7 @@
             this.PnlHead.ResumeLayout(false);
             this.PnlHead.PerformLayout();
             this.PnlFoot.ResumeLayout(false);
+            this.pnlBotonesDatos.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.PnlBody.ResumeLayout(false);
             this.PnlContainerGrid.ResumeLayout(false);
@@ -480,14 +491,13 @@
             this.PnlContainerDatos.ResumeLayout(false);
             this.GroupMedicion.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IdUnidaMedidaControl)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IdListaMedicionControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -509,22 +519,22 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label8;
         private Syncfusion.Windows.Forms.Tools.ComboBoxAdv IdUnidaMedidaControl;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
         private Syncfusion.Windows.Forms.Tools.ComboBoxAdv IdListaMedicionControl;
         private System.Windows.Forms.CheckBox EsAbiertaControl;
-        private System.Windows.Forms.Button BtnSeleccionar;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel pnlBotonesDatos;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnElimiarLista;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label label3;
         private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGridMedicion;
-        private System.Windows.Forms.Button btnEditarLista;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnEditarLista;
+        private System.Windows.Forms.Button btnElimiarLista;
+        private System.Windows.Forms.Button BtnSeleccionar;
     }
 }
