@@ -52,6 +52,7 @@
             this.CambioControl = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PanelPrincipal.SuspendLayout();
             this.pnlEfectivo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EfectivoControl)).BeginInit();
@@ -60,6 +61,7 @@
             this.panel1.SuspendLayout();
             this.pnlCambio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelPrincipal
@@ -228,6 +230,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.TotalControl);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -238,14 +241,14 @@
             // 
             // TotalControl
             // 
-            this.TotalControl.AutoSize = true;
             this.TotalControl.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.TotalControl.Location = new System.Drawing.Point(150, 66);
+            this.TotalControl.Location = new System.Drawing.Point(3, 66);
             this.TotalControl.Name = "TotalControl";
-            this.TotalControl.Size = new System.Drawing.Size(132, 56);
+            this.TotalControl.Size = new System.Drawing.Size(435, 56);
             this.TotalControl.TabIndex = 4;
             this.TotalControl.Text = "$300";
+            this.TotalControl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.TotalControl.Click += new System.EventHandler(this.TotalControl_Click);
             // 
             // label1
@@ -254,7 +257,7 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.label1.Location = new System.Drawing.Point(79, 29);
+            this.label1.Location = new System.Drawing.Point(79, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(296, 22);
             this.label1.TabIndex = 3;
@@ -329,6 +332,17 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.cerrar;
+            this.pictureBox1.Location = new System.Drawing.Point(418, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // FrmSeleccionarPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,7 +350,7 @@
             this.ClientSize = new System.Drawing.Size(441, 548);
             this.Controls.Add(this.PanelPrincipal);
             this.Controls.Add(this.pnlCambio);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmSeleccionarPago";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmSeleccionarPago_Load);
@@ -352,6 +366,7 @@
             this.pnlCambio.ResumeLayout(false);
             this.pnlCambio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -376,5 +391,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label ErrorControl;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

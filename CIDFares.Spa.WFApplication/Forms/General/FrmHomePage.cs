@@ -1,10 +1,13 @@
 ﻿using CIDFares.Library.Controls.CIDMessageBox.Code;
+using CIDFares.Spa.Business.ViewModels.Ventas;
+using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.WFApplication.Constants;
 using CIDFares.Spa.WFApplication.Forms.Catalogos;
 using CIDFares.Spa.WFApplication.Forms.Compras;
 using CIDFares.Spa.WFApplication.Forms.Cuestionarios;
 using CIDFares.Spa.WFApplication.Forms.Usuarios;
 using CIDFares.Spa.WFApplication.Forms.Ventas;
+using CIDFares.Spa.WFApplication.Forms.Paquete;
 using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
@@ -21,12 +24,16 @@ namespace CIDFares.Spa.WFApplication.Forms.General
 {
     public partial class FrmHomePage : Form
     {
+        #region  Propiedades públicas
+        public CambioVentaViewModel Model { get; set; }
+        #endregion
         #region Variables Globales
         int X, Y;
         #endregion
         public FrmHomePage()
         {
             InitializeComponent();
+            Model = ServiceLocator.Instance.Resolve<CambioVentaViewModel>();
         }
 
         #region Eventos
@@ -243,10 +250,32 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         #endregion
 
         #region Eventos click de Generales
-        private void BtnVenta_Click(object sender, EventArgs e)
+        private async void BtnVenta_Click(object sender, EventArgs e)
         {
-            SlideGenerales(btnVenta);
-            GetPanel(new FrmVenta());
+            try
+            {
+                var Resultado = await Model.CargarDatos(CurrentSession.IdSucursal, CurrentSession.IdEmpleado, CurrentSession.IdTurnoEmpleado);
+                if (Resultado != 1)
+                {
+                    SlideGenerales(btnVenta);
+                    GetPanel(new FrmVenta());
+                    
+                }
+                else
+                {
+                    FrmCambioVenta frm = new FrmCambioVenta();
+                    frm.ShowDialog();
+                    SlideGenerales(btnVenta);
+                    GetPanel(new FrmVenta());
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
         }
 
         private void BtnCompras_Click(object sender, EventArgs e)
@@ -270,6 +299,13 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         {
             SlideGenerales(btnMonedero);
             GetPanel(new FrmProductosMonedero());
+        }
+
+
+        private void BtnCancelacionVenta_Click(object sender, EventArgs e)
+        {
+            SlideGenerales(btnCancelacionVenta);
+            GetPanel(new FrmCancelacion());
         }
         #endregion
 
@@ -438,6 +474,23 @@ namespace CIDFares.Spa.WFApplication.Forms.General
 
                 throw ex; 
             }
+        private void btnMedicionPaciente_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnMedicionPaciente);
+            GetPanel(new FrmMedicionGrid());
+        }
+
+        private void btnAbonarPaquete_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnAbonarPaquete);
+            GetPanel(new FrmAbonarPaquete());
+
+        }
+
+        private void btnCita_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnCita);
+            GetPanel(new FrmCapturaCita());
         }
 
         private void SlideGenerales(Button button)
