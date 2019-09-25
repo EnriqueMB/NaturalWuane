@@ -71,6 +71,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.pnlGenerales = new System.Windows.Forms.Panel();
             this.btnEntradaSalida = new System.Windows.Forms.Button();
+            this.btnCancelacionVenta = new System.Windows.Forms.Button();
             this.SlidePanelgenerales = new System.Windows.Forms.Panel();
             this.btnMonedero = new System.Windows.Forms.Button();
             this.btnCuestionario = new System.Windows.Forms.Button();
@@ -103,6 +104,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnTurnos = new System.Windows.Forms.Button();
+            this.btnAbonarPaquete = new System.Windows.Forms.Button();
             this.pnl_MenuVertical.SuspendLayout();
             this.pnlMenu.SuspendLayout();
             this.pnlMenuPrincipal.SuspendLayout();
@@ -751,7 +753,9 @@
             // pnlGenerales
             // 
             this.pnlGenerales.BackColor = System.Drawing.Color.White;
+            this.pnlGenerales.Controls.Add(this.btnAbonarPaquete);
             this.pnlGenerales.Controls.Add(this.btnEntradaSalida);
+            this.pnlGenerales.Controls.Add(this.btnCancelacionVenta);
             this.pnlGenerales.Controls.Add(this.SlidePanelgenerales);
             this.pnlGenerales.Controls.Add(this.btnMonedero);
             this.pnlGenerales.Controls.Add(this.btnCuestionario);
@@ -772,7 +776,7 @@
             this.btnEntradaSalida.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEntradaSalida.ForeColor = System.Drawing.Color.Black;
             this.btnEntradaSalida.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEntradaSalida.Location = new System.Drawing.Point(10, 190);
+            this.btnEntradaSalida.Location = new System.Drawing.Point(10, 226);
             this.btnEntradaSalida.Name = "btnEntradaSalida";
             this.btnEntradaSalida.Size = new System.Drawing.Size(193, 35);
             this.btnEntradaSalida.TabIndex = 27;
@@ -780,6 +784,24 @@
             this.btnEntradaSalida.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEntradaSalida.UseVisualStyleBackColor = false;
             this.btnEntradaSalida.Click += new System.EventHandler(this.btnEntradaSalida_Click);
+            // 
+            // btnCancelacionVenta
+            // 
+            this.btnCancelacionVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.btnCancelacionVenta.FlatAppearance.BorderSize = 0;
+            this.btnCancelacionVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnCancelacionVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelacionVenta.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelacionVenta.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelacionVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelacionVenta.Location = new System.Drawing.Point(10, 189);
+            this.btnCancelacionVenta.Name = "btnCancelacionVenta";
+            this.btnCancelacionVenta.Size = new System.Drawing.Size(193, 35);
+            this.btnCancelacionVenta.TabIndex = 27;
+            this.btnCancelacionVenta.Text = "     CANCELACIÓN VENTA";
+            this.btnCancelacionVenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancelacionVenta.UseVisualStyleBackColor = false;
+            this.btnCancelacionVenta.Click += new System.EventHandler(this.BtnCancelacionVenta_Click);
             // 
             // SlidePanelgenerales
             // 
@@ -1202,6 +1224,23 @@
             this.btnTurnos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTurnos.UseVisualStyleBackColor = false;
             this.btnTurnos.Click += new System.EventHandler(this.btnTurnos_Click);
+            // btnAbonarPaquete
+            // 
+            this.btnAbonarPaquete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.btnAbonarPaquete.FlatAppearance.BorderSize = 0;
+            this.btnAbonarPaquete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnAbonarPaquete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbonarPaquete.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbonarPaquete.ForeColor = System.Drawing.Color.Black;
+            this.btnAbonarPaquete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAbonarPaquete.Location = new System.Drawing.Point(10, 264);
+            this.btnAbonarPaquete.Name = "btnAbonarPaquete";
+            this.btnAbonarPaquete.Size = new System.Drawing.Size(193, 35);
+            this.btnAbonarPaquete.TabIndex = 28;
+            this.btnAbonarPaquete.Text = "ABONAR PAQUETE";
+            this.btnAbonarPaquete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAbonarPaquete.UseVisualStyleBackColor = false;
+            this.btnAbonarPaquete.Click += new System.EventHandler(this.btnAbonarPaquete_Click);
             // 
             // FrmHomePage
             // 
@@ -1327,5 +1366,7 @@
         private System.Windows.Forms.Button btnEmpleado;
         private System.Windows.Forms.Button btnEntradaSalida;
         private System.Windows.Forms.Button btnTurnos;
+        private System.Windows.Forms.Button btnCancelacionVenta;
+        private System.Windows.Forms.Button btnAbonarPaquete;
     }
 }

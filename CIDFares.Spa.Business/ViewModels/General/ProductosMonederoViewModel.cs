@@ -113,8 +113,8 @@ namespace CIDFares.Spa.Business.ViewModels.General
                     PuntosMonedero = PuntosMonedero,
                     AplicaDescuento = AplicaDescuento,
                     EsMonto = EsMonto,
-                    PuntosDescuento = PuntosDescuento,
-                    Monto = Monto
+                    PuntosDescuento = AplicaDescuento == true ? PuntosDescuento : 0,
+                    Monto = AplicaDescuento == true ? Monto : 0
                 };
                 var result = await Repository.AddAsync(productosMonedero, IdUsuario);
                 if (result != null)

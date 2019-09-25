@@ -90,6 +90,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\Messages.cs" />
+    <Compile Include="Forms\Paquete\FrmAbonarPaquete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Paquete\FrmAbonarPaquete.Designer.cs">
+      <DependentUpon>FrmAbonarPaquete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Catalogos\FrmClaveTarjeta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,6 +276,18 @@
     <Compile Include="Forms\General\FrmRegistroPasswordEmpleado.Designer.cs">
       <DependentUpon>FrmRegistroPasswordEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Paquete\FrmAbonoPaqueteDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Paquete\FrmAbonoPaqueteDetalle.Designer.cs">
+      <DependentUpon>FrmAbonoPaqueteDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Paquete\FrmPagarPaquete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Paquete\FrmPagarPaquete.Designer.cs">
+      <DependentUpon>FrmPagarPaquete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Usuarios\FrmReglasPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,17 +306,35 @@
     <Compile Include="Forms\Ventas\FrmBuscarCliente.Designer.cs">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Ventas\FrmBuscarPaquete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmBuscarPaquete.Designer.cs">
+      <DependentUpon>FrmBuscarPaquete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Ventas\FrmBuscarVentas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Ventas\FrmBuscarVentas.Designer.cs">
       <DependentUpon>FrmBuscarVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Ventas\FrmCancelacionVenta.cs">
+    <Compile Include="Forms\Ventas\FrmCambioVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Ventas\FrmCancelacionVenta.Designer.cs">
-      <DependentUpon>FrmCancelacionVenta.cs</DependentUpon>
+    <Compile Include="Forms\Ventas\FrmCambioVenta.Designer.cs">
+      <DependentUpon>FrmCambioVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmCancelacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmCancelacion.Designer.cs">
+      <DependentUpon>FrmCancelacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmPaqueteVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmPaqueteVenta.Designer.cs">
+      <DependentUpon>FrmPaqueteVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Ventas\FrmSeleccionarPago.cs">
       <SubType>Form</SubType>
@@ -332,6 +368,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validations\AbonoPaqueteValidator.cs" />
+    <Compile Include="Validations\CancelacionVentaValidator.cs" />
     <Compile Include="Validations\EncuestaValidator.cs" />
     <Compile Include="Validations\EmpleadoValidator.cs" />
     <Compile Include="Validations\PaqueteValidator.cs" />
@@ -344,6 +382,9 @@
     <Compile Include="Validations\SucursalValidator.cs" />
     <Compile Include="Validations\UsuarioValidator.cs" />
     <Compile Include="Validations\VentaValidator.cs" />
+    <EmbeddedResource Include="Forms\Paquete\FrmAbonarPaquete.resx">
+      <DependentUpon>FrmAbonarPaquete.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmClaveTarjeta.resx">
       <DependentUpon>FrmClaveTarjeta.cs</DependentUpon>
     </EmbeddedResource>
@@ -440,6 +481,12 @@
     <EmbeddedResource Include="Forms\General\FrmRegistroPasswordEmpleado.resx">
       <DependentUpon>FrmRegistroPasswordEmpleado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Paquete\FrmAbonoPaqueteDetalle.resx">
+      <DependentUpon>FrmAbonoPaqueteDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Paquete\FrmPagarPaquete.resx">
+      <DependentUpon>FrmPagarPaquete.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Usuarios\FrmReglasPerfil.resx">
       <DependentUpon>FrmReglasPerfil.cs</DependentUpon>
     </EmbeddedResource>
@@ -449,11 +496,20 @@
     <EmbeddedResource Include="Forms\Ventas\FrmBuscarCliente.resx">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ventas\FrmBuscarPaquete.resx">
+      <DependentUpon>FrmBuscarPaquete.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmBuscarVentas.resx">
       <DependentUpon>FrmBuscarVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Ventas\FrmCancelacionVenta.resx">
-      <DependentUpon>FrmCancelacionVenta.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Ventas\FrmCambioVenta.resx">
+      <DependentUpon>FrmCambioVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ventas\FrmCancelacion.resx">
+      <DependentUpon>FrmCancelacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ventas\FrmPaqueteVenta.resx">
+      <DependentUpon>FrmPaqueteVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmSeleccionarPago.resx">
       <DependentUpon>FrmSeleccionarPago.cs</DependentUpon>
@@ -597,5 +653,9 @@
   <ItemGroup>
     <None Include="Resources\chevronup35px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerrar.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

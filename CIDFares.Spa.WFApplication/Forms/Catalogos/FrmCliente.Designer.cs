@@ -37,6 +37,7 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.panelGridDatos = new System.Windows.Forms.Panel();
@@ -155,9 +156,13 @@
             gridTextColumn7.MappingName = "FechaNacimiento";
             gridTextColumn7.Visible = false;
             gridTextColumn8.AllowEditing = false;
-            gridTextColumn8.HeaderText = "Column8";
+            gridTextColumn8.HeaderText = "nada";
             gridTextColumn8.MappingName = "TieneTarjeta";
             gridTextColumn8.Visible = false;
+            gridTextColumn9.AllowEditing = false;
+            gridTextColumn9.HeaderText = "Puntos monedero";
+            gridTextColumn9.MappingName = "PuntosMonedero";
+            gridTextColumn9.NullDisplayText = "S/ Monedero";
             this.sfDataGridCliente.Columns.Add(gridTextColumn1);
             this.sfDataGridCliente.Columns.Add(gridTextColumn2);
             this.sfDataGridCliente.Columns.Add(gridTextColumn3);
@@ -166,6 +171,7 @@
             this.sfDataGridCliente.Columns.Add(gridTextColumn6);
             this.sfDataGridCliente.Columns.Add(gridTextColumn7);
             this.sfDataGridCliente.Columns.Add(gridTextColumn8);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn9);
             this.sfDataGridCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridCliente.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridCliente.Name = "sfDataGridCliente";

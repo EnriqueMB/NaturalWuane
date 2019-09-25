@@ -101,9 +101,9 @@
             this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 14.25F);
             this.lblUsuario.Location = new System.Drawing.Point(12, 18);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(82, 22);
+            this.lblUsuario.Size = new System.Drawing.Size(92, 22);
             this.lblUsuario.TabIndex = 0;
-            this.lblUsuario.Text = "Usuarios";
+            this.lblUsuario.Text = "USUARIO";
             // 
             // panel2
             // 
@@ -126,40 +126,40 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
+            this.btnNuevo.BackColor = System.Drawing.Color.White;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btnNuevo.Location = new System.Drawing.Point(3, 3);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(123, 29);
             this.btnNuevo.TabIndex = 7;
-            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.Text = "NUEVO";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnModificar
             // 
-            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(132)))), ((int)(((byte)(51)))));
+            this.btnModificar.BackColor = System.Drawing.Color.White;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btnModificar.Location = new System.Drawing.Point(132, 3);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(123, 29);
             this.btnModificar.TabIndex = 8;
-            this.btnModificar.Text = "Modificar";
+            this.btnModificar.Text = "MODIFICAR";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnEliminar.BackColor = System.Drawing.Color.White;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btnEliminar.Location = new System.Drawing.Point(261, 3);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(123, 29);
             this.btnEliminar.TabIndex = 9;
-            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -179,7 +179,7 @@
             this.panelGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGrid.Location = new System.Drawing.Point(0, 0);
             this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(525, 427);
+            this.panelGrid.Size = new System.Drawing.Size(525, 423);
             this.panelGrid.TabIndex = 3;
             // 
             // DataGridUsuario
@@ -210,7 +210,7 @@
             this.DataGridUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataGridUsuario.Location = new System.Drawing.Point(0, 0);
             this.DataGridUsuario.Name = "DataGridUsuario";
-            this.DataGridUsuario.Size = new System.Drawing.Size(525, 427);
+            this.DataGridUsuario.Size = new System.Drawing.Size(525, 423);
             this.DataGridUsuario.TabIndex = 0;
             this.DataGridUsuario.Text = "sfDataGrid1";
             // 
@@ -220,7 +220,7 @@
             this.panelDatos.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelDatos.Location = new System.Drawing.Point(525, 0);
             this.panelDatos.Name = "panelDatos";
-            this.panelDatos.Size = new System.Drawing.Size(492, 427);
+            this.panelDatos.Size = new System.Drawing.Size(492, 423);
             this.panelDatos.TabIndex = 2;
             // 
             // groupUsuario
@@ -379,6 +379,7 @@
             // 
             // IdRolControl
             // 
+            this.IdRolControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IdRolControl.FormattingEnabled = true;
             this.IdRolControl.Location = new System.Drawing.Point(0, 23);
             this.IdRolControl.Name = "IdRolControl";
@@ -397,6 +398,7 @@
             // 
             // IdEmpleadoControl
             // 
+            this.IdEmpleadoControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IdEmpleadoControl.FormattingEnabled = true;
             this.IdEmpleadoControl.Location = new System.Drawing.Point(4, 27);
             this.IdEmpleadoControl.Name = "IdEmpleadoControl";
@@ -425,27 +427,27 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btnCancelar.Location = new System.Drawing.Point(262, 17);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(123, 29);
             this.btnCancelar.TabIndex = 7;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
+            this.btnGuardar.BackColor = System.Drawing.Color.White;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.btnGuardar.Location = new System.Drawing.Point(92, 17);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(123, 29);
             this.btnGuardar.TabIndex = 6;
-            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
