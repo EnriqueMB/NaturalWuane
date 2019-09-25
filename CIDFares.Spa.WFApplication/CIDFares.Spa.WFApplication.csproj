@@ -36,9 +36,8 @@
     <Reference Include="CIDFares.Library.Code">
       <HintPath>..\..\CIDFares.Library\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
     </Reference>
-    <Reference Include="CIDFares.Library.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CIDFaresLibrary\CIDFares.Library.Controls\bin\Debug\CIDFares.Library.Controls.dll</HintPath>
+    <Reference Include="CIDFares.Library.Controls">
+      <HintPath>..\..\CIDFares.Library\CIDFares.Library.Controls\bin\Debug\CIDFares.Library.Controls.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentValidation.8.0.0\lib\net45\FluentValidation.dll</HintPath>
@@ -193,6 +192,24 @@
     <Compile Include="Forms\Catalogos\FrmServicioNuevo.Designer.cs">
       <DependentUpon>FrmServicioNuevo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Citas\FrmCapturaCitaNuevo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Citas\FrmCapturaCitaNuevo.Designer.cs">
+      <DependentUpon>FrmCapturaCitaNuevo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compras\FrmBuscarCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\FrmBuscarCompras.Designer.cs">
+      <DependentUpon>FrmBuscarCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compras\FrmCancelacionCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\FrmCancelacionCompra.Designer.cs">
+      <DependentUpon>FrmCancelacionCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Compras\FrmCompra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,6 +330,12 @@
     <Compile Include="Forms\Ventas\FrmBuscarCliente.Designer.cs">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Citas\FrmCapturaCita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Citas\FrmCapturaCita.Designer.cs">
+      <DependentUpon>FrmCapturaCita.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Ventas\FrmBuscarPaquete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -375,6 +398,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validations\CambioVentaValidator.cs" />
+    <Compile Include="Validations\CapturaCitaValidator.cs" />
     <Compile Include="Validations\AbonoPaqueteValidator.cs" />
     <Compile Include="Validations\CancelacionVentaValidator.cs" />
     <Compile Include="Validations\EncuestaValidator.cs" />
@@ -448,6 +473,15 @@
     <EmbeddedResource Include="Forms\Catalogos\FrmServicioNuevo.resx">
       <DependentUpon>FrmServicioNuevo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Citas\FrmCapturaCitaNuevo.resx">
+      <DependentUpon>FrmCapturaCitaNuevo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\FrmBuscarCompras.resx">
+      <DependentUpon>FrmBuscarCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\FrmCancelacionCompra.resx">
+      <DependentUpon>FrmCancelacionCompra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compras\FrmCompra.resx">
       <DependentUpon>FrmCompra.cs</DependentUpon>
     </EmbeddedResource>
@@ -507,6 +541,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmBuscarCliente.resx">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Citas\FrmCapturaCita.resx">
+      <DependentUpon>FrmCapturaCita.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmBuscarPaquete.resx">
       <DependentUpon>FrmBuscarPaquete.cs</DependentUpon>
@@ -600,7 +637,19 @@
     <None Include="Resources\fondo2.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\holaNW2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\ajustes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mas-26px.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Recurso 10%403x.png" />

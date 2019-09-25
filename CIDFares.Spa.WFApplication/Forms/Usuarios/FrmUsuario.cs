@@ -340,7 +340,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
              
                 PasswordControl.Enabled = false;
                 ContraseniaDosControl.Enabled = false;
-                LimpiarPropiedades();
+               // LimpiarPropiedades();
                 
             }
         }

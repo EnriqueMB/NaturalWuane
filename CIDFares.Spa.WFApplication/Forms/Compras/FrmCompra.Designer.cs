@@ -29,19 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlTitulos = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.PanelBotones = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnCancelarCompra = new System.Windows.Forms.Button();
+            this.groupBoxProducto = new System.Windows.Forms.GroupBox();
             this.ClaveProveedorControl = new System.Windows.Forms.Label();
             this.ClaveProveedor = new System.Windows.Forms.Label();
             this.lblDireccionControl = new System.Windows.Forms.Label();
@@ -53,7 +55,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Np = new System.Windows.Forms.Label();
             this.bntnAgregarProvedor = new System.Windows.Forms.Button();
-            this.groupProducto = new System.Windows.Forms.GroupBox();
+            this.groupProductoCompras = new System.Windows.Forms.GroupBox();
+            this.sfDataGrid1 = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.panelEliminar = new System.Windows.Forms.Panel();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.panelTotales = new System.Windows.Forms.Panel();
@@ -67,6 +70,8 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panelDatosProveedor = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -76,31 +81,30 @@
             this.FechaControl = new System.Windows.Forms.Label();
             this.btnProducto = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.sfDataGrid1 = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.pnlTitulos.SuspendLayout();
             this.PanelBotones.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupProducto.SuspendLayout();
+            this.groupBoxProducto.SuspendLayout();
+            this.groupProductoCompras.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).BeginInit();
             this.panelEliminar.SuspendLayout();
             this.panelTotales.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.panelDatosProveedor.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelBrnProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.panel7.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTitulos
             // 
-            this.pnlTitulos.BackColor = System.Drawing.Color.White;
+            this.pnlTitulos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.pnlTitulos.Controls.Add(this.lblTitulo);
             this.pnlTitulos.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitulos.Location = new System.Drawing.Point(0, 0);
@@ -123,6 +127,9 @@
             this.PanelBotones.BackColor = System.Drawing.Color.White;
             this.PanelBotones.Controls.Add(this.btnCancelar);
             this.PanelBotones.Controls.Add(this.BtnAgregar);
+            this.PanelBotones.Controls.Add(this.BtnCancelarCompra);
+            this.PanelBotones.Controls.Add(this.btnModificar);
+            this.PanelBotones.Controls.Add(this.btnNuevo);
             this.PanelBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PanelBotones.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.PanelBotones.Location = new System.Drawing.Point(0, 399);
@@ -159,31 +166,47 @@
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(130, 28);
             this.BtnAgregar.TabIndex = 13;
-            this.BtnAgregar.Text = "COMPRAR";
+            this.BtnAgregar.Text = "GUARDAR";
             this.BtnAgregar.UseVisualStyleBackColor = false;
             this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
-            // groupBox1
+            // BtnCancelarCompra
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.ClaveProveedorControl);
-            this.groupBox1.Controls.Add(this.ClaveProveedor);
-            this.groupBox1.Controls.Add(this.lblDireccionControl);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.lblTelefonoControl);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.lblRepresentanteControl);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.Np);
-            this.groupBox1.Controls.Add(this.bntnAgregarProvedor);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(173, 304);
-            this.groupBox1.TabIndex = 16;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Datos proveedor";
+            this.BtnCancelarCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnCancelarCompra.BackColor = System.Drawing.Color.White;
+            this.BtnCancelarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCancelarCompra.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCancelarCompra.ForeColor = System.Drawing.Color.Black;
+            this.BtnCancelarCompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCancelarCompra.Location = new System.Drawing.Point(569, 23);
+            this.BtnCancelarCompra.Name = "BtnCancelarCompra";
+            this.BtnCancelarCompra.Size = new System.Drawing.Size(130, 28);
+            this.BtnCancelarCompra.TabIndex = 15;
+            this.BtnCancelarCompra.Text = "CANCELAR COMPRA";
+            this.BtnCancelarCompra.UseVisualStyleBackColor = false;
+            this.BtnCancelarCompra.Click += new System.EventHandler(this.BtnCancelarCompra_Click);
+            // 
+            // groupBoxProducto
+            // 
+            this.groupBoxProducto.BackColor = System.Drawing.Color.White;
+            this.groupBoxProducto.Controls.Add(this.ClaveProveedorControl);
+            this.groupBoxProducto.Controls.Add(this.ClaveProveedor);
+            this.groupBoxProducto.Controls.Add(this.lblDireccionControl);
+            this.groupBoxProducto.Controls.Add(this.label7);
+            this.groupBoxProducto.Controls.Add(this.lblTelefonoControl);
+            this.groupBoxProducto.Controls.Add(this.label3);
+            this.groupBoxProducto.Controls.Add(this.lblRepresentanteControl);
+            this.groupBoxProducto.Controls.Add(this.label2);
+            this.groupBoxProducto.Controls.Add(this.label1);
+            this.groupBoxProducto.Controls.Add(this.Np);
+            this.groupBoxProducto.Controls.Add(this.bntnAgregarProvedor);
+            this.groupBoxProducto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxProducto.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxProducto.Name = "groupBoxProducto";
+            this.groupBoxProducto.Size = new System.Drawing.Size(173, 304);
+            this.groupBoxProducto.TabIndex = 16;
+            this.groupBoxProducto.TabStop = false;
+            this.groupBoxProducto.Text = "Datos proveedor";
             // 
             // ClaveProveedorControl
             // 
@@ -297,19 +320,64 @@
             this.bntnAgregarProvedor.UseVisualStyleBackColor = false;
             this.bntnAgregarProvedor.Click += new System.EventHandler(this.bntnAgregarProvedor_Click);
             // 
-            // groupProducto
+            // groupProductoCompras
             // 
-            this.groupProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.groupProductoCompras.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupProducto.BackColor = System.Drawing.Color.White;
-            this.groupProducto.Controls.Add(this.sfDataGrid1);
-            this.groupProducto.Location = new System.Drawing.Point(3, 3);
-            this.groupProducto.Name = "groupProducto";
-            this.groupProducto.Size = new System.Drawing.Size(811, 217);
-            this.groupProducto.TabIndex = 0;
-            this.groupProducto.TabStop = false;
-            this.groupProducto.Text = "Compra";
+            this.groupProductoCompras.BackColor = System.Drawing.Color.White;
+            this.groupProductoCompras.Controls.Add(this.sfDataGrid1);
+            this.groupProductoCompras.Location = new System.Drawing.Point(3, 3);
+            this.groupProductoCompras.Name = "groupProductoCompras";
+            this.groupProductoCompras.Size = new System.Drawing.Size(811, 217);
+            this.groupProductoCompras.TabIndex = 0;
+            this.groupProductoCompras.TabStop = false;
+            this.groupProductoCompras.Text = "Compra";
+            // 
+            // sfDataGrid1
+            // 
+            this.sfDataGrid1.AccessibleName = "Table";
+            this.sfDataGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.sfDataGrid1.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            gridTextColumn9.HeaderText = "Column1";
+            gridTextColumn9.MappingName = "IdProducto";
+            gridTextColumn9.Visible = false;
+            gridTextColumn10.HeaderText = "Nombre";
+            gridTextColumn10.MappingName = "Nombre";
+            gridTextColumn11.HeaderText = "Cantidad";
+            gridTextColumn11.MappingName = "Cantidad";
+            gridTextColumn12.Format = "C";
+            gridTextColumn12.HeaderText = "Costo";
+            gridTextColumn12.MappingName = "PrecioCosto";
+            gridTextColumn13.Format = "C";
+            gridTextColumn13.HeaderText = "Subtotal";
+            gridTextColumn13.MappingName = "Subtotal";
+            gridTextColumn14.Format = "C";
+            gridTextColumn14.HeaderText = "Iva";
+            gridTextColumn14.MappingName = "PorcentajeIva";
+            gridTextColumn15.Format = "C";
+            gridTextColumn15.HeaderText = "Total";
+            gridTextColumn15.MappingName = "Total";
+            gridTextColumn16.HeaderText = "IdCompraProducto";
+            gridTextColumn16.MappingName = "IdCompraProducto";
+            gridTextColumn16.Visible = false;
+            this.sfDataGrid1.Columns.Add(gridTextColumn9);
+            this.sfDataGrid1.Columns.Add(gridTextColumn10);
+            this.sfDataGrid1.Columns.Add(gridTextColumn11);
+            this.sfDataGrid1.Columns.Add(gridTextColumn12);
+            this.sfDataGrid1.Columns.Add(gridTextColumn13);
+            this.sfDataGrid1.Columns.Add(gridTextColumn14);
+            this.sfDataGrid1.Columns.Add(gridTextColumn15);
+            this.sfDataGrid1.Columns.Add(gridTextColumn16);
+            this.sfDataGrid1.Location = new System.Drawing.Point(2, 19);
+            this.sfDataGrid1.Name = "sfDataGrid1";
+            this.sfDataGrid1.SerializationController = null;
+            this.sfDataGrid1.ShowRowHeaderErrorIcon = false;
+            this.sfDataGrid1.Size = new System.Drawing.Size(809, 198);
+            this.sfDataGrid1.TabIndex = 0;
+            this.sfDataGrid1.Text = "sfDataGrid1";
             // 
             // panelEliminar
             // 
@@ -447,9 +515,33 @@
             this.panel5.Size = new System.Drawing.Size(994, 304);
             this.panel5.TabIndex = 1;
             // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.panelTotales);
+            this.panel4.Controls.Add(this.panelEliminar);
+            this.panel4.Location = new System.Drawing.Point(174, 229);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(817, 75);
+            this.panel4.TabIndex = 4;
+            // 
+            // panel7
+            // 
+            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Controls.Add(this.groupProductoCompras);
+            this.panel7.Location = new System.Drawing.Point(174, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(817, 224);
+            this.panel7.TabIndex = 3;
+            // 
             // panelDatosProveedor
             // 
-            this.panelDatosProveedor.Controls.Add(this.groupBox1);
+            this.panelDatosProveedor.Controls.Add(this.groupBoxProducto);
             this.panelDatosProveedor.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelDatosProveedor.Location = new System.Drawing.Point(0, 0);
             this.panelDatosProveedor.Name = "panelDatosProveedor";
@@ -525,7 +617,7 @@
             this.btnProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnProducto.ForeColor = System.Drawing.Color.Black;
             this.btnProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProducto.Location = new System.Drawing.Point(155, 3);
+            this.btnProducto.Location = new System.Drawing.Point(177, 3);
             this.btnProducto.Name = "btnProducto";
             this.btnProducto.Size = new System.Drawing.Size(130, 31);
             this.btnProducto.TabIndex = 15;
@@ -537,70 +629,37 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // panel7
+            // btnModificar
             // 
-            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.Controls.Add(this.groupProducto);
-            this.panel7.Location = new System.Drawing.Point(174, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(817, 224);
-            this.panel7.TabIndex = 3;
+            this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModificar.BackColor = System.Drawing.Color.White;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.Black;
+            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar.Location = new System.Drawing.Point(433, 23);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(130, 28);
+            this.btnModificar.TabIndex = 16;
+            this.btnModificar.Text = "MODIFICAR";
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
-            // panel4
+            // btnNuevo
             // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.panelTotales);
-            this.panel4.Controls.Add(this.panelEliminar);
-            this.panel4.Location = new System.Drawing.Point(174, 229);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(817, 75);
-            this.panel4.TabIndex = 4;
-            // 
-            // sfDataGrid1
-            // 
-            this.sfDataGrid1.AccessibleName = "Table";
-            this.sfDataGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.sfDataGrid1.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn8.HeaderText = "Column1";
-            gridTextColumn8.MappingName = "IdProducto";
-            gridTextColumn8.Visible = false;
-            gridTextColumn9.HeaderText = "Nombre";
-            gridTextColumn9.MappingName = "Nombre";
-            gridTextColumn10.HeaderText = "Cantidad";
-            gridTextColumn10.MappingName = "Cantidad";
-            gridTextColumn11.Format = "C";
-            gridTextColumn11.HeaderText = "Costo";
-            gridTextColumn11.MappingName = "PrecioCosto";
-            gridTextColumn12.Format = "C";
-            gridTextColumn12.HeaderText = "Subtotal";
-            gridTextColumn12.MappingName = "Subtotal";
-            gridTextColumn13.Format = "C";
-            gridTextColumn13.HeaderText = "Iva";
-            gridTextColumn13.MappingName = "PorcentajeIva";
-            gridTextColumn14.Format = "C";
-            gridTextColumn14.HeaderText = "Total";
-            gridTextColumn14.MappingName = "Total";
-            this.sfDataGrid1.Columns.Add(gridTextColumn8);
-            this.sfDataGrid1.Columns.Add(gridTextColumn9);
-            this.sfDataGrid1.Columns.Add(gridTextColumn10);
-            this.sfDataGrid1.Columns.Add(gridTextColumn11);
-            this.sfDataGrid1.Columns.Add(gridTextColumn12);
-            this.sfDataGrid1.Columns.Add(gridTextColumn13);
-            this.sfDataGrid1.Columns.Add(gridTextColumn14);
-            this.sfDataGrid1.Location = new System.Drawing.Point(2, 19);
-            this.sfDataGrid1.Name = "sfDataGrid1";
-            this.sfDataGrid1.SerializationController = null;
-            this.sfDataGrid1.ShowRowHeaderErrorIcon = false;
-            this.sfDataGrid1.Size = new System.Drawing.Size(809, 198);
-            this.sfDataGrid1.TabIndex = 0;
-            this.sfDataGrid1.Text = "sfDataGrid1";
+            this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNuevo.BackColor = System.Drawing.Color.White;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.ForeColor = System.Drawing.Color.Black;
+            this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevo.Location = new System.Drawing.Point(297, 23);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(130, 28);
+            this.btnNuevo.TabIndex = 17;
+            this.btnNuevo.Text = "NUEVA";
+            this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
             // FrmCompra
             // 
@@ -617,9 +676,10 @@
             this.pnlTitulos.ResumeLayout(false);
             this.pnlTitulos.PerformLayout();
             this.PanelBotones.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupProducto.ResumeLayout(false);
+            this.groupBoxProducto.ResumeLayout(false);
+            this.groupBoxProducto.PerformLayout();
+            this.groupProductoCompras.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).EndInit();
             this.panelEliminar.ResumeLayout(false);
             this.panelTotales.ResumeLayout(false);
             this.panelTotales.PerformLayout();
@@ -627,14 +687,13 @@
             this.panel8.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.panelDatosProveedor.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panelBrnProducto.ResumeLayout(false);
             this.panelBrnProducto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.panel7.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -653,7 +712,7 @@
         private System.Windows.Forms.Button btnProducto;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.GroupBox groupProducto;
+        private System.Windows.Forms.GroupBox groupProductoCompras;
         private System.Windows.Forms.Label FechaControl;
         private System.Windows.Forms.Label lblVenta;
         private System.Windows.Forms.Label FolioCompraControl;
@@ -665,7 +724,7 @@
         private System.Windows.Forms.Label IvaControl;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label SubtotalControl;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxProducto;
         private System.Windows.Forms.Label lblDireccionControl;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblTelefonoControl;
@@ -684,5 +743,8 @@
         private System.Windows.Forms.Panel panel7;
         private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGrid1;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button BtnCancelarCompra;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnNuevo;
     }
 }
