@@ -15,6 +15,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
         Task<BindingList<CapturaCita>> GetCitaDetalle(DateTime? fecha, object IdSucursal);
         Task<BindingList<CapturaCita>> GetCitaDetalleServicio(Guid idCita);
         Task<CapturaCita> AddCita(CapturaCita element, object IdUsuario, object IdSucursal);
+        Task<CapturaCita> UpdateCita(CapturaCita element, object IdUsuario, object IdSucursal);
         Task<BindingList<CapturaCita>> ValidarFechaServicio(DateTime? fecha);
         Task<IEnumerable<CapturaCita>> LlenarComboHoras(DateTime f, DateTime primeraHora);
         Task<int> BusyService(CapturaCita element, object IdSucursal);

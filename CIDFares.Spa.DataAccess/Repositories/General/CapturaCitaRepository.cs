@@ -185,7 +185,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@opcion", 1);
                     dynamicParameters.Add("@TablaServicio", element.TablaServicio, DbType.Object);
                     dynamicParameters.Add("@idCitaUpd", element.IdCita);
-                    dynamicParameters.Add("@idSucursal", 1/*IdSucursal*/);
+                    dynamicParameters.Add("@idSucursal", IdSucursal);
                     dynamicParameters.Add("@idCliente", element.IdCliente);
                     dynamicParameters.Add("@idEstadoCita", 5);                
                     dynamicParameters.Add("@user", IdUsuario);
@@ -205,7 +205,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
-        public async Task<CapturaCita> UpdateAsync(CapturaCita element, object IdUsuario)
+        public async Task<CapturaCita> UpdateCita(CapturaCita element, object IdUsuario, object IdSucursal)
         {
             try
             {
@@ -216,7 +216,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@opcion", 2);
                     dynamicParameters.Add("@TablaServicio", element.TablaServicio, DbType.Object);
                     dynamicParameters.Add("@idCitaUpd", element.IdCita);
-                    dynamicParameters.Add("@idSucursal", 1/*IdSucursal*/);
+                    dynamicParameters.Add("@idSucursal", IdSucursal);
                     dynamicParameters.Add("@idCliente", element.IdCliente);
                     dynamicParameters.Add("@idEstadoCita", 5);                    
                     dynamicParameters.Add("@user", IdUsuario);
@@ -241,7 +241,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     var dynamicParameters = new DynamicParameters();                    
                     dynamicParameters.Add("@TablaServicio", element.TablaServicio, DbType.Object);                                                            
                     dynamicParameters.Add("@estadoCita", 5);
-                    dynamicParameters.Add("@idSucursal", 1/*IdSucursal*/);                                        
+                    dynamicParameters.Add("@idSucursal", IdSucursal);                                        
                     var result = await conexion.ExecuteScalarAsync<int>("[Cita].[SPCID_Validar_CitaXHorarioServicio]", param: dynamicParameters, commandType: CommandType.StoredProcedure);                    
                     return result;
                 }
@@ -250,6 +250,11 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             {
                 throw ex;
             }
+        }
+
+        public Task<CapturaCita> UpdateAsync(CapturaCita element, object IdUsuario)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -78,7 +78,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 }
                 else if (State == EntityState.Update)
                 {
-                    return await Repository.UpdateAsync(model, IdUsuario);
+                    return await Repository.UpdateCita(model, IdUsuario, IdSucursal);
                 }
                 return model;
             }
@@ -101,7 +101,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
-        public async Task<int> BusyService(Guid idUsuario)
+        public async Task<int> BusyService( int IdSucursal)
         {
             try
             {
@@ -109,7 +109,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 {                    
                     TablaServicio = TablaGServicio,
                 };
-                return await Repository.BusyService(model, idUsuario);
+                return await Repository.BusyService(model, IdSucursal);
             }
             catch (Exception ex)
             {

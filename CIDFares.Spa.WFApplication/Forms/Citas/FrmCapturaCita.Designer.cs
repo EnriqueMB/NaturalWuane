@@ -172,6 +172,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlButtons);
             this.Controls.Add(this.pnlHeader);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCapturaCita";
             this.Text = "FrmCapturaCita";
             this.Load += new System.EventHandler(this.FrmCapturaCita_Load);

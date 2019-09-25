@@ -56,18 +56,18 @@
             this.FechaCitaControl = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaFinal = new System.Windows.Forms.DateTimePicker();
             this.lblErrorControl = new System.Windows.Forms.Label();
+            this.btnEliminarServicio = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblServicios = new System.Windows.Forms.Label();
             this.dgmServicio = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            this.btnBuscarServicio = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.ClienteControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgmCita = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnEliminarServicio = new System.Windows.Forms.Button();
-            this.btnBuscarServicio = new System.Windows.Forms.Button();
-            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -274,6 +274,25 @@
             this.lblErrorControl.Size = new System.Drawing.Size(0, 17);
             this.lblErrorControl.TabIndex = 29;
             // 
+            // btnEliminarServicio
+            // 
+            this.btnEliminarServicio.BackColor = System.Drawing.Color.Transparent;
+            this.btnEliminarServicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnEliminarServicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnEliminarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarServicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarServicio.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.eliminar;
+            this.btnEliminarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarServicio.Location = new System.Drawing.Point(327, 147);
+            this.btnEliminarServicio.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminarServicio.Name = "btnEliminarServicio";
+            this.btnEliminarServicio.Size = new System.Drawing.Size(96, 32);
+            this.btnEliminarServicio.TabIndex = 28;
+            this.btnEliminarServicio.Text = " Elimnar Servicio";
+            this.btnEliminarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminarServicio.UseVisualStyleBackColor = false;
+            this.btnEliminarServicio.Click += new System.EventHandler(this.btnEliminarServicio_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -349,6 +368,24 @@
             this.dgmServicio.TabIndex = 18;
             this.dgmServicio.Text = "sfDataGrid1";
             // 
+            // btnBuscarServicio
+            // 
+            this.btnBuscarServicio.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscarServicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnBuscarServicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnBuscarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarServicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarServicio.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.mas_26px;
+            this.btnBuscarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarServicio.Location = new System.Drawing.Point(142, 147);
+            this.btnBuscarServicio.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarServicio.Name = "btnBuscarServicio";
+            this.btnBuscarServicio.Size = new System.Drawing.Size(162, 32);
+            this.btnBuscarServicio.TabIndex = 17;
+            this.btnBuscarServicio.Text = "Servicio";
+            this.btnBuscarServicio.UseVisualStyleBackColor = false;
+            this.btnBuscarServicio.Click += new System.EventHandler(this.btnBuscarServicio_Click_1);
+            // 
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.Transparent;
@@ -367,6 +404,25 @@
             this.btnGuardar.Text = "Guardar Cita";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
+            // 
+            // btnBuscarCliente
+            // 
+            this.btnBuscarCliente.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscarCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnBuscarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCliente.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar;
+            this.btnBuscarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(353, 36);
+            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Size = new System.Drawing.Size(113, 32);
+            this.btnBuscarCliente.TabIndex = 13;
+            this.btnBuscarCliente.Text = "   Cliente";
+            this.btnBuscarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarCliente.UseVisualStyleBackColor = false;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click_1);
             // 
             // ClienteControl
             // 
@@ -454,62 +510,6 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
-            // btnEliminarServicio
-            // 
-            this.btnEliminarServicio.BackColor = System.Drawing.Color.Transparent;
-            this.btnEliminarServicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnEliminarServicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnEliminarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarServicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarServicio.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.eliminar;
-            this.btnEliminarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarServicio.Location = new System.Drawing.Point(327, 147);
-            this.btnEliminarServicio.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEliminarServicio.Name = "btnEliminarServicio";
-            this.btnEliminarServicio.Size = new System.Drawing.Size(96, 32);
-            this.btnEliminarServicio.TabIndex = 28;
-            this.btnEliminarServicio.Text = " Elimnar Servicio";
-            this.btnEliminarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminarServicio.UseVisualStyleBackColor = false;
-            this.btnEliminarServicio.Click += new System.EventHandler(this.btnEliminarServicio_Click);
-            // 
-            // btnBuscarServicio
-            // 
-            this.btnBuscarServicio.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscarServicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnBuscarServicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnBuscarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarServicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarServicio.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.mas_26px;
-            this.btnBuscarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarServicio.Location = new System.Drawing.Point(142, 147);
-            this.btnBuscarServicio.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscarServicio.Name = "btnBuscarServicio";
-            this.btnBuscarServicio.Size = new System.Drawing.Size(162, 32);
-            this.btnBuscarServicio.TabIndex = 17;
-            this.btnBuscarServicio.Text = "Servicio";
-            this.btnBuscarServicio.UseVisualStyleBackColor = false;
-            this.btnBuscarServicio.Click += new System.EventHandler(this.btnBuscarServicio_Click_1);
-            // 
-            // btnBuscarCliente
-            // 
-            this.btnBuscarCliente.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscarCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnBuscarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarCliente.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar;
-            this.btnBuscarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarCliente.Location = new System.Drawing.Point(353, 36);
-            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(113, 32);
-            this.btnBuscarCliente.TabIndex = 13;
-            this.btnBuscarCliente.Text = "   Cliente";
-            this.btnBuscarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscarCliente.UseVisualStyleBackColor = false;
-            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click_1);
-            // 
             // FrmCapturaCitaNuevo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -519,6 +519,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlButtons);
             this.Controls.Add(this.pnlHeader);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCapturaCitaNuevo";
             this.Text = "FrmCapturaCitaNuevo";
             this.Load += new System.EventHandler(this.FrmCapturaCitaNuevo_Load);

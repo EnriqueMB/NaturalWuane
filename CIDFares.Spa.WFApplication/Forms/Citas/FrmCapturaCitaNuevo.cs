@@ -179,7 +179,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 btnGuardar.Enabled = false;
                 BindingList<CapturaCita> ListaServicio = (BindingList<CapturaCita>)dgmServicio.DataSource;
                 Model.TablaGServicio = ObtenerDatosTabla(ListaServicio);
-                int exists = await Model.BusyService(CurrentSession.IdCuentaUsuario);                                
+                int exists = await Model.BusyService(CurrentSession.IdSucursal);                                
                 var validationResults = Model.Validate();
                 validationResults.ToString();
                 if (exists != 1 && exists != 5)
