@@ -91,6 +91,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\Messages.cs" />
+    <Compile Include="Forms\Catalogos\FrmAlimentoGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmAlimentoGrid.Designer.cs">
+      <DependentUpon>FrmAlimentoGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmAlimentoNuevo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmAlimentoNuevo.Designer.cs">
+      <DependentUpon>FrmAlimentoNuevo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Catalogos\FrmClaveTarjeta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -327,6 +339,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validations\AlimentoValidator.cs" />
     <Compile Include="Validations\EncuestaValidator.cs" />
     <Compile Include="Validations\EmpleadoValidator.cs" />
     <Compile Include="Validations\PaqueteValidator.cs" />
@@ -339,6 +352,12 @@
     <Compile Include="Validations\SucursalValidator.cs" />
     <Compile Include="Validations\UsuarioValidator.cs" />
     <Compile Include="Validations\VentaValidator.cs" />
+    <EmbeddedResource Include="Forms\Catalogos\FrmAlimentoGrid.resx">
+      <DependentUpon>FrmAlimentoGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmAlimentoNuevo.resx">
+      <DependentUpon>FrmAlimentoNuevo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmClaveTarjeta.resx">
       <DependentUpon>FrmClaveTarjeta.cs</DependentUpon>
     </EmbeddedResource>
