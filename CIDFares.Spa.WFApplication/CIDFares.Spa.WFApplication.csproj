@@ -132,6 +132,18 @@
     <Compile Include="Forms\Catalogos\FrmFormaPago.Designer.cs">
       <DependentUpon>FrmFormaPago.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Catalogos\FrmListaMedicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmListaMedicion.Designer.cs">
+      <DependentUpon>FrmListaMedicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmMedicionGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmMedicionGrid.Designer.cs">
+      <DependentUpon>FrmMedicionGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Catalogos\FrmPaquete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -372,6 +384,8 @@
     <Compile Include="Validations\CancelacionVentaValidator.cs" />
     <Compile Include="Validations\EncuestaValidator.cs" />
     <Compile Include="Validations\EmpleadoValidator.cs" />
+    <Compile Include="Validations\ListaMedicionValidator.cs" />
+    <Compile Include="Validations\MedicionValidator.cs" />
     <Compile Include="Validations\PaqueteValidator.cs" />
     <Compile Include="Validations\CompraValidator.cs" />
     <Compile Include="Validations\ProductosMonederoValidator.cs" />
@@ -408,6 +422,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmFormaPago.resx">
       <DependentUpon>FrmFormaPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmListaMedicion.resx">
+      <DependentUpon>FrmListaMedicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmMedicionGrid.resx">
+      <DependentUpon>FrmMedicionGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmPaquete.resx">
       <DependentUpon>FrmPaquete.cs</DependentUpon>

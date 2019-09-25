@@ -67,6 +67,8 @@
     <Compile Include="Entities\Compra.cs" />
     <Compile Include="Entities\Cuestionario.cs" />
     <Compile Include="Entities\Estado.cs" />
+    <Compile Include="Entities\ListaMedicion.cs" />
+    <Compile Include="Entities\Medicion.cs" />
     <Compile Include="Entities\Municipio.cs" />
     <Compile Include="Entities\Pais.cs" />
     <Compile Include="Entities\Iva.cs" />
@@ -92,6 +94,7 @@
     <Compile Include="Entities\TurnoDiasInter.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Entities\UnidadMedida.cs" />
+    <Compile Include="Entities\ValorLista.cs" />
     <Compile Include="Entities\Venta.cs" />
     <Compile Include="Entities\VentaDetalle.cs" />
     <Compile Include="Entities\VentasCancelaciones.cs" />
@@ -108,7 +111,9 @@
     <Compile Include="Repositories\General\IEstadoRepository.cs" />
     <Compile Include="Repositories\General\IFormaPagoRepository.cs" />
     <Compile Include="Repositories\General\IIvaRepository.cs" />
+    <Compile Include="Repositories\General\IListaMedicionRepository.cs" />
     <Compile Include="Repositories\General\ILoginRepository.cs" />
+    <Compile Include="Repositories\General\IMedicionRepository.cs" />
     <Compile Include="Repositories\General\IMunicipioRepository.cs" />
     <Compile Include="Repositories\General\IPaisRepository.cs" />
     <Compile Include="Repositories\General\IPaqueteRepository.cs" />

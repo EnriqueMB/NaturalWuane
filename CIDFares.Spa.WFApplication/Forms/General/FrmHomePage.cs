@@ -439,10 +439,17 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             SlideCatalogo(btnTurnos);
             GetPanel(new FrmTurno());
         }
+        private void btnMedicionPaciente_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnMedicionPaciente);
+            GetPanel(new FrmMedicionGrid());
+        }
+
         private void btnAbonarPaquete_Click(object sender, EventArgs e)
         {
             SlideCatalogo(btnAbonarPaquete);
             GetPanel(new FrmAbonarPaquete());
+
         }
 
         private void SlideGenerales(Button button)
