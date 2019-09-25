@@ -33,7 +33,7 @@
             this.pnlOpcAbierta = new System.Windows.Forms.Panel();
             this.lblRespuestaAbierta = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtRespuesta = new System.Windows.Forms.TextBox();
+            this.RespuestaControl = new System.Windows.Forms.TextBox();
             this.pnlOpcSiNo = new System.Windows.Forms.Panel();
             this.groupOpciones = new System.Windows.Forms.GroupBox();
             this.rbtSi = new System.Windows.Forms.RadioButton();
@@ -83,7 +83,7 @@
             // 
             this.pnlOpcAbierta.Controls.Add(this.lblRespuestaAbierta);
             this.pnlOpcAbierta.Controls.Add(this.label2);
-            this.pnlOpcAbierta.Controls.Add(this.txtRespuesta);
+            this.pnlOpcAbierta.Controls.Add(this.RespuestaControl);
             this.pnlOpcAbierta.Location = new System.Drawing.Point(3, 3);
             this.pnlOpcAbierta.Name = "pnlOpcAbierta";
             this.pnlOpcAbierta.Size = new System.Drawing.Size(639, 150);
@@ -111,15 +111,15 @@
             this.label2.TabIndex = 18;
             this.label2.Text = "OPCION ABIERTA";
             // 
-            // txtRespuesta
+            // RespuestaControl
             // 
-            this.txtRespuesta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.RespuestaControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtRespuesta.Location = new System.Drawing.Point(26, 65);
-            this.txtRespuesta.Multiline = true;
-            this.txtRespuesta.Name = "txtRespuesta";
-            this.txtRespuesta.Size = new System.Drawing.Size(595, 67);
-            this.txtRespuesta.TabIndex = 17;
+            this.RespuestaControl.Location = new System.Drawing.Point(26, 65);
+            this.RespuestaControl.Multiline = true;
+            this.RespuestaControl.Name = "RespuestaControl";
+            this.RespuestaControl.Size = new System.Drawing.Size(595, 67);
+            this.RespuestaControl.TabIndex = 17;
             // 
             // pnlOpcSiNo
             // 
@@ -145,6 +145,7 @@
             // rbtSi
             // 
             this.rbtSi.AutoSize = true;
+            this.rbtSi.Checked = true;
             this.rbtSi.Location = new System.Drawing.Point(16, 19);
             this.rbtSi.Name = "rbtSi";
             this.rbtSi.Size = new System.Drawing.Size(35, 17);
@@ -160,7 +161,6 @@
             this.rbtNo.Name = "rbtNo";
             this.rbtNo.Size = new System.Drawing.Size(41, 17);
             this.rbtNo.TabIndex = 19;
-            this.rbtNo.TabStop = true;
             this.rbtNo.Text = "NO";
             this.rbtNo.UseVisualStyleBackColor = true;
             // 
@@ -284,7 +284,7 @@
         public System.Windows.Forms.Panel pnlOpcAbierta;
         private System.Windows.Forms.Label lblRespuestaAbierta;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtRespuesta;
+        private System.Windows.Forms.TextBox RespuestaControl;
         public System.Windows.Forms.Panel pnlOpcSiNo;
         public System.Windows.Forms.GroupBox groupOpciones;
         public System.Windows.Forms.RadioButton rbtSi;

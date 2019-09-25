@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.FlpBotones = new System.Windows.Forms.FlowLayoutPanel();
@@ -48,7 +47,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.PanelPreguntas = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblError = new System.Windows.Forms.Label();
             this.pnlTitulo.SuspendLayout();
             this.FlpBotones.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -56,7 +55,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbCliente)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTitulo
@@ -257,6 +255,7 @@
             this.button1.TabIndex = 15;
             this.button1.Text = ">";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // panel2
@@ -279,6 +278,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.lblError);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 443);
@@ -286,9 +286,16 @@
             this.panel3.Size = new System.Drawing.Size(816, 39);
             this.panel3.TabIndex = 0;
             // 
-            // errorProvider1
+            // lblError
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.lblError.AutoSize = true;
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(43, 14);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(35, 13);
+            this.lblError.TabIndex = 16;
+            this.lblError.Text = "label4";
+            this.lblError.Visible = false;
             // 
             // FrmNuevaConsultaControl
             // 
@@ -312,7 +319,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbCliente)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -338,6 +345,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel PanelPreguntas;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label lblError;
     }
 }

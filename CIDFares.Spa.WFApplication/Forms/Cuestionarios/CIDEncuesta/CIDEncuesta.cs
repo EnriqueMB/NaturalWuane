@@ -29,13 +29,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios.CIDEncuesta
             Model.TipoPregunta = pregunta.TipoPregunta;
             Model.ListaOpciones = pregunta.Respuesta;
             Model.respuestasMultiples = pregunta.respuestasMultiples;
-            //CIDcontrolViewModel vm = new CIDcontrolViewModel
-            //{
-            //    TipoPregunta = pregunta.TipoPregunta,
-            //    ListaOpciones = pregunta.Respuesta,
-            //    respuestasMultiples = pregunta.respuestasMultiples
-            //};
-
             txtPregunta.Text = pregunta.Pregunta;
             _pregunta = pregunta;
             Model.IDPre = pregunta.IdPregunta;
@@ -46,6 +39,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios.CIDEncuesta
         private void CIDEncuesta_Load(object sender, EventArgs e)
         {
             Iniciarbinding();
+            this.rbtSi.Checked = true;
             if (_pregunta.TipoPregunta == "MULTIPLE" && _pregunta.respuestasMultiples)
             {
                 pnlOpcMultiple.Visible = false;
@@ -74,7 +68,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios.CIDEncuesta
                 pnlOpcMultiple.Visible = false;
                 pnlOpcSiNo.Visible = true;
                 pnlOpcAbierta.Visible = false;
-                pnlOpcMultipleCheck.Visible = false;
+                pnlOpcMultipleCheck.Visible = false;          
             }
         }
         void radioButton_CheckedChanged(object sender, EventArgs e)
@@ -93,7 +87,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios.CIDEncuesta
         {
             try
             {
-                txtRespuesta.DataBindings.Add("Text", Model, "respuestas", true, DataSourceUpdateMode.OnPropertyChanged);                
+                RespuestaControl.DataBindings.Add("Text", Model, "Respuesta", true, DataSourceUpdateMode.OnPropertyChanged);
+                rbtSi.DataBindings.Add("Checked",Model, "RdioBtonValue",true,DataSourceUpdateMode.OnPropertyChanged);
             }
             catch (Exception ex)
             {
@@ -143,7 +138,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios.CIDEncuesta
                         }
                         //this.flowLayoutPanel3.Controls.Add(panelCheck);
                     }
-                }
+                }               
             }
             catch (Exception ex)
             {

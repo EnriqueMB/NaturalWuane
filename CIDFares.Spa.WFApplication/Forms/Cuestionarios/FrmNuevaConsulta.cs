@@ -191,33 +191,41 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 cmbEncuestas.DataBindings["SelectedItem"].WriteValue();
             }
             if (!x.Equals(Guid.Empty))
-            {                
-                
+            {
+                this.button1.Visible = true;
                 await Model.cargarPreguntasEncuesta();
                 IndexPregunta = 0;
                 AgregarPreguntaAPanel();
-                //this.panel1.Enabled = false;
+                this.panel1.Enabled = false;
             }
         }
     
         private void Button1_Click(object sender, EventArgs e)
         {
+            this.lblError.Visible = false;
             if (PanelPreguntas.Controls.Count > 0)
             {
 
                 var controlPreguntaActual = (PanelPreguntas.Controls[0] as CIDEncuesta.CIDEncuesta);
 
-                controlPreguntaActual.CleanErrors(errorProvider1,typeof(CIDcontrolViewModel));
+                var dato = controlPreguntaActual.Model;
+                //controlPreguntaActual.CleanErrors(errorProvider1,typeof(CIDcontrolViewModel));
                 var validationResults = controlPreguntaActual.Model.Validate();
                 if (validationResults.IsValid)
-                {                    
+                {
+                    //guardar las respuesuestas en una nueva lista.
+                    //generar una tabla atravez de la lista.
+                    
                     PanelPreguntas.Controls.RemoveAt(0);
                     IndexPregunta++;
                     AgregarPreguntaAPanel();
                 }
                 else
                 {
-                    controlPreguntaActual.ShowErrors(errorProvider1,typeof(CIDcontrolViewModel),validationResults);
+                    //controlPreguntaActual.ShowErrors(errorProvider1,typeof(CIDcontrolViewModel),validationResults);
+
+                    this.lblError.Visible = true;
+                    lblError.Text = validationResults.ToString();
                 }
             }
         }
@@ -228,8 +236,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             {
                 button1.Text = "FINALIZAR ENCUESTA";
                 button1.AutoSize = true;
-                //this.panel1.Enabled = true;
+                this.panel1.Enabled = true;                
             }
+
             else
             {
                 button1.Text = ">";

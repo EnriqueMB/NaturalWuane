@@ -24,12 +24,12 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #endregion
 
         #region Databinding
-        private string _respuestas;
-        public string respuestas
+        private string _Respuesta;
+        public string Respuesta
         {
-            get { return _respuestas; }
-            set { _respuestas = value;
-                OnPropertyChanged(respuestas);
+            get { return _Respuesta; }
+            set {_Respuesta = value;
+                OnPropertyChanged(Respuesta);
             }
         }
         private object _ValueGroupRadioButton;

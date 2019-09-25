@@ -13,14 +13,26 @@ namespace CIDFares.Spa.WFApplication.Validations
         #region Constructor
         public ConsultaValidator()
         {
-            //RuleForEach(x => x.ListaOpciones).Where(x => x.Seleccionado)
-            //    .NotEmpty()
-            //    .WithMessage("DEBE SELECCIONAR ALMENOS UNA OPCION.");
+            RuleFor(x => x.ListaOpciones)
+                .Must((x) =>{return (x.Where(y => y.Seleccionado).Count() >= 1);})
+                .When(x => x.TipoPregunta == "MULTIPLE" && x.respuestasMultiples)
+                .WithMessage("DEBE SELECCIONAR ALMENOS UNA OPCION.");
 
-            //RuleFor(x => x.respuestas)
-            //    .NotEmpty()
-            //    .WithMessage("DEBE ESCRIBIR UNA RESPUESTA");
+            RuleFor(x => x.ValueGroupRadioButton)
+                .NotNull()
+                .When(x => x.TipoPregunta == "MULTIPLE" && x.respuestasMultiples == false)
+                .WithMessage("DEBE SELECCIONAR UNA OPCION.");
+
+            //RuleFor(x => x.RdioBtonValue)
+            //    .NotNull()
+            //    .When(x => x.TipoPregunta == "SI/NO")
+            //    .WithMessage("DEBE SELECCIONAR UNA OPCION SI O NO.");
+
+            RuleFor(x => x.Respuesta)
+                .NotEmpty()
+                .When(x=>x.TipoPregunta == "ABIERTA")
+                .WithMessage("DEBE ESCRIBIR UNA RESPUESTA");
         }
         #endregion
-    }
+    } 
 }
