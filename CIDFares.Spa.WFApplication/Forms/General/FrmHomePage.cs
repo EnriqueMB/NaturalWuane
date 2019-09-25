@@ -447,6 +447,12 @@ namespace CIDFares.Spa.WFApplication.Forms.General
 
         }
 
+        private void btnCita_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnCita);
+            GetPanel(new FrmCapturaCita());
+        }
+
         private void SlideGenerales(Button button)
         {
             SlidePanelgenerales.Visible = true;

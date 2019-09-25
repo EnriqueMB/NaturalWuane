@@ -62,6 +62,7 @@
     <Compile Include="Entities\AbonoPaquete.cs" />
     <Compile Include="Entities\AbonoPaqueteDetalle.cs" />
     <Compile Include="Entities\BusqueProducto.cs" />
+    <Compile Include="Entities\CapturaCita.cs" />
     <Compile Include="Entities\CategoriaProducto.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Compra.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\IBaseRepository.cs" />
     <Compile Include="Repositories\General\IBusqProductoRepository.cs" />
+    <Compile Include="Repositories\General\ICapturaCitaRepository.cs" />
     <Compile Include="Repositories\General\ICancelacionVentaRepository.cs" />
     <Compile Include="Repositories\General\ICategoriaProductoRepository.cs" />
     <Compile Include="Repositories\General\IClienteRepository.cs" />

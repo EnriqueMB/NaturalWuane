@@ -60,6 +60,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ProveedorValidator, IValidator<ProveedorViewModel>>();
             ServiceLocator.Instance.Register<ProductoValidator, IValidator<ProductoViewModel>>();
             ServiceLocator.Instance.Register<SucursalValidator, IValidator<SucursalViewModel>>();
+            ServiceLocator.Instance.Register<VentaValidator, IValidator<VentasViewModel>>();            
             ServiceLocator.Instance.Register<VentaValidator, IValidator<VentasViewModel>>();
             ServiceLocator.Instance.Register<EncuestaValidator, IValidator<EncuestasViewModel>>();
             ServiceLocator.Instance.Register<EmpleadoValidator, IValidator<EmpleadoViewModel>>();
@@ -67,11 +68,13 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<PaqueteValidator, IValidator<PaqueteViewModel>>();
             ServiceLocator.Instance.Register<RegistroEntradaSalidaValidator, IValidator<RegistroEntradaSalidaViewModel>>();
             ServiceLocator.Instance.Register<CompraValidator, IValidator<ComprasViewModel>>();
+            ServiceLocator.Instance.Register<CapturaCitaValidator, IValidator<CapturaCitaViewModel>>();
             ServiceLocator.Instance.Register<ProductosMonederoValidator, IValidator<ProductosMonederoViewModel>>();
             ServiceLocator.Instance.Register<CancelacionVentaValidator, IValidator<CancelacionVentaViewModel>>();
             ServiceLocator.Instance.Register<ListaMedicionValidator, IValidator<ListaMedicionViewModel>>();
             ServiceLocator.Instance.Register<MedicionValidator, IValidator<MedicionViewModel>>();
             ServiceLocator.Instance.Register<AbonoPaqueteValidator, IValidator < PaqueteViewModel >> ();
+            ServiceLocator.Instance.Register<AbonoPaqueteValidator, IValidator < PaqueteViewModel >>();
         }
 
         private static void RegisterViewModelDependencies()
@@ -90,6 +93,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ProveedorViewModel>();
             ServiceLocator.Instance.Register<SucursalViewModel>();
             ServiceLocator.Instance.Register<ProveedorACompraViewModel>();
+            ServiceLocator.Instance.Register<CapturaCitaViewModel>();
             ServiceLocator.Instance.Register<EncuestasViewModel>();
             ServiceLocator.Instance.Register<EmpleadoViewModel>();
             ServiceLocator.Instance.Register<ReglaPerfilViewModel>();

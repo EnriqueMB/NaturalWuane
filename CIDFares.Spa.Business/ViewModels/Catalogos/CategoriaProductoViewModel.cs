@@ -57,8 +57,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 {
                     IdCategoriaProducto = IdCategoriaProducto,                    
                     Nombre = Nombre,
-                    Descripcion = Descripcion
-                    //Resultado = -2
+                    Descripcion = Descripcion                    
                 };
                 if (State == EntityState.Create)
                 {
