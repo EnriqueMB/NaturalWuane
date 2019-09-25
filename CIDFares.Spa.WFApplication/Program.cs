@@ -17,7 +17,7 @@ using CIDFares.Spa.WFApplication.Forms.Compras;
 using CIDFares.Spa.WFApplication.Forms.Cuestionarios;
 using CIDFares.Spa.Business.ViewModels.Usuarios;
 using CIDFares.Spa.Business.ViewModels.Compras;
-
+using CIDFares.Spa.Business.ViewModels.Paquete;
 
 namespace CIDFares.Spa.WFApplication
 {
@@ -71,6 +71,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<CancelacionVentaValidator, IValidator<CancelacionVentaViewModel>>();
             ServiceLocator.Instance.Register<ListaMedicionValidator, IValidator<ListaMedicionViewModel>>();
             ServiceLocator.Instance.Register<MedicionValidator, IValidator<MedicionViewModel>>();
+            ServiceLocator.Instance.Register<AbonoPaqueteValidator, IValidator < PaqueteViewModel >> ();
         }
 
         private static void RegisterViewModelDependencies()
@@ -99,6 +100,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<CancelacionVentaViewModel>();
             ServiceLocator.Instance.Register<MedicionViewModel>();
             ServiceLocator.Instance.Register<ListaMedicionViewModel>();
+            ServiceLocator.Instance.Register<AbonoPaqueteDetalleViewModel>();
         }
     }
 }

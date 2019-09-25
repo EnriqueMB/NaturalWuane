@@ -219,6 +219,48 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
+
+        public async Task<IEnumerable<AbonoPaquete>> GetAllAbonoPaqueteAsync(Guid idCliente, int idSucursal)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdCliente", idCliente);
+                    dynamicParameters.Add("@IdSucursal", idSucursal);
+                    var result = await conexion.QueryAsync<AbonoPaquete>("[Paquete].[SPCID_Get_AbonoPaquete]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return result.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<int> AddAbonoAsync(AbonoPaquete element, object IdUsuario)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@TablaPaquete", element.TablaPaquete, DbType.Object);
+                    dynamicParameters.Add("@TablaFormaPago", element.TablaFormaPago, DbType.Object);
+                    dynamicParameters.Add("@IdUsuario", IdUsuario);
+                    dynamicParameters.Add("@IdTurno", element.IdTurno);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Paquete].[SPCID_A_AbonoPaquete]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
 
         #region Metodos No Implementado
@@ -228,6 +270,24 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
+        public async Task<IEnumerable<AbonoPaqueteDetalle>> GetAllDetalleAsync(Guid IdVentaPaquete)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdVentaPaquete", IdVentaPaquete);
+                    var result = await conexion.QueryAsync<AbonoPaqueteDetalle>("[Paquete].[spCID_Get_AbonoPaqueteDetalle]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return result.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
 
     }

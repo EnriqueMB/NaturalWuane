@@ -1,4 +1,5 @@
 ﻿using CIDFares.Spa.Business.ValueObjects;
+using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using CIDFares.Spa.DataAccess.Contracts.Validations;
@@ -19,20 +20,29 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #endregion
 
         #region Propiedades Publicas
+        public ClienteViewModel ModelCliente { get; set; }
         public BindingList<Paquetes> ListaPaquete { get; set; }
         public BindingList<PaqueteDetalle> ListaDetallePaquete { get; set; }
+        public BindingList<AbonoPaquete> ListaAbonoPaquete { get; set; }
+        public BindingList<AbonoPaquete> ListaEspera { get; set; }
         public EntityState State { get; set; }
         public DataTable TablaProducto { get; set; }
         public DataTable TablaServicio { get; set; }
+
+
+        public DataTable TablaAbonoPaquete { get; set; }
         #endregion
 
         #region Constructor
 
         public PaqueteViewModel(IPaqueteRepository paqueteRepository)
         {
+            ModelCliente = ServiceLocator.Instance.Resolve<ClienteViewModel>();
             Repository = paqueteRepository;
             ListaPaquete = new BindingList<Paquetes>();
             ListaDetallePaquete = new BindingList<PaqueteDetalle>();
+            ListaAbonoPaquete = new BindingList<AbonoPaquete>();
+            ListaEspera = new BindingList<AbonoPaquete>();
             this.Cantidad = 1;
         }
 
@@ -48,6 +58,24 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 foreach (var item in x)
                 {
                     ListaPaquete.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task GetAllAbonoPaquete(int idSucursal)
+        {
+            try
+            {
+                var x = await Repository.GetAllAbonoPaqueteAsync(this.IdCliente, idSucursal);
+                ListaAbonoPaquete.Clear();
+                foreach (var item in x)
+                {
+                    item.Fecha = item.FechaVenta.ToString("yyyy/MM/dd");
+                    ListaAbonoPaquete.Add(item);
                 }
             }
             catch (Exception ex)
@@ -265,6 +293,65 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             get { return _Cantidad; }
             set { _Cantidad = value; }
         }
+
+        private Guid _IdCliente;
+        public Guid IdCliente
+        {
+            get { return _IdCliente; }
+            set
+            {
+                _IdCliente = value;
+                OnPropertyChanged(nameof(IdCliente));
+            }
+        }
+
+        private string _FolioCliente;
+        public string FolioCliente
+        {
+            get { return _FolioCliente; }
+            set
+            {
+                _FolioCliente = value;
+                OnPropertyChanged(nameof(FolioCliente));
+            }
+        }
+
+        private decimal _PagoPaquete;
+        public decimal PagoPaquete
+        {
+            get { return _PagoPaquete; }
+            set
+            {
+                _PagoPaquete = value;
+                OnPropertyChanged(nameof(PagoPaquete));
+            }
+        }
+
+        private decimal _Adeudo;
+
+        public decimal Adeudo
+        {
+            get { return _Adeudo; }
+            set
+            {
+                _Adeudo = value;
+                OnPropertyChanged(nameof(Adeudo));
+            }
+        }
+
+        private decimal _Total ;
+
+        public decimal Total 
+        {
+            get { return _Total ; }
+            set
+            {
+                _Total = value;
+                OnPropertyChanged(nameof(Total));
+            }
+        }
+
+
         #region InotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;
