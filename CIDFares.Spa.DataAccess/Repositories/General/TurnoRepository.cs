@@ -16,39 +16,13 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
     {
 
         #region metodos no implementados
-        public Task<Turno> AddAsync(Turno element, object IdUsuario)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> DeleteAsync(object id, object IdUsuario)
-        {
-            throw new NotImplementedException();
-        }
 
         public Task<bool> ExistAsync(object id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Turno>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Turno> GetAsync(object id)
-        {
-            throw new NotImplementedException();
-        }
-
-        
-
         public Task<int> NameExistAsync(string name)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Turno> UpdateAsync(Turno element, object IdUsuario)
         {
             throw new NotImplementedException();
         }
@@ -82,5 +56,63 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
+        public async Task<Turno> AddAsync(Turno element, object IdUsuario)
+        {
+            try
+            {
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<int> DeleteAsync(object id, object IdUsuario)
+        {
+            //throw new NotImplementedException();
+            try
+            {
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<IEnumerable<Turno>> GetAllAsync()
+        {
+            //throw new NotImplementedException();
+            try
+            {
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<Turno> GetAsync(object id)
+        {
+            //throw new NotImplementedException();
+            try
+            {
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<Turno> UpdateAsync(Turno element, object IdUsuario)
+        {
+            //throw new NotImplementedException();
+            try
+            {
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

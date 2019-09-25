@@ -426,6 +426,12 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             }
         }
 
+        private void btnTurnos_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnTurnos);
+            GetPanel(new FrmTurno());
+        }
+
         private void SlideGenerales(Button button)
         {
             SlidePanelgenerales.Visible = true;

@@ -36,9 +36,8 @@
     <Reference Include="CIDFares.Library.Code">
       <HintPath>..\..\CIDFares.Library\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
     </Reference>
-    <Reference Include="CIDFares.Library.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CIDFaresLibrary\CIDFares.Library.Controls\bin\Debug\CIDFares.Library.Controls.dll</HintPath>
+    <Reference Include="CIDFares.Library.Controls">
+      <HintPath>..\..\CIDFares.Library\CIDFares.Library.Controls\bin\Debug\CIDFares.Library.Controls.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentValidation.8.0.0\lib\net45\FluentValidation.dll</HintPath>
@@ -174,6 +173,12 @@
     </Compile>
     <Compile Include="Forms\Catalogos\FrmServicioNuevo.Designer.cs">
       <DependentUpon>FrmServicioNuevo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmTurno.Designer.cs">
+      <DependentUpon>FrmTurno.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Compras\FrmCompra.cs">
       <SubType>Form</SubType>
@@ -386,6 +391,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmServicioNuevo.resx">
       <DependentUpon>FrmServicioNuevo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmTurno.resx">
+      <DependentUpon>FrmTurno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compras\FrmCompra.resx">
       <DependentUpon>FrmCompra.cs</DependentUpon>
