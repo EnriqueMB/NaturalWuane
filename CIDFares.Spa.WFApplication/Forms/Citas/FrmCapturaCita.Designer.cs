@@ -62,19 +62,23 @@
             // 
             // FechaFinalControl
             // 
-            this.FechaFinalControl.Location = new System.Drawing.Point(722, 44);
+            this.FechaFinalControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FechaFinalControl.Location = new System.Drawing.Point(711, 44);
             this.FechaFinalControl.Name = "FechaFinalControl";
             this.FechaFinalControl.Size = new System.Drawing.Size(269, 22);
             this.FechaFinalControl.TabIndex = 6;
             // 
             // btnBuscar
             // 
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
             this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
             this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(1024, 27);
+            this.btnBuscar.Location = new System.Drawing.Point(1013, 27);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(119, 32);
@@ -85,10 +89,12 @@
             // 
             // lblFechaFinal
             // 
+            this.lblFechaFinal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFechaFinal.AutoSize = true;
             this.lblFechaFinal.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaFinal.ForeColor = System.Drawing.Color.Black;
-            this.lblFechaFinal.Location = new System.Drawing.Point(717, 4);
+            this.lblFechaFinal.Location = new System.Drawing.Point(706, 4);
             this.lblFechaFinal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaFinal.Name = "lblFechaFinal";
             this.lblFechaFinal.Size = new System.Drawing.Size(150, 30);
@@ -97,10 +103,12 @@
             // 
             // lblFechaInicio
             // 
+            this.lblFechaInicio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFechaInicio.AutoSize = true;
             this.lblFechaInicio.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaInicio.ForeColor = System.Drawing.Color.Black;
-            this.lblFechaInicio.Location = new System.Drawing.Point(432, 4);
+            this.lblFechaInicio.Location = new System.Drawing.Point(421, 4);
             this.lblFechaInicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaInicio.Name = "lblFechaInicio";
             this.lblFechaInicio.Size = new System.Drawing.Size(166, 30);
@@ -121,8 +129,10 @@
             // 
             // FechaInicioControl
             // 
+            this.FechaInicioControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.FechaInicioControl.Enabled = false;
-            this.FechaInicioControl.Location = new System.Drawing.Point(434, 45);
+            this.FechaInicioControl.Location = new System.Drawing.Point(423, 45);
             this.FechaInicioControl.Name = "FechaInicioControl";
             this.FechaInicioControl.Size = new System.Drawing.Size(269, 22);
             this.FechaInicioControl.TabIndex = 0;
@@ -131,9 +141,9 @@
             // 
             this.pnlButtons.BackColor = System.Drawing.Color.White;
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlButtons.Location = new System.Drawing.Point(0, 961);
+            this.pnlButtons.Location = new System.Drawing.Point(0, 987);
             this.pnlButtons.Name = "pnlButtons";
-            this.pnlButtons.Size = new System.Drawing.Size(1160, 94);
+            this.pnlButtons.Size = new System.Drawing.Size(1160, 68);
             this.pnlButtons.TabIndex = 1;
             // 
             // errorProvider1
@@ -146,7 +156,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 79);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1160, 882);
+            this.panel1.Size = new System.Drawing.Size(1160, 908);
             this.panel1.TabIndex = 3;
             // 
             // mcCita2
@@ -156,7 +166,7 @@
             this.mcCita2.Location = new System.Drawing.Point(0, 0);
             this.mcCita2.Name = "mcCita2";
             this.mcCita2.SelectedDate = new System.DateTime(2019, 9, 10, 0, 0, 0, 0);
-            this.mcCita2.Size = new System.Drawing.Size(1155, 882);
+            this.mcCita2.Size = new System.Drawing.Size(1155, 908);
             this.mcCita2.Style.Cell.CellHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.mcCita2.Style.Cell.SelectedCellBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.mcCita2.Style.Cell.SelectedCellHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
