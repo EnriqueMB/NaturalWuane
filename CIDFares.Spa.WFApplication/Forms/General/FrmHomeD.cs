@@ -1,4 +1,6 @@
-﻿using CIDFares.Spa.WFApplication.Forms.Catalogos;
+﻿using CIDFares.Spa.Business.ViewModels.Ventas;
+using CIDFares.Spa.DataAccess.Contracts.Entities;
+using CIDFares.Spa.WFApplication.Forms.Catalogos;
 using CIDFares.Spa.WFApplication.Forms.Compras;
 using CIDFares.Spa.WFApplication.Forms.Cuestionarios;
 using CIDFares.Spa.WFApplication.Forms.Usuarios;
@@ -18,6 +20,10 @@ namespace CIDFares.Spa.WFApplication.Forms.General
 {
     public partial class FrmHomeD : Form
     {
+        #region propiedades públicas
+        public CambioVentaViewModel Model { get; set; }
+        public CambioVenta Datos { get; set; }
+        #endregion
         public FrmHomeD()
         {
             InitializeComponent();
@@ -100,9 +106,30 @@ namespace CIDFares.Spa.WFApplication.Forms.General
 
         private void btnVenta_Click(object sender, EventArgs e)
         {
-            FrmVenta frmVenta = new FrmVenta();
-            frmVenta.ShowDialog();
-            frmVenta.Dispose();
+            try
+            {
+                var Resultado = Model.CargarDatos(CurrentSession.IdSucursal,CurrentSession.IdEmpleado, CurrentSession.IdTurnoEmpleado);
+                if (Resultado.Equals(1))
+                {
+                    FrmCambioVenta frm = new FrmCambioVenta();
+                    frm.ShowDialog();
+                    frm.Dispose();
+                }
+                else
+                { 
+
+                    FrmVenta frmVenta = new FrmVenta();
+                    frmVenta.ShowDialog();
+                    frmVenta.Dispose();
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
         }
 
         private void btnSucursale_Click(object sender, EventArgs e)

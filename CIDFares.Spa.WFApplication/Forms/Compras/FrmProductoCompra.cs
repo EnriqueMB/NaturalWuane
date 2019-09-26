@@ -118,7 +118,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
                 if (Model.ListaBusquedaProducto.Count == 1)
                 {
                     var item = Model.ListaBusquedaProducto.ElementAt(0);
-                    item.CantidaProducto = 1;
+                    item.CantidadProducto = 1;
                     producto = item;
                     this.Close();
                 }
@@ -127,7 +127,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
                     var item = ObtenerSeleccionado();
                     if (item != null)
                     {
-                        item.CantidaProducto = Model.CantidadProducto;
+                        item.CantidadProducto = Model.CantidadProducto;
                         if (Model.CantidadProducto > 0)
                         {
                             producto = item;

@@ -36,11 +36,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.UserPasswordControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.UserAccountControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            this.LblCerrar = new System.Windows.Forms.Label();
             this.LblVersionSistema = new System.Windows.Forms.Label();
             this.LblDerechoReservado = new System.Windows.Forms.Label();
             this.BtnLogin = new Syncfusion.Windows.Forms.ButtonAdv();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.LblCerrar = new Syncfusion.Windows.Forms.ButtonAdv();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.PanelImagenMovimiento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserPasswordControl)).BeginInit();
@@ -58,11 +58,11 @@
             this.PanelImagenMovimiento.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PanelImagenMovimiento.BackColor = System.Drawing.Color.White;
             this.PanelImagenMovimiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PanelImagenMovimiento.Controls.Add(this.LblCerrar);
             this.PanelImagenMovimiento.Controls.Add(this.LblError);
             this.PanelImagenMovimiento.Controls.Add(this.panel1);
             this.PanelImagenMovimiento.Controls.Add(this.UserPasswordControl);
             this.PanelImagenMovimiento.Controls.Add(this.UserAccountControl);
-            this.PanelImagenMovimiento.Controls.Add(this.LblCerrar);
             this.PanelImagenMovimiento.Controls.Add(this.LblVersionSistema);
             this.PanelImagenMovimiento.Controls.Add(this.LblDerechoReservado);
             this.PanelImagenMovimiento.Controls.Add(this.BtnLogin);
@@ -80,7 +80,7 @@
             this.LblError.Location = new System.Drawing.Point(135, 518);
             this.LblError.Name = "LblError";
             this.LblError.Size = new System.Drawing.Size(115, 13);
-            this.LblError.TabIndex = 37;
+            this.LblError.TabIndex = 1000;
             this.LblError.TabStop = true;
             this.LblError.Text = "Olvide mi contraseña";
             // 
@@ -92,7 +92,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 251);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(389, 10);
-            this.panel1.TabIndex = 34;
+            this.panel1.TabIndex = 0;
             // 
             // UserPasswordControl
             // 
@@ -105,7 +105,8 @@
             this.UserPasswordControl.Name = "UserPasswordControl";
             this.UserPasswordControl.PasswordChar = '*';
             this.UserPasswordControl.Size = new System.Drawing.Size(269, 27);
-            this.UserPasswordControl.TabIndex = 33;
+            this.UserPasswordControl.TabIndex = 2;
+            this.UserPasswordControl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserPasswordControl_KeyDown);
             // 
             // UserAccountControl
             // 
@@ -117,21 +118,7 @@
             this.UserAccountControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.UserAccountControl.Name = "UserAccountControl";
             this.UserAccountControl.Size = new System.Drawing.Size(269, 27);
-            this.UserAccountControl.TabIndex = 32;
-            // 
-            // LblCerrar
-            // 
-            this.LblCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.LblCerrar.BackColor = System.Drawing.Color.Silver;
-            this.LblCerrar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCerrar.ForeColor = System.Drawing.Color.Transparent;
-            this.LblCerrar.Location = new System.Drawing.Point(151, 566);
-            this.LblCerrar.Name = "LblCerrar";
-            this.LblCerrar.Size = new System.Drawing.Size(82, 22);
-            this.LblCerrar.TabIndex = 31;
-            this.LblCerrar.Text = "Cerrar";
-            this.LblCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LblCerrar.Click += new System.EventHandler(this.LblCerrar_Click);
+            this.UserAccountControl.TabIndex = 1;
             // 
             // LblVersionSistema
             // 
@@ -153,7 +140,7 @@
             this.LblDerechoReservado.Location = new System.Drawing.Point(38, 619);
             this.LblDerechoReservado.Name = "LblDerechoReservado";
             this.LblDerechoReservado.Size = new System.Drawing.Size(309, 13);
-            this.LblDerechoReservado.TabIndex = 25;
+            this.LblDerechoReservado.TabIndex = 0;
             this.LblDerechoReservado.Text = "Impulsado por CID Fares® - Todos los derechos reservados";
             // 
             // BtnLogin
@@ -170,7 +157,7 @@
             this.BtnLogin.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(154, 33);
-            this.BtnLogin.TabIndex = 26;
+            this.BtnLogin.TabIndex = 3;
             this.BtnLogin.Text = "Ingresar";
             this.BtnLogin.ThemeName = "Metro";
             this.BtnLogin.UseVisualStyle = true;
@@ -188,6 +175,26 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // LblCerrar
+            // 
+            this.LblCerrar.Appearance = Syncfusion.Windows.Forms.ButtonAppearance.Metro;
+            this.LblCerrar.BackColor = System.Drawing.Color.Silver;
+            this.LblCerrar.BeforeTouchSize = new System.Drawing.Size(82, 22);
+            this.LblCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LblCerrar.FlatAppearance.BorderSize = 0;
+            this.LblCerrar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.LblCerrar.ForeColor = System.Drawing.Color.White;
+            this.LblCerrar.IsBackStageButton = false;
+            this.LblCerrar.Location = new System.Drawing.Point(153, 570);
+            this.LblCerrar.MetroColor = System.Drawing.Color.Silver;
+            this.LblCerrar.Name = "LblCerrar";
+            this.LblCerrar.Size = new System.Drawing.Size(82, 22);
+            this.LblCerrar.TabIndex = 4;
+            this.LblCerrar.Text = "Cerrar";
+            this.LblCerrar.ThemeName = "Metro";
+            this.LblCerrar.UseVisualStyle = true;
+            this.LblCerrar.Click += new System.EventHandler(this.LblCerrar_Click);
             // 
             // FrmLogin
             // 
@@ -223,11 +230,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt UserPasswordControl;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt UserAccountControl;
-        private System.Windows.Forms.Label LblCerrar;
         private System.Windows.Forms.Label LblVersionSistema;
         private System.Windows.Forms.Label LblDerechoReservado;
         private Syncfusion.Windows.Forms.ButtonAdv BtnLogin;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.LinkLabel LblError;
+        private Syncfusion.Windows.Forms.ButtonAdv LblCerrar;
     }
 }

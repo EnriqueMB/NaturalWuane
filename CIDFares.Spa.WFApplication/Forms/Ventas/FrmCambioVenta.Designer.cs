@@ -28,17 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblVenta = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.sfNumericTextBox1 = new Syncfusion.WinForms.Input.SfNumericTextBox();
+            this.CambioTurnoControl = new System.Windows.Forms.TextBox();
             this.lblCuenta = new System.Windows.Forms.Label();
+            this.errorProviderCambio = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCambio)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -62,7 +64,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnCancelar);
             this.panel2.Controls.Add(this.btnGuardar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 133);
@@ -70,33 +71,22 @@
             this.panel2.Size = new System.Drawing.Size(347, 43);
             this.panel2.TabIndex = 1;
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.White;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnCancelar.Location = new System.Drawing.Point(179, 6);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(123, 29);
-            this.btnCancelar.TabIndex = 8;
-            this.btnCancelar.Text = "CANCELAR";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            // 
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.White;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnGuardar.Location = new System.Drawing.Point(32, 6);
+            this.btnGuardar.Location = new System.Drawing.Point(104, 6);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(123, 29);
             this.btnGuardar.TabIndex = 7;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.sfNumericTextBox1);
+            this.panel3.Controls.Add(this.CambioTurnoControl);
             this.panel3.Controls.Add(this.lblCuenta);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 41);
@@ -104,15 +94,13 @@
             this.panel3.Size = new System.Drawing.Size(347, 92);
             this.panel3.TabIndex = 2;
             // 
-            // sfNumericTextBox1
+            // CambioTurnoControl
             // 
-            this.sfNumericTextBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.sfNumericTextBox1.Location = new System.Drawing.Point(66, 48);
-            this.sfNumericTextBox1.Name = "sfNumericTextBox1";
-            this.sfNumericTextBox1.Size = new System.Drawing.Size(220, 20);
-            this.sfNumericTextBox1.TabIndex = 2;
-            this.sfNumericTextBox1.Text = "0,00";
-            this.sfNumericTextBox1.ThemeName = null;
+            this.CambioTurnoControl.Location = new System.Drawing.Point(74, 48);
+            this.CambioTurnoControl.Name = "CambioTurnoControl";
+            this.CambioTurnoControl.Size = new System.Drawing.Size(196, 20);
+            this.CambioTurnoControl.TabIndex = 2;
+            this.CambioTurnoControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CambioTurnoControl_KeyPress);
             // 
             // lblCuenta
             // 
@@ -120,9 +108,13 @@
             this.lblCuenta.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.lblCuenta.Location = new System.Drawing.Point(3, 13);
             this.lblCuenta.Name = "lblCuenta";
-            this.lblCuenta.Size = new System.Drawing.Size(181, 20);
+            this.lblCuenta.Size = new System.Drawing.Size(308, 20);
             this.lblCuenta.TabIndex = 1;
-            this.lblCuenta.Text = "Ingresar cambio venta:";
+            this.lblCuenta.Text = "Cantidad de cambio de inicio de  venta:";
+            // 
+            // errorProviderCambio
+            // 
+            this.errorProviderCambio.ContainerControl = this;
             // 
             // FrmCambioVenta
             // 
@@ -132,13 +124,16 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCambioVenta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCambioVenta";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCambio)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -150,8 +145,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblVenta;
         private System.Windows.Forms.Label lblCuenta;
-        private Syncfusion.WinForms.Input.SfNumericTextBox sfNumericTextBox1;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.ErrorProvider errorProviderCambio;
+        private System.Windows.Forms.TextBox CambioTurnoControl;
     }
 }

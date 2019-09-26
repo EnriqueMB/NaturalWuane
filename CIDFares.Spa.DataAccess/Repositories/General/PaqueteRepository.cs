@@ -182,6 +182,85 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
+
+        public async Task<IEnumerable<Paquetes>> GetBusqPaqueteAsync(bool BitNombre, string BusqNombre, bool BitClaveCodigo, string BusqClaveCodigo)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    List<Paquetes> Lista = new List<Paquetes>();
+                    Paquetes item;
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@BitNombre", BitNombre);
+                    dynamicParameters.Add("@BusquedaNombre", BusqNombre);
+                    dynamicParameters.Add("@BitCodigo", BitClaveCodigo);
+                    dynamicParameters.Add("@BusquedaCodigo", BusqClaveCodigo);
+                    var dr = await conexion.ExecuteReaderAsync("[Venta].[SPCID_Get_ObtenerBusquedaPaquete]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    while (dr.Read())
+                    {
+                        item = new Paquetes();
+                        item.IdPaquete = dr.GetInt32(dr.GetOrdinal("IdPaquete"));
+                        item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
+                        item.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
+                        item.NPersona = dr.GetString(dr.GetOrdinal("NumeroPersona"));
+                        item.NPago = dr.GetString(dr.GetOrdinal("NumeroPago"));
+                        item.FechaVencimiento = dr.GetDateTime(dr.GetOrdinal("FechaVencimiento"));
+                        item.Descripcion = dr.GetString(dr.GetOrdinal("Descripcion"));
+                        item.MontoPaquete = dr.GetDecimal(dr.GetOrdinal("MontoPaquete"));
+                        Lista.Add(item);
+                    }
+                    return Lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<IEnumerable<AbonoPaquete>> GetAllAbonoPaqueteAsync(Guid idCliente, int idSucursal)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdCliente", idCliente);
+                    dynamicParameters.Add("@IdSucursal", idSucursal);
+                    var result = await conexion.QueryAsync<AbonoPaquete>("[Paquete].[SPCID_Get_AbonoPaquete]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return result.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<int> AddAbonoAsync(AbonoPaquete element, object IdUsuario)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@TablaPaquete", element.TablaPaquete, DbType.Object);
+                    dynamicParameters.Add("@TablaFormaPago", element.TablaFormaPago, DbType.Object);
+                    dynamicParameters.Add("@IdUsuario", IdUsuario);
+                    dynamicParameters.Add("@IdTurno", element.IdTurno);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Paquete].[SPCID_A_AbonoPaquete]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
 
         #region Metodos No Implementado
@@ -189,8 +268,26 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         public Task<bool> ExistAsync(object id)
         {
             throw new NotImplementedException();
-        }      
+        }
 
+        public async Task<IEnumerable<AbonoPaqueteDetalle>> GetAllDetalleAsync(Guid IdVentaPaquete)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdVentaPaquete", IdVentaPaquete);
+                    var result = await conexion.QueryAsync<AbonoPaqueteDetalle>("[Paquete].[spCID_Get_AbonoPaqueteDetalle]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return result.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
 
     }
