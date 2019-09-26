@@ -303,6 +303,82 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
+        private async void GuardarCompra()
+        {
+            try
+            {
+                BindingList<Compra> ListaProductos = (BindingList<Compra>)sfDataGrid1.DataSource;
+                this.CleanErrors(errorProvider1, typeof(ComprasViewModel));
+                var validationResults = ModelCompra.Validate();
+                validationResults.ToString();
+
+                if (validationResults.IsValid)
+                {
+                    if (ListaProductos.Count > 0)
+                    {
+                        ModelCompra.TablaProducto = ObtenerTablaProducto(ListaProductos);
+
+                        Compra Resultado = await ModelCompra.GuardarVenta(CurrentSession.IdCuentaUsuario, CurrentSession.IdSucursal);
+                        if (Resultado.Resultado == 1)
+                        {
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                            LimpiarPropiedades();
+                            this.TipoF = 0;
+                            this.MetodosBtn();
+                            this.errorProvider1.Clear();
+                        }
+                        else
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
+                    }
+                    else
+                        errorProvider1.SetError(FolioCompraControl, "Seleccione al menos un articulo.");
+                }
+                else
+                    this.ShowErrors(errorProvider1, typeof(ComprasViewModel), validationResults);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private async void ModificarCompra()
+        {
+            try
+            {
+                BindingList<Compra> ListaProductos = (BindingList<Compra>)sfDataGrid1.DataSource;
+                this.CleanErrors(errorProvider1, typeof(ComprasViewModel));
+                var validationResults = ModelCompra.Validate();
+                validationResults.ToString();
+
+                if (validationResults.IsValid)
+                {
+                    if (ListaProductos.Count > 0)
+                    {
+                        ModelCompra.TablaProducto = ObtenerTablaProducto(ListaProductos);
+                        ModelCompra.IdSucursal = CurrentSession.IdSucursal;
+                        Compra Resultado = await ModelCompra.ModificarCompra(CurrentSession.IdCuentaUsuario);
+                        if (Resultado.Resultado == 1)
+                        {
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                            LimpiarPropiedades();
+                            this.TipoF = 0;
+                            this.MetodosBtn();
+                            this.errorProvider1.Clear();
+                        }
+                        else
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
+                    }
+                    else
+                        errorProvider1.SetError(FolioCompraControl, "Seleccione al menos un articulo.");
+                }
+                else
+                    this.ShowErrors(errorProvider1, typeof(ComprasViewModel), validationResults);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
 
         #region Eventos
@@ -517,83 +593,5 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
             }
         }
         #endregion
-
-        private async void GuardarCompra()
-        {
-            try
-            {
-                BindingList<Compra> ListaProductos = (BindingList<Compra>)sfDataGrid1.DataSource;
-                this.CleanErrors(errorProvider1, typeof(ComprasViewModel));
-                var validationResults = ModelCompra.Validate();
-                validationResults.ToString();
-
-                if (validationResults.IsValid)
-                {
-                    if (ListaProductos.Count > 0)
-                    {
-                        ModelCompra.TablaProducto = ObtenerTablaProducto(ListaProductos);
-
-                        Compra Resultado = await ModelCompra.GuardarVenta(CurrentSession.IdCuentaUsuario, CurrentSession.IdSucursal);
-                        if (Resultado.Resultado == 1)
-                        {
-                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
-                            LimpiarPropiedades();
-                            this.TipoF = 0;
-                            this.MetodosBtn();
-                            this.errorProvider1.Clear();
-                        }
-                        else
-                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
-                    }
-                    else
-                        errorProvider1.SetError(FolioCompraControl, "Seleccione al menos un articulo.");
-                }
-                else
-                    this.ShowErrors(errorProvider1, typeof(ComprasViewModel), validationResults);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }            
-        }
-
-        private async void ModificarCompra()
-        {
-            try
-            {
-                BindingList<Compra> ListaProductos = (BindingList<Compra>)sfDataGrid1.DataSource;
-                this.CleanErrors(errorProvider1, typeof(ComprasViewModel));
-                var validationResults = ModelCompra.Validate();
-                validationResults.ToString();
-
-                if (validationResults.IsValid)
-                {
-                    if (ListaProductos.Count > 0)
-                    {
-                        ModelCompra.TablaProducto = ObtenerTablaProducto(ListaProductos);
-                        ModelCompra.IdSucursal = CurrentSession.IdSucursal;
-                        Compra Resultado = await ModelCompra.ModificarCompra(CurrentSession.IdCuentaUsuario);
-                        if (Resultado.Resultado == 1)
-                        {
-                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
-                            LimpiarPropiedades();
-                            this.TipoF = 0;
-                            this.MetodosBtn();
-                            this.errorProvider1.Clear();
-                        }
-                        else
-                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
-                    }
-                    else
-                        errorProvider1.SetError(FolioCompraControl, "Seleccione al menos un articulo.");
-                }
-                else
-                    this.ShowErrors(errorProvider1, typeof(ComprasViewModel), validationResults);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
     }
 }
