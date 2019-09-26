@@ -215,6 +215,7 @@
     </Compile>
     <Compile Include="Forms\Compras\FrmCancelacionCompra.Designer.cs">
       <DependentUpon>FrmCancelacionCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Catalogos\FrmTurno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -495,6 +496,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compras\FrmCancelacionCompra.resx">
       <DependentUpon>FrmCancelacionCompra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmTurno.resx">
       <DependentUpon>FrmTurno.cs</DependentUpon>
     </EmbeddedResource>
