@@ -103,6 +103,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ComprasViewModel>();
             ServiceLocator.Instance.Register<ProductosMonederoViewModel>();
             ServiceLocator.Instance.Register<CambioVentaViewModel>();
+            ServiceLocator.Instance.Register<TurnoViewModel>();
             ServiceLocator.Instance.Register<CancelacionVentaViewModel>();
             ServiceLocator.Instance.Register<MedicionViewModel>();
             ServiceLocator.Instance.Register<ListaMedicionViewModel>();

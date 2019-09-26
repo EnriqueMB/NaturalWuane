@@ -90,6 +90,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\Messages.cs" />
+    <Compile Include="Forms\Catalogos\FrmTurnoPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmTurnoPrincipal.Designer.cs">
+      <DependentUpon>FrmTurnoPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Paquete\FrmAbonarPaquete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +215,11 @@
     </Compile>
     <Compile Include="Forms\Compras\FrmCancelacionCompra.Designer.cs">
       <DependentUpon>FrmCancelacionCompra.cs</DependentUpon>
+    <Compile Include="Forms\Catalogos\FrmTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmTurno.Designer.cs">
+      <DependentUpon>FrmTurno.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Compras\FrmCompra.cs">
       <SubType>Form</SubType>
@@ -416,6 +427,9 @@
     <Compile Include="Validations\SucursalValidator.cs" />
     <Compile Include="Validations\UsuarioValidator.cs" />
     <Compile Include="Validations\VentaValidator.cs" />
+    <EmbeddedResource Include="Forms\Catalogos\FrmTurnoPrincipal.resx">
+      <DependentUpon>FrmTurnoPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Paquete\FrmAbonarPaquete.resx">
       <DependentUpon>FrmAbonarPaquete.cs</DependentUpon>
     </EmbeddedResource>
@@ -481,6 +495,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compras\FrmCancelacionCompra.resx">
       <DependentUpon>FrmCancelacionCompra.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Catalogos\FrmTurno.resx">
+      <DependentUpon>FrmTurno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compras\FrmCompra.resx">
       <DependentUpon>FrmCompra.cs</DependentUpon>

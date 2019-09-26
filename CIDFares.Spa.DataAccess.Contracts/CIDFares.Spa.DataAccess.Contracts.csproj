@@ -93,6 +93,8 @@
     <Compile Include="Entities\TipoServicio.cs" />
     <Compile Include="Entities\TipoSucursal.cs" />
     <Compile Include="Entities\Turno.cs" />
+    <Compile Include="Entities\TurnoDias.cs" />
+    <Compile Include="Entities\TurnoDiasInter.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Entities\UnidadMedida.cs" />
     <Compile Include="Entities\ValorLista.cs" />
