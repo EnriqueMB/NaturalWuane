@@ -1,4 +1,5 @@
-﻿using CIDFares.Spa.DataAccess.Contracts.Entities;
+﻿using CIDFares.Spa.Business.ExportaImportaExcel;
+using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using CIDFares.Spa.DataAccess.Contracts.Validations;
 using System;
@@ -17,7 +18,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
         #endregion
 
         #region propiedades publicas
-
+        public BindingList<Producto> ListaProducto { get; set; }
         #endregion
 
         #region constructor
@@ -28,11 +29,14 @@ namespace CIDFares.Spa.Business.ViewModels.General
         #endregion
 
         #region Metodos
-        public async Task<IEnumerable<Producto>> GetProducto(object Idsucursal)
+        public async Task GetProducto(object Idsucursal)
         {
             try
             {
-                return await IRepository.GetProductos(Idsucursal);
+                var Productos = await IRepository.GetProductos(Idsucursal);
+              //  Excels ExportarProductos = new Excels(Productos);
+               
+
             }
             catch (Exception ex)
             {

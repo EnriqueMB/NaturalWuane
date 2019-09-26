@@ -331,6 +331,20 @@ namespace CIDFares.Spa.WFApplication.Forms.General
 
                 throw ex;
             }
-        }       
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmInventarioTest f = new FrmInventarioTest();
+                f.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

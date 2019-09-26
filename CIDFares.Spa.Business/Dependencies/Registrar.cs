@@ -1,4 +1,5 @@
-﻿
+﻿using CIDFares.Library.Code.Utilities.IBase;
+using CIDFares.Library.Code.Utilities.Implements;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using CIDFares.Spa.DataAccess.Repositories.General;
@@ -40,6 +41,7 @@ namespace CIDFares.Spa.Business.Dependencies
             ServiceLocator.Instance.Register<CompraRepository, ICompraRepository>();
             ServiceLocator.Instance.Register<ProductosMonederoRepository, IProductosMonederoRepository>();
             ServiceLocator.Instance.Register<EntradaSalidaAlmacenRepository, IEntradaSalidaAlmacenRepository>();
+            ServiceLocator.Instance.Register<InventarioFisicoRepository, IInventarioFisicoRepository>();
         }
     }
 }
