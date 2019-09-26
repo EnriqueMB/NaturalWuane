@@ -170,31 +170,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
-        public async Task<int> ProcesarAsync(Compra element, object IdSucursal, object IdUsuario)
-        {
-            try
-            {
-                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
-                {
-                    conexion.Open();
-                    var dynamicParameters = new DynamicParameters();
-                    dynamicParameters.Add("@TablaCompra", element.TablaProducto, DbType.Object);
-                    dynamicParameters.Add("@IdCompra", element.IdCompra);
-                    dynamicParameters.Add("@SubTotal", element.SubTotal);
-                    dynamicParameters.Add("@Iva", element.PorcentajeIva);
-                    dynamicParameters.Add("@Total", element.Total);
-                    dynamicParameters.Add("@IdProveedor", element.ProveedorCompra.IdProveedor);
-                    dynamicParameters.Add("@IdSucursal", IdSucursal);
-                    dynamicParameters.Add("@IdUsuario", IdUsuario);
-                    var result = await conexion.ExecuteScalarAsync<int>("[Compra].[SPCID_Procesar_Compra]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                    return result;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
         #endregion
 
         #region Metodos No Implementados

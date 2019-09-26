@@ -125,29 +125,7 @@ namespace CIDFares.Spa.Business.ViewModels.Compras
                 throw ex;
             }            
         }
-
-        public async Task<int> ProcesarCompra(int IdSucursal, Guid IdCuentaUsuario)
-        {
-            try
-            {
-                Compra P = new Compra
-                {
-                    ProveedorCompra = new Proveedor { IdProveedor = this.IdProveedor },
-                    IdCompra = this.IdCompra,
-                    SubTotal = this.SubTotal,
-                    Total = this.Total,
-                    PorcentajeIva = this.Iva,
-                    TablaProducto = TablaProducto,
-                    IdSucursal = this.IdSucursal,
-                };
-                return await Repository.ProcesarAsync(P, IdSucursal, IdCuentaUsuario);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
+                
         public void GetDetalle()
         {
             try
