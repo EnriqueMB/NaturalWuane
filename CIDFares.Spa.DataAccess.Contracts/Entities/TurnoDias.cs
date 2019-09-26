@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.DataAccess.Contracts.Entities
 {
-    class TurnoDias
+    public class TurnoDias
     {
         public int IdTurno { get; set; }
-        public string NombreTurno { get; set; }
         public string NombreDia { get; set; }
-        public TimeSpan HoraEntrada1 { get; set; }
-        public TimeSpan HoraSalida1 { get; set; }
+        public TimeSpan HoraEntrada { get; set; }
+        public TimeSpan HoraSalida { get; set; }
     }
 }

@@ -437,7 +437,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         private void btnTurnos_Click(object sender, EventArgs e)
         {
             SlideCatalogo(btnTurnos);
-            GetPanel(new FrmTurno());
+            GetPanel(new FrmTurnoPrincipal());
         }
         private void btnMedicionPaciente_Click(object sender, EventArgs e)
         {

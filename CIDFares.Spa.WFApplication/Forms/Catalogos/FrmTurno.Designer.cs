@@ -28,35 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.PanelTitulo = new System.Windows.Forms.Panel();
             this.Turnos = new System.Windows.Forms.Label();
             this.PanelBTN = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnNuevoTurno = new System.Windows.Forms.Button();
-            this.btnModificarTurno = new System.Windows.Forms.Button();
-            this.btnEliminarTurno = new System.Windows.Forms.Button();
-            this.panelGridDatosTurno = new System.Windows.Forms.Panel();
-            this.sfDataGridTurno = new Syncfusion.WinForms.DataGrid.SfDataGrid();
-            this.sfDataGridValores = new Syncfusion.WinForms.DataGrid.SfDataGrid();
-            this.sfDataGridValoresTabla = new Syncfusion.WinForms.DataGrid.SfDataGrid();
-            this.NombreTurnoEdit = new System.Windows.Forms.Label();
+            this.PanelContainsBtnGuardarç = new System.Windows.Forms.FlowLayoutPanel();
+            this.BtnGuardar = new System.Windows.Forms.Button();
+            this.panelContainerPanelsDataTurno = new System.Windows.Forms.Panel();
+            this.PanelContainGroupBox = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.PanelDatosNombreTurno = new System.Windows.Forms.Panel();
+            this.TBoxNombreTurno = new System.Windows.Forms.TextBox();
+            this.LblNombreTurno = new System.Windows.Forms.Label();
+            this.PanelDatosNombreDia = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.LblDiaTurno = new System.Windows.Forms.Label();
+            this.PanelDatosNumHorarios = new System.Windows.Forms.Panel();
+            this.PanelContainsRadioButtons = new System.Windows.Forms.Panel();
+            this.RbtnCuatroHorarios = new System.Windows.Forms.RadioButton();
+            this.RbtnDosHorarios = new System.Windows.Forms.RadioButton();
+            this.LblNumeroHorarios = new System.Windows.Forms.Label();
+            this.PanelDatosHorariosTurno = new System.Windows.Forms.Panel();
+            this.PickerHoraSalida2 = new System.Windows.Forms.DateTimePicker();
+            this.LblHoraSalida2 = new System.Windows.Forms.Label();
+            this.PickerHoraEntrada2 = new System.Windows.Forms.DateTimePicker();
+            this.PickerHoraSalida1 = new System.Windows.Forms.DateTimePicker();
+            this.PickerHoraEntrada1 = new System.Windows.Forms.DateTimePicker();
+            this.TbxHoraEntrada2 = new System.Windows.Forms.Label();
+            this.LblHoraSalida1 = new System.Windows.Forms.Label();
+            this.LblHoraEntrada1 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1BotonesDatosTurno = new System.Windows.Forms.FlowLayoutPanel();
+            this.AnadirBtn = new System.Windows.Forms.Button();
+            this.CancelarBtn = new System.Windows.Forms.Button();
+            this.panelContainTableDataTurnoDays = new System.Windows.Forms.Panel();
+            this.DGViewDataDaysTurno = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.PanelTitulo.SuspendLayout();
             this.PanelBTN.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            this.panelGridDatosTurno.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sfDataGridTurno)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sfDataGridValores)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sfDataGridValoresTabla)).BeginInit();
+            this.PanelContainsBtnGuardarç.SuspendLayout();
+            this.panelContainerPanelsDataTurno.SuspendLayout();
+            this.PanelContainGroupBox.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.PanelDatosNombreTurno.SuspendLayout();
+            this.PanelDatosNombreDia.SuspendLayout();
+            this.PanelDatosNumHorarios.SuspendLayout();
+            this.PanelContainsRadioButtons.SuspendLayout();
+            this.PanelDatosHorariosTurno.SuspendLayout();
+            this.flowLayoutPanel1BotonesDatosTurno.SuspendLayout();
+            this.panelContainTableDataTurnoDays.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGViewDataDaysTurno)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelTitulo
             // 
+            this.PanelTitulo.BackColor = System.Drawing.Color.White;
             this.PanelTitulo.Controls.Add(this.Turnos);
             this.PanelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelTitulo.Location = new System.Drawing.Point(0, 0);
             this.PanelTitulo.Name = "PanelTitulo";
-            this.PanelTitulo.Size = new System.Drawing.Size(1176, 58);
+            this.PanelTitulo.Size = new System.Drawing.Size(1052, 58);
             this.PanelTitulo.TabIndex = 0;
             // 
             // Turnos
@@ -71,120 +106,351 @@
             // 
             // PanelBTN
             // 
-            this.PanelBTN.Controls.Add(this.flowLayoutPanel2);
-            this.PanelBTN.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PanelBTN.Location = new System.Drawing.Point(0, 580);
+            this.PanelBTN.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PanelBTN.Controls.Add(this.PanelContainsBtnGuardarç);
+            this.PanelBTN.Location = new System.Drawing.Point(0, 527);
             this.PanelBTN.Name = "PanelBTN";
-            this.PanelBTN.Size = new System.Drawing.Size(1176, 47);
+            this.PanelBTN.Size = new System.Drawing.Size(1052, 47);
             this.PanelBTN.TabIndex = 0;
             // 
-            // flowLayoutPanel2
+            // PanelContainsBtnGuardarç
             // 
-            this.flowLayoutPanel2.Controls.Add(this.btnNuevoTurno);
-            this.flowLayoutPanel2.Controls.Add(this.btnModificarTurno);
-            this.flowLayoutPanel2.Controls.Add(this.btnEliminarTurno);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 6);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(767, 38);
-            this.flowLayoutPanel2.TabIndex = 0;
+            this.PanelContainsBtnGuardarç.Controls.Add(this.BtnGuardar);
+            this.PanelContainsBtnGuardarç.Location = new System.Drawing.Point(783, 3);
+            this.PanelContainsBtnGuardarç.Name = "PanelContainsBtnGuardarç";
+            this.PanelContainsBtnGuardarç.Size = new System.Drawing.Size(213, 41);
+            this.PanelContainsBtnGuardarç.TabIndex = 2;
             // 
-            // btnNuevoTurno
+            // BtnGuardar
             // 
-            this.btnNuevoTurno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnNuevoTurno.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnNuevoTurno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevoTurno.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnNuevoTurno.Location = new System.Drawing.Point(3, 3);
-            this.btnNuevoTurno.Name = "btnNuevoTurno";
-            this.btnNuevoTurno.Size = new System.Drawing.Size(123, 29);
-            this.btnNuevoTurno.TabIndex = 0;
-            this.btnNuevoTurno.Text = "Nuevo";
-            this.btnNuevoTurno.UseVisualStyleBackColor = false;
-            this.btnNuevoTurno.Click += new System.EventHandler(this.btnNuevoTurno_Click);
+            this.BtnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.BtnGuardar.FlatAppearance.BorderSize = 0;
+            this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGuardar.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.BtnGuardar.Location = new System.Drawing.Point(3, 3);
+            this.BtnGuardar.Name = "BtnGuardar";
+            this.BtnGuardar.Size = new System.Drawing.Size(206, 35);
+            this.BtnGuardar.TabIndex = 1;
+            this.BtnGuardar.Text = "Guardar";
+            this.BtnGuardar.UseVisualStyleBackColor = false;
             // 
-            // btnModificarTurno
+            // panelContainerPanelsDataTurno
             // 
-            this.btnModificarTurno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(148)))), ((int)(((byte)(65)))));
-            this.btnModificarTurno.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(148)))), ((int)(((byte)(65)))));
-            this.btnModificarTurno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificarTurno.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnModificarTurno.Location = new System.Drawing.Point(132, 3);
-            this.btnModificarTurno.Name = "btnModificarTurno";
-            this.btnModificarTurno.Size = new System.Drawing.Size(123, 29);
-            this.btnModificarTurno.TabIndex = 1;
-            this.btnModificarTurno.Text = "Modificar";
-            this.btnModificarTurno.UseVisualStyleBackColor = false;
-            this.btnModificarTurno.Click += new System.EventHandler(this.btnModificarTurno_Click);
+            this.panelContainerPanelsDataTurno.Controls.Add(this.PanelContainGroupBox);
+            this.panelContainerPanelsDataTurno.Controls.Add(this.panelContainTableDataTurnoDays);
+            this.panelContainerPanelsDataTurno.Location = new System.Drawing.Point(0, 58);
+            this.panelContainerPanelsDataTurno.Name = "panelContainerPanelsDataTurno";
+            this.panelContainerPanelsDataTurno.Size = new System.Drawing.Size(1052, 469);
+            this.panelContainerPanelsDataTurno.TabIndex = 1;
             // 
-            // btnEliminarTurno
+            // PanelContainGroupBox
             // 
-            this.btnEliminarTurno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.btnEliminarTurno.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.btnEliminarTurno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarTurno.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnEliminarTurno.Location = new System.Drawing.Point(261, 3);
-            this.btnEliminarTurno.Name = "btnEliminarTurno";
-            this.btnEliminarTurno.Size = new System.Drawing.Size(123, 29);
-            this.btnEliminarTurno.TabIndex = 2;
-            this.btnEliminarTurno.Text = "Eliminar";
-            this.btnEliminarTurno.UseVisualStyleBackColor = false;
-            this.btnEliminarTurno.Click += new System.EventHandler(this.btnEliminarTurno_Click);
+            this.PanelContainGroupBox.BackColor = System.Drawing.Color.White;
+            this.PanelContainGroupBox.Controls.Add(this.groupBox1);
+            this.PanelContainGroupBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PanelContainGroupBox.Location = new System.Drawing.Point(717, 0);
+            this.PanelContainGroupBox.Name = "PanelContainGroupBox";
+            this.PanelContainGroupBox.Size = new System.Drawing.Size(335, 469);
+            this.PanelContainGroupBox.TabIndex = 1;
             // 
-            // panelGridDatosTurno
+            // groupBox1
             // 
-            this.panelGridDatosTurno.BackColor = System.Drawing.Color.Transparent;
-            this.panelGridDatosTurno.Controls.Add(this.NombreTurnoEdit);
-            this.panelGridDatosTurno.Controls.Add(this.sfDataGridValoresTabla);
-            this.panelGridDatosTurno.Controls.Add(this.sfDataGridValores);
-            this.panelGridDatosTurno.Controls.Add(this.sfDataGridTurno);
-            this.panelGridDatosTurno.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelGridDatosTurno.Location = new System.Drawing.Point(0, 58);
-            this.panelGridDatosTurno.Name = "panelGridDatosTurno";
-            this.panelGridDatosTurno.Size = new System.Drawing.Size(1176, 522);
-            this.panelGridDatosTurno.TabIndex = 3;
+            this.groupBox1.Controls.Add(this.tableLayoutPanel1);
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(14, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(309, 463);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Datos del turno";
             // 
-            // sfDataGridTurno
+            // tableLayoutPanel1
             // 
-            this.sfDataGridTurno.AccessibleName = "Table";
-            this.sfDataGridTurno.AllowEditing = false;
-            this.sfDataGridTurno.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.AllowEditing = false;
-            gridTextColumn1.HeaderText = "Nombre";
-            gridTextColumn1.MappingName = "NombreTurno";
-            this.sfDataGridTurno.Columns.Add(gridTextColumn1);
-            this.sfDataGridTurno.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sfDataGridTurno.Location = new System.Drawing.Point(0, 0);
-            this.sfDataGridTurno.Name = "sfDataGridTurno";
-            this.sfDataGridTurno.Size = new System.Drawing.Size(1176, 522);
-            this.sfDataGridTurno.TabIndex = 1;
-            this.sfDataGridTurno.Text = "sfDataGrid1";
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.83165F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.16835F));
+            this.tableLayoutPanel1.Controls.Add(this.PanelDatosNombreTurno, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.PanelDatosNombreDia, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.PanelDatosNumHorarios, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.PanelDatosHorariosTurno, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1BotonesDatosTurno, 0, 4);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 18);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.73949F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.26051F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 214F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(297, 439);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // sfDataGridValores
+            // PanelDatosNombreTurno
             // 
-            this.sfDataGridValores.AccessibleName = "Table";
-            this.sfDataGridValores.Location = new System.Drawing.Point(0, 3);
-            this.sfDataGridValores.Name = "sfDataGridValores";
-            this.sfDataGridValores.Size = new System.Drawing.Size(770, 522);
-            this.sfDataGridValores.TabIndex = 2;
-            this.sfDataGridValores.Text = "sfDataGrid1";
+            this.PanelDatosNombreTurno.Controls.Add(this.TBoxNombreTurno);
+            this.PanelDatosNombreTurno.Controls.Add(this.LblNombreTurno);
+            this.PanelDatosNombreTurno.Location = new System.Drawing.Point(3, 3);
+            this.PanelDatosNombreTurno.Name = "PanelDatosNombreTurno";
+            this.PanelDatosNombreTurno.Size = new System.Drawing.Size(291, 51);
+            this.PanelDatosNombreTurno.TabIndex = 0;
             // 
-            // sfDataGridValoresTabla
+            // TBoxNombreTurno
             // 
-            this.sfDataGridValoresTabla.AccessibleName = "Table";
-            this.sfDataGridValoresTabla.Location = new System.Drawing.Point(0, 64);
-            this.sfDataGridValoresTabla.Name = "sfDataGridValoresTabla";
-            this.sfDataGridValoresTabla.Size = new System.Drawing.Size(770, 461);
-            this.sfDataGridValoresTabla.TabIndex = 3;
-            this.sfDataGridValoresTabla.Text = "sfDataGrid1";
+            this.TBoxNombreTurno.Location = new System.Drawing.Point(18, 23);
+            this.TBoxNombreTurno.Name = "TBoxNombreTurno";
+            this.TBoxNombreTurno.Size = new System.Drawing.Size(256, 26);
+            this.TBoxNombreTurno.TabIndex = 1;
             // 
-            // NombreTurnoEdit
+            // LblNombreTurno
             // 
-            this.NombreTurnoEdit.AutoSize = true;
-            this.NombreTurnoEdit.Location = new System.Drawing.Point(37, 23);
-            this.NombreTurnoEdit.Name = "NombreTurnoEdit";
-            this.NombreTurnoEdit.Size = new System.Drawing.Size(35, 13);
-            this.NombreTurnoEdit.TabIndex = 4;
-            this.NombreTurnoEdit.Text = "label1";
+            this.LblNombreTurno.AutoSize = true;
+            this.LblNombreTurno.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNombreTurno.Location = new System.Drawing.Point(30, 3);
+            this.LblNombreTurno.Name = "LblNombreTurno";
+            this.LblNombreTurno.Size = new System.Drawing.Size(68, 20);
+            this.LblNombreTurno.TabIndex = 0;
+            this.LblNombreTurno.Text = "Nombre";
+            // 
+            // PanelDatosNombreDia
+            // 
+            this.PanelDatosNombreDia.Controls.Add(this.comboBox1);
+            this.PanelDatosNombreDia.Controls.Add(this.LblDiaTurno);
+            this.PanelDatosNombreDia.Location = new System.Drawing.Point(3, 60);
+            this.PanelDatosNombreDia.Name = "PanelDatosNombreDia";
+            this.PanelDatosNombreDia.Size = new System.Drawing.Size(291, 53);
+            this.PanelDatosNombreDia.TabIndex = 1;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(18, 23);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(256, 28);
+            this.comboBox1.TabIndex = 1;
+            // 
+            // LblDiaTurno
+            // 
+            this.LblDiaTurno.AutoSize = true;
+            this.LblDiaTurno.Location = new System.Drawing.Point(30, 3);
+            this.LblDiaTurno.Name = "LblDiaTurno";
+            this.LblDiaTurno.Size = new System.Drawing.Size(33, 20);
+            this.LblDiaTurno.TabIndex = 0;
+            this.LblDiaTurno.Text = "Dia";
+            // 
+            // PanelDatosNumHorarios
+            // 
+            this.PanelDatosNumHorarios.Controls.Add(this.PanelContainsRadioButtons);
+            this.PanelDatosNumHorarios.Controls.Add(this.LblNumeroHorarios);
+            this.PanelDatosNumHorarios.Location = new System.Drawing.Point(3, 119);
+            this.PanelDatosNumHorarios.Name = "PanelDatosNumHorarios";
+            this.PanelDatosNumHorarios.Size = new System.Drawing.Size(291, 56);
+            this.PanelDatosNumHorarios.TabIndex = 2;
+            // 
+            // PanelContainsRadioButtons
+            // 
+            this.PanelContainsRadioButtons.Controls.Add(this.RbtnCuatroHorarios);
+            this.PanelContainsRadioButtons.Controls.Add(this.RbtnDosHorarios);
+            this.PanelContainsRadioButtons.Location = new System.Drawing.Point(18, 20);
+            this.PanelContainsRadioButtons.Name = "PanelContainsRadioButtons";
+            this.PanelContainsRadioButtons.Size = new System.Drawing.Size(256, 31);
+            this.PanelContainsRadioButtons.TabIndex = 1;
+            // 
+            // RbtnCuatroHorarios
+            // 
+            this.RbtnCuatroHorarios.AutoSize = true;
+            this.RbtnCuatroHorarios.Location = new System.Drawing.Point(141, 3);
+            this.RbtnCuatroHorarios.Name = "RbtnCuatroHorarios";
+            this.RbtnCuatroHorarios.Size = new System.Drawing.Size(97, 24);
+            this.RbtnCuatroHorarios.TabIndex = 1;
+            this.RbtnCuatroHorarios.TabStop = true;
+            this.RbtnCuatroHorarios.Text = "4 horarios";
+            this.RbtnCuatroHorarios.UseVisualStyleBackColor = true;
+            this.RbtnCuatroHorarios.CheckedChanged += new System.EventHandler(this.RbtnCuatroHorarios_CheckedChanged);
+            // 
+            // RbtnDosHorarios
+            // 
+            this.RbtnDosHorarios.AutoSize = true;
+            this.RbtnDosHorarios.Location = new System.Drawing.Point(25, 3);
+            this.RbtnDosHorarios.Name = "RbtnDosHorarios";
+            this.RbtnDosHorarios.Size = new System.Drawing.Size(97, 24);
+            this.RbtnDosHorarios.TabIndex = 0;
+            this.RbtnDosHorarios.TabStop = true;
+            this.RbtnDosHorarios.Text = "2 horarios";
+            this.RbtnDosHorarios.UseVisualStyleBackColor = true;
+            this.RbtnDosHorarios.CheckedChanged += new System.EventHandler(this.RbtnDosHorarios_CheckedChanged);
+            // 
+            // LblNumeroHorarios
+            // 
+            this.LblNumeroHorarios.AutoSize = true;
+            this.LblNumeroHorarios.Location = new System.Drawing.Point(30, 3);
+            this.LblNumeroHorarios.Name = "LblNumeroHorarios";
+            this.LblNumeroHorarios.Size = new System.Drawing.Size(153, 20);
+            this.LblNumeroHorarios.TabIndex = 0;
+            this.LblNumeroHorarios.Text = "Número de horarios";
+            // 
+            // PanelDatosHorariosTurno
+            // 
+            this.PanelDatosHorariosTurno.Controls.Add(this.PickerHoraSalida2);
+            this.PanelDatosHorariosTurno.Controls.Add(this.LblHoraSalida2);
+            this.PanelDatosHorariosTurno.Controls.Add(this.PickerHoraEntrada2);
+            this.PanelDatosHorariosTurno.Controls.Add(this.PickerHoraSalida1);
+            this.PanelDatosHorariosTurno.Controls.Add(this.PickerHoraEntrada1);
+            this.PanelDatosHorariosTurno.Controls.Add(this.TbxHoraEntrada2);
+            this.PanelDatosHorariosTurno.Controls.Add(this.LblHoraSalida1);
+            this.PanelDatosHorariosTurno.Controls.Add(this.LblHoraEntrada1);
+            this.PanelDatosHorariosTurno.Location = new System.Drawing.Point(3, 181);
+            this.PanelDatosHorariosTurno.Name = "PanelDatosHorariosTurno";
+            this.PanelDatosHorariosTurno.Size = new System.Drawing.Size(291, 208);
+            this.PanelDatosHorariosTurno.TabIndex = 3;
+            // 
+            // PickerHoraSalida2
+            // 
+            this.PickerHoraSalida2.CustomFormat = "HH:mm";
+            this.PickerHoraSalida2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.PickerHoraSalida2.Location = new System.Drawing.Point(18, 175);
+            this.PickerHoraSalida2.Name = "PickerHoraSalida2";
+            this.PickerHoraSalida2.Size = new System.Drawing.Size(256, 26);
+            this.PickerHoraSalida2.TabIndex = 10;
+            // 
+            // LblHoraSalida2
+            // 
+            this.LblHoraSalida2.AutoSize = true;
+            this.LblHoraSalida2.Location = new System.Drawing.Point(32, 153);
+            this.LblHoraSalida2.Name = "LblHoraSalida2";
+            this.LblHoraSalida2.Size = new System.Drawing.Size(114, 20);
+            this.LblHoraSalida2.TabIndex = 9;
+            this.LblHoraSalida2.Text = "Hora de salida";
+            // 
+            // PickerHoraEntrada2
+            // 
+            this.PickerHoraEntrada2.CustomFormat = "HH:mm";
+            this.PickerHoraEntrada2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.PickerHoraEntrada2.Location = new System.Drawing.Point(18, 125);
+            this.PickerHoraEntrada2.Name = "PickerHoraEntrada2";
+            this.PickerHoraEntrada2.Size = new System.Drawing.Size(256, 26);
+            this.PickerHoraEntrada2.TabIndex = 7;
+            // 
+            // PickerHoraSalida1
+            // 
+            this.PickerHoraSalida1.CustomFormat = "HH:mm";
+            this.PickerHoraSalida1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.PickerHoraSalida1.Location = new System.Drawing.Point(18, 75);
+            this.PickerHoraSalida1.Name = "PickerHoraSalida1";
+            this.PickerHoraSalida1.Size = new System.Drawing.Size(256, 26);
+            this.PickerHoraSalida1.TabIndex = 6;
+            // 
+            // PickerHoraEntrada1
+            // 
+            this.PickerHoraEntrada1.CustomFormat = "HH:mm";
+            this.PickerHoraEntrada1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.PickerHoraEntrada1.Location = new System.Drawing.Point(18, 25);
+            this.PickerHoraEntrada1.Name = "PickerHoraEntrada1";
+            this.PickerHoraEntrada1.Size = new System.Drawing.Size(256, 26);
+            this.PickerHoraEntrada1.TabIndex = 5;
+            // 
+            // TbxHoraEntrada2
+            // 
+            this.TbxHoraEntrada2.AutoSize = true;
+            this.TbxHoraEntrada2.Location = new System.Drawing.Point(28, 103);
+            this.TbxHoraEntrada2.Name = "TbxHoraEntrada2";
+            this.TbxHoraEntrada2.Size = new System.Drawing.Size(131, 20);
+            this.TbxHoraEntrada2.TabIndex = 4;
+            this.TbxHoraEntrada2.Text = "Hora de entrada";
+            // 
+            // LblHoraSalida1
+            // 
+            this.LblHoraSalida1.AutoSize = true;
+            this.LblHoraSalida1.Location = new System.Drawing.Point(38, 53);
+            this.LblHoraSalida1.Name = "LblHoraSalida1";
+            this.LblHoraSalida1.Size = new System.Drawing.Size(114, 20);
+            this.LblHoraSalida1.TabIndex = 2;
+            this.LblHoraSalida1.Text = "Hora de salida";
+            // 
+            // LblHoraEntrada1
+            // 
+            this.LblHoraEntrada1.AutoSize = true;
+            this.LblHoraEntrada1.Location = new System.Drawing.Point(30, 3);
+            this.LblHoraEntrada1.Name = "LblHoraEntrada1";
+            this.LblHoraEntrada1.Size = new System.Drawing.Size(131, 20);
+            this.LblHoraEntrada1.TabIndex = 0;
+            this.LblHoraEntrada1.Text = "Hora de entrada";
+            // 
+            // flowLayoutPanel1BotonesDatosTurno
+            // 
+            this.flowLayoutPanel1BotonesDatosTurno.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.flowLayoutPanel1BotonesDatosTurno.Controls.Add(this.AnadirBtn);
+            this.flowLayoutPanel1BotonesDatosTurno.Controls.Add(this.CancelarBtn);
+            this.flowLayoutPanel1BotonesDatosTurno.Location = new System.Drawing.Point(14, 395);
+            this.flowLayoutPanel1BotonesDatosTurno.Name = "flowLayoutPanel1BotonesDatosTurno";
+            this.flowLayoutPanel1BotonesDatosTurno.Size = new System.Drawing.Size(269, 41);
+            this.flowLayoutPanel1BotonesDatosTurno.TabIndex = 53;
+            // 
+            // AnadirBtn
+            // 
+            this.AnadirBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(148)))), ((int)(((byte)(65)))));
+            this.AnadirBtn.FlatAppearance.BorderSize = 0;
+            this.AnadirBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AnadirBtn.Location = new System.Drawing.Point(3, 3);
+            this.AnadirBtn.Name = "AnadirBtn";
+            this.AnadirBtn.Size = new System.Drawing.Size(137, 30);
+            this.AnadirBtn.TabIndex = 6;
+            this.AnadirBtn.Text = "Añadir";
+            this.AnadirBtn.UseVisualStyleBackColor = false;
+            // 
+            // CancelarBtn
+            // 
+            this.CancelarBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.CancelarBtn.FlatAppearance.BorderSize = 0;
+            this.CancelarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelarBtn.Location = new System.Drawing.Point(146, 3);
+            this.CancelarBtn.Name = "CancelarBtn";
+            this.CancelarBtn.Size = new System.Drawing.Size(120, 30);
+            this.CancelarBtn.TabIndex = 7;
+            this.CancelarBtn.Text = "Cancelar";
+            this.CancelarBtn.UseVisualStyleBackColor = false;
+            // 
+            // panelContainTableDataTurnoDays
+            // 
+            this.panelContainTableDataTurnoDays.BackColor = System.Drawing.Color.White;
+            this.panelContainTableDataTurnoDays.Controls.Add(this.DGViewDataDaysTurno);
+            this.panelContainTableDataTurnoDays.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelContainTableDataTurnoDays.Location = new System.Drawing.Point(0, 0);
+            this.panelContainTableDataTurnoDays.Name = "panelContainTableDataTurnoDays";
+            this.panelContainTableDataTurnoDays.Size = new System.Drawing.Size(708, 469);
+            this.panelContainTableDataTurnoDays.TabIndex = 0;
+            // 
+            // DGViewDataDaysTurno
+            // 
+            this.DGViewDataDaysTurno.AccessibleName = "Table";
+            this.DGViewDataDaysTurno.AllowEditing = false;
+            this.DGViewDataDaysTurno.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.HeaderText = "Dia";
+            gridTextColumn6.MappingName = "NombreDia";
+            gridTextColumn7.AllowEditing = false;
+            gridTextColumn7.HeaderText = "Hora de entrada";
+            gridTextColumn7.MappingName = "HoraEntrada1";
+            gridTextColumn8.AllowEditing = false;
+            gridTextColumn8.HeaderText = "Hora de salida";
+            gridTextColumn8.MappingName = "HoraSalida1";
+            gridTextColumn9.AllowEditing = false;
+            gridTextColumn9.HeaderText = "Hora de entrada";
+            gridTextColumn9.MappingName = "HoraEntrada1";
+            gridTextColumn10.AllowEditing = false;
+            gridTextColumn10.HeaderText = "Hora de salida";
+            gridTextColumn10.MappingName = "HoraSalida2";
+            this.DGViewDataDaysTurno.Columns.Add(gridTextColumn6);
+            this.DGViewDataDaysTurno.Columns.Add(gridTextColumn7);
+            this.DGViewDataDaysTurno.Columns.Add(gridTextColumn8);
+            this.DGViewDataDaysTurno.Columns.Add(gridTextColumn9);
+            this.DGViewDataDaysTurno.Columns.Add(gridTextColumn10);
+            this.DGViewDataDaysTurno.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGViewDataDaysTurno.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DGViewDataDaysTurno.Location = new System.Drawing.Point(0, 0);
+            this.DGViewDataDaysTurno.Name = "DGViewDataDaysTurno";
+            this.DGViewDataDaysTurno.Size = new System.Drawing.Size(708, 469);
+            this.DGViewDataDaysTurno.TabIndex = 0;
+            this.DGViewDataDaysTurno.Text = "sfDataGrid1";
             // 
             // FrmTurno
             // 
@@ -193,24 +459,35 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1176, 627);
-            this.Controls.Add(this.panelGridDatosTurno);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1052, 574);
+            this.Controls.Add(this.panelContainerPanelsDataTurno);
             this.Controls.Add(this.PanelBTN);
             this.Controls.Add(this.PanelTitulo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmTurno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmTurno";
-            this.Load += new System.EventHandler(this.FrmTurno_Load);
             this.PanelTitulo.ResumeLayout(false);
             this.PanelTitulo.PerformLayout();
             this.PanelBTN.ResumeLayout(false);
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.panelGridDatosTurno.ResumeLayout(false);
-            this.panelGridDatosTurno.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sfDataGridTurno)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sfDataGridValores)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sfDataGridValoresTabla)).EndInit();
+            this.PanelContainsBtnGuardarç.ResumeLayout(false);
+            this.panelContainerPanelsDataTurno.ResumeLayout(false);
+            this.PanelContainGroupBox.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.PanelDatosNombreTurno.ResumeLayout(false);
+            this.PanelDatosNombreTurno.PerformLayout();
+            this.PanelDatosNombreDia.ResumeLayout(false);
+            this.PanelDatosNombreDia.PerformLayout();
+            this.PanelDatosNumHorarios.ResumeLayout(false);
+            this.PanelDatosNumHorarios.PerformLayout();
+            this.PanelContainsRadioButtons.ResumeLayout(false);
+            this.PanelContainsRadioButtons.PerformLayout();
+            this.PanelDatosHorariosTurno.ResumeLayout(false);
+            this.PanelDatosHorariosTurno.PerformLayout();
+            this.flowLayoutPanel1BotonesDatosTurno.ResumeLayout(false);
+            this.panelContainTableDataTurnoDays.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DGViewDataDaysTurno)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -220,14 +497,36 @@
         private System.Windows.Forms.Panel PanelTitulo;
         private System.Windows.Forms.Label Turnos;
         private System.Windows.Forms.Panel PanelBTN;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button btnNuevoTurno;
-        private System.Windows.Forms.Button btnModificarTurno;
-        private System.Windows.Forms.Button btnEliminarTurno;
-        private System.Windows.Forms.Panel panelGridDatosTurno;
-        private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGridTurno;
-        private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGridValores;
-        private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGridValoresTabla;
-        private System.Windows.Forms.Label NombreTurnoEdit;
+        private System.Windows.Forms.Panel panelContainerPanelsDataTurno;
+        private System.Windows.Forms.Panel PanelContainGroupBox;
+        private System.Windows.Forms.Panel panelContainTableDataTurnoDays;
+        private Syncfusion.WinForms.DataGrid.SfDataGrid DGViewDataDaysTurno;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel PanelDatosNombreTurno;
+        private System.Windows.Forms.Panel PanelDatosNombreDia;
+        private System.Windows.Forms.Panel PanelDatosNumHorarios;
+        private System.Windows.Forms.Panel PanelDatosHorariosTurno;
+        private System.Windows.Forms.TextBox TBoxNombreTurno;
+        private System.Windows.Forms.Label LblNombreTurno;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label LblDiaTurno;
+        private System.Windows.Forms.Label LblNumeroHorarios;
+        private System.Windows.Forms.Panel PanelContainsRadioButtons;
+        private System.Windows.Forms.RadioButton RbtnCuatroHorarios;
+        private System.Windows.Forms.RadioButton RbtnDosHorarios;
+        private System.Windows.Forms.Label LblHoraEntrada1;
+        private System.Windows.Forms.Label LblHoraSalida1;
+        private System.Windows.Forms.DateTimePicker PickerHoraEntrada2;
+        private System.Windows.Forms.DateTimePicker PickerHoraSalida1;
+        private System.Windows.Forms.DateTimePicker PickerHoraEntrada1;
+        private System.Windows.Forms.Label TbxHoraEntrada2;
+        private System.Windows.Forms.DateTimePicker PickerHoraSalida2;
+        private System.Windows.Forms.Label LblHoraSalida2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1BotonesDatosTurno;
+        private System.Windows.Forms.Button AnadirBtn;
+        private System.Windows.Forms.Button CancelarBtn;
+        private System.Windows.Forms.Button BtnGuardar;
+        private System.Windows.Forms.FlowLayoutPanel PanelContainsBtnGuardarç;
     }
 }

@@ -90,6 +90,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\Messages.cs" />
+    <Compile Include="Forms\Catalogos\FrmTurnoPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmTurnoPrincipal.Designer.cs">
+      <DependentUpon>FrmTurnoPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Paquete\FrmAbonarPaquete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -396,6 +402,9 @@
     <Compile Include="Validations\SucursalValidator.cs" />
     <Compile Include="Validations\UsuarioValidator.cs" />
     <Compile Include="Validations\VentaValidator.cs" />
+    <EmbeddedResource Include="Forms\Catalogos\FrmTurnoPrincipal.resx">
+      <DependentUpon>FrmTurnoPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Paquete\FrmAbonarPaquete.resx">
       <DependentUpon>FrmAbonarPaquete.cs</DependentUpon>
     </EmbeddedResource>
