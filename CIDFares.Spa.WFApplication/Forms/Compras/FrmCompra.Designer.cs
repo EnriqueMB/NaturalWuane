@@ -29,20 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlTitulos = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.PanelBotones = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.BtnCancelarCompra = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.groupBoxProducto = new System.Windows.Forms.GroupBox();
             this.ClaveProveedorControl = new System.Windows.Forms.Label();
             this.ClaveProveedor = new System.Windows.Forms.Label();
@@ -81,8 +83,7 @@
             this.FechaControl = new System.Windows.Forms.Label();
             this.btnProducto = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnProcesarCompra = new System.Windows.Forms.Button();
             this.pnlTitulos.SuspendLayout();
             this.PanelBotones.SuspendLayout();
             this.groupBoxProducto.SuspendLayout();
@@ -126,6 +127,7 @@
             // 
             this.PanelBotones.BackColor = System.Drawing.Color.White;
             this.PanelBotones.Controls.Add(this.btnCancelar);
+            this.PanelBotones.Controls.Add(this.btnProcesarCompra);
             this.PanelBotones.Controls.Add(this.BtnAgregar);
             this.PanelBotones.Controls.Add(this.BtnCancelarCompra);
             this.PanelBotones.Controls.Add(this.btnModificar);
@@ -162,7 +164,7 @@
             this.BtnAgregar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAgregar.ForeColor = System.Drawing.Color.Black;
             this.BtnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnAgregar.Location = new System.Drawing.Point(705, 23);
+            this.BtnAgregar.Location = new System.Drawing.Point(569, 23);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(130, 28);
             this.BtnAgregar.TabIndex = 13;
@@ -178,13 +180,45 @@
             this.BtnCancelarCompra.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCancelarCompra.ForeColor = System.Drawing.Color.Black;
             this.BtnCancelarCompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCancelarCompra.Location = new System.Drawing.Point(569, 23);
+            this.BtnCancelarCompra.Location = new System.Drawing.Point(433, 23);
             this.BtnCancelarCompra.Name = "BtnCancelarCompra";
             this.BtnCancelarCompra.Size = new System.Drawing.Size(130, 28);
             this.BtnCancelarCompra.TabIndex = 15;
             this.BtnCancelarCompra.Text = "CANCELAR COMPRA";
             this.BtnCancelarCompra.UseVisualStyleBackColor = false;
             this.BtnCancelarCompra.Click += new System.EventHandler(this.BtnCancelarCompra_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModificar.BackColor = System.Drawing.Color.White;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.Black;
+            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar.Location = new System.Drawing.Point(297, 23);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(130, 28);
+            this.btnModificar.TabIndex = 16;
+            this.btnModificar.Text = "MODIFICAR";
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNuevo.BackColor = System.Drawing.Color.White;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.ForeColor = System.Drawing.Color.Black;
+            this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevo.Location = new System.Drawing.Point(161, 23);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(130, 28);
+            this.btnNuevo.TabIndex = 17;
+            this.btnNuevo.Text = "NUEVA";
+            this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
             // groupBoxProducto
             // 
@@ -341,36 +375,36 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.sfDataGrid1.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn9.HeaderText = "Column1";
-            gridTextColumn9.MappingName = "IdProducto";
-            gridTextColumn9.Visible = false;
-            gridTextColumn10.HeaderText = "Nombre";
-            gridTextColumn10.MappingName = "Nombre";
-            gridTextColumn11.HeaderText = "Cantidad";
-            gridTextColumn11.MappingName = "Cantidad";
-            gridTextColumn12.Format = "C";
-            gridTextColumn12.HeaderText = "Costo";
-            gridTextColumn12.MappingName = "PrecioCosto";
-            gridTextColumn13.Format = "C";
-            gridTextColumn13.HeaderText = "Subtotal";
-            gridTextColumn13.MappingName = "Subtotal";
-            gridTextColumn14.Format = "C";
-            gridTextColumn14.HeaderText = "Iva";
-            gridTextColumn14.MappingName = "PorcentajeIva";
-            gridTextColumn15.Format = "C";
-            gridTextColumn15.HeaderText = "Total";
-            gridTextColumn15.MappingName = "Total";
-            gridTextColumn16.HeaderText = "IdCompraProducto";
-            gridTextColumn16.MappingName = "IdCompraProducto";
-            gridTextColumn16.Visible = false;
-            this.sfDataGrid1.Columns.Add(gridTextColumn9);
-            this.sfDataGrid1.Columns.Add(gridTextColumn10);
-            this.sfDataGrid1.Columns.Add(gridTextColumn11);
-            this.sfDataGrid1.Columns.Add(gridTextColumn12);
-            this.sfDataGrid1.Columns.Add(gridTextColumn13);
-            this.sfDataGrid1.Columns.Add(gridTextColumn14);
-            this.sfDataGrid1.Columns.Add(gridTextColumn15);
-            this.sfDataGrid1.Columns.Add(gridTextColumn16);
+            gridTextColumn1.HeaderText = "Column1";
+            gridTextColumn1.MappingName = "IdProducto";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.HeaderText = "Nombre";
+            gridTextColumn2.MappingName = "Nombre";
+            gridTextColumn3.HeaderText = "Cantidad";
+            gridTextColumn3.MappingName = "Cantidad";
+            gridTextColumn4.Format = "C";
+            gridTextColumn4.HeaderText = "Costo";
+            gridTextColumn4.MappingName = "PrecioCosto";
+            gridTextColumn5.Format = "C";
+            gridTextColumn5.HeaderText = "Subtotal";
+            gridTextColumn5.MappingName = "Subtotal";
+            gridTextColumn6.Format = "C";
+            gridTextColumn6.HeaderText = "Iva";
+            gridTextColumn6.MappingName = "PorcentajeIva";
+            gridTextColumn7.Format = "C";
+            gridTextColumn7.HeaderText = "Total";
+            gridTextColumn7.MappingName = "Total";
+            gridTextColumn8.HeaderText = "IdCompraProducto";
+            gridTextColumn8.MappingName = "IdCompraProducto";
+            gridTextColumn8.Visible = false;
+            this.sfDataGrid1.Columns.Add(gridTextColumn1);
+            this.sfDataGrid1.Columns.Add(gridTextColumn2);
+            this.sfDataGrid1.Columns.Add(gridTextColumn3);
+            this.sfDataGrid1.Columns.Add(gridTextColumn4);
+            this.sfDataGrid1.Columns.Add(gridTextColumn5);
+            this.sfDataGrid1.Columns.Add(gridTextColumn6);
+            this.sfDataGrid1.Columns.Add(gridTextColumn7);
+            this.sfDataGrid1.Columns.Add(gridTextColumn8);
             this.sfDataGrid1.Location = new System.Drawing.Point(2, 19);
             this.sfDataGrid1.Name = "sfDataGrid1";
             this.sfDataGrid1.SerializationController = null;
@@ -629,37 +663,21 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // btnModificar
+            // btnProcesarCompra
             // 
-            this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnModificar.BackColor = System.Drawing.Color.White;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.ForeColor = System.Drawing.Color.Black;
-            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(433, 23);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(130, 28);
-            this.btnModificar.TabIndex = 16;
-            this.btnModificar.Text = "MODIFICAR";
-            this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNuevo.BackColor = System.Drawing.Color.White;
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.ForeColor = System.Drawing.Color.Black;
-            this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(297, 23);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(130, 28);
-            this.btnNuevo.TabIndex = 17;
-            this.btnNuevo.Text = "NUEVA";
-            this.btnNuevo.UseVisualStyleBackColor = false;
-            this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
+            this.btnProcesarCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnProcesarCompra.BackColor = System.Drawing.Color.White;
+            this.btnProcesarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProcesarCompra.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProcesarCompra.ForeColor = System.Drawing.Color.Black;
+            this.btnProcesarCompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProcesarCompra.Location = new System.Drawing.Point(705, 23);
+            this.btnProcesarCompra.Name = "btnProcesarCompra";
+            this.btnProcesarCompra.Size = new System.Drawing.Size(130, 28);
+            this.btnProcesarCompra.TabIndex = 18;
+            this.btnProcesarCompra.Text = "PROCESAR COMPRA";
+            this.btnProcesarCompra.UseVisualStyleBackColor = false;
+            this.btnProcesarCompra.Click += new System.EventHandler(this.BtnProcesarCompra_Click);
             // 
             // FrmCompra
             // 
@@ -746,5 +764,6 @@
         private System.Windows.Forms.Button BtnCancelarCompra;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnProcesarCompra;
     }
 }
