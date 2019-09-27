@@ -72,6 +72,7 @@
     <Compile Include="Entities\Medicion.cs" />
     <Compile Include="Entities\Municipio.cs" />
     <Compile Include="Entities\OpcionCuestionario.cs" />
+    <Compile Include="Entities\OpcionMedicion.cs" />
     <Compile Include="Entities\Pais.cs" />
     <Compile Include="Entities\Iva.cs" />
     <Compile Include="Entities\RegistroEntradaSalida.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Entities\FormaPago.cs" />
     <Compile Include="Repositories\General\ICompraRepository.cs" />
     <Compile Include="Repositories\General\IConsultaRepository.cs" />
+    <Compile Include="Repositories\General\IContestarMedicionRepository.cs" />
     <Compile Include="Repositories\General\ICuestionarioRepository.cs" />
     <Compile Include="Repositories\General\IEmpleadoRepository.cs" />
     <Compile Include="Repositories\General\IEstadoRepository.cs" />

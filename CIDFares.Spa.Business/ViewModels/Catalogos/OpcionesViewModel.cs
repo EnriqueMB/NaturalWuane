@@ -14,6 +14,9 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #region Propiedades
         public IopcionesRepository _repository { get; set; }
         public BindingList<OpcionCuestionario> _listaCuestionario { get; set; }
+        public BindingList<OpcionMedicion> _ListaMediciones { get; set; }
+
+        public BindingList<Consulta> _ListaTipoconsulta { get; set; }
         #endregion
 
         #region Constructor
@@ -21,11 +24,31 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             _repository = repository;
             _listaCuestionario = new BindingList<OpcionCuestionario>();
+            _ListaMediciones = new BindingList<OpcionMedicion>();
+            _ListaTipoconsulta = new BindingList<Consulta>();
             llenarListaEncuesta();
+            listaTipoConsulta();
         }
         #endregion
 
         #region Metodos
+        public async Task listaTipoConsulta()
+        {
+            try
+            {
+                var x = await _repository.LlenarComboTipoConsulta();
+                _ListaTipoconsulta.Clear();
+                foreach (var item in x)
+                {
+                    _ListaTipoconsulta.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task llenarListaEncuesta()
         {
             try
@@ -42,7 +65,49 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 throw ex;
             }
         }
+
+        public async Task llenarListaMediciones()
+        {
+            try
+            {
+                var x = await _repository.CargarGridMediciones();
+                _ListaMediciones.Clear();
+                foreach (var item in x)
+                {
+                    _ListaMediciones.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
+
+        #region Binding
+        private string _NombreCompleto;
+        public string NombreCompleto
+        {
+            get { return _NombreCompleto; }
+            set
+            {
+                _NombreCompleto = value;
+                OnPropertyChanged(nameof(NombreCompleto));
+            }
+        }
+
+        private int _IdTipoConsulta;
+        public int IdTipoConsulta
+        {
+            get { return _IdTipoConsulta; }
+            set
+            {
+                _IdTipoConsulta = value;
+                OnPropertyChanged(nameof(IdTipoConsulta));
+            }
+        }
+        #endregion
+
 
         #region InotifyPropertyChanged Members
 

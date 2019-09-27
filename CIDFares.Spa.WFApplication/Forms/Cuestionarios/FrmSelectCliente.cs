@@ -29,7 +29,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<ClienteViewModel>();
-            cliente = new Cliente();                 
+            cliente = new Cliente();
+            dtgClientes.ShowGroupDropArea = false;
         }
         #endregion
 

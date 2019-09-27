@@ -22,7 +22,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         {
             try
             {
-                FrmNuevaConsultaControl _consulta = new FrmNuevaConsultaControl();
+                FrmOpcionesCuestionario _consulta = new FrmOpcionesCuestionario();
                 _consulta.ShowDialog();
                 _consulta.Dispose();
             }

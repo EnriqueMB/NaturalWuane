@@ -52,6 +52,7 @@
     <Compile Include="Repositories\General\ClienteRepository.cs" />
     <Compile Include="Repositories\General\CompraRepository.cs" />
     <Compile Include="Repositories\General\ConsultaRepository.cs" />
+    <Compile Include="Repositories\General\ContestarMedicionRepository.cs" />
     <Compile Include="Repositories\General\EmpleadoRepository.cs" />
     <Compile Include="Repositories\General\CuestionarioRepository.cs" />
     <Compile Include="Repositories\General\EstadoRepository.cs" />

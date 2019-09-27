@@ -52,7 +52,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 OnPropertyChanged(nameof(RdioBtonValue));
             }
         }
-
+        public string Pregunta { get; set; }
         private Guid _IDPre;
 
         public Guid IDPre

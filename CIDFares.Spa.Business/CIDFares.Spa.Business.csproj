@@ -57,6 +57,7 @@
     <Compile Include="ViewModels\Catalogos\CIDcontrolViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\ClienteViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\ConsultaViewModel.cs" />
+    <Compile Include="ViewModels\Catalogos\ContestarMedicionViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\EncuestasViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\EmpleadoViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\FormaPagoViewModel.cs" />

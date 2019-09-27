@@ -28,6 +28,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios.CIDEncuesta
             Model = ServiceLocator.Instance.Resolve<CIDcontrolViewModel>();
             Model.TipoPregunta = pregunta.TipoPregunta;
             Model.ListaOpciones = pregunta.Respuesta;
+            Model.Pregunta = pregunta.Pregunta;
             Model.respuestasMultiples = pregunta.respuestasMultiples;
             txtPregunta.Text = pregunta.Pregunta;
             _pregunta = pregunta;

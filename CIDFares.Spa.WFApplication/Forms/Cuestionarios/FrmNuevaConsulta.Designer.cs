@@ -123,6 +123,7 @@
             this.btnNuevaConsulta.TabIndex = 15;
             this.btnNuevaConsulta.Text = "GUARDAR";
             this.btnNuevaConsulta.UseVisualStyleBackColor = false;
+            this.btnNuevaConsulta.Click += new System.EventHandler(this.BtnNuevaConsulta_Click);
             // 
             // panel1
             // 
@@ -159,6 +160,7 @@
             this.TipoConsultaControl.Name = "TipoConsultaControl";
             this.TipoConsultaControl.Size = new System.Drawing.Size(234, 26);
             this.TipoConsultaControl.TabIndex = 55;
+            this.TipoConsultaControl.Visible = false;
             // 
             // btnOpciones
             // 
@@ -175,6 +177,7 @@
             this.btnOpciones.TabIndex = 47;
             this.btnOpciones.Text = "+";
             this.btnOpciones.UseVisualStyleBackColor = false;
+            this.btnOpciones.Visible = false;
             this.btnOpciones.Click += new System.EventHandler(this.BtnOpciones_Click);
             // 
             // ptbNuevoCliente
@@ -186,6 +189,7 @@
             this.ptbNuevoCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbNuevoCliente.TabIndex = 52;
             this.ptbNuevoCliente.TabStop = false;
+            this.ptbNuevoCliente.Visible = false;
             // 
             // ptbCliente
             // 
@@ -196,6 +200,7 @@
             this.ptbCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbCliente.TabIndex = 53;
             this.ptbCliente.TabStop = false;
+            this.ptbCliente.Visible = false;
             this.ptbCliente.Click += new System.EventHandler(this.PtbCliente_Click);
             // 
             // label4
@@ -219,6 +224,7 @@
             this.label2.Size = new System.Drawing.Size(137, 18);
             this.label2.TabIndex = 50;
             this.label2.Text = "TIPO DE CONSULTA";
+            this.label2.Visible = false;
             // 
             // label1
             // 
@@ -230,6 +236,7 @@
             this.label1.Size = new System.Drawing.Size(65, 18);
             this.label1.TabIndex = 51;
             this.label1.Text = "CLIENTE";
+            this.label1.Visible = false;
             // 
             // NombreCompleto
             // 
@@ -239,6 +246,7 @@
             this.NombreCompleto.ReadOnly = true;
             this.NombreCompleto.Size = new System.Drawing.Size(253, 26);
             this.NombreCompleto.TabIndex = 48;
+            this.NombreCompleto.Visible = false;
             // 
             // button1
             // 

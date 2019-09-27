@@ -19,6 +19,38 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
+        public async Task<IEnumerable<OpcionMedicion>> CargarGridMediciones()
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    List<OpcionMedicion> Lista = new List<OpcionMedicion>();
+                    OpcionMedicion Item;
+
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    var dr = await conexion.ExecuteReaderAsync("[Catalogo].[SPCID_Get_MedicionPaciente]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    while (dr.Read())
+                    {
+                        Item = new OpcionMedicion();
+                        Item.dato.IdMedicion = dr.GetInt32(dr.GetOrdinal("IdMedicion"));
+                        Item.dato.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
+                        Item.dato.NombreUnidadMedida = dr.GetString(dr.GetOrdinal("NombreUnidadMedida"));
+                        Item.dato.NombreLista = dr.GetString(dr.GetOrdinal("NombreLista"));
+                        Item.dato.IdListaMedicion = dr.GetInt32(dr.GetOrdinal("IdListaMedicion"));
+                        Lista.Add(Item);
+                    }
+                    dr.Close();
+                    return Lista;
+                }
+            }
+            catch (Exception ex)
+            {
+               throw ex;
+            }
+        }
+
         public Task<int> DeleteAsync(object id, object IdUsuario)
         {
             throw new NotImplementedException();
@@ -63,6 +95,25 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         public Task<OpcionCuestionario> GetAsync(object id)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<Consulta>> LlenarComboTipoConsulta()
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    var result = await conexion.QueryAsync<Consulta>("[Catalogo].[SPCID_Get_ComboTipoConsulta]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public Task<int> NameExistAsync(string name)

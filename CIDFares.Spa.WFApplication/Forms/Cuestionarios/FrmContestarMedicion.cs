@@ -1,0 +1,130 @@
+﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Spa.Business.ViewModels.Catalogos;
+using CIDFares.Spa.CrossCutting.Services;
+using CIDFares.Spa.DataAccess.Contracts.Entities;
+using FluentValidation.Results;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
+{
+    public partial class FrmContestarMedicion : Form
+    {
+        public List<Medicion> _lstMedicion { get; set; }
+        public ContestarMedicionViewModel Model { get; set; }
+
+        public FrmContestarMedicion(List<Medicion> lstMedicion)
+        {
+            InitializeComponent();
+            Model = ServiceLocator.Instance.Resolve<ContestarMedicionViewModel>();
+            _lstMedicion = lstMedicion;
+            Model._listaMedicion = lstMedicion;
+            cargarMediciones();      
+        }
+
+        private async Task cargarMediciones()
+        {
+            try
+            {
+                //foreach (var item in _lstMedicion)
+                foreach(var item in Model._listaMedicion)
+                {
+                    TextBox txt = new TextBox();
+                    txt.Text = item.Nombre.ToUpper();
+                    txt.ReadOnly = true;
+                    txt.Size = new Size(253, 26);
+                    flowLayoutPanel1.Controls.Add(txt);
+                    var index = Model._listaMedicion.IndexOf(item);
+                    TextBox txtUnidad = new TextBox();
+                    txtUnidad.Text = item.NombreUnidadMedida.ToUpper();
+                    txtUnidad.ReadOnly = true;
+                    txtUnidad.Size = new Size(110, 26);
+                    flowLayoutPanel1.Controls.Add(txtUnidad);
+
+                    if(item.NombreLista != "Es abierta")
+                    {
+                        try
+                        {
+                            ComboBox combo = new ComboBox();
+                            combo.DataSource = await Model.llenarlistaValor(item.IdListaMedicion);
+                            combo.DisplayMember = "Valor";
+                            combo.ValueMember = "IdValorLista";
+                            combo.Name = string.Format("_listaMedicion[{0}]Control", index);
+                            combo.DataBindings.Add("SelectedValue", item, "IdValorSeleccionado", true, DataSourceUpdateMode.OnPropertyChanged);
+                            combo.Size = new Size(200, 26);
+                            flowLayoutPanel1.Controls.Add(combo);
+                            combo.SelectedIndex = 0;
+                        }
+                        catch (Exception ex)
+                        {
+                            throw ex;
+                        }
+                       
+                    }
+                    else
+                    {
+                        TextBox txt2 = new TextBox();
+                        txt2.Name = string.Format("_listaMedicion[{0}]Control", index);
+                        txt2.DataBindings.Add("Text", item, "valor", true, DataSourceUpdateMode.OnPropertyChanged);
+                        txt2.Size = new Size(200, 26);
+                        flowLayoutPanel1.Controls.Add(txt2);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        void DibujarErrores(ValidationResult validationResult)
+        {            
+            foreach (var error in validationResult.Errors)
+            {
+                var controlName = error.PropertyName + "Control";
+                var aux = flowLayoutPanel1.Controls.Find(controlName, true);
+                if (aux != null)
+                {
+                    errorProvider1.SetError(aux[0], error.ErrorMessage);
+                }
+            }
+        }
+
+        private void BtnNuevaConsulta_Click(object sender, EventArgs e)
+        {
+            try
+            {
+           
+                this.CleanErrors(errorProvider1, typeof(ContestarMedicionViewModel));
+                var validationResults = Model.Validate();
+                if (validationResults.IsValid)
+                {
+                    //ValidationResult aa = new ValidationResult("");
+                    //aa.
+                }
+                else
+                {
+                    //errorProvider1.SetError("");
+                    //this.ShowErrors(errorProvider1, typeof(ContestarMedicionViewModel), validationResults);
+                    DibujarErrores(validationResults);                    //this.lblError.Visible = true;                    
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}
