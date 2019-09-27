@@ -498,6 +498,12 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             GetPanel(new FrmCapturaCita());
         }
 
+        private void btnAlmacen_Click(object sender, EventArgs e)
+        {
+            SlideGenerales(btnAlmacen);
+            GetPanel(new FrmEntradaSalidaAlmacen());
+        }
+
         private void SlideGenerales(Button button)
         {
             SlidePanelgenerales.Visible = true;

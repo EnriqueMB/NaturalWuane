@@ -56,7 +56,6 @@
             this.FolioProductoControl = new System.Windows.Forms.Label();
             this.lblProducto = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.pnlTop.SuspendLayout();
             this.pblButtom.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -101,7 +100,6 @@
             this.flowLayoutPanel1.Controls.Add(this.btnNuevo);
             this.flowLayoutPanel1.Controls.Add(this.btnEliminar);
             this.flowLayoutPanel1.Controls.Add(this.btnGuardar);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(256, 37);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(513, 51);
@@ -354,16 +352,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(390, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FrmEntradaSalidaAlmacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,6 +402,5 @@
         private System.Windows.Forms.Label CantidadControl;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Button button1;
     }
 }
