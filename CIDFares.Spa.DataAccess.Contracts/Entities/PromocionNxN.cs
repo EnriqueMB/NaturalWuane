@@ -14,8 +14,10 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
             Promocion = new PromocionGeneral();
         }
         public int Cantidad { get; set; }
-        public int CantidadGratis { get; set; }
+        
         public PromocionDias PromocionDias { get; set; }
+
         public PromocionGeneral Promocion { get; set; }
+        public int CantidadGratis { get; set; }
     }
 }

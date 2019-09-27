@@ -8,6 +8,11 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
 {
     public class PromocionDias
     {
+        public PromocionDias()
+        {
+            Promocion = new PromocionGeneral();
+        }
+        public PromocionGeneral Promocion { get; set; }
         public bool EsPeriodo { get; set; }
         public bool Lunes { get; set; }
         public bool Martes { get; set; }
