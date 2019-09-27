@@ -12,6 +12,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
     {
         Task<IEnumerable<Paquetes>> GetBusqPaqueteAsync(bool BitNombre, string BusqNombre, bool BitClaveCodigo, string BusqClaveCodigo);
         Task<IEnumerable<AbonoPaquete>> GetAllAbonoPaqueteAsync(Guid idCliente, int idSucursal);
+        Task<IEnumerable<Paquetes>> GetAllAgendaAsync(Guid idCliente, int idSucursal);
         Task<int> AddAbonoAsync(AbonoPaquete element, object IdUsuario);
         Task<IEnumerable<AbonoPaqueteDetalle>> GetAllDetalleAsync(Guid IdVentaPaquete);
     }

@@ -360,6 +360,12 @@
     <Compile Include="Forms\Ventas\FrmCancelacion.Designer.cs">
       <DependentUpon>FrmCancelacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Ventas\FrmPaquetesCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmPaquetesCliente.Designer.cs">
+      <DependentUpon>FrmPaquetesCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Ventas\FrmPaqueteVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -556,6 +562,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmCancelacion.resx">
       <DependentUpon>FrmCancelacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ventas\FrmPaquetesCliente.resx">
+      <DependentUpon>FrmPaquetesCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmPaqueteVenta.resx">
       <DependentUpon>FrmPaqueteVenta.cs</DependentUpon>

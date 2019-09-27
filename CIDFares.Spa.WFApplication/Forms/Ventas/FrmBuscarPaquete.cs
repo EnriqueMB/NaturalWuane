@@ -5,6 +5,7 @@ using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
+using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,8 +34,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             Model = ServiceLocator.Instance.Resolve<PaqueteViewModel>();
             paquetes = new Paquetes();
         }
-        #endregion
         
+        #endregion
+
         #region Metodos
 
         private void IniciarBinding()
@@ -48,7 +50,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 NombreControl.DataBindings.Add("Text", Model, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
 
                 CantidadServicioControl.DataBindings.Add("Text", Model, "Cantidad", true, DataSourceUpdateMode.OnPropertyChanged);
-
+                
                 this.sfDataGridPaquete.AutoGenerateColumns = false;
                 sfDataGridPaquete.DataBindings.Add("DataSource", Model, "ListaPaquete", true, DataSourceUpdateMode.OnPropertyChanged);
             }

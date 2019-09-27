@@ -110,14 +110,26 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         #endregion
 
         #region Eventos
-        private void button4_Click(object sender, EventArgs e)
+        private async void button4_Click(object sender, EventArgs e)
         {
             try
             {
+                Model.ListaPaqueteCliente.Clear();
                 FrmBuscarCliente cliente = new FrmBuscarCliente();
                 cliente.ShowDialog();
                 if (cliente.cliente.IdCliente != Guid.Empty)
+                {
+                    btnVerProducto.Visible = false;
                     LlenarCliente(cliente.cliente);
+                    await Model.GetAllPaqueteAsync(CurrentSession.IdSucursal);
+                    if(Model.ListaPaqueteCliente.Count > 0)
+                    {
+                        AgregarPaquetesCliente();
+                       
+                    }
+                    
+                }
+
             }
             catch(Exception ex)
             {
@@ -396,9 +408,18 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             try
             {
+                Paquetes p = new Paquetes();
                 Venta item = (Venta)ObtenerSeleccionado();
                 if (item != null)
                 {
+                   if(item.IdTipo == 4)
+                    {
+                        p.Nombre = item.Nombre;
+                        p.MontoPaquete = item.Precio;
+                        //p.Clave = item.clave;
+                        Model.ListaPaqueteCliente.Add(p);
+                        btnVerProducto.Visible = true;
+                    }
                    Model.Listaventa.Remove(item);
                    TotalVenta();
                 }
@@ -622,6 +643,56 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                         }
                     }
                 }
+                else
+                if (IdTipo == 4)
+                {
+                    var paquetes = (Paquetes)objetoX;
+                    if (Model.Listaventa.Count == 0)
+                    {
+                        Model.Listaventa.Add(new Venta
+                        {
+                            IdGenerico = paquetes.IdPaquete,
+                            IdTipo = paquetes.IdTipo,
+                            Cantidad = paquetes.CantidadServicio,
+                            Nombre = paquetes.Nombre,
+                            Precio = paquetes.MontoPaquete,
+                            PorcentajeIva = 0,
+                            Total = paquetes.CantidadServicio * paquetes.MontoPaquete,
+                            SubTotal = paquetes.CantidadServicio * paquetes.MontoPaquete //- (paquetes.MontoPaquete * (paquetes. / 100))
+                        });
+                        TotalVenta();
+                    }
+                    else
+                    {
+                        var x = Model.Listaventa.Where(p => p.IdGenerico == paquetes.IdPaquete && p.IdTipo == paquetes.IdTipo).Select(u => {
+                            u.Cantidad += paquetes.CantidadServicio;
+                            u.Precio = paquetes.MontoPaquete; //- (paquetes.MontoPaquete * (paquetes.ProcentajeIva / 100));
+                            u.PorcentajeIva = 0; //(paquetes. * (paquetes.ProcentajeIva / 100));
+                            u.Total = u.Cantidad * paquetes.MontoPaquete;
+                            u.SubTotal = u.Cantidad * u.Precio; return u;
+                        }).ToList();
+                        if (x.Count == 1)
+                        {
+                            this.sfDataGridVenta.Refresh();
+                            TotalVenta();
+                        }
+                        else
+                        {
+                            Model.Listaventa.Add(new Venta
+                            {
+                                IdGenerico = paquetes.IdPaquete,
+                                IdTipo = paquetes.IdTipo,
+                                Cantidad = paquetes.CantidadServicio,
+                                Nombre = paquetes.Nombre,
+                                Precio = paquetes.MontoPaquete, //- (paquetes.MontoPaquete * (paquetes.ProcentajeIva / 100)),
+                                PorcentajeIva = 0,// (paquetes.MontoPaquete * (paquetes.ProcentajeIva / 100)),
+                                Total = paquetes.CantidadServicio * paquetes.MontoPaquete,
+                                SubTotal = paquetes.CantidadServicio * paquetes.MontoPaquete// - (paquetes.PrecioPublico * (paquetes.ProcentajeIva / 100))
+                            });
+                            TotalVenta();
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -738,7 +809,44 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
-       
+
+        private void AgregarPaquetesCliente()
+        {
+            try
+            {
+                FrmPaquetesCliente paquetesCliente = new FrmPaquetesCliente(Model.ListaPaqueteCliente, Model.ModelCliente.NombreCompleto);
+                paquetesCliente.ShowDialog();
+                if (paquetesCliente.paquetes.IdPaquete != 0)
+                {
+                    int Tipo = 4;
+                    Model.ListaPaqueteCliente.Remove(paquetesCliente.paquetes);
+                    LLenarGrid2(paquetesCliente.paquetes, Tipo);
+                }
+                if (Model.ListaPaqueteCliente.Count > 0)
+                    btnVerProducto.Visible = true;
+                else
+                    btnVerProducto.Visible = false;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        private void btnVerProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AgregarPaquetesCliente();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         //CALCULO DE EL IEPS
         //public decimal DesglosaIeps(out decimal PrecioSinIvaSinIeps)
         //{

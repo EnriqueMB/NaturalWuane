@@ -261,15 +261,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
-        #endregion
-
-        #region Metodos No Implementado
-
-        public Task<bool> ExistAsync(object id)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<IEnumerable<AbonoPaqueteDetalle>> GetAllDetalleAsync(Guid IdVentaPaquete)
         {
             try
@@ -288,6 +279,36 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
+
+        public async Task<IEnumerable<Paquetes>> GetAllAgendaAsync(Guid idCliente, int idSucursal)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdCliente", idCliente);
+                    dynamicParameters.Add("@IdSucursal", idSucursal);
+                    var result = await conexion.QueryAsync<Paquetes>("[Paquete].[spCID_Get_AgendaPaqueteXIdCliente]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return result.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion
+
+        #region Metodos No Implementado
+
+        public Task<bool> ExistAsync(object id)
+        {
+            throw new NotImplementedException();
+        }
+
+        
         #endregion
 
     }
