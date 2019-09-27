@@ -141,15 +141,15 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
 
         private DataTable ObtenerDatosTabla(BindingList<CapturaCita> Lista)
         {
-            DataTable Tabla = new DataTable();
-            Tabla.Columns.Add("IdServicio", typeof(int));
-            Tabla.Columns.Add("FechaInicio", typeof(DateTime));
-            Tabla.Columns.Add("FechaFinal", typeof(DateTime));
-            foreach (var item in Lista)
-            {
-                Tabla.Rows.Add(new object[] { item.IdServicio, item.FechaIServicio, item.FechaFServicio });
-            }
-            return Tabla;
+            //DataTable Tabla = new DataTable();
+            //Tabla.Columns.Add("IdServicio", typeof(int));
+            //Tabla.Columns.Add("FechaInicio", typeof(DateTime));
+            //Tabla.Columns.Add("FechaFinal", typeof(DateTime));
+            //foreach (var item in Lista)
+            //{
+            //    Tabla.Rows.Add(new object[] { item.IdServicio, item.FechaIServicio, item.FechaFServicio });
+            //}
+            //return Tabla;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -179,11 +179,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 btnGuardar.Enabled = false;
                 BindingList<CapturaCita> ListaServicio = (BindingList<CapturaCita>)dgmServicio.DataSource;
                 Model.TablaGServicio = ObtenerDatosTabla(ListaServicio);
-                int exists = await Model.BusyService(CurrentSession.IdSucursal);                                
+                //int exists = await Model.BusyService(CurrentSession.IdSucursal);                                
                 var validationResults = Model.Validate();
                 validationResults.ToString();
-                if (exists != 1 && exists != 5)
-                {                    
+                //if (exists != 1 && exists != 5)
+                //{                    
                     if (Model.ListaCapturaCitaDetalleServicio.Count > 0)
                     {
                         if (validationResults.IsValid)
@@ -211,19 +211,19 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                         errorProvider1.SetError(lblErrorControl, "SELECCIONE EL SERVICIO");
                         //this.ShowErrors(errorProvider1, typeof(CapturaCitaViewModel), validationResults);
                     }
-                }
-                else
-                {
-                    if (exists == 5)
-                    {
-                        errorProvider1.SetError(lblCitaOcupadaControl, "NO PUEDES AGENDAR CITAS MENOR A LA HORA ACTUAL");
-                    }
-                    else
-                    {
-                        errorProvider1.SetError(lblCitaOcupadaControl, "HORARIO OCUPADO");
-                    }                    
-                    //this.ShowErrors(errorProvider1, typeof(CapturaCitaViewModel), validationResults);
-                }
+            //}
+            //else
+            //{
+            //    if (exists == 5)
+            //    {
+            //        errorProvider1.SetError(lblCitaOcupadaControl, "NO PUEDES AGENDAR CITAS MENOR A LA HORA ACTUAL");
+            //    }
+            //    else
+            //    {
+            //        errorProvider1.SetError(lblCitaOcupadaControl, "HORARIO OCUPADO");
+            //    }                    
+            //    //this.ShowErrors(errorProvider1, typeof(CapturaCitaViewModel), validationResults);
+            //}
             }
             catch (Exception ex)
             {
@@ -303,8 +303,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                     btnBuscarCliente.Visible = false;
                     Model.State = EntityState.Update;
                     gbCita.Enabled = true;                    
-                    ClienteControl.Text = item.NombreCompleto;
-                    Model.IdCliente = item.IdCliente;
+                    //ClienteControl.Text = item.NombreCompleto;
+                    //Model.IdCliente = item.IdCliente;
                     Model.IdCita = item.IdCita;                    
                     Model.State = EntityState.Update;                                                       
                     await Model.GetCitaDetalleServicio(item.IdCita);                                        
@@ -459,6 +459,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             {
                 btnEliminar.Enabled = true;
             }
+        }
+
+        private void btnAgregarPaquete_Click(object sender, EventArgs e)
+        {
+
         }
 
         //private void agregarServicioLista(List<CapturaCita> data)

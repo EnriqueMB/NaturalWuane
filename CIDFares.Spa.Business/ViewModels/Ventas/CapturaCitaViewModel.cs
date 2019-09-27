@@ -69,7 +69,8 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 CapturaCita model = new CapturaCita
                 {
                     IdCita = IdCita,
-                    IdCliente = IdCliente,                    
+                    
+                    //IdCliente = IdCliente,                    
                     TablaServicio = TablaGServicio,                                        
                 };
                 if (State == EntityState.Create)

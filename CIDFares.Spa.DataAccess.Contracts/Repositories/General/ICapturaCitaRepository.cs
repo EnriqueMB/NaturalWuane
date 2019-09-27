@@ -12,7 +12,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
     public interface ICapturaCitaRepository : IBaseRepository<CapturaCita>
     {                
         Task<BindingList<CapturaCita>> GetCitaXPeriodo(DateTime fechaInicio, DateTime fechaFin, object IdSucursal);
-        Task<BindingList<CapturaCita>> GetCitaDetalle(DateTime? fecha, object IdSucursal);
+        Task<IEnumerable<CapturaCita>> GetCitaDetalle(DateTime? fecha, object IdSucursal);
         Task<BindingList<CapturaCita>> GetCitaDetalleServicio(Guid idCita);
         Task<CapturaCita> AddCita(CapturaCita element, object IdUsuario, object IdSucursal);
         Task<CapturaCita> UpdateCita(CapturaCita element, object IdUsuario, object IdSucursal);

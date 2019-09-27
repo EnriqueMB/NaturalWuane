@@ -127,7 +127,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 {
                     SpecialDate special = new SpecialDate();                    
                     special.IsDateVisible = false;
-                    special.Value = item.FechaCita;
+                    special.Value = item.FechaInicio;
                     special.Image = newimage;
                     special.ImageAlign = ContentAlignment.MiddleLeft;
                     listsd.Add(special);
