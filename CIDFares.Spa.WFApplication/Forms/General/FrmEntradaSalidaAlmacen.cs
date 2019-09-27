@@ -101,7 +101,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                     {
                         IdProducto = Producto.IdProducto,
                         Clave = Producto.Clave,
-                        Cantidad = Convert.ToInt32(Producto.CantidaProducto),
+                        Cantidad = Convert.ToInt32(Producto.CantidadProducto),
                         Nombre = Producto.Nombre
                     });
                     CantidadProducto();
@@ -110,7 +110,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 else
                 {
                     var x = Model.ListaProducto.Where(p => p.IdProducto == Producto.IdProducto).Select(u => {
-                        u.Cantidad += Convert.ToInt32(Producto.CantidaProducto);
+                        u.Cantidad += Convert.ToInt32(Producto.CantidadProducto);
                         return u;
                     }).ToList();
                     if (x.Count == 1)
@@ -125,7 +125,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                         {
                             IdProducto = Producto.IdProducto,
                             Clave = Producto.Clave,
-                            Cantidad = Convert.ToInt32(Producto.CantidaProducto),
+                            Cantidad = Convert.ToInt32(Producto.CantidadProducto),
                             Nombre = Producto.Nombre
                         });
                         CantidadProducto();
@@ -200,7 +200,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                     int cantidadActual = 0;
                     int cantidadBusqueda = 0;
                     cantidadActual = Convert.ToInt32(cantidadAnterior);
-                    cantidadBusqueda = cantidadActual + Convert.ToInt32(item.CantidaProducto);
+                    cantidadBusqueda = cantidadActual + Convert.ToInt32(item.CantidadProducto);
                     var result = await Model.CheckCantidadProducto(item.IdProducto, cantidadBusqueda);
                     if (result == -1)
                     {
