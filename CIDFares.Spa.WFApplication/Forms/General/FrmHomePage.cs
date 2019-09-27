@@ -461,8 +461,18 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 throw ex;
             }
         }
-
-
+        private void btnAlimentos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SlideUsuarios(btnAlimentos);
+                GetPanel(new FrmAlimentoGrid());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         private void btnTurnos_Click(object sender, EventArgs e)
         {
