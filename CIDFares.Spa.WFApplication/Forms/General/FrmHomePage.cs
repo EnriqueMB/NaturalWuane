@@ -472,8 +472,9 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             catch (Exception ex)
             {
 
-                throw ex; 
+                throw ex;
             }
+        }
         private void btnMedicionPaciente_Click(object sender, EventArgs e)
         {
             SlideCatalogo(btnMedicionPaciente);
