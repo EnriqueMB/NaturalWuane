@@ -29,18 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlTop = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblProducto = new System.Windows.Forms.Label();
+            this.FolioProductoControl = new System.Windows.Forms.Label();
             this.pblButtom = new System.Windows.Forms.Panel();
+            this.CantidadControl = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.lblCantidad = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.MotivoControl = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,10 +55,6 @@
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dataGridsf1 = new CIDFares.Library.Controls.CIDDataGridsf.DataGridsf();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.CantidadControl = new System.Windows.Forms.Label();
-            this.lblCantidad = new System.Windows.Forms.Label();
-            this.FolioProductoControl = new System.Windows.Forms.Label();
-            this.lblProducto = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlTop.SuspendLayout();
             this.pblButtom.SuspendLayout();
@@ -69,6 +69,8 @@
             // pnlTop
             // 
             this.pnlTop.Controls.Add(this.lblTitulo);
+            this.pnlTop.Controls.Add(this.lblProducto);
+            this.pnlTop.Controls.Add(this.FolioProductoControl);
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Name = "pnlTop";
@@ -85,14 +87,50 @@
             this.lblTitulo.TabIndex = 181;
             this.lblTitulo.Text = "ALMACEN";
             // 
+            // lblProducto
+            // 
+            this.lblProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblProducto.AutoSize = true;
+            this.lblProducto.Font = new System.Drawing.Font("Montserrat", 9.749999F);
+            this.lblProducto.Location = new System.Drawing.Point(558, 76);
+            this.lblProducto.Name = "lblProducto";
+            this.lblProducto.Size = new System.Drawing.Size(43, 18);
+            this.lblProducto.TabIndex = 12;
+            this.lblProducto.Text = "Folio:";
+            // 
+            // FolioProductoControl
+            // 
+            this.FolioProductoControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FolioProductoControl.AutoSize = true;
+            this.FolioProductoControl.Font = new System.Drawing.Font("Montserrat", 9.749999F);
+            this.FolioProductoControl.ForeColor = System.Drawing.Color.Red;
+            this.FolioProductoControl.Location = new System.Drawing.Point(606, 76);
+            this.FolioProductoControl.Name = "FolioProductoControl";
+            this.FolioProductoControl.Size = new System.Drawing.Size(76, 18);
+            this.FolioProductoControl.TabIndex = 13;
+            this.FolioProductoControl.Text = "00000001";
+            // 
             // pblButtom
             // 
+            this.pblButtom.Controls.Add(this.CantidadControl);
             this.pblButtom.Controls.Add(this.flowLayoutPanel1);
+            this.pblButtom.Controls.Add(this.lblCantidad);
             this.pblButtom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pblButtom.Location = new System.Drawing.Point(0, 412);
             this.pblButtom.Name = "pblButtom";
             this.pblButtom.Size = new System.Drawing.Size(772, 100);
             this.pblButtom.TabIndex = 1;
+            // 
+            // CantidadControl
+            // 
+            this.CantidadControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CantidadControl.AutoSize = true;
+            this.CantidadControl.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CantidadControl.Location = new System.Drawing.Point(470, 3);
+            this.CantidadControl.Name = "CantidadControl";
+            this.CantidadControl.Size = new System.Drawing.Size(17, 18);
+            this.CantidadControl.TabIndex = 15;
+            this.CantidadControl.Text = "0";
             // 
             // flowLayoutPanel1
             // 
@@ -147,12 +185,23 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // lblCantidad
+            // 
+            this.lblCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidad.Location = new System.Drawing.Point(307, 3);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(162, 18);
+            this.lblCantidad.TabIndex = 14;
+            this.lblCantidad.Text = "CANTIDAD PRODUCTO:";
+            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(37, 187);
+            this.label2.Location = new System.Drawing.Point(14, 153);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 18);
             this.label2.TabIndex = 11;
@@ -162,7 +211,7 @@
             // 
             this.MotivoControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.MotivoControl.Location = new System.Drawing.Point(35, 213);
+            this.MotivoControl.Location = new System.Drawing.Point(12, 179);
             this.MotivoControl.Multiline = true;
             this.MotivoControl.Name = "MotivoControl";
             this.MotivoControl.Size = new System.Drawing.Size(207, 84);
@@ -173,7 +222,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 43);
+            this.label1.Location = new System.Drawing.Point(12, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 18);
             this.label1.TabIndex = 9;
@@ -184,7 +233,7 @@
             this.lblTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTipo.AutoSize = true;
             this.lblTipo.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipo.Location = new System.Drawing.Point(32, 96);
+            this.lblTipo.Location = new System.Drawing.Point(12, 70);
             this.lblTipo.Name = "lblTipo";
             this.lblTipo.Size = new System.Drawing.Size(39, 18);
             this.lblTipo.TabIndex = 6;
@@ -193,7 +242,7 @@
             // FechaControl
             // 
             this.FechaControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.FechaControl.Location = new System.Drawing.Point(35, 64);
+            this.FechaControl.Location = new System.Drawing.Point(15, 38);
             this.FechaControl.Name = "FechaControl";
             this.FechaControl.Size = new System.Drawing.Size(204, 20);
             this.FechaControl.TabIndex = 8;
@@ -203,15 +252,15 @@
             this.TipoControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TipoControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TipoControl.FormattingEnabled = true;
-            this.TipoControl.Location = new System.Drawing.Point(35, 117);
+            this.TipoControl.Location = new System.Drawing.Point(15, 91);
             this.TipoControl.Name = "TipoControl";
             this.TipoControl.Size = new System.Drawing.Size(123, 21);
             this.TipoControl.TabIndex = 5;
+            this.TipoControl.SelectedIndexChanged += new System.EventHandler(this.TipoControl_SelectedIndexChanged);
             // 
             // pnlCenter
             // 
             this.pnlCenter.Controls.Add(this.pnlGrid);
-            this.pnlCenter.Controls.Add(this.panel4);
             this.pnlCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlCenter.Location = new System.Drawing.Point(0, 111);
             this.pnlCenter.Name = "pnlCenter";
@@ -221,10 +270,11 @@
             // pnlGrid
             // 
             this.pnlGrid.Controls.Add(this.dataGridsf1);
+            this.pnlGrid.Controls.Add(this.panel4);
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(0, 0);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(498, 301);
+            this.pnlGrid.Size = new System.Drawing.Size(772, 301);
             this.pnlGrid.TabIndex = 1;
             // 
             // dataGridsf1
@@ -236,39 +286,39 @@
             this.dataGridsf1.AutoExpandGroups = true;
             this.dataGridsf1.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
             this.dataGridsf1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            gridTextColumn1.AllowDragging = true;
-            gridTextColumn1.AllowEditing = false;
-            gridTextColumn1.AllowFiltering = true;
-            gridTextColumn1.HeaderText = "IdProducto";
-            gridTextColumn1.MappingName = "IdProducto";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.AllowDragging = true;
-            gridTextColumn2.AllowEditing = false;
-            gridTextColumn2.AllowFiltering = true;
-            gridTextColumn2.HeaderText = "Clave";
-            gridTextColumn2.MappingName = "Clave";
-            gridTextColumn3.AllowDragging = true;
-            gridTextColumn3.AllowEditing = false;
-            gridTextColumn3.AllowFiltering = true;
-            gridTextColumn3.HeaderText = "Nombre";
-            gridTextColumn3.MappingName = "Nombre";
-            gridTextColumn4.AllowDragging = true;
-            gridTextColumn4.AllowEditing = false;
-            gridTextColumn4.AllowFiltering = true;
-            gridTextColumn4.HeaderText = "Cantidad";
-            gridTextColumn4.MappingName = "Cantidad";
-            gridTextColumn5.AllowDragging = true;
-            gridTextColumn5.AllowEditing = false;
-            gridTextColumn5.AllowFiltering = true;
-            gridTextColumn5.HeaderText = "Descripcion";
-            gridTextColumn5.MappingName = "Descripcion";
-            this.dataGridsf1.Columns.Add(gridTextColumn1);
-            this.dataGridsf1.Columns.Add(gridTextColumn2);
-            this.dataGridsf1.Columns.Add(gridTextColumn3);
-            this.dataGridsf1.Columns.Add(gridTextColumn4);
-            this.dataGridsf1.Columns.Add(gridTextColumn5);
+            gridTextColumn6.AllowDragging = true;
+            gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.AllowFiltering = true;
+            gridTextColumn6.HeaderText = "IdProducto";
+            gridTextColumn6.MappingName = "IdProducto";
+            gridTextColumn6.Visible = false;
+            gridTextColumn7.AllowDragging = true;
+            gridTextColumn7.AllowEditing = false;
+            gridTextColumn7.AllowFiltering = true;
+            gridTextColumn7.HeaderText = "Clave";
+            gridTextColumn7.MappingName = "Clave";
+            gridTextColumn8.AllowDragging = true;
+            gridTextColumn8.AllowEditing = false;
+            gridTextColumn8.AllowFiltering = true;
+            gridTextColumn8.HeaderText = "Nombre";
+            gridTextColumn8.MappingName = "Nombre";
+            gridTextColumn9.AllowDragging = true;
+            gridTextColumn9.AllowEditing = false;
+            gridTextColumn9.AllowFiltering = true;
+            gridTextColumn9.HeaderText = "Cantidad";
+            gridTextColumn9.MappingName = "Cantidad";
+            gridTextColumn10.AllowDragging = true;
+            gridTextColumn10.AllowEditing = false;
+            gridTextColumn10.AllowFiltering = true;
+            gridTextColumn10.HeaderText = "Descripcion";
+            gridTextColumn10.MappingName = "Descripcion";
+            this.dataGridsf1.Columns.Add(gridTextColumn6);
+            this.dataGridsf1.Columns.Add(gridTextColumn7);
+            this.dataGridsf1.Columns.Add(gridTextColumn8);
+            this.dataGridsf1.Columns.Add(gridTextColumn9);
+            this.dataGridsf1.Columns.Add(gridTextColumn10);
             this.dataGridsf1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridsf1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridsf1.Location = new System.Drawing.Point(274, 0);
             this.dataGridsf1.Name = "dataGridsf1";
             this.dataGridsf1.RowHeight = 21;
             this.dataGridsf1.ShowGroupDropArea = true;
@@ -289,64 +339,17 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.CantidadControl);
-            this.panel4.Controls.Add(this.lblCantidad);
-            this.panel4.Controls.Add(this.FolioProductoControl);
-            this.panel4.Controls.Add(this.lblProducto);
-            this.panel4.Controls.Add(this.FechaControl);
             this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.TipoControl);
             this.panel4.Controls.Add(this.MotivoControl);
-            this.panel4.Controls.Add(this.lblTipo);
+            this.panel4.Controls.Add(this.FechaControl);
             this.panel4.Controls.Add(this.label1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(498, 0);
+            this.panel4.Controls.Add(this.lblTipo);
+            this.panel4.Controls.Add(this.TipoControl);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(274, 301);
             this.panel4.TabIndex = 0;
-            // 
-            // CantidadControl
-            // 
-            this.CantidadControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CantidadControl.AutoSize = true;
-            this.CantidadControl.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CantidadControl.Location = new System.Drawing.Point(198, 156);
-            this.CantidadControl.Name = "CantidadControl";
-            this.CantidadControl.Size = new System.Drawing.Size(17, 18);
-            this.CantidadControl.TabIndex = 15;
-            this.CantidadControl.Text = "0";
-            // 
-            // lblCantidad
-            // 
-            this.lblCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(35, 156);
-            this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(162, 18);
-            this.lblCantidad.TabIndex = 14;
-            this.lblCantidad.Text = "CANTIDAD PRODUCTO:";
-            // 
-            // FolioProductoControl
-            // 
-            this.FolioProductoControl.AutoSize = true;
-            this.FolioProductoControl.Font = new System.Drawing.Font("Montserrat", 9.749999F);
-            this.FolioProductoControl.ForeColor = System.Drawing.Color.Red;
-            this.FolioProductoControl.Location = new System.Drawing.Point(82, 9);
-            this.FolioProductoControl.Name = "FolioProductoControl";
-            this.FolioProductoControl.Size = new System.Drawing.Size(76, 18);
-            this.FolioProductoControl.TabIndex = 13;
-            this.FolioProductoControl.Text = "00000001";
-            // 
-            // lblProducto
-            // 
-            this.lblProducto.AutoSize = true;
-            this.lblProducto.Font = new System.Drawing.Font("Montserrat", 9.749999F);
-            this.lblProducto.Location = new System.Drawing.Point(34, 9);
-            this.lblProducto.Name = "lblProducto";
-            this.lblProducto.Size = new System.Drawing.Size(43, 18);
-            this.lblProducto.TabIndex = 12;
-            this.lblProducto.Text = "Folio:";
             // 
             // errorProvider1
             // 
@@ -367,6 +370,7 @@
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
             this.pblButtom.ResumeLayout(false);
+            this.pblButtom.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.pnlCenter.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);

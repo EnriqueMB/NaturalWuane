@@ -31,6 +31,7 @@ namespace CIDFares.Spa.WFApplication.Constants
         public const string CitaSelectMessage = "SELECCIONE UNA CITA";
         public const string FechaSelectMessage = "SELECCIONA UNA FECHA POSTERIOR O IGUAL A LA HOY";
         public const string OneService = "SOLO UN SERVICIO A LA VEZ";
+        public const string HaveProduct = "SE BORRARA LA LISTA DE PRODUCTOS ¿DESEA CONTINUAR?";
 
     }
 }

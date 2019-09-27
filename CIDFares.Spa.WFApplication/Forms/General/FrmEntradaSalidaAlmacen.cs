@@ -42,6 +42,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         }
         #endregion
 
+
         #region constructor
         public FrmEntradaSalidaAlmacen()
         {
@@ -191,23 +192,39 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         {
             try
             {
-                FrmBusquedaProducto FProducto = new FrmBusquedaProducto();
-                FProducto.ShowDialog();
-                if (FProducto.producto.IdProducto != 0)
-                {
-                    var item = FProducto.producto;
-                    decimal cantidadAnterior = BuscarCantidad(item);
-                    int cantidadActual = 0;
-                    int cantidadBusqueda = 0;
-                    cantidadActual = Convert.ToInt32(cantidadAnterior);
-                    cantidadBusqueda = cantidadActual + Convert.ToInt32(item.CantidadProducto);
-                    var result = await Model.CheckCantidadProducto(item.IdProducto, cantidadBusqueda);
-                    if (result == -1)
+                errorProvider1.SetError(TipoControl, string.Empty);
+                if(Model.Tipo != 2)
+                { 
+                    FrmBusquedaProducto FProducto = new FrmBusquedaProducto();
+                    FProducto.ShowDialog();
+                    if (FProducto.producto.IdProducto != 0)
                     {
-                        LLenarGrid(FProducto.producto);
+                        var item = FProducto.producto;
+                        if (Model.Tipo == 0)
+                        {
+                            LLenarGrid(FProducto.producto);
+                        }
+                        else if (Model.Tipo == 1)
+                        {
+                            decimal cantidadAnterior = BuscarCantidad(item);
+                            int cantidadActual = 0;
+                            int cantidadBusqueda = 0;
+                            cantidadActual = Convert.ToInt32(cantidadAnterior);
+                            cantidadBusqueda = cantidadActual + Convert.ToInt32(item.CantidadProducto);
+                            var result = await Model.CheckCantidadProducto(item.IdProducto, cantidadBusqueda);
+                            if (result == -1)
+                            {
+                                LLenarGrid(FProducto.producto);
+                            }
+                            else if (result != -1)
+                                CIDMessageBox.ShowAlert(Messages.SystemName, "No hay suficiente productos. La cantidad existente es: " + result.ToString(), TypeMessage.error);
+                        }
                     }
-                    else if (result != -1)
-                        CIDMessageBox.ShowAlert(Messages.SystemName, "No hay suficiente productos. La cantidad existente es: " + result.ToString(), TypeMessage.error);
+                    
+                }
+                else if (Model.Tipo == 2)
+                {
+                    errorProvider1.SetError(TipoControl, "Debe seleccionar un tipo");
                 }
             }
             catch (Exception ex)
@@ -302,6 +319,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         {
             try
             {
+                errorProvider1.Clear();
                 BindingList<EntradaSalidaAlmacen> ListaProductos = (BindingList<EntradaSalidaAlmacen>)dataGridsf1.DataSource;
                 this.CleanErrors(errorProvider1, typeof(EntradaSalidaAlmacenViewModel));
                 var validationResults = Model.Validate();
@@ -344,6 +362,18 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             {
 
                 throw ex;
+            }
+        }
+
+        private void TipoControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var X = Model.Tipo;
+            var Y = Model.Cantidad;
+            if (X==1 && Y!=0)
+            {
+                if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.HaveProduct) == DialogResult.OK )
+                Model.ListaProducto.Clear();
+                CantidadProducto();
             }
         }
     }
