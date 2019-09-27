@@ -12,5 +12,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
     {
         Task<string> GetFolioCompra();
         Task<Compra> AddWithIdSucursalAsync(Compra element, object IdUsuario, object IdSucursal);
+        Task<int> AddCancelacionAsync(object IdCompra, object Motivo, object IdSucursal, object IdUsuario);
+        Task<IEnumerable<Compra>> GetCompraCreadasAsync(object Clave, object IdSucursal, object FechaInicio, object FechaFin);
     }
 }

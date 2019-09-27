@@ -36,9 +36,8 @@
     <Reference Include="CIDFares.Library.Code">
       <HintPath>..\..\CIDFares.Library\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
     </Reference>
-    <Reference Include="CIDFares.Library.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CIDFaresLibrary\CIDFares.Library.Controls\bin\Debug\CIDFares.Library.Controls.dll</HintPath>
+    <Reference Include="CIDFares.Library.Controls">
+      <HintPath>..\..\CIDFares.Library\CIDFares.Library.Controls\bin\Debug\CIDFares.Library.Controls.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentValidation.8.0.0\lib\net45\FluentValidation.dll</HintPath>
@@ -91,6 +90,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\Messages.cs" />
+    <Compile Include="Forms\Catalogos\FrmAlimentoGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmAlimentoGrid.Designer.cs">
+      <DependentUpon>FrmAlimentoGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmAlimentoNuevo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmAlimentoNuevo.Designer.cs">
+      <DependentUpon>FrmAlimentoNuevo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmTurnoPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmTurnoPrincipal.Designer.cs">
+      <DependentUpon>FrmTurnoPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Paquete\FrmAbonarPaquete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +149,18 @@
     </Compile>
     <Compile Include="Forms\Catalogos\FrmFormaPago.Designer.cs">
       <DependentUpon>FrmFormaPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmListaMedicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmListaMedicion.Designer.cs">
+      <DependentUpon>FrmListaMedicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmMedicionGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmMedicionGrid.Designer.cs">
+      <DependentUpon>FrmMedicionGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Catalogos\FrmPaquete.cs">
       <SubType>Form</SubType>
@@ -180,6 +209,30 @@
     </Compile>
     <Compile Include="Forms\Catalogos\FrmServicioNuevo.Designer.cs">
       <DependentUpon>FrmServicioNuevo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Citas\FrmCapturaCitaNuevo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Citas\FrmCapturaCitaNuevo.Designer.cs">
+      <DependentUpon>FrmCapturaCitaNuevo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compras\FrmBuscarCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\FrmBuscarCompras.Designer.cs">
+      <DependentUpon>FrmBuscarCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compras\FrmCancelacionCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\FrmCancelacionCompra.Designer.cs">
+      <DependentUpon>FrmCancelacionCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmTurno.Designer.cs">
+      <DependentUpon>FrmTurno.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Compras\FrmCompra.cs">
       <SubType>Form</SubType>
@@ -343,6 +396,12 @@
     <Compile Include="Forms\Ventas\FrmBuscarCliente.Designer.cs">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Citas\FrmCapturaCita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Citas\FrmCapturaCita.Designer.cs">
+      <DependentUpon>FrmCapturaCita.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Ventas\FrmBuscarPaquete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -405,10 +464,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validations\AlimentoValidator.cs" />
+    <Compile Include="Validations\CambioVentaValidator.cs" />
+    <Compile Include="Validations\CapturaCitaValidator.cs" />
     <Compile Include="Validations\AbonoPaqueteValidator.cs" />
     <Compile Include="Validations\CancelacionVentaValidator.cs" />
     <Compile Include="Validations\EncuestaValidator.cs" />
     <Compile Include="Validations\EmpleadoValidator.cs" />
+    <Compile Include="Validations\ListaMedicionValidator.cs" />
+    <Compile Include="Validations\MedicionValidator.cs" />
     <Compile Include="Validations\PaqueteValidator.cs" />
     <Compile Include="Validations\CompraValidator.cs" />
     <Compile Include="Validations\ProductosMonederoValidator.cs" />
@@ -419,6 +483,15 @@
     <Compile Include="Validations\SucursalValidator.cs" />
     <Compile Include="Validations\UsuarioValidator.cs" />
     <Compile Include="Validations\VentaValidator.cs" />
+    <EmbeddedResource Include="Forms\Catalogos\FrmAlimentoGrid.resx">
+      <DependentUpon>FrmAlimentoGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmAlimentoNuevo.resx">
+      <DependentUpon>FrmAlimentoNuevo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmTurnoPrincipal.resx">
+      <DependentUpon>FrmTurnoPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Paquete\FrmAbonarPaquete.resx">
       <DependentUpon>FrmAbonarPaquete.cs</DependentUpon>
     </EmbeddedResource>
@@ -446,6 +519,12 @@
     <EmbeddedResource Include="Forms\Catalogos\FrmFormaPago.resx">
       <DependentUpon>FrmFormaPago.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmListaMedicion.resx">
+      <DependentUpon>FrmListaMedicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmMedicionGrid.resx">
+      <DependentUpon>FrmMedicionGrid.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmPaquete.resx">
       <DependentUpon>FrmPaquete.cs</DependentUpon>
     </EmbeddedResource>
@@ -469,6 +548,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmServicioNuevo.resx">
       <DependentUpon>FrmServicioNuevo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Citas\FrmCapturaCitaNuevo.resx">
+      <DependentUpon>FrmCapturaCitaNuevo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\FrmBuscarCompras.resx">
+      <DependentUpon>FrmBuscarCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\FrmCancelacionCompra.resx">
+      <DependentUpon>FrmCancelacionCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmTurno.resx">
+      <DependentUpon>FrmTurno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compras\FrmCompra.resx">
       <DependentUpon>FrmCompra.cs</DependentUpon>
@@ -550,6 +641,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmBuscarCliente.resx">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Citas\FrmCapturaCita.resx">
+      <DependentUpon>FrmCapturaCita.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmBuscarPaquete.resx">
       <DependentUpon>FrmBuscarPaquete.cs</DependentUpon>
@@ -643,10 +737,22 @@
     <None Include="Resources\fondo2.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\holaNW2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\ajustes.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\promocionNxN.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mas-26px.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Recurso 10%403x.png" />
