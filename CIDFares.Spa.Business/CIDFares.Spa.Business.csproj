@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dependencies\Registrar.cs" />
+    <Compile Include="ExportaImportaExcel\Excels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueObjects\EntityState.cs" />
     <Compile Include="ViewModels\Catalogos\AlimentoViewModels.cs" />
@@ -68,6 +69,8 @@
     <Compile Include="ViewModels\Catalogos\ServicioViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\TurnoViewModel.cs" />
     <Compile Include="ViewModels\Compras\ComprasViewModel.cs" />
+    <Compile Include="ViewModels\General\EntradaSalidaAlmacenViewModel.cs" />
+    <Compile Include="ViewModels\General\InventarioFisicoViewModel.cs" />
     <Compile Include="ViewModels\General\LoginViewModel.cs" />
     <Compile Include="ViewModels\Ventas\CapturaCitaViewModel.cs" />
     <Compile Include="ViewModels\General\RegistroEntradaSalidaViewModel.cs" />
