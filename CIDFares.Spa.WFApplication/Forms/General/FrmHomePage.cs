@@ -461,7 +461,6 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 throw ex;
             }
         }
-
         private void btnAlimentos_Click(object sender, EventArgs e)
         {
             try
@@ -474,6 +473,11 @@ namespace CIDFares.Spa.WFApplication.Forms.General
 
                 throw ex;
             }
+        }
+        private void btnTurnos_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnTurnos);
+            GetPanel(new FrmTurnoPrincipal());
         }
         private void btnMedicionPaciente_Click(object sender, EventArgs e)
         {

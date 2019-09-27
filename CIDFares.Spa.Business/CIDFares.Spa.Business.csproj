@@ -66,6 +66,7 @@
     <Compile Include="ViewModels\Catalogos\ProveedorACompraViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\ProveedorViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\ServicioViewModel.cs" />
+    <Compile Include="ViewModels\Catalogos\TurnoViewModel.cs" />
     <Compile Include="ViewModels\Compras\ComprasViewModel.cs" />
     <Compile Include="ViewModels\General\LoginViewModel.cs" />
     <Compile Include="ViewModels\Ventas\CapturaCitaViewModel.cs" />

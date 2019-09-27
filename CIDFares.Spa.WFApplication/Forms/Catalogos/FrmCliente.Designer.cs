@@ -56,7 +56,6 @@
             this.RutaControl = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.BtnSeleccionar = new System.Windows.Forms.Button();
-            this.FotoControl = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.FechaNacimientoControl = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -79,6 +78,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.FotoControl = new System.Windows.Forms.PictureBox();
             this.PanelPrincipal.SuspendLayout();
             this.PanelContenedor.SuspendLayout();
             this.panelGridDatos.SuspendLayout();
@@ -88,12 +88,12 @@
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SexoControl)).BeginInit();
             this.PnlFoto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
             this.PabelBTN.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.PanelTitulo.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelPrincipal
@@ -354,17 +354,6 @@
             this.BtnSeleccionar.UseVisualStyleBackColor = false;
             this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
             // 
-            // FotoControl
-            // 
-            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FotoControl.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.imagen_subir;
-            this.FotoControl.Location = new System.Drawing.Point(219, 4);
-            this.FotoControl.Name = "FotoControl";
-            this.FotoControl.Size = new System.Drawing.Size(129, 103);
-            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.FotoControl.TabIndex = 0;
-            this.FotoControl.TabStop = false;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -590,6 +579,17 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
+            // FotoControl
+            // 
+            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FotoControl.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.imagen_subir;
+            this.FotoControl.Location = new System.Drawing.Point(219, 4);
+            this.FotoControl.Name = "FotoControl";
+            this.FotoControl.Size = new System.Drawing.Size(129, 103);
+            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.FotoControl.TabIndex = 0;
+            this.FotoControl.TabStop = false;
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -612,7 +612,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.SexoControl)).EndInit();
             this.PnlFoto.ResumeLayout(false);
             this.PnlFoto.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
             this.PabelBTN.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.PanelTitulo.ResumeLayout(false);
@@ -620,6 +619,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
             this.ResumeLayout(false);
 
         }
