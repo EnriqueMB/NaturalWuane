@@ -103,7 +103,11 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                         IdProducto = Producto.IdProducto,
                         Clave = Producto.Clave,
                         Cantidad = Convert.ToInt32(Producto.CantidadProducto),
-                        Nombre = Producto.Nombre
+                        Nombre = Producto.Nombre,
+                        PrecioCosto = Producto.CostoProducto - (Producto.CostoProducto * (Producto.PorcentajeIva / 100)),
+                        PorcentajeIva = (Producto.CostoProducto * (Producto.PorcentajeIva / 100)),
+                        Total = Producto.CantidadProducto * Producto.CostoProducto,
+                        SubTotal = Producto.CantidadProducto * Producto.CostoProducto - (Producto.CostoProducto * (Producto.PorcentajeIva / 100))
                     });
                     CantidadProducto();
 
@@ -112,6 +116,9 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 {
                     var x = Model.ListaProducto.Where(p => p.IdProducto == Producto.IdProducto).Select(u => {
                         u.Cantidad += Convert.ToInt32(Producto.CantidadProducto);
+                        u.PorcentajeIva += (Producto.CostoProducto * (Producto.PorcentajeIva / 100));
+                        u.Total = u.Cantidad * Producto.CostoProducto;
+                        u.SubTotal = u.Cantidad * u.PrecioCosto;
                         return u;
                     }).ToList();
                     if (x.Count == 1)
@@ -127,7 +134,11 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                             IdProducto = Producto.IdProducto,
                             Clave = Producto.Clave,
                             Cantidad = Convert.ToInt32(Producto.CantidadProducto),
-                            Nombre = Producto.Nombre
+                            Nombre = Producto.Nombre,
+                            PrecioCosto = Producto.CostoProducto - (Producto.CostoProducto * (Producto.PorcentajeIva / 100)),
+                            PorcentajeIva = (Producto.CostoProducto * (Producto.PorcentajeIva / 100)),
+                            Total = Producto.CantidadProducto * Producto.CostoProducto,
+                            SubTotal = Producto.CantidadProducto * Producto.CostoProducto - (Producto.CostoProducto * (Producto.PorcentajeIva / 100))
                         });
                         CantidadProducto();
 
@@ -149,6 +160,9 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             Model.Motivo = string.Empty;
             Model.GetFolio();
             Model.Cantidad = 0;
+            Model.Iva = 0;
+            Model.SubTotal = 0;
+            Model.Total = 0;
         }
         public void IniciarCombos()
         {
@@ -172,6 +186,9 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             FolioProductoControl.DataBindings.Add("Text", Model, "Folio", true, DataSourceUpdateMode.OnPropertyChanged);
             MotivoControl.DataBindings.Add("Text", Model, "Motivo", true, DataSourceUpdateMode.OnPropertyChanged);
             CantidadControl.DataBindings.Add("Text", Model, "Cantidad", true, DataSourceUpdateMode.OnPropertyChanged);
+            TotalControl.DataBindings.Add("Text", Model, "Total", true, DataSourceUpdateMode.OnPropertyChanged, "", "C2");
+            IvaControl.DataBindings.Add("Text", Model, "Iva", true, DataSourceUpdateMode.OnPropertyChanged, "", "C2");
+            SubtotalControl.DataBindings.Add("Text", Model, "Subtotal", true, DataSourceUpdateMode.OnPropertyChanged, "", "C2");
             IniciarCombos();
         }
 
@@ -180,6 +197,12 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             try
             {
                 int Cantidad = Model.ListaProducto.Sum(x => x.Cantidad);
+                decimal total = Model.ListaProducto.Sum(x => x.Total);
+                decimal SubTotal = Model.ListaProducto.Sum(x => x.SubTotal);
+                decimal Iva = Model.ListaProducto.Sum(x => x.PorcentajeIva);
+                TotalControl.Text = total.ToString("C2");
+                SubtotalControl.Text = SubTotal.ToString("C2");
+                IvaControl.Text = Iva.ToString("C2");
                 CantidadControl.Text = Convert.ToString(Cantidad);
 
             }
@@ -283,34 +306,18 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         #endregion
 
         #region Llenando tablas
-        private DataTable ObtenerEntradaProducto(BindingList<EntradaSalidaAlmacen> Lista)
+        private DataTable ObtenerEntradaSalidaProducto(BindingList<EntradaSalidaAlmacen> Lista)
         {
             DataTable Tabla = new DataTable();
             Tabla.Columns.Add("IdProducto", typeof(int));
             Tabla.Columns.Add("Cantidad", typeof(int));
             foreach (var item in Lista)
-            {
-                if (Model.Tipo == 0)//Entrada
-                {
-                    Tabla.Rows.Add(new object[] { item.IdProducto, item.Cantidad });
-                }
+            {  
+                    Tabla.Rows.Add(new object[] { item.IdProducto, item.Cantidad });     
             }
             return Tabla;
         }
-        private DataTable ObtenerSalidaProducto(BindingList<EntradaSalidaAlmacen> Lista)
-        {
-            DataTable Tabla = new DataTable();//Salida
-            Tabla.Columns.Add("IdProducto", typeof(int));
-            Tabla.Columns.Add("Cantidad", typeof(int));
-            foreach (var item in Lista)
-            {
-                if (Model.Tipo == 1)
-                {
-                    Tabla.Rows.Add(new object[] { item.IdProducto, item.Cantidad });
-                }
-            }
-            return Tabla;
-        }
+    
         #endregion
 
 
@@ -329,8 +336,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 {
                     if (ListaProductos.Count > 0)
                     {
-                        Model.TablaEntradaAlmacen = ObtenerEntradaProducto(ListaProductos);
-                        Model.TablaSalidaAlmacen = ObtenerSalidaProducto(ListaProductos);
+                        Model.TablaEntradaAlmacen = ObtenerEntradaSalidaProducto(ListaProductos);
                         EntradaSalidaAlmacen Resultado = await Model.GuardarEntradaSalida(CurrentSession.IdCuentaUsuario);
                         if (Resultado.Resultado == 1)
                         {

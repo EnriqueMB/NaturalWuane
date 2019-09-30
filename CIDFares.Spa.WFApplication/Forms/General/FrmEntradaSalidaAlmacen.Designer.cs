@@ -29,11 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn17 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn18 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlTop = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblProducto = new System.Windows.Forms.Label();
@@ -51,19 +55,27 @@
             this.lblTipo = new System.Windows.Forms.Label();
             this.FechaControl = new System.Windows.Forms.DateTimePicker();
             this.TipoControl = new System.Windows.Forms.ComboBox();
-            this.pnlCenter = new System.Windows.Forms.Panel();
-            this.pnlGrid = new System.Windows.Forms.Panel();
             this.dataGridsf1 = new CIDFares.Library.Controls.CIDDataGridsf.DataGridsf();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pnlCenter = new System.Windows.Forms.Panel();
+            this.pnlLeft = new System.Windows.Forms.Panel();
+            this.pnlTotal = new System.Windows.Forms.Panel();
+            this.pnlGrid = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.IvaControl = new System.Windows.Forms.Label();
+            this.TotalControl = new System.Windows.Forms.Label();
+            this.SubtotalControl = new System.Windows.Forms.Label();
             this.pnlTop.SuspendLayout();
             this.pblButtom.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.pnlCenter.SuspendLayout();
-            this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridsf1)).BeginInit();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.pnlCenter.SuspendLayout();
+            this.pnlLeft.SuspendLayout();
+            this.pnlTotal.SuspendLayout();
+            this.pnlGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -112,13 +124,11 @@
             // 
             // pblButtom
             // 
-            this.pblButtom.Controls.Add(this.CantidadControl);
             this.pblButtom.Controls.Add(this.flowLayoutPanel1);
-            this.pblButtom.Controls.Add(this.lblCantidad);
             this.pblButtom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pblButtom.Location = new System.Drawing.Point(0, 412);
+            this.pblButtom.Location = new System.Drawing.Point(0, 435);
             this.pblButtom.Name = "pblButtom";
-            this.pblButtom.Size = new System.Drawing.Size(772, 100);
+            this.pblButtom.Size = new System.Drawing.Size(772, 77);
             this.pblButtom.TabIndex = 1;
             // 
             // CantidadControl
@@ -126,7 +136,7 @@
             this.CantidadControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CantidadControl.AutoSize = true;
             this.CantidadControl.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CantidadControl.Location = new System.Drawing.Point(470, 3);
+            this.CantidadControl.Location = new System.Drawing.Point(683, 3);
             this.CantidadControl.Name = "CantidadControl";
             this.CantidadControl.Size = new System.Drawing.Size(17, 18);
             this.CantidadControl.TabIndex = 15;
@@ -138,7 +148,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnNuevo);
             this.flowLayoutPanel1.Controls.Add(this.btnEliminar);
             this.flowLayoutPanel1.Controls.Add(this.btnGuardar);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(256, 37);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(256, 19);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(513, 51);
             this.flowLayoutPanel1.TabIndex = 2;
@@ -190,7 +200,7 @@
             this.lblCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(307, 3);
+            this.lblCantidad.Location = new System.Drawing.Point(520, 3);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(162, 18);
             this.lblCantidad.TabIndex = 14;
@@ -201,7 +211,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 153);
+            this.label2.Location = new System.Drawing.Point(14, 154);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 18);
             this.label2.TabIndex = 11;
@@ -211,10 +221,10 @@
             // 
             this.MotivoControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.MotivoControl.Location = new System.Drawing.Point(12, 179);
+            this.MotivoControl.Location = new System.Drawing.Point(12, 180);
             this.MotivoControl.Multiline = true;
             this.MotivoControl.Name = "MotivoControl";
-            this.MotivoControl.Size = new System.Drawing.Size(207, 84);
+            this.MotivoControl.Size = new System.Drawing.Size(207, 57);
             this.MotivoControl.TabIndex = 7;
             // 
             // label1
@@ -222,7 +232,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 17);
+            this.label1.Location = new System.Drawing.Point(14, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 18);
             this.label1.TabIndex = 9;
@@ -233,7 +243,7 @@
             this.lblTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTipo.AutoSize = true;
             this.lblTipo.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipo.Location = new System.Drawing.Point(12, 70);
+            this.lblTipo.Location = new System.Drawing.Point(14, 69);
             this.lblTipo.Name = "lblTipo";
             this.lblTipo.Size = new System.Drawing.Size(39, 18);
             this.lblTipo.TabIndex = 6;
@@ -242,7 +252,7 @@
             // FechaControl
             // 
             this.FechaControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.FechaControl.Location = new System.Drawing.Point(15, 38);
+            this.FechaControl.Location = new System.Drawing.Point(17, 37);
             this.FechaControl.Name = "FechaControl";
             this.FechaControl.Size = new System.Drawing.Size(204, 20);
             this.FechaControl.TabIndex = 8;
@@ -252,30 +262,11 @@
             this.TipoControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TipoControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TipoControl.FormattingEnabled = true;
-            this.TipoControl.Location = new System.Drawing.Point(15, 91);
+            this.TipoControl.Location = new System.Drawing.Point(17, 90);
             this.TipoControl.Name = "TipoControl";
             this.TipoControl.Size = new System.Drawing.Size(123, 21);
             this.TipoControl.TabIndex = 5;
             this.TipoControl.SelectedIndexChanged += new System.EventHandler(this.TipoControl_SelectedIndexChanged);
-            // 
-            // pnlCenter
-            // 
-            this.pnlCenter.Controls.Add(this.pnlGrid);
-            this.pnlCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlCenter.Location = new System.Drawing.Point(0, 111);
-            this.pnlCenter.Name = "pnlCenter";
-            this.pnlCenter.Size = new System.Drawing.Size(772, 301);
-            this.pnlCenter.TabIndex = 2;
-            // 
-            // pnlGrid
-            // 
-            this.pnlGrid.Controls.Add(this.dataGridsf1);
-            this.pnlGrid.Controls.Add(this.panel4);
-            this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlGrid.Location = new System.Drawing.Point(0, 0);
-            this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(772, 301);
-            this.pnlGrid.TabIndex = 1;
             // 
             // dataGridsf1
             // 
@@ -286,43 +277,71 @@
             this.dataGridsf1.AutoExpandGroups = true;
             this.dataGridsf1.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
             this.dataGridsf1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            gridTextColumn6.AllowDragging = true;
-            gridTextColumn6.AllowEditing = false;
-            gridTextColumn6.AllowFiltering = true;
-            gridTextColumn6.HeaderText = "IdProducto";
-            gridTextColumn6.MappingName = "IdProducto";
-            gridTextColumn6.Visible = false;
-            gridTextColumn7.AllowDragging = true;
-            gridTextColumn7.AllowEditing = false;
-            gridTextColumn7.AllowFiltering = true;
-            gridTextColumn7.HeaderText = "Clave";
-            gridTextColumn7.MappingName = "Clave";
-            gridTextColumn8.AllowDragging = true;
-            gridTextColumn8.AllowEditing = false;
-            gridTextColumn8.AllowFiltering = true;
-            gridTextColumn8.HeaderText = "Nombre";
-            gridTextColumn8.MappingName = "Nombre";
-            gridTextColumn9.AllowDragging = true;
-            gridTextColumn9.AllowEditing = false;
-            gridTextColumn9.AllowFiltering = true;
-            gridTextColumn9.HeaderText = "Cantidad";
-            gridTextColumn9.MappingName = "Cantidad";
             gridTextColumn10.AllowDragging = true;
             gridTextColumn10.AllowEditing = false;
             gridTextColumn10.AllowFiltering = true;
-            gridTextColumn10.HeaderText = "Descripcion";
-            gridTextColumn10.MappingName = "Descripcion";
-            this.dataGridsf1.Columns.Add(gridTextColumn6);
-            this.dataGridsf1.Columns.Add(gridTextColumn7);
-            this.dataGridsf1.Columns.Add(gridTextColumn8);
-            this.dataGridsf1.Columns.Add(gridTextColumn9);
+            gridTextColumn10.HeaderText = "IdProducto";
+            gridTextColumn10.MappingName = "IdProducto";
+            gridTextColumn10.Visible = false;
+            gridTextColumn11.AllowDragging = true;
+            gridTextColumn11.AllowEditing = false;
+            gridTextColumn11.AllowFiltering = true;
+            gridTextColumn11.HeaderText = "Clave";
+            gridTextColumn11.MappingName = "Clave";
+            gridTextColumn12.AllowDragging = true;
+            gridTextColumn12.AllowEditing = false;
+            gridTextColumn12.AllowFiltering = true;
+            gridTextColumn12.HeaderText = "Nombre";
+            gridTextColumn12.MappingName = "Nombre";
+            gridTextColumn13.AllowDragging = true;
+            gridTextColumn13.AllowEditing = false;
+            gridTextColumn13.AllowFiltering = true;
+            gridTextColumn13.HeaderText = "Cantidad";
+            gridTextColumn13.MappingName = "Cantidad";
+            gridTextColumn14.AllowDragging = true;
+            gridTextColumn14.AllowEditing = false;
+            gridTextColumn14.AllowFiltering = true;
+            gridTextColumn14.HeaderText = "Descripcion";
+            gridTextColumn14.MappingName = "Descripcion";
+            gridTextColumn15.AllowDragging = true;
+            gridTextColumn15.AllowEditing = false;
+            gridTextColumn15.AllowFiltering = true;
+            gridTextColumn15.Format = "C";
+            gridTextColumn15.HeaderText = "Costo";
+            gridTextColumn15.MappingName = "PrecioCosto";
+            gridTextColumn16.AllowDragging = true;
+            gridTextColumn16.AllowEditing = false;
+            gridTextColumn16.AllowFiltering = true;
+            gridTextColumn16.Format = "C";
+            gridTextColumn16.HeaderText = "SubTotal";
+            gridTextColumn16.MappingName = "Subtotal";
+            gridTextColumn17.AllowDragging = true;
+            gridTextColumn17.AllowEditing = false;
+            gridTextColumn17.AllowFiltering = true;
+            gridTextColumn17.Format = "C";
+            gridTextColumn17.HeaderText = "Iva";
+            gridTextColumn17.MappingName = "PorcentajeIva";
+            gridTextColumn18.AllowDragging = true;
+            gridTextColumn18.AllowEditing = false;
+            gridTextColumn18.AllowFiltering = true;
+            gridTextColumn18.Format = "C";
+            gridTextColumn18.HeaderText = "Total";
+            gridTextColumn18.MappingName = "Total";
             this.dataGridsf1.Columns.Add(gridTextColumn10);
+            this.dataGridsf1.Columns.Add(gridTextColumn11);
+            this.dataGridsf1.Columns.Add(gridTextColumn12);
+            this.dataGridsf1.Columns.Add(gridTextColumn13);
+            this.dataGridsf1.Columns.Add(gridTextColumn14);
+            this.dataGridsf1.Columns.Add(gridTextColumn15);
+            this.dataGridsf1.Columns.Add(gridTextColumn16);
+            this.dataGridsf1.Columns.Add(gridTextColumn17);
+            this.dataGridsf1.Columns.Add(gridTextColumn18);
             this.dataGridsf1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridsf1.Location = new System.Drawing.Point(274, 0);
+            this.dataGridsf1.Location = new System.Drawing.Point(234, 0);
             this.dataGridsf1.Name = "dataGridsf1";
             this.dataGridsf1.RowHeight = 21;
             this.dataGridsf1.ShowGroupDropArea = true;
-            this.dataGridsf1.Size = new System.Drawing.Size(498, 301);
+            this.dataGridsf1.Size = new System.Drawing.Size(538, 243);
             this.dataGridsf1.Style.CellStyle.TextColor = System.Drawing.Color.Black;
             this.dataGridsf1.Style.GroupDropAreaItemStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.dataGridsf1.Style.GroupDropAreaItemStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -337,23 +356,119 @@
             this.dataGridsf1.TabIndex = 1;
             this.dataGridsf1.Text = "dataGridsf1";
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.MotivoControl);
-            this.panel4.Controls.Add(this.FechaControl);
-            this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.lblTipo);
-            this.panel4.Controls.Add(this.TipoControl);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(274, 301);
-            this.panel4.TabIndex = 0;
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // pnlCenter
+            // 
+            this.pnlCenter.Controls.Add(this.pnlGrid);
+            this.pnlCenter.Controls.Add(this.pnlTotal);
+            this.pnlCenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCenter.Location = new System.Drawing.Point(0, 111);
+            this.pnlCenter.Name = "pnlCenter";
+            this.pnlCenter.Size = new System.Drawing.Size(772, 324);
+            this.pnlCenter.TabIndex = 2;
+            // 
+            // pnlLeft
+            // 
+            this.pnlLeft.Controls.Add(this.label2);
+            this.pnlLeft.Controls.Add(this.label1);
+            this.pnlLeft.Controls.Add(this.MotivoControl);
+            this.pnlLeft.Controls.Add(this.lblTipo);
+            this.pnlLeft.Controls.Add(this.FechaControl);
+            this.pnlLeft.Controls.Add(this.TipoControl);
+            this.pnlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlLeft.Location = new System.Drawing.Point(0, 0);
+            this.pnlLeft.Name = "pnlLeft";
+            this.pnlLeft.Size = new System.Drawing.Size(234, 243);
+            this.pnlLeft.TabIndex = 0;
+            // 
+            // pnlTotal
+            // 
+            this.pnlTotal.Controls.Add(this.CantidadControl);
+            this.pnlTotal.Controls.Add(this.label5);
+            this.pnlTotal.Controls.Add(this.label6);
+            this.pnlTotal.Controls.Add(this.lblCantidad);
+            this.pnlTotal.Controls.Add(this.label4);
+            this.pnlTotal.Controls.Add(this.IvaControl);
+            this.pnlTotal.Controls.Add(this.TotalControl);
+            this.pnlTotal.Controls.Add(this.SubtotalControl);
+            this.pnlTotal.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlTotal.Location = new System.Drawing.Point(0, 243);
+            this.pnlTotal.Name = "pnlTotal";
+            this.pnlTotal.Size = new System.Drawing.Size(772, 81);
+            this.pnlTotal.TabIndex = 1;
+            // 
+            // pnlGrid
+            // 
+            this.pnlGrid.Controls.Add(this.dataGridsf1);
+            this.pnlGrid.Controls.Add(this.pnlLeft);
+            this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlGrid.Location = new System.Drawing.Point(0, 0);
+            this.pnlGrid.Name = "pnlGrid";
+            this.pnlGrid.Size = new System.Drawing.Size(772, 243);
+            this.pnlGrid.TabIndex = 2;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(627, 47);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(27, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "IVA:";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(606, 27);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "SUBTOTAL:";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(621, 65);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "TOTAL:";
+            // 
+            // IvaControl
+            // 
+            this.IvaControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.IvaControl.AutoSize = true;
+            this.IvaControl.Location = new System.Drawing.Point(673, 47);
+            this.IvaControl.Name = "IvaControl";
+            this.IvaControl.Size = new System.Drawing.Size(27, 13);
+            this.IvaControl.TabIndex = 16;
+            this.IvaControl.Text = "16%";
+            // 
+            // TotalControl
+            // 
+            this.TotalControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TotalControl.AutoSize = true;
+            this.TotalControl.Location = new System.Drawing.Point(673, 63);
+            this.TotalControl.Name = "TotalControl";
+            this.TotalControl.Size = new System.Drawing.Size(31, 13);
+            this.TotalControl.TabIndex = 17;
+            this.TotalControl.Text = "$000";
+            // 
+            // SubtotalControl
+            // 
+            this.SubtotalControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubtotalControl.AutoSize = true;
+            this.SubtotalControl.Location = new System.Drawing.Point(673, 27);
+            this.SubtotalControl.Name = "SubtotalControl";
+            this.SubtotalControl.Size = new System.Drawing.Size(31, 13);
+            this.SubtotalControl.TabIndex = 15;
+            this.SubtotalControl.Text = "$000";
             // 
             // FrmEntradaSalidaAlmacen
             // 
@@ -370,14 +485,15 @@
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
             this.pblButtom.ResumeLayout(false);
-            this.pblButtom.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.pnlCenter.ResumeLayout(false);
-            this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridsf1)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.pnlCenter.ResumeLayout(false);
+            this.pnlLeft.ResumeLayout(false);
+            this.pnlLeft.PerformLayout();
+            this.pnlTotal.ResumeLayout(false);
+            this.pnlTotal.PerformLayout();
+            this.pnlGrid.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -396,9 +512,6 @@
         private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.DateTimePicker FechaControl;
         private System.Windows.Forms.ComboBox TipoControl;
-        private System.Windows.Forms.Panel pnlCenter;
-        private System.Windows.Forms.Panel pnlGrid;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label FolioProductoControl;
         private System.Windows.Forms.Label lblProducto;
@@ -406,5 +519,15 @@
         private System.Windows.Forms.Label CantidadControl;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Panel pnlCenter;
+        private System.Windows.Forms.Panel pnlGrid;
+        private System.Windows.Forms.Panel pnlTotal;
+        private System.Windows.Forms.Panel pnlLeft;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label IvaControl;
+        private System.Windows.Forms.Label TotalControl;
+        private System.Windows.Forms.Label SubtotalControl;
     }
 }
