@@ -101,19 +101,18 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         {
             try
             {
-           
-                this.CleanErrors(errorProvider1, typeof(ContestarMedicionViewModel));
+          
+                //this.CleanErrors(errorProvider1, typeof(ContestarMedicionViewModel));
+                errorProvider1.Clear();
                 var validationResults = Model.Validate();
                 if (validationResults.IsValid)
                 {
-                    //ValidationResult aa = new ValidationResult("");
-                    //aa.
+                 
+
                 }
                 else
-                {
-                    //errorProvider1.SetError("");
-                    //this.ShowErrors(errorProvider1, typeof(ContestarMedicionViewModel), validationResults);
-                    DibujarErrores(validationResults);                    //this.lblError.Visible = true;                    
+                {                    
+                    DibujarErrores(validationResults);                
                 }
             }
             catch (Exception ex)

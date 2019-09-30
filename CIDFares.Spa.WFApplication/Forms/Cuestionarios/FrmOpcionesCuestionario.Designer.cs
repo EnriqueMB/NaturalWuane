@@ -61,6 +61,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.NombreCompleto = new System.Windows.Forms.TextBox();
+            this.groupOpciones = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.sfDateTimeEdit1 = new Syncfusion.WinForms.Input.SfDateTimeEdit();
+            this.btnGuardarConsulta = new System.Windows.Forms.Button();
             this.pnlTitulo.SuspendLayout();
             this.FlpBotones.SuspendLayout();
             this.tab.SuspendLayout();
@@ -73,6 +82,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbNuevoCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbCliente)).BeginInit();
+            this.groupOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTitulo
@@ -84,7 +94,7 @@
             this.pnlTitulo.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlTitulo.Location = new System.Drawing.Point(0, 0);
             this.pnlTitulo.Name = "pnlTitulo";
-            this.pnlTitulo.Size = new System.Drawing.Size(812, 45);
+            this.pnlTitulo.Size = new System.Drawing.Size(999, 45);
             this.pnlTitulo.TabIndex = 11;
             // 
             // label3
@@ -100,13 +110,13 @@
             // 
             // FlpBotones
             // 
-            this.FlpBotones.Controls.Add(this.btnAceptar);
+            this.FlpBotones.Controls.Add(this.btnGuardarConsulta);
             this.FlpBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.FlpBotones.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.FlpBotones.Location = new System.Drawing.Point(0, 568);
             this.FlpBotones.Name = "FlpBotones";
             this.FlpBotones.Padding = new System.Windows.Forms.Padding(10, 20, 10, 0);
-            this.FlpBotones.Size = new System.Drawing.Size(812, 74);
+            this.FlpBotones.Size = new System.Drawing.Size(999, 74);
             this.FlpBotones.TabIndex = 22;
             // 
             // btnAceptar
@@ -118,12 +128,13 @@
             this.btnAceptar.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.Black;
             this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAceptar.Location = new System.Drawing.Point(659, 23);
+            this.btnAceptar.Location = new System.Drawing.Point(495, 451);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(130, 28);
+            this.btnAceptar.Size = new System.Drawing.Size(183, 28);
             this.btnAceptar.TabIndex = 15;
-            this.btnAceptar.Text = "ACEPTAR";
+            this.btnAceptar.Text = "CONTESTAR ENCUESTAS";
             this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Visible = false;
             this.btnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
             // 
             // tab
@@ -136,7 +147,7 @@
             this.tab.Location = new System.Drawing.Point(3, 11);
             this.tab.Name = "tab";
             this.tab.SelectedIndex = 0;
-            this.tab.Size = new System.Drawing.Size(809, 468);
+            this.tab.Size = new System.Drawing.Size(679, 434);
             this.tab.TabIndex = 48;
             this.tab.Visible = false;
             this.tab.Click += new System.EventHandler(this.Tab_Click);
@@ -147,7 +158,7 @@
             this.tabCuestionarios.Location = new System.Drawing.Point(4, 22);
             this.tabCuestionarios.Name = "tabCuestionarios";
             this.tabCuestionarios.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCuestionarios.Size = new System.Drawing.Size(801, 442);
+            this.tabCuestionarios.Size = new System.Drawing.Size(671, 408);
             this.tabCuestionarios.TabIndex = 0;
             this.tabCuestionarios.Text = "CUESTIONARIOS";
             this.tabCuestionarios.UseVisualStyleBackColor = true;
@@ -202,7 +213,7 @@
             this.dtgEncuestas.RowHeight = 21;
             this.dtgEncuestas.SerializationController = null;
             this.dtgEncuestas.ShowGroupDropArea = true;
-            this.dtgEncuestas.Size = new System.Drawing.Size(795, 431);
+            this.dtgEncuestas.Size = new System.Drawing.Size(665, 397);
             this.dtgEncuestas.Style.CellStyle.TextColor = System.Drawing.Color.Black;
             this.dtgEncuestas.Style.GroupDropAreaItemStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.dtgEncuestas.Style.GroupDropAreaItemStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -223,7 +234,7 @@
             this.tabMediciones.Location = new System.Drawing.Point(4, 22);
             this.tabMediciones.Name = "tabMediciones";
             this.tabMediciones.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMediciones.Size = new System.Drawing.Size(801, 442);
+            this.tabMediciones.Size = new System.Drawing.Size(671, 408);
             this.tabMediciones.TabIndex = 1;
             this.tabMediciones.Text = "MEDICIONES";
             this.tabMediciones.UseVisualStyleBackColor = true;
@@ -284,7 +295,7 @@
             this.dtgMediciones.RowHeight = 21;
             this.dtgMediciones.SerializationController = null;
             this.dtgMediciones.ShowGroupDropArea = true;
-            this.dtgMediciones.Size = new System.Drawing.Size(792, 431);
+            this.dtgMediciones.Size = new System.Drawing.Size(662, 397);
             this.dtgMediciones.Style.CellStyle.TextColor = System.Drawing.Color.Black;
             this.dtgMediciones.Style.GroupDropAreaItemStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.dtgMediciones.Style.GroupDropAreaItemStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -303,7 +314,7 @@
             // 
             this.tabServicios.Location = new System.Drawing.Point(4, 22);
             this.tabServicios.Name = "tabServicios";
-            this.tabServicios.Size = new System.Drawing.Size(798, 442);
+            this.tabServicios.Size = new System.Drawing.Size(801, 442);
             this.tabServicios.TabIndex = 2;
             this.tabServicios.Text = "SERVICIOS";
             this.tabServicios.UseVisualStyleBackColor = true;
@@ -312,7 +323,7 @@
             // 
             this.tabProductos.Location = new System.Drawing.Point(4, 22);
             this.tabProductos.Name = "tabProductos";
-            this.tabProductos.Size = new System.Drawing.Size(798, 442);
+            this.tabProductos.Size = new System.Drawing.Size(801, 442);
             this.tabProductos.TabIndex = 3;
             this.tabProductos.Text = "PRODUCTOS";
             this.tabProductos.UseVisualStyleBackColor = true;
@@ -321,7 +332,7 @@
             // 
             this.tabPlanAlimentacion.Location = new System.Drawing.Point(4, 22);
             this.tabPlanAlimentacion.Name = "tabPlanAlimentacion";
-            this.tabPlanAlimentacion.Size = new System.Drawing.Size(798, 442);
+            this.tabPlanAlimentacion.Size = new System.Drawing.Size(801, 442);
             this.tabPlanAlimentacion.TabIndex = 4;
             this.tabPlanAlimentacion.Text = "PLAN DE ALIMENTACION";
             this.tabPlanAlimentacion.UseVisualStyleBackColor = true;
@@ -331,18 +342,21 @@
             this.pnlContenedor.Controls.Add(this.panelCentral);
             this.pnlContenedor.Controls.Add(this.panel1);
             this.pnlContenedor.Controls.Add(this.FlpBotones);
+            this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenedor.Location = new System.Drawing.Point(0, 45);
             this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(812, 642);
+            this.pnlContenedor.Size = new System.Drawing.Size(999, 642);
             this.pnlContenedor.TabIndex = 21;
             // 
             // panelCentral
             // 
+            this.panelCentral.Controls.Add(this.groupOpciones);
+            this.panelCentral.Controls.Add(this.btnAceptar);
             this.panelCentral.Controls.Add(this.tab);
             this.panelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCentral.Location = new System.Drawing.Point(0, 83);
             this.panelCentral.Name = "panelCentral";
-            this.panelCentral.Size = new System.Drawing.Size(812, 485);
+            this.panelCentral.Size = new System.Drawing.Size(999, 485);
             this.panelCentral.TabIndex = 50;
             // 
             // panel1
@@ -357,12 +371,12 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(812, 83);
+            this.panel1.Size = new System.Drawing.Size(999, 83);
             this.panel1.TabIndex = 49;
             // 
             // TipoConsultaControl
             // 
-            this.TipoConsultaControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TipoConsultaControl.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TipoConsultaControl.FormattingEnabled = true;
             this.TipoConsultaControl.Location = new System.Drawing.Point(483, 33);
             this.TipoConsultaControl.Name = "TipoConsultaControl";
@@ -378,7 +392,7 @@
             this.btnOpciones.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpciones.ForeColor = System.Drawing.Color.Black;
             this.btnOpciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpciones.Location = new System.Drawing.Point(720, 33);
+            this.btnOpciones.Location = new System.Drawing.Point(723, 33);
             this.btnOpciones.Name = "btnOpciones";
             this.btnOpciones.Size = new System.Drawing.Size(27, 26);
             this.btnOpciones.TabIndex = 47;
@@ -431,18 +445,121 @@
             // 
             // NombreCompleto
             // 
-            this.NombreCompleto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NombreCompleto.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NombreCompleto.Location = new System.Drawing.Point(72, 33);
             this.NombreCompleto.Name = "NombreCompleto";
             this.NombreCompleto.ReadOnly = true;
             this.NombreCompleto.Size = new System.Drawing.Size(253, 26);
             this.NombreCompleto.TabIndex = 48;
             // 
+            // groupOpciones
+            // 
+            this.groupOpciones.Controls.Add(this.sfDateTimeEdit1);
+            this.groupOpciones.Controls.Add(this.textBox3);
+            this.groupOpciones.Controls.Add(this.textBox2);
+            this.groupOpciones.Controls.Add(this.label6);
+            this.groupOpciones.Controls.Add(this.label5);
+            this.groupOpciones.Controls.Add(this.textBox1);
+            this.groupOpciones.Controls.Add(this.label4);
+            this.groupOpciones.Enabled = false;
+            this.groupOpciones.Location = new System.Drawing.Point(688, 26);
+            this.groupOpciones.Name = "groupOpciones";
+            this.groupOpciones.Size = new System.Drawing.Size(299, 449);
+            this.groupOpciones.TabIndex = 49;
+            this.groupOpciones.TabStop = false;
+            this.groupOpciones.Visible = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(13, 88);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(275, 69);
+            this.textBox1.TabIndex = 48;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(10, 67);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(103, 18);
+            this.label4.TabIndex = 50;
+            this.label4.Text = "DIAGNOSTICO";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(10, 161);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(108, 18);
+            this.label5.TabIndex = 50;
+            this.label5.Text = "OBSERVACION";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(13, 182);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(275, 80);
+            this.textBox2.TabIndex = 48;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(10, 265);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(150, 18);
+            this.label6.TabIndex = 50;
+            this.label6.Text = "RECOMENDACIONES";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(13, 286);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(275, 80);
+            this.textBox3.TabIndex = 48;
+            // 
+            // sfDateTimeEdit1
+            // 
+            this.sfDateTimeEdit1.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sfDateTimeEdit1.Location = new System.Drawing.Point(13, 19);
+            this.sfDateTimeEdit1.Name = "sfDateTimeEdit1";
+            this.sfDateTimeEdit1.Size = new System.Drawing.Size(275, 31);
+            this.sfDateTimeEdit1.TabIndex = 52;
+            // 
+            // btnGuardarConsulta
+            // 
+            this.btnGuardarConsulta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGuardarConsulta.BackColor = System.Drawing.Color.White;
+            this.btnGuardarConsulta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnGuardarConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarConsulta.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarConsulta.ForeColor = System.Drawing.Color.Black;
+            this.btnGuardarConsulta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardarConsulta.Location = new System.Drawing.Point(819, 23);
+            this.btnGuardarConsulta.Name = "btnGuardarConsulta";
+            this.btnGuardarConsulta.Size = new System.Drawing.Size(157, 28);
+            this.btnGuardarConsulta.TabIndex = 15;
+            this.btnGuardarConsulta.Text = "GUARDAR CONSULTA";
+            this.btnGuardarConsulta.UseVisualStyleBackColor = false;
+            this.btnGuardarConsulta.Visible = false;
+            this.btnGuardarConsulta.Click += new System.EventHandler(this.BtnAceptar_Click);
+            // 
             // FrmOpcionesCuestionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 687);
+            this.ClientSize = new System.Drawing.Size(999, 687);
             this.Controls.Add(this.pnlContenedor);
             this.Controls.Add(this.pnlTitulo);
             this.Name = "FrmOpcionesCuestionario";
@@ -463,6 +580,8 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbNuevoCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbCliente)).EndInit();
+            this.groupOpciones.ResumeLayout(false);
+            this.groupOpciones.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -491,5 +610,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox NombreCompleto;
         private System.Windows.Forms.Panel panelCentral;
+        private System.Windows.Forms.GroupBox groupOpciones;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private Syncfusion.WinForms.Input.SfDateTimeEdit sfDateTimeEdit1;
+        private System.Windows.Forms.Button btnGuardarConsulta;
     }
 }

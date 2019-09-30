@@ -270,9 +270,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 button1.Size = new Size(41, 28);
                 button1.Location = new Point(762, 6);
             }
-
            
-
             if (Model.cuestionario.ListaPreguntas.Count > 0 && IndexPregunta >= 0 && IndexPregunta < Model.cuestionario.ListaPreguntas.Count)
             {                
                 CIDEncuesta.CIDEncuesta frmEncuesta = new CIDEncuesta.CIDEncuesta(Model.cuestionario.ListaPreguntas[IndexPregunta]);
@@ -283,7 +281,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
 
         private void BtnNuevaConsulta_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

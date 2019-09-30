@@ -26,7 +26,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         #endregion
 
         #region Constructor
-        public FrmOpcionesCuestionario(/*bool controlNutricional*/)
+        public FrmOpcionesCuestionario()
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<OpcionesViewModel>();
@@ -173,11 +173,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 case 0:
                     opcion = 1;
                     llenarLista();
+                    this.btnAceptar.Text = "CONTESTAR ENCUESTAS";
                     break;
                 case 1:
                     opcion = 2;
                     await Model.llenarListaMediciones();
                     llenarListamediciones();
+                    this.btnAceptar.Text = "CONTESTAR MEDICIONES";
                     break;
             }
         }
@@ -190,7 +192,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 FrmSelectCliente _select = new FrmSelectCliente();
                 _select.ShowDialog();
                 _select.Dispose();
-                if (_select.cliente != null)
+                if (_select.cliente != null && _select.DialogResult == DialogResult.OK)
                     CargarDatos(_select.cliente);
 
             }
@@ -228,8 +230,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                     {
                         if (!tab.Controls.Contains(tabPlanAlimentacion))
                             tab.TabPages.Add(tabPlanAlimentacion);
-                    }                        
-                    this.tab.Visible = true;                    
+                    }
+                    Botones();
                 }
                 else
                 {
@@ -241,6 +243,15 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmNuevaConsulta ~ BtnOpciones_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
-        }        
+        }    
+        
+        private void Botones()
+        {
+            this.tab.Visible = true;
+            this.groupOpciones.Visible = true;
+            this.btnAceptar.Visible = true;
+            this.btnGuardarConsulta.Visible = true;
+            this.btnGuardarConsulta.Enabled = false;
+        }
     }
 }

@@ -48,6 +48,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 if (item != null)
                 {
                     cliente = item;
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else

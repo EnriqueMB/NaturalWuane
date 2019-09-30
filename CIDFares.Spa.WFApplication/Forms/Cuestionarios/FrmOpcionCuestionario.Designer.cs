@@ -142,7 +142,6 @@
             this.dtgEncuestas.Location = new System.Drawing.Point(12, 51);
             this.dtgEncuestas.Name = "dtgEncuestas";
             this.dtgEncuestas.RowHeight = 21;
-            this.dtgEncuestas.ShowGroupDropArea = true;
             this.dtgEncuestas.Size = new System.Drawing.Size(660, 430);
             this.dtgEncuestas.Style.CellStyle.TextColor = System.Drawing.Color.Black;
             this.dtgEncuestas.Style.GroupDropAreaItemStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
