@@ -264,12 +264,18 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         { 
             try
             {
+                btnNuevo.Enabled = false;
                 NuevoProducto();
             }
             catch (Exception ex)
             {
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmEntradaSalidaAlmacen ~ pcMas_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
+            }
+            finally
+            {
+                btnNuevo.Enabled = true;
+             
             }
         }
         private void FrmEntradaSalidaAlmacen_Load(object sender, EventArgs e)
@@ -289,6 +295,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         {
             try
             {
+                btnEliminar.Enabled = false;
                 EntradaSalidaAlmacen item = (EntradaSalidaAlmacen)ObtenerSeleccionado();
                 if (item != null)
                 {
@@ -301,6 +308,10 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                btnEliminar.Enabled = true;
             }
         }
         #endregion
@@ -326,6 +337,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         {
             try
             {
+                btnGuardar.Enabled = false;
                 errorProvider1.Clear();
                 BindingList<EntradaSalidaAlmacen> ListaProductos = (BindingList<EntradaSalidaAlmacen>)dataGridsf1.DataSource;
                 this.CleanErrors(errorProvider1, typeof(EntradaSalidaAlmacenViewModel));
@@ -354,6 +366,10 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             {
 
                 throw ex;
+            }
+            finally
+            {
+                btnGuardar.Enabled = true;
             }
         }
 
