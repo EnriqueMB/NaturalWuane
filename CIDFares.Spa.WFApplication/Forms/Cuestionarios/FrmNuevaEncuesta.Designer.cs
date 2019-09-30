@@ -39,6 +39,7 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo gridBordersInfo1 = new Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo();
             this.FlpBotones = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancelarEncuesta = new System.Windows.Forms.Button();
@@ -379,12 +380,18 @@
             gridTextColumn10.HeaderText = "DEPENDE";
             gridTextColumn10.MappingName = "IdPreguntaDepende";
             gridTextColumn10.Visible = false;
+            gridTextColumn11.AllowDragging = true;
+            gridTextColumn11.AllowEditing = false;
+            gridTextColumn11.AllowFiltering = true;
+            gridTextColumn11.HeaderText = "¿CON RESPUESTAS MULTIPLES?";
+            gridTextColumn11.MappingName = "Column7";
             this.dtgPreguntas.Columns.Add(gridTextColumn5);
             this.dtgPreguntas.Columns.Add(gridTextColumn6);
             this.dtgPreguntas.Columns.Add(gridTextColumn7);
             this.dtgPreguntas.Columns.Add(gridTextColumn8);
             this.dtgPreguntas.Columns.Add(gridTextColumn9);
             this.dtgPreguntas.Columns.Add(gridTextColumn10);
+            this.dtgPreguntas.Columns.Add(gridTextColumn11);
             this.dtgPreguntas.Location = new System.Drawing.Point(6, 19);
             this.dtgPreguntas.Name = "dtgPreguntas";
             this.dtgPreguntas.RowHeight = 21;
