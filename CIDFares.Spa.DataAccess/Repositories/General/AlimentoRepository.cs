@@ -178,7 +178,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     conexion.Open();
                     var dynParameters = new DynamicParameters();
                     dynParameters.Add("@Pagina", Page);
-                    dynParameters.Add("@Cantidad", 5);
+                    dynParameters.Add("@Cantidad", 50);
                     dynParameters.Add("@Opcion", Opcion);
                     var dr = await conexion.QueryAsync<Alimento>("[Catalogo].[SPCID_Get_Alimento]", param: dynParameters,
                         commandType: CommandType.StoredProcedure);
