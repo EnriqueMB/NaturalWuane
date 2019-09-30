@@ -10,7 +10,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
     {
         public int IdTurno { get; set; }
         public string NombreDia { get; set; }
-        public TimeSpan HoraEntrada { get; set; }
-        public TimeSpan HoraSalida { get; set; }
+        public string HoraEntrada { get; set; }
+        public string HoraSalida { get; set; }
     }
 }

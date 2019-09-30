@@ -31,10 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CIDFares.Library.Code">
+    <Reference Include="CIDFares.Library.Code, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\CIDFares.Library\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
     </Reference>
-    <Reference Include="CIDFares.Library.Controls">
+    <Reference Include="CIDFares.Library.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\CIDFares.Library\CIDFares.Library.Controls\bin\Debug\CIDFares.Library.Controls.dll</HintPath>
     </Reference>
     <Reference Include="System" />
