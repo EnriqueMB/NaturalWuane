@@ -77,7 +77,18 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 CIDMessageBox.ShowAlert(Messages.SystemName, ex.Message.ToString(), TypeMessage.error);
             }
         }
-
+        private void CheckMultipleRespuesta_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbMultiple.Checked)
+            {
+                checkMultipleRespuesta.Visible = true;
+            }
+            else
+            {
+                checkMultipleRespuesta.Visible = false;
+                checkMultipleRespuesta.Checked = false;
+            }
+        }
         private void CheckDepende_CheckedChanged(object sender, EventArgs e)
         {
             if (checkDepende.Checked)
@@ -94,7 +105,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 cmbPreguntas.Visible = false;
                 groupBox2.Visible = false;
             }
-        }
+        }   
         private void BtnGuardarPregunta_Click(object sender, EventArgs e)
         {
             try
@@ -175,6 +186,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 else if (rbMultiple.Checked)
                 {
                     dato.TipoPregunta = "MULTIPLE";
+
+                    if (checkMultipleRespuesta.Checked)
+                    {
+                        dato.respuestasMultiples = true;
+                    }
                 }
                 if (checkDepende.Checked)
                 {
@@ -199,20 +215,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 throw ex;
             }
         }
-
-        //public void LLenarListaPreguntas(Preguntas value)
-        //{
-        //    try
-        //    {
-        //        ListaPreguntas.Add(value);
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
-
+         
         private Preguntas ObtenerItemSeleccionado()
         {
             try
@@ -229,7 +232,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 throw ex;
             }
         }
-        #endregion
-
+        #endregion        
     }
 }

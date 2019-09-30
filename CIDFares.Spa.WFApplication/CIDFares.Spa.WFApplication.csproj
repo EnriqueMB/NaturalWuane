@@ -33,11 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CIDFares.Library.Code">
+    <Reference Include="CIDFares.Library.Code, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\CIDFares.Library\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
     </Reference>
-    <Reference Include="CIDFares.Library.Controls">
-      <HintPath>..\..\CIDFares.Library\CIDFares.Library.Controls\bin\Debug\CIDFares.Library.Controls.dll</HintPath>
+    <Reference Include="CIDFares.Library.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CIDFaresLibrary\CIDFares.Library.Controls\bin\Debug\CIDFares.Library.Controls.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentValidation.8.0.0\lib\net45\FluentValidation.dll</HintPath>
@@ -102,11 +104,35 @@
     <Compile Include="Forms\Catalogos\FrmAlimentoNuevo.Designer.cs">
       <DependentUpon>FrmAlimentoNuevo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Catalogos\FrmTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmTurno.Designer.cs">
+      <DependentUpon>FrmTurno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Catalogos\FrmTurnoPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Catalogos\FrmTurnoPrincipal.Designer.cs">
       <DependentUpon>FrmTurnoPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\General\FrmEntradaSalidaAlmacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\General\FrmEntradaSalidaAlmacen.Designer.cs">
+      <DependentUpon>FrmEntradaSalidaAlmacen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\General\FrmInventarioFisico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\General\FrmInventarioFisico.Designer.cs">
+      <DependentUpon>FrmInventarioFisico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\General\FrmInventarioTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\General\FrmInventarioTest.Designer.cs">
+      <DependentUpon>FrmInventarioTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Paquete\FrmAbonarPaquete.cs">
       <SubType>Form</SubType>
@@ -228,12 +254,6 @@
     <Compile Include="Forms\Compras\FrmCancelacionCompra.Designer.cs">
       <DependentUpon>FrmCancelacionCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Catalogos\FrmTurno.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Catalogos\FrmTurno.Designer.cs">
-      <DependentUpon>FrmTurno.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Compras\FrmCompra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,12 +308,6 @@
     <Compile Include="Forms\Cuestionarios\FrmNuevaEncuesta.Designer.cs">
       <DependentUpon>FrmNuevaEncuesta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\General\FrmEntradaSalidaAlmacen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\General\FrmEntradaSalidaAlmacen.Designer.cs">
-      <DependentUpon>FrmEntradaSalidaAlmacen.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\General\FrmHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,18 +325,6 @@
     </Compile>
     <Compile Include="Forms\General\FrmHomePage.Designer.cs">
       <DependentUpon>FrmHomePage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\General\FrmInventarioFisico.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\General\FrmInventarioFisico.Designer.cs">
-      <DependentUpon>FrmInventarioFisico.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\General\FrmInventarioTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\General\FrmInventarioTest.Designer.cs">
-      <DependentUpon>FrmInventarioTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\General\FrmLogin.cs">
       <SubType>Form</SubType>
@@ -466,8 +468,17 @@
     <EmbeddedResource Include="Forms\Catalogos\FrmAlimentoNuevo.resx">
       <DependentUpon>FrmAlimentoNuevo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmTurno.resx">
+      <DependentUpon>FrmTurno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmTurnoPrincipal.resx">
       <DependentUpon>FrmTurnoPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\General\FrmEntradaSalidaAlmacen.resx">
+      <DependentUpon>FrmEntradaSalidaAlmacen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\General\FrmInventarioTest.resx">
+      <DependentUpon>FrmInventarioTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Paquete\FrmAbonarPaquete.resx">
       <DependentUpon>FrmAbonarPaquete.cs</DependentUpon>
@@ -535,9 +546,6 @@
     <EmbeddedResource Include="Forms\Compras\FrmCancelacionCompra.resx">
       <DependentUpon>FrmCancelacionCompra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Catalogos\FrmTurno.resx">
-      <DependentUpon>FrmTurno.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compras\FrmCompra.resx">
       <DependentUpon>FrmCompra.cs</DependentUpon>
     </EmbeddedResource>
@@ -565,9 +573,6 @@
     <EmbeddedResource Include="Forms\Cuestionarios\FrmNuevaEncuesta.resx">
       <DependentUpon>FrmNuevaEncuesta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\General\FrmEntradaSalidaAlmacen.resx">
-      <DependentUpon>FrmEntradaSalidaAlmacen.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\FrmHome.resx">
       <DependentUpon>FrmHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -576,9 +581,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\FrmHomePage.resx">
       <DependentUpon>FrmHomePage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\General\FrmInventarioTest.resx">
-      <DependentUpon>FrmInventarioTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>

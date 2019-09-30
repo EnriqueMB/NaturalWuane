@@ -33,6 +33,7 @@ namespace CIDFares.Spa.WFApplication
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
             Application.Run(new FrmLogin());
+            //Application.Run(new FrmTurno());
         }
 
         public static void InitializeContainer()
