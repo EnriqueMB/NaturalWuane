@@ -186,6 +186,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 else if (rbMultiple.Checked)
                 {
                     dato.TipoPregunta = "MULTIPLE";
+
+                    if (checkMultipleRespuesta.Checked)
+                    {
+                        dato.respuestasMultiples = true;
+                    }
                 }
                 if (checkDepende.Checked)
                 {
@@ -210,20 +215,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 throw ex;
             }
         }
-       
-        //public void LLenarListaPreguntas(Preguntas value)
-        //{
-        //    try
-        //    {
-        //        ListaPreguntas.Add(value);
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
-
+         
         private Preguntas ObtenerItemSeleccionado()
         {
             try

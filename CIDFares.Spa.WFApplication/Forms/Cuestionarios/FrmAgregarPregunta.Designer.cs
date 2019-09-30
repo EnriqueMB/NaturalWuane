@@ -132,11 +132,11 @@
             // checkMultipleRespuesta
             // 
             this.checkMultipleRespuesta.AutoSize = true;
-            this.checkMultipleRespuesta.Location = new System.Drawing.Point(394, 50);
+            this.checkMultipleRespuesta.Location = new System.Drawing.Point(359, 50);
             this.checkMultipleRespuesta.Name = "checkMultipleRespuesta";
-            this.checkMultipleRespuesta.Size = new System.Drawing.Size(147, 17);
+            this.checkMultipleRespuesta.Size = new System.Drawing.Size(176, 17);
             this.checkMultipleRespuesta.TabIndex = 19;
-            this.checkMultipleRespuesta.Text = "MULTIPLE RESPUESTA";
+            this.checkMultipleRespuesta.Text = "¿ES MULTIPLE RESPUESTA?";
             this.checkMultipleRespuesta.UseVisualStyleBackColor = true;
             this.checkMultipleRespuesta.Visible = false;
             this.checkMultipleRespuesta.CheckedChanged += new System.EventHandler(this.CheckMultipleRespuesta_CheckedChanged);

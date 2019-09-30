@@ -384,7 +384,7 @@
             gridTextColumn11.AllowEditing = false;
             gridTextColumn11.AllowFiltering = true;
             gridTextColumn11.HeaderText = "¿CON RESPUESTAS MULTIPLES?";
-            gridTextColumn11.MappingName = "Column7";
+            gridTextColumn11.MappingName = "RespuestaMultiple";
             this.dtgPreguntas.Columns.Add(gridTextColumn5);
             this.dtgPreguntas.Columns.Add(gridTextColumn6);
             this.dtgPreguntas.Columns.Add(gridTextColumn7);
