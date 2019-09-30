@@ -36,13 +36,14 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbMultiple = new System.Windows.Forms.RadioButton();
             this.rbSiNo = new System.Windows.Forms.RadioButton();
+            this.checkMultipleRespuesta = new System.Windows.Forms.CheckBox();
             this.rbAbierta = new System.Windows.Forms.RadioButton();
             this.checkDepende = new System.Windows.Forms.CheckBox();
             this.cmbPreguntas = new System.Windows.Forms.ComboBox();
             this.lblcmb = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rbtSi = new System.Windows.Forms.RadioButton();
             this.rbtNo = new System.Windows.Forms.RadioButton();
+            this.rbtSi = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -98,13 +99,14 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.rbMultiple);
             this.groupBox1.Controls.Add(this.rbSiNo);
+            this.groupBox1.Controls.Add(this.checkMultipleRespuesta);
             this.groupBox1.Controls.Add(this.rbAbierta);
             this.groupBox1.Location = new System.Drawing.Point(16, 172);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(539, 87);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "TIPOS DE RESPUESTAS";
+            this.groupBox1.Text = "PREGUNTAS";
             // 
             // rbMultiple
             // 
@@ -115,6 +117,7 @@
             this.rbMultiple.TabIndex = 1;
             this.rbMultiple.Text = "MULTIPLE";
             this.rbMultiple.UseVisualStyleBackColor = true;
+            this.rbMultiple.CheckedChanged += new System.EventHandler(this.CheckMultipleRespuesta_CheckedChanged);
             // 
             // rbSiNo
             // 
@@ -125,6 +128,18 @@
             this.rbSiNo.TabIndex = 1;
             this.rbSiNo.Text = "SI/NO";
             this.rbSiNo.UseVisualStyleBackColor = true;
+            // 
+            // checkMultipleRespuesta
+            // 
+            this.checkMultipleRespuesta.AutoSize = true;
+            this.checkMultipleRespuesta.Location = new System.Drawing.Point(359, 50);
+            this.checkMultipleRespuesta.Name = "checkMultipleRespuesta";
+            this.checkMultipleRespuesta.Size = new System.Drawing.Size(176, 17);
+            this.checkMultipleRespuesta.TabIndex = 19;
+            this.checkMultipleRespuesta.Text = "¿ES MULTIPLE RESPUESTA?";
+            this.checkMultipleRespuesta.UseVisualStyleBackColor = true;
+            this.checkMultipleRespuesta.Visible = false;
+            this.checkMultipleRespuesta.CheckedChanged += new System.EventHandler(this.CheckMultipleRespuesta_CheckedChanged);
             // 
             // rbAbierta
             // 
@@ -182,6 +197,17 @@
             this.groupBox2.Text = "PREGUNATAR CUANDO SEA";
             this.groupBox2.Visible = false;
             // 
+            // rbtNo
+            // 
+            this.rbtNo.AutoSize = true;
+            this.rbtNo.Location = new System.Drawing.Point(126, 25);
+            this.rbtNo.Name = "rbtNo";
+            this.rbtNo.Size = new System.Drawing.Size(41, 17);
+            this.rbtNo.TabIndex = 0;
+            this.rbtNo.TabStop = true;
+            this.rbtNo.Text = "NO";
+            this.rbtNo.UseVisualStyleBackColor = true;
+            // 
             // rbtSi
             // 
             this.rbtSi.AutoSize = true;
@@ -193,17 +219,6 @@
             this.rbtSi.TabStop = true;
             this.rbtSi.Text = "SI";
             this.rbtSi.UseVisualStyleBackColor = true;
-            // 
-            // rbtNo
-            // 
-            this.rbtNo.AutoSize = true;
-            this.rbtNo.Location = new System.Drawing.Point(126, 25);
-            this.rbtNo.Name = "rbtNo";
-            this.rbtNo.Size = new System.Drawing.Size(41, 17);
-            this.rbtNo.TabIndex = 0;
-            this.rbtNo.TabStop = true;
-            this.rbtNo.Text = "NO";
-            this.rbtNo.UseVisualStyleBackColor = true;
             // 
             // FrmAgregarPregunta
             // 
@@ -248,5 +263,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton rbtNo;
         private System.Windows.Forms.RadioButton rbtSi;
+        private System.Windows.Forms.CheckBox checkMultipleRespuesta;
     }
 }
