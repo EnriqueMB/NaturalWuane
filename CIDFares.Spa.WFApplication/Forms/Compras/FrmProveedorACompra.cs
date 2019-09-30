@@ -138,13 +138,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
                 {
                     proveedor = item;
                     this.Close();
-                    /*
-                    Model.IdProveedorTemp = item.IdProveedor;
-                    Model.Clave = item.Clave;
-                    Model.NombreProveedor = item.NombreComercial;
-                    Model.Representante = item.Representante;
-                    Model.Telefono = item.Telefono;
-                    Model.Direccion = item.Direccion;*/
                 }
                 else
                     CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);

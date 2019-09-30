@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CIDFares.Library.Code">
+      <HintPath>..\..\CIDFaresLibrary\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
+    </Reference>
     <Reference Include="Dapper, Version=1.60.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.1.60.6\lib\net451\Dapper.dll</HintPath>
     </Reference>
@@ -46,7 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\General\AlimentoRepository.cs" />
     <Compile Include="Repositories\General\BusquedaProductoRepository.cs" />
+    <Compile Include="Repositories\General\CambioVentaRepository.cs" />
+    <Compile Include="Repositories\General\CapturaCitaRepository.cs" />
     <Compile Include="Repositories\General\CancelacionVentaRepository.cs" />
     <Compile Include="Repositories\General\CategoriaProductoRepository.cs" />
     <Compile Include="Repositories\General\ClienteRepository.cs" />
@@ -55,9 +61,11 @@
     <Compile Include="Repositories\General\ContestarMedicionRepository.cs" />
     <Compile Include="Repositories\General\EmpleadoRepository.cs" />
     <Compile Include="Repositories\General\CuestionarioRepository.cs" />
+    <Compile Include="Repositories\General\EntradaSalidaAlmacenRepository.cs" />
     <Compile Include="Repositories\General\EstadoRepository.cs" />
     <Compile Include="Repositories\General\FormaPagoRepository.cs" />
     <Compile Include="Repositories\Base\Repository.cs" />
+    <Compile Include="Repositories\General\InventarioFisicoRepository.cs" />
     <Compile Include="Repositories\General\IvaRepository.cs" />
     <Compile Include="Repositories\General\ListaMedicionRepository.cs" />
     <Compile Include="Repositories\General\LoginRepository.cs" />
@@ -76,6 +84,7 @@
     <Compile Include="Repositories\General\RolRepository.cs" />
     <Compile Include="Repositories\General\ServicioRepository.cs" />
     <Compile Include="Repositories\General\SucursalRepository.cs" />
+    <Compile Include="Repositories\General\TipoAlimentoRepository.cs" />
     <Compile Include="Repositories\General\TipoServicioRepository.cs" />
     <Compile Include="Repositories\General\TipoSucursalRepository.cs" />
     <Compile Include="Repositories\General\TurnoRepository.cs" />

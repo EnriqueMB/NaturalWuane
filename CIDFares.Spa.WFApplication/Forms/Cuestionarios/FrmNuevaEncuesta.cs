@@ -313,6 +313,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         }
         #endregion
 
+        #region Metodos
         public void LLenarGriPregunta()
         {
             try
@@ -336,7 +337,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 CIDMessageBox.ShowAlert(Messages.SystemName, ex.Message.ToString(), TypeMessage.error);
             }
         }
-        #region Metodos
         private void IniciarBinding()
         {
             try
@@ -415,9 +415,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 TablaP.Columns.Add("DependeDe", typeof(Guid));
                 TablaP.Columns.Add("ActivarCuando", typeof(string));
                 TablaP.Columns.Add("Orden", typeof(int));
+                TablaP.Columns.Add("respuestasMultiples", typeof(bool));
                 foreach (var item in Lista)
                 {
-                    TablaP.Rows.Add(new object[] { item.IdPregunta, item.Pregunta, item.TipoPregunta, item.IdPreguntaDepende,item.ActivarCuando,item.Orden });
+                    TablaP.Rows.Add(new object[] { item.IdPregunta, item.Pregunta, item.TipoPregunta, item.IdPreguntaDepende,item.ActivarCuando,item.Orden,item.respuestasMultiples });
                 }
                 return TablaP;
             }

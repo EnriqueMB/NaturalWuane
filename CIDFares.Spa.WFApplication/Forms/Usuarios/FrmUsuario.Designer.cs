@@ -179,26 +179,33 @@
             this.panelGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGrid.Location = new System.Drawing.Point(0, 0);
             this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(525, 423);
+            this.panelGrid.Size = new System.Drawing.Size(525, 427);
             this.panelGrid.TabIndex = 3;
             // 
             // DataGridUsuario
             // 
             this.DataGridUsuario.AccessibleName = "Table";
+            this.DataGridUsuario.AllowEditing = false;
             this.DataGridUsuario.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            gridTextColumn1.AllowEditing = false;
             gridTextColumn1.HeaderText = "Column1";
             gridTextColumn1.MappingName = "IdCuentaUsuario";
             gridTextColumn1.Visible = false;
+            gridTextColumn2.AllowEditing = false;
             gridTextColumn2.HeaderText = "Cuenta";
             gridTextColumn2.MappingName = "Cuenta";
+            gridTextColumn3.AllowEditing = false;
             gridTextColumn3.HeaderText = "IdRol";
             gridTextColumn3.MappingName = "IdRol";
             gridTextColumn3.Visible = false;
+            gridTextColumn4.AllowEditing = false;
             gridTextColumn4.HeaderText = "Rol";
             gridTextColumn4.MappingName = "Nombre";
+            gridTextColumn5.AllowEditing = false;
             gridTextColumn5.HeaderText = "Column7";
             gridTextColumn5.MappingName = "IdEmpleado";
             gridTextColumn5.Visible = false;
+            gridTextColumn6.AllowEditing = false;
             gridTextColumn6.HeaderText = "Nombre empleado";
             gridTextColumn6.MappingName = "Nombres";
             this.DataGridUsuario.Columns.Add(gridTextColumn1);
@@ -210,7 +217,7 @@
             this.DataGridUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataGridUsuario.Location = new System.Drawing.Point(0, 0);
             this.DataGridUsuario.Name = "DataGridUsuario";
-            this.DataGridUsuario.Size = new System.Drawing.Size(525, 423);
+            this.DataGridUsuario.Size = new System.Drawing.Size(525, 427);
             this.DataGridUsuario.TabIndex = 0;
             this.DataGridUsuario.Text = "sfDataGrid1";
             // 
@@ -220,7 +227,7 @@
             this.panelDatos.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelDatos.Location = new System.Drawing.Point(525, 0);
             this.panelDatos.Name = "panelDatos";
-            this.panelDatos.Size = new System.Drawing.Size(492, 423);
+            this.panelDatos.Size = new System.Drawing.Size(492, 427);
             this.panelDatos.TabIndex = 2;
             // 
             // groupUsuario

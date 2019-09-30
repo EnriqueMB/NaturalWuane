@@ -59,14 +59,19 @@
   <ItemGroup>
     <Compile Include="DTOs\Requests\EncuestaRequest.cs" />
     <Compile Include="DTOs\Requests\LoginRequests.cs" />
+    <Compile Include="Entities\Alimento.cs" />
     <Compile Include="Entities\AbonoPaquete.cs" />
     <Compile Include="Entities\AbonoPaqueteDetalle.cs" />
     <Compile Include="Entities\BusqueProducto.cs" />
+    <Compile Include="Entities\CambioVenta.cs" />
+    <Compile Include="Entities\CapturaCita.cs" />
     <Compile Include="Entities\CategoriaProducto.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Compra.cs" />
     <Compile Include="Entities\Consulta.cs" />
+    <Compile Include="Entities\CompraCancelacion.cs" />
     <Compile Include="Entities\Cuestionario.cs" />
+    <Compile Include="Entities\EntradaSalidaAlmacen.cs" />
     <Compile Include="Entities\Estado.cs" />
     <Compile Include="Entities\ListaMedicion.cs" />
     <Compile Include="Entities\Medicion.cs" />
@@ -90,9 +95,12 @@
     <Compile Include="Entities\Rol.cs" />
     <Compile Include="Entities\Servicio.cs" />
     <Compile Include="Entities\Sucursal.cs" />
+    <Compile Include="Entities\TipoAlimento.cs" />
     <Compile Include="Entities\TipoServicio.cs" />
     <Compile Include="Entities\TipoSucursal.cs" />
     <Compile Include="Entities\Turno.cs" />
+    <Compile Include="Entities\TurnoDias.cs" />
+    <Compile Include="Entities\TurnoDiasInter.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Entities\UnidadMedida.cs" />
     <Compile Include="Entities\ValorLista.cs" />
@@ -101,7 +109,10 @@
     <Compile Include="Entities\VentasCancelaciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\IBaseRepository.cs" />
+    <Compile Include="Repositories\General\IAlimentoRepository.cs" />
     <Compile Include="Repositories\General\IBusqProductoRepository.cs" />
+    <Compile Include="Repositories\General\ICambioVentaRepository.cs" />
+    <Compile Include="Repositories\General\ICapturaCitaRepository.cs" />
     <Compile Include="Repositories\General\ICancelacionVentaRepository.cs" />
     <Compile Include="Repositories\General\ICategoriaProductoRepository.cs" />
     <Compile Include="Repositories\General\IClienteRepository.cs" />
@@ -111,8 +122,10 @@
     <Compile Include="Repositories\General\IContestarMedicionRepository.cs" />
     <Compile Include="Repositories\General\ICuestionarioRepository.cs" />
     <Compile Include="Repositories\General\IEmpleadoRepository.cs" />
+    <Compile Include="Repositories\General\IEntradaSalidaAlmacenRepository.cs" />
     <Compile Include="Repositories\General\IEstadoRepository.cs" />
     <Compile Include="Repositories\General\IFormaPagoRepository.cs" />
+    <Compile Include="Repositories\General\IInventarioFisicoRepository.cs" />
     <Compile Include="Repositories\General\IIvaRepository.cs" />
     <Compile Include="Repositories\General\IListaMedicionRepository.cs" />
     <Compile Include="Repositories\General\ILoginRepository.cs" />
@@ -130,6 +143,7 @@
     <Compile Include="Repositories\General\IReglaPerfilRepository.cs" />
     <Compile Include="Repositories\General\IServicioRepository.cs" />
     <Compile Include="Repositories\General\ISucursalRepository.cs" />
+    <Compile Include="Repositories\General\ITipoAlimentoRepository.cs" />
     <Compile Include="Repositories\General\ITipoServicioRepository.cs" />
     <Compile Include="Repositories\General\ITipoSucursalRepository.cs" />
     <Compile Include="Repositories\General\ITurnoRepository.cs" />

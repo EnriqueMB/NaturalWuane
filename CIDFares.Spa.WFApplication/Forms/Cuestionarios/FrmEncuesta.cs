@@ -67,6 +67,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         {
             try
             {
+                this.btnModificarEncuesta.Enabled = false;
                 Model.State = EntityState.Update;
 
                 var item = ObtenerSeleccionado();
@@ -95,11 +96,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmEncuesta ~ BtnModificarEncuesta_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
+            finally
+            {
+                this.btnModificarEncuesta.Enabled = true;
+            }
         }
         private async void BtnEliminarEncuesta_Click(object sender, EventArgs e)
         {
             try
             {
+                this.btnEliminarEncuesta.Enabled = false;
                 var item = ObtenerSeleccionado();
                 if (item != null)
                 {
@@ -127,6 +133,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             {
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmEncuesta ~ BtnEliminarEncuesta_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+            finally
+            {
+                this.btnEliminarEncuesta.Enabled = true;
             }
         }
         #endregion

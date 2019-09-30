@@ -1,4 +1,5 @@
-﻿
+﻿using CIDFares.Library.Code.Utilities.IBase;
+using CIDFares.Library.Code.Utilities.Implements;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using CIDFares.Spa.DataAccess.Repositories.General;
@@ -30,6 +31,7 @@ namespace CIDFares.Spa.Business.Dependencies
             ServiceLocator.Instance.Register<MunicipioRepository, IMunicipioRepository>();
             ServiceLocator.Instance.Register<ProveedorACompraRepository, IProveedorACompraRepository>();
             ServiceLocator.Instance.Register<TipoServicioRepository, ITipoServicioRepository>();
+            ServiceLocator.Instance.Register<CapturaCitaRepository, ICapturaCitaRepository>();
             ServiceLocator.Instance.Register<CuestionarioRepository, ICuestionarioRepository>();
             ServiceLocator.Instance.Register<EmpleadoRepository, IEmpleadoRepository>();
             ServiceLocator.Instance.Register<PuestoRepository, IPuestoRepository>();
@@ -40,11 +42,16 @@ namespace CIDFares.Spa.Business.Dependencies
             ServiceLocator.Instance.Register<CompraRepository, ICompraRepository>();
             ServiceLocator.Instance.Register<ProductosMonederoRepository, IProductosMonederoRepository>();
             ServiceLocator.Instance.Register<ConsultaRepository,IConsultaRepository>();
-            ServiceLocator.Instance.Register<OpcionRepository, IopcionesRepository>();           
+            ServiceLocator.Instance.Register<OpcionRepository, IopcionesRepository>();                                              
+            ServiceLocator.Instance.Register<ContestarMedicionRepository, IContestarMedicionRepository>();
+            ServiceLocator.Instance.Register<EntradaSalidaAlmacenRepository, IEntradaSalidaAlmacenRepository>();
+            ServiceLocator.Instance.Register<InventarioFisicoRepository, IInventarioFisicoRepository>();
+            ServiceLocator.Instance.Register<AlimentoRepository, IAlimentoRepository>();
+            ServiceLocator.Instance.Register<TipoAlimentoRepository, ITipoAlimentoRepository>();
+            ServiceLocator.Instance.Register<CambioVentaRepository, ICambioVentaRepository>();
             ServiceLocator.Instance.Register<MedicionRepository, IMedicionRepository>();
             ServiceLocator.Instance.Register<ListaMedicionRepository, IListaMedicionRepository>();
             ServiceLocator.Instance.Register<CancelacionVentaRepository, ICancelacionVentaRepository>();
-            ServiceLocator.Instance.Register<ContestarMedicionRepository, IContestarMedicionRepository>();
         }
     }
 }
