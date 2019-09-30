@@ -29,6 +29,11 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         /// ó obtener los nuevos registros de l siguiente página
         /// </summary>
         public int Opcion { get; set; }
+        /// <summary>
+        /// Almacena un bit para saber si ya se llego a la pagina maxima
+        /// o cuendo ya la lista viene vacia.
+        /// </summary>
+        public bool PaginaMaxima { get; set; }
         #endregion
 
         #region Constructor
@@ -55,12 +60,21 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             try
             {
                 var x = await IAlimento.GetAllAsync(Page, Opcion);
-                if (Opcion > 1)
-                    ListaAlimentos.Clear();
-                foreach (var item in x)
+                if(x.Count == 0)
                 {
-                    ListaAlimentos.Add(item);
+                    PaginaMaxima = true;
                 }
+                else
+                {
+                    if (Opcion > 1)
+                        ListaAlimentos.Clear();
+                    foreach (var item in x)
+                    {
+                        ListaAlimentos.Add(item);
+                    }
+                    PaginaMaxima = false;//Reseteamos el bit para que cada vez que se agrege un nuevo registro, podamos actualizar la vista.
+                }
+
             }
             catch (Exception ex)
             {

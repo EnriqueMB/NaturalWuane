@@ -12,6 +12,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
     public interface IAlimentoRepository: IBaseRepository<Alimento>
     {
         Task<IEnumerable<Alimento>> GetBusquedaAlimentoAsync(string BusquedaAlimento);
-        Task<IEnumerable<Alimento>> GetAllAsync(int Page, int Opcion);
+        Task<List<Alimento>> GetAllAsync(int Page, int Opcion);
     }
 }

@@ -169,7 +169,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public async Task<IEnumerable<Alimento>> GetAllAsync(int Page, int Opcion)
+        public async Task<List<Alimento>> GetAllAsync(int Page, int Opcion)
         {
             try
             {
