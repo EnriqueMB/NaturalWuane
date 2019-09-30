@@ -312,6 +312,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         }
         #endregion
 
+        #region Metodos
         public void LLenarGriPregunta()
         {
             try
@@ -335,7 +336,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 CIDMessageBox.ShowAlert(Messages.SystemName, ex.Message.ToString(), TypeMessage.error);
             }
         }
-        #region Metodos
         private void IniciarBinding()
         {
             try

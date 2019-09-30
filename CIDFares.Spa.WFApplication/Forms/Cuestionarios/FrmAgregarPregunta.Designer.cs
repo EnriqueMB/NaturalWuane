@@ -75,11 +75,11 @@
             // btnGuardarPregunta
             // 
             this.btnGuardarPregunta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardarPregunta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
-            this.btnGuardarPregunta.FlatAppearance.BorderSize = 0;
+            this.btnGuardarPregunta.BackColor = System.Drawing.Color.White;
+            this.btnGuardarPregunta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.btnGuardarPregunta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarPregunta.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarPregunta.ForeColor = System.Drawing.Color.White;
+            this.btnGuardarPregunta.ForeColor = System.Drawing.Color.Black;
             this.btnGuardarPregunta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardarPregunta.Location = new System.Drawing.Point(428, 418);
             this.btnGuardarPregunta.Name = "btnGuardarPregunta";
@@ -233,6 +233,8 @@
             this.Controls.Add(this.btnGuardarPregunta);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.PreguntaControl);
+            this.MaximumSize = new System.Drawing.Size(586, 497);
+            this.MinimumSize = new System.Drawing.Size(586, 497);
             this.Name = "FrmAgregarPregunta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAgregarPregunta";
