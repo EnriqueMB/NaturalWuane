@@ -60,10 +60,11 @@
             this.LblHoraEntrada1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1BotonesDatosTurno = new System.Windows.Forms.FlowLayoutPanel();
             this.BtnAgregar = new System.Windows.Forms.Button();
-            this.CancelarBtn = new System.Windows.Forms.Button();
+            this.EliminarBtn = new System.Windows.Forms.Button();
             this.panelContainTableDataTurnoDays = new System.Windows.Forms.Panel();
             this.horarioDesignV21 = new CIDFares.Library.Controls.CIDHorario.Design.HorarioDesignV2();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.CancelarBtn = new System.Windows.Forms.Button();
             this.PanelTitulo.SuspendLayout();
             this.PanelBTN.SuspendLayout();
             this.PanelContainsBtnGuardarç.SuspendLayout();
@@ -113,9 +114,10 @@
             // PanelContainsBtnGuardarç
             // 
             this.PanelContainsBtnGuardarç.Controls.Add(this.BtnGuardar);
-            this.PanelContainsBtnGuardarç.Location = new System.Drawing.Point(783, 3);
+            this.PanelContainsBtnGuardarç.Controls.Add(this.CancelarBtn);
+            this.PanelContainsBtnGuardarç.Location = new System.Drawing.Point(606, 3);
             this.PanelContainsBtnGuardarç.Name = "PanelContainsBtnGuardarç";
-            this.PanelContainsBtnGuardarç.Size = new System.Drawing.Size(213, 41);
+            this.PanelContainsBtnGuardarç.Size = new System.Drawing.Size(428, 41);
             this.PanelContainsBtnGuardarç.TabIndex = 2;
             // 
             // BtnGuardar
@@ -219,6 +221,7 @@
             // 
             // DiasControl
             // 
+            this.DiasControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DiasControl.FormattingEnabled = true;
             this.DiasControl.Location = new System.Drawing.Point(18, 23);
             this.DiasControl.Name = "DiasControl";
@@ -302,7 +305,7 @@
             // 
             // PickerHoraSalida2
             // 
-            this.PickerHoraSalida2.CustomFormat = "HH:mm";
+            this.PickerHoraSalida2.CustomFormat = "hh:mm";
             this.PickerHoraSalida2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.PickerHoraSalida2.Location = new System.Drawing.Point(18, 175);
             this.PickerHoraSalida2.Name = "PickerHoraSalida2";
@@ -320,7 +323,7 @@
             // 
             // PickerHoraEntrada2
             // 
-            this.PickerHoraEntrada2.CustomFormat = "HH:mm";
+            this.PickerHoraEntrada2.CustomFormat = "hh:mm";
             this.PickerHoraEntrada2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.PickerHoraEntrada2.Location = new System.Drawing.Point(18, 125);
             this.PickerHoraEntrada2.Name = "PickerHoraEntrada2";
@@ -329,7 +332,7 @@
             // 
             // PickerHoraSalida1
             // 
-            this.PickerHoraSalida1.CustomFormat = "HH:mm";
+            this.PickerHoraSalida1.CustomFormat = "hh:mm";
             this.PickerHoraSalida1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.PickerHoraSalida1.Location = new System.Drawing.Point(18, 75);
             this.PickerHoraSalida1.Name = "PickerHoraSalida1";
@@ -338,8 +341,8 @@
             // 
             // PickerHoraEntrada1
             // 
-            this.PickerHoraEntrada1.CustomFormat = "HH:mm";
-            this.PickerHoraEntrada1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.PickerHoraEntrada1.CustomFormat = "hh:mm";
+            this.PickerHoraEntrada1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.PickerHoraEntrada1.Location = new System.Drawing.Point(18, 25);
             this.PickerHoraEntrada1.Name = "PickerHoraEntrada1";
             this.PickerHoraEntrada1.Size = new System.Drawing.Size(256, 26);
@@ -376,7 +379,7 @@
             // 
             this.flowLayoutPanel1BotonesDatosTurno.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flowLayoutPanel1BotonesDatosTurno.Controls.Add(this.BtnAgregar);
-            this.flowLayoutPanel1BotonesDatosTurno.Controls.Add(this.CancelarBtn);
+            this.flowLayoutPanel1BotonesDatosTurno.Controls.Add(this.EliminarBtn);
             this.flowLayoutPanel1BotonesDatosTurno.Location = new System.Drawing.Point(14, 395);
             this.flowLayoutPanel1BotonesDatosTurno.Name = "flowLayoutPanel1BotonesDatosTurno";
             this.flowLayoutPanel1BotonesDatosTurno.Size = new System.Drawing.Size(269, 41);
@@ -395,17 +398,17 @@
             this.BtnAgregar.UseVisualStyleBackColor = false;
             this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
-            // CancelarBtn
+            // EliminarBtn
             // 
-            this.CancelarBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.CancelarBtn.FlatAppearance.BorderSize = 0;
-            this.CancelarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelarBtn.Location = new System.Drawing.Point(146, 3);
-            this.CancelarBtn.Name = "CancelarBtn";
-            this.CancelarBtn.Size = new System.Drawing.Size(120, 30);
-            this.CancelarBtn.TabIndex = 7;
-            this.CancelarBtn.Text = "Cancelar";
-            this.CancelarBtn.UseVisualStyleBackColor = false;
+            this.EliminarBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.EliminarBtn.FlatAppearance.BorderSize = 0;
+            this.EliminarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EliminarBtn.Location = new System.Drawing.Point(146, 3);
+            this.EliminarBtn.Name = "EliminarBtn";
+            this.EliminarBtn.Size = new System.Drawing.Size(120, 30);
+            this.EliminarBtn.TabIndex = 7;
+            this.EliminarBtn.Text = "Eliminar";
+            this.EliminarBtn.UseVisualStyleBackColor = false;
             // 
             // panelContainTableDataTurnoDays
             // 
@@ -428,6 +431,20 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // CancelarBtn
+            // 
+            this.CancelarBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.CancelarBtn.FlatAppearance.BorderSize = 0;
+            this.CancelarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelarBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.CancelarBtn.Location = new System.Drawing.Point(215, 3);
+            this.CancelarBtn.Name = "CancelarBtn";
+            this.CancelarBtn.Size = new System.Drawing.Size(206, 35);
+            this.CancelarBtn.TabIndex = 2;
+            this.CancelarBtn.Text = "Cancelar";
+            this.CancelarBtn.UseVisualStyleBackColor = false;
+            this.CancelarBtn.Click += new System.EventHandler(this.CancelarBtn_Click);
             // 
             // FrmTurno
             // 
@@ -502,10 +519,11 @@
         private System.Windows.Forms.Label LblHoraSalida2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1BotonesDatosTurno;
         private System.Windows.Forms.Button BtnAgregar;
-        private System.Windows.Forms.Button CancelarBtn;
+        private System.Windows.Forms.Button EliminarBtn;
         private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.FlowLayoutPanel PanelContainsBtnGuardarç;
         private Library.Controls.CIDHorario.Design.HorarioDesignV2 horarioDesignV21;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button CancelarBtn;
     }
 }

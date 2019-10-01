@@ -121,6 +121,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                errorProvider1.Clear();
                 if (RbtnDosHorarios.Checked)
                 {
                     Model.ListaTurno.Add(new TurnoDias
@@ -130,8 +131,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         HoraSalida = PickerHoraSalida1.Value.TimeOfDay.ToString()
                     });
 
-                    string horario = PickerHoraEntrada1.Value.ToShortTimeString()+ "\n\t   a\n\t" + PickerHoraSalida1.Value.ToShortTimeString();
-                    horarioDesignV21.AgregarHora((DaysHour)DiasControl.SelectedValue, horario);
+                    if(ValidarDatos(2) == 0)
+                    {
+                        string horario = PickerHoraEntrada1.Value.ToShortTimeString() + "\r\n   a\r\n" + PickerHoraSalida1.Value.ToShortTimeString();
+                        horarioDesignV21.AgregarHora((DaysHour)DiasControl.SelectedValue, horario);
+                    }
                 }
                 else if(RbtnCuatroHorarios.Checked)
                 {
@@ -148,9 +152,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         HoraSalida = PickerHoraSalida2.Value.TimeOfDay.ToString()
                     });
 
-                    string horario = PickerHoraEntrada1.Value.ToShortTimeString() + "\n\t   a\n\t" + PickerHoraSalida1.Value.ToShortTimeString()
-                        +"\n\t\n\t"+ PickerHoraEntrada2.Value.ToShortTimeString() + "\n\t   a\n\t" + PickerHoraSalida2.Value.ToShortTimeString();
-                    horarioDesignV21.AgregarHora((DaysHour)DiasControl.SelectedValue, horario);
+                    if (ValidarDatos(4) == 0)
+                    {
+                        string horario = PickerHoraEntrada1.Value.ToShortTimeString() + "\r\n   a\r\n" + PickerHoraSalida1.Value.ToShortTimeString()
+                                                + "\r\n\r\n" + PickerHoraEntrada2.Value.ToShortTimeString() + "\r\n   a\r\n" + PickerHoraSalida2.Value.ToShortTimeString();
+                        horarioDesignV21.AgregarHora((DaysHour)DiasControl.SelectedValue, horario);
+                    }   
                 }
             }
             catch (Exception ex)
@@ -167,6 +174,97 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+
+        private int ValidarDatos(int NumHorarios)
+        {
+            int validation = 0;
+            if(TBoxNombreTurno.Text == "")
+            {
+                errorProvider1.SetError(TBoxNombreTurno, "INGRESE EL NOMBRE DEL TURNO");
+                validation++;
+            }
+            if(DiasControl.Text.ToString() == "SELECCIONE")
+            {
+                errorProvider1.SetError(DiasControl, "SELECCIONE UN DÍA");
+                validation++;
+            }
+            switch (NumHorarios)
+            {
+                case 2:
+                    if(PickerHoraEntrada1.Value > PickerHoraSalida1.Value)
+                    {
+                        validation++;
+                    }
+                    TimeSpan dife = PickerHoraSalida1.Value - PickerHoraEntrada1.Value;
+                    int diferencia = dife.Hours;
+                    if(diferencia < 1)
+                    {
+                        errorProvider1.SetError(PickerHoraSalida1, "LA DIFERENCIA MÍNIMA DEBE DE SER DE 2 HORAS");
+                        validation++;
+                    }
+                    break;
+                case 4:
+                    if (PickerHoraEntrada1.Value > PickerHoraSalida1.Value)
+                    {
+                        validation++;
+                    }
+                    TimeSpan dife1 = PickerHoraSalida1.Value - PickerHoraEntrada1.Value;
+                    int diferencia1 = dife1.Hours;
+                    if (diferencia1 < 1)
+                    {
+                        errorProvider1.SetError(PickerHoraSalida1, "LA DIFERENCIA MÍNIMA DEBE DE SER DE 2 HORAS");
+                        validation++;
+                    }
+                    if (PickerHoraEntrada2.Value < PickerHoraSalida1.Value)
+                    {
+                        validation++;
+                    }
+                    TimeSpan difeInter = PickerHoraEntrada2.Value - PickerHoraSalida1.Value;
+                    int diferenciaInter = difeInter.Minutes;
+                    if (diferenciaInter < 30)
+                    {
+                        errorProvider1.SetError(PickerHoraEntrada2, "LA DIFERENCIA MÍNIMA DEBE DE SER DE 30 MINUTOS");
+                        validation++;
+                    }
+                    if (PickerHoraEntrada2.Value > PickerHoraSalida2.Value)
+                    {
+                        validation++;
+                    }
+                    TimeSpan dife2 = PickerHoraSalida2.Value - PickerHoraEntrada2.Value;
+                    int diferencia2 = dife2.Hours;
+                    if (diferencia2 < 1)
+                    {
+                        errorProvider1.SetError(PickerHoraSalida2, "LA DIFERENCIA MÍNIMA DEBE DE SER DE 2 HORAS");
+                        validation++;
+                    }
+                    if(PickerHoraEntrada1.Value > PickerHoraSalida1.Value || 
+                       PickerHoraSalida1.Value > PickerHoraEntrada2.Value || 
+                       PickerHoraEntrada2.Value > PickerHoraSalida2.Value)
+                    {
+                        validation++;
+                    }
+                    break;
+            }
+            String valor = "Valor: ";
+            Console.Write(valor,validation);
+            return validation;
+        }
+
+        private void CancelarBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CIDMessageBox.ShowAlertRequest(Constants.Messages.SystemName, Constants.Messages.ConfirmCancelInput) == DialogResult.OK)
+                {
+                    Close();
+                }
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
         }

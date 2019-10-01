@@ -24,20 +24,15 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                BtnNuevo.Enabled = false;
                 FrmTurno Turno = new FrmTurno();
                 Turno.ShowDialog();
-                Model.State = EntityState.Create;
-                CargarDatosAsync();
+                //Model.State = EntityState.Create;
+                //CargarDatosAsync();
             }
             catch (Exception ex)
             {
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmEmpleadoGrid ~ BtnNuevo_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
-            }
-            finally
-            {
-                BtnNuevo.Enabled = true;
             }
         }
 
