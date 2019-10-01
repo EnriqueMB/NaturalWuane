@@ -97,6 +97,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                errorProvider1.Clear();
                 btnEliminar.Enabled = false;
                 var item = ObtenerSeleccionado();
                 if (item != null)
@@ -206,6 +207,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         private void btnLimpiarBusqueda_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
             BusquedaControl.Text = String.Empty;
             CargarDatosAsync();
         }
@@ -213,7 +215,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         private async void Buscar()
         {
             try
-            {              
+            {
+                errorProvider1.SetError(BusquedaControl, string.Empty);
                 if (!string.IsNullOrEmpty(Model.Busqueda))
                 {
                     await Model.GetBusqueda();
