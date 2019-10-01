@@ -26,6 +26,25 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         public int IDTipo { get; set; }
         #endregion
 
+        public FrmBusquedaProducto(string compra)
+        {
+            InitializeComponent();
+            Model = ServiceLocator.Instance.Resolve<BusquedaProductoViewModel>();
+            producto = new BusqueProducto();
+            IniciarBinding();
+            BusClaveBarraControl.CheckedChanged -= BusClaveBarraControl_CheckedChanged;
+            BusClaveBarraControl.Checked = false;
+            BusClaveBarraControl.CheckedChanged += BusClaveBarraControl_CheckedChanged;
+            this.Model.BuscaClaveCodigo = true;
+            this.ActiveControl = this.BuquedaClaveCodigoControl;
+            this.BuquedaClaveCodigoControl.Focus();
+
+            sfDataGridBuquedaProducto.Columns[5].Visible = false;
+            sfDataGridBuquedaProducto.Columns[6].Visible = false;
+            sfDataGridBuquedaProducto.Columns[7].Visible = false;
+
+        }
+
         public FrmBusquedaProducto()
         {
             InitializeComponent();
@@ -38,6 +57,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             this.Model.BuscaClaveCodigo = true;
             this.ActiveControl = this.BuquedaClaveCodigoControl;
             this.BuquedaClaveCodigoControl.Focus();
+            sfDataGridBuquedaProducto.Columns[9].Visible = false;
         }
 
         public FrmBusquedaProducto(int cant)
@@ -54,6 +74,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             this.BuquedaClaveCodigoControl.Focus();
             CantidadProductoControl.Visible = false;
             Model.CantidadProducto = cant;
+            sfDataGridBuquedaProducto.Columns[9].Visible = false;
         }
 
         #region Metodo

@@ -152,7 +152,6 @@
             // 
             this.FibrasControl.BeforeTouchSize = new System.Drawing.Size(141, 25);
             this.FibrasControl.ClipMode = Syncfusion.Windows.Forms.Tools.CurrencyClipModes.ExcludeFormatting;
-            this.FibrasControl.CurrencyDecimalSeparator = ",";
             this.FibrasControl.CurrencyGroupSeparator = "";
             this.FibrasControl.CurrencySymbol = "";
             this.FibrasControl.DecimalValue = new decimal(new int[] {
@@ -172,13 +171,12 @@
             this.FibrasControl.Size = new System.Drawing.Size(141, 25);
             this.FibrasControl.SpecialCultureValue = Syncfusion.Windows.Forms.Tools.SpecialCultureValues.UICulture;
             this.FibrasControl.TabIndex = 7;
-            this.FibrasControl.Text = "0,00";
+            this.FibrasControl.Text = "0.00";
             // 
             // GrasasControl
             // 
             this.GrasasControl.BeforeTouchSize = new System.Drawing.Size(141, 25);
             this.GrasasControl.ClipMode = Syncfusion.Windows.Forms.Tools.CurrencyClipModes.ExcludeFormatting;
-            this.GrasasControl.CurrencyDecimalSeparator = ",";
             this.GrasasControl.CurrencyGroupSeparator = "";
             this.GrasasControl.CurrencySymbol = "";
             this.GrasasControl.DecimalValue = new decimal(new int[] {
@@ -198,13 +196,12 @@
             this.GrasasControl.Size = new System.Drawing.Size(141, 25);
             this.GrasasControl.SpecialCultureValue = Syncfusion.Windows.Forms.Tools.SpecialCultureValues.UICulture;
             this.GrasasControl.TabIndex = 6;
-            this.GrasasControl.Text = "0,00";
+            this.GrasasControl.Text = "0.00";
             // 
             // ProteinasControl
             // 
             this.ProteinasControl.BeforeTouchSize = new System.Drawing.Size(141, 25);
             this.ProteinasControl.ClipMode = Syncfusion.Windows.Forms.Tools.CurrencyClipModes.ExcludeFormatting;
-            this.ProteinasControl.CurrencyDecimalSeparator = ",";
             this.ProteinasControl.CurrencyGroupSeparator = "";
             this.ProteinasControl.CurrencySymbol = "";
             this.ProteinasControl.DecimalValue = new decimal(new int[] {
@@ -224,13 +221,11 @@
             this.ProteinasControl.Size = new System.Drawing.Size(141, 25);
             this.ProteinasControl.SpecialCultureValue = Syncfusion.Windows.Forms.Tools.SpecialCultureValues.UICulture;
             this.ProteinasControl.TabIndex = 5;
-            this.ProteinasControl.Text = "0,00";
+            this.ProteinasControl.Text = "0.00";
             // 
             // CaloriasControl
             // 
             this.CaloriasControl.BeforeTouchSize = new System.Drawing.Size(141, 25);
-            this.CaloriasControl.ClipMode = Syncfusion.Windows.Forms.Tools.CurrencyClipModes.ExcludeFormatting;
-            this.CaloriasControl.CurrencyDecimalSeparator = ",";
             this.CaloriasControl.CurrencyGroupSeparator = "";
             this.CaloriasControl.CurrencySymbol = "";
             this.CaloriasControl.DecimalValue = new decimal(new int[] {
@@ -250,7 +245,7 @@
             this.CaloriasControl.Size = new System.Drawing.Size(141, 25);
             this.CaloriasControl.SpecialCultureValue = Syncfusion.Windows.Forms.Tools.SpecialCultureValues.UICulture;
             this.CaloriasControl.TabIndex = 3;
-            this.CaloriasControl.Text = "0,00";
+            this.CaloriasControl.Text = "0.00";
             // 
             // IdTipoAlimentoControl
             // 
@@ -264,7 +259,6 @@
             // 
             this.HidratosControl.BeforeTouchSize = new System.Drawing.Size(141, 25);
             this.HidratosControl.ClipMode = Syncfusion.Windows.Forms.Tools.CurrencyClipModes.ExcludeFormatting;
-            this.HidratosControl.CurrencyDecimalSeparator = ",";
             this.HidratosControl.CurrencyGroupSeparator = "";
             this.HidratosControl.CurrencySymbol = "";
             this.HidratosControl.DecimalValue = new decimal(new int[] {
@@ -284,7 +278,7 @@
             this.HidratosControl.Size = new System.Drawing.Size(141, 25);
             this.HidratosControl.SpecialCultureValue = Syncfusion.Windows.Forms.Tools.SpecialCultureValues.UICulture;
             this.HidratosControl.TabIndex = 4;
-            this.HidratosControl.Text = "0,00";
+            this.HidratosControl.Text = "0.00";
             // 
             // label8
             // 

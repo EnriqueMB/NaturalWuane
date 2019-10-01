@@ -40,11 +40,11 @@
             // btnGuardarRespuesta
             // 
             this.btnGuardarRespuesta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardarRespuesta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
-            this.btnGuardarRespuesta.FlatAppearance.BorderSize = 0;
+            this.btnGuardarRespuesta.BackColor = System.Drawing.Color.White;
+            this.btnGuardarRespuesta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
             this.btnGuardarRespuesta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarRespuesta.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarRespuesta.ForeColor = System.Drawing.Color.White;
+            this.btnGuardarRespuesta.ForeColor = System.Drawing.Color.Black;
             this.btnGuardarRespuesta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardarRespuesta.Location = new System.Drawing.Point(421, 198);
             this.btnGuardarRespuesta.Name = "btnGuardarRespuesta";
@@ -102,6 +102,8 @@
             this.Controls.Add(this.btnGuardarRespuesta);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.RespuestaControl);
+            this.MaximumSize = new System.Drawing.Size(586, 282);
+            this.MinimumSize = new System.Drawing.Size(586, 282);
             this.Name = "FrmAgregarRespuesta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAgregarRespuesta";

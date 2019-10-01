@@ -41,6 +41,7 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.PanelBotones = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnProcesarCompra = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.BtnCancelarCompra = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -83,7 +84,6 @@
             this.FechaControl = new System.Windows.Forms.Label();
             this.btnProducto = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnProcesarCompra = new System.Windows.Forms.Button();
             this.pnlTitulos.SuspendLayout();
             this.PanelBotones.SuspendLayout();
             this.groupBoxProducto.SuspendLayout();
@@ -155,6 +155,22 @@
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnProcesarCompra
+            // 
+            this.btnProcesarCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnProcesarCompra.BackColor = System.Drawing.Color.White;
+            this.btnProcesarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProcesarCompra.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProcesarCompra.ForeColor = System.Drawing.Color.Black;
+            this.btnProcesarCompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProcesarCompra.Location = new System.Drawing.Point(705, 23);
+            this.btnProcesarCompra.Name = "btnProcesarCompra";
+            this.btnProcesarCompra.Size = new System.Drawing.Size(130, 28);
+            this.btnProcesarCompra.TabIndex = 18;
+            this.btnProcesarCompra.Text = "PROCESAR COMPRA";
+            this.btnProcesarCompra.UseVisualStyleBackColor = false;
+            this.btnProcesarCompra.Click += new System.EventHandler(this.BtnProcesarCompra_Click);
             // 
             // BtnAgregar
             // 
@@ -371,29 +387,38 @@
             // sfDataGrid1
             // 
             this.sfDataGrid1.AccessibleName = "Table";
+            this.sfDataGrid1.AllowEditing = false;
             this.sfDataGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.sfDataGrid1.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            gridTextColumn1.AllowEditing = false;
             gridTextColumn1.HeaderText = "Column1";
             gridTextColumn1.MappingName = "IdProducto";
             gridTextColumn1.Visible = false;
+            gridTextColumn2.AllowEditing = false;
             gridTextColumn2.HeaderText = "Nombre";
             gridTextColumn2.MappingName = "Nombre";
+            gridTextColumn3.AllowEditing = false;
             gridTextColumn3.HeaderText = "Cantidad";
             gridTextColumn3.MappingName = "Cantidad";
+            gridTextColumn4.AllowEditing = false;
             gridTextColumn4.Format = "C";
             gridTextColumn4.HeaderText = "Costo";
             gridTextColumn4.MappingName = "PrecioCosto";
+            gridTextColumn5.AllowEditing = false;
             gridTextColumn5.Format = "C";
             gridTextColumn5.HeaderText = "Subtotal";
             gridTextColumn5.MappingName = "Subtotal";
+            gridTextColumn6.AllowEditing = false;
             gridTextColumn6.Format = "C";
             gridTextColumn6.HeaderText = "Iva";
             gridTextColumn6.MappingName = "PorcentajeIva";
+            gridTextColumn7.AllowEditing = false;
             gridTextColumn7.Format = "C";
             gridTextColumn7.HeaderText = "Total";
             gridTextColumn7.MappingName = "Total";
+            gridTextColumn8.AllowEditing = false;
             gridTextColumn8.HeaderText = "IdCompraProducto";
             gridTextColumn8.MappingName = "IdCompraProducto";
             gridTextColumn8.Visible = false;
@@ -662,22 +687,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // btnProcesarCompra
-            // 
-            this.btnProcesarCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnProcesarCompra.BackColor = System.Drawing.Color.White;
-            this.btnProcesarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProcesarCompra.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProcesarCompra.ForeColor = System.Drawing.Color.Black;
-            this.btnProcesarCompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProcesarCompra.Location = new System.Drawing.Point(705, 23);
-            this.btnProcesarCompra.Name = "btnProcesarCompra";
-            this.btnProcesarCompra.Size = new System.Drawing.Size(130, 28);
-            this.btnProcesarCompra.TabIndex = 18;
-            this.btnProcesarCompra.Text = "PROCESAR COMPRA";
-            this.btnProcesarCompra.UseVisualStyleBackColor = false;
-            this.btnProcesarCompra.Click += new System.EventHandler(this.BtnProcesarCompra_Click);
             // 
             // FrmCompra
             // 
