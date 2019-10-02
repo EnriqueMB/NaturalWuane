@@ -38,7 +38,7 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
             GetAllPromocionAsync();
         }
 
-        private async void GetAllPromocionAsync()
+        public async Task GetAllPromocionAsync()
         {
             try
             {
@@ -120,6 +120,7 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
             try
             {
                 PromocionNxN model = new PromocionNxN();
+                model.Promocion.IdPromocion = this.IdPromocion;
                 model.Promocion.TipoPromocion.IdTipoPromocion = this.IdTipoPromocion;
                 model.Promocion.IdGenerico = this.IdGenerico;
                 model.Promocion.EsProducto = this.EsProducto;
@@ -158,6 +159,7 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
             try
             {
                 PromocionMxN model = new PromocionMxN();
+                model.Promocion.IdPromocion = this.IdPromocion;
                 model.Promocion.TipoPromocion.IdTipoPromocion = this.IdTipoPromocion;
                 model.Promocion.IdGenerico = this.IdGenerico;
                 model.Promocion.EsProducto = this.EsProducto;
@@ -298,6 +300,18 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
                 throw;
             }
         }
+
+        public async Task<int> DeleteAsync(Guid IdUsuario)
+        {
+            try
+            {
+                return await Repository.DeleteAsync(this.IdPromocion, IdUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
 
         #endregion
@@ -353,8 +367,8 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
                 OnPropertyChanged(nameof(Producto));
             }
         }
-        
-       
+
+
 
         private string _Descripcion;
 
@@ -572,7 +586,9 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
                 OnPropertyChanged(nameof(CantidadGratis));
             }
         }
-        
+
+        public int Resultado { get; set; } 
+
         #endregion
 
         #region InotifyPropertyChanged Members

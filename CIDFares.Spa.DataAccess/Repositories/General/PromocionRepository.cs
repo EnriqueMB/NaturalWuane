@@ -37,6 +37,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@Opcion", Opcion);
+                    dynamicParameters.Add("@IdPromocion", element.Promocion.IdPromocion);
                     dynamicParameters.Add("@IdTipoPromocion", element.Promocion.TipoPromocion.IdTipoPromocion);
                     dynamicParameters.Add("@IdGenerico", element.Promocion.IdGenerico);
                     dynamicParameters.Add("@EsProducto", element.Promocion.EsProducto);
@@ -77,6 +78,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@Opcion", Opcion);
+                    dynamicParameters.Add("@IdPromocion", element.Promocion.IdPromocion);
                     dynamicParameters.Add("@IdTipoPromocion", element.Promocion.TipoPromocion.IdTipoPromocion);
                     dynamicParameters.Add("@IdGenerico", element.Promocion.IdGenerico);
                     dynamicParameters.Add("@EsProducto", element.Promocion.EsProducto);
@@ -118,6 +120,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@Opcion", Opcion);
+                    dynamicParameters.Add("@IdPromocion", element.Promocion.IdPromocion);
                     dynamicParameters.Add("@IdTipoPromocion", element.Promocion.TipoPromocion.IdTipoPromocion);
                     dynamicParameters.Add("@IdGenerico", element.Promocion.IdGenerico);
                     dynamicParameters.Add("@EsProducto", element.Promocion.EsProducto);
@@ -149,9 +152,25 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public Task<int> DeleteAsync(object id, object IdUsuario)
+        public async Task<int> DeleteAsync(object id, object IdUsuario)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdPromocion", id);
+                    dynamicParameters.Add("@Usuario", IdUsuario);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Promocion].[SPCID_Delete_Promocion]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public Task<bool> ExistAsync(object id)

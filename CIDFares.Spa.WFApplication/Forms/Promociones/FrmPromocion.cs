@@ -6,6 +6,7 @@ using CIDFares.Spa.Business.ViewModels.Promociones;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
+using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -99,7 +100,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             }
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private async void btnModificar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -108,7 +109,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 {
                     FrmNuevaPromocion modificar = new FrmNuevaPromocion(item);
                     modificar.ShowDialog();
-                    SfGridPromocion.Refresh();
+                    await Model.GetAllPromocionAsync();
+                    this.SfGridPromocion.Refresh();
                 }
                 else
                     CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
@@ -121,11 +123,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             }
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private async void btnNuevo_Click(object sender, EventArgs e)
         {
             //GetPanel(new FrmNuevaPromocion());
             FrmNuevaPromocion nuevo = new FrmNuevaPromocion();
             nuevo.ShowDialog();
+            await Model.GetAllPromocionAsync();
+            this.SfGridPromocion.Refresh();
         }
 
         public void GetPanel(object Formhijo)
@@ -183,6 +187,40 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             //else
             //    if (btnNuevo.ForeColor == Color.FromArgb(60, 186, 60))
             //    btnNuevo.ForeColor = Color.White;
+        }
+
+        private async void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var item = ObtenerSeleccionado();
+                if (item != null)
+                {
+
+                    if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmDeleteMessage) == DialogResult.OK)
+                    {
+                        Model.IdPromocion = item.IdPromocion;
+                        var result = await Model.DeleteAsync(CurrentSession.IdCuentaUsuario);
+                        if (result == 1)
+                        {
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.informacion);
+                            await Model.GetAllPromocionAsync();
+                            this.SfGridPromocion.Refresh();
+                            //this.CleanErrors(errorProvider1, typeof(FormaPagoViewModel));
+
+                        }
+                        else
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.informacion);
+                    }
+                }
+                else
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPromocion ~ btnEliminar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
         }
     }
 }

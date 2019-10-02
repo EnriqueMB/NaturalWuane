@@ -240,8 +240,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                         Model.TablaServicio = ObtenerTablaServicio(ListaPromocionMxN);
                         FrmPromocionDias promocionDias = new FrmPromocionDias(Model);
                         promocionDias.ShowDialog();
-                        if (promocionDias.Resultado == 1)
+                    if (promocionDias.Resultado == 1)
+                        {
+                            this.Close();
+                            Model.Resultado = 1;
                             LimpiarPropiedades();
+                        }
                     }
                     else
                         errorProvider1.SetError(btnAgregar, "Seleccione al menos un articulo.");

@@ -35,6 +35,7 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GroupColumnDescription groupColumnDescription1 = new Syncfusion.WinForms.DataGrid.GroupColumnDescription();
             this.panelGeneral = new System.Windows.Forms.Panel();
             this.SfGridPromocion = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -85,24 +86,25 @@
             gridTextColumn3.AllowResizing = true;
             gridTextColumn3.HeaderText = "Tipo de promocion";
             gridTextColumn3.MappingName = "TipoPromocion.Nombre";
+            gridTextColumn3.Visible = false;
             gridTextColumn4.AllowGrouping = false;
             gridTextColumn4.AllowResizing = true;
-            gridTextColumn4.HeaderText = "Cantidad";
-            gridTextColumn4.MappingName = "Cantidad";
-            gridTextColumn4.Width = 100D;
+            gridTextColumn4.HeaderText = "Nombre Promocion";
+            gridTextColumn4.MappingName = "NombrePromocion";
             gridTextColumn5.AllowGrouping = false;
             gridTextColumn5.AllowResizing = true;
-            gridTextColumn5.HeaderText = "Limite";
-            gridTextColumn5.MappingName = "Limite";
-            gridTextColumn5.Width = 100D;
+            gridTextColumn5.HeaderText = "Nombre";
+            gridTextColumn5.MappingName = "Nombre";
             gridTextColumn6.AllowGrouping = false;
             gridTextColumn6.AllowResizing = true;
-            gridTextColumn6.HeaderText = "Nombre";
-            gridTextColumn6.MappingName = "Nombre";
+            gridTextColumn6.HeaderText = "Cantidad";
+            gridTextColumn6.MappingName = "Cantidad";
+            gridTextColumn6.Visible = false;
+            gridTextColumn6.Width = 100D;
             gridTextColumn7.AllowGrouping = false;
             gridTextColumn7.AllowResizing = true;
-            gridTextColumn7.HeaderText = "Nombre Promocion";
-            gridTextColumn7.MappingName = "NombrePromocion";
+            gridTextColumn7.HeaderText = "Limite De compra";
+            gridTextColumn7.MappingName = "Limite";
             this.SfGridPromocion.Columns.Add(gridTextColumn1);
             this.SfGridPromocion.Columns.Add(gridTextColumn2);
             this.SfGridPromocion.Columns.Add(gridTextColumn3);
@@ -112,6 +114,8 @@
             this.SfGridPromocion.Columns.Add(gridTextColumn7);
             this.SfGridPromocion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SfGridPromocion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            groupColumnDescription1.ColumnName = "TipoPromocion.Nombre";
+            this.SfGridPromocion.GroupColumnDescriptions.Add(groupColumnDescription1);
             this.SfGridPromocion.Location = new System.Drawing.Point(0, 0);
             this.SfGridPromocion.Name = "SfGridPromocion";
             this.SfGridPromocion.PreviewRowHeightMode = Syncfusion.WinForms.DataGrid.Enums.PreviewRowHeightMode.Auto;
@@ -181,6 +185,7 @@
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // tableLayoutPanel1
             // 

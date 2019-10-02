@@ -117,7 +117,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                     FrmPromocionDias dias = new FrmPromocionDias(Model);
                     dias.ShowDialog();
                     if (dias.Resultado == 1)
+                    {
+                        this.Close();
+                        Model.Resultado = 1;
                         LimpiarPropiedades();
+                    }
                 }
             }
             catch (Exception)

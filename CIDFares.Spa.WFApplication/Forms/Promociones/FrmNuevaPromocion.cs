@@ -48,6 +48,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 Model.Nombre = promocion.Nombre;
                 Model.IdPromocion = promocion.IdPromocion;
                 Model.Limite = promocion.Limite;
+                Model.IdGenerico = promocion.IdGenerico;
             }
             catch (Exception)
             {
@@ -154,7 +155,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             }
             catch (Exception)
             {
-
                 throw;
             }
          }
@@ -240,6 +240,22 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
         private void button2_Click(object sender, EventArgs e)
         {
             this.panelContenedor.Controls.RemoveAt(0);
+        }
+
+        private void panelContenedor_Paint(object sender, PaintEventArgs e)
+        {
+            try
+            {
+                if(Model.Resultado == 1)
+                {
+                    this.Close();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
