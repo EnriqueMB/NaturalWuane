@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 using CIDFares.Spa.DataAccess.Repositories.Base;
 using System.Data;
 using System.Data.SqlClient;
+using CIDFares.Library.Code.Extensions;
 using Dapper;
+using System.Linq;
 
 namespace CIDFares.Spa.DataAccess.Repositories.General
 {
     public class SucursalRepository : Repository, ISucursalRepository
     {
-
+        #region Metodos Implementado
         public async Task<Sucursal> AddAsync(Sucursal element, object IdUsuario)
         {
             try
@@ -20,10 +22,11 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 Sucursal sucursal = new Sucursal();
                 using (IDbConnection conexion = new SqlConnection(WebConnectionString))
                 {
+
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@NuevoRegistro", 1);
-                    dynamicParameters.Add("@IdSucursal", 0);
+                    dynamicParameters.Add("@IdSucursal", 0);//element.IdSucursal, DbType.Int32, direction: ParameterDirection.InputOutput
                     dynamicParameters.Add("@IdTipoSucursal", element.IdTipoSucursal);
                     dynamicParameters.Add("@NombreSucursal", element.Nombre);
                     dynamicParameters.Add("@Direccion", element.Direccion);
@@ -35,6 +38,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@RFC", element.Rfc);
                     dynamicParameters.Add("@NombreRepresentante", element.NombreRepresentante);
                     dynamicParameters.Add("@RegimenFiscal", element.RegimenFiscal);
+                    dynamicParameters.Add("@TablaHorario", ObtenerTabla(element.ListaHorario), DbType.Object);
                     dynamicParameters.Add("@IdUsuarioL", IdUsuario);
                     var result = await conexion.ExecuteScalarAsync<int>("[General].[SPCID_AC_Sucursales]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     sucursal.Result = result;
@@ -46,8 +50,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
-
-
         public async Task<int> DeleteAsync(object id, object IdUsuario)
         {
             try
@@ -67,17 +69,11 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
-
-        public Task<bool> ExistAsync(object id)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<IEnumerable<Sucursal>> GetAllAsync()
         {
             try
             {
-                using(IDbConnection conexion = new SqlConnection(WebConnectionString))
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
                 {
                     conexion.Open();
                     List<Sucursal> sucursals = new List<Sucursal>();
@@ -115,7 +111,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
-
         public async Task<Sucursal> GetAsync(object id)
         {
             try
@@ -127,24 +122,29 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@Todo", 0);
                     dynamicParameters.Add("@IdSucursal", id);
-                    var dr = await conexion.ExecuteReaderAsync("[General].[SPCID_Get_Sucursales]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                    while (dr.Read())
+                    using (var dr = conexion.QueryMultipleAsync("[General].[SPCID_Get_Sucursales]", param: dynamicParameters, commandType: CommandType.StoredProcedure).Result)
                     {
-                        item.IdTipoSucursal = !dr.IsDBNull(dr.GetOrdinal("IdTipoSucursal")) ? dr.GetInt32(dr.GetOrdinal("IdTipoSucursal")) : 0;
-                        item.NumSucursal = dr.GetInt32(dr.GetOrdinal("NumSucursal"));
-                        item.Nombre = dr.GetString(dr.GetOrdinal("NombreSucursal"));
-                        item.Direccion = dr.GetString(dr.GetOrdinal("Direccion"));
-                        item.Telefono = dr.GetString(dr.GetOrdinal("Telefono"));
-                        item.IdMunicipio = !dr.IsDBNull(dr.GetOrdinal("IdMunicipio")) ? dr.GetInt32(dr.GetOrdinal("IdMunicipio")) : 0;
-                        item.IdEstado = !dr.IsDBNull(dr.GetOrdinal("IdEstado")) ? dr.GetInt32(dr.GetOrdinal("IdEstado")) : 0;
-                        item.IdPais = !dr.IsDBNull(dr.GetOrdinal("IdPais")) ? dr.GetInt32(dr.GetOrdinal("IdPais")) : 0;
-                        item.CodigoPostal = dr.GetString(dr.GetOrdinal("CodigoPostal"));
-                        item.Rfc = dr.GetString(dr.GetOrdinal("RFC"));
-                        item.NombreRepresentante = dr.GetString(dr.GetOrdinal("NombreRepresentante"));
-                        item.RegimenFiscal = dr.GetString(dr.GetOrdinal("RegimenFiscal"));
+                        item = dr.ReadFirstOrDefault<Sucursal>();                        
+                        item.ListaHorario = dr.Read<HorarioSucursal>().ToList();    
                         
                     }
-                    dr.Close();
+                    //var dr = await conexion.ExecuteReaderAsync("[General].[SPCID_Get_Sucursales]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    //while (dr.Read())
+                    //{
+                    //    item.IdTipoSucursal = !dr.IsDBNull(dr.GetOrdinal("IdTipoSucursal")) ? dr.GetInt32(dr.GetOrdinal("IdTipoSucursal")) : 0;
+                    //    item.NumSucursal = dr.GetInt32(dr.GetOrdinal("NumSucursal"));
+                    //    item.Nombre = dr.GetString(dr.GetOrdinal("NombreSucursal"));
+                    //    item.Direccion = dr.GetString(dr.GetOrdinal("Direccion"));
+                    //    item.Telefono = dr.GetString(dr.GetOrdinal("Telefono"));
+                    //    item.IdMunicipio = !dr.IsDBNull(dr.GetOrdinal("IdMunicipio")) ? dr.GetInt32(dr.GetOrdinal("IdMunicipio")) : 0;
+                    //    item.IdEstado = !dr.IsDBNull(dr.GetOrdinal("IdEstado")) ? dr.GetInt32(dr.GetOrdinal("IdEstado")) : 0;
+                    //    item.IdPais = !dr.IsDBNull(dr.GetOrdinal("IdPais")) ? dr.GetInt32(dr.GetOrdinal("IdPais")) : 0;
+                    //    item.CodigoPostal = dr.GetString(dr.GetOrdinal("CodigoPostal"));
+                    //    item.Rfc = dr.GetString(dr.GetOrdinal("RFC"));
+                    //    item.NombreRepresentante = dr.GetString(dr.GetOrdinal("NombreRepresentante"));
+                    //    item.RegimenFiscal = dr.GetString(dr.GetOrdinal("RegimenFiscal"));
+
+                    //}
                     return item;
                 }
             }
@@ -154,12 +154,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
-
-        public Task<int> NameExistAsync(string name)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<Sucursal> UpdateAsync(Sucursal element, object IdUsuario)
         {
             try
@@ -182,6 +176,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@RFC", element.Rfc);
                     dynamicParameters.Add("@NombreRepresentante", element.NombreRepresentante);
                     dynamicParameters.Add("@RegimenFiscal", element.RegimenFiscal);
+                    dynamicParameters.Add("@TablaHorario", ObtenerTabla(element.ListaHorario), DbType.Object);
                     dynamicParameters.Add("@IdUsuarioL", IdUsuario);
                     var result = await conexion.ExecuteScalarAsync<int>("[General].[SPCID_AC_Sucursales]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     sucursal.Result = result;
@@ -193,5 +188,27 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
+
+        public DataTable ObtenerTabla(List<HorarioSucursal> Lista)
+        {
+            DataTable TablaDatos = new DataTable();
+            TablaDatos.Columns.Add("Dia", typeof(int));
+            TablaDatos.Columns.Add("HoraEntrada", typeof(TimeSpan));
+            TablaDatos.Columns.Add("HoraSalida", typeof(TimeSpan));
+            foreach (var item in Lista)
+            {
+                TablaDatos.Rows.Add(new object[] { item.Dia, item.HoraEntrada.TimeOfDay, item.HoraSalida.TimeOfDay });      
+            }
+            return TablaDatos;
+        }
+        #endregion
+        public Task<bool> ExistAsync(object id)
+        {
+            throw new NotImplementedException();
+        }
+        public Task<int> NameExistAsync(string name)
+        {
+            throw new NotImplementedException();
+        }       
     }
 }
