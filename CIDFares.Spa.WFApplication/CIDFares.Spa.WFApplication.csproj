@@ -116,6 +116,12 @@
     <Compile Include="Forms\Catalogos\FrmTurnoPrincipal.Designer.cs">
       <DependentUpon>FrmTurnoPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\General\Apruebas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\General\Apruebas.Designer.cs">
+      <DependentUpon>Apruebas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\General\FrmEntradaSalidaAlmacen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,12 +133,6 @@
     </Compile>
     <Compile Include="Forms\General\FrmInventarioFisico.Designer.cs">
       <DependentUpon>FrmInventarioFisico.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\General\FrmInventarioTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\General\FrmInventarioTest.Designer.cs">
-      <DependentUpon>FrmInventarioTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Paquete\FrmAbonarPaquete.cs">
       <SubType>Form</SubType>
@@ -474,11 +474,11 @@
     <EmbeddedResource Include="Forms\Catalogos\FrmTurnoPrincipal.resx">
       <DependentUpon>FrmTurnoPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\General\Apruebas.resx">
+      <DependentUpon>Apruebas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\FrmEntradaSalidaAlmacen.resx">
       <DependentUpon>FrmEntradaSalidaAlmacen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\General\FrmInventarioTest.resx">
-      <DependentUpon>FrmInventarioTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Paquete\FrmAbonarPaquete.resx">
       <DependentUpon>FrmAbonarPaquete.cs</DependentUpon>

@@ -504,6 +504,13 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             GetPanel(new FrmEntradaSalidaAlmacen());
         }
 
+       
+
+        private void excel_Click_1(object sender, EventArgs e)
+        {
+            GetPanel(new Apruebas());
+        }
+
         private void SlideGenerales(Button button)
         {
             SlidePanelgenerales.Visible = true;

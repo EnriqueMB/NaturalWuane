@@ -373,19 +373,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                FrmInventarioTest f = new FrmInventarioTest();
-                f.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
+     
 
         private void TipoControl_SelectedIndexChanged(object sender, EventArgs e)
         {

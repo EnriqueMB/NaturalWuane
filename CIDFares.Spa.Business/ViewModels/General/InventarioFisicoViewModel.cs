@@ -1,4 +1,5 @@
-﻿using CIDFares.Spa.Business.ExportaImportaExcel;
+﻿using CIDFares.Library.Code.Utilities.IBase;
+using CIDFares.Spa.Business.ExportaImportaExcel;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using CIDFares.Spa.DataAccess.Contracts.Validations;
@@ -15,6 +16,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
     {
         #region propiedades privadas
         public IInventarioFisicoRepository IRepository { get; set; }
+        private IExcel Ex { get; set; }
         #endregion
 
         #region propiedades publicas
@@ -22,19 +24,20 @@ namespace CIDFares.Spa.Business.ViewModels.General
         #endregion
 
         #region constructor
-        public InventarioFisicoViewModel(IInventarioFisicoRepository Repo)
+        public InventarioFisicoViewModel(IInventarioFisicoRepository Repo, IExcel excel)
         {
+            Ex = excel;
             IRepository = Repo;
         }
         #endregion
 
         #region Metodos
-        public async Task GetProducto(object Idsucursal)
+        public async Task GetProducto(object Idsucursal, string Ruta, string Nombre)
         {
             try
             {
                 var Productos = await IRepository.GetProductos(Idsucursal);
-              //  Excels ExportarProductos = new Excels(Productos);
+                Excels ExportarProductos = new Excels(Productos, Ruta, Nombre, Ex);
                
 
             }
@@ -44,6 +47,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
                 throw ex ;
             }
         }
+
         #endregion
 
         #region Binding

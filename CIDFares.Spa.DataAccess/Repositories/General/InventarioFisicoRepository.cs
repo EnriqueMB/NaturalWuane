@@ -62,7 +62,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     conexion.Open();
                     DynamicParameters  Parametros = new DynamicParameters();
                     Parametros.Add("@IdSucursal", IdSucursal);
-                    return  await conexion.QueryAsync<Producto>("[Inventario].[SPCID_Get_InventarioFisico]", param: IdSucursal, commandType: CommandType.StoredProcedure);
+                    return  await conexion.QueryAsync<Producto>("[Inventario].[SPCID_Get_InventarioFisico]", param: Parametros, commandType: CommandType.StoredProcedure);
                     
                 }
             }
