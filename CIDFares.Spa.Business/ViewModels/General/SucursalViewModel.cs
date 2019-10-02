@@ -28,6 +28,8 @@ namespace CIDFares.Spa.Business.ViewModels.General
         public BindingList<Estado> ListaEstados { get; set; }
         public BindingList<Municipio> ListaMunicipios { get; set; }
         public BindingList<TipoSucursal> ListaTipoSucursal { get; set; }
+
+        public BindingList<HorarioSucursal> ListaHorario { get; set; }
         public EntityState State { get; set; }
         #endregion
 
@@ -168,6 +170,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
                 Rfc = sucursal.Rfc;
                 NombreRepresentante = sucursal.NombreRepresentante;
                 RegimenFiscal = sucursal.RegimenFiscal;
+                this.ListaHorario = new BindingList<HorarioSucursal>(sucursal.ListaHorario);
             }
             catch (Exception ex)
             {
@@ -194,6 +197,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
                     sucursal.Rfc = Rfc;
                     sucursal.NombreRepresentante = NombreRepresentante;
                     sucursal.RegimenFiscal = RegimenFiscal;
+                    sucursal.ListaHorario = this.ListaHorario.ToList();
                     sucursal = await SucursalRepository.AddAsync(sucursal,IdUsuario);
                 }
                 else if(State == EntityState.Update)
@@ -210,6 +214,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
                     sucursal.Rfc = Rfc;
                     sucursal.NombreRepresentante = NombreRepresentante;
                     sucursal.RegimenFiscal = RegimenFiscal;
+                    sucursal.ListaHorario = this.ListaHorario.ToList();
                     sucursal = await SucursalRepository.UpdateAsync(sucursal, IdUsuario);
                 }
                 return sucursal;
