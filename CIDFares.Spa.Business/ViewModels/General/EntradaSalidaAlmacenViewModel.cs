@@ -48,13 +48,15 @@ namespace CIDFares.Spa.Business.ViewModels.General
         {
             EntradaSalidaAlmacen model = new EntradaSalidaAlmacen
             {
-                TablaEntradaAlmacen = this.TablaEntradaAlmacen,
-                TablaSalidaAlmacen = this.TablaSalidaAlmacen,
+                TablaEntradaSalidaAlmacen = this.TablaEntradaAlmacen,
                 Folio = this.Folio,
                 Tipo = this.Tipo,
                 Fecha = this.Fecha,
                 Cantidad = this.Cantidad,
-                Motivo = this.Motivo
+                Motivo = this.Motivo,
+                SubTotal = this.SubTotal,
+                Iva = this.Iva,
+                Total = this.Total
                
             };
             return await IRepository.AddAsync(model, IdUsuario);
@@ -139,6 +141,36 @@ namespace CIDFares.Spa.Business.ViewModels.General
             set { _Motivi = value; OnPropertyChanged("Motivo"); }
         }
 
+        private decimal _Total;
+        public decimal Total
+        {
+            get { return _Total; }
+            set
+            {
+                _Total = value;
+                OnPropertyChanged(nameof(Total));
+            }
+        }
+        private decimal _SubTotal;
+        public decimal SubTotal
+        {
+            get { return _SubTotal; }
+            set
+            {
+                _SubTotal = value;
+                OnPropertyChanged(nameof(SubTotal));
+            }
+        }
+        private decimal _Iva;
+        public decimal Iva
+        {
+            get { return _Iva; }
+            set
+            {
+                _Iva = value;
+                OnPropertyChanged(nameof(Iva));
+            }
+        }
         #endregion
 
         #region InotifyPropertyChanged Members

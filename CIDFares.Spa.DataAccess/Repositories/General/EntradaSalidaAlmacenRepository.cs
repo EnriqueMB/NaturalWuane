@@ -22,8 +22,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 {
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
-                    dynamicParameters.Add("@TablaProductoEntrada", element.TablaEntradaAlmacen, DbType.Object);
-                    dynamicParameters.Add("@TablaProductoSalida", element.TablaSalidaAlmacen, DbType.Object);
+                    dynamicParameters.Add("@TablaProductoEntradaSalida", element.TablaEntradaSalidaAlmacen, DbType.Object);
                     dynamicParameters.Add("@Folio", element.Folio);
                     dynamicParameters.Add("@Tipo", element.Tipo);
                     dynamicParameters.Add("@FechaAlta", element.Fecha);
@@ -31,6 +30,9 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@IdSucursal", 1);
                     dynamicParameters.Add("@Cantidad", element.Cantidad);
                     dynamicParameters.Add("@Motivo", element.Motivo);
+                    dynamicParameters.Add("@SubTotal", element.SubTotal);
+                    dynamicParameters.Add("@Iva", element.Iva);
+                    dynamicParameters.Add("@Total", element.Total);
                     var result = await conexion.ExecuteScalarAsync<int>("[Inventario].[SPCID_A_EntradaSalida]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;

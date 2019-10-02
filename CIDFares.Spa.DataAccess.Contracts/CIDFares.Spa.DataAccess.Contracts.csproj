@@ -73,6 +73,7 @@
     <Compile Include="Entities\Cuestionario.cs" />
     <Compile Include="Entities\EntradaSalidaAlmacen.cs" />
     <Compile Include="Entities\Estado.cs" />
+    <Compile Include="Entities\HorarioSucursal.cs" />
     <Compile Include="Entities\ListaMedicion.cs" />
     <Compile Include="Entities\Medicion.cs" />
     <Compile Include="Entities\Municipio.cs" />
