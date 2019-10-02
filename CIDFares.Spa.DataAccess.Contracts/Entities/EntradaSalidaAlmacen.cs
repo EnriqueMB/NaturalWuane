@@ -11,8 +11,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
     {
         public EntradaSalidaAlmacen()
         {
-            TablaEntradaAlmacen = new DataTable();
-            TablaSalidaAlmacen = new DataTable();
+            TablaEntradaSalidaAlmacen = new DataTable();
           //  producto = new Producto();
         }
         public int IdProducto { get; set; }
@@ -23,9 +22,13 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public int Tipo { get; set; }
         public int Cantidad { get; set; }
         public string Descripcion { get; set; }
+        public decimal PrecioCosto { get; set; }
+        public decimal SubTotal { get; set; }
+        public decimal Iva { get; set; }
+        public decimal PorcentajeIva { get; set; }
+        public decimal Total { get; set; }
         public DateTime Fecha { get; set; }
-        public DataTable TablaEntradaAlmacen { get; set; }
-        public DataTable TablaSalidaAlmacen { get; set; }
+        public DataTable TablaEntradaSalidaAlmacen { get; set; }
 
         //public Producto producto { get; set; }
         public int Resultado { get; set; }
