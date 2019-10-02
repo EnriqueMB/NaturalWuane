@@ -17,24 +17,61 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
 {
     public partial class FrmContestarMedicion : Form
     {
+        #region Propiedades
         public List<Medicion> _lstMedicion { get; set; }
         public ContestarMedicionViewModel Model { get; set; }
+        public DataTable _tablaMedicion { get; set; }
+        #endregion
 
+        #region constructor
         public FrmContestarMedicion(List<Medicion> lstMedicion)
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<ContestarMedicionViewModel>();
             _lstMedicion = lstMedicion;
             Model._listaMedicion = lstMedicion;
-            cargarMediciones();      
+            cargarMediciones();
+        }
+        #endregion
+
+        #region Eventos
+        private void BtnNuevaConsulta_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                errorProvider1.Clear();
+                var validationResults = Model.Validate();
+                if (validationResults.IsValid)
+                {
+                    _tablaMedicion =  ObtenerTablaMediciones();
+
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    DibujarErrores(validationResults);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
+
+        #region Metodos
         private async Task cargarMediciones()
         {
             try
             {
                 //foreach (var item in _lstMedicion)
-                foreach(var item in Model._listaMedicion)
+                foreach (var item in Model._listaMedicion)
                 {
                     TextBox txt = new TextBox();
                     txt.Text = item.Nombre.ToUpper();
@@ -48,7 +85,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                     txtUnidad.Size = new Size(110, 26);
                     flowLayoutPanel1.Controls.Add(txtUnidad);
 
-                    if(item.NombreLista != "Es abierta")
+                    if (item.NombreLista != "Es abierta")
                     {
                         try
                         {
@@ -66,7 +103,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                         {
                             throw ex;
                         }
-                       
+
                     }
                     else
                     {
@@ -85,7 +122,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         }
 
         void DibujarErrores(ValidationResult validationResult)
-        {            
+        {
             foreach (var error in validationResult.Errors)
             {
                 var controlName = error.PropertyName + "Control";
@@ -97,33 +134,26 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             }
         }
 
-        private void BtnNuevaConsulta_Click(object sender, EventArgs e)
+        private DataTable ObtenerTablaMediciones()
         {
             try
             {
-          
-                //this.CleanErrors(errorProvider1, typeof(ContestarMedicionViewModel));
-                errorProvider1.Clear();
-                var validationResults = Model.Validate();
-                if (validationResults.IsValid)
+                DataTable TablaM = new DataTable();
+                TablaM.Columns.Add("IdMedicion", typeof(int));
+                TablaM.Columns.Add("Nombre", typeof(string));
+                TablaM.Columns.Add("IdValorSeleccionado", typeof(int));
+                TablaM.Columns.Add("Valor", typeof(string));
+                foreach (var item in Model._listaMedicion)
                 {
-                 
-
+                    TablaM.Rows.Add(new object[] { item.IdMedicion, item.Nombre, item.IdValorSeleccionado, item.valor });
                 }
-                else
-                {                    
-                    DibujarErrores(validationResults);                
-                }
+                return TablaM;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
-        private void BtnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        #endregion
     }
 }

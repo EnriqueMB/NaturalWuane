@@ -205,9 +205,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                     {
                         dato.ActivarCuando = "NO";
                     }
-                }
-
-               
+                }               
                 return dato;
             }
             catch (Exception ex)

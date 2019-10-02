@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="Forms\Cuestionarios\FrmContestarMedicion.Designer.cs">
       <DependentUpon>FrmContestarMedicion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Catalogos\FrmAlimentoGrid.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -519,6 +520,7 @@
     <Compile Include="Validations\VentaValidator.cs" />
     <EmbeddedResource Include="Forms\Cuestionarios\FrmContestarMedicion.resx">
       <DependentUpon>FrmContestarMedicion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmAlimentoGrid.resx">
       <DependentUpon>FrmAlimentoGrid.cs</DependentUpon>
     </EmbeddedResource>

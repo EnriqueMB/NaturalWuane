@@ -41,7 +41,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 OnPropertyChanged(nameof(ValueGroupRadioButton));
             }
         }
-
   
         private bool _RdioBtonValue;
 

@@ -52,83 +52,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 throw ex;
             }
 
-        }
-        private void PtbCliente_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                FrmSelectCliente _select = new FrmSelectCliente();
-                _select.ShowDialog();
-                _select.Dispose();
-                if (_select.cliente != null)
-                    CargarDatos(_select.cliente);
-
-            }
-            catch (Exception ex)
-            {
-                ErrorLogHelper.AddExcFileTxt(ex, "FrmNuevaConsulta ~ PtbCliente_Click(object sender, EventArgs e)");
-                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
-            }
-        }
-
-        private void PtbNuevoCliente_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                FrmCliente _cliente = new FrmCliente();
-                _cliente.ShowDialog();
-                _cliente.Dispose();
-            }
-            catch (Exception ex)
-            {
-                ErrorLogHelper.AddExcFileTxt(ex, "FrmNuevaConsulta ~ PtbNuevoCliente_Click(object sender, EventArgs e)");
-                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
-            }
-        }
-        private void BtnOpciones_Click(object sender, EventArgs e)
-        {
-            try
-            {                
-                if (this.NombreCompleto.Text != string.Empty && this.TipoConsultaControl.SelectedIndex > 0)
-                {
-                    bool controlNutricional = (TipoConsultaControl.SelectedIndex == 3) ? true : false;
-
-                    FrmOpcionesCuestionario _opcion = new FrmOpcionesCuestionario(/*controlNutricional*/);
-                    _opcion.ShowDialog();
-                    _opcion.Dispose();
-
-                    if (_opcion.DialogResult == DialogResult.OK)
-                    {
-                         Model.AplicarEncuestaLista.Add(new Cuestionario {IdEncuesta = Guid.Empty, IdTipoEncuesta = 0,NombreEncuesta = "SELECCIONE",Descripcion= ""});
-                         _opcion.Model._listaCuestionario.Where(x => x.asignar == true).Select(u => { Model.AplicarEncuestaLista.Add(u.datos); return u; }).ToList();
-
-                        IniciarComboEncuestas();
-                    }
-                }
-                else
-                {
-                    CIDMessageBox.ShowAlert(Messages.SystemName,"DEBE SELECCIONAR UN CLIENTE Y TIPO DE CONSULTA", TypeMessage.informacion);
-                }
-            }
-            catch (Exception ex)
-            {
-                ErrorLogHelper.AddExcFileTxt(ex, "FrmNuevaConsulta ~ BtnOpciones_Click(object sender, EventArgs e)");
-                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
-            }
-        }
+        }           
         #endregion
 
         #region Metodos
         private void Iniciarbinding()
         {
             try
-            {
-                NombreCompleto.DataBindings.Add("Text", Model, "NombreCompleto", true, DataSourceUpdateMode.OnPropertyChanged);
-
-                TipoConsultaControl.DataBindings.Add("SelectedValue", Model, "IdTipoConsulta", true, DataSourceUpdateMode.OnPropertyChanged);
-                TipoConsultaControl.DataBindings.Add("DataSource", Model, "_ListaTipoconsulta", true, DataSourceUpdateMode.OnPropertyChanged);
-                Iniciarcombo();
-
+            {                  
                 cmbEncuestas.DataBindings.Add("SelectedItem", Model, "cuestionario", true, DataSourceUpdateMode.OnPropertyChanged);
                 cmbEncuestas.DataBindings.Add("DataSource", Model, "AplicarEncuestaLista", true, DataSourceUpdateMode.OnPropertyChanged);
                 IniciarComboEncuestas();
@@ -137,37 +68,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             {
                 throw ex;
             }
-        }
-        private void CargarDatos(Cliente value)
-        {
-            try
-            {
-                this.NombreCompleto.Text = value.NombreCompleto.ToUpper();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        private void Iniciarcombo()
-        {
-            try
-            {
-                try
-                {
-                    TipoConsultaControl.DisplayMember = "Descripcion";
-                    TipoConsultaControl.ValueMember = "IdTipoConsulta";
-                }
-                catch (Exception ex)
-                {
-                    CIDMessageBox.ShowAlert(Messages.SystemName, ex.Message.ToString(), TypeMessage.error);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        }              
         private void IniciarComboEncuestas()
         {
             try
@@ -205,56 +106,128 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 AgregarPreguntaAPanel();               
             }
         }
-    
         private void Button1_Click(object sender, EventArgs e)
         {
-            this.lblError.Visible = false;
-            if (PanelPreguntas.Controls.Count > 0)
+            try
             {
-                var controlPreguntaActual = (PanelPreguntas.Controls[0] as CIDEncuesta.CIDEncuesta);
-
-                var dato = controlPreguntaActual.Model;  
-                var validationResults = controlPreguntaActual.Model.Validate();
-                if (validationResults.IsValid)
+                this.lblError.Visible = false;
+                if (PanelPreguntas.Controls.Count > 0)
                 {
-                    //guardar las respuesuestas en una nueva lista.
-                    //generar una tabla atravez de la lista.
+                    var controlPreguntaActual = (PanelPreguntas.Controls[0] as CIDEncuesta.CIDEncuesta);
 
-                    //verificar si lapregunta es de tipo SI/No
-                    if (dato.TipoPregunta == "SI/NO")
+                    var dato = controlPreguntaActual.Model;
+                                     
+                    var validationResults = controlPreguntaActual.Model.Validate();
+                    if (validationResults.IsValid)
                     {
-                        //ver si el id de la pregunta actual sean iguales a algun iddependede de la lista
-                        var result = Model.cuestionario.ListaPreguntas.Where(x => x.IdPreguntaDepende == dato.IDPre).OrderBy(x=>x.Orden).ToList();
-                        if(result.Count > 0)
-                        {
-                            string value = "";
-                            //si existe resultados que sean iguales preguntar cuando activarla (si o no)
-                            foreach (var item in result)
-                            {                        
-                                value = item.ActivarCuando;
-                            }
+                        //guardar las respuesuestas en una nueva lista.            
+                        var value = CargarPreguntas(dato);
 
-                            if (dato.RdioBtonValue && value == "SI")
-                            {
-                               
-                            }
-                        }
+                        Model._listPreguntasRespondidas.Add(value.pregunta);
+                        Model._ListaRespuestasEncuesta.Add(value.respuesta);
+                        //generar una tabla atravez de la lista. 
+                        //ObtenerTablaPreguntas();
+                        ////verificar si lapregunta es de tipo SI/No
+                        //if (dato.TipoPregunta == "SI/NO")
+                        //{
+                        //    //ver si el id de la pregunta actual sean iguales a algun iddependede de la lista
+                        //    var result = Model.cuestionario.ListaPreguntas.Where(x => x.IdPreguntaDepende == dato.IDPre).OrderBy(x=>x.Orden).ToList();
+                        //    if(result.Count > 0)
+                        //    {
+                        //        string value = "";
+                        //        //si existe resultados que sean iguales preguntar cuando activarla (si o no)
+                        //        foreach (var item in result)
+                        //        {                        
+                        //            value = item.ActivarCuando;
+                        //        }
+
+                        //        if (dato.RdioBtonValue && value == "SI")
+                        //        {
+
+                        //        }
+                        //    }
+                        //}
+
+                        PanelPreguntas.Controls.RemoveAt(0);
+                        IndexPregunta++;
+                        AgregarPreguntaAPanel();
+                        // si es si, ver si el radiobutton sea igual a si y mostrar las coincidencias encontradas
+                        // si es no y hay resultados y el radiobutton es igual a si no mostrar nada o viceversa.                
                     }
-                  
-                    PanelPreguntas.Controls.RemoveAt(0);
-                    IndexPregunta++;
-                    AgregarPreguntaAPanel();
-                    // si es si, ver si el radiobutton sea igual a si y mostrar las coincidencias encontradas
-                    // si es no y hay resultados y el radiobutton es igual a si no mostrar nada o viceversa.                
-                }
-                else
-                {
-                    //controlPreguntaActual.ShowErrors(errorProvider1,typeof(CIDcontrolViewModel),validationResults);
+                    else
+                    {
+                        //controlPreguntaActual.ShowErrors(errorProvider1,typeof(CIDcontrolViewModel),validationResults);
 
-                    this.lblError.Visible = true;
-                    lblError.Text = validationResults.ToString();
+                        this.lblError.Visible = true;
+                        lblError.Text = validationResults.ToString();
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }            
+        }
+
+
+        private (Preguntas pregunta,Respuestas respuesta) CargarPreguntas(CIDcontrolViewModel _dato)
+        {
+            try
+            {
+                Preguntas dato = new Preguntas();
+                dato.IdPregunta = _dato.IDPre;
+                dato.Pregunta = _dato.Pregunta;
+                dato.TipoPregunta = _dato.TipoPregunta;
+
+                Respuestas Resp = new Respuestas();
+                Resp.IdPregunta = _dato.IDPre;
+                Resp.Respuesta = _dato.Respuesta;
+
+                if (_dato.TipoPregunta == "SI/NO")
+                {
+                    Resp.RespuestaSINO = _dato.RdioBtonValue;
+                }else if (_dato.TipoPregunta == "ABIERTA")
+                {
+                    Resp.Respuesta = _dato.Respuesta;
+                }else if (_dato.TipoPregunta == "MULTIPLE" && !_dato.respuestasMultiples)
+                {
+                    Resp.IdRespuesta = (Guid)_dato.ValueGroupRadioButton;
+                }else if (_dato.TipoPregunta == "MULTIPLE" && _dato.respuestasMultiples)
+                {
+                    dato.Respuesta.AddRange(_dato.ListaOpciones.Where(x => x.Seleccionado));
+                }               
+                     
+                return (dato,Resp);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private (DataTable tablaPregunta,DataTable tablaRespuesta) ObtenerTablaPreguntas()
+        {
+            DataTable tablaPreguntas = new DataTable();
+            tablaPreguntas.Columns.Add("IdPregunta",typeof(Guid));
+            tablaPreguntas.Columns.Add("TipoPregunta",typeof(string));
+            tablaPreguntas.Columns.Add("IdEncuesta", typeof(Guid));
+
+            DataTable tablaRespuestas = new DataTable();
+            tablaPreguntas.Columns.Add("IdPregunta",typeof(Guid));
+            tablaRespuestas.Columns.Add("IdRespuesta",typeof(Guid));
+            tablaRespuestas.Columns.Add("RespuestaAbierta",typeof(string));
+            tablaRespuestas.Columns.Add("RespuestaSINO",typeof(bool));
+
+            foreach (var item in Model._listPreguntasRespondidas)
+            {
+                tablaPreguntas.Rows.Add(new object[] { item.IdPregunta, item.TipoPregunta});
+            }
+
+            foreach (var resp in Model._ListaRespuestasEncuesta)
+            {
+                tablaRespuestas.Rows.Add(new object[] {resp.IdPregunta,resp.IdRespuesta,resp.Respuesta,resp.RespuestaSINO });
+            }
+            return (tablaPreguntas,tablaRespuestas);
         }
 
         private void AgregarPreguntaAPanel()
@@ -283,11 +256,17 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         {
             try
             {
+                btnNuevaConsulta.Enabled = false;
 
+                var x = Model.cuestionario;
             }
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                btnNuevaConsulta.Enabled = true;
             }
         }
     }

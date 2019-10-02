@@ -3,6 +3,7 @@ using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public BindingList<OpcionMedicion> _ListaMediciones { get; set; }
 
         public BindingList<Consulta> _ListaTipoconsulta { get; set; }
+
+        public DataTable _tablaMedicion { get; set; }
         #endregion
 
         #region Constructor

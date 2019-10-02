@@ -185,22 +185,7 @@
             this.dtgClientes.Location = new System.Drawing.Point(0, 58);
             this.dtgClientes.Name = "dtgClientes";
             this.dtgClientes.RowHeight = 21;
-            this.dtgClientes.ShowGroupDropArea = true;
-            this.dtgClientes.Size = new System.Drawing.Size(1018, 536);
-            this.dtgClientes.Style.CellStyle.TextColor = System.Drawing.Color.Black;
-            this.dtgClientes.Style.GroupDropAreaItemStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.dtgClientes.Style.GroupDropAreaItemStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.dtgClientes.Style.GroupDropAreaStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            this.dtgClientes.Style.GroupDropAreaStyle.TextColor = System.Drawing.Color.Black;
-            this.dtgClientes.Style.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(64)))), ((int)(((byte)(23)))));
-            this.dtgClientes.Style.HeaderStyle.Font.Bold = false;
-            this.dtgClientes.Style.HeaderStyle.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(64)))), ((int)(((byte)(23)))));
-            this.dtgClientes.Style.HeaderStyle.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dtgClientes.Style.HeaderStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dtgClientes.Style.IndentCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            this.dtgClientes.Style.RowHeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            gridBordersInfo1.Bottom = new Syncfusion.WinForms.DataGrid.Styles.GridBorder(Syncfusion.WinForms.DataGrid.Styles.GridBorderStyle.Solid, System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0))))));
-            this.dtgClientes.Style.RowHeaderStyle.Borders = gridBordersInfo1;
+            this.dtgClientes.ShowGroupDropArea = true;           
             this.dtgClientes.TabIndex = 12;
             this.dtgClientes.Text = "dataGridsf1";
             // 

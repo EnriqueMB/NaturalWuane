@@ -16,7 +16,10 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #region Propiedades
         public IConsultaRepository _ConsultaRepository { get; set; }
         public BindingList<Consulta> _ListaTipoconsulta { get; set; }
-        public List<Cuestionario> AplicarEncuestaLista { get; set; }      
+        public List<Cuestionario> AplicarEncuestaLista { get; set; }
+
+        public BindingList<Preguntas> _listPreguntasRespondidas { get; set; }
+        public BindingList<Respuestas> _ListaRespuestasEncuesta { get; set; }
         #endregion
 
         #region Constructor
@@ -24,7 +27,9 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             _ConsultaRepository = consultarepository;
             _ListaTipoconsulta = new BindingList<Consulta>();
-            AplicarEncuestaLista = new List<Cuestionario>();           
+            AplicarEncuestaLista = new List<Cuestionario>();
+            _listPreguntasRespondidas = new BindingList<Preguntas>();
+            _ListaRespuestasEncuesta = new BindingList<Respuestas>();
             listaTipoConsulta();
         }
         #endregion

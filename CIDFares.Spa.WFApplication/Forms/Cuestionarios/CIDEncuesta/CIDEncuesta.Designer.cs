@@ -92,22 +92,22 @@
             // lblRespuestaAbierta
             // 
             this.lblRespuestaAbierta.AutoSize = true;
-            this.lblRespuestaAbierta.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRespuestaAbierta.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRespuestaAbierta.ForeColor = System.Drawing.Color.Black;
             this.lblRespuestaAbierta.Location = new System.Drawing.Point(22, 37);
             this.lblRespuestaAbierta.Name = "lblRespuestaAbierta";
-            this.lblRespuestaAbierta.Size = new System.Drawing.Size(89, 20);
+            this.lblRespuestaAbierta.Size = new System.Drawing.Size(82, 18);
             this.lblRespuestaAbierta.TabIndex = 18;
             this.lblRespuestaAbierta.Text = "PREGUNTA";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(22, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 22);
+            this.label2.Size = new System.Drawing.Size(146, 21);
             this.label2.TabIndex = 18;
             this.label2.Text = "OPCION ABIERTA";
             // 
@@ -115,6 +115,7 @@
             // 
             this.RespuestaControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.RespuestaControl.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RespuestaControl.Location = new System.Drawing.Point(26, 65);
             this.RespuestaControl.Multiline = true;
             this.RespuestaControl.Name = "RespuestaControl";
@@ -135,6 +136,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupOpciones.Controls.Add(this.rbtSi);
             this.groupOpciones.Controls.Add(this.rbtNo);
+            this.groupOpciones.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupOpciones.Location = new System.Drawing.Point(39, 20);
             this.groupOpciones.Name = "groupOpciones";
             this.groupOpciones.Size = new System.Drawing.Size(145, 66);
@@ -148,7 +150,7 @@
             this.rbtSi.Checked = true;
             this.rbtSi.Location = new System.Drawing.Point(16, 19);
             this.rbtSi.Name = "rbtSi";
-            this.rbtSi.Size = new System.Drawing.Size(35, 17);
+            this.rbtSi.Size = new System.Drawing.Size(35, 19);
             this.rbtSi.TabIndex = 19;
             this.rbtSi.TabStop = true;
             this.rbtSi.Text = "SI";
@@ -159,7 +161,7 @@
             this.rbtNo.AutoSize = true;
             this.rbtNo.Location = new System.Drawing.Point(80, 19);
             this.rbtNo.Name = "rbtNo";
-            this.rbtNo.Size = new System.Drawing.Size(41, 17);
+            this.rbtNo.Size = new System.Drawing.Size(43, 19);
             this.rbtNo.TabIndex = 19;
             this.rbtNo.Text = "NO";
             this.rbtNo.UseVisualStyleBackColor = true;
@@ -184,11 +186,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(22, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 22);
+            this.label1.Size = new System.Drawing.Size(132, 18);
             this.label1.TabIndex = 18;
             this.label1.Text = "OPCION MULTIPLE";
             // 
@@ -212,11 +214,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(22, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(162, 22);
+            this.label3.Size = new System.Drawing.Size(132, 18);
             this.label3.TabIndex = 18;
             this.label3.Text = "OPCION MULTIPLE";
             // 

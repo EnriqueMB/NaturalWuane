@@ -7,12 +7,8 @@ using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
@@ -22,17 +18,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         #region Propiedades
         public OpcionesViewModel Model { get; set; }
         private int opcion = 1;
-        private bool _controlNutricional;
         #endregion
 
         #region Constructor
         public FrmOpcionesCuestionario()
         {
             InitializeComponent();
-            Model = ServiceLocator.Instance.Resolve<OpcionesViewModel>();
-            //_controlNutricional = controlNutricional;
+            Model = ServiceLocator.Instance.Resolve<OpcionesViewModel>();     
             dtgEncuestas.ShowGroupDropArea = false;
             dtgMediciones.ShowGroupDropArea = false;
+            dtgComentarios.ShowGroupDropArea = false;
         }
         #endregion
 
@@ -56,6 +51,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 throw ex;
             }
         }
+
         private void IniciarBinding()
         {
             try
@@ -79,6 +75,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
+
         private void llenarLista()
         {
             try
@@ -91,7 +88,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
-       
+
         private void llenarListamediciones()
         {
             try
@@ -104,6 +101,27 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
+
+        private void CargarDatos(Cliente value)
+        {
+            try
+            {
+                this.NombreCompleto.Text = value.NombreCompleto.ToUpper();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void Botones()
+        {
+            this.tab.Visible = true;
+            this.groupOpciones.Visible = true;
+            this.btnAceptar.Visible = true;
+            this.btnGuardarConsulta.Visible = true;
+            this.btnGuardarConsulta.Enabled = false;
+        }
         #endregion
 
         #region Eventos  
@@ -111,9 +129,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         {
             IniciarBinding();
             dtgEncuestas.Columns["asignar"].AllowEditing = true;
-            dtgMediciones.Columns["asignar"].AllowEditing = true;                  
+            dtgMediciones.Columns["asignar"].AllowEditing = true;
         }
- 
+
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
             try
@@ -130,7 +148,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
 
                         FrmNuevaConsultaControl _frmNuevaconsulta = new FrmNuevaConsultaControl(lista);
                         _frmNuevaconsulta.ShowDialog();
-                        _frmNuevaconsulta.Dispose();                      
+                        _frmNuevaconsulta.Dispose();
                     }
                     else
                     {
@@ -149,9 +167,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                         FrmContestarMedicion _medicion = new FrmContestarMedicion(lst);
                         _medicion.ShowDialog();
                         _medicion.Dispose();
-
-                        //this.DialogResult = DialogResult.OK;
-                        //this.Close();
+                        
+                        if(_medicion.DialogResult == DialogResult.OK)
+                        {
+                            Model._tablaMedicion = _medicion._tablaMedicion;
+                            groupOpciones.Enabled = true;
+                            btnGuardarConsulta.Enabled = true;
+                        }                       
                     }
                     else
                     {
@@ -183,7 +205,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                     break;
             }
         }
-        #endregion
 
         private void PtbCliente_Click(object sender, EventArgs e)
         {
@@ -202,19 +223,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
-
-        private void CargarDatos(Cliente value)
-        {
-            try
-            {
-                this.NombreCompleto.Text = value.NombreCompleto.ToUpper();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         private void BtnOpciones_Click(object sender, EventArgs e)
         {
             try
@@ -223,8 +231,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 {
                     bool controlNutricional = (TipoConsultaControl.SelectedIndex == 3) ? true : false;
                     if (!controlNutricional)
-                    {                        
-                       tab.TabPages.Remove(tabPlanAlimentacion);//Aquí se oculta el tab.                          
+                    {
+                        tab.TabPages.Remove(tabPlanAlimentacion);//Aquí se oculta el tab.                          
                     }
                     else
                     {
@@ -243,15 +251,26 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmNuevaConsulta ~ BtnOpciones_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
-        }    
-        
-        private void Botones()
-        {
-            this.tab.Visible = true;
-            this.groupOpciones.Visible = true;
-            this.btnAceptar.Visible = true;
-            this.btnGuardarConsulta.Visible = true;
-            this.btnGuardarConsulta.Enabled = false;
         }
+        #endregion
+
+        private void BtnGuardarConsulta_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnGuardarConsulta.Enabled = false;
+
+                var x = Model._tablaMedicion;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                btnGuardarConsulta.Enabled = true;
+            }
+        }
+     
     }
 }
