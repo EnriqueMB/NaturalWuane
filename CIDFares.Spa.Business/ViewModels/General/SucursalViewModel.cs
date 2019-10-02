@@ -237,6 +237,18 @@ namespace CIDFares.Spa.Business.ViewModels.General
                 throw ex;
             }
         }
+
+        public void ListHorario()
+        {
+            ListaHorario = new BindingList<HorarioSucursal>();
+            ListaHorario.Add(new HorarioSucursal { Nombre = "Lunes", Dia = 1, HoraEntrada = DateTime.Now.Date, HoraSalida = DateTime.Now.Date });
+            ListaHorario.Add(new HorarioSucursal { Nombre = "Martes", Dia = 2, HoraEntrada = DateTime.Now.Date, HoraSalida = DateTime.Now.Date });
+            ListaHorario.Add(new HorarioSucursal { Nombre = "Miercoles", Dia = 3, HoraEntrada = DateTime.Now.Date, HoraSalida = DateTime.Now.Date });
+            ListaHorario.Add(new HorarioSucursal { Nombre = "Jueves", Dia = 4, HoraEntrada = DateTime.Now.Date, HoraSalida = DateTime.Now.Date });
+            ListaHorario.Add(new HorarioSucursal { Nombre = "Viernes", Dia = 5, HoraEntrada = DateTime.Now.Date, HoraSalida = DateTime.Now.Date });
+            ListaHorario.Add(new HorarioSucursal { Nombre = "Sabado", Dia = 6, HoraEntrada = DateTime.Now.Date, HoraSalida = DateTime.Now.Date });
+            ListaHorario.Add(new HorarioSucursal { Nombre = "Domingo", Dia = 7, HoraEntrada = DateTime.Now.Date, HoraSalida = DateTime.Now.Date });
+        }
         #endregion
 
         #region Propiedades Binding

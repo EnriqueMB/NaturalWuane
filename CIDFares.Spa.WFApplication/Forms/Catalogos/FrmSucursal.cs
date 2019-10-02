@@ -35,22 +35,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             else
             {
-                ListaHorario();
+                Model.ListHorario();
                 Model.State = EntityState.Create;
                 CargarHorarios();
             }               
-        }
-
-        public void ListaHorario()
-        {
-            Model.ListaHorario = new BindingList<HorarioSucursal>();
-            Model.ListaHorario.Add(new HorarioSucursal {Nombre = "Lunes", Dia = 1, HoraEntrada = DateTime.Now, HoraSalida = DateTime.Now, Seleccionado = false });
-            Model.ListaHorario.Add(new HorarioSucursal {Nombre = "Martes", Dia = 2, HoraEntrada = DateTime.Now, HoraSalida = DateTime.Now, Seleccionado = false });
-            Model.ListaHorario.Add(new HorarioSucursal {Nombre = "Miercoles", Dia = 3, HoraEntrada = DateTime.Now, HoraSalida = DateTime.Now, Seleccionado = false });
-            Model.ListaHorario.Add(new HorarioSucursal {Nombre = "Jueves", Dia = 4, HoraEntrada = DateTime.Now, HoraSalida = DateTime.Now, Seleccionado = false });
-            Model.ListaHorario.Add(new HorarioSucursal {Nombre = "Viernes", Dia = 5, HoraEntrada = DateTime.Now, HoraSalida = DateTime.Now, Seleccionado = false });
-            Model.ListaHorario.Add(new HorarioSucursal {Nombre = "Sabado", Dia = 6, HoraEntrada = DateTime.Now, HoraSalida = DateTime.Now, Seleccionado = false });
-            Model.ListaHorario.Add(new HorarioSucursal {Nombre = "Domingo", Dia = 7, HoraEntrada = DateTime.Now, HoraSalida = DateTime.Now, Seleccionado = false });
         }
 
         #region Metodos
@@ -155,7 +143,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         lblSubtitle.Text = Model.Nombre;
                     }, "Cargando sucursal");
                     if (Model.ListaHorario.Count == 0)
-                        ListaHorario();
+                        Model.ListHorario();
                     CargarHorarios();
                 }
                 else

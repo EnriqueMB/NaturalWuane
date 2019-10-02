@@ -63,6 +63,13 @@
             this.lbEstado = new System.Windows.Forms.Label();
             this.IdPaisControl = new Syncfusion.Windows.Forms.Tools.ComboBoxAdv();
             this.lbPais = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.pnlFood = new System.Windows.Forms.Panel();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -70,13 +77,6 @@
             this.lblSubtitle = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.pnlBody.SuspendLayout();
             this.tlpContainer.SuspendLayout();
@@ -101,12 +101,12 @@
             this.pnlPais.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IdEstadoControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdPaisControl)).BeginInit();
-            this.pnlFood.SuspendLayout();
-            this.pnlHead.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.pnlFood.SuspendLayout();
+            this.pnlHead.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,7 +124,7 @@
             this.tlpContainer.ColumnCount = 3;
             this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.01097F));
             this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.98903F));
-            this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 389F));
+            this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 390F));
             this.tlpContainer.Controls.Add(this.pnlTipoSucursal, 1, 4);
             this.tlpContainer.Controls.Add(this.pnlEstado, 1, 3);
             this.tlpContainer.Controls.Add(this.pnlNombre, 0, 0);
@@ -154,7 +154,7 @@
             this.pnlTipoSucursal.Controls.Add(this.label1);
             this.pnlTipoSucursal.Location = new System.Drawing.Point(352, 303);
             this.pnlTipoSucursal.Name = "pnlTipoSucursal";
-            this.pnlTipoSucursal.Size = new System.Drawing.Size(372, 69);
+            this.pnlTipoSucursal.Size = new System.Drawing.Size(371, 69);
             this.pnlTipoSucursal.TabIndex = 10;
             // 
             // IdTipoSucursalControl
@@ -193,7 +193,7 @@
             this.pnlEstado.Controls.Add(this.lbMunicipio);
             this.pnlEstado.Location = new System.Drawing.Point(352, 228);
             this.pnlEstado.Name = "pnlEstado";
-            this.pnlEstado.Size = new System.Drawing.Size(372, 69);
+            this.pnlEstado.Size = new System.Drawing.Size(371, 69);
             this.pnlEstado.TabIndex = 9;
             // 
             // IdMunicipioControl
@@ -237,7 +237,7 @@
             // 
             // NombreControl
             // 
-            this.NombreControl.BeforeTouchSize = new System.Drawing.Size(94, 328);
+            this.NombreControl.BeforeTouchSize = new System.Drawing.Size(351, 29);
             this.NombreControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NombreControl.Location = new System.Drawing.Point(9, 23);
             this.NombreControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
@@ -267,7 +267,7 @@
             // 
             // DireccionControl
             // 
-            this.DireccionControl.BeforeTouchSize = new System.Drawing.Size(94, 328);
+            this.DireccionControl.BeforeTouchSize = new System.Drawing.Size(351, 29);
             this.DireccionControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DireccionControl.Location = new System.Drawing.Point(9, 25);
             this.DireccionControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
@@ -297,7 +297,7 @@
             // 
             // TelefonoControl
             // 
-            this.TelefonoControl.BeforeTouchSize = new System.Drawing.Size(94, 328);
+            this.TelefonoControl.BeforeTouchSize = new System.Drawing.Size(351, 29);
             this.TelefonoControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TelefonoControl.Location = new System.Drawing.Point(9, 26);
             this.TelefonoControl.MaxLength = 10;
@@ -329,7 +329,7 @@
             // 
             // CodigoPostalControl
             // 
-            this.CodigoPostalControl.BeforeTouchSize = new System.Drawing.Size(94, 328);
+            this.CodigoPostalControl.BeforeTouchSize = new System.Drawing.Size(351, 29);
             this.CodigoPostalControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CodigoPostalControl.Location = new System.Drawing.Point(9, 25);
             this.CodigoPostalControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
@@ -359,7 +359,7 @@
             // 
             // RfcControl
             // 
-            this.RfcControl.BeforeTouchSize = new System.Drawing.Size(94, 328);
+            this.RfcControl.BeforeTouchSize = new System.Drawing.Size(351, 29);
             this.RfcControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RfcControl.Location = new System.Drawing.Point(9, 25);
             this.RfcControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
@@ -384,12 +384,12 @@
             this.pnlNombreRepresentante.Controls.Add(this.lbNombreRepresentante);
             this.pnlNombreRepresentante.Location = new System.Drawing.Point(352, 3);
             this.pnlNombreRepresentante.Name = "pnlNombreRepresentante";
-            this.pnlNombreRepresentante.Size = new System.Drawing.Size(372, 69);
+            this.pnlNombreRepresentante.Size = new System.Drawing.Size(371, 69);
             this.pnlNombreRepresentante.TabIndex = 6;
             // 
             // NombreRepresentanteControl
             // 
-            this.NombreRepresentanteControl.BeforeTouchSize = new System.Drawing.Size(94, 328);
+            this.NombreRepresentanteControl.BeforeTouchSize = new System.Drawing.Size(351, 29);
             this.NombreRepresentanteControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NombreRepresentanteControl.Location = new System.Drawing.Point(10, 23);
             this.NombreRepresentanteControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
@@ -414,12 +414,12 @@
             this.pnlRegimenFiscal.Controls.Add(this.lbRegimenFiscal);
             this.pnlRegimenFiscal.Location = new System.Drawing.Point(352, 78);
             this.pnlRegimenFiscal.Name = "pnlRegimenFiscal";
-            this.pnlRegimenFiscal.Size = new System.Drawing.Size(372, 69);
+            this.pnlRegimenFiscal.Size = new System.Drawing.Size(371, 69);
             this.pnlRegimenFiscal.TabIndex = 7;
             // 
             // RegimenFiscalControl
             // 
-            this.RegimenFiscalControl.BeforeTouchSize = new System.Drawing.Size(94, 328);
+            this.RegimenFiscalControl.BeforeTouchSize = new System.Drawing.Size(351, 29);
             this.RegimenFiscalControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegimenFiscalControl.Location = new System.Drawing.Point(10, 25);
             this.RegimenFiscalControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
@@ -446,7 +446,7 @@
             this.pnlPais.Controls.Add(this.lbPais);
             this.pnlPais.Location = new System.Drawing.Point(352, 153);
             this.pnlPais.Name = "pnlPais";
-            this.pnlPais.Size = new System.Drawing.Size(372, 69);
+            this.pnlPais.Size = new System.Drawing.Size(371, 69);
             this.pnlPais.TabIndex = 8;
             // 
             // IdEstadoControl
@@ -510,6 +510,74 @@
             this.lbPais.Size = new System.Drawing.Size(34, 20);
             this.lbPais.TabIndex = 8;
             this.lbPais.Text = "Pais";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.panel1);
+            this.flowLayoutPanel1.Controls.Add(this.panel2);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(729, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.tlpContainer.SetRowSpan(this.flowLayoutPanel1, 5);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(384, 369);
+            this.flowLayoutPanel1.TabIndex = 11;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(381, 29);
+            this.panel1.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(123, 4);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(142, 20);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Horario de atención";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Location = new System.Drawing.Point(3, 38);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(381, 29);
+            this.panel2.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(265, 4);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 20);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Hora salida";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(116, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(97, 20);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Hora entrada";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(19, 4);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 20);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Dias";
             // 
             // pnlFood
             // 
@@ -590,74 +658,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.panel1);
-            this.flowLayoutPanel1.Controls.Add(this.panel2);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(730, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.tlpContainer.SetRowSpan(this.flowLayoutPanel1, 5);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(384, 369);
-            this.flowLayoutPanel1.TabIndex = 11;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(381, 29);
-            this.panel1.TabIndex = 7;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(3, 38);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(381, 29);
-            this.panel2.TabIndex = 8;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(98, 4);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(184, 20);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Nombre del representante";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 4);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 20);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Dias";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(116, 4);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 20);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Hora Entrada";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(265, 4);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 20);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Hora Salida";
-            // 
             // FrmSucursal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -668,6 +668,7 @@
             this.Controls.Add(this.pnlHead);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmSucursal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmSucursal";
             this.Shown += new System.EventHandler(this.FrmSucursal_Shown);
             this.pnlBody.ResumeLayout(false);
@@ -703,15 +704,15 @@
             this.pnlPais.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IdEstadoControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdPaisControl)).EndInit();
-            this.pnlFood.ResumeLayout(false);
-            this.pnlHead.ResumeLayout(false);
-            this.pnlHead.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.pnlFood.ResumeLayout(false);
+            this.pnlHead.ResumeLayout(false);
+            this.pnlHead.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
