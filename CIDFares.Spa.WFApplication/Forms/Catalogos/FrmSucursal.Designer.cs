@@ -63,6 +63,13 @@
             this.lbEstado = new System.Windows.Forms.Label();
             this.IdPaisControl = new Syncfusion.Windows.Forms.Tools.ComboBoxAdv();
             this.lbPais = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.pnlFood = new System.Windows.Forms.Panel();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -70,6 +77,7 @@
             this.lblSubtitle = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.pnlBody.SuspendLayout();
             this.tlpContainer.SuspendLayout();
             this.pnlTipoSucursal.SuspendLayout();
@@ -93,9 +101,13 @@
             this.pnlPais.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IdEstadoControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdPaisControl)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.pnlFood.SuspendLayout();
             this.pnlHead.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBody
@@ -104,14 +116,15 @@
             this.pnlBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlBody.Location = new System.Drawing.Point(0, 60);
             this.pnlBody.Name = "pnlBody";
-            this.pnlBody.Size = new System.Drawing.Size(800, 378);
+            this.pnlBody.Size = new System.Drawing.Size(1117, 378);
             this.pnlBody.TabIndex = 5;
             // 
             // tlpContainer
             // 
-            this.tlpContainer.ColumnCount = 2;
-            this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpContainer.ColumnCount = 3;
+            this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.01097F));
+            this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.98903F));
+            this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 390F));
             this.tlpContainer.Controls.Add(this.pnlTipoSucursal, 1, 4);
             this.tlpContainer.Controls.Add(this.pnlEstado, 1, 3);
             this.tlpContainer.Controls.Add(this.pnlNombre, 0, 0);
@@ -122,6 +135,7 @@
             this.tlpContainer.Controls.Add(this.pnlNombreRepresentante, 1, 0);
             this.tlpContainer.Controls.Add(this.pnlRegimenFiscal, 1, 1);
             this.tlpContainer.Controls.Add(this.pnlPais, 1, 2);
+            this.tlpContainer.Controls.Add(this.flowLayoutPanel1, 2, 0);
             this.tlpContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpContainer.Location = new System.Drawing.Point(0, 0);
             this.tlpContainer.Name = "tlpContainer";
@@ -131,16 +145,16 @@
             this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tlpContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tlpContainer.Size = new System.Drawing.Size(800, 378);
+            this.tlpContainer.Size = new System.Drawing.Size(1117, 378);
             this.tlpContainer.TabIndex = 0;
             // 
             // pnlTipoSucursal
             // 
             this.pnlTipoSucursal.Controls.Add(this.IdTipoSucursalControl);
             this.pnlTipoSucursal.Controls.Add(this.label1);
-            this.pnlTipoSucursal.Location = new System.Drawing.Point(403, 303);
+            this.pnlTipoSucursal.Location = new System.Drawing.Point(352, 303);
             this.pnlTipoSucursal.Name = "pnlTipoSucursal";
-            this.pnlTipoSucursal.Size = new System.Drawing.Size(394, 69);
+            this.pnlTipoSucursal.Size = new System.Drawing.Size(371, 69);
             this.pnlTipoSucursal.TabIndex = 10;
             // 
             // IdTipoSucursalControl
@@ -177,9 +191,9 @@
             // 
             this.pnlEstado.Controls.Add(this.IdMunicipioControl);
             this.pnlEstado.Controls.Add(this.lbMunicipio);
-            this.pnlEstado.Location = new System.Drawing.Point(403, 228);
+            this.pnlEstado.Location = new System.Drawing.Point(352, 228);
             this.pnlEstado.Name = "pnlEstado";
-            this.pnlEstado.Size = new System.Drawing.Size(394, 69);
+            this.pnlEstado.Size = new System.Drawing.Size(371, 69);
             this.pnlEstado.TabIndex = 9;
             // 
             // IdMunicipioControl
@@ -218,7 +232,7 @@
             this.pnlNombre.Controls.Add(this.lbNombre);
             this.pnlNombre.Location = new System.Drawing.Point(3, 3);
             this.pnlNombre.Name = "pnlNombre";
-            this.pnlNombre.Size = new System.Drawing.Size(394, 69);
+            this.pnlNombre.Size = new System.Drawing.Size(343, 69);
             this.pnlNombre.TabIndex = 1;
             // 
             // NombreControl
@@ -228,7 +242,7 @@
             this.NombreControl.Location = new System.Drawing.Point(9, 23);
             this.NombreControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.NombreControl.Name = "NombreControl";
-            this.NombreControl.Size = new System.Drawing.Size(351, 29);
+            this.NombreControl.Size = new System.Drawing.Size(326, 29);
             this.NombreControl.TabIndex = 6;
             this.NombreControl.TextChanged += new System.EventHandler(this.NombreControl_TextChanged);
             // 
@@ -248,7 +262,7 @@
             this.pnlDireccion.Controls.Add(this.lbDireccion);
             this.pnlDireccion.Location = new System.Drawing.Point(3, 78);
             this.pnlDireccion.Name = "pnlDireccion";
-            this.pnlDireccion.Size = new System.Drawing.Size(394, 69);
+            this.pnlDireccion.Size = new System.Drawing.Size(343, 69);
             this.pnlDireccion.TabIndex = 2;
             // 
             // DireccionControl
@@ -258,7 +272,7 @@
             this.DireccionControl.Location = new System.Drawing.Point(9, 25);
             this.DireccionControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.DireccionControl.Name = "DireccionControl";
-            this.DireccionControl.Size = new System.Drawing.Size(351, 29);
+            this.DireccionControl.Size = new System.Drawing.Size(326, 29);
             this.DireccionControl.TabIndex = 3;
             this.DireccionControl.TextChanged += new System.EventHandler(this.DireccionControl_TextChanged);
             // 
@@ -278,7 +292,7 @@
             this.pnlTelefono.Controls.Add(this.lbTelefono);
             this.pnlTelefono.Location = new System.Drawing.Point(3, 153);
             this.pnlTelefono.Name = "pnlTelefono";
-            this.pnlTelefono.Size = new System.Drawing.Size(394, 69);
+            this.pnlTelefono.Size = new System.Drawing.Size(343, 69);
             this.pnlTelefono.TabIndex = 3;
             // 
             // TelefonoControl
@@ -289,7 +303,7 @@
             this.TelefonoControl.MaxLength = 10;
             this.TelefonoControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.TelefonoControl.Name = "TelefonoControl";
-            this.TelefonoControl.Size = new System.Drawing.Size(351, 29);
+            this.TelefonoControl.Size = new System.Drawing.Size(326, 29);
             this.TelefonoControl.TabIndex = 3;
             this.TelefonoControl.TextChanged += new System.EventHandler(this.TelefonoControl_TextChanged);
             this.TelefonoControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TelefonoControl_KeyPress);
@@ -310,7 +324,7 @@
             this.pnlCodigoPostal.Controls.Add(this.lbCodigoPostal);
             this.pnlCodigoPostal.Location = new System.Drawing.Point(3, 228);
             this.pnlCodigoPostal.Name = "pnlCodigoPostal";
-            this.pnlCodigoPostal.Size = new System.Drawing.Size(394, 69);
+            this.pnlCodigoPostal.Size = new System.Drawing.Size(343, 69);
             this.pnlCodigoPostal.TabIndex = 4;
             // 
             // CodigoPostalControl
@@ -320,7 +334,7 @@
             this.CodigoPostalControl.Location = new System.Drawing.Point(9, 25);
             this.CodigoPostalControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.CodigoPostalControl.Name = "CodigoPostalControl";
-            this.CodigoPostalControl.Size = new System.Drawing.Size(351, 29);
+            this.CodigoPostalControl.Size = new System.Drawing.Size(326, 29);
             this.CodigoPostalControl.TabIndex = 3;
             this.CodigoPostalControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CodigoPostalControl_KeyPress);
             // 
@@ -340,7 +354,7 @@
             this.pnlRfc.Controls.Add(this.lbRfc);
             this.pnlRfc.Location = new System.Drawing.Point(3, 303);
             this.pnlRfc.Name = "pnlRfc";
-            this.pnlRfc.Size = new System.Drawing.Size(394, 72);
+            this.pnlRfc.Size = new System.Drawing.Size(343, 72);
             this.pnlRfc.TabIndex = 5;
             // 
             // RfcControl
@@ -350,7 +364,7 @@
             this.RfcControl.Location = new System.Drawing.Point(9, 25);
             this.RfcControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.RfcControl.Name = "RfcControl";
-            this.RfcControl.Size = new System.Drawing.Size(351, 29);
+            this.RfcControl.Size = new System.Drawing.Size(326, 29);
             this.RfcControl.TabIndex = 5;
             this.RfcControl.TextChanged += new System.EventHandler(this.RfcControl_TextChanged);
             // 
@@ -368,9 +382,9 @@
             // 
             this.pnlNombreRepresentante.Controls.Add(this.NombreRepresentanteControl);
             this.pnlNombreRepresentante.Controls.Add(this.lbNombreRepresentante);
-            this.pnlNombreRepresentante.Location = new System.Drawing.Point(403, 3);
+            this.pnlNombreRepresentante.Location = new System.Drawing.Point(352, 3);
             this.pnlNombreRepresentante.Name = "pnlNombreRepresentante";
-            this.pnlNombreRepresentante.Size = new System.Drawing.Size(394, 69);
+            this.pnlNombreRepresentante.Size = new System.Drawing.Size(371, 69);
             this.pnlNombreRepresentante.TabIndex = 6;
             // 
             // NombreRepresentanteControl
@@ -398,9 +412,9 @@
             // 
             this.pnlRegimenFiscal.Controls.Add(this.RegimenFiscalControl);
             this.pnlRegimenFiscal.Controls.Add(this.lbRegimenFiscal);
-            this.pnlRegimenFiscal.Location = new System.Drawing.Point(403, 78);
+            this.pnlRegimenFiscal.Location = new System.Drawing.Point(352, 78);
             this.pnlRegimenFiscal.Name = "pnlRegimenFiscal";
-            this.pnlRegimenFiscal.Size = new System.Drawing.Size(394, 69);
+            this.pnlRegimenFiscal.Size = new System.Drawing.Size(371, 69);
             this.pnlRegimenFiscal.TabIndex = 7;
             // 
             // RegimenFiscalControl
@@ -430,9 +444,9 @@
             this.pnlPais.Controls.Add(this.lbEstado);
             this.pnlPais.Controls.Add(this.IdPaisControl);
             this.pnlPais.Controls.Add(this.lbPais);
-            this.pnlPais.Location = new System.Drawing.Point(403, 153);
+            this.pnlPais.Location = new System.Drawing.Point(352, 153);
             this.pnlPais.Name = "pnlPais";
-            this.pnlPais.Size = new System.Drawing.Size(394, 69);
+            this.pnlPais.Size = new System.Drawing.Size(371, 69);
             this.pnlPais.TabIndex = 8;
             // 
             // IdEstadoControl
@@ -497,6 +511,74 @@
             this.lbPais.TabIndex = 8;
             this.lbPais.Text = "Pais";
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.panel1);
+            this.flowLayoutPanel1.Controls.Add(this.panel2);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(729, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.tlpContainer.SetRowSpan(this.flowLayoutPanel1, 5);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(384, 369);
+            this.flowLayoutPanel1.TabIndex = 11;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(381, 29);
+            this.panel1.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(123, 4);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(142, 20);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Horario de atención";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Location = new System.Drawing.Point(3, 38);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(381, 29);
+            this.panel2.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(265, 4);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 20);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Hora salida";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(116, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(97, 20);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Hora entrada";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(19, 4);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 20);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Dias";
+            // 
             // pnlFood
             // 
             this.pnlFood.Controls.Add(this.btnGuardar);
@@ -504,7 +586,7 @@
             this.pnlFood.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlFood.Location = new System.Drawing.Point(0, 438);
             this.pnlFood.Name = "pnlFood";
-            this.pnlFood.Size = new System.Drawing.Size(800, 75);
+            this.pnlFood.Size = new System.Drawing.Size(1117, 75);
             this.pnlFood.TabIndex = 4;
             // 
             // btnGuardar
@@ -516,7 +598,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(513, 26);
+            this.btnGuardar.Location = new System.Drawing.Point(830, 26);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(130, 28);
             this.btnGuardar.TabIndex = 7;
@@ -533,7 +615,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(658, 26);
+            this.btnCancelar.Location = new System.Drawing.Point(975, 26);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(130, 28);
             this.btnCancelar.TabIndex = 8;
@@ -548,7 +630,7 @@
             this.pnlHead.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHead.Location = new System.Drawing.Point(0, 0);
             this.pnlHead.Name = "pnlHead";
-            this.pnlHead.Size = new System.Drawing.Size(800, 60);
+            this.pnlHead.Size = new System.Drawing.Size(1117, 60);
             this.pnlHead.TabIndex = 3;
             // 
             // lblSubtitle
@@ -558,7 +640,7 @@
             this.lblSubtitle.Location = new System.Drawing.Point(27, 34);
             this.lblSubtitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSubtitle.Name = "lblSubtitle";
-            this.lblSubtitle.Size = new System.Drawing.Size(102, 15);
+            this.lblSubtitle.Size = new System.Drawing.Size(101, 15);
             this.lblSubtitle.TabIndex = 182;
             this.lblSubtitle.Text = "NUEVO REGISTRO";
             // 
@@ -580,12 +662,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 513);
+            this.ClientSize = new System.Drawing.Size(1117, 513);
             this.Controls.Add(this.pnlBody);
             this.Controls.Add(this.pnlFood);
             this.Controls.Add(this.pnlHead);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmSucursal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmSucursal";
             this.Shown += new System.EventHandler(this.FrmSucursal_Shown);
             this.pnlBody.ResumeLayout(false);
@@ -621,10 +704,16 @@
             this.pnlPais.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IdEstadoControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdPaisControl)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.pnlFood.ResumeLayout(false);
             this.pnlHead.ResumeLayout(false);
             this.pnlHead.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -672,5 +761,13 @@
         private System.Windows.Forms.Label lbEstado;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt NombreControl;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }
