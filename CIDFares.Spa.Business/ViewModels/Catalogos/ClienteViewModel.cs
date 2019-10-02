@@ -78,12 +78,12 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     model.IdCliente = Guid.Empty;
                     model.Clave = this.Clave;
                     model.NombreCompleto = this.NombreCompleto;
-                    model.Direccion = this.Direccion;
                     model.Telefono = this.Telefono;
                     model.FechaNacimiento = this.FechaNacimiento;
                     model.Sexo = this.Sexo;
                     model.FotoBase64 = this.FotoBase64;
                     model.Rfc = this.Rfc;
+                    model.Email = this.Email;
                     model = await Repository.AddAsync(model, IdUsuario);
                 }
                 else if (State == EntityState.Update)
@@ -93,12 +93,12 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     model.IdCliente = this.IdCliente;
                     model.Clave = this.Clave;
                     model.NombreCompleto = this.NombreCompleto;
-                    model.Direccion = this.Direccion;
                     model.Telefono = this.Telefono;
                     model.FechaNacimiento = this.FechaNacimiento;
                     model.Sexo = this.Sexo;
                     model.FotoBase64 = this.FotoBase64;
                     model.Rfc = this.Rfc;
+                    model.Email = this.Email;
                     model = await Repository.AddAsync(model, IdUsuario);
                 }
                 return model;
@@ -351,6 +351,14 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 _BuscarCliente = value;
                 OnPropertyChanged(nameof(BuscarCliente));
             }
+        }
+
+        private string _Email;
+
+        public string Email
+        {
+            get { return _Email; }
+            set { _Email = value; OnPropertyChanged(nameof(Email)); }
         }
 
         #region InotifyPropertyChanged Members

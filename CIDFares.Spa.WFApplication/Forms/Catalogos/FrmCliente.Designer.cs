@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn17 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn18 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.panelGridDatos = new System.Windows.Forms.Panel();
@@ -51,11 +51,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.SexoControl = new Syncfusion.Windows.Forms.Tools.ComboBoxAdv();
             this.label6 = new System.Windows.Forms.Label();
-            this.DireccionControl = new System.Windows.Forms.TextBox();
+            this.EmailControl = new System.Windows.Forms.TextBox();
             this.PnlFoto = new System.Windows.Forms.Panel();
             this.RutaControl = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.BtnSeleccionar = new System.Windows.Forms.Button();
+            this.FotoControl = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.FechaNacimientoControl = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -78,7 +79,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.FotoControl = new System.Windows.Forms.PictureBox();
             this.PanelPrincipal.SuspendLayout();
             this.PanelContenedor.SuspendLayout();
             this.panelGridDatos.SuspendLayout();
@@ -88,12 +88,12 @@
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SexoControl)).BeginInit();
             this.PnlFoto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
             this.PabelBTN.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.PanelTitulo.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelPrincipal
@@ -132,46 +132,46 @@
             this.sfDataGridCliente.AccessibleName = "Table";
             this.sfDataGridCliente.AllowEditing = false;
             this.sfDataGridCliente.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.AllowEditing = false;
-            gridTextColumn1.HeaderText = "IdCliente";
-            gridTextColumn1.MappingName = "IdCliente";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.AllowEditing = false;
-            gridTextColumn2.HeaderText = "Clave";
-            gridTextColumn2.MappingName = "Clave";
-            gridTextColumn3.AllowEditing = false;
-            gridTextColumn3.HeaderText = "Nombre";
-            gridTextColumn3.MappingName = "NombreCompleto";
-            gridTextColumn4.AllowEditing = false;
-            gridTextColumn4.HeaderText = "Teléfono";
-            gridTextColumn4.MappingName = "Telefono";
-            gridTextColumn5.AllowEditing = false;
-            gridTextColumn5.HeaderText = "Edad";
-            gridTextColumn5.MappingName = "Edad";
-            gridTextColumn6.AllowEditing = false;
-            gridTextColumn6.HeaderText = "Genero";
-            gridTextColumn6.MappingName = "Sexo";
-            gridTextColumn7.AllowEditing = false;
-            gridTextColumn7.HeaderText = "FechaNacimiento";
-            gridTextColumn7.MappingName = "FechaNacimiento";
-            gridTextColumn7.Visible = false;
-            gridTextColumn8.AllowEditing = false;
-            gridTextColumn8.HeaderText = "nada";
-            gridTextColumn8.MappingName = "TieneTarjeta";
-            gridTextColumn8.Visible = false;
-            gridTextColumn9.AllowEditing = false;
-            gridTextColumn9.HeaderText = "Puntos monedero";
-            gridTextColumn9.MappingName = "PuntosMonedero";
-            gridTextColumn9.NullDisplayText = "S/ Monedero";
-            this.sfDataGridCliente.Columns.Add(gridTextColumn1);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn2);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn3);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn4);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn5);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn6);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn7);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn8);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn9);
+            gridTextColumn10.AllowEditing = false;
+            gridTextColumn10.HeaderText = "IdCliente";
+            gridTextColumn10.MappingName = "IdCliente";
+            gridTextColumn10.Visible = false;
+            gridTextColumn11.AllowEditing = false;
+            gridTextColumn11.HeaderText = "Clave";
+            gridTextColumn11.MappingName = "Clave";
+            gridTextColumn12.AllowEditing = false;
+            gridTextColumn12.HeaderText = "Nombre";
+            gridTextColumn12.MappingName = "NombreCompleto";
+            gridTextColumn13.AllowEditing = false;
+            gridTextColumn13.HeaderText = "Teléfono";
+            gridTextColumn13.MappingName = "Telefono";
+            gridTextColumn14.AllowEditing = false;
+            gridTextColumn14.HeaderText = "Edad";
+            gridTextColumn14.MappingName = "Edad";
+            gridTextColumn15.AllowEditing = false;
+            gridTextColumn15.HeaderText = "Genero";
+            gridTextColumn15.MappingName = "Sexo";
+            gridTextColumn16.AllowEditing = false;
+            gridTextColumn16.HeaderText = "FechaNacimiento";
+            gridTextColumn16.MappingName = "FechaNacimiento";
+            gridTextColumn16.Visible = false;
+            gridTextColumn17.AllowEditing = false;
+            gridTextColumn17.HeaderText = "nada";
+            gridTextColumn17.MappingName = "TieneTarjeta";
+            gridTextColumn17.Visible = false;
+            gridTextColumn18.AllowEditing = false;
+            gridTextColumn18.HeaderText = "Puntos monedero";
+            gridTextColumn18.MappingName = "PuntosMonedero";
+            gridTextColumn18.NullDisplayText = "S/ Monedero";
+            this.sfDataGridCliente.Columns.Add(gridTextColumn10);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn11);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn12);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn13);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn14);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn15);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn16);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn17);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn18);
             this.sfDataGridCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridCliente.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridCliente.Name = "sfDataGridCliente";
@@ -196,7 +196,7 @@
             this.groupBoxCliente.Controls.Add(this.label8);
             this.groupBoxCliente.Controls.Add(this.SexoControl);
             this.groupBoxCliente.Controls.Add(this.label6);
-            this.groupBoxCliente.Controls.Add(this.DireccionControl);
+            this.groupBoxCliente.Controls.Add(this.EmailControl);
             this.groupBoxCliente.Controls.Add(this.PnlFoto);
             this.groupBoxCliente.Controls.Add(this.label5);
             this.groupBoxCliente.Controls.Add(this.FechaNacimientoControl);
@@ -279,7 +279,7 @@
             this.SexoControl.BeforeTouchSize = new System.Drawing.Size(355, 29);
             this.SexoControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Adjust;
             this.SexoControl.FlatBorderColor = System.Drawing.Color.BurlyWood;
-            this.SexoControl.Location = new System.Drawing.Point(12, 319);
+            this.SexoControl.Location = new System.Drawing.Point(9, 319);
             this.SexoControl.MetroBorderColor = System.Drawing.Color.Black;
             this.SexoControl.Name = "SexoControl";
             this.SexoControl.Size = new System.Drawing.Size(355, 29);
@@ -295,17 +295,17 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(21, 243);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 20);
+            this.label6.Size = new System.Drawing.Size(46, 20);
             this.label6.TabIndex = 49;
-            this.label6.Text = "Dirección";
+            this.label6.Text = "Email";
             // 
-            // DireccionControl
+            // EmailControl
             // 
-            this.DireccionControl.Location = new System.Drawing.Point(12, 267);
-            this.DireccionControl.MaxLength = 400;
-            this.DireccionControl.Name = "DireccionControl";
-            this.DireccionControl.Size = new System.Drawing.Size(355, 27);
-            this.DireccionControl.TabIndex = 48;
+            this.EmailControl.Location = new System.Drawing.Point(9, 267);
+            this.EmailControl.MaxLength = 400;
+            this.EmailControl.Name = "EmailControl";
+            this.EmailControl.Size = new System.Drawing.Size(355, 27);
+            this.EmailControl.TabIndex = 48;
             // 
             // PnlFoto
             // 
@@ -353,6 +353,17 @@
             this.BtnSeleccionar.Text = "SUBIR";
             this.BtnSeleccionar.UseVisualStyleBackColor = false;
             this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
+            // 
+            // FotoControl
+            // 
+            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FotoControl.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.imagen_subir;
+            this.FotoControl.Location = new System.Drawing.Point(219, 4);
+            this.FotoControl.Name = "FotoControl";
+            this.FotoControl.Size = new System.Drawing.Size(129, 103);
+            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.FotoControl.TabIndex = 0;
+            this.FotoControl.TabStop = false;
             // 
             // label5
             // 
@@ -579,17 +590,6 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
-            // FotoControl
-            // 
-            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FotoControl.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.imagen_subir;
-            this.FotoControl.Location = new System.Drawing.Point(219, 4);
-            this.FotoControl.Name = "FotoControl";
-            this.FotoControl.Size = new System.Drawing.Size(129, 103);
-            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.FotoControl.TabIndex = 0;
-            this.FotoControl.TabStop = false;
-            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -612,6 +612,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.SexoControl)).EndInit();
             this.PnlFoto.ResumeLayout(false);
             this.PnlFoto.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
             this.PabelBTN.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.PanelTitulo.ResumeLayout(false);
@@ -619,7 +620,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -648,7 +648,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox RfcControl;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox DireccionControl;
+        private System.Windows.Forms.TextBox EmailControl;
         private System.Windows.Forms.Label label8;
         private Syncfusion.Windows.Forms.Tools.ComboBoxAdv SexoControl;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
