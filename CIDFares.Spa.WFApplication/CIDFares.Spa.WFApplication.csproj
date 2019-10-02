@@ -36,7 +36,8 @@
     <Reference Include="CIDFares.Library.Code">
       <HintPath>..\..\CIDFares.Library\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
     </Reference>
-    <Reference Include="CIDFares.Library.Controls">
+    <Reference Include="CIDFares.Library.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\CIDFares.Library\CIDFares.Library.Controls\bin\Debug\CIDFares.Library.Controls.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
@@ -90,6 +91,48 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\Messages.cs" />
+    <Compile Include="Forms\Catalogos\FrmAlimentoGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmAlimentoGrid.Designer.cs">
+      <DependentUpon>FrmAlimentoGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmAlimentoNuevo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmAlimentoNuevo.Designer.cs">
+      <DependentUpon>FrmAlimentoNuevo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmTurno.Designer.cs">
+      <DependentUpon>FrmTurno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmTurnoPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmTurnoPrincipal.Designer.cs">
+      <DependentUpon>FrmTurnoPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\General\FrmEntradaSalidaAlmacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\General\FrmEntradaSalidaAlmacen.Designer.cs">
+      <DependentUpon>FrmEntradaSalidaAlmacen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\General\FrmInventarioFisico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\General\FrmInventarioFisico.Designer.cs">
+      <DependentUpon>FrmInventarioFisico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\General\FrmInventarioTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\General\FrmInventarioTest.Designer.cs">
+      <DependentUpon>FrmInventarioTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Paquete\FrmAbonarPaquete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +240,18 @@
     </Compile>
     <Compile Include="Forms\Citas\FrmCapturaCitaNuevo.Designer.cs">
       <DependentUpon>FrmCapturaCitaNuevo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compras\FrmBuscarCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\FrmBuscarCompras.Designer.cs">
+      <DependentUpon>FrmBuscarCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compras\FrmCancelacionCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\FrmCancelacionCompra.Designer.cs">
+      <DependentUpon>FrmCancelacionCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Compras\FrmCompra.cs">
       <SubType>Form</SubType>
@@ -386,11 +441,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validations\AlimentoValidator.cs" />
+    <Compile Include="Validations\CambioVentaValidator.cs" />
     <Compile Include="Validations\CapturaCitaValidator.cs" />
     <Compile Include="Validations\AbonoPaqueteValidator.cs" />
     <Compile Include="Validations\CancelacionVentaValidator.cs" />
     <Compile Include="Validations\EncuestaValidator.cs" />
     <Compile Include="Validations\EmpleadoValidator.cs" />
+    <Compile Include="Validations\EntradaSalidaAlmacenValidator.cs" />
     <Compile Include="Validations\ListaMedicionValidator.cs" />
     <Compile Include="Validations\MedicionValidator.cs" />
     <Compile Include="Validations\PaqueteValidator.cs" />
@@ -403,6 +461,24 @@
     <Compile Include="Validations\SucursalValidator.cs" />
     <Compile Include="Validations\UsuarioValidator.cs" />
     <Compile Include="Validations\VentaValidator.cs" />
+    <EmbeddedResource Include="Forms\Catalogos\FrmAlimentoGrid.resx">
+      <DependentUpon>FrmAlimentoGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmAlimentoNuevo.resx">
+      <DependentUpon>FrmAlimentoNuevo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmTurno.resx">
+      <DependentUpon>FrmTurno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmTurnoPrincipal.resx">
+      <DependentUpon>FrmTurnoPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\General\FrmEntradaSalidaAlmacen.resx">
+      <DependentUpon>FrmEntradaSalidaAlmacen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\General\FrmInventarioTest.resx">
+      <DependentUpon>FrmInventarioTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Paquete\FrmAbonarPaquete.resx">
       <DependentUpon>FrmAbonarPaquete.cs</DependentUpon>
     </EmbeddedResource>
@@ -462,6 +538,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Citas\FrmCapturaCitaNuevo.resx">
       <DependentUpon>FrmCapturaCitaNuevo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\FrmBuscarCompras.resx">
+      <DependentUpon>FrmBuscarCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\FrmCancelacionCompra.resx">
+      <DependentUpon>FrmCancelacionCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compras\FrmCompra.resx">
       <DependentUpon>FrmCompra.cs</DependentUpon>

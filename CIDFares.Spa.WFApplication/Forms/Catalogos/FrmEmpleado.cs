@@ -61,9 +61,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<EmpleadoViewModel>();
             LimpiarPropiedades();
-            Model.Modificar = false;
+          //  Model.Modificar = false;
             Model.IdEmpleado = IdEmpleado;
             Model.State = EntityState.Update;
+            
         }
         #endregion
         #region BOTONES
@@ -160,6 +161,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 ClaveControl.DataBindings.Add("Text", Model, "Clave", true, DataSourceUpdateMode.OnPropertyChanged);
                 FotoControl.DataBindings.Add("Image", Model, "Foto", true, DataSourceUpdateMode.OnPropertyChanged);
                 RutaControl.DataBindings.Add("Text", Model, "ImageLocation", true, DataSourceUpdateMode.OnPropertyChanged);
+                CambioContraseñaControl.DataBindings.Add("Checked", Model, "CambiarContraseña", true, DataSourceUpdateMode.OnPropertyChanged);
 
                 IniciarCombos(1);
                 IdTurnoControl.DataBindings.Add("SelectedValue", Model, "IdTurno", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -236,7 +238,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         private async void FrmEmpleado_Load(object sender, EventArgs e)
         {
             try
-            {
+            {              
                 var x = await Model.GetListaTurno();
                 Model.LlenaTurno(x);
 
@@ -244,16 +246,17 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 Model.LlenaPuesta(y);
 
                 IniciarBinding();
+                CambioContraseñaControl.Checked = true;
+                CambioContraseñaControl.Visible = false;
                 Model.Foto = Properties.Resources.imagen_subir;
+               
                 if (Model.State == EntityState.Update)
                 {
                     CIDWait.Show(async () => {
                         await Model.GetEmpleadoXId();
                         await Model.GetFoto(Model.IdEmpleado);
-                        ContraseñaControl.Visible = false;
-                        Contraseña2Control.Visible = false;
-                        lblContraseña.Visible = false;
-                        lblContraseña2.Visible = false;
+                        CambioContraseñaControl.Checked = false;
+                        CambioContraseñaControl.Visible = true;
                         if (!string.IsNullOrEmpty(Model.FotoBase64))
                         {
                             Model.Foto = ComprimirImagenExtensions.ImageBase64ToImage(Model.FotoBase64);
@@ -298,6 +301,26 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             else
             {
                 e.Handled = true;
+            }
+        }
+
+        private void CambioContraseñaControl_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CambioContraseñaControl.Checked==true)
+            {
+                Model.Modificar = true;
+                ContraseñaControl.Enabled = true;
+                Contraseña2Control.Enabled = true;
+                lblContraseña.Enabled = true;
+                lblContraseña2.Enabled = true;
+            }
+            else if(CambioContraseñaControl.Checked==false)
+            {
+                Model.Modificar = false;
+                ContraseñaControl.Enabled = false;
+                Contraseña2Control.Enabled = false;
+                lblContraseña.Enabled = false;
+                lblContraseña2.Enabled = false;
             }
         }
     }

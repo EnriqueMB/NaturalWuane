@@ -38,6 +38,7 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenedoGridGuardar = new System.Windows.Forms.Panel();
             this.panelGuardar = new System.Windows.Forms.Panel();
@@ -73,7 +74,7 @@
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(916, 482);
+            this.panelContenedor.Size = new System.Drawing.Size(916, 483);
             this.panelContenedor.TabIndex = 0;
             // 
             // panelContenedoGridGuardar
@@ -83,7 +84,7 @@
             this.panelContenedoGridGuardar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedoGridGuardar.Location = new System.Drawing.Point(0, 62);
             this.panelContenedoGridGuardar.Name = "panelContenedoGridGuardar";
-            this.panelContenedoGridGuardar.Size = new System.Drawing.Size(916, 420);
+            this.panelContenedoGridGuardar.Size = new System.Drawing.Size(916, 421);
             this.panelContenedoGridGuardar.TabIndex = 1;
             // 
             // panelGuardar
@@ -117,11 +118,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(6, 86);
+            this.label1.Location = new System.Drawing.Point(16, 94);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 20);
+            this.label1.Size = new System.Drawing.Size(82, 20);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Cantidad a vender:";
+            this.label1.Text = "Cantidad:";
             // 
             // CantidadProductoControl
             // 
@@ -138,7 +139,7 @@
             this.panelGrid.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelGrid.Location = new System.Drawing.Point(0, 0);
             this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(755, 420);
+            this.panelGrid.Size = new System.Drawing.Size(755, 421);
             this.panelGrid.TabIndex = 0;
             // 
             // sfDataGridBuquedaProducto
@@ -178,6 +179,10 @@
             gridTextColumn9.HeaderText = "Porcentaje Paquete";
             gridTextColumn9.MappingName = "PorcentajePaquete";
             gridTextColumn9.Visible = false;
+            gridTextColumn10.AllowEditing = false;
+            gridTextColumn10.Format = "C";
+            gridTextColumn10.HeaderText = "Costo";
+            gridTextColumn10.MappingName = "CostoProducto";
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn1);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn2);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn3);
@@ -187,10 +192,11 @@
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn7);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn8);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn9);
+            this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn10);
             this.sfDataGridBuquedaProducto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridBuquedaProducto.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridBuquedaProducto.Name = "sfDataGridBuquedaProducto";
-            this.sfDataGridBuquedaProducto.Size = new System.Drawing.Size(755, 420);
+            this.sfDataGridBuquedaProducto.Size = new System.Drawing.Size(755, 421);
             this.sfDataGridBuquedaProducto.TabIndex = 2;
             this.sfDataGridBuquedaProducto.Text = "sfDataGrid1";
             this.sfDataGridBuquedaProducto.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.sfDataGridBuquedaProducto_CellDoubleClick);
@@ -304,7 +310,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 482);
+            this.ClientSize = new System.Drawing.Size(916, 483);
             this.Controls.Add(this.panelContenedor);
             this.MaximumSize = new System.Drawing.Size(932, 521);
             this.MinimumSize = new System.Drawing.Size(932, 521);

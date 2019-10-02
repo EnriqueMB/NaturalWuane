@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.PnlHead = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -42,10 +42,10 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.sfDataGridListaMedicion = new Syncfusion.WinForms.DataGrid.SfDataGrid();
-            this.BtnAgregar = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.ValorControl = new System.Windows.Forms.TextBox();
+            this.BtnAgregar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.NombreControl = new System.Windows.Forms.TextBox();
@@ -184,7 +184,7 @@
             this.btnQuitar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuitar.ForeColor = System.Drawing.Color.White;
             this.btnQuitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQuitar.Location = new System.Drawing.Point(301, 49);
+            this.btnQuitar.Location = new System.Drawing.Point(289, 46);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(32, 28);
             this.btnQuitar.TabIndex = 18;
@@ -197,32 +197,15 @@
             this.sfDataGridListaMedicion.AccessibleName = "Table";
             this.sfDataGridListaMedicion.AllowEditing = false;
             this.sfDataGridListaMedicion.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.AllowEditing = false;
-            gridTextColumn1.HeaderText = "Valor";
-            gridTextColumn1.MappingName = "Valor";
-            this.sfDataGridListaMedicion.Columns.Add(gridTextColumn1);
+            gridTextColumn2.AllowEditing = false;
+            gridTextColumn2.HeaderText = "Valor";
+            gridTextColumn2.MappingName = "Valor";
+            this.sfDataGridListaMedicion.Columns.Add(gridTextColumn2);
             this.sfDataGridListaMedicion.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridListaMedicion.Name = "sfDataGridListaMedicion";
-            this.sfDataGridListaMedicion.Size = new System.Drawing.Size(290, 117);
+            this.sfDataGridListaMedicion.Size = new System.Drawing.Size(264, 117);
             this.sfDataGridListaMedicion.TabIndex = 9;
             this.sfDataGridListaMedicion.Text = "sfDataGrid1";
-            // 
-            // BtnAgregar
-            // 
-            this.BtnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
-            this.BtnAgregar.FlatAppearance.BorderSize = 0;
-            this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAgregar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.BtnAgregar.ForeColor = System.Drawing.Color.White;
-            this.BtnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnAgregar.Location = new System.Drawing.Point(232, 44);
-            this.BtnAgregar.Name = "BtnAgregar";
-            this.BtnAgregar.Size = new System.Drawing.Size(32, 28);
-            this.BtnAgregar.TabIndex = 57;
-            this.BtnAgregar.Text = "+";
-            this.BtnAgregar.UseVisualStyleBackColor = false;
-            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // panel4
             // 
@@ -255,6 +238,24 @@
             this.ValorControl.Size = new System.Drawing.Size(175, 24);
             this.ValorControl.TabIndex = 5;
             this.ValorControl.TextChanged += new System.EventHandler(this.ValorControl_TextChanged);
+            this.ValorControl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ValorControl_KeyDown);
+            // 
+            // BtnAgregar
+            // 
+            this.BtnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
+            this.BtnAgregar.FlatAppearance.BorderSize = 0;
+            this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAgregar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.BtnAgregar.ForeColor = System.Drawing.Color.White;
+            this.BtnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnAgregar.Location = new System.Drawing.Point(232, 43);
+            this.BtnAgregar.Name = "BtnAgregar";
+            this.BtnAgregar.Size = new System.Drawing.Size(32, 28);
+            this.BtnAgregar.TabIndex = 57;
+            this.BtnAgregar.Text = "+";
+            this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // panel3
             // 
@@ -301,6 +302,7 @@
             this.Controls.Add(this.PnlHead);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmListaMedicion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmListaMedicion";
             this.Load += new System.EventHandler(this.FrmListaMedicion_Load);
             this.PnlHead.ResumeLayout(false);

@@ -61,13 +61,16 @@ namespace CIDFares.Spa.WFApplication.Validations
                     Guid result = await usuarioService.EsCuentaEmpleadoUnico(Empleado.IdEmpleado);
                     if (result != Guid.Empty)
                     {
-                        if (result == Empleado.IdCuentaUsuario)
+                        if (result == Empleado.IdEmpleado)
                             return true;
                         else
                             return false;
                     }
                     else
+                    {
                         return true;
+
+                    }
                 })
                     .WithMessage("EL EMPLEADO TIENE CUENTA YA EXISTEN");
 

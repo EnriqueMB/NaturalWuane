@@ -39,6 +39,7 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo gridBordersInfo1 = new Syncfusion.WinForms.DataGrid.Styles.GridBordersInfo();
             this.FlpBotones = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancelarEncuesta = new System.Windows.Forms.Button();
@@ -86,11 +87,11 @@
             // btnCancelarEncuesta
             // 
             this.btnCancelarEncuesta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelarEncuesta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnCancelarEncuesta.FlatAppearance.BorderSize = 0;
+            this.btnCancelarEncuesta.BackColor = System.Drawing.Color.White;
+            this.btnCancelarEncuesta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.btnCancelarEncuesta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarEncuesta.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarEncuesta.ForeColor = System.Drawing.Color.White;
+            this.btnCancelarEncuesta.ForeColor = System.Drawing.Color.Black;
             this.btnCancelarEncuesta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelarEncuesta.Location = new System.Drawing.Point(509, 23);
             this.btnCancelarEncuesta.Name = "btnCancelarEncuesta";
@@ -103,11 +104,11 @@
             // btnNuevaEncuesta
             // 
             this.btnNuevaEncuesta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNuevaEncuesta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
-            this.btnNuevaEncuesta.FlatAppearance.BorderSize = 0;
+            this.btnNuevaEncuesta.BackColor = System.Drawing.Color.White;
+            this.btnNuevaEncuesta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.btnNuevaEncuesta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevaEncuesta.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevaEncuesta.ForeColor = System.Drawing.Color.White;
+            this.btnNuevaEncuesta.ForeColor = System.Drawing.Color.Black;
             this.btnNuevaEncuesta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevaEncuesta.Location = new System.Drawing.Point(373, 23);
             this.btnNuevaEncuesta.Name = "btnNuevaEncuesta";
@@ -243,10 +244,7 @@
             this.dtgRespuestas.Style.GroupDropAreaItemStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.dtgRespuestas.Style.GroupDropAreaStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
             this.dtgRespuestas.Style.GroupDropAreaStyle.TextColor = System.Drawing.Color.Black;
-            this.dtgRespuestas.Style.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(64)))), ((int)(((byte)(23)))));
-            this.dtgRespuestas.Style.HeaderStyle.Font.Bold = false;
-            this.dtgRespuestas.Style.HeaderStyle.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(64)))), ((int)(((byte)(23)))));
-            this.dtgRespuestas.Style.HeaderStyle.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dtgRespuestas.Style.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.dtgRespuestas.Style.HeaderStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dtgRespuestas.Style.IndentCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
             this.dtgRespuestas.TabIndex = 1;
@@ -379,12 +377,18 @@
             gridTextColumn10.HeaderText = "DEPENDE";
             gridTextColumn10.MappingName = "IdPreguntaDepende";
             gridTextColumn10.Visible = false;
+            gridTextColumn11.AllowDragging = true;
+            gridTextColumn11.AllowEditing = false;
+            gridTextColumn11.AllowFiltering = true;
+            gridTextColumn11.HeaderText = "¿CON RESPUESTAS MULTIPLES?";
+            gridTextColumn11.MappingName = "RespuestaMultiple";
             this.dtgPreguntas.Columns.Add(gridTextColumn5);
             this.dtgPreguntas.Columns.Add(gridTextColumn6);
             this.dtgPreguntas.Columns.Add(gridTextColumn7);
             this.dtgPreguntas.Columns.Add(gridTextColumn8);
             this.dtgPreguntas.Columns.Add(gridTextColumn9);
             this.dtgPreguntas.Columns.Add(gridTextColumn10);
+            this.dtgPreguntas.Columns.Add(gridTextColumn11);
             this.dtgPreguntas.Location = new System.Drawing.Point(6, 19);
             this.dtgPreguntas.Name = "dtgPreguntas";
             this.dtgPreguntas.RowHeight = 21;
@@ -395,13 +399,9 @@
             this.dtgPreguntas.Style.GroupDropAreaItemStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.dtgPreguntas.Style.GroupDropAreaStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
             this.dtgPreguntas.Style.GroupDropAreaStyle.TextColor = System.Drawing.Color.Black;
-            this.dtgPreguntas.Style.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(64)))), ((int)(((byte)(23)))));
-            this.dtgPreguntas.Style.HeaderStyle.Font.Bold = false;
-            this.dtgPreguntas.Style.HeaderStyle.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(64)))), ((int)(((byte)(23)))));
-            this.dtgPreguntas.Style.HeaderStyle.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dtgPreguntas.Style.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.dtgPreguntas.Style.HeaderStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dtgPreguntas.Style.IndentCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            this.dtgPreguntas.Style.RowHeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             gridBordersInfo1.Bottom = new Syncfusion.WinForms.DataGrid.Styles.GridBorder(Syncfusion.WinForms.DataGrid.Styles.GridBorderStyle.Solid, System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0))))));
             this.dtgPreguntas.Style.RowHeaderStyle.Borders = gridBordersInfo1;
             this.dtgPreguntas.TabIndex = 1;
@@ -459,6 +459,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlTitulo);
             this.Controls.Add(this.FlpBotones);
+            this.MaximumSize = new System.Drawing.Size(678, 763);
+            this.MinimumSize = new System.Drawing.Size(678, 763);
             this.Name = "FrmNuevaEncuesta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmNuevaEncuesta";
