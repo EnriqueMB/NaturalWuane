@@ -290,5 +290,25 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         {
             throw new NotImplementedException();
         }
+
+        public async Task<IEnumerable<CapturaCita>> LlenarComboHorarioSucursal(object Dias, object IdSucursal)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {                 
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@Dia", Dias);
+                    dynamicParameters.Add("@IdSucursal", IdSucursal);
+                    var dr = await conexion.QueryAsync<CapturaCita>("[Cita].[SPCID_Get_ComboHorasSucursal]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return dr;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

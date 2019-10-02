@@ -19,5 +19,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
         Task<BindingList<CapturaCita>> ValidarFechaServicio(DateTime? fecha);
         Task<IEnumerable<CapturaCita>> LlenarComboHoras(DateTime f, DateTime primeraHora);
         Task<int> BusyService(CapturaCita element, object IdSucursal);
+        Task<IEnumerable<CapturaCita>> LlenarComboHorarioSucursal(object Dias, object IdSucursal);
     }
 }
