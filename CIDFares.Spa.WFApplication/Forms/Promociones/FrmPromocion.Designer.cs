@@ -34,6 +34,7 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.panelGeneral = new System.Windows.Forms.Panel();
             this.SfGridPromocion = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -77,30 +78,38 @@
             gridTextColumn1.Visible = false;
             gridTextColumn2.AllowGrouping = false;
             gridTextColumn2.AllowResizing = true;
-            gridTextColumn2.HeaderText = "Tipo de promocion";
-            gridTextColumn2.MappingName = "IdTipoPromocion";
+            gridTextColumn2.HeaderText = "Column7";
+            gridTextColumn2.MappingName = "TipoPromocion.IdTipoPromocion";
+            gridTextColumn2.Visible = false;
             gridTextColumn3.AllowGrouping = false;
             gridTextColumn3.AllowResizing = true;
-            gridTextColumn3.HeaderText = "Cantidad";
-            gridTextColumn3.MappingName = "Cantidad";
+            gridTextColumn3.HeaderText = "Tipo de promocion";
+            gridTextColumn3.MappingName = "TipoPromocion.Nombre";
             gridTextColumn4.AllowGrouping = false;
             gridTextColumn4.AllowResizing = true;
-            gridTextColumn4.HeaderText = "Limite";
-            gridTextColumn4.MappingName = "Limite";
+            gridTextColumn4.HeaderText = "Cantidad";
+            gridTextColumn4.MappingName = "Cantidad";
+            gridTextColumn4.Width = 100D;
             gridTextColumn5.AllowGrouping = false;
             gridTextColumn5.AllowResizing = true;
-            gridTextColumn5.HeaderText = "Nombre";
-            gridTextColumn5.MappingName = "Servicio/Producto";
+            gridTextColumn5.HeaderText = "Limite";
+            gridTextColumn5.MappingName = "Limite";
+            gridTextColumn5.Width = 100D;
             gridTextColumn6.AllowGrouping = false;
             gridTextColumn6.AllowResizing = true;
-            gridTextColumn6.HeaderText = "Nombre Promocion";
-            gridTextColumn6.MappingName = "NombrePromocion";
+            gridTextColumn6.HeaderText = "Nombre";
+            gridTextColumn6.MappingName = "Nombre";
+            gridTextColumn7.AllowGrouping = false;
+            gridTextColumn7.AllowResizing = true;
+            gridTextColumn7.HeaderText = "Nombre Promocion";
+            gridTextColumn7.MappingName = "NombrePromocion";
             this.SfGridPromocion.Columns.Add(gridTextColumn1);
             this.SfGridPromocion.Columns.Add(gridTextColumn2);
             this.SfGridPromocion.Columns.Add(gridTextColumn3);
             this.SfGridPromocion.Columns.Add(gridTextColumn4);
             this.SfGridPromocion.Columns.Add(gridTextColumn5);
             this.SfGridPromocion.Columns.Add(gridTextColumn6);
+            this.SfGridPromocion.Columns.Add(gridTextColumn7);
             this.SfGridPromocion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SfGridPromocion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SfGridPromocion.Location = new System.Drawing.Point(0, 0);
@@ -127,7 +136,7 @@
             // btnNuevo
             // 
             this.btnNuevo.BackColor = System.Drawing.Color.White;
-            this.btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnNuevo.FlatAppearance.BorderSize = 0;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
@@ -137,7 +146,11 @@
             this.btnNuevo.TabIndex = 0;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.BackColorChanged += new System.EventHandler(this.btnNuevo_BackColorChanged);
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            this.btnNuevo.MouseLeave += new System.EventHandler(this.btnNuevo_MouseLeave);
+            this.btnNuevo.MouseHover += new System.EventHandler(this.btnNuevo_MouseHover);
+            this.btnNuevo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnNuevo_MouseMove);
             // 
             // btnModificar
             // 
@@ -157,6 +170,7 @@
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.White;
+            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F);

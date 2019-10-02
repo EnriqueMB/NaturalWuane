@@ -1,4 +1,5 @@
-﻿using CIDFares.Spa.Business.ViewModels.Promociones;
+﻿using CIDFares.Spa.Business.ValueObjects;
+using CIDFares.Spa.Business.ViewModels.Promociones;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Forms.Ventas;
@@ -17,15 +18,42 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
     public partial class FrmNuevaPromocion : Form
     {
         public PromocionViewModel Model { get; set; }
-        FrmPromocionDescuento descuento;
+        private PromocionGeneral promocion;
 
         #region Constructor
         public FrmNuevaPromocion()
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<PromocionViewModel>();
+            promocion = new PromocionGeneral();
             this.IniciarBinding();
-            descuento = new FrmPromocionDescuento(Model);
+        }
+
+        public FrmNuevaPromocion(PromocionGeneral item)
+        {
+            InitializeComponent();
+            Model = ServiceLocator.Instance.Resolve<PromocionViewModel>();
+            this.promocion = item;
+            this.IniciarBinding();
+            Model.State = EntityState.Update;
+            LlenarFormulario();
+        }
+
+        private void LlenarFormulario()
+        {
+            try
+            {
+                Model.IdTipoPromocion = promocion.TipoPromocion.IdTipoPromocion;
+                Model.NombrePromocion = promocion.NombrePromocion;
+                Model.Nombre = promocion.Nombre;
+                Model.IdPromocion = promocion.IdPromocion;
+                Model.Limite = promocion.Limite;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         #endregion
 
@@ -58,7 +86,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
         {
             try
             {
-
+                NombrePromocionControl.DataBindings.Add("Text", Model, "NombrePromocion", true, DataSourceUpdateMode.OnPropertyChanged);
                 rbProducto.DataBindings.Add("checked", Model, "EsProducto", true, DataSourceUpdateMode.OnPropertyChanged);
 
                 IniciarCombos();
@@ -84,13 +112,44 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
         {
             try
             {
-                GetPanel(new FrmSeleccione());
-                Model.EsProducto = true;
-                DescripcionControl.Text = "";
-                grbBuscarServProd.Enabled = false;
-                grServProd.Enabled = false;
                 var x = await Model.GetListaTipoPromocion();
                 Model.LlenarTipoPromocion(x);
+                if (promocion.IdPromocion != Guid.Empty)
+                {
+                    switch(Model.IdTipoPromocion)
+                    {
+                        case 1:
+                            await Model.GetAsync();
+                            break;
+                        case 2:
+                            await Model.GetNxNAsync();
+                            break;
+                        case 3:
+                            await Model.GetMxNAsync();
+                            break;
+                        default:
+                            GetPanel(new FrmSeleccione());
+                            break;
+                    }
+                    
+
+
+                    this.IdTipoPromocion.Enabled = false;
+                    Model.IdTipoPromocion = promocion.TipoPromocion.IdTipoPromocion;
+                    if (promocion.IdTipo == 1)
+                        this.rbServicio.Checked = true;
+                    else
+                        this.rbProducto.Checked = true;
+                }
+                else
+                {
+                    GetPanel(new FrmSeleccione());
+                    Model.EsProducto = true;
+                    DescripcionControl.Text = "";
+                    grbBuscarServProd.Enabled = false;
+                    gbNombre.Enabled = false;
+                    grServProd.Enabled = false;
+                }
                 
             }
             catch (Exception)
@@ -98,7 +157,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
 
                 throw;
             }
-        }
+         }
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -112,7 +171,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 {
                     FrmBusquedaProducto buscar = new FrmBusquedaProducto(1);
                     buscar.ShowDialog();
-                    descuento.Agregar(buscar.producto);
                     Model.IdGenerico = buscar.producto.IdProducto;
                     Model.Nombre = buscar.producto.Nombre;
                 }
@@ -120,7 +178,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 {
                     FrmBuscarServicio buscar = new FrmBuscarServicio();
                     buscar.ShowDialog();
-                    descuento.Agregar(buscar.servicio);
                     Model.IdGenerico = buscar.servicio.IdServicio;
                     Model.Nombre = buscar.servicio.Nombre;
                 }
@@ -142,13 +199,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 DescripcionControl.Text = item.descripcion;
                 grbBuscarServProd.Enabled = true;
                 grServProd.Enabled = true;
+                gbNombre.Enabled = true;
                 switch (item.IdTipoPromocion)
                 {
                     case 0: DescripcionControl.Text = ""; GetPanel(new FrmSeleccione());
                         grbBuscarServProd.Enabled = false;
                         grServProd.Enabled = false;
                         break;
-                    case 1: GetPanel(descuento);
+                    case 1: GetPanel(new FrmPromocionDescuento(Model));
                         break;
                     case 2: GetPanel(new FrmPromocionNxN(Model)); break;
                     case 3: GetPanel(new FrmPromocionMxN(Model)); break;

@@ -184,7 +184,7 @@
             this.pnlMenuPrincipal.Controls.Add(this.pictureBox5);
             this.pnlMenuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.pnlMenuPrincipal.Name = "pnlMenuPrincipal";
-            this.pnlMenuPrincipal.Size = new System.Drawing.Size(213, 500)
+            this.pnlMenuPrincipal.Size = new System.Drawing.Size(213, 500);
             this.pnlMenuPrincipal.TabIndex = 9;
             // 
             // btnUsuarios

@@ -41,7 +41,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.rbProcentaje = new System.Windows.Forms.RadioButton();
-            this.rbMonto = new System.Windows.Forms.RadioButton();
+            this.EsMonto = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.NombreProductoControl = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -104,7 +104,7 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnAgregar.Location = new System.Drawing.Point(229, 37);
+            this.btnAgregar.Location = new System.Drawing.Point(286, 39);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(167, 33);
             this.btnAgregar.TabIndex = 0;
@@ -128,7 +128,7 @@
             // 
             // DescuentoControl
             // 
-            this.DescuentoControl.BeforeTouchSize = new System.Drawing.Size(60, 23);
+            this.DescuentoControl.BeforeTouchSize = new System.Drawing.Size(93, 23);
             this.DescuentoControl.Location = new System.Drawing.Point(19, 32);
             this.DescuentoControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.DescuentoControl.Name = "DescuentoControl";
@@ -164,7 +164,7 @@
             // 
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.rbProcentaje);
-            this.groupBox2.Controls.Add(this.rbMonto);
+            this.groupBox2.Controls.Add(this.EsMonto);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(33, 102);
@@ -200,19 +200,19 @@
             this.rbProcentaje.UseVisualStyleBackColor = true;
             this.rbProcentaje.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
-            // rbMonto
+            // EsMonto
             // 
-            this.rbMonto.AutoSize = true;
-            this.rbMonto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbMonto.ForeColor = System.Drawing.Color.Black;
-            this.rbMonto.Location = new System.Drawing.Point(12, 40);
-            this.rbMonto.Name = "rbMonto";
-            this.rbMonto.Size = new System.Drawing.Size(68, 21);
-            this.rbMonto.TabIndex = 4;
-            this.rbMonto.TabStop = true;
-            this.rbMonto.Text = "Monto";
-            this.rbMonto.UseVisualStyleBackColor = true;
-            this.rbMonto.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.EsMonto.AutoSize = true;
+            this.EsMonto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EsMonto.ForeColor = System.Drawing.Color.Black;
+            this.EsMonto.Location = new System.Drawing.Point(12, 40);
+            this.EsMonto.Name = "EsMonto";
+            this.EsMonto.Size = new System.Drawing.Size(68, 21);
+            this.EsMonto.TabIndex = 4;
+            this.EsMonto.TabStop = true;
+            this.EsMonto.Text = "Monto";
+            this.EsMonto.UseVisualStyleBackColor = true;
+            this.EsMonto.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -281,7 +281,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton rbProcentaje;
-        private System.Windows.Forms.RadioButton rbMonto;
+        private System.Windows.Forms.RadioButton EsMonto;
         private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

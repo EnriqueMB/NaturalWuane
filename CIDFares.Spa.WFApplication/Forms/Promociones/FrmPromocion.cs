@@ -1,5 +1,11 @@
-﻿using CIDFares.Spa.Business.ViewModels.Promociones;
+﻿using CIDFares.Library.Code.Helpers;
+using CIDFares.Library.Controls.CIDMessageBox.Code;
+using CIDFares.Library.Controls.CIDMessageBox.Enums;
+using CIDFares.Spa.Business.ValueObjects;
+using CIDFares.Spa.Business.ViewModels.Promociones;
 using CIDFares.Spa.CrossCutting.Services;
+using CIDFares.Spa.DataAccess.Contracts.Entities;
+using CIDFares.Spa.WFApplication.Constants;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -74,21 +80,54 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 
         private void panelPromocion_DoubleClick(object sender, EventArgs e)
         {
-            Console.WriteLine("The threshold was reached.");
+            //Console.WriteLine("The threshold was reached.");
+        }
+
+        private PromocionGeneral ObtenerSeleccionado()
+        {
+            try
+            {
+                if (SfGridPromocion.SelectedItems.Count == 1)
+                {
+                    return (PromocionGeneral)SfGridPromocion.SelectedItem;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var item = ObtenerSeleccionado();
+                if (item != null)
+                {
+                    FrmNuevaPromocion modificar = new FrmNuevaPromocion(item);
+                    modificar.ShowDialog();
+                    SfGridPromocion.Refresh();
+                }
+                else
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
+            }
+            catch (Exception ex)
+            {
 
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmFormaPago ~ btnModificar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            GetPanel(new FrmNuevaPromocion());
-            //FrmNuevaPromocion nuevo = new FrmNuevaPromocion();
-            //nuevo.ShowDialog();
+            //GetPanel(new FrmNuevaPromocion());
+            FrmNuevaPromocion nuevo = new FrmNuevaPromocion();
+            nuevo.ShowDialog();
         }
-        
+
         public void GetPanel(object Formhijo)
         {
             try
@@ -111,6 +150,39 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 throw ex;
             }
 
+        }
+
+        private void btnNuevo_BackColorChanged(object sender, EventArgs e)
+        {
+            if (this.btnNuevo.ForeColor == Color.White)
+                btnNuevo.ForeColor = Color.FromArgb(60, 186, 60);
+            else
+                this.btnNuevo.ForeColor = Color.White;
+        }
+
+        private void btnNuevo_MouseHover(object sender, EventArgs e)
+        {
+            //if (this.btnNuevo.ForeColor == Color.White)
+            //    btnNuevo.ForeColor = Color.FromArgb(60, 186, 60);
+            //else
+            //    this.btnNuevo.ForeColor = Color.White;
+        }
+
+        private void btnNuevo_MouseMove(object sender, MouseEventArgs e)
+        {
+            //if (this.btnNuevo.ForeColor == Color.White)
+            //    btnNuevo.ForeColor = Color.FromArgb(60, 186, 60);
+            //else
+            //    this.btnNuevo.ForeColor = Color.White;
+        }
+
+        private void btnNuevo_MouseLeave(object sender, EventArgs e)
+        {
+            //if (this.btnNuevo.ForeColor == Color.White)
+            //    btnNuevo.ForeColor = Color.FromArgb(60, 186, 60);
+            //else
+            //    if (btnNuevo.ForeColor == Color.FromArgb(60, 186, 60))
+            //    btnNuevo.ForeColor = Color.White;
         }
     }
 }

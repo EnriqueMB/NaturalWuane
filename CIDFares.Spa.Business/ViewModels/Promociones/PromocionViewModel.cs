@@ -19,7 +19,7 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
         #endregion
 
         #region Propiedades públicas
-        public BindingList<Promocion> ListaPromocion { get; set; }
+        public BindingList<PromocionGeneral> ListaPromocion { get; set; }
         public BindingList<PromocionMxN> ListaPromocionMxN { get; set; }
         public BindingList<TipoPromocion> ListaTipoPromocion { get; set; }
         public DataTable TablaProducto { get; set; }
@@ -31,19 +31,18 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
         public PromocionViewModel(IPromocionRepository formaPagoRepository)
         {
             Repository = formaPagoRepository;
-            ListaPromocion = new BindingList<Promocion>();
+            ListaPromocion = new BindingList<PromocionGeneral>();
             ListaTipoPromocion = new BindingList<TipoPromocion>();
             ListaPromocionMxN = new BindingList<PromocionMxN>();
             GetAllAsync();
+            GetAllPromocionAsync();
         }
-        #endregion
 
-        #region Metodos
-        public async Task GetAllAsync()
+        private async void GetAllPromocionAsync()
         {
             try
             {
-                var x = await Repository.GetAllAsync();
+                var x = await Repository.GetAllPromocionAsync();
                 ListaPromocion.Clear();
                 foreach (var item in x)
                 {
@@ -56,15 +55,37 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
                 throw ex;
             }
         }
+        #endregion
+
+        #region Metodos
+        public async Task GetAllAsync()
+        {
+            //try
+            //{
+            //    var x = await Repository.GetAllAsync();
+            //    ListaPromocion.Clear();
+            //    foreach (var item in x)
+            //    {
+            //        ListaPromocion.Add(item);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    throw ex;
+            //}
+        }
 
         public async Task<PromocionDescuento> GuardarPromocionDescuento(Guid IdUsuario)
         {
             try
             {
                 PromocionDescuento model = new PromocionDescuento();
-                model.Promocion.IdTipoPromocion = this.IdTipoPromocion;
+                model.Promocion.IdPromocion = this.IdPromocion;
+                model.Promocion.TipoPromocion.IdTipoPromocion = this.IdTipoPromocion;
                 model.Promocion.IdGenerico = this.IdGenerico;
                 model.Promocion.EsProducto = this.EsProducto;
+                model.Promocion.NombrePromocion = this.NombrePromocion;
                 model.EsMonto = this.EsMonto;
                 model.Descuento = this.Descuento;
                 model.PromocionDias.EsPeriodo = this.EsPeriodo;
@@ -80,12 +101,12 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
                 model.PromocionDias.Limite = this.Limite;
                 if (State == EntityState.Create)
                 {
-                    return await Repository.AddPromocionDescuento(model, IdUsuario);
+                    return await Repository.AddPromocionDescuento(model, IdUsuario, 1);
                 }
-                //else if (State == EntityState.Update)
-                //{
-                //    return await Repository.UpdateAsync(model, IdUsuario);
-                //}
+                else if (State == EntityState.Update)
+                {
+                    return await Repository.AddPromocionDescuento(model, IdUsuario, 2);
+                }
                 return model;
             }
             catch (Exception ex)
@@ -99,9 +120,10 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
             try
             {
                 PromocionNxN model = new PromocionNxN();
-                model.Promocion.IdTipoPromocion = this.IdTipoPromocion;
+                model.Promocion.TipoPromocion.IdTipoPromocion = this.IdTipoPromocion;
                 model.Promocion.IdGenerico = this.IdGenerico;
                 model.Promocion.EsProducto = this.EsProducto;
+                model.Promocion.NombrePromocion = this.NombrePromocion;
                 model.Cantidad = this.Cantidad;
                 model.CantidadGratis = this.CantidadGratis;
                 model.PromocionDias.EsPeriodo = this.EsPeriodo;
@@ -117,12 +139,12 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
                 model.PromocionDias.Limite = this.Limite;
                 if (State == EntityState.Create)
                 {
-                    return await Repository.AddPromocionNxN(model, IdUsuario);
+                    return await Repository.AddPromocionNxN(model, IdUsuario, 1);
                 }
-                //else if (State == EntityState.Update)
-                //{
-                //    return await Repository.UpdateAsync(model, IdUsuario);
-                //}
+                else if (State == EntityState.Update)
+                {
+                    return await Repository.AddPromocionNxN(model, IdUsuario, 2);
+                }
                 return model;
             }
             catch (Exception ex)
@@ -136,9 +158,10 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
             try
             {
                 PromocionMxN model = new PromocionMxN();
-                model.Promocion.IdTipoPromocion = this.IdTipoPromocion;
+                model.Promocion.TipoPromocion.IdTipoPromocion = this.IdTipoPromocion;
                 model.Promocion.IdGenerico = this.IdGenerico;
                 model.Promocion.EsProducto = this.EsProducto;
+                model.Promocion.NombrePromocion = this.NombrePromocion;
                 model.Cantidad = this.Cantidad;
                 model.TablaProducto = this.TablaProducto;
                 model.TablaServicio = this.TablaServicio;
@@ -155,12 +178,12 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
                 model.PromocionDias.Limite = this.Limite;
                 if (State == EntityState.Create)
                 {
-                    return await Repository.AddPromocionMxN(model, IdUsuario);
+                    return await Repository.AddPromocionMxN(model, IdUsuario, 1);
                 }
-                //else if (State == EntityState.Update)
-                //{
-                //    return await Repository.UpdateAsync(model, IdUsuario);
-                //}
+                else if (State == EntityState.Update)
+                {
+                    return await Repository.AddPromocionMxN(model, IdUsuario, 2);
+                }
                 return model;
             }
             catch (Exception ex)
@@ -192,6 +215,89 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
                 throw ex;
             }
         }
+
+        public async Task GetAsync()
+        {
+            try
+            {
+                PromocionDescuento promocion = await Repository.GetDetalleAsync(this.IdPromocion, this.IdTipoPromocion);
+                EsMonto = promocion.EsMonto;
+                Descuento = promocion.Descuento;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task GetNxNAsync()
+        {
+            try
+            {
+                PromocionNxN promocion = await Repository.GetDetalleNxNAsync(this.IdPromocion, this.IdTipoPromocion);
+                Cantidad = promocion.Cantidad;
+                CantidadGratis = promocion.CantidadGratis;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task GetMxNAsync()
+        {
+            // PromocionNxN promocion = await Repository.GetDetalleMxNAsync(this.IdPromocion, this.IdTipoPromocion);
+            try
+            {
+                var x = await Repository.GetDetalleMxNAsync(this.IdPromocion, this.IdTipoPromocion);
+                Cantidad = x.Cantidad;
+                ListaPromocion.Clear();
+                for (int i = 0; i < x.TablaPromocion.Rows.Count; i++)
+                {
+                    PromocionMxN P = new PromocionMxN();
+                    P.IDGenerico = int.Parse(x.TablaPromocion.Rows[i]["IDGenerico"].ToString());
+                    P.Nombre = x.TablaPromocion.Rows[i]["Nombre"].ToString();
+                    P.IdTipo = int.Parse(x.TablaPromocion.Rows[i]["IdTipo"].ToString());
+                    P.CantidadGratis = int.Parse(x.TablaPromocion.Rows[i]["CantidadGratis"].ToString());
+                    ListaPromocionMxN.Add(P);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public async Task GetDiasAsync()
+        {
+            try
+            {
+                PromocionDias promocionDias = await Repository.GetDiasAsync(this.IdPromocion);
+                //Limite = promocionDias.Limite;
+                EsPeriodo = promocionDias.EsPeriodo;
+                if (EsPeriodo)
+                {
+                    FechaInicio = promocionDias.FechaInicio;
+                    FechaFin = promocionDias.FechaFinal;
+                }
+                else
+                {
+                    Lunes = promocionDias.Lunes;
+                    Martes = promocionDias.Martes;
+                    Miercoles = promocionDias.Miercoles;
+                    Jueves = promocionDias.Jueves;
+                    Viernes = promocionDias.Viernes;
+                    Sabado = promocionDias.Sabado;
+                    Domingo = promocionDias.Domingo;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         #endregion
 
         #endregion
@@ -203,6 +309,14 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
         {
             get { return _IdTipoPromocion; }
             set { _IdTipoPromocion = value; OnPropertyChanged("IdTipoPromocion"); }
+        }
+
+        private Guid _IdPromocion;
+
+        public Guid IdPromocion
+        {
+            get { return _IdPromocion; }
+            set { _IdPromocion = value; OnPropertyChanged("IdPromocion"); }
         }
 
         private bool _EsProducto;
@@ -420,6 +534,17 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
             {
                 _Limite = value;
                 OnPropertyChanged(nameof(Limite));
+            }
+        }
+        private string _NombrePromocion;
+
+        public string NombrePromocion
+        {
+            get { return _NombrePromocion; }
+            set
+            {
+                _NombrePromocion = value;
+                OnPropertyChanged(nameof(NombrePromocion));
             }
         }
 

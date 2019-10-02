@@ -28,7 +28,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
         {
             try
             {
-                rbMonto.DataBindings.Add("Checked", Model, "EsMonto", true, DataSourceUpdateMode.OnPropertyChanged);
+                EsMonto.DataBindings.Add("Checked", Model, "EsMonto", true, DataSourceUpdateMode.OnPropertyChanged);
                 NombreProductoControl.DataBindings.Add("Text", Model, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
                 DescuentoControl.DataBindings.Add("Text", Model, "Descuento", true, DataSourceUpdateMode.OnPropertyChanged);
             }
@@ -47,7 +47,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                     EsMontoControl.Text = "%";
                     Model.EsMonto = false;
                 }
-                else if (rbMonto.Checked)
+                else if (EsMonto.Checked)
                 {
                     EsMontoControl.Text = "$";
                     Model.EsMonto = true;
@@ -83,7 +83,21 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
         {
             try
             {
-                rbMonto.Checked = true;
+                if(Model.IdPromocion != Guid.Empty)
+                {
+                    if (Model.EsMonto)
+                    {
+                        EsMontoControl.Text = "$";
+                        EsMonto.Checked = true;
+                    }
+                    else
+                    {
+                        EsMontoControl.Text = "%";
+                        rbProcentaje.Checked = true;
+                    }
+                }
+                else
+                EsMonto.Checked = true;
             }
             catch (Exception)
             {
@@ -122,6 +136,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 Model.IdGenerico = 0;
                 Model.EsProducto = true;
                 Model.Descuento = 0;
+                Model.NombrePromocion = String.Empty;
             }
             catch (Exception)
             {

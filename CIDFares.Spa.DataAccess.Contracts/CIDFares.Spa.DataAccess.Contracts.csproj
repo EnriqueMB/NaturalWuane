@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\General\PromocionDto.cs" />
     <Compile Include="DTOs\Requests\EncuestaRequest.cs" />
     <Compile Include="DTOs\Requests\LoginRequests.cs" />
     <Compile Include="Entities\Alimento.cs" />
@@ -82,6 +83,8 @@
     <Compile Include="Entities\PromocionDias.cs" />
     <Compile Include="Entities\PromocionMxN.cs" />
     <Compile Include="Entities\PromocionNxN.cs" />
+    <Compile Include="Entities\PromocionProducto.cs" />
+    <Compile Include="Entities\PromocionServicio.cs" />
     <Compile Include="Entities\RegistroEntradaSalida.cs" />
     <Compile Include="Entities\Preguntas.cs" />
     <Compile Include="Entities\ReglasRol.cs" />

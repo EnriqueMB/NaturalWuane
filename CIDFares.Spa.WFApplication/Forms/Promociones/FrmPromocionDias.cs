@@ -76,13 +76,32 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             }
         }
 
-        private void FrmPromocionDias_Load(object sender, EventArgs e)
+        private async void FrmPromocionDias_Load(object sender, EventArgs e)
         {
             try
             {
-                rbPeriodo.Checked = true;
-                Model.FechaInicio = DateTime.Now;
-                Model.FechaInicio = DateTime.Now.AddMonths(1);
+                if (Model.IdPromocion != Guid.Empty)
+                {
+                    await Model.GetDiasAsync();
+                    if (Model.EsPeriodo)
+                    {
+                        rbPeriodo.Checked = true;
+                        panelPeriodo.Visible = true;
+                        panelDias.Visible = false;
+                    }
+                    else
+                    {
+                        rbDias.Checked = true;
+                        panelPeriodo.Visible = false;
+                        panelDias.Visible = true;
+                    }
+                }
+                else
+                {
+                    rbPeriodo.Checked = true;
+                    Model.FechaInicio = DateTime.Now;
+                    Model.FechaInicio = DateTime.Now.AddMonths(1);
+                }
             }
             catch (Exception)
             {
@@ -119,8 +138,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                     CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
                     this.Close();
                     Resultado = 1;
-                    //LimpiarPropiedades();
-                    //GridFromaPago.Refresh();
                 }
                 else
                     CIDMessageBox.ShowAlert(Messages.ErrorMessage, "Desconocido", TypeMessage.error);

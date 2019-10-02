@@ -13,6 +13,9 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         {
             PromocionDias = new PromocionDias();
             Promocion = new PromocionGeneral();
+            TablaProducto = new DataTable();
+            TablaServicio = new DataTable();
+            TablaPromocion = new DataTable();
         }
         public int Cantidad { get; set; }
         public int CantidadGratis { get; set; }
@@ -22,6 +25,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
 
         public DataTable TablaProducto { get; set; }
         public DataTable TablaServicio { get; set; }
+        public DataTable TablaPromocion { get; set; }
 
         public PromocionDias PromocionDias { get; set; }
         public PromocionGeneral Promocion { get; set; }
