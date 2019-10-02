@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,6 +22,7 @@ using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
 using CIDFares.Spa.WFApplication.Forms.Ventas;
 using CIDFares.Spa.WFApplication.Session;
+using System.Configuration;
 
 namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 {
@@ -216,6 +220,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 NPersonaControl.DataBindings.Add("Text", Model, "NPersonal", true, DataSourceUpdateMode.OnPropertyChanged);
                 NPagoControl.DataBindings.Add("Text", Model, "NPago", true, DataSourceUpdateMode.OnPropertyChanged);
                 MontoPaqueteControl.DataBindings.Add("Text", Model, "MontoPaquete", true, DataSourceUpdateMode.OnPropertyChanged);
+                FotoControl.DataBindings.Add("Image", Model, "Imagen", true, DataSourceUpdateMode.OnPropertyChanged);
+                RutaControl.DataBindings.Add("Text", Model, "ImageLocation", true, DataSourceUpdateMode.OnPropertyChanged);
 
                 this.dataGridsfPaqueteDetalle.AutoGenerateColumns = false;
                 dataGridsfPaqueteDetalle.DataBindings.Add("DataSource", Model, "ListaDetallePaquete", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -404,5 +410,45 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         }
 
         #endregion
+
+        private void BtnSeleccionar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BtnSeleccionar.Enabled = false;
+                OpenFileDialog BuscarImagen = new OpenFileDialog();
+                BuscarImagen.Filter = "Image Files|*.png;*.jpg;*.bmp";
+                BuscarImagen.FileName = "";
+                BuscarImagen.Title = "Seleccione una imagen";
+                BuscarImagen.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures).ToString();
+                if (BuscarImagen.ShowDialog() == DialogResult.OK)
+                {
+                    Model.Imagen = null;
+                    Model.UpdateImagen = true;
+                    string ext = Path.GetExtension(BuscarImagen.FileName);///Lo mismo
+                    
+                    Model.ImageLocation = BuscarImagen.FileName;
+                    var x = Model.Imagen.VaryQualityLevel(35L);
+                    Model.Imagen = x;
+                    
+
+                    Model.UrlImagen = BuscarImagen.FileName;
+                    var a = Path.GetFileName(Model.UrlImagen);
+                    string ruta = Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\" + Model.Clave.ToLower() + ext);
+                    Model.Imagen.Save(ruta);
+                    Model.UploadFTP(ruta, ConfigurationManager.AppSettings.Get("ServerFtpTxt") + "\\creativasoftline.com\\naturalwuane\\imgPaquetes\\", ConfigurationManager.AppSettings.Get("UsuarioFtpTxt"), ConfigurationManager.AppSettings.Get("ContraseñaFtpTxt"));
+                   
+                    //UploadFTP(Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\CatalogoWeb\" + Datos.NombreArchivo + "." + Datos.TipoArchivo), ConfigurationManager.AppSettings.Get("ServerFtpTxt") + @"~/Images/Galeria/", ConfigurationManager.AppSettings.Get("UsuarioFtpTxt"), ConfigurationManager.AppSettings.Get("ContraseñaFtpTxt"));
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        
     }
 }

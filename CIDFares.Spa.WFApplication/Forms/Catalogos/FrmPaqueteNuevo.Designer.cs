@@ -29,20 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn17 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn18 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn19 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn20 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GroupColumnDescription groupColumnDescription2 = new Syncfusion.WinForms.DataGrid.GroupColumnDescription();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GroupColumnDescription groupColumnDescription1 = new Syncfusion.WinForms.DataGrid.GroupColumnDescription();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenedor1 = new System.Windows.Forms.Panel();
             this.panelFormulario = new System.Windows.Forms.Panel();
+            this.panelGrid = new System.Windows.Forms.Panel();
+            this.dataGridsfPaqueteDetalle = new CIDFares.Library.Controls.CIDDataGridsf.DataGridsf();
+            this.ContenedorFormulario = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelEliminarRegistro = new System.Windows.Forms.Panel();
             this.btnEliminarRegistro = new System.Windows.Forms.Button();
@@ -72,8 +75,6 @@
             this.ClaveControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.panelAgregarProducto = new System.Windows.Forms.Panel();
             this.btnAgregarProducto = new System.Windows.Forms.Button();
-            this.panelGrid = new System.Windows.Forms.Panel();
-            this.dataGridsfPaqueteDetalle = new CIDFares.Library.Controls.CIDDataGridsf.DataGridsf();
             this.panelbtn = new System.Windows.Forms.Panel();
             this.flButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -81,9 +82,16 @@
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.lblPaquete = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.FotoControl = new System.Windows.Forms.PictureBox();
+            this.BtnSeleccionar = new System.Windows.Forms.Button();
+            this.RutaControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.panelContenedor.SuspendLayout();
             this.panelContenedor1.SuspendLayout();
             this.panelFormulario.SuspendLayout();
+            this.panelGrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridsfPaqueteDetalle)).BeginInit();
+            this.ContenedorFormulario.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelEliminarRegistro.SuspendLayout();
             this.panelAgregarServicio.SuspendLayout();
@@ -101,12 +109,13 @@
             this.panelClave.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ClaveControl)).BeginInit();
             this.panelAgregarProducto.SuspendLayout();
-            this.panelGrid.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridsfPaqueteDetalle)).BeginInit();
             this.panelbtn.SuspendLayout();
             this.flButtons.SuspendLayout();
             this.panelTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RutaControl)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContenedor
@@ -116,7 +125,7 @@
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(800, 501);
+            this.panelContenedor.Size = new System.Drawing.Size(1066, 538);
             this.panelContenedor.TabIndex = 0;
             // 
             // panelContenedor1
@@ -126,24 +135,144 @@
             this.panelContenedor1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor1.Location = new System.Drawing.Point(0, 55);
             this.panelContenedor1.Name = "panelContenedor1";
-            this.panelContenedor1.Size = new System.Drawing.Size(800, 446);
+            this.panelContenedor1.Size = new System.Drawing.Size(1066, 483);
             this.panelContenedor1.TabIndex = 1;
             // 
             // panelFormulario
             // 
-            this.panelFormulario.Controls.Add(this.tableLayoutPanel1);
+            this.panelFormulario.Controls.Add(this.panelGrid);
+            this.panelFormulario.Controls.Add(this.ContenedorFormulario);
             this.panelFormulario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFormulario.Location = new System.Drawing.Point(0, 0);
+            this.panelFormulario.MaximumSize = new System.Drawing.Size(1066, 446);
+            this.panelFormulario.MinimumSize = new System.Drawing.Size(1066, 446);
             this.panelFormulario.Name = "panelFormulario";
-            this.panelFormulario.Size = new System.Drawing.Size(800, 409);
+            this.panelFormulario.Size = new System.Drawing.Size(1066, 446);
             this.panelFormulario.TabIndex = 1;
+            // 
+            // panelGrid
+            // 
+            this.panelGrid.Controls.Add(this.dataGridsfPaqueteDetalle);
+            this.panelGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelGrid.Location = new System.Drawing.Point(0, 211);
+            this.panelGrid.Name = "panelGrid";
+            this.panelGrid.Size = new System.Drawing.Size(1066, 235);
+            this.panelGrid.TabIndex = 11;
+            // 
+            // dataGridsfPaqueteDetalle
+            // 
+            this.dataGridsfPaqueteDetalle.AccessibleName = "Table";
+            this.dataGridsfPaqueteDetalle.AllowDraggingColumns = true;
+            this.dataGridsfPaqueteDetalle.AllowEditing = false;
+            this.dataGridsfPaqueteDetalle.AllowFiltering = true;
+            this.dataGridsfPaqueteDetalle.AutoExpandGroups = true;
+            this.dataGridsfPaqueteDetalle.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            this.dataGridsfPaqueteDetalle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
+            gridTextColumn1.AllowDragging = true;
+            gridTextColumn1.AllowEditing = false;
+            gridTextColumn1.AllowFiltering = true;
+            gridTextColumn1.HeaderText = "IdTipo";
+            gridTextColumn1.MappingName = "IDTipo";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.AllowDragging = true;
+            gridTextColumn2.AllowEditing = false;
+            gridTextColumn2.AllowFiltering = true;
+            gridTextColumn2.HeaderText = "IdGenerico";
+            gridTextColumn2.MappingName = "IdGenerico";
+            gridTextColumn2.Visible = false;
+            gridTextColumn3.AllowDragging = true;
+            gridTextColumn3.AllowEditing = false;
+            gridTextColumn3.AllowFiltering = true;
+            gridTextColumn3.HeaderText = "Tipo";
+            gridTextColumn3.MappingName = "Tipo";
+            gridTextColumn3.Visible = false;
+            gridTextColumn4.AllowDragging = true;
+            gridTextColumn4.AllowEditing = false;
+            gridTextColumn4.AllowFiltering = true;
+            gridTextColumn4.HeaderText = "Nombre";
+            gridTextColumn4.MappingName = "Nombre";
+            gridTextColumn5.AllowDragging = true;
+            gridTextColumn5.AllowEditing = false;
+            gridTextColumn5.AllowFiltering = true;
+            gridTextColumn5.HeaderText = "Cantidad";
+            gridTextColumn5.MappingName = "Cantidad";
+            gridTextColumn6.AllowDragging = true;
+            gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.AllowFiltering = true;
+            gridTextColumn6.Format = "C2";
+            gridTextColumn6.HeaderText = "Precio";
+            gridTextColumn6.MappingName = "Precios";
+            gridTextColumn7.AllowDragging = true;
+            gridTextColumn7.AllowEditing = false;
+            gridTextColumn7.AllowFiltering = true;
+            gridTextColumn7.Format = "C2";
+            gridTextColumn7.HeaderText = "Precio Sin Descuento";
+            gridTextColumn7.MappingName = "PrecioSinDescuento";
+            gridTextColumn8.AllowDragging = true;
+            gridTextColumn8.AllowEditing = false;
+            gridTextColumn8.AllowFiltering = true;
+            gridTextColumn8.Format = "N2";
+            gridTextColumn8.HeaderText = "Porcentaje Descuento";
+            gridTextColumn8.MappingName = "PorcentajeDescuento";
+            gridTextColumn9.AllowDragging = true;
+            gridTextColumn9.AllowEditing = false;
+            gridTextColumn9.AllowFiltering = true;
+            gridTextColumn9.Format = "C2";
+            gridTextColumn9.HeaderText = "Precio Descuento";
+            gridTextColumn9.MappingName = "PrecioDescuento";
+            gridTextColumn10.AllowDragging = true;
+            gridTextColumn10.AllowEditing = false;
+            gridTextColumn10.AllowFiltering = true;
+            gridTextColumn10.HeaderText = "IdDetallePaquete";
+            gridTextColumn10.MappingName = "IdDetallePaquete";
+            gridTextColumn10.Visible = false;
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn1);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn2);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn3);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn4);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn5);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn6);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn7);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn8);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn9);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn10);
+            this.dataGridsfPaqueteDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
+            groupColumnDescription1.ColumnName = "Tipo";
+            this.dataGridsfPaqueteDetalle.GroupColumnDescriptions.Add(groupColumnDescription1);
+            this.dataGridsfPaqueteDetalle.Location = new System.Drawing.Point(0, 0);
+            this.dataGridsfPaqueteDetalle.Name = "dataGridsfPaqueteDetalle";
+            this.dataGridsfPaqueteDetalle.RowHeight = 21;
+            this.dataGridsfPaqueteDetalle.SerializationController = null;
+            this.dataGridsfPaqueteDetalle.ShowGroupDropArea = true;
+            this.dataGridsfPaqueteDetalle.Size = new System.Drawing.Size(1066, 235);
+            this.dataGridsfPaqueteDetalle.Style.CellStyle.TextColor = System.Drawing.Color.Black;
+            this.dataGridsfPaqueteDetalle.Style.GroupDropAreaItemStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.dataGridsfPaqueteDetalle.Style.GroupDropAreaItemStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.dataGridsfPaqueteDetalle.Style.GroupDropAreaStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
+            this.dataGridsfPaqueteDetalle.Style.GroupDropAreaStyle.TextColor = System.Drawing.Color.Black;
+            this.dataGridsfPaqueteDetalle.Style.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(64)))), ((int)(((byte)(23)))));
+            this.dataGridsfPaqueteDetalle.Style.HeaderStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridsfPaqueteDetalle.Style.IndentCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
+            this.dataGridsfPaqueteDetalle.TabIndex = 1;
+            this.dataGridsfPaqueteDetalle.Text = "dataGridsf1";
+            // 
+            // ContenedorFormulario
+            // 
+            this.ContenedorFormulario.Controls.Add(this.groupBox1);
+            this.ContenedorFormulario.Controls.Add(this.tableLayoutPanel1);
+            this.ContenedorFormulario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ContenedorFormulario.Location = new System.Drawing.Point(0, 0);
+            this.ContenedorFormulario.Name = "ContenedorFormulario";
+            this.ContenedorFormulario.Size = new System.Drawing.Size(1066, 211);
+            this.ContenedorFormulario.TabIndex = 12;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.59116F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.45856F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.0884F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.panelEliminarRegistro, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.panelAgregarServicio, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.panelMontoPaquete, 2, 1);
@@ -153,25 +282,24 @@
             this.tableLayoutPanel1.Controls.Add(this.panelNombre, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panelClave, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panelAgregarProducto, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.panelGrid, 0, 3);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.58516F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.11491F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.290954F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.76773F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 409);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(724, 211);
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panelEliminarRegistro
             // 
             this.panelEliminarRegistro.Controls.Add(this.btnEliminarRegistro);
             this.panelEliminarRegistro.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelEliminarRegistro.Location = new System.Drawing.Point(535, 149);
+            this.panelEliminarRegistro.Location = new System.Drawing.Point(443, 170);
             this.panelEliminarRegistro.Name = "panelEliminarRegistro";
-            this.panelEliminarRegistro.Size = new System.Drawing.Size(262, 32);
+            this.panelEliminarRegistro.Size = new System.Drawing.Size(278, 38);
             this.panelEliminarRegistro.TabIndex = 8;
             // 
             // btnEliminarRegistro
@@ -180,21 +308,20 @@
             this.btnEliminarRegistro.FlatAppearance.BorderSize = 0;
             this.btnEliminarRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btnEliminarRegistro.Location = new System.Drawing.Point(69, 2);
+            this.btnEliminarRegistro.Location = new System.Drawing.Point(69, 5);
             this.btnEliminarRegistro.Name = "btnEliminarRegistro";
             this.btnEliminarRegistro.Size = new System.Drawing.Size(123, 29);
             this.btnEliminarRegistro.TabIndex = 11;
             this.btnEliminarRegistro.Text = "Eliminar Registro";
             this.btnEliminarRegistro.UseVisualStyleBackColor = false;
-            this.btnEliminarRegistro.Click += new System.EventHandler(this.btnEliminarRegistro_Click);
             // 
             // panelAgregarServicio
             // 
             this.panelAgregarServicio.Controls.Add(this.btnAgregarServicio);
             this.panelAgregarServicio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAgregarServicio.Location = new System.Drawing.Point(269, 149);
+            this.panelAgregarServicio.Location = new System.Drawing.Point(209, 170);
             this.panelAgregarServicio.Name = "panelAgregarServicio";
-            this.panelAgregarServicio.Size = new System.Drawing.Size(260, 32);
+            this.panelAgregarServicio.Size = new System.Drawing.Size(228, 38);
             this.panelAgregarServicio.TabIndex = 7;
             // 
             // btnAgregarServicio
@@ -203,13 +330,12 @@
             this.btnAgregarServicio.FlatAppearance.BorderSize = 0;
             this.btnAgregarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btnAgregarServicio.Location = new System.Drawing.Point(69, 2);
+            this.btnAgregarServicio.Location = new System.Drawing.Point(58, 4);
             this.btnAgregarServicio.Name = "btnAgregarServicio";
             this.btnAgregarServicio.Size = new System.Drawing.Size(123, 29);
             this.btnAgregarServicio.TabIndex = 10;
             this.btnAgregarServicio.Text = "Agregar Servicio";
             this.btnAgregarServicio.UseVisualStyleBackColor = false;
-            this.btnAgregarServicio.Click += new System.EventHandler(this.btnAgregarServicio_Click);
             // 
             // panelMontoPaquete
             // 
@@ -218,9 +344,9 @@
             this.panelMontoPaquete.Controls.Add(this.label6);
             this.panelMontoPaquete.Controls.Add(this.MontoPaqueteControl);
             this.panelMontoPaquete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMontoPaquete.Location = new System.Drawing.Point(535, 79);
+            this.panelMontoPaquete.Location = new System.Drawing.Point(443, 90);
             this.panelMontoPaquete.Name = "panelMontoPaquete";
-            this.panelMontoPaquete.Size = new System.Drawing.Size(262, 64);
+            this.panelMontoPaquete.Size = new System.Drawing.Size(278, 74);
             this.panelMontoPaquete.TabIndex = 5;
             // 
             // label8
@@ -236,7 +362,7 @@
             // 
             // TotalControl
             // 
-            this.TotalControl.BeforeTouchSize = new System.Drawing.Size(214, 23);
+            this.TotalControl.BeforeTouchSize = new System.Drawing.Size(298, 35);
             this.TotalControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.TotalControl.Location = new System.Drawing.Point(138, 30);
             this.TotalControl.Margin = new System.Windows.Forms.Padding(2);
@@ -261,7 +387,7 @@
             // 
             // MontoPaqueteControl
             // 
-            this.MontoPaqueteControl.BeforeTouchSize = new System.Drawing.Size(214, 23);
+            this.MontoPaqueteControl.BeforeTouchSize = new System.Drawing.Size(298, 35);
             this.MontoPaqueteControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.MontoPaqueteControl.Location = new System.Drawing.Point(16, 30);
             this.MontoPaqueteControl.Margin = new System.Windows.Forms.Padding(2);
@@ -277,9 +403,9 @@
             this.panelNumeroPagos.Controls.Add(this.FechaVencimientoControl);
             this.panelNumeroPagos.Controls.Add(this.label7);
             this.panelNumeroPagos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelNumeroPagos.Location = new System.Drawing.Point(269, 79);
+            this.panelNumeroPagos.Location = new System.Drawing.Point(209, 90);
             this.panelNumeroPagos.Name = "panelNumeroPagos";
-            this.panelNumeroPagos.Size = new System.Drawing.Size(260, 64);
+            this.panelNumeroPagos.Size = new System.Drawing.Size(228, 74);
             this.panelNumeroPagos.TabIndex = 4;
             // 
             // FechaVencimientoControl
@@ -289,7 +415,7 @@
             this.FechaVencimientoControl.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.FechaVencimientoControl.Location = new System.Drawing.Point(23, 30);
             this.FechaVencimientoControl.Name = "FechaVencimientoControl";
-            this.FechaVencimientoControl.Size = new System.Drawing.Size(212, 20);
+            this.FechaVencimientoControl.Size = new System.Drawing.Size(180, 20);
             this.FechaVencimientoControl.TabIndex = 6;
             // 
             // label7
@@ -310,9 +436,9 @@
             this.panelNumeroPersona.Controls.Add(this.label4);
             this.panelNumeroPersona.Controls.Add(this.NPersonaControl);
             this.panelNumeroPersona.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelNumeroPersona.Location = new System.Drawing.Point(3, 79);
+            this.panelNumeroPersona.Location = new System.Drawing.Point(3, 90);
             this.panelNumeroPersona.Name = "panelNumeroPersona";
-            this.panelNumeroPersona.Size = new System.Drawing.Size(260, 64);
+            this.panelNumeroPersona.Size = new System.Drawing.Size(200, 74);
             this.panelNumeroPersona.TabIndex = 3;
             // 
             // label5
@@ -321,7 +447,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(164, 4);
+            this.label5.Location = new System.Drawing.Point(104, 4);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 18);
             this.label5.TabIndex = 10;
@@ -330,9 +456,9 @@
             // NPagoControl
             // 
             this.NPagoControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.NPagoControl.BeforeTouchSize = new System.Drawing.Size(214, 23);
+            this.NPagoControl.BeforeTouchSize = new System.Drawing.Size(298, 35);
             this.NPagoControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.NPagoControl.Location = new System.Drawing.Point(163, 30);
+            this.NPagoControl.Location = new System.Drawing.Point(103, 30);
             this.NPagoControl.Margin = new System.Windows.Forms.Padding(2);
             this.NPagoControl.MaxLength = 3;
             this.NPagoControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
@@ -340,7 +466,6 @@
             this.NPagoControl.Name = "NPagoControl";
             this.NPagoControl.Size = new System.Drawing.Size(61, 23);
             this.NPagoControl.TabIndex = 5;
-            this.NPagoControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NPagoControl_KeyPress);
             // 
             // label4
             // 
@@ -355,7 +480,7 @@
             // 
             // NPersonaControl
             // 
-            this.NPersonaControl.BeforeTouchSize = new System.Drawing.Size(214, 23);
+            this.NPersonaControl.BeforeTouchSize = new System.Drawing.Size(298, 35);
             this.NPersonaControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.NPersonaControl.Location = new System.Drawing.Point(10, 30);
             this.NPersonaControl.Margin = new System.Windows.Forms.Padding(2);
@@ -365,16 +490,15 @@
             this.NPersonaControl.Name = "NPersonaControl";
             this.NPersonaControl.Size = new System.Drawing.Size(67, 23);
             this.NPersonaControl.TabIndex = 4;
-            this.NPersonaControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NPersonaControl_KeyPress);
             // 
             // panelDescripcion
             // 
             this.panelDescripcion.Controls.Add(this.label3);
             this.panelDescripcion.Controls.Add(this.DescripcionControl);
             this.panelDescripcion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDescripcion.Location = new System.Drawing.Point(535, 3);
+            this.panelDescripcion.Location = new System.Drawing.Point(443, 3);
             this.panelDescripcion.Name = "panelDescripcion";
-            this.panelDescripcion.Size = new System.Drawing.Size(262, 70);
+            this.panelDescripcion.Size = new System.Drawing.Size(278, 81);
             this.panelDescripcion.TabIndex = 2;
             // 
             // label3
@@ -392,7 +516,7 @@
             // 
             this.DescripcionControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(214, 23);
+            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(298, 35);
             this.DescripcionControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.DescripcionControl.Location = new System.Drawing.Point(3, 21);
             this.DescripcionControl.Margin = new System.Windows.Forms.Padding(2);
@@ -400,7 +524,7 @@
             this.DescripcionControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.DescripcionControl.Multiline = true;
             this.DescripcionControl.Name = "DescripcionControl";
-            this.DescripcionControl.Size = new System.Drawing.Size(235, 46);
+            this.DescripcionControl.Size = new System.Drawing.Size(251, 46);
             this.DescripcionControl.TabIndex = 3;
             // 
             // panelNombre
@@ -408,9 +532,9 @@
             this.panelNombre.Controls.Add(this.label2);
             this.panelNombre.Controls.Add(this.NombreControl);
             this.panelNombre.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelNombre.Location = new System.Drawing.Point(269, 3);
+            this.panelNombre.Location = new System.Drawing.Point(209, 3);
             this.panelNombre.Name = "panelNombre";
-            this.panelNombre.Size = new System.Drawing.Size(260, 70);
+            this.panelNombre.Size = new System.Drawing.Size(228, 81);
             this.panelNombre.TabIndex = 1;
             // 
             // label2
@@ -428,7 +552,7 @@
             // 
             this.NombreControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.NombreControl.BeforeTouchSize = new System.Drawing.Size(214, 23);
+            this.NombreControl.BeforeTouchSize = new System.Drawing.Size(298, 35);
             this.NombreControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.NombreControl.Location = new System.Drawing.Point(21, 36);
             this.NombreControl.Margin = new System.Windows.Forms.Padding(2);
@@ -436,7 +560,7 @@
             this.NombreControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.NombreControl.Multiline = true;
             this.NombreControl.Name = "NombreControl";
-            this.NombreControl.Size = new System.Drawing.Size(214, 23);
+            this.NombreControl.Size = new System.Drawing.Size(182, 23);
             this.NombreControl.TabIndex = 2;
             // 
             // panelClave
@@ -446,7 +570,7 @@
             this.panelClave.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelClave.Location = new System.Drawing.Point(3, 3);
             this.panelClave.Name = "panelClave";
-            this.panelClave.Size = new System.Drawing.Size(260, 70);
+            this.panelClave.Size = new System.Drawing.Size(200, 81);
             this.panelClave.TabIndex = 0;
             // 
             // label1
@@ -464,7 +588,7 @@
             // 
             this.ClaveControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(214, 23);
+            this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(298, 35);
             this.ClaveControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ClaveControl.Location = new System.Drawing.Point(10, 36);
             this.ClaveControl.Margin = new System.Windows.Forms.Padding(2);
@@ -472,16 +596,16 @@
             this.ClaveControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.ClaveControl.Multiline = true;
             this.ClaveControl.Name = "ClaveControl";
-            this.ClaveControl.Size = new System.Drawing.Size(214, 23);
+            this.ClaveControl.Size = new System.Drawing.Size(154, 23);
             this.ClaveControl.TabIndex = 1;
             // 
             // panelAgregarProducto
             // 
             this.panelAgregarProducto.Controls.Add(this.btnAgregarProducto);
             this.panelAgregarProducto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAgregarProducto.Location = new System.Drawing.Point(3, 149);
+            this.panelAgregarProducto.Location = new System.Drawing.Point(3, 170);
             this.panelAgregarProducto.Name = "panelAgregarProducto";
-            this.panelAgregarProducto.Size = new System.Drawing.Size(260, 32);
+            this.panelAgregarProducto.Size = new System.Drawing.Size(200, 38);
             this.panelAgregarProducto.TabIndex = 6;
             // 
             // btnAgregarProducto
@@ -490,127 +614,20 @@
             this.btnAgregarProducto.FlatAppearance.BorderSize = 0;
             this.btnAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btnAgregarProducto.Location = new System.Drawing.Point(69, 2);
+            this.btnAgregarProducto.Location = new System.Drawing.Point(34, 4);
             this.btnAgregarProducto.Name = "btnAgregarProducto";
             this.btnAgregarProducto.Size = new System.Drawing.Size(123, 29);
             this.btnAgregarProducto.TabIndex = 9;
             this.btnAgregarProducto.Text = "Agregar Producto";
             this.btnAgregarProducto.UseVisualStyleBackColor = false;
-            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
-            // 
-            // panelGrid
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.panelGrid, 3);
-            this.panelGrid.Controls.Add(this.dataGridsfPaqueteDetalle);
-            this.panelGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelGrid.Location = new System.Drawing.Point(3, 187);
-            this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(794, 219);
-            this.panelGrid.TabIndex = 9;
-            // 
-            // dataGridsfPaqueteDetalle
-            // 
-            this.dataGridsfPaqueteDetalle.AccessibleName = "Table";
-            this.dataGridsfPaqueteDetalle.AllowDraggingColumns = true;
-            this.dataGridsfPaqueteDetalle.AllowEditing = false;
-            this.dataGridsfPaqueteDetalle.AllowFiltering = true;
-            this.dataGridsfPaqueteDetalle.AutoExpandGroups = true;
-            this.dataGridsfPaqueteDetalle.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            this.dataGridsfPaqueteDetalle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            gridTextColumn11.AllowDragging = true;
-            gridTextColumn11.AllowEditing = false;
-            gridTextColumn11.AllowFiltering = true;
-            gridTextColumn11.HeaderText = "IdTipo";
-            gridTextColumn11.MappingName = "IDTipo";
-            gridTextColumn11.Visible = false;
-            gridTextColumn12.AllowDragging = true;
-            gridTextColumn12.AllowEditing = false;
-            gridTextColumn12.AllowFiltering = true;
-            gridTextColumn12.HeaderText = "IdGenerico";
-            gridTextColumn12.MappingName = "IdGenerico";
-            gridTextColumn12.Visible = false;
-            gridTextColumn13.AllowDragging = true;
-            gridTextColumn13.AllowEditing = false;
-            gridTextColumn13.AllowFiltering = true;
-            gridTextColumn13.HeaderText = "Tipo";
-            gridTextColumn13.MappingName = "Tipo";
-            gridTextColumn13.Visible = false;
-            gridTextColumn14.AllowDragging = true;
-            gridTextColumn14.AllowEditing = false;
-            gridTextColumn14.AllowFiltering = true;
-            gridTextColumn14.HeaderText = "Nombre";
-            gridTextColumn14.MappingName = "Nombre";
-            gridTextColumn15.AllowDragging = true;
-            gridTextColumn15.AllowEditing = false;
-            gridTextColumn15.AllowFiltering = true;
-            gridTextColumn15.HeaderText = "Cantidad";
-            gridTextColumn15.MappingName = "Cantidad";
-            gridTextColumn16.AllowDragging = true;
-            gridTextColumn16.AllowEditing = false;
-            gridTextColumn16.AllowFiltering = true;
-            gridTextColumn16.Format = "C2";
-            gridTextColumn16.HeaderText = "Precio";
-            gridTextColumn16.MappingName = "Precios";
-            gridTextColumn17.AllowDragging = true;
-            gridTextColumn17.AllowEditing = false;
-            gridTextColumn17.AllowFiltering = true;
-            gridTextColumn17.Format = "C2";
-            gridTextColumn17.HeaderText = "Precio Sin Descuento";
-            gridTextColumn17.MappingName = "PrecioSinDescuento";
-            gridTextColumn18.AllowDragging = true;
-            gridTextColumn18.AllowEditing = false;
-            gridTextColumn18.AllowFiltering = true;
-            gridTextColumn18.Format = "N2";
-            gridTextColumn18.HeaderText = "Porcentaje Descuento";
-            gridTextColumn18.MappingName = "PorcentajeDescuento";
-            gridTextColumn19.AllowDragging = true;
-            gridTextColumn19.AllowEditing = false;
-            gridTextColumn19.AllowFiltering = true;
-            gridTextColumn19.Format = "C2";
-            gridTextColumn19.HeaderText = "Precio Descuento";
-            gridTextColumn19.MappingName = "PrecioDescuento";
-            gridTextColumn20.AllowDragging = true;
-            gridTextColumn20.AllowEditing = false;
-            gridTextColumn20.AllowFiltering = true;
-            gridTextColumn20.HeaderText = "IdDetallePaquete";
-            gridTextColumn20.MappingName = "IdDetallePaquete";
-            gridTextColumn20.Visible = false;
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn11);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn12);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn13);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn14);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn15);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn16);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn17);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn18);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn19);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn20);
-            this.dataGridsfPaqueteDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
-            groupColumnDescription2.ColumnName = "Tipo";
-            this.dataGridsfPaqueteDetalle.GroupColumnDescriptions.Add(groupColumnDescription2);
-            this.dataGridsfPaqueteDetalle.Location = new System.Drawing.Point(0, 0);
-            this.dataGridsfPaqueteDetalle.Name = "dataGridsfPaqueteDetalle";
-            this.dataGridsfPaqueteDetalle.RowHeight = 21;
-            this.dataGridsfPaqueteDetalle.ShowGroupDropArea = true;
-            this.dataGridsfPaqueteDetalle.Size = new System.Drawing.Size(794, 219);
-            this.dataGridsfPaqueteDetalle.Style.CellStyle.TextColor = System.Drawing.Color.Black;
-            this.dataGridsfPaqueteDetalle.Style.GroupDropAreaItemStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.dataGridsfPaqueteDetalle.Style.GroupDropAreaItemStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.dataGridsfPaqueteDetalle.Style.GroupDropAreaStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            this.dataGridsfPaqueteDetalle.Style.GroupDropAreaStyle.TextColor = System.Drawing.Color.Black;
-            this.dataGridsfPaqueteDetalle.Style.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(64)))), ((int)(((byte)(23)))));
-            this.dataGridsfPaqueteDetalle.Style.HeaderStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridsfPaqueteDetalle.Style.IndentCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            this.dataGridsfPaqueteDetalle.TabIndex = 1;
-            this.dataGridsfPaqueteDetalle.Text = "dataGridsf1";
             // 
             // panelbtn
             // 
             this.panelbtn.Controls.Add(this.flButtons);
             this.panelbtn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelbtn.Location = new System.Drawing.Point(0, 409);
+            this.panelbtn.Location = new System.Drawing.Point(0, 446);
             this.panelbtn.Name = "panelbtn";
-            this.panelbtn.Size = new System.Drawing.Size(800, 37);
+            this.panelbtn.Size = new System.Drawing.Size(1066, 37);
             this.panelbtn.TabIndex = 0;
             // 
             // flButtons
@@ -618,7 +635,7 @@
             this.flButtons.Controls.Add(this.btnGuardar);
             this.flButtons.Controls.Add(this.btnCancelar);
             this.flButtons.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flButtons.Location = new System.Drawing.Point(477, 0);
+            this.flButtons.Location = new System.Drawing.Point(743, 0);
             this.flButtons.Name = "flButtons";
             this.flButtons.Size = new System.Drawing.Size(323, 37);
             this.flButtons.TabIndex = 9;
@@ -658,7 +675,7 @@
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitulo.Location = new System.Drawing.Point(0, 0);
             this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(800, 55);
+            this.panelTitulo.Size = new System.Drawing.Size(1066, 55);
             this.panelTitulo.TabIndex = 0;
             // 
             // lblPaquete
@@ -667,7 +684,7 @@
             this.lblPaquete.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPaquete.Location = new System.Drawing.Point(12, 13);
             this.lblPaquete.Name = "lblPaquete";
-            this.lblPaquete.Size = new System.Drawing.Size(166, 25);
+            this.lblPaquete.Size = new System.Drawing.Size(167, 25);
             this.lblPaquete.TabIndex = 183;
             this.lblPaquete.Text = "NUEVO PAQUETE";
             // 
@@ -675,18 +692,82 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.RutaControl);
+            this.groupBox1.Controls.Add(this.BtnSeleccionar);
+            this.groupBox1.Controls.Add(this.FotoControl);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(724, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(342, 211);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Seleccione una imagen";
+            // 
+            // FotoControl
+            // 
+            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FotoControl.Location = new System.Drawing.Point(112, 27);
+            this.FotoControl.Name = "FotoControl";
+            this.FotoControl.Size = new System.Drawing.Size(216, 132);
+            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.FotoControl.TabIndex = 43;
+            this.FotoControl.TabStop = false;
+            // 
+            // BtnSeleccionar
+            // 
+            this.BtnSeleccionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnSeleccionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
+            this.BtnSeleccionar.FlatAppearance.BorderSize = 0;
+            this.BtnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSeleccionar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.BtnSeleccionar.ForeColor = System.Drawing.Color.White;
+            this.BtnSeleccionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSeleccionar.Location = new System.Drawing.Point(7, 76);
+            this.BtnSeleccionar.Name = "BtnSeleccionar";
+            this.BtnSeleccionar.Size = new System.Drawing.Size(93, 28);
+            this.BtnSeleccionar.TabIndex = 44;
+            this.BtnSeleccionar.Text = "SUBIR";
+            this.BtnSeleccionar.UseVisualStyleBackColor = false;
+            this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
+            // 
+            // RutaControl
+            // 
+            this.RutaControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
+            this.RutaControl.BeforeTouchSize = new System.Drawing.Size(317, 35);
+            this.RutaControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RutaControl.CornerRadius = 2;
+            this.RutaControl.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.RutaControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RutaControl.Location = new System.Drawing.Point(13, 165);
+            this.RutaControl.MaxLength = 80;
+            this.RutaControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.RutaControl.MinimumSize = new System.Drawing.Size(8, 4);
+            this.RutaControl.Multiline = true;
+            this.RutaControl.Name = "RutaControl";
+            this.RutaControl.ReadOnly = true;
+            this.RutaControl.Size = new System.Drawing.Size(317, 35);
+            this.RutaControl.TabIndex = 0;
+            this.RutaControl.TabStop = false;
+            // 
             // FrmPaqueteNuevo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 501);
+            this.ClientSize = new System.Drawing.Size(1066, 538);
             this.Controls.Add(this.panelContenedor);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmPaqueteNuevo";
             this.Text = "FrmPaqueteNuevo";
             this.Load += new System.EventHandler(this.FrmPaqueteNuevo_Load);
             this.panelContenedor.ResumeLayout(false);
             this.panelContenedor1.ResumeLayout(false);
             this.panelFormulario.ResumeLayout(false);
+            this.panelGrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridsfPaqueteDetalle)).EndInit();
+            this.ContenedorFormulario.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panelEliminarRegistro.ResumeLayout(false);
             this.panelAgregarServicio.ResumeLayout(false);
@@ -710,13 +791,15 @@
             this.panelClave.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ClaveControl)).EndInit();
             this.panelAgregarProducto.ResumeLayout(false);
-            this.panelGrid.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridsfPaqueteDetalle)).EndInit();
             this.panelbtn.ResumeLayout(false);
             this.flButtons.ResumeLayout(false);
             this.panelTitulo.ResumeLayout(false);
             this.panelTitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RutaControl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -732,37 +815,42 @@
         private System.Windows.Forms.FlowLayoutPanel flButtons;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Panel panelGrid;
+        private Library.Controls.CIDDataGridsf.DataGridsf dataGridsfPaqueteDetalle;
+        private System.Windows.Forms.Panel ContenedorFormulario;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panelClave;
-        private System.Windows.Forms.Panel panelMontoPaquete;
-        private System.Windows.Forms.Panel panelNumeroPagos;
-        private System.Windows.Forms.Panel panelNumeroPersona;
-        private System.Windows.Forms.Panel panelNombre;
-        private System.Windows.Forms.Label label1;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt ClaveControl;
-        private System.Windows.Forms.Label label3;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt DescripcionControl;
-        private System.Windows.Forms.Label label2;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt NombreControl;
-        private System.Windows.Forms.Panel panelDescripcion;
-        private System.Windows.Forms.Label label4;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt NPersonaControl;
-        private System.Windows.Forms.Label label6;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt MontoPaqueteControl;
-        private System.Windows.Forms.Label label5;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt NPagoControl;
         private System.Windows.Forms.Panel panelEliminarRegistro;
         private System.Windows.Forms.Button btnEliminarRegistro;
         private System.Windows.Forms.Panel panelAgregarServicio;
         private System.Windows.Forms.Button btnAgregarServicio;
-        private System.Windows.Forms.Panel panelAgregarProducto;
-        private System.Windows.Forms.Button btnAgregarProducto;
-        private System.Windows.Forms.Panel panelGrid;
-        private Library.Controls.CIDDataGridsf.DataGridsf dataGridsfPaqueteDetalle;
-        private System.Windows.Forms.DateTimePicker FechaVencimientoControl;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panelMontoPaquete;
         private System.Windows.Forms.Label label8;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt TotalControl;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label6;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt MontoPaqueteControl;
+        private System.Windows.Forms.Panel panelNumeroPagos;
+        private System.Windows.Forms.DateTimePicker FechaVencimientoControl;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panelNumeroPersona;
+        private System.Windows.Forms.Label label5;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt NPagoControl;
+        private System.Windows.Forms.Label label4;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt NPersonaControl;
+        private System.Windows.Forms.Panel panelDescripcion;
+        private System.Windows.Forms.Label label3;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt DescripcionControl;
+        private System.Windows.Forms.Panel panelNombre;
+        private System.Windows.Forms.Label label2;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt NombreControl;
+        private System.Windows.Forms.Panel panelClave;
+        private System.Windows.Forms.Label label1;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt ClaveControl;
+        private System.Windows.Forms.Panel panelAgregarProducto;
+        private System.Windows.Forms.Button btnAgregarProducto;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox FotoControl;
+        private System.Windows.Forms.Button BtnSeleccionar;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt RutaControl;
     }
 }

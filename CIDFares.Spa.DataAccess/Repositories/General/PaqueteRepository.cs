@@ -32,6 +32,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@NPersona", element.NPersona);
                     dynamicParameters.Add("@NPago", element.NPago);
                     dynamicParameters.Add("@MontoPaquete", element.MontoPaquete);
+                    dynamicParameters.Add("@UrlImagen", element.UrlImagen);
                     dynamicParameters.Add("@FechaVencimiento", element.FechaVencimiento);
                     dynamicParameters.Add("@IdUsuario", IdUsuario);
                     var Resultado = await conexion.ExecuteScalarAsync<int>("[Paquete].[spCID_AC_Paquete]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
@@ -170,6 +171,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@NPersona", element.NPersona);
                     dynamicParameters.Add("@NPago", element.NPago);
                     dynamicParameters.Add("@MontoPaquete", element.MontoPaquete);
+                    dynamicParameters.Add("@UrlImagen", element.UrlImagen);
                     dynamicParameters.Add("@FechaVencimiento", element.FechaVencimiento);
                     dynamicParameters.Add("@IdUsuario", IdUsuario);
                     var Resultado = await conexion.ExecuteScalarAsync<int>("[Paquete].[spCID_C_Paquete]", param: dynamicParameters, commandType: CommandType.StoredProcedure);

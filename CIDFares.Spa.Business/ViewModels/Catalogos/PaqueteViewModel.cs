@@ -7,7 +7,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -114,6 +118,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 model.NPersona = this.NPersonal;
                 model.NPago = this.NPago;
                 model.MontoPaquete = this.MontoPaquete;
+                model.UrlImagen = this.UrlImagen;
                 model.FechaVencimiento = this.FechaVencimiento;
                 model.TablaProducto = this.TablaProducto;
                 model.TablaServicio = this.TablaServicio;
@@ -163,6 +168,45 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 throw;
             }
         }
+
+        public bool UploadFTP(string FilePath, string RemotePath, string Login, string Password)
+        {
+            try
+            {
+                using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+                {
+                    string url = Path.Combine(RemotePath, Path.GetFileName(FilePath)).ToLower();
+                    FtpWebRequest ftp = (FtpWebRequest)FtpWebRequest.Create(url);
+                    ftp.Credentials = new NetworkCredential(Login, Password);
+                    ftp.Method = WebRequestMethods.Ftp.UploadFile;
+                    ftp.KeepAlive = false;
+                    ftp.UseBinary = true;
+                    ftp.ContentLength = fs.Length;
+                    ftp.Proxy = null;
+                    fs.Position = 0;
+                    int buffLength = 2048;
+                    byte[] buff = new byte[buffLength];
+                    int contentLen;
+                    using (Stream strm = ftp.GetRequestStream())
+                    {
+                        contentLen = fs.Read(buff, 0, buffLength);
+                        while (contentLen != 0)
+                        {
+                            strm.Write(buff, 0, contentLen);
+                            contentLen = fs.Read(buff, 0, buffLength);
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //LogError.AddExcFileTxt(ex, "UtilFtp ~ UploadFTP");
+                //return false;
+                throw ex;
+            }
+        }
+
         #endregion
 
         #region Binding(Variables)
@@ -348,6 +392,51 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             {
                 _Total = value;
                 OnPropertyChanged(nameof(Total));
+            }
+        }
+
+        private string _UrlImagen;
+
+        public string UrlImagen
+        {
+            get { return _UrlImagen; }
+            set { _UrlImagen = value;
+                OnPropertyChanged(nameof(UrlImagen));
+            }
+        }
+
+        private Image _Imagen;
+
+        public Image Imagen
+        {
+            get { return _Imagen; }
+            set { _Imagen = value;
+                OnPropertyChanged(nameof(Imagen));
+            }
+        }
+
+        public bool UpdateImagen { get; set; }
+        public string Extencion { get; set; }
+        public ImageFormat Formato { get; set; }
+
+        private string _ImageLocation;
+        public string ImageLocation
+        {
+            get { return _ImageLocation; }
+            set
+            {
+                _ImageLocation = value; OnPropertyChanged("ImageLocation");
+                if (ImageLocation != string.Empty)
+                {
+                    try
+                    {
+                        Imagen = Image.FromFile(_ImageLocation);
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                }
             }
         }
 
