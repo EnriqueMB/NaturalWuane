@@ -124,28 +124,22 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 errorProvider1.Clear();
                 if (RbtnDosHorarios.Checked)
                 {
-                    Model.ListaTurno.Add(new TurnoDias
+                    if (ValidarDatos(2) == 0)
                     {
-                        NombreDia = DiasControl.SelectedValue.ToString(),
-                        HoraEntrada = PickerHoraEntrada1.Value.TimeOfDay.ToString(),
-                        HoraSalida = PickerHoraSalida1.Value.TimeOfDay.ToString()
-                    });
+                        Model.ListaValores.Add(new TurnoDias
+                        {
+                            NombreDia = DiasControl.SelectedValue.ToString(),
+                            HoraEntrada = PickerHoraEntrada1.Value.TimeOfDay.ToString(),
+                            HoraSalida = PickerHoraSalida1.Value.TimeOfDay.ToString()
+                        });
 
-                    if(ValidarDatos(2) == 0)
-                    {
                         string horario = PickerHoraEntrada1.Value.ToShortTimeString() + "\r\n   a\r\n" + PickerHoraSalida1.Value.ToShortTimeString();
                         horarioDesignV21.AgregarHora((DaysHour)DiasControl.SelectedValue, horario);
                     }
                 }
                 else if(RbtnCuatroHorarios.Checked)
                 {
-                    Model.ListaTurno.Add(new TurnoDias
-                    {
-                        NombreDia = DiasControl.SelectedValue.ToString(),
-                        HoraEntrada = PickerHoraEntrada1.Value.TimeOfDay.ToString(),
-                        HoraSalida = PickerHoraSalida1.Value.TimeOfDay.ToString()
-                    });
-                    Model.ListaTurno.Add(new TurnoDias
+                    Model.ListaValores.Add(new TurnoDias
                     {              
                         NombreDia = DiasControl.SelectedValue.ToString(),
                         HoraEntrada = PickerHoraEntrada2.Value.TimeOfDay.ToString(),
@@ -154,6 +148,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
                     if (ValidarDatos(4) == 0)
                     {
+                        Model.ListaValores.Add(new TurnoDias
+                        {
+                            NombreDia = DiasControl.SelectedValue.ToString(),
+                            HoraEntrada = PickerHoraEntrada1.Value.TimeOfDay.ToString(),
+                            HoraSalida = PickerHoraSalida1.Value.TimeOfDay.ToString()
+                        });
+
                         string horario = PickerHoraEntrada1.Value.ToShortTimeString() + "\r\n   a\r\n" + PickerHoraSalida1.Value.ToShortTimeString()
                                                 + "\r\n\r\n" + PickerHoraEntrada2.Value.ToShortTimeString() + "\r\n   a\r\n" + PickerHoraSalida2.Value.ToShortTimeString();
                         horarioDesignV21.AgregarHora((DaysHour)DiasControl.SelectedValue, horario);
@@ -199,8 +200,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         validation++;
                     }
                     TimeSpan dife = PickerHoraSalida1.Value - PickerHoraEntrada1.Value;
-                    int diferencia = dife.Hours;
-                    if(diferencia < 1)
+                    int diferencia = Int32.Parse(dife.Hours.ToString());
+                    if (diferencia < 1)
                     {
                         errorProvider1.SetError(PickerHoraSalida1, "LA DIFERENCIA MÍNIMA DEBE DE SER DE 2 HORAS");
                         validation++;
@@ -212,7 +213,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         validation++;
                     }
                     TimeSpan dife1 = PickerHoraSalida1.Value - PickerHoraEntrada1.Value;
-                    int diferencia1 = dife1.Hours;
+                    int diferencia1 = Int32.Parse(dife1.Hours.ToString());
                     if (diferencia1 < 1)
                     {
                         errorProvider1.SetError(PickerHoraSalida1, "LA DIFERENCIA MÍNIMA DEBE DE SER DE 2 HORAS");
@@ -223,7 +224,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         validation++;
                     }
                     TimeSpan difeInter = PickerHoraEntrada2.Value - PickerHoraSalida1.Value;
-                    int diferenciaInter = difeInter.Minutes;
+                    int diferenciaInter = Int32.Parse(difeInter.Minutes.ToString());
                     if (diferenciaInter < 30)
                     {
                         errorProvider1.SetError(PickerHoraEntrada2, "LA DIFERENCIA MÍNIMA DEBE DE SER DE 30 MINUTOS");
@@ -234,7 +235,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         validation++;
                     }
                     TimeSpan dife2 = PickerHoraSalida2.Value - PickerHoraEntrada2.Value;
-                    int diferencia2 = dife2.Hours;
+                    int diferencia2 = Int32.Parse(dife2.Hours.ToString());
                     if (diferencia2 < 1)
                     {
                         errorProvider1.SetError(PickerHoraSalida2, "LA DIFERENCIA MÍNIMA DEBE DE SER DE 2 HORAS");
@@ -248,8 +249,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     }
                     break;
             }
-            String valor = "Valor: ";
-            Console.Write(valor,validation);
             return validation;
         }
 
@@ -267,6 +266,54 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
                 throw ex;
             }
+        }
+
+        private void DiasControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string DiasComboBox = DiasControl.SelectedValue.ToString();
+            var Info = (from inf in Model.ListaValores
+                        where inf.NombreDia == DiasComboBox
+                        select inf).ToList();
+
+            List<string> temp = new List<string>(); 
+            foreach (var num in Info)
+            {
+                temp.Add(num.HoraEntrada);
+                temp.Add(num.HoraSalida);
+            }
+            int sizeList = temp.Count;
+            if(sizeList == 0)
+            {
+                RbtnDosHorarios.Checked = true;
+                PickerHoraEntrada1.Value = DateTimePicker.MinimumDateTime;
+                PickerHoraSalida1.Value = DateTimePicker.MinimumDateTime;
+                PickerHoraEntrada2.Value = DateTimePicker.MinimumDateTime;
+                PickerHoraSalida2.Value = DateTimePicker.MinimumDateTime;
+            }
+            else if (sizeList == 2) {
+                RbtnDosHorarios.Checked = true;
+                PickerHoraEntrada1.Value = Convert.ToDateTime(temp.ElementAt(0));
+                PickerHoraSalida1.Value = Convert.ToDateTime(temp.ElementAt(1));
+            }
+            else if (sizeList == 4)
+            {
+                RbtnCuatroHorarios.Checked = true;
+                PickerHoraEntrada1.Value = Convert.ToDateTime(temp[2]);
+                PickerHoraSalida1.Value = Convert.ToDateTime(temp[3]);
+                PickerHoraEntrada2.Value = Convert.ToDateTime(temp[0]);
+                PickerHoraSalida2.Value = Convert.ToDateTime(temp[1]);
+            }
+        }
+
+        private void EliminarBtn_Click(object sender, EventArgs e)
+        {
+            string DiasComboBox = DiasControl.SelectedValue.ToString();
+            var Info = (from inf in Model.ListaValores
+                        where inf.NombreDia == DiasComboBox
+                        select inf).ToList();
+
+            Info.ForEach(inf => Model.ListaValores.Remove(inf));
+
         }
     }
 }

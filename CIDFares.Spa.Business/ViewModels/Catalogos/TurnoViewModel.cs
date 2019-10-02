@@ -18,7 +18,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #endregion
 
         #region Propiedades Publicas
-        public BindingList<TurnoDias> ListaTurno { get; set; }
+        public BindingList<TurnoDias> ListaValores { get; set; }
         public bool ValidarValor { get; set; }
         public EntityState State { get; set; }
         #endregion
@@ -27,7 +27,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public TurnoViewModel(ITurnoRepository turnoRepository)
         {
             TurnoPrincipalRepository = turnoRepository;
-            ListaTurno = new BindingList<TurnoDias>();
+            ListaValores = new BindingList<TurnoDias>();
             ValidarValor = false;
         }
         #endregion
@@ -40,7 +40,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 Turno listaTurno;
                 listaTurno = await TurnoPrincipalRepository.GetAsync(IdTurno);
                 NombreTurno = listaTurno.NombreTurno;
-                ListaTurno = new BindingList<TurnoDias>(listaTurno.DatosValor.ToList());
+                ListaValores = new BindingList<TurnoDias>(listaTurno.DatosValor.ToList());
             }
             catch(Exception ex)
             {

@@ -34,6 +34,7 @@
             this.PanelBTN = new System.Windows.Forms.Panel();
             this.PanelContainsBtnGuardarç = new System.Windows.Forms.FlowLayoutPanel();
             this.BtnGuardar = new System.Windows.Forms.Button();
+            this.CancelarBtn = new System.Windows.Forms.Button();
             this.panelContainerPanelsDataTurno = new System.Windows.Forms.Panel();
             this.PanelContainGroupBox = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -64,7 +65,6 @@
             this.panelContainTableDataTurnoDays = new System.Windows.Forms.Panel();
             this.horarioDesignV21 = new CIDFares.Library.Controls.CIDHorario.Design.HorarioDesignV2();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.CancelarBtn = new System.Windows.Forms.Button();
             this.PanelTitulo.SuspendLayout();
             this.PanelBTN.SuspendLayout();
             this.PanelContainsBtnGuardarç.SuspendLayout();
@@ -132,6 +132,20 @@
             this.BtnGuardar.TabIndex = 1;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = false;
+            // 
+            // CancelarBtn
+            // 
+            this.CancelarBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.CancelarBtn.FlatAppearance.BorderSize = 0;
+            this.CancelarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelarBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.CancelarBtn.Location = new System.Drawing.Point(215, 3);
+            this.CancelarBtn.Name = "CancelarBtn";
+            this.CancelarBtn.Size = new System.Drawing.Size(206, 35);
+            this.CancelarBtn.TabIndex = 2;
+            this.CancelarBtn.Text = "Cancelar";
+            this.CancelarBtn.UseVisualStyleBackColor = false;
+            this.CancelarBtn.Click += new System.EventHandler(this.CancelarBtn_Click);
             // 
             // panelContainerPanelsDataTurno
             // 
@@ -227,6 +241,7 @@
             this.DiasControl.Name = "DiasControl";
             this.DiasControl.Size = new System.Drawing.Size(256, 28);
             this.DiasControl.TabIndex = 1;
+            this.DiasControl.SelectedIndexChanged += new System.EventHandler(this.DiasControl_SelectedIndexChanged);
             // 
             // LblDiaTurno
             // 
@@ -305,7 +320,7 @@
             // 
             // PickerHoraSalida2
             // 
-            this.PickerHoraSalida2.CustomFormat = "hh:mm";
+            this.PickerHoraSalida2.CustomFormat = "HH:mm";
             this.PickerHoraSalida2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.PickerHoraSalida2.Location = new System.Drawing.Point(18, 175);
             this.PickerHoraSalida2.Name = "PickerHoraSalida2";
@@ -323,7 +338,7 @@
             // 
             // PickerHoraEntrada2
             // 
-            this.PickerHoraEntrada2.CustomFormat = "hh:mm";
+            this.PickerHoraEntrada2.CustomFormat = "HH:mm";
             this.PickerHoraEntrada2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.PickerHoraEntrada2.Location = new System.Drawing.Point(18, 125);
             this.PickerHoraEntrada2.Name = "PickerHoraEntrada2";
@@ -332,7 +347,7 @@
             // 
             // PickerHoraSalida1
             // 
-            this.PickerHoraSalida1.CustomFormat = "hh:mm";
+            this.PickerHoraSalida1.CustomFormat = "HH:mm";
             this.PickerHoraSalida1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.PickerHoraSalida1.Location = new System.Drawing.Point(18, 75);
             this.PickerHoraSalida1.Name = "PickerHoraSalida1";
@@ -341,8 +356,8 @@
             // 
             // PickerHoraEntrada1
             // 
-            this.PickerHoraEntrada1.CustomFormat = "hh:mm";
-            this.PickerHoraEntrada1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.PickerHoraEntrada1.CustomFormat = "HH:mm";
+            this.PickerHoraEntrada1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.PickerHoraEntrada1.Location = new System.Drawing.Point(18, 25);
             this.PickerHoraEntrada1.Name = "PickerHoraEntrada1";
             this.PickerHoraEntrada1.Size = new System.Drawing.Size(256, 26);
@@ -409,6 +424,7 @@
             this.EliminarBtn.TabIndex = 7;
             this.EliminarBtn.Text = "Eliminar";
             this.EliminarBtn.UseVisualStyleBackColor = false;
+            this.EliminarBtn.Click += new System.EventHandler(this.EliminarBtn_Click);
             // 
             // panelContainTableDataTurnoDays
             // 
@@ -431,20 +447,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // CancelarBtn
-            // 
-            this.CancelarBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.CancelarBtn.FlatAppearance.BorderSize = 0;
-            this.CancelarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelarBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.CancelarBtn.Location = new System.Drawing.Point(215, 3);
-            this.CancelarBtn.Name = "CancelarBtn";
-            this.CancelarBtn.Size = new System.Drawing.Size(206, 35);
-            this.CancelarBtn.TabIndex = 2;
-            this.CancelarBtn.Text = "Cancelar";
-            this.CancelarBtn.UseVisualStyleBackColor = false;
-            this.CancelarBtn.Click += new System.EventHandler(this.CancelarBtn_Click);
             // 
             // FrmTurno
             // 
