@@ -34,9 +34,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             lblTitle.Text = Convert.ToDateTime(fecha).ToString("dddd, dd MMMM yyyy").ToUpper();
             Model = ServiceLocator.Instance.Resolve<CapturaCitaViewModel>();            
             f = Convert.ToDateTime(fecha);            
-            string cf = fecha.Value.ToShortDateString() + " " + DateTime.Now.ToLongTimeString();           
-            Model.HoraCita = Convert.ToDateTime(cf);
-            Model.Cliente = string.Empty;
+            //string cf = fecha.Value.ToShortDateString() + " " + DateTime.Now.ToLongTimeString();           
+            //Model.HoraCita = Convert.ToDateTime(cf);
+            Model.NombreCompleto = string.Empty;
             Model.ListaCapturaCita = new BindingList<CapturaCita>(new List<CapturaCita>());
             Model.ListaCapturaCitaDetalle = new BindingList<CapturaCita>(new List<CapturaCita>());
             Model.ListaCapturaCitaDetalleServicio = new BindingList<CapturaCita>(new List<CapturaCita>());
@@ -51,7 +51,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             Model.IdEstadoCita = 0;
             Model.NombreCompleto = string.Empty;
             Model.Observaciones = string.Empty;
-            Model.FechaCita = DateTime.MinValue;            
+            //Model.FechaCita = DateTime.MinValue;            
         }
 
         #endregion                    
@@ -60,7 +60,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         {
             try
             {
-                ClienteControl.DataBindings.Add("Text", Model, "Cliente", true, DataSourceUpdateMode.OnPropertyChanged);                
+                ClienteControl.DataBindings.Add("Text", Model, "NombreCompleto", true, DataSourceUpdateMode.OnPropertyChanged);                
 
                 this.dgmCita.AutoGenerateColumns = false;
                 dgmCita.DataBindings.Add("DataSource", Model, "ListaCapturaCitaDetalle", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -141,15 +141,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
 
         private DataTable ObtenerDatosTabla(BindingList<CapturaCita> Lista)
         {
-            //DataTable Tabla = new DataTable();
-            //Tabla.Columns.Add("IdServicio", typeof(int));
-            //Tabla.Columns.Add("FechaInicio", typeof(DateTime));
-            //Tabla.Columns.Add("FechaFinal", typeof(DateTime));
-            //foreach (var item in Lista)
-            //{
-            //    Tabla.Rows.Add(new object[] { item.IdServicio, item.FechaIServicio, item.FechaFServicio });
-            //}
-            //return Tabla;
+            DataTable Tabla = new DataTable();
+            Tabla.Columns.Add("IdServicio", typeof(int));
+            Tabla.Columns.Add("FechaInicio", typeof(DateTime));
+            Tabla.Columns.Add("FechaFinal", typeof(DateTime));
+            foreach (var item in Lista)
+            {
+                Tabla.Rows.Add(new object[] { item.OrdenServicio.Servicio.IdServicio, item.FechaInicio, item.FechaFinal });
+            }
+            return Tabla;
+            //return new DataTable();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -164,10 +165,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
 
         private void btnBuscarCliente_Click_1(object sender, EventArgs e)
         {
-            FrmBuscarCliente f = new FrmBuscarCliente();
-            f.ShowDialog();
-            Model.IdCliente = f.cliente.IdCliente;
-            Model.Cliente = f.cliente.NombreCompleto;            
+            FrmBuscarCliente cli = new FrmBuscarCliente();
+            cli.ShowDialog();
+            //cita.OrdenServicio.Cliente.IdCliente = cli.cliente.IdCliente;
+            //cita.OrdenServicio.Cliente.NombreCompleto = cli.cliente.NombreCompleto;
+            Model.IdCliente = cli.cliente.IdCliente;
+            Model.NombreCompleto = cli.cliente.NombreCompleto;            
         }
 
         private async void btnGuardar_Click_1(object sender, EventArgs e)
@@ -178,12 +181,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 errorProvider1.Clear();
                 btnGuardar.Enabled = false;
                 BindingList<CapturaCita> ListaServicio = (BindingList<CapturaCita>)dgmServicio.DataSource;
-                Model.TablaGServicio = ObtenerDatosTabla(ListaServicio);
-                //int exists = await Model.BusyService(CurrentSession.IdSucursal);                                
+                //Model.TablaGServicio = ObtenerDatosTabla(ListaServicio);
+                ObtenerDatos(ListaServicio);
+                int exists = await Model.BusyService(CurrentSession.IdSucursal);                                
                 var validationResults = Model.Validate();
                 validationResults.ToString();
-                //if (exists != 1 && exists != 5)
-                //{                    
+                if (exists != 1 && exists != 5)
+                {
                     if (Model.ListaCapturaCitaDetalleServicio.Count > 0)
                     {
                         if (validationResults.IsValid)
@@ -211,19 +215,19 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                         errorProvider1.SetError(lblErrorControl, "SELECCIONE EL SERVICIO");
                         //this.ShowErrors(errorProvider1, typeof(CapturaCitaViewModel), validationResults);
                     }
-            //}
-            //else
-            //{
-            //    if (exists == 5)
-            //    {
-            //        errorProvider1.SetError(lblCitaOcupadaControl, "NO PUEDES AGENDAR CITAS MENOR A LA HORA ACTUAL");
-            //    }
-            //    else
-            //    {
-            //        errorProvider1.SetError(lblCitaOcupadaControl, "HORARIO OCUPADO");
-            //    }                    
-            //    //this.ShowErrors(errorProvider1, typeof(CapturaCitaViewModel), validationResults);
-            //}
+                }
+                else
+                {
+                    if (exists == 5)
+                    {
+                        errorProvider1.SetError(lblCitaOcupadaControl, "NO PUEDES AGENDAR CITAS MENOR A LA HORA ACTUAL");
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(lblCitaOcupadaControl, "HORARIO OCUPADO");
+                    }
+                    //this.ShowErrors(errorProvider1, typeof(CapturaCitaViewModel), validationResults);
+                }
             }
             catch (Exception ex)
             {
@@ -233,6 +237,24 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             finally
             {
                 btnGuardar.Enabled = true;
+            }
+        }
+
+        private void ObtenerDatos(BindingList<CapturaCita> listaServicio)
+        {
+            try
+            {
+                foreach(var item in listaServicio)
+                {
+                    Model.IdServicio = item.OrdenServicio.Servicio.IdServicio;
+                    Model.Servicio = item.OrdenServicio.Servicio.Nombre;
+                    Model.FechaInicio = item.FechaInicio;
+                    Model.FechaFinal = item.FechaFinal;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
@@ -266,15 +288,21 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         {
             if (Model.ListaCapturaCitaDetalleServicio.Count == 0)
             {
-                HoraCitaControl.Enabled = true;
+                //HoraCitaControl.Enabled = true;
                 Model.ListaCapturaCitaDetalleServicio.Add(new CapturaCita
-                {
-                    IdServicio = ex.IdServicio,
-                    Servicio = ex.Nombre,                    
-                    FechaIServicio = f.Date + Model.IdHora,                   
-                    FechaFServicio = (f.Date + Model.IdHora).AddHours(1)
-                });
-            }
+                {                    
+                    FechaInicio = f.Date + Model.IdHora,
+                    FechaFinal = (f.Date + Model.IdHora).AddHours(1),
+                    OrdenServicio = new OrdenServicio
+                    {                        
+                        Servicio = new Servicio
+                        {
+                            IdServicio = ex.IdServicio,
+                            Nombre = ex.Nombre
+                        }
+                    }
+                });                
+                }
             else if(Model.ListaCapturaCitaDetalleServicio.Count >= 1)
             {
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.OneService, TypeMessage.informacion);
@@ -305,9 +333,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                     gbCita.Enabled = true;                    
                     //ClienteControl.Text = item.NombreCompleto;
                     //Model.IdCliente = item.IdCliente;
-                    Model.IdCita = item.IdCita;                    
+                    //Model.IdCita = item.IdCita;                    
                     Model.State = EntityState.Update;                                                       
-                    await Model.GetCitaDetalleServicio(item.IdCita);                                        
+                    //await Model.GetCitaDetalleServicio(item.IdCita);                                        
                 }
                 else
                     CIDMessageBox.ShowAlert(Messages.SystemName, Messages.CitaSelectMessage, TypeMessage.informacion);
@@ -324,7 +352,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             ClienteControl.Text = string.Empty;
             Model.ListaCapturaCitaDetalleServicio.Clear();
             this.CleanErrors(errorProvider1, typeof(CapturaCitaViewModel));
-            Model.FechaCita = DateTime.Today;
+            //Model.FechaCita = DateTime.Today;
         }
 
         private void btnEliminarServicio_Click(object sender, EventArgs e)
@@ -371,8 +399,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                     foreach (var servicio in Data)
                     {
                         ex = new Servicio();
-                        ex.IdServicio = servicio.IdServicio;
-                        ex.Nombre = servicio.Servicio;
+                        ex.IdServicio = servicio.OrdenServicio.Servicio.IdServicio;
+                        ex.Nombre = servicio.OrdenServicio.Servicio.Nombre;
                         agregarServicioLista(ex);
                     }
                 }
@@ -381,16 +409,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             {
                 throw ex;
             }
-        }
-
-        private void HorasControl_VisibleChanged(object sender, EventArgs e)
-        {
-            
-        }
+        }       
 
         private void HorasControl_SelectedValueChanged(object sender, EventArgs e)
-        {
-            
+        {            
             try
             {
                 //btnBuscarServicio.Enabled = true;
@@ -400,15 +422,18 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 }
                 if (Model.ListaCapturaCitaDetalleServicio.Count > 0)
                 {
-                    Model.HoraCita = HoraCitaControl.Value;
+                    //var x = Model.FechaInicio;
+                    //Model.FechaInicio = HorasControl.ValueMember;
+                    
+                    //Model.HoraCita = HoraCitaControl.Value;
                     Servicio ex;
                     List<CapturaCita> Data = Model.ListaCapturaCitaDetalleServicio.ToList();
                     Model.ListaCapturaCitaDetalleServicio.Clear();
                     foreach (var servicio in Data)
                     {
                         ex = new Servicio();
-                        ex.IdServicio = servicio.IdServicio;
-                        ex.Nombre = servicio.Servicio;
+                        ex.IdServicio = servicio.OrdenServicio.Servicio.IdServicio;
+                        ex.Nombre = servicio.OrdenServicio.Servicio.Nombre;
                         agregarServicioLista(ex);
                     }
                 }
@@ -430,7 +455,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
 
                     if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmDeleteMessage) == DialogResult.OK)
                     {
-                        Model.IdCita = item.IdCita;                        
+                        //Model.IdCita = item.IdCita;                        
                         var result = await Model.DeleteAsync(CurrentSession.IdCuentaUsuario);
                         if (result == 1)
                         {

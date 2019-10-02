@@ -66,12 +66,27 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         {
             try
             {
+                //CapturaCita item = new CapturaCita();
+                //item.OrdenServicio.IdOrdenServicio = this.IdOrdenServicio;
+                //item.OrdenServicio.OrdenPaquete.IdOrdenPaquete = this.IdOrdenPaquete;
                 CapturaCita model = new CapturaCita
                 {
-                    IdCita = IdCita,
-                    
+                    FechaInicio = FechaInicio,
+                    FechaFinal = FechaFinal,
+                    OrdenServicio = new OrdenServicio
+                    {
+                        IdOrdenServicio = IdOrdenServicio,                        
+                        OrdenPaquete = new OrdenPaquete { IdOrdenPaquete = IdOrdenPaquete,
+                                                          Paquete = new Paquetes { IdPaquete = IdPaquete,
+                                                                                   Nombre = Nombre } },
+                        Cliente = new Cliente { IdCliente = IdCliente,
+                                                NombreCompleto = NombreCompleto },
+                        Servicio = new Servicio { IdServicio = IdServicio,
+                                                  Nombre = Servicio}
+                    },
+
                     //IdCliente = IdCliente,                    
-                    TablaServicio = TablaGServicio,                                        
+                    //TablaServicio = TablaGServicio,                                        
                 };
                 if (State == EntityState.Create)
                 {
@@ -108,7 +123,8 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             {
                 CapturaCita model = new CapturaCita
                 {                    
-                    TablaServicio = TablaGServicio,
+                    //TablaServicio = TablaGServicio,
+                    FechaInicio = FechaInicio
                 };
                 return await Repository.BusyService(model, IdSucursal);
             }
@@ -220,6 +236,84 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
+        private Guid _IdOrdenServicio;
+
+        public Guid IdOrdenServicio
+        {
+            get { return _IdOrdenServicio; }
+            set
+            {
+                _IdOrdenServicio = value;
+                OnPropertyChanged(nameof(IdOrdenServicio));
+            }
+        }
+
+        private Guid _IdOrdenPaquete;
+
+        public Guid IdOrdenPaquete
+        {
+            get { return _IdOrdenPaquete; }
+            set
+            {
+                _IdOrdenPaquete = value;
+                OnPropertyChanged(nameof(IdOrdenPaquete));
+            }
+        }
+
+        private int _IdPaquete;
+
+        public int IdPaquete
+        {
+            get { return _IdPaquete; }
+            set
+            {
+                _IdPaquete = value;
+                OnPropertyChanged(nameof(IdPaquete));
+            }
+        }
+
+        private string _Nombre;
+
+        public string Nombre
+        {
+            get { return _Nombre; }
+            set
+            {
+                _Nombre = value;
+                OnPropertyChanged(nameof(Nombre));
+            }
+        }
+
+        private DateTime _FechaInicio;
+
+        public DateTime FechaInicio
+        {
+            get { return _FechaInicio; }
+            set
+            {
+                _FechaInicio = value;
+                OnPropertyChanged(nameof(FechaInicio));
+            }
+        }
+
+        private DateTime _FechaFinal;
+
+        public DateTime FechaFinal
+        {
+            get { return _FechaFinal; }
+            set
+            {
+                _FechaFinal = value;
+                OnPropertyChanged(nameof(FechaFinal));
+            }
+        }
+
+
+
+
+
+
+
         private Guid _IdCliente;
 
         public Guid IdCliente
@@ -279,19 +373,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 OnPropertyChanged(nameof(Observaciones));
             }
         }
-
-        private DateTime _FechaCita;
-
-        public DateTime FechaCita
-        {
-            get { return _FechaCita; }
-            set
-            {
-                _FechaCita = value;
-                OnPropertyChanged(nameof(FechaCita));
-            }
-        }
-
+       
         private DateTime _HoraCita;
 
         public DateTime HoraCita
@@ -302,79 +384,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 _HoraCita = value;//FechaCita;
                 OnPropertyChanged(nameof(HoraCita));
             }
-        }
-
-        private DateTime _FechaIServicio;
-
-        public DateTime FechaIServicio
-        {
-            get { return _FechaIServicio; }
-            set
-            {
-                _FechaIServicio = value;
-                OnPropertyChanged(nameof(FechaIServicio));
-            }
-        }
-
-        private DateTime _FechaFServicio;
-
-        public DateTime FechaFServicio
-        {
-            get { return _FechaFServicio; }
-            set
-            {
-                _FechaFServicio = value;
-                OnPropertyChanged(nameof(FechaFServicio));
-            }
-        }
-
-        private DateTime _FechaInicio;
-
-        public DateTime FechaInicio
-        {
-            get { return _FechaInicio; }
-            set
-            {
-                _FechaInicio = value;
-                OnPropertyChanged(nameof(FechaInicio));
-            }
-        }
-
-        private Image _imagen;
-
-        public Image imagen
-        {
-            get { return _imagen; }
-            set
-            {
-                _imagen = value;
-                OnPropertyChanged(nameof(imagen));
-            }
-        }
-
-        private DateTime _FechaFinal;
-
-        public DateTime FechaFinal
-        {
-            get { return _FechaFinal; }
-            set
-            {
-                _FechaFinal = value;
-                OnPropertyChanged(nameof(FechaFinal));
-            }
-        }
-
-        private string _EstadoCita;
-
-        public string EstadoCita
-        {
-            get { return _EstadoCita; }
-            set
-            {
-                _EstadoCita = value;
-                OnPropertyChanged(nameof(EstadoCita));
-            }
-        }
+        }                      
 
         private string _Cliente;
 
