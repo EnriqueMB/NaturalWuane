@@ -29,12 +29,12 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@IdCliente", element.IdCliente);
                     dynamicParameters.Add("@Clave", element.Clave);
                     dynamicParameters.Add("@NombreCompleto", element.NombreCompleto);
-                    dynamicParameters.Add("@Direccion", element.Direccion);
                     dynamicParameters.Add("@Telefono", element.Telefono);
                     dynamicParameters.Add("@FechaNacimiento", element.FechaNacimiento);
                     dynamicParameters.Add("@Sexo", element.Sexo);
                     dynamicParameters.Add("@Foto", element.FotoBase64);
                     dynamicParameters.Add("@Rfc", element.Rfc);
+                    dynamicParameters.Add("@email", element.Email);
                     dynamicParameters.Add("@IdUsuarioL", IdUsuario);
                     var Resultado = await conexion.ExecuteScalarAsync<int>("[Cliente].[SPCID_AC_Cliente]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = Resultado;
@@ -72,7 +72,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         else
                             item.Edad = 0;
                         item.FechaNacimiento = dr.GetDateTime(dr.GetOrdinal("FechaNacimiento"));
-                        item.Direccion = dr.GetString(dr.GetOrdinal("Direccion"));
+                        item.Email = dr.GetString(dr.GetOrdinal("Email"));
                         item.Telefono = dr.GetString(dr.GetOrdinal("Telefono"));
                         item.Rfc = dr.GetString(dr.GetOrdinal("Rfc"));
                         item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
@@ -180,7 +180,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         }
                         else
                             item.Edad = 0;
-                        item.Direccion = dr.GetString(dr.GetOrdinal("Direccion"));
+                        item.Email = dr.GetString(dr.GetOrdinal("Email"));
                         item.Telefono = dr.GetString(dr.GetOrdinal("Telefono"));
                         item.Rfc = dr.GetString(dr.GetOrdinal("Rfc"));
                         item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
