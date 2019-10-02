@@ -128,6 +128,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     {
                         if (existListValue())
                         {
+                            
                             string DiasComboBox = DiasControl.SelectedValue.ToString();
                             var Info = (from inf in Model.ListaValores
                                         where inf.NombreDia == DiasComboBox
@@ -212,6 +213,26 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     }   
                 }
                 var list = Model.ListaValores;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataTable ObtenerTabla(List<TurnoDias> lista)
+        {
+            try
+            {
+                DataTable tabla = new DataTable();
+                tabla.Columns.Add("Valor", typeof(string));
+                foreach(var item in lista)
+                {
+                    tabla.Rows.Add(new object[] { item.NombreDia });
+                    //tabla.Rows.Add(new object[] { item.NombreDia });
+                    //tabla.Rows.Add(new object[] { item.NombreDia });
+                }
+                return tabla;
             }
             catch (Exception ex)
             {
@@ -385,6 +406,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {
                 return false;
             } 
+        }
+
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

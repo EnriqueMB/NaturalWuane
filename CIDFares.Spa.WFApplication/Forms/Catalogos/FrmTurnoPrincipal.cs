@@ -26,8 +26,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {
                 FrmTurno Turno = new FrmTurno();
                 Turno.ShowDialog();
-                //Model.State = EntityState.Create;
-                //CargarDatosAsync();
             }
             catch (Exception ex)
             {
@@ -52,6 +50,25 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
                 throw ex;
             }
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmTurno Turno = new FrmTurno();
+                Turno.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmEmpleadoGrid ~ BtnNuevo_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

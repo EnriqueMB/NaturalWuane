@@ -84,6 +84,7 @@
     <Compile Include="Repositories\General\TipoAlimentoRepository.cs" />
     <Compile Include="Repositories\General\TipoServicioRepository.cs" />
     <Compile Include="Repositories\General\TipoSucursalRepository.cs" />
+    <Compile Include="Repositories\General\TurnoPrincipalRepository.cs" />
     <Compile Include="Repositories\General\TurnoRepository.cs" />
     <Compile Include="Repositories\General\UsuarioRepository.cs" />
     <Compile Include="Repositories\General\UnidadMedidaRepository.cs" />

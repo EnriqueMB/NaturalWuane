@@ -14,7 +14,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
     public class TurnoViewModel : Validable, INotifyPropertyChanged
     {
         #region Propiedades Privadas
-        private ITurnoRepository TurnoPrincipalRepository { get; set; }
+        private ITurnoRepository TurnoRepository { get; set; }
         #endregion
 
         #region Propiedades Publicas
@@ -26,7 +26,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #region Contructor
         public TurnoViewModel(ITurnoRepository turnoRepository)
         {
-            TurnoPrincipalRepository = turnoRepository;
+            TurnoRepository = turnoRepository;
             ListaValores = new BindingList<TurnoDias>();
             ValidarValor = false;
         }
@@ -38,7 +38,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             try
             {
                 Turno listaTurno;
-                listaTurno = await TurnoPrincipalRepository.GetAsync(IdTurno);
+                listaTurno = await TurnoRepository.GetAsync(IdTurno);
                 NombreTurno = listaTurno.NombreTurno;
                 ListaValores = new BindingList<TurnoDias>(listaTurno.DatosValor.ToList());
             }
@@ -73,7 +73,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 turno.NombreTurno = NombreTurno;
                 turno.TablaValores = TablaValores;
                 turno.IdUsuario = IdUsuario;
-                turno = await TurnoPrincipalRepository.AddAsync(turno, IdUsuario);
+                turno = await TurnoRepository.AddAsync(turno, IdUsuario);
                 return turno;
             }
             catch(Exception ex)
@@ -86,7 +86,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             try
             {
-                return await TurnoPrincipalRepository.DeleteAsync(this.IdTurno, this.IdUsuario);
+                return await TurnoRepository.DeleteAsync(this.IdTurno, this.IdUsuario);
             }
             catch (Exception ex)
             {
@@ -98,7 +98,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             try
             {
-                return await TurnoPrincipalRepository.GetAsync(this.IdTurno);
+                return await TurnoRepository.GetAsync(this.IdTurno);
             }
             catch(Exception ex)
             {
