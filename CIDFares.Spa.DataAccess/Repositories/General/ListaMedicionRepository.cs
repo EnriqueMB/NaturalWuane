@@ -129,6 +129,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 {
                     conexion.Open();
                     var Parametros = new DynamicParameters();
+                    Parametros.Add("IdListaMedicion", element.IdListaMedicion);
                     Parametros.Add("@Nombre", element.Nombre);
                     Parametros.Add("@Descripcion", element.Descripcion);
                     Parametros.Add("@DatosValor", element.TablaValores, DbType.Object);

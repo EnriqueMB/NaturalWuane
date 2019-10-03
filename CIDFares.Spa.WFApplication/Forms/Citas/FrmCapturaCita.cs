@@ -30,7 +30,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<CapturaCitaViewModel>();
-            cita = new CapturaCita();
+            cita = new CapturaCita();           
         }
         #endregion
 

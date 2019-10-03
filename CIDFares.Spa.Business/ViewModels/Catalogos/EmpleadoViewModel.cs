@@ -222,6 +222,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     model.FotoBase64 = this.FotoBase64;
                     model.Contraseña = this.Contraseña;
                     model.IdSucursal = this.IdSucursal;
+                    model.CambiarContraseña = this.CambiarContraseña;
                     model = await IRepository.AddAsync(model, IdUsuario);
                 }
                 else if (State == EntityState.Update)
@@ -241,6 +242,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     model.Direccion = this.Direccion;
                     model.FotoBase64 = this.FotoBase64;
                     model.IdSucursal = this.IdSucursal;
+                    model.Contraseña = this.Contraseña;
+                    model.CambiarContraseña = this.CambiarContraseña;
                     model = await IRepository.UpdateAsync(model, IdUsuario);
                 }
                 return model;
@@ -266,6 +269,14 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #endregion
 
         #region Binding
+        private bool _CambiarContraseña;
+
+        public bool CambiarContraseña
+        {
+            get { return _CambiarContraseña; }
+            set { _CambiarContraseña = value;OnPropertyChanged("CambiarContraseña"); }
+        }
+
         private bool _Modificar;
 
         public bool Modificar

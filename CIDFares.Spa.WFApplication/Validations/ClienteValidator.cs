@@ -41,6 +41,16 @@ namespace CIDFares.Spa.WFApplication.Validations
                        return false;
                }
                ).WithMessage("LA FECHA DE NACIMIENTO NO PUEDE SER MAYOR A LA FECHA ACTUAL.");
+
+            RuleFor(cliente => cliente.Email)
+                .Must((x, value) =>
+                {
+                    return !string.IsNullOrWhiteSpace(value);
+                }).WithMessage("DEBE INGRESAR SU DIRECCION DE CORREO ELECTRONICO")
+                .Matches("\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*")
+               .WithMessage("NO TIENE FORMATO DE CORREO ELECTRONICO");
+
+
         }
     }
 }

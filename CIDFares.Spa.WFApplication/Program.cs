@@ -33,6 +33,7 @@ namespace CIDFares.Spa.WFApplication
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
             Application.Run(new FrmLogin());
+            //Application.Run(new FrmTurno());
         }
 
         public static void InitializeContainer()
@@ -60,7 +61,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ProveedorValidator, IValidator<ProveedorViewModel>>();
             ServiceLocator.Instance.Register<ProductoValidator, IValidator<ProductoViewModel>>();
             ServiceLocator.Instance.Register<SucursalValidator, IValidator<SucursalViewModel>>();
-            ServiceLocator.Instance.Register<VentaValidator, IValidator<VentasViewModel>>();            
+            ServiceLocator.Instance.Register<VentaValidator, IValidator<VentasViewModel>>();
             ServiceLocator.Instance.Register<VentaValidator, IValidator<VentasViewModel>>();
             ServiceLocator.Instance.Register<EncuestaValidator, IValidator<EncuestasViewModel>>();
             ServiceLocator.Instance.Register<EmpleadoValidator, IValidator<EmpleadoViewModel>>();
@@ -70,6 +71,9 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<CompraValidator, IValidator<ComprasViewModel>>();
             ServiceLocator.Instance.Register<CapturaCitaValidator, IValidator<CapturaCitaViewModel>>();
             ServiceLocator.Instance.Register<ProductosMonederoValidator, IValidator<ProductosMonederoViewModel>>();
+            ServiceLocator.Instance.Register<EntradaSalidaAlmacenValidator, IValidator<EntradaSalidaAlmacenViewModel>>();
+            ServiceLocator.Instance.Register<AlimentoValidator, IValidator<AlimentoViewModels>>();
+            ServiceLocator.Instance.Register<CambioVentaValidator, IValidator<CambioVentaViewModel>>();
             ServiceLocator.Instance.Register<CancelacionVentaValidator, IValidator<CancelacionVentaViewModel>>();
             ServiceLocator.Instance.Register<ListaMedicionValidator, IValidator<ListaMedicionViewModel>>();
             ServiceLocator.Instance.Register<MedicionValidator, IValidator<MedicionViewModel>>();
@@ -101,6 +105,11 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<RegistroEntradaSalidaViewModel>();
             ServiceLocator.Instance.Register<ComprasViewModel>();
             ServiceLocator.Instance.Register<ProductosMonederoViewModel>();
+            ServiceLocator.Instance.Register<EntradaSalidaAlmacenViewModel>();
+            ServiceLocator.Instance.Register<InventarioFisicoViewModel>();
+            ServiceLocator.Instance.Register<AlimentoViewModels>();
+            ServiceLocator.Instance.Register<CambioVentaViewModel>();
+            ServiceLocator.Instance.Register<TurnoViewModel>();
             ServiceLocator.Instance.Register<CancelacionVentaViewModel>();
             ServiceLocator.Instance.Register<MedicionViewModel>();
             ServiceLocator.Instance.Register<ListaMedicionViewModel>();

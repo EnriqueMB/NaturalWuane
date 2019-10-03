@@ -27,5 +27,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public int Edad { get; set; }
         public bool TieneTarjeta { get; set; }
         public int? PuntosMonedero { get; set; }
+        public string Email { get; set; }
     }
 }

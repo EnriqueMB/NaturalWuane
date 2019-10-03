@@ -28,6 +28,8 @@ namespace CIDFares.Spa.Business.ViewModels.General
         public BindingList<Estado> ListaEstados { get; set; }
         public BindingList<Municipio> ListaMunicipios { get; set; }
         public BindingList<TipoSucursal> ListaTipoSucursal { get; set; }
+
+        public BindingList<HorarioSucursal> ListaHorario { get; set; }
         public EntityState State { get; set; }
         #endregion
 
@@ -168,6 +170,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
                 Rfc = sucursal.Rfc;
                 NombreRepresentante = sucursal.NombreRepresentante;
                 RegimenFiscal = sucursal.RegimenFiscal;
+                this.ListaHorario = new BindingList<HorarioSucursal>(sucursal.ListaHorario);
             }
             catch (Exception ex)
             {
@@ -194,6 +197,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
                     sucursal.Rfc = Rfc;
                     sucursal.NombreRepresentante = NombreRepresentante;
                     sucursal.RegimenFiscal = RegimenFiscal;
+                    sucursal.ListaHorario = this.ListaHorario.ToList();
                     sucursal = await SucursalRepository.AddAsync(sucursal,IdUsuario);
                 }
                 else if(State == EntityState.Update)
@@ -210,6 +214,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
                     sucursal.Rfc = Rfc;
                     sucursal.NombreRepresentante = NombreRepresentante;
                     sucursal.RegimenFiscal = RegimenFiscal;
+                    sucursal.ListaHorario = this.ListaHorario.ToList();
                     sucursal = await SucursalRepository.UpdateAsync(sucursal, IdUsuario);
                 }
                 return sucursal;
@@ -231,6 +236,18 @@ namespace CIDFares.Spa.Business.ViewModels.General
             {
                 throw ex;
             }
+        }
+
+        public void ListHorario()
+        {
+            ListaHorario = new BindingList<HorarioSucursal>();
+            ListaHorario.Add(new HorarioSucursal { Nombre = "Lunes", Dia = 1, HoraEntrada = DateTime.Now.Date, HoraSalida = DateTime.Now.Date });
+            ListaHorario.Add(new HorarioSucursal { Nombre = "Martes", Dia = 2, HoraEntrada = DateTime.Now.Date, HoraSalida = DateTime.Now.Date });
+            ListaHorario.Add(new HorarioSucursal { Nombre = "Miercoles", Dia = 3, HoraEntrada = DateTime.Now.Date, HoraSalida = DateTime.Now.Date });
+            ListaHorario.Add(new HorarioSucursal { Nombre = "Jueves", Dia = 4, HoraEntrada = DateTime.Now.Date, HoraSalida = DateTime.Now.Date });
+            ListaHorario.Add(new HorarioSucursal { Nombre = "Viernes", Dia = 5, HoraEntrada = DateTime.Now.Date, HoraSalida = DateTime.Now.Date });
+            ListaHorario.Add(new HorarioSucursal { Nombre = "Sabado", Dia = 6, HoraEntrada = DateTime.Now.Date, HoraSalida = DateTime.Now.Date });
+            ListaHorario.Add(new HorarioSucursal { Nombre = "Domingo", Dia = 7, HoraEntrada = DateTime.Now.Date, HoraSalida = DateTime.Now.Date });
         }
         #endregion
 

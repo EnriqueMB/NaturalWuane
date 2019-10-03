@@ -43,7 +43,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             Model.ListaCapturaCita = new BindingList<CapturaCita>(new List<CapturaCita>());
             Model.ListaCapturaCitaDetalle = new BindingList<CapturaCita>(new List<CapturaCita>());
             Model.ListaCapturaCitaDetalleServicio = new BindingList<CapturaCita>(new List<CapturaCita>());
-            
         }        
 
         #region Métodos
@@ -101,13 +100,34 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             Model.LlenarListaHoras(z);
         }
 
+        private async void HorarioSucursal()
+        {
+            try
+            {
+                var x = await Model.HorarioSucursal(Model.Dias(f), CurrentSession.IdSucursal);
+                Model.LlenarListaHoras(x);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+           
+        }
+
         private async void FrmCapturaCitaNuevo_Load(object sender, EventArgs e)
         {
-            
-            await Model.GetCitaDetalle(f, CurrentSession.IdSucursal);
-            IniciarBinding();
-            comboHoras();
-                    
+            try
+            {
+                await Model.GetCitaDetalle(f, CurrentSession.IdSucursal);
+                IniciarBinding();
+                //comboHoras();
+                HorarioSucursal();
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCapturaCitaNuevo(DateTime? fecha) ~ FrmCapturaCitaNuevo_Load(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
+            }
         }
 
         private CapturaCita ObtenerSeleccionado()

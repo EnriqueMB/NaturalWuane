@@ -177,6 +177,19 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 throw ex;
             }
         }
+
+        public async Task<IEnumerable<CapturaCita>> HorarioSucursal(int Dias, int IdSucursal)
+        {
+            try
+            {
+                return await Repository.LlenarComboHorarioSucursal(Dias, IdSucursal);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
+        }
         #endregion
 
         public async Task GetCitaXPeriodo(int IdSucursal)
@@ -458,5 +471,36 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         }
 
         #endregion
+
+        public int Dias(DateTime FechaSeleccionada)
+        {
+            switch (FechaSeleccionada.DayOfWeek)
+            {
+                case DayOfWeek.Sunday:
+                    return 7;
+                    break;
+                case DayOfWeek.Monday:
+                    return 1;
+                    break;
+                case DayOfWeek.Tuesday:
+                    return 2;
+                    break;
+                case DayOfWeek.Wednesday:
+                    return 3;
+                    break;
+                case DayOfWeek.Thursday:
+                    return 4;
+                    break;
+                case DayOfWeek.Friday:
+                    return 5;
+                    break;
+                case DayOfWeek.Saturday:
+                    return 6;
+                    break;
+                default:
+                    return 0;
+                    break;
+            }
+        }
     }
 }

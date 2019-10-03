@@ -5,6 +5,7 @@ using CIDFares.Library.Controls.CIDWait.Code;
 using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.Business.ViewModels.General;
 using CIDFares.Spa.CrossCutting.Services;
+using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
@@ -30,11 +31,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             if (IdSucursal > 0)
             {
                 Model.IdSucursal = IdSucursal;
-                Model.State = EntityState.Update;
+                Model.State = EntityState.Update;                
             }
             else
+            {
+                Model.ListHorario();
                 Model.State = EntityState.Create;
-
+                CargarHorarios();
+            }               
         }
 
         #region Metodos
@@ -138,6 +142,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         await Model.GetSucursal();
                         lblSubtitle.Text = Model.Nombre;
                     }, "Cargando sucursal");
+                    if (Model.ListaHorario.Count == 0)
+                        Model.ListHorario();
+                    CargarHorarios();
                 }
                 else
                 {
@@ -162,7 +169,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
                     }, "Espere");
 
-                IniciarBinding();
+                IniciarBinding();               
             }
             catch (Exception ex)
             {
@@ -302,6 +309,39 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             RegimenFiscalControl.Text = RegimenFiscalControl.Text.Replace("  ", " ");
             RegimenFiscalControl.Select(RegimenFiscalControl.Text.Length, 0);
+        }
+
+        private void CargarHorarios()
+        {
+            try
+            {
+                foreach (var item in Model.ListaHorario)
+                {
+                    Label label = new Label();
+                    label.Text = item.Nombre;
+                    //checkDias.DataBindings.Add("Checked", item, "Seleccionado", true, DataSourceUpdateMode.OnPropertyChanged);
+                    flowLayoutPanel1.Controls.Add(label);
+                    DateTimePicker dateTimePicker = new DateTimePicker();
+                    dateTimePicker.Size = new Size(120, 20);
+                    dateTimePicker.Format = DateTimePickerFormat.Custom;
+                    dateTimePicker.CustomFormat = "HH:mm:ss";
+                    dateTimePicker.ShowUpDown = true;
+                    dateTimePicker.Margin = new Padding(3, 3, 20, 3);
+                    dateTimePicker.DataBindings.Add("Value", item, "HoraEntrada", true, DataSourceUpdateMode.OnPropertyChanged);
+                    flowLayoutPanel1.Controls.Add(dateTimePicker);
+                    DateTimePicker dateTimePicker1 = new DateTimePicker();
+                    dateTimePicker1.Format = DateTimePickerFormat.Custom;
+                    dateTimePicker1.Size = new Size(120, 20);
+                    dateTimePicker1.CustomFormat = "HH:mm:ss";
+                    dateTimePicker1.ShowUpDown = true;
+                    dateTimePicker1.DataBindings.Add("Value", item, "HoraSalida", true, DataSourceUpdateMode.OnPropertyChanged);
+                    flowLayoutPanel1.Controls.Add(dateTimePicker1);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
