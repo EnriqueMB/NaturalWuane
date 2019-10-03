@@ -50,7 +50,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
 
         public void LimpiarPropiedades()
         {
-            Model.IdCita = Guid.Empty;
+            mcCita2.SelectedDate = DateTime.Now;
+            Model.IdAgendaCita = Guid.Empty;
             Model.IdCliente = Guid.Empty;
             Model.IdEstadoCita = 0;
             Model.NombreCompleto = string.Empty;

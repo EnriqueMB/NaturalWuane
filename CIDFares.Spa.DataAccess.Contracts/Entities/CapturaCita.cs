@@ -21,7 +21,9 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFinal { get; set; }
 
-
+        public int Resultado { get; set; }
+        public TimeSpan IdHora { get; set; }
+        public string Hora { get; set; }
 
 
 
@@ -49,8 +51,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         //public DateTime FechaFServicio { get; set; }
         //public DataTable TablaServicio { get; set; }
 
-        public int Resultado { get; set; }
-        public TimeSpan IdHora { get; set; }
-        public string Hora { get; set; }
+
     }
 }

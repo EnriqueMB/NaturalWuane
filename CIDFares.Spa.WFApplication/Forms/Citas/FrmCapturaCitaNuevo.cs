@@ -31,9 +31,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         public FrmCapturaCitaNuevo(DateTime? fecha)
         {
             InitializeComponent();            
-            lblTitle.Text = Convert.ToDateTime(fecha).ToString("dddd, dd MMMM yyyy").ToUpper();
-            Model = ServiceLocator.Instance.Resolve<CapturaCitaViewModel>();            
-            f = Convert.ToDateTime(fecha);            
+            lblTitle.Text = Convert.ToDateTime(fecha).ToString("dddd, dd MMMM yyyy").ToUpper();            
+            Model = ServiceLocator.Instance.Resolve<CapturaCitaViewModel>();
+            
+            f = Convert.ToDateTime(fecha);
+            string fi = f.ToShortDateString() + " "+ "09:00:00";
+            Model.FechaInicio = Convert.ToDateTime(fi);
             //string cf = fecha.Value.ToShortDateString() + " " + DateTime.Now.ToLongTimeString();           
             //Model.HoraCita = Convert.ToDateTime(cf);
             Model.NombreCompleto = string.Empty;
@@ -46,7 +49,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         #region Métodos
         public void LimpiarPropiedades()
         {
-            Model.IdCita = Guid.Empty;
+            Model.IdAgendaCita = Guid.Empty;
             Model.IdCliente = Guid.Empty;
             Model.IdEstadoCita = 0;
             Model.NombreCompleto = string.Empty;
@@ -290,7 +293,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             {
                 //HoraCitaControl.Enabled = true;
                 Model.ListaCapturaCitaDetalleServicio.Add(new CapturaCita
-                {                    
+                {                                           
                     FechaInicio = f.Date + Model.IdHora,
                     FechaFinal = (f.Date + Model.IdHora).AddHours(1),
                     OrdenServicio = new OrdenServicio
@@ -321,21 +324,67 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             }
         }
 
-        private async void btnModificar_Click(object sender, EventArgs e)
+        private void agregarServicioListaUpd(Servicio ex, DateTime fInicio)
+        {
+            if (Model.ListaCapturaCitaDetalleServicio.Count == 0)
+            {
+                //HoraCitaControl.Enabled = true;
+
+                Model.IdHora = TimeSpan.Parse(fInicio.ToString("HH:mm:ss"));
+                Model.ListaCapturaCitaDetalleServicio.Add(new CapturaCita
+                {
+                    FechaInicio = fInicio,
+                    FechaFinal = fInicio.AddHours(1),
+                    OrdenServicio = new OrdenServicio
+                    {
+                        Servicio = new Servicio
+                        {
+                            IdServicio = ex.IdServicio,
+                            Nombre = ex.Nombre
+                        }
+                    }
+                });
+            }
+            else if (Model.ListaCapturaCitaDetalleServicio.Count >= 1)
+            {
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.OneService, TypeMessage.informacion);
+                // var UltimaFecha = DateTime.Now;
+
+                //List<CapturaCita> Data = Model.ListaCapturaCitaDetalleServicio.Skip(Math.Max(0, Model.ListaCapturaCitaDetalleServicio.Count - 4)).Select(x => { UltimaFecha = x.FechaFServicio; return x; }).ToList();
+                // //var gg = Model.FechaCita;
+                //     Model.ListaCapturaCitaDetalleServicio.Add(new CapturaCita
+                //     {
+                //         IdServicio = ex.IdServicio,
+                //         Servicio = ex.Nombre,
+                //         FechaIServicio = UltimaFecha,
+                //         FechaFServicio = UltimaFecha.AddHours(1)
+                //     });
+
+            }
+        }
+        private void btnModificar_Click(object sender, EventArgs e)
         {
             try
             {
                 var item = ObtenerSeleccionado();
                 if (item != null)
                 {
+                    Servicio ex;
                     btnBuscarCliente.Visible = false;
+                    //Model.State = EntityState.Update;
+                    gbCita.Enabled = true;
+                    ClienteControl.Text = item.OrdenServicio.Cliente.NombreCompleto;
+                    Model.IdCliente = item.OrdenServicio.Cliente.IdCliente;
+                    Model.IdAgendaCita = item.IdAgendaCita;
+                    Model.IdOrdenServicio = item.OrdenServicio.IdOrdenServicio;
+                    //List<CapturaCita> Data = Model.ListaCapturaCitaDetalleServicio.ToList();
+                    Model.ListaCapturaCitaDetalleServicio.Clear();
+                    ex = new Servicio();
+                    ex.IdServicio = item.OrdenServicio.Servicio.IdServicio;
+                    ex.Nombre = item.OrdenServicio.Servicio.Nombre;
+                    agregarServicioListaUpd(ex, item.FechaInicio);
                     Model.State = EntityState.Update;
-                    gbCita.Enabled = true;                    
-                    //ClienteControl.Text = item.NombreCompleto;
-                    //Model.IdCliente = item.IdCliente;
-                    //Model.IdCita = item.IdCita;                    
-                    Model.State = EntityState.Update;                                                       
-                    //await Model.GetCitaDetalleServicio(item.IdCita);                                        
+                    //await Model.GetCitaDetalleServicio(item.IdAgendaCita);
                 }
                 else
                     CIDMessageBox.ShowAlert(Messages.SystemName, Messages.CitaSelectMessage, TypeMessage.informacion);
@@ -386,30 +435,30 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             }
         }
 
-        private void HoraCitaControl_ValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Model.ListaCapturaCitaDetalleServicio.Count > 0)
-                {
-                    Model.HoraCita = HoraCitaControl.Value;
-                    Servicio ex;
-                    List<CapturaCita> Data = Model.ListaCapturaCitaDetalleServicio.ToList();
-                    Model.ListaCapturaCitaDetalleServicio.Clear();
-                    foreach (var servicio in Data)
-                    {
-                        ex = new Servicio();
-                        ex.IdServicio = servicio.OrdenServicio.Servicio.IdServicio;
-                        ex.Nombre = servicio.OrdenServicio.Servicio.Nombre;
-                        agregarServicioLista(ex);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }       
+        //private void HoraCitaControl_ValueChanged(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (Model.ListaCapturaCitaDetalleServicio.Count > 0)
+        //        {
+        //            Model.HoraCita = HoraCitaControl.Value;
+        //            Servicio ex;
+        //            List<CapturaCita> Data = Model.ListaCapturaCitaDetalleServicio.ToList();
+        //            Model.ListaCapturaCitaDetalleServicio.Clear();
+        //            foreach (var servicio in Data)
+        //            {
+        //                ex = new Servicio();
+        //                ex.IdServicio = servicio.OrdenServicio.Servicio.IdServicio;
+        //                ex.Nombre = servicio.OrdenServicio.Servicio.Nombre;
+        //                agregarServicioLista(ex);
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}       
 
         private void HorasControl_SelectedValueChanged(object sender, EventArgs e)
         {            

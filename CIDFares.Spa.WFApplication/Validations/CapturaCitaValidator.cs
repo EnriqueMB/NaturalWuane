@@ -12,9 +12,9 @@ namespace CIDFares.Spa.WFApplication.Validations
     {
         public CapturaCitaValidator()
         {
-            RuleFor(cap => cap.NombreCompleto)
-                .NotEmpty()
-                .WithMessage("SELECCIONE UN CLIENTE.");            
+            //RuleFor(cap => cap.NombreCompleto)
+            //    .NotEmpty()
+            //    .WithMessage("SELECCIONE UN CLIENTE.");            
         }
     }
 }

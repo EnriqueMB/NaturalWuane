@@ -211,16 +211,16 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();                                                             
                     dynamicParameters.Add("@opcion", 1);
+                    dynamicParameters.Add("@idAgendaCita", element.IdAgendaCita);
                     dynamicParameters.Add("@idPaquete", element.OrdenServicio.OrdenPaquete.Paquete.IdPaquete);
                     dynamicParameters.Add("@idServicio", element.OrdenServicio.Servicio.IdServicio);
                     dynamicParameters.Add("@aplicado", false);
                     dynamicParameters.Add("@pagado", false);
                     dynamicParameters.Add("@fechaInicio", element.FechaInicio);
-                    dynamicParameters.Add("@fechaFinal", element.FechaFinal);
-                    dynamicParameters.Add("@idCitaUpd", Guid.Empty);
+                    dynamicParameters.Add("@fechaFinal", element.FechaFinal);                    
                     //dynamicParameters.Add("@TablaServicio", element.TablaServicio, DbType.Object);                    
                     dynamicParameters.Add("@idSucursal", IdSucursal);
-                    dynamicParameters.Add("@idCliente", element.OrdenServicio.Cliente.IdCliente);// element.IdCliente);
+                    dynamicParameters.Add("@idCliente", "E49A96A7-C6CC-4CA4-9CE9-56CCB4C0A671");//element.OrdenServicio.Cliente.IdCliente);
                     dynamicParameters.Add("@idEstadoCita", 5);                
                     dynamicParameters.Add("@user", IdUsuario);
                     var result = await conexion.ExecuteScalarAsync<int>("[Cita].[SPCID_AC_Cita]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
@@ -248,11 +248,17 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@opcion", 2);
-                    //dynamicParameters.Add("@TablaServicio", element.TablaServicio, DbType.Object);
-                    //dynamicParameters.Add("@idCitaUpd", element.IdCita);
+                    dynamicParameters.Add("@idAgendaCita", element.IdAgendaCita);
+                    dynamicParameters.Add("@idOrdenServicio", element.OrdenServicio.IdOrdenServicio);
+                    dynamicParameters.Add("@idPaquete", element.OrdenServicio.OrdenPaquete.Paquete.IdPaquete);
+                    dynamicParameters.Add("@idServicio", element.OrdenServicio.Servicio.IdServicio);
+                    dynamicParameters.Add("@aplicado", false);
+                    dynamicParameters.Add("@pagado", false);
+                    dynamicParameters.Add("@fechaInicio", element.FechaInicio);
+                    dynamicParameters.Add("@fechaFinal", element.FechaFinal);                    
                     dynamicParameters.Add("@idSucursal", IdSucursal);
-                    dynamicParameters.Add("@idCliente", 1);//5 element.IdCliente);
-                    dynamicParameters.Add("@idEstadoCita", 5);                    
+                    dynamicParameters.Add("@idCliente", "E49A96A7-C6CC-4CA4-9CE9-56CCB4C0A671");//element.OrdenServicio.Cliente.IdCliente);
+                    dynamicParameters.Add("@idEstadoCita", 5);
                     dynamicParameters.Add("@user", IdUsuario);
                     var result = await conexion.ExecuteScalarAsync<int>("[Cita].[SPCID_AC_Cita]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
@@ -272,7 +278,9 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 using (IDbConnection conexion = new SqlConnection(WebConnectionString))
                 {
                     conexion.Open();
-                    var dynamicParameters = new DynamicParameters();                    
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@idAgendaCita", element.IdAgendaCita);
+                    dynamicParameters.Add("@idServicio", element.OrdenServicio.Servicio.IdServicio);
                     dynamicParameters.Add("@fechaInicio", element.FechaInicio);                                                            
                     dynamicParameters.Add("@estadoCita", 5);
                     dynamicParameters.Add("@idSucursal", IdSucursal);                                        

@@ -71,6 +71,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 //item.OrdenServicio.OrdenPaquete.IdOrdenPaquete = this.IdOrdenPaquete;
                 CapturaCita model = new CapturaCita
                 {
+                    IdAgendaCita = IdAgendaCita,
                     FechaInicio = FechaInicio,
                     FechaFinal = FechaFinal,
                     OrdenServicio = new OrdenServicio
@@ -108,7 +109,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         {
             try
             {
-                return await Repository.DeleteAsync(IdCita, idUsuario);
+                return await Repository.DeleteAsync(IdAgendaCita, idUsuario);                
             }
             catch (Exception ex)
             {
@@ -124,7 +125,17 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 CapturaCita model = new CapturaCita
                 {                    
                     //TablaServicio = TablaGServicio,
-                    FechaInicio = FechaInicio
+                    IdAgendaCita = IdAgendaCita,
+                    FechaInicio = FechaInicio,
+                    OrdenServicio = new OrdenServicio
+                    {
+                        IdOrdenServicio = IdOrdenServicio,                        
+                        Servicio = new Servicio
+                        {
+                            IdServicio = IdServicio,
+                            Nombre = Servicio
+                        }
+                    },
                 };
                 return await Repository.BusyService(model, IdSucursal);
             }
@@ -224,15 +235,15 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         #endregion
 
         #region Binding
-        private Guid _IdCita;
+        private Guid _IdAgendaCita;
 
-        public Guid IdCita
+        public Guid IdAgendaCita
         {
-            get { return _IdCita; }
+            get { return _IdAgendaCita; }
             set
             {
-                _IdCita = value;
-                OnPropertyChanged(nameof(IdCita));
+                _IdAgendaCita = value;
+                OnPropertyChanged(nameof(IdAgendaCita));
             }
         }
 
