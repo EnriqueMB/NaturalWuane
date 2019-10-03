@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlTop = new System.Windows.Forms.Panel();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -41,12 +42,11 @@
             this.TipoControl = new System.Windows.Forms.ComboBox();
             this.CodigoBarraControl = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.pnlTop = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.pnlTop.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlCentral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.pnlTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -59,6 +59,18 @@
             this.panel1.Size = new System.Drawing.Size(389, 80);
             this.panel1.TabIndex = 2;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // pnlTop
+            // 
+            this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.pnlTop.Controls.Add(this.btnMinimizar);
+            this.pnlTop.Controls.Add(this.btnClose);
+            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTop.Location = new System.Drawing.Point(0, 0);
+            this.pnlTop.Name = "pnlTop";
+            this.pnlTop.Size = new System.Drawing.Size(389, 28);
+            this.pnlTop.TabIndex = 182;
+            this.pnlTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseDown);
             // 
             // btnMinimizar
             // 
@@ -180,22 +192,11 @@
             this.CodigoBarraControl.Name = "CodigoBarraControl";
             this.CodigoBarraControl.Size = new System.Drawing.Size(197, 20);
             this.CodigoBarraControl.TabIndex = 0;
+            this.CodigoBarraControl.UseSystemPasswordChar = true;
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // pnlTop
-            // 
-            this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
-            this.pnlTop.Controls.Add(this.btnMinimizar);
-            this.pnlTop.Controls.Add(this.btnClose);
-            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTop.Location = new System.Drawing.Point(0, 0);
-            this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(389, 28);
-            this.pnlTop.TabIndex = 182;
-            this.pnlTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseDown);
             // 
             // FrmRegistroEntradaSalida
             // 
@@ -213,11 +214,11 @@
             this.Load += new System.EventHandler(this.FrmRegistroEntradaSalida_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.pnlTop.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.pnlCentral.ResumeLayout(false);
             this.pnlCentral.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.pnlTop.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
