@@ -97,6 +97,36 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
+        public async Task<int> GuardarEncuesta(Guid idUsuario, int tipoConsulta, CapturaConsulta model, DataTable _tablaRespuestas, DataTable _tablaRespuestasMultiple, DataTable _tablaMedicion,DataTable _tablaComentario, DataTable _tablaCuestionario)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var Parametros = new DynamicParameters();
+                    Parametros.Add("@IdCliente", model.IdCliente);
+                    Parametros.Add("@IdTipoConsulta", tipoConsulta);
+                    Parametros.Add("@Fecha", model.Fecha);
+                    Parametros.Add("@Observacion", model.Observaciones);
+                    Parametros.Add("@Recomendacion", model.Recomendaciones);
+                    Parametros.Add("@Diagnostico", model.Diagnostico);
+                    Parametros.Add("@IdUsuario", idUsuario);
+                    Parametros.Add("@TblRespuesta", _tablaRespuestas,DbType.Object);
+                    Parametros.Add("@TblRespuestaMultiple", _tablaRespuestasMultiple,DbType.Object);
+                    Parametros.Add("@TblMediciones", _tablaMedicion,DbType.Object);
+                    Parametros.Add("@TblComentarios", _tablaComentario,DbType.Object);
+                    Parametros.Add("@TblCuestionarios", _tablaCuestionario,DbType.Object);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[spCID_A_Consulta]", param: Parametros, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<IEnumerable<Consulta>> LlenarComboTipoConsulta()
         {
             try

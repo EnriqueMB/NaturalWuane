@@ -1,5 +1,7 @@
-﻿using CIDFares.Spa.DataAccess.Contracts.Entities;
+﻿using CIDFares.Spa.Business.ValueObjects;
+using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
+using CIDFares.Spa.DataAccess.Contracts.Validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.Business.ViewModels.Catalogos
 {
-    public class OpcionesViewModel : INotifyPropertyChanged
+    public class OpcionesViewModel : Validable, INotifyPropertyChanged
     {
         #region Propiedades
         public IopcionesRepository _repository { get; set; }
@@ -19,7 +21,18 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 
         public BindingList<Consulta> _ListaTipoconsulta { get; set; }
 
+        public BindingList<ComentariosConsulta> _listaComentario { get; set; }
+        #region Tablas
         public DataTable _tablaMedicion { get; set; }
+        public DataTable _tablaRespuestasMultiple { get; set; }
+        public DataTable _tablaRespuestas { get; set; }
+        public DataTable _tablaComentario { get; set; }
+        public DataTable _tablaCuestionario { get; set; }
+
+        #endregion
+        public Guid IdCliente { get; set; }
+        public Guid idUsuario { get; set; }
+        public EntityState State { get; set; }
         #endregion
 
         #region Constructor
@@ -29,7 +42,9 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             _listaCuestionario = new BindingList<OpcionCuestionario>();
             _ListaMediciones = new BindingList<OpcionMedicion>();
             _ListaTipoconsulta = new BindingList<Consulta>();
+            _listaComentario = new BindingList<ComentariosConsulta>();
             llenarListaEncuesta();
+            llenarListaMediciones();
             listaTipoConsulta();
         }
         #endregion
@@ -85,6 +100,27 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 throw ex;
             }
         }
+        
+        public async Task<int> GuardarConsulta()
+        {
+            try
+            {
+                CapturaConsulta model = new CapturaConsulta();
+                if (State == EntityState.Create)
+                {
+                    model.Observaciones = Observaciones;
+                    model.Recomendaciones = Recomendaciones;
+                    model.Diagnostico = Diagnostico;
+                    model.IdCliente = IdCliente;
+                    model.Fecha =  DateTime.Now;
+                }
+                return await _repository.GuardarEncuesta(idUsuario,IdTipoConsulta,model,_tablaRespuestas,_tablaRespuestasMultiple,_tablaMedicion,_tablaComentario,_tablaCuestionario);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
 
         #region Binding
@@ -109,6 +145,43 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 OnPropertyChanged(nameof(IdTipoConsulta));
             }
         }
+        private string _Observaciones;
+
+        public string Observaciones
+        {
+            get { return _Observaciones; }
+            set { _Observaciones = value;
+                OnPropertyChanged(nameof(Observaciones));
+            }
+        }
+        private string _Recomendaciones;
+
+        public string Recomendaciones
+        {
+            get { return _Recomendaciones; }
+            set { _Recomendaciones = value;
+                OnPropertyChanged(nameof(Recomendaciones));
+            }
+        }
+        private string _Diagnostico;
+
+        public string Diagnostico
+        {
+            get { return _Diagnostico; }
+            set { _Diagnostico = value;
+                OnPropertyChanged(nameof(Diagnostico));
+            }
+        }
+        private string _comentarios;
+
+        public string comentarios
+        {
+            get { return _comentarios; }
+            set { _comentarios = value;
+                OnPropertyChanged(nameof(comentarios));
+            }
+        }
+
         #endregion
 
 

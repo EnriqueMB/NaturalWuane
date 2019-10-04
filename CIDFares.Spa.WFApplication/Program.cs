@@ -81,6 +81,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<AbonoPaqueteValidator, IValidator < PaqueteViewModel >> ();
             ServiceLocator.Instance.Register<ContestarMedicionValidator, IValidator <ContestarMedicionViewModel>> ();
             ServiceLocator.Instance.Register<AbonoPaqueteValidator, IValidator < PaqueteViewModel >>();
+            ServiceLocator.Instance.Register<CapturaConsultaValidator, IValidator < OpcionesViewModel >>();
         }
 
         private static void RegisterViewModelDependencies()

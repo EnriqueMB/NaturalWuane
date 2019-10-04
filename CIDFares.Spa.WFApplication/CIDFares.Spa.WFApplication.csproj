@@ -35,7 +35,7 @@
   <ItemGroup>
     <Reference Include="CIDFares.Library.Code, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CIDFaresLibrary\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>     
+      <HintPath>..\..\CIDFaresLibrary\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
     </Reference>
     <Reference Include="CIDFares.Library.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -92,6 +92,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\Messages.cs" />
+    <Compile Include="Forms\Cuestionarios\FrmAgregarComentarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cuestionarios\FrmAgregarComentarios.Designer.cs">
+      <DependentUpon>FrmAgregarComentarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Cuestionarios\FrmContestarMedicion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -496,6 +502,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validations\CapturaConsultaValidator.cs" />
     <Compile Include="Validations\ConsultaValidator.cs" />
     <Compile Include="Validations\AlimentoValidator.cs" />
     <Compile Include="Validations\CambioVentaValidator.cs" />
@@ -518,6 +525,9 @@
     <Compile Include="Validations\SucursalValidator.cs" />
     <Compile Include="Validations\UsuarioValidator.cs" />
     <Compile Include="Validations\VentaValidator.cs" />
+    <EmbeddedResource Include="Forms\Cuestionarios\FrmAgregarComentarios.resx">
+      <DependentUpon>FrmAgregarComentarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Cuestionarios\FrmContestarMedicion.resx">
       <DependentUpon>FrmContestarMedicion.cs</DependentUpon>
     </EmbeddedResource>

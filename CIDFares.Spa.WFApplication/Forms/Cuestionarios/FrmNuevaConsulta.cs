@@ -24,7 +24,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         #region propiedades
         public ConsultaViewModel Model { get; set; }
         public int IndexPregunta { get; set; }
-
+        public DataTable tablaRespuestasMultiples { get; set; }
+        public DataTable tablaRespuestas { get; set; }
         #endregion
 
         #region constructor
@@ -33,6 +34,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<ConsultaViewModel>();
             Model.AplicarEncuestaLista = listaEncuesta;
+            this.Tabla();
         }
         #endregion
 
@@ -123,10 +125,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                         //guardar las respuesuestas en una nueva lista.            
                         var value = CargarPreguntas(dato);
 
-                        Model._listPreguntasRespondidas.Add(value.pregunta);
+                        Model._listRespuestasMultiples.AddRange(value.pregunta.Respuesta.ToList());
                         Model._ListaRespuestasEncuesta.Add(value.respuesta);
-                        //generar una tabla atravez de la lista. 
-                        //ObtenerTablaPreguntas();
+                        ObtenerTablaPreguntas();
+                        //generar una tabla atravez de la lista.                         
                         ////verificar si lapregunta es de tipo SI/No
                         //if (dato.TipoPregunta == "SI/NO")
                         //{
@@ -169,7 +171,21 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             }            
         }
 
+        public void Tabla()
+        {
+            this.tablaRespuestasMultiples= new DataTable();
+            //tablaRespuestasMultiples.Columns.Add("IdEncuesta", typeof(Guid));
+            tablaRespuestasMultiples.Columns.Add("IdPregunta", typeof(Guid));
+            tablaRespuestasMultiples.Columns.Add("IdRespuestas", typeof(Guid));
 
+
+            tablaRespuestas = new DataTable();
+            tablaRespuestas.Columns.Add("IdEncuesta", typeof(Guid));
+            tablaRespuestas.Columns.Add("IdPregunta", typeof(Guid));
+            tablaRespuestas.Columns.Add("IdRespuesta", typeof(Guid));
+            tablaRespuestas.Columns.Add("RespuestaAbierta", typeof(string));
+            tablaRespuestas.Columns.Add("RespuestaSINO", typeof(bool));
+        }
         private (Preguntas pregunta,Respuestas respuesta) CargarPreguntas(CIDcontrolViewModel _dato)
         {
             try
@@ -207,27 +223,19 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
 
         private (DataTable tablaPregunta,DataTable tablaRespuesta) ObtenerTablaPreguntas()
         {
-            DataTable tablaPreguntas = new DataTable();
-            tablaPreguntas.Columns.Add("IdPregunta",typeof(Guid));
-            tablaPreguntas.Columns.Add("TipoPregunta",typeof(string));
-            tablaPreguntas.Columns.Add("IdEncuesta", typeof(Guid));
-
-            DataTable tablaRespuestas = new DataTable();
-            tablaPreguntas.Columns.Add("IdPregunta",typeof(Guid));
-            tablaRespuestas.Columns.Add("IdRespuesta",typeof(Guid));
-            tablaRespuestas.Columns.Add("RespuestaAbierta",typeof(string));
-            tablaRespuestas.Columns.Add("RespuestaSINO",typeof(bool));
-
-            foreach (var item in Model._listPreguntasRespondidas)
+            foreach (var item in Model._listRespuestasMultiples)
             {
-                tablaPreguntas.Rows.Add(new object[] { item.IdPregunta, item.TipoPregunta});
+                tablaRespuestasMultiples.Rows.Add(new object[] { item.IdPregunta ,item.IdRespuesta});                
             }
 
             foreach (var resp in Model._ListaRespuestasEncuesta)
             {
-                tablaRespuestas.Rows.Add(new object[] {resp.IdPregunta,resp.IdRespuesta,resp.Respuesta,resp.RespuestaSINO });
+                tablaRespuestas.Rows.Add(new object[] {Model.cuestionario.IdEncuesta,  resp.IdPregunta,resp.IdRespuesta,resp.Respuesta,resp.RespuestaSINO });                
             }
-            return (tablaPreguntas,tablaRespuestas);
+            Model._listRespuestasMultiples.Clear();
+            Model._ListaRespuestasEncuesta.Clear();
+           
+            return (tablaRespuestasMultiples, tablaRespuestas);
         }
 
         private void AgregarPreguntaAPanel()
@@ -258,7 +266,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             {
                 btnNuevaConsulta.Enabled = false;
 
-                var x = Model.cuestionario;
+                DialogResult = DialogResult.OK;
+                this.Close();                
             }
             catch (Exception ex)
             {

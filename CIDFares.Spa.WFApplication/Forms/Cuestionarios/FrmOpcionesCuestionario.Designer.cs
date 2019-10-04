@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
@@ -41,6 +42,10 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.FlpBotones = new System.Windows.Forms.FlowLayoutPanel();
@@ -57,13 +62,14 @@
             this.pnlContenedor = new System.Windows.Forms.Panel();
             this.groupOpciones = new System.Windows.Forms.GroupBox();
             this.dtgComentarios = new CIDFares.Library.Controls.CIDDataGridsf.DataGridsf();
-            this.button1 = new System.Windows.Forms.Button();
-            this.sfDateTimeEdit1 = new Syncfusion.WinForms.Input.SfDateTimeEdit();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnComentarios = new System.Windows.Forms.Button();
+            this.FechaControl = new Syncfusion.WinForms.Input.SfDateTimeEdit();
+            this.RecomendacionesControl = new System.Windows.Forms.TextBox();
+            this.ObservacionesControl = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.DiagnosticoControl = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panelCentral = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -74,7 +80,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.NombreCompleto = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlTitulo.SuspendLayout();
             this.FlpBotones.SuspendLayout();
             this.tab.SuspendLayout();
@@ -89,6 +95,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbNuevoCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTitulo
@@ -370,13 +377,13 @@
             // groupOpciones
             // 
             this.groupOpciones.Controls.Add(this.dtgComentarios);
-            this.groupOpciones.Controls.Add(this.button1);
-            this.groupOpciones.Controls.Add(this.sfDateTimeEdit1);
-            this.groupOpciones.Controls.Add(this.textBox3);
-            this.groupOpciones.Controls.Add(this.textBox2);
+            this.groupOpciones.Controls.Add(this.btnComentarios);
+            this.groupOpciones.Controls.Add(this.FechaControl);
+            this.groupOpciones.Controls.Add(this.RecomendacionesControl);
+            this.groupOpciones.Controls.Add(this.ObservacionesControl);
             this.groupOpciones.Controls.Add(this.label6);
             this.groupOpciones.Controls.Add(this.label5);
-            this.groupOpciones.Controls.Add(this.textBox1);
+            this.groupOpciones.Controls.Add(this.DiagnosticoControl);
             this.groupOpciones.Controls.Add(this.label7);
             this.groupOpciones.Controls.Add(this.label4);
             this.groupOpciones.Enabled = false;
@@ -409,13 +416,39 @@
             gridTextColumn11.AllowEditing = false;
             gridTextColumn11.AllowFiltering = true;
             gridTextColumn11.HeaderText = "COMENTARIOS";
-            gridTextColumn11.MappingName = "comentarios";
+            gridTextColumn11.MappingName = "Comentario";
+            gridTextColumn12.AllowDragging = true;
+            gridTextColumn12.AllowEditing = false;
+            gridTextColumn12.AllowFiltering = true;
+            gridTextColumn12.HeaderText = "FECHA";
+            gridTextColumn12.MappingName = "Fecha";
+            gridTextColumn13.AllowDragging = true;
+            gridTextColumn13.AllowEditing = false;
+            gridTextColumn13.AllowFiltering = true;
+            gridTextColumn13.HeaderText = "Column5";
+            gridTextColumn13.MappingName = "IdUsuario";
+            gridTextColumn13.Visible = false;
+            gridTextColumn14.AllowDragging = true;
+            gridTextColumn14.AllowEditing = false;
+            gridTextColumn14.AllowFiltering = true;
+            gridTextColumn14.HeaderText = "USUARIO";
+            gridTextColumn14.MappingName = "Nombre";
+            gridTextColumn15.AllowDragging = true;
+            gridTextColumn15.AllowEditing = false;
+            gridTextColumn15.AllowFiltering = true;
+            gridTextColumn15.MappingName = "IdEncuesta";
+            gridTextColumn15.Visible = false;
             this.dtgComentarios.Columns.Add(gridTextColumn10);
             this.dtgComentarios.Columns.Add(gridTextColumn11);
+            this.dtgComentarios.Columns.Add(gridTextColumn12);
+            this.dtgComentarios.Columns.Add(gridTextColumn13);
+            this.dtgComentarios.Columns.Add(gridTextColumn14);
+            this.dtgComentarios.Columns.Add(gridTextColumn15);
             this.dtgComentarios.Location = new System.Drawing.Point(13, 328);
             this.dtgComentarios.Name = "dtgComentarios";
             this.dtgComentarios.RowHeight = 21;
             this.dtgComentarios.SerializationController = null;
+            this.dtgComentarios.ShowGroupDropArea = true;
             this.dtgComentarios.Size = new System.Drawing.Size(439, 271);
             this.dtgComentarios.Style.CellStyle.TextColor = System.Drawing.Color.Black;
             this.dtgComentarios.Style.GroupDropAreaItemStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
@@ -428,50 +461,51 @@
             this.dtgComentarios.TabIndex = 53;
             this.dtgComentarios.Text = "dataGridsf1";
             // 
-            // button1
+            // btnComentarios
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(458, 328);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(27, 26);
-            this.button1.TabIndex = 47;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.BtnOpciones_Click);
+            this.btnComentarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnComentarios.BackColor = System.Drawing.Color.White;
+            this.btnComentarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnComentarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnComentarios.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComentarios.ForeColor = System.Drawing.Color.Black;
+            this.btnComentarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnComentarios.Location = new System.Drawing.Point(458, 328);
+            this.btnComentarios.Name = "btnComentarios";
+            this.btnComentarios.Size = new System.Drawing.Size(27, 26);
+            this.btnComentarios.TabIndex = 47;
+            this.btnComentarios.Text = "+";
+            this.btnComentarios.UseVisualStyleBackColor = false;
+            this.btnComentarios.Click += new System.EventHandler(this.BtnComentarios_Click);
             // 
-            // sfDateTimeEdit1
+            // FechaControl
             // 
-            this.sfDateTimeEdit1.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sfDateTimeEdit1.Location = new System.Drawing.Point(259, 34);
-            this.sfDateTimeEdit1.Name = "sfDateTimeEdit1";
-            this.sfDateTimeEdit1.Size = new System.Drawing.Size(226, 31);
-            this.sfDateTimeEdit1.TabIndex = 52;
+            this.FechaControl.Enabled = false;
+            this.FechaControl.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FechaControl.Location = new System.Drawing.Point(259, 34);
+            this.FechaControl.Name = "FechaControl";
+            this.FechaControl.Size = new System.Drawing.Size(226, 31);
+            this.FechaControl.TabIndex = 52;
             // 
-            // textBox3
+            // RecomendacionesControl
             // 
-            this.textBox3.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(13, 206);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox3.Size = new System.Drawing.Size(472, 105);
-            this.textBox3.TabIndex = 48;
+            this.RecomendacionesControl.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecomendacionesControl.Location = new System.Drawing.Point(13, 206);
+            this.RecomendacionesControl.Multiline = true;
+            this.RecomendacionesControl.Name = "RecomendacionesControl";
+            this.RecomendacionesControl.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.RecomendacionesControl.Size = new System.Drawing.Size(462, 105);
+            this.RecomendacionesControl.TabIndex = 48;
             // 
-            // textBox2
+            // ObservacionesControl
             // 
-            this.textBox2.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(259, 95);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(226, 86);
-            this.textBox2.TabIndex = 48;
+            this.ObservacionesControl.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ObservacionesControl.Location = new System.Drawing.Point(259, 95);
+            this.ObservacionesControl.Multiline = true;
+            this.ObservacionesControl.Name = "ObservacionesControl";
+            this.ObservacionesControl.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ObservacionesControl.Size = new System.Drawing.Size(216, 86);
+            this.ObservacionesControl.TabIndex = 48;
             // 
             // label6
             // 
@@ -495,15 +529,26 @@
             this.label5.TabIndex = 50;
             this.label5.Text = "OBSERVACION";
             // 
-            // textBox1
+            // DiagnosticoControl
             // 
-            this.textBox1.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(13, 95);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(226, 86);
-            this.textBox1.TabIndex = 48;
+            this.DiagnosticoControl.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DiagnosticoControl.Location = new System.Drawing.Point(13, 95);
+            this.DiagnosticoControl.Multiline = true;
+            this.DiagnosticoControl.Name = "DiagnosticoControl";
+            this.DiagnosticoControl.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.DiagnosticoControl.Size = new System.Drawing.Size(221, 86);
+            this.DiagnosticoControl.TabIndex = 48;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(256, 12);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(112, 18);
+            this.label7.TabIndex = 50;
+            this.label7.Text = "FECHA DE ALTA";
             // 
             // label4
             // 
@@ -617,16 +662,9 @@
             this.NombreCompleto.Size = new System.Drawing.Size(253, 26);
             this.NombreCompleto.TabIndex = 48;
             // 
-            // label7
+            // errorProvider1
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(256, 12);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(112, 18);
-            this.label7.TabIndex = 50;
-            this.label7.Text = "FECHA DE ALTA";
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmOpcionesCuestionario
             // 
@@ -657,6 +695,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbNuevoCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -686,16 +725,17 @@
         private System.Windows.Forms.TextBox NombreCompleto;
         private System.Windows.Forms.Panel panelCentral;
         private System.Windows.Forms.GroupBox groupOpciones;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox DiagnosticoControl;
+        private System.Windows.Forms.TextBox RecomendacionesControl;
+        private System.Windows.Forms.TextBox ObservacionesControl;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private Syncfusion.WinForms.Input.SfDateTimeEdit sfDateTimeEdit1;
+        private Syncfusion.WinForms.Input.SfDateTimeEdit FechaControl;
         private System.Windows.Forms.Button btnGuardarConsulta;
         private Library.Controls.CIDDataGridsf.DataGridsf dtgComentarios;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnComentarios;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -1,10 +1,13 @@
-﻿using CIDFares.Library.Code.Helpers;
+﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Library.Code.Helpers;
 using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
+using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
+using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -62,17 +65,35 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 TipoConsultaControl.DataBindings.Add("DataSource", Model, "_ListaTipoconsulta", true, DataSourceUpdateMode.OnPropertyChanged);
                 Iniciarcombo();
 
-
                 dtgEncuestas.AutoGenerateColumns = false;
                 dtgEncuestas.DataBindings.Add("Datasource", Model, "_listaCuestionario", true, DataSourceUpdateMode.OnPropertyChanged);
 
                 dtgMediciones.AutoGenerateColumns = false;
                 dtgMediciones.DataBindings.Add("Datasource", Model, "_ListaMediciones", true, DataSourceUpdateMode.OnPropertyChanged);
+
+                DiagnosticoControl.DataBindings.Add("Text",Model, "Diagnostico",true,DataSourceUpdateMode.OnPropertyChanged);
+                RecomendacionesControl.DataBindings.Add("Text",Model, "Recomendaciones", true,DataSourceUpdateMode.OnPropertyChanged);
+                ObservacionesControl.DataBindings.Add("Text",Model, "Observaciones", true,DataSourceUpdateMode.OnPropertyChanged);
+
+                this.dtgComentarios.AutoGenerateColumns = false;
+                dtgComentarios.DataBindings.Add("DataSource", Model, "_listaComentario", true, DataSourceUpdateMode.OnPropertyChanged);
             }
             catch (Exception ex)
             {
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmOpcionCuestionario ~ iniciarBinding()");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+        }
+
+        public void LLenarGridComentarios()
+        {
+            try
+            {
+                this.dtgComentarios.DataSource = Model._listaComentario;
+            }
+            catch (Exception ex)
+            {
+                CIDMessageBox.ShowAlert(Messages.SystemName, ex.Message.ToString(), TypeMessage.error);
             }
         }
 
@@ -107,6 +128,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             try
             {
                 this.NombreCompleto.Text = value.NombreCompleto.ToUpper();
+                Model.IdCliente = value.IdCliente;
             }
             catch (Exception ex)
             {
@@ -128,6 +150,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         private void FrmOpcionesCuestionario_Load(object sender, EventArgs e)
         {
             IniciarBinding();
+            LLenarGridComentarios();
             dtgEncuestas.Columns["asignar"].AllowEditing = true;
             dtgMediciones.Columns["asignar"].AllowEditing = true;
         }
@@ -148,7 +171,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
 
                         FrmNuevaConsultaControl _frmNuevaconsulta = new FrmNuevaConsultaControl(lista);
                         _frmNuevaconsulta.ShowDialog();
-                        _frmNuevaconsulta.Dispose();
+                        _frmNuevaconsulta.Dispose();                       
+
+                        if (_frmNuevaconsulta.DialogResult == DialogResult.OK)
+                        {                         
+                            Model._tablaRespuestasMultiple = _frmNuevaconsulta.tablaRespuestasMultiples;                        
+                            Model._tablaRespuestas = _frmNuevaconsulta.tablaRespuestas;
+                        }
                     }
                     else
                     {
@@ -199,7 +228,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                     break;
                 case 1:
                     opcion = 2;
-                    await Model.llenarListaMediciones();
+                    //await Model.llenarListaMediciones();
                     llenarListamediciones();
                     this.btnAceptar.Text = "CONTESTAR MEDICIONES";
                     break;
@@ -215,7 +244,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 _select.Dispose();
                 if (_select.cliente != null && _select.DialogResult == DialogResult.OK)
                     CargarDatos(_select.cliente);
-
             }
             catch (Exception ex)
             {
@@ -254,23 +282,110 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         }
         #endregion
 
-        private void BtnGuardarConsulta_Click(object sender, EventArgs e)
+        private async void BtnGuardarConsulta_Click(object sender, EventArgs e)
         {
             try
             {
+                Model.State = EntityState.Create;
                 btnGuardarConsulta.Enabled = false;
 
-                var x = Model._tablaMedicion;
+                this.CleanErrors(errorProvider1, typeof(OpcionesViewModel));
+                var validationResults = Model.Validate();
+                validationResults.ToString();
+
+                if (validationResults.IsValid)
+                {
+                    if (Model._listaComentario.Count > 0)
+                    {
+                        Model._tablaComentario = ObtenerTablaComentarios().comentarios;
+                        Model._tablaCuestionario = ObtenerTablaComentarios().cuestionario;
+                        Model.idUsuario = CurrentSession.IdCuentaUsuario;
+                        var x = await Model.GuardarConsulta();
+
+                        if (x == 1)
+                        {
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.informacion);
+                            this.Close();
+                        }
+                        else
+                        {
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+                        }
+                    }
+                    else
+                    {
+                        CIDMessageBox.ShowAlert(Messages.SystemName,"DEBE INGRESAR ALMENOS UN COMENTARIO",TypeMessage.informacion);
+                    }
+                }
+                else
+                {
+                    this.ShowErrors(errorProvider1, typeof(OpcionesViewModel), validationResults);
+                }
             }
             catch (Exception ex)
             {
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmNuevaEncuesta ~ BtnNuevaEncuesta_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
             finally
             {
                 btnGuardarConsulta.Enabled = true;
             }
         }
-     
+
+        private void BtnComentarios_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmAgregarComentarios _frmComentario = new FrmAgregarComentarios();
+                _frmComentario.ShowDialog();
+                _frmComentario.Dispose();
+
+                if (_frmComentario.DialogResult == DialogResult.OK)
+                {
+                    var x = _frmComentario.CargarDatos();
+                    Model._listaComentario.Add(x);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private (DataTable comentarios, DataTable cuestionario) ObtenerTablaComentarios()
+        {
+            try
+            {
+                DataTable _comentarios = new DataTable();
+                _comentarios.Columns.Add("IdComentario",typeof(Guid));
+                _comentarios.Columns.Add("Comentario",typeof(string));
+                _comentarios.Columns.Add("Fecha", typeof(DateTime));
+                //_comentarios.Columns.Add("IdUsuario",typeof(Guid));
+                _comentarios.Columns.Add("Nombre",typeof(string));
+                _comentarios.Columns.Add("IdConsulta", typeof(Guid));
+
+                DataTable _Cuestionario = new DataTable();
+                _Cuestionario.Columns.Add("IdEncuesta", typeof(Guid));
+                _Cuestionario.Columns.Add("NombreEncuesta", typeof(string));
+                _Cuestionario.Columns.Add("Asignado", typeof(bool));
+               
+                foreach (var item in Model._listaComentario)
+                {
+                    _comentarios.Rows.Add(new object [] {item.IdComentario,item.Comentario,item.Fecha,item.Nombre,item.dato.IdConsulta});
+                }
+
+                foreach (var x in Model._listaCuestionario.Where(x=>x.asignar))
+                {
+                    _Cuestionario.Rows.Add(new object[] { x.datos.IdEncuesta, x.datos.NombreEncuesta, x.asignar });
+                }
+
+                return (_comentarios,_Cuestionario);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

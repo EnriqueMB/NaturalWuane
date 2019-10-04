@@ -65,8 +65,10 @@
     <Compile Include="Entities\BusqueProducto.cs" />
     <Compile Include="Entities\CambioVenta.cs" />
     <Compile Include="Entities\CapturaCita.cs" />
+    <Compile Include="Entities\CapturaConsulta.cs" />
     <Compile Include="Entities\CategoriaProducto.cs" />
     <Compile Include="Entities\Cliente.cs" />
+    <Compile Include="Entities\ComentariosConsulta.cs" />
     <Compile Include="Entities\Compra.cs" />
     <Compile Include="Entities\Consulta.cs" />
     <Compile Include="Entities\CompraCancelacion.cs" />
