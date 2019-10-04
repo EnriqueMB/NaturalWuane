@@ -11,6 +11,7 @@ using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
 using CIDFares.Spa.WFApplication.Session;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -40,7 +41,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
                 CuentaControl.DataBindings.Add("Text", Model, "Cuenta", true, DataSourceUpdateMode.OnPropertyChanged);
                 PasswordControl.DataBindings.Add("Text", Model, "Password", true, DataSourceUpdateMode.OnPropertyChanged);
                 ContraseniaDosControl.DataBindings.Add("Text", Model, "ContraseniaDos", true, DataSourceUpdateMode.OnPropertyChanged);
-
+                NombreControl.DataBindings.Add("Text", Model, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
                 this.DataGridUsuario.AutoGenerateColumns = false;
                 DataGridUsuario.DataBindings.Add("DataSource", Model, "ListaUsuario", true, DataSourceUpdateMode.OnPropertyChanged);
 
@@ -115,7 +116,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
             Model.ContraseniaDos = string.Empty;
             Model.IdRol = 0;
             Model.IdEmpleado = Guid.Empty;
-            
+            Model.Nombre = string.Empty;
         }
 
         private string ObtenerMensajeError(int Error)
@@ -203,13 +204,23 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
                     Model.Cuenta = item.Cuenta;
                     //Model.Password = item.PasswordHash;
                     //Model.ContraseniaDos = item.ConstraseniaDos;
-                    Model.IdRol = item.IdRol;
-                    Model.IdEmpleado = item.IdEmpleado;
-                    
+                    Model.IdRol = item.DatosRol.IdRol;
+                    Model.IdEmpleado = item.DatosEmpleado.IdEmpleado;
 
+                    if (Model.IdEmpleado == Guid.Empty)
+                    {
+                        this.NombreControl.ReadOnly = false;
+                        this.Model.Nombre = item.Nombre;
+                    }
+                    else
+                    {
+                        this.NombreControl.ReadOnly = true;
+                        this.Model.Nombre = item.DatosEmpleado.Nombre;
+                    }
                     groupUsuario.Enabled = true;
                     flowLayoutPanel1.Enabled = true;
                     Model.State = EntityState.Update;
+                   // IdEmpleadoControl_SelectionChangeCommitted(sender, e);
                 }
                 else
                   CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
@@ -342,6 +353,31 @@ namespace CIDFares.Spa.WFApplication.Forms.Usuarios
                 ContraseniaDosControl.Enabled = false;
                // LimpiarPropiedades();
                 
+            }
+        }
+        private void IdEmpleadoControl_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+                ComboBox senderComboBox = (ComboBox)sender;
+                Model.IdEmpleado = new Guid(senderComboBox.SelectedValue.ToString());
+                // Change the length of the text box depending on what the user has 
+                // selected and committed using the SelectionLength property.
+                if (Model.IdEmpleado == Guid.Empty)
+                {
+                    this.NombreControl.ReadOnly = false;
+                    this.Model.Nombre = string.Empty;
+                }
+                else
+                {
+                    this.NombreControl.ReadOnly = true;
+                    Model.ListaEmpleado.Where(p => p.IdEmpleado == Model.IdEmpleado).Select(u => { Model.Nombre = u.Nombre; return u; }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmUsuario ~ IdEmpleadoControl_SelectionChangeCommitted(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, "OCURRIO UN ERROR AL INTENTAR SELECCIONAR EL EMPLEADO.", TypeMessage.error);
             }
         }
     }
