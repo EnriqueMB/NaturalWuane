@@ -66,7 +66,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     var Parametros = new DynamicParameters();
                     Parametros.Add("@NombreTurno", element.NombreTurno);
                     Parametros.Add("@turnoDias", element.TablaValores, DbType.Object);
-                    Parametros.Add("@IdUduario", element.IdUsuario);
+                    Parametros.Add("@IdUsuario", element.IdUsuario);
                     var result = await conexion.QueryFirstOrDefaultAsync<Turno> ("[Catalogo].[SPCID_A_Turnos]", param: Parametros, commandType: CommandType.StoredProcedure);
                     return result;
                 }

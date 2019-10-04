@@ -168,6 +168,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmTurnoPrincipal";
             this.Text = "FrmTurnoPrincipal";
+            this.Shown += new System.EventHandler(this.FrmTurnoPrincipal_Shown);
             this.PanelTitulo.ResumeLayout(false);
             this.PanelTitulo.PerformLayout();
             this.PanelContainsButtons.ResumeLayout(false);

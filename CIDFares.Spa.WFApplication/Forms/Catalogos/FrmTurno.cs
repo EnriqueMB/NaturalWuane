@@ -75,8 +75,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                /*NombreTurnoTextBox.DataBindings.Add("Text", Model, "NombreTurno", true, DataSourceUpdateMode.OnPropertyChanged);
-                HoraEntrada1TimePicker.DataBindings.Add("Value", Model, "HoraEntrada1", true, DataSourceUpdateMode.OnPropertyChanged);
+                TBoxNombreTurno.DataBindings.Add("Text", Model, "NombreTurno", true, DataSourceUpdateMode.OnPropertyChanged);
+                /*HoraEntrada1TimePicker.DataBindings.Add("Value", Model, "HoraEntrada1", true, DataSourceUpdateMode.OnPropertyChanged);
                 HoraSalida1TimePicker.DataBindings.Add("Value", Model, "HoraSalida1", true, DataSourceUpdateMode.OnPropertyChanged);
                 HoraEntrada2TimePicker.DataBindings.Add("Value", Model, "HoraEntrada2", true, DataSourceUpdateMode.OnPropertyChanged);
                 HoraSalida2TimePicker.DataBindings.Add("Value", Model, "HoraSalida2", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -87,6 +87,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 ViernesCkeckBox.DataBindings.Add("Checked", Model, "Viernes", true, DataSourceUpdateMode.OnPropertyChanged);
                 SabadoCkeckBox.DataBindings.Add("Checked", Model, "Sabado", true, DataSourceUpdateMode.OnPropertyChanged);
                 DomingoCkeckBox.DataBindings.Add("Checked", Model, "Domingo", true, DataSourceUpdateMode.OnPropertyChanged);*/
+
                 IniciarComboDias();
             }
             catch(Exception ex)
@@ -128,7 +129,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     {
                         if (existListValue())
                         {
-                            
                             string DiasComboBox = DiasControl.SelectedValue.ToString();
                             var Info = (from inf in Model.ListaValores
                                         where inf.NombreDia == DiasComboBox
@@ -225,12 +225,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             try
             {
                 DataTable tabla = new DataTable();
-                tabla.Columns.Add("Valor", typeof(string));
-                foreach(var item in lista)
+                tabla.Columns.Add("NombreDia", typeof(string));
+                tabla.Columns.Add("HoraEntrada", typeof(string));
+                tabla.Columns.Add("HoraSalida", typeof(string));
+                foreach (var item in lista)
                 {
-                    tabla.Rows.Add(new object[] { item.NombreDia });
-                    //tabla.Rows.Add(new object[] { item.NombreDia });
-                    //tabla.Rows.Add(new object[] { item.NombreDia });
+                    tabla.Rows.Add(item.NombreDia, item.HoraEntrada, item.HoraSalida);
                 }
                 return tabla;
             }
@@ -238,6 +238,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {
                 throw ex;
             }
+            
         }
 
         private void FrmTurno_Shown(object sender, EventArgs e)
@@ -359,10 +360,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             if(sizeList == 0)
             {
                 RbtnDosHorarios.Checked = true;
-                PickerHoraEntrada1.Value = DateTimePicker.MinimumDateTime;
-                PickerHoraSalida1.Value = DateTimePicker.MinimumDateTime;
-                PickerHoraEntrada2.Value = DateTimePicker.MinimumDateTime;
-                PickerHoraSalida2.Value = DateTimePicker.MinimumDateTime;
+                PickerHoraEntrada1.Value = DateTime.Parse("7:00");
+                PickerHoraSalida1.Value = DateTime.Parse("7:00");
+                PickerHoraEntrada2.Value = DateTime.Parse("7:00");
+                PickerHoraSalida2.Value = DateTime.Parse("7:00");
             }
             else if (sizeList == 2) {
                 RbtnDosHorarios.Checked = true;
@@ -408,9 +409,38 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             } 
         }
 
-        private void BtnGuardar_Click(object sender, EventArgs e)
+        private async void BtnGuardar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DataTable tabla = ObtenerTabla(Model.ListaValores.ToList());
+                var resul = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario, tabla);
+                if(resul.IdTurno > 0)
+                {
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                    LimpiarPropiedades();
+                    this.Close();
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
 
+        private void LimpiarPropiedades()
+        {
+            try
+            {
+                Model.IdTurno = 0;
+                Model.NombreTurno = "";
+                Model.ListaValores.Clear();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

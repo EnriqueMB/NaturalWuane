@@ -1,34 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Validations;
 using System.ComponentModel;
-using System.Data;
+using System.Collections.Generic;
 
 namespace CIDFares.Spa.Business.ViewModels.Catalogos
 {
     public class TurnoPrincipalViewModel : Validable, INotifyPropertyChanged
     {
-        private ITurnoPrincipalRepository TurnoPrincipalRepository { get; set; }
-
+        public BindingList<Turno> ListaTurno { get; set; }
+        public BindingList<TurnoDias> ListaValoresDias { get; set; }
         public EntityState State { get; set; }
+
+        private ITurnoPrincipalRepository TurnoPrincipalRepository { get; set; }
 
         public TurnoPrincipalViewModel(ITurnoPrincipalRepository turnoPrincipalRepository)
         {
             TurnoPrincipalRepository = turnoPrincipalRepository;
+            ListaTurno = new BindingList<Turno>();
+            ListaValoresDias = new BindingList<TurnoDias>();
         }
 
         public async Task GetListaTurno()
         {
             try
             {
-                Turno listaTurno;
-                listaTurno = await TurnoPrincipalRepository.GetAsync(IdTurno);
+                var list = await TurnoPrincipalRepository.GetAllAsync();
+                ListaTurno.Clear();
+                foreach(var item in list)
+                {
+                    ListaTurno.Add(item);
+                }
             }
             catch(Exception ex)
             {
@@ -36,11 +41,12 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        public async Task<int> DeleteAsync()
+        public async Task<int> Delete(object IdUsuario)
         {
             try
             {
-                return await TurnoPrincipalRepository.DeleteAsync(this.IdTurno, this.IdUsuario);
+                var result = await TurnoPrincipalRepository.DeleteAsync(this.IdTurno, IdUsuario);
+                return result;
             }
             catch(Exception ex)
             {
@@ -59,6 +65,26 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 throw ex;
             }
         }
+
+        /*public async Task CargarDatos()
+        {
+            try
+            {
+
+                var x = await IRepository.GetAllAsync();
+                ListaEmpleado.Clear();
+                foreach (var item in x)
+                {
+
+                    ListaEmpleado.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }*/
 
         private Guid _IdUsuario;
         public Guid IdUsuario
