@@ -11,9 +11,13 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
 {
     public class Excels
     {
+        private object idSucursal;
+        private Producto tablaProducto;
+
         public string Ruta { get; set; }
         public string Nombre { get; set; }
         private IEnumerable<Producto> Lista { get; set; }
+        public DataTable TablaProducto { get; set; }
         private IExcel Ex { get; set; }
         public Excels(IEnumerable<Producto> productos, string ruta, string nombre, IExcel ex)
         {
@@ -24,6 +28,17 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
             GenerarArchivo();
         }
 
+        public Excels(object idSucursal, IExcel ex, string nombre)
+        {
+            this.idSucursal = idSucursal;
+            Ex = ex;
+            Nombre = nombre;
+            // this.TablaProducto = tablaProducto;
+            Importar();
+
+        }
+
+        //-----------------------EXPORTAR ARCHIVIO----------------------------------------
         public void GenerarArchivo()
         {
             try
@@ -55,7 +70,22 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
             }
         }
 
-       
+       public void Importar()
+        {
+            try
+            {
+                var Ruta =   Ex.AbrirExcel();
+                Ex.AbrirArchivo(Ruta, Nombre);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                Ex.Cerrar();
+            }
+        }
     }
     
 }

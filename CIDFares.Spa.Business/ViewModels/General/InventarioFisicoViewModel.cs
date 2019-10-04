@@ -6,6 +6,7 @@ using CIDFares.Spa.DataAccess.Contracts.Validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
 
         #region propiedades publicas
         public BindingList<Producto> ListaProducto { get; set; }
+        public Producto TablaProducto { get; set; }
         #endregion
 
         #region constructor
@@ -28,6 +30,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
         {
             Ex = excel;
             IRepository = Repo;
+            TablaProducto = new Producto();
         }
         #endregion
 
@@ -38,7 +41,8 @@ namespace CIDFares.Spa.Business.ViewModels.General
             {
                 var Productos = await IRepository.GetProductos(Idsucursal);
                 Excels ExportarProductos = new Excels(Productos, Ruta, Nombre, Ex);
-               
+
+
 
             }
             catch (Exception ex)
@@ -48,10 +52,24 @@ namespace CIDFares.Spa.Business.ViewModels.General
             }
         }
 
+        public  void Importar(object IdSucursal,  string Nombre)
+        {
+            try
+            {
+                Excels Importar = new Excels(IdSucursal,Ex,  Nombre);
+                //var x = Importar.GenerarArchivo();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         #endregion
 
         #region Binding
-
+        
         #endregion
         #region InotifyPropertyChanged Members
 
