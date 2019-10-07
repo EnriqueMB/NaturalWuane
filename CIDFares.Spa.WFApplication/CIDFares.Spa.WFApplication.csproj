@@ -36,8 +36,7 @@
     <Reference Include="CIDFares.Library.Code">
       <HintPath>..\..\CIDFares.Library\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
     </Reference>
-    <Reference Include="CIDFares.Library.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="CIDFares.Library.Controls">
       <HintPath>..\..\CIDFares.Library\CIDFares.Library.Controls\bin\Debug\CIDFares.Library.Controls.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
@@ -102,6 +101,12 @@
     </Compile>
     <Compile Include="Forms\Catalogos\FrmAlimentoNuevo.Designer.cs">
       <DependentUpon>FrmAlimentoNuevo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmDireccionesCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmDireccionesCliente.Designer.cs">
+      <DependentUpon>FrmDireccionesCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Catalogos\FrmTurno.cs">
       <SubType>Form</SubType>
@@ -466,6 +471,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmAlimentoNuevo.resx">
       <DependentUpon>FrmAlimentoNuevo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmDireccionesCliente.resx">
+      <DependentUpon>FrmDireccionesCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmTurno.resx">
       <DependentUpon>FrmTurno.cs</DependentUpon>

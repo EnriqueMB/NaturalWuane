@@ -74,7 +74,7 @@
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(916, 483);
+            this.panelContenedor.Size = new System.Drawing.Size(916, 482);
             this.panelContenedor.TabIndex = 0;
             // 
             // panelContenedoGridGuardar
@@ -84,7 +84,7 @@
             this.panelContenedoGridGuardar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedoGridGuardar.Location = new System.Drawing.Point(0, 62);
             this.panelContenedoGridGuardar.Name = "panelContenedoGridGuardar";
-            this.panelContenedoGridGuardar.Size = new System.Drawing.Size(916, 421);
+            this.panelContenedoGridGuardar.Size = new System.Drawing.Size(916, 420);
             this.panelContenedoGridGuardar.TabIndex = 1;
             // 
             // panelGuardar
@@ -108,7 +108,7 @@
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(111, 29);
             this.BtnAgregar.TabIndex = 11;
-            this.BtnAgregar.Text = "Agregar venta";
+            this.BtnAgregar.Text = "Agregar";
             this.BtnAgregar.UseVisualStyleBackColor = false;
             this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
@@ -139,7 +139,7 @@
             this.panelGrid.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelGrid.Location = new System.Drawing.Point(0, 0);
             this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(755, 421);
+            this.panelGrid.Size = new System.Drawing.Size(755, 420);
             this.panelGrid.TabIndex = 0;
             // 
             // sfDataGridBuquedaProducto
@@ -196,7 +196,7 @@
             this.sfDataGridBuquedaProducto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridBuquedaProducto.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridBuquedaProducto.Name = "sfDataGridBuquedaProducto";
-            this.sfDataGridBuquedaProducto.Size = new System.Drawing.Size(755, 421);
+            this.sfDataGridBuquedaProducto.Size = new System.Drawing.Size(755, 420);
             this.sfDataGridBuquedaProducto.TabIndex = 2;
             this.sfDataGridBuquedaProducto.Text = "sfDataGrid1";
             this.sfDataGridBuquedaProducto.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.sfDataGridBuquedaProducto_CellDoubleClick);
@@ -310,11 +310,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 483);
+            this.ClientSize = new System.Drawing.Size(916, 482);
             this.Controls.Add(this.panelContenedor);
             this.MaximumSize = new System.Drawing.Size(932, 521);
             this.MinimumSize = new System.Drawing.Size(932, 521);
             this.Name = "FrmBusquedaProducto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BusquedaProducto";
             this.panelContenedor.ResumeLayout(false);
             this.panelContenedoGridGuardar.ResumeLayout(false);

@@ -33,7 +33,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         public FrmHomePage()
         {
             InitializeComponent();
-            Model = ServiceLocator.Instance.Resolve<CambioVentaViewModel>();
+            Model = ServiceLocator.Instance.Resolve<CambioVentaViewModel>();        
         }
 
         #region Eventos
@@ -103,6 +103,8 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             {
                 Maximizar();
                 BotonesPerfil();
+                if (CurrentSession.IdEmpleado == Guid.Empty)
+                    btnVenta.Enabled = false;
             }
             catch (Exception ex)
             {
