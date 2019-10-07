@@ -168,7 +168,7 @@
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(164, 36);
             this.btnModificar.TabIndex = 1;
-            this.btnModificar.Text = "Ver";
+            this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
@@ -471,12 +471,12 @@
             gridTextColumn4.MappingName = "OrdenServicio.Servicio.Nombre";
             gridTextColumn5.AllowEditing = false;
             gridTextColumn5.AllowResizing = true;
-            gridTextColumn5.Format = "hh:mm";
+            gridTextColumn5.Format = "HH:mm";
             gridTextColumn5.HeaderText = "Inicio";
             gridTextColumn5.MappingName = "FechaInicio";
             gridTextColumn6.AllowEditing = false;
             gridTextColumn6.AllowResizing = true;
-            gridTextColumn6.Format = "hh:mm";
+            gridTextColumn6.Format = "HH:mm";
             gridTextColumn6.HeaderText = "Fin";
             gridTextColumn6.MappingName = "FechaFinal";
             gridTextColumn7.AllowEditing = false;

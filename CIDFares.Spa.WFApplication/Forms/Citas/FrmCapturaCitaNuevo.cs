@@ -93,12 +93,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 throw ex;
             }
         }
-        private async void comboHoras()
-        {
-            DateTime primeraHora = new DateTime(2019, 11, 05, 9, 0, 0);
-            var z = await Model.GetListaHoras(f, primeraHora);
-            Model.LlenarListaHoras(z);
-        }
 
         private async void HorarioSucursal()
         {
@@ -221,7 +215,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                                 
                                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);                                
                                 await Model.GetCitaDetalle(f, CurrentSession.IdSucursal);
-                                comboHoras();
+                                HorarioSucursal();
                                 ClienteControl.Text = string.Empty;
                                 Model.ListaCapturaCitaDetalleServicio.Clear();
                                 
@@ -353,6 +347,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 Model.IdHora = TimeSpan.Parse(fInicio.ToString("HH:mm:ss"));
                 Model.ListaCapturaCitaDetalleServicio.Add(new CapturaCita
                 {
+                     
                     FechaInicio = fInicio,
                     FechaFinal = fInicio.AddHours(1),
                     OrdenServicio = new OrdenServicio
@@ -525,19 +520,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                     if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmDeleteMessage) == DialogResult.OK)
                     {
                         //Model.IdCita = item.IdCita;                        
-                        var result = await Model.DeleteAsync(CurrentSession.IdCuentaUsuario);
+                        var result = await Model.DeleteAsync(item.IdAgendaCita, CurrentSession.IdCuentaUsuario);
                         if (result == 1)
                         {
                             CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.informacion);
                             LimpiarPropiedades();
                             await Model.GetCitaDetalle(f, CurrentSession.IdSucursal);
                             this.CleanErrors(errorProvider1, typeof(CapturaCitaViewModel));                            
-                        }
-                        else if (result == 0)
-                        {
-                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.CategoryIsOcuped, TypeMessage.informacion);
-                            LimpiarPropiedades();
-                        }
+                        }                        
                         else
                             CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.informacion);
                     }

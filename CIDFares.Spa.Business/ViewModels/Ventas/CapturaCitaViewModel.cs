@@ -105,7 +105,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
-        public async Task<int> DeleteAsync(Guid idUsuario)
+        public async Task<int> DeleteAsync(Guid IdAgendaCita, Guid idUsuario)
         {
             try
             {
@@ -164,19 +164,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             {
                 throw ex;
             }
-        }
-        public async Task<IEnumerable<CapturaCita>> GetListaHoras(DateTime f, DateTime primeraHora)
-        {
-            try
-            {
-                var cbHoras = await Repository.LlenarComboHoras(f, primeraHora);
-                return cbHoras;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        }        
 
         public async Task<IEnumerable<CapturaCita>> HorarioSucursal(int Dias, int IdSucursal)
         {
