@@ -139,6 +139,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                btnGuardar.Enabled = false;
                 this.CleanErrors(errorProvider1, typeof(PaqueteViewModel));
                 var validationResults = Model.Validate();
                 validationResults.ToString();
@@ -159,12 +160,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         CIDMessageBox.ShowAlert(Messages.SystemName, "AL MENOS TIENE SELECCIONAR UN PRODUCTO O UN SERVICIO", TypeMessage.informacion);
                 }
                 else
-                    this.ShowErrors(errorProvider1, typeof(ServicioViewModel), validationResults);
+                    this.ShowErrors(errorProvider1, typeof(PaqueteViewModel), validationResults);
             }
             catch (Exception ex)
             {
-                ErrorLogHelper.AddExcFileTxt(ex, "FrmPaqueteNuevo() ~ btnProducto_Click(object sender, EventArgs e)");
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPaqueteNuevo() ~ btnGuardar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+            finally
+            {
+                btnGuardar.Enabled = true;
             }
         }
         private void btnCancelar_Click(object sender, EventArgs e)
