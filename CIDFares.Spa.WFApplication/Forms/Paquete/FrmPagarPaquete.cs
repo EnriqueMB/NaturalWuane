@@ -70,16 +70,18 @@ namespace CIDFares.Spa.WFApplication.Forms.Paquete
         {
             try
             {
-                var validationResults = Model.Validate();
-            validationResults.ToString();
-            if (validationResults.IsValid)
-            {
-                EsCerrar = false;
-                paquete.PagoPaquete = Model.PagoPaquete;
-                this.Close();
-            }
-            else
-                this.ShowErrors(errorProvider1, typeof(PaqueteViewModel), validationResults);
+                //var validationResults = Model.Validate();
+                //validationResults.ToString();
+                if (Model.PagoPaquete <= Model.Adeudo && Model.PagoPaquete > 0)
+                {
+                    EsCerrar = false;
+                    paquete.PagoPaquete = Model.PagoPaquete;
+                    this.Close();
+                }
+                else
+                {
+                    errorProvider1.SetError(btnAgregar, "EL ABONO DEBE SER MENOR O IGUAL AL ADEUDO");
+                }
             }
             catch (Exception)
             {

@@ -42,6 +42,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         }
         #endregion
 
+
         #region constructor
         public FrmEntradaSalidaAlmacen()
         {
@@ -102,7 +103,11 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                         IdProducto = Producto.IdProducto,
                         Clave = Producto.Clave,
                         Cantidad = Convert.ToInt32(Producto.CantidadProducto),
-                        Nombre = Producto.Nombre
+                        Nombre = Producto.Nombre,
+                        PrecioCosto = Producto.CostoProducto - (Producto.CostoProducto * (Producto.PorcentajeIva / 100)),
+                        PorcentajeIva = (Producto.CostoProducto * (Producto.PorcentajeIva / 100)),
+                        Total = Producto.CantidadProducto * Producto.CostoProducto,
+                        SubTotal = Producto.CantidadProducto * Producto.CostoProducto - (Producto.CostoProducto * (Producto.PorcentajeIva / 100))
                     });
                     CantidadProducto();
 
@@ -111,6 +116,9 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 {
                     var x = Model.ListaProducto.Where(p => p.IdProducto == Producto.IdProducto).Select(u => {
                         u.Cantidad += Convert.ToInt32(Producto.CantidadProducto);
+                        u.PorcentajeIva += (Producto.CostoProducto * (Producto.PorcentajeIva / 100));
+                        u.Total = u.Cantidad * Producto.CostoProducto;
+                        u.SubTotal = u.Cantidad * u.PrecioCosto;
                         return u;
                     }).ToList();
                     if (x.Count == 1)
@@ -126,7 +134,11 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                             IdProducto = Producto.IdProducto,
                             Clave = Producto.Clave,
                             Cantidad = Convert.ToInt32(Producto.CantidadProducto),
-                            Nombre = Producto.Nombre
+                            Nombre = Producto.Nombre,
+                            PrecioCosto = Producto.CostoProducto - (Producto.CostoProducto * (Producto.PorcentajeIva / 100)),
+                            PorcentajeIva = (Producto.CostoProducto * (Producto.PorcentajeIva / 100)),
+                            Total = Producto.CantidadProducto * Producto.CostoProducto,
+                            SubTotal = Producto.CantidadProducto * Producto.CostoProducto - (Producto.CostoProducto * (Producto.PorcentajeIva / 100))
                         });
                         CantidadProducto();
 
@@ -148,6 +160,9 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             Model.Motivo = string.Empty;
             Model.GetFolio();
             Model.Cantidad = 0;
+            Model.Iva = 0;
+            Model.SubTotal = 0;
+            Model.Total = 0;
         }
         public void IniciarCombos()
         {
@@ -171,6 +186,9 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             FolioProductoControl.DataBindings.Add("Text", Model, "Folio", true, DataSourceUpdateMode.OnPropertyChanged);
             MotivoControl.DataBindings.Add("Text", Model, "Motivo", true, DataSourceUpdateMode.OnPropertyChanged);
             CantidadControl.DataBindings.Add("Text", Model, "Cantidad", true, DataSourceUpdateMode.OnPropertyChanged);
+            TotalControl.DataBindings.Add("Text", Model, "Total", true, DataSourceUpdateMode.OnPropertyChanged, "", "C2");
+            IvaControl.DataBindings.Add("Text", Model, "Iva", true, DataSourceUpdateMode.OnPropertyChanged, "", "C2");
+            SubtotalControl.DataBindings.Add("Text", Model, "Subtotal", true, DataSourceUpdateMode.OnPropertyChanged, "", "C2");
             IniciarCombos();
         }
 
@@ -179,6 +197,12 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             try
             {
                 int Cantidad = Model.ListaProducto.Sum(x => x.Cantidad);
+                decimal total = Model.ListaProducto.Sum(x => x.Total);
+                decimal SubTotal = Model.ListaProducto.Sum(x => x.SubTotal);
+                decimal Iva = Model.ListaProducto.Sum(x => x.PorcentajeIva);
+                TotalControl.Text = total.ToString("C2");
+                SubtotalControl.Text = SubTotal.ToString("C2");
+                IvaControl.Text = Iva.ToString("C2");
                 CantidadControl.Text = Convert.ToString(Cantidad);
 
             }
@@ -191,23 +215,39 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         {
             try
             {
-                FrmBusquedaProducto FProducto = new FrmBusquedaProducto();
-                FProducto.ShowDialog();
-                if (FProducto.producto.IdProducto != 0)
-                {
-                    var item = FProducto.producto;
-                    decimal cantidadAnterior = BuscarCantidad(item);
-                    int cantidadActual = 0;
-                    int cantidadBusqueda = 0;
-                    cantidadActual = Convert.ToInt32(cantidadAnterior);
-                    cantidadBusqueda = cantidadActual + Convert.ToInt32(item.CantidadProducto);
-                    var result = await Model.CheckCantidadProducto(item.IdProducto, cantidadBusqueda);
-                    if (result == -1)
+                errorProvider1.SetError(TipoControl, string.Empty);
+                if(Model.Tipo != 2)
+                { 
+                    FrmBusquedaProducto FProducto = new FrmBusquedaProducto();
+                    FProducto.ShowDialog();
+                    if (FProducto.producto.IdProducto != 0)
                     {
-                        LLenarGrid(FProducto.producto);
+                        var item = FProducto.producto;
+                        if (Model.Tipo == 0)
+                        {
+                            LLenarGrid(FProducto.producto);
+                        }
+                        else if (Model.Tipo == 1)
+                        {
+                            decimal cantidadAnterior = BuscarCantidad(item);
+                            int cantidadActual = 0;
+                            int cantidadBusqueda = 0;
+                            cantidadActual = Convert.ToInt32(cantidadAnterior);
+                            cantidadBusqueda = cantidadActual + Convert.ToInt32(item.CantidadProducto);
+                            var result = await Model.CheckCantidadProducto(item.IdProducto, cantidadBusqueda);
+                            if (result == -1)
+                            {
+                                LLenarGrid(FProducto.producto);
+                            }
+                            else if (result != -1)
+                                CIDMessageBox.ShowAlert(Messages.SystemName, "No hay suficiente productos. La cantidad existente es: " + result.ToString(), TypeMessage.error);
+                        }
                     }
-                    else if (result != -1)
-                        CIDMessageBox.ShowAlert(Messages.SystemName, "No hay suficiente productos. La cantidad existente es: " + result.ToString(), TypeMessage.error);
+                    
+                }
+                else if (Model.Tipo == 2)
+                {
+                    errorProvider1.SetError(TipoControl, "Debe seleccionar un tipo");
                 }
             }
             catch (Exception ex)
@@ -224,12 +264,18 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         { 
             try
             {
+                btnNuevo.Enabled = false;
                 NuevoProducto();
             }
             catch (Exception ex)
             {
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmEntradaSalidaAlmacen ~ pcMas_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
+            }
+            finally
+            {
+                btnNuevo.Enabled = true;
+             
             }
         }
         private void FrmEntradaSalidaAlmacen_Load(object sender, EventArgs e)
@@ -249,6 +295,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         {
             try
             {
+                btnEliminar.Enabled = false;
                 EntradaSalidaAlmacen item = (EntradaSalidaAlmacen)ObtenerSeleccionado();
                 if (item != null)
                 {
@@ -262,38 +309,26 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             {
                 throw ex;
             }
+            finally
+            {
+                btnEliminar.Enabled = true;
+            }
         }
         #endregion
 
         #region Llenando tablas
-        private DataTable ObtenerEntradaProducto(BindingList<EntradaSalidaAlmacen> Lista)
+        private DataTable ObtenerEntradaSalidaProducto(BindingList<EntradaSalidaAlmacen> Lista)
         {
             DataTable Tabla = new DataTable();
             Tabla.Columns.Add("IdProducto", typeof(int));
             Tabla.Columns.Add("Cantidad", typeof(int));
             foreach (var item in Lista)
-            {
-                if (Model.Tipo == 0)//Entrada
-                {
-                    Tabla.Rows.Add(new object[] { item.IdProducto, item.Cantidad });
-                }
+            {  
+                    Tabla.Rows.Add(new object[] { item.IdProducto, item.Cantidad });     
             }
             return Tabla;
         }
-        private DataTable ObtenerSalidaProducto(BindingList<EntradaSalidaAlmacen> Lista)
-        {
-            DataTable Tabla = new DataTable();//Salida
-            Tabla.Columns.Add("IdProducto", typeof(int));
-            Tabla.Columns.Add("Cantidad", typeof(int));
-            foreach (var item in Lista)
-            {
-                if (Model.Tipo == 1)
-                {
-                    Tabla.Rows.Add(new object[] { item.IdProducto, item.Cantidad });
-                }
-            }
-            return Tabla;
-        }
+    
         #endregion
 
 
@@ -302,6 +337,8 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         {
             try
             {
+                btnGuardar.Enabled = false;
+                errorProvider1.Clear();
                 BindingList<EntradaSalidaAlmacen> ListaProductos = (BindingList<EntradaSalidaAlmacen>)dataGridsf1.DataSource;
                 this.CleanErrors(errorProvider1, typeof(EntradaSalidaAlmacenViewModel));
                 var validationResults = Model.Validate();
@@ -311,8 +348,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 {
                     if (ListaProductos.Count > 0)
                     {
-                        Model.TablaEntradaAlmacen = ObtenerEntradaProducto(ListaProductos);
-                        Model.TablaSalidaAlmacen = ObtenerSalidaProducto(ListaProductos);
+                        Model.TablaEntradaAlmacen = ObtenerEntradaSalidaProducto(ListaProductos);
                         EntradaSalidaAlmacen Resultado = await Model.GuardarEntradaSalida(CurrentSession.IdCuentaUsuario);
                         if (Resultado.Resultado == 1)
                         {
@@ -331,6 +367,10 @@ namespace CIDFares.Spa.WFApplication.Forms.General
 
                 throw ex;
             }
+            finally
+            {
+                btnGuardar.Enabled = true;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -344,6 +384,18 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             {
 
                 throw ex;
+            }
+        }
+
+        private void TipoControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var X = Model.Tipo;
+            var Y = Model.Cantidad;
+            if (X==1 && Y!=0)
+            {
+                if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.HaveProduct) == DialogResult.OK )
+                Model.ListaProducto.Clear();
+                CantidadProducto();
             }
         }
     }

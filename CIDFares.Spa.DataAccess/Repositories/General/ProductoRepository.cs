@@ -329,7 +329,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.CodigoBarras = dr.GetString(dr.GetOrdinal("CodigoBarras"));
                         item.UnidadMedida = dr.GetString(dr.GetOrdinal("UnidadMedida"));
                         item.ClaveSat = dr.GetInt32(dr.GetOrdinal("ClaveSat"));
-                        item.AplicaIva = dr.GetBoolean(dr.GetOrdinal("AplicaIva"));
                         item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
                         item.Porcentaje = !dr.IsDBNull(dr.GetOrdinal("Porcentaje")) ? dr.GetDecimal(dr.GetOrdinal("Porcentaje")) : 0;
                         Lista.Add(item);

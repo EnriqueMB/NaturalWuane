@@ -18,6 +18,7 @@ using CIDFares.Spa.WFApplication.Session;
 using Syncfusion.WinForms.Controls;
 using Syncfusion.WinForms.Core.Utils;
 using Syncfusion.Windows.Forms;
+using CIDFares.Library.Code.Helpers;
 
 namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 {
@@ -95,13 +96,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                if(Model.Opcion == 1)
-                    Model.Page++;
+                if (Model.Opcion == 1)
+                        Model.Page++;
                 CIDWait.Show(async () =>
                 {
                     await Model.GetAllAsync();
-                    await Task.Delay(2000);
                 }, "Espere");
+               
             }
             catch (Exception ex)
             {
@@ -112,7 +113,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         
         /// <summary>
-        /// Evento que detecta cada moviento del Scroll Vertical del grid
+        /// Evento que detecta cada movimiento del Scroll Vertical del grid
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -120,13 +121,19 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                    Syncfusion.WinForms.DataGrid.TableControl tableControl = DGridAlimento.TableControl;
-                    if (tableControl.VerticalScroll.Value + tableControl.VerticalScroll.LargeChange == tableControl.VerticalScroll.Maximum)
+                Syncfusion.WinForms.DataGrid.TableControl tableControl = DGridAlimento.TableControl;
+                if (tableControl.VerticalScroll.Value + tableControl.VerticalScroll.LargeChange == tableControl.VerticalScroll.Maximum)
+                {
+                    if(!Model.PaginaMaxima)
                     {
                         Model.Opcion = 1;
                         CargarGrid();
                     }
-
+                    else
+                    {
+                        CIDMessageBox.ShowAlert(Messages.SystemName, "No hay mas registros", TypeMessage.informacion);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -168,16 +175,19 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                VerticalScrollBar x = (VerticalScrollBar)DGridAlimento.TableControl.VerticalScroll.ScrollBar;
+                x.ValueChanged -= X_ValueChanged;
                 FrmAlimentoNuevo nuevo = new FrmAlimentoNuevo(0);
                 nuevo.ShowDialog();
                 nuevo.Dispose();
                 Model.Opcion = 2;
                 CargarGrid();
+                x.ValueChanged += X_ValueChanged;
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmAlimentoGrid ~ btnNuevo_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
 
@@ -191,6 +201,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                VerticalScrollBar x = (VerticalScrollBar)DGridAlimento.TableControl.VerticalScroll.ScrollBar;
+                x.ValueChanged -= X_ValueChanged;
                 Alimento item = ObtenerSeleccionado();
                 if(item != null)
                 {
@@ -199,14 +211,15 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     modificar.Dispose();
                     Model.Opcion = 2;
                     CargarGrid();
+                    x.ValueChanged += X_ValueChanged;
                 }
                 else
                     CIDMessageBox.ShowAlert(Constants.Messages.SystemName, Constants.Messages.GridSelectMessage, TypeMessage.informacion);
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmAlimentoGrid ~ btnModificar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
 
@@ -220,6 +233,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                VerticalScrollBar x = (VerticalScrollBar)DGridAlimento.TableControl.VerticalScroll.ScrollBar;
+                x.ValueChanged -= X_ValueChanged;
                 Alimento item = ObtenerSeleccionado();
                 if(item != null)
                 {
@@ -232,15 +247,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                             CIDMessageBox.ShowAlert(Constants.Messages.SystemName, Constants.Messages.SuccessDeleteMessage, TypeMessage.correcto);
                             Model.Opcion = 2;
                             CargarGrid();
+                            x.ValueChanged += X_ValueChanged;
                         }
                         else
                         {
                             CIDMessageBox.ShowAlert(Constants.Messages.SystemName, Constants.Messages.SuccessDeleteMessage, TypeMessage.correcto);
                         }
-                    }
-                    else
-                    {
-                        CIDMessageBox.ShowAlert(Constants.Messages.SystemName, Constants.Messages.ErrorDeleteMessage, TypeMessage.error);
                     }
                 }
                 else
@@ -248,7 +260,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmAlimentoGrid ~ btnEliminar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
 
@@ -261,14 +274,17 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                VerticalScrollBar x = (VerticalScrollBar)DGridAlimento.TableControl.VerticalScroll.ScrollBar;
+                x.ValueChanged -= X_ValueChanged;
                 BusquedaControl.Text = String.Empty;
                 Model.Opcion = 2;
                 CargarGrid();
+                x.ValueChanged += X_ValueChanged;
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmAlimentoGrid ~ btnLimpiarBusqueda_Clic(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
 
@@ -296,8 +312,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmAlimentoGrid ~ btnBusqueda_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
         #endregion

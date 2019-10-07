@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.FlpBotones = new System.Windows.Forms.FlowLayoutPanel();
             this.btnEliminarEncuesta = new System.Windows.Forms.Button();
             this.btnModificarEncuesta = new System.Windows.Forms.Button();
@@ -60,11 +60,11 @@
             // btnEliminarEncuesta
             // 
             this.btnEliminarEncuesta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminarEncuesta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnEliminarEncuesta.FlatAppearance.BorderSize = 0;
+            this.btnEliminarEncuesta.BackColor = System.Drawing.Color.White;
+            this.btnEliminarEncuesta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.btnEliminarEncuesta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarEncuesta.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarEncuesta.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarEncuesta.ForeColor = System.Drawing.Color.Black;
             this.btnEliminarEncuesta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminarEncuesta.Location = new System.Drawing.Point(647, 23);
             this.btnEliminarEncuesta.Name = "btnEliminarEncuesta";
@@ -77,11 +77,11 @@
             // btnModificarEncuesta
             // 
             this.btnModificarEncuesta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnModificarEncuesta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnModificarEncuesta.FlatAppearance.BorderSize = 0;
+            this.btnModificarEncuesta.BackColor = System.Drawing.Color.White;
+            this.btnModificarEncuesta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.btnModificarEncuesta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificarEncuesta.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarEncuesta.ForeColor = System.Drawing.Color.White;
+            this.btnModificarEncuesta.ForeColor = System.Drawing.Color.Black;
             this.btnModificarEncuesta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnModificarEncuesta.Location = new System.Drawing.Point(511, 23);
             this.btnModificarEncuesta.Name = "btnModificarEncuesta";
@@ -94,11 +94,11 @@
             // btnNuevaEncuesta
             // 
             this.btnNuevaEncuesta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNuevaEncuesta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
-            this.btnNuevaEncuesta.FlatAppearance.BorderSize = 0;
+            this.btnNuevaEncuesta.BackColor = System.Drawing.Color.White;
+            this.btnNuevaEncuesta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.btnNuevaEncuesta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevaEncuesta.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevaEncuesta.ForeColor = System.Drawing.Color.White;
+            this.btnNuevaEncuesta.ForeColor = System.Drawing.Color.Black;
             this.btnNuevaEncuesta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevaEncuesta.Location = new System.Drawing.Point(375, 23);
             this.btnNuevaEncuesta.Name = "btnNuevaEncuesta";
@@ -110,6 +110,7 @@
             // 
             // pnlTitulo
             // 
+            this.pnlTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.pnlTitulo.Controls.Add(this.label3);
             this.pnlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitulo.Location = new System.Drawing.Point(0, 0);
@@ -121,7 +122,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(12, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 22);
@@ -136,34 +137,35 @@
             this.dtgEncuestas.AllowFiltering = true;
             this.dtgEncuestas.AutoExpandGroups = true;
             this.dtgEncuestas.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            this.dtgEncuestas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            gridTextColumn1.AllowDragging = true;
-            gridTextColumn1.AllowEditing = false;
-            gridTextColumn1.AllowFiltering = true;
-            gridTextColumn1.HeaderText = "IdEncuesta";
-            gridTextColumn1.MappingName = "IdEncuesta";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.AllowDragging = true;
-            gridTextColumn2.AllowEditing = false;
-            gridTextColumn2.AllowFiltering = true;
-            gridTextColumn2.HeaderText = "ENCUESTA";
-            gridTextColumn2.MappingName = "NombreEncuesta";
-            gridTextColumn3.AllowDragging = true;
-            gridTextColumn3.AllowEditing = false;
-            gridTextColumn3.AllowFiltering = true;
-            gridTextColumn3.HeaderText = "IdTipoEncuesta";
-            gridTextColumn3.MappingName = "IdTipoEncuesta";
-            gridTextColumn3.Visible = false;
-            gridTextColumn4.AllowDragging = true;
-            gridTextColumn4.AllowEditing = false;
-            gridTextColumn4.AllowFiltering = true;
-            gridTextColumn4.HeaderText = "TIPO DE ENCUESTA";
-            gridTextColumn4.MappingName = "Descripcion";
-            this.dtgEncuestas.Columns.Add(gridTextColumn1);
-            this.dtgEncuestas.Columns.Add(gridTextColumn2);
-            this.dtgEncuestas.Columns.Add(gridTextColumn3);
-            this.dtgEncuestas.Columns.Add(gridTextColumn4);
+            this.dtgEncuestas.BackColor = System.Drawing.Color.White;
+            gridTextColumn5.AllowDragging = true;
+            gridTextColumn5.AllowEditing = false;
+            gridTextColumn5.AllowFiltering = true;
+            gridTextColumn5.HeaderText = "IdEncuesta";
+            gridTextColumn5.MappingName = "IdEncuesta";
+            gridTextColumn5.Visible = false;
+            gridTextColumn6.AllowDragging = true;
+            gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.AllowFiltering = true;
+            gridTextColumn6.HeaderText = "ENCUESTA";
+            gridTextColumn6.MappingName = "NombreEncuesta";
+            gridTextColumn7.AllowDragging = true;
+            gridTextColumn7.AllowEditing = false;
+            gridTextColumn7.AllowFiltering = true;
+            gridTextColumn7.HeaderText = "IdTipoEncuesta";
+            gridTextColumn7.MappingName = "IdTipoEncuesta";
+            gridTextColumn7.Visible = false;
+            gridTextColumn8.AllowDragging = true;
+            gridTextColumn8.AllowEditing = false;
+            gridTextColumn8.AllowFiltering = true;
+            gridTextColumn8.HeaderText = "TIPO DE ENCUESTA";
+            gridTextColumn8.MappingName = "Descripcion";
+            this.dtgEncuestas.Columns.Add(gridTextColumn5);
+            this.dtgEncuestas.Columns.Add(gridTextColumn6);
+            this.dtgEncuestas.Columns.Add(gridTextColumn7);
+            this.dtgEncuestas.Columns.Add(gridTextColumn8);
             this.dtgEncuestas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgEncuestas.ForeColor = System.Drawing.Color.Black;
             this.dtgEncuestas.Location = new System.Drawing.Point(0, 58);
             this.dtgEncuestas.Name = "dtgEncuestas";
             this.dtgEncuestas.RowHeight = 21;
@@ -174,10 +176,7 @@
             this.dtgEncuestas.Style.GroupDropAreaItemStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.dtgEncuestas.Style.GroupDropAreaStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
             this.dtgEncuestas.Style.GroupDropAreaStyle.TextColor = System.Drawing.Color.Black;
-            this.dtgEncuestas.Style.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(64)))), ((int)(((byte)(23)))));
-            this.dtgEncuestas.Style.HeaderStyle.Font.Bold = false;
-            this.dtgEncuestas.Style.HeaderStyle.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(64)))), ((int)(((byte)(23)))));
-            this.dtgEncuestas.Style.HeaderStyle.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dtgEncuestas.Style.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.dtgEncuestas.Style.HeaderStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dtgEncuestas.Style.IndentCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
             this.dtgEncuestas.TabIndex = 1;

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlTop = new System.Windows.Forms.Panel();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -42,6 +43,7 @@
             this.CodigoBarraControl = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
+            this.pnlTop.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlCentral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -49,8 +51,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnMinimizar);
-            this.panel1.Controls.Add(this.btnClose);
+            this.panel1.Controls.Add(this.pnlTop);
             this.panel1.Controls.Add(this.lblTitulo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -58,6 +59,18 @@
             this.panel1.Size = new System.Drawing.Size(389, 80);
             this.panel1.TabIndex = 2;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // pnlTop
+            // 
+            this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.pnlTop.Controls.Add(this.btnMinimizar);
+            this.pnlTop.Controls.Add(this.btnClose);
+            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTop.Location = new System.Drawing.Point(0, 0);
+            this.pnlTop.Name = "pnlTop";
+            this.pnlTop.Size = new System.Drawing.Size(389, 28);
+            this.pnlTop.TabIndex = 182;
+            this.pnlTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseDown);
             // 
             // btnMinimizar
             // 
@@ -67,7 +80,7 @@
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.ForeColor = System.Drawing.Color.Transparent;
             this.btnMinimizar.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.minimizarO;
-            this.btnMinimizar.Location = new System.Drawing.Point(327, 2);
+            this.btnMinimizar.Location = new System.Drawing.Point(329, 0);
             this.btnMinimizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(28, 28);
@@ -83,7 +96,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.Transparent;
             this.btnClose.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.cerrarO;
-            this.btnClose.Location = new System.Drawing.Point(359, 1);
+            this.btnClose.Location = new System.Drawing.Point(361, 0);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(28, 28);
@@ -179,6 +192,7 @@
             this.CodigoBarraControl.Name = "CodigoBarraControl";
             this.CodigoBarraControl.Size = new System.Drawing.Size(197, 20);
             this.CodigoBarraControl.TabIndex = 0;
+            this.CodigoBarraControl.UseSystemPasswordChar = true;
             // 
             // errorProvider1
             // 
@@ -200,6 +214,7 @@
             this.Load += new System.EventHandler(this.FrmRegistroEntradaSalida_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.pnlTop.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.pnlCentral.ResumeLayout(false);
             this.pnlCentral.PerformLayout();
@@ -222,5 +237,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         public System.Windows.Forms.Button btnMinimizar;
         public System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Panel pnlTop;
     }
 }
