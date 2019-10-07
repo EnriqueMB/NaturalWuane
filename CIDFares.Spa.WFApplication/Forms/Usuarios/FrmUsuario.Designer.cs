@@ -35,6 +35,7 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -59,11 +60,13 @@
             this.ContraseniaDosControl = new System.Windows.Forms.TextBox();
             this.lblConfirmar = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.IdEmpleadoControl = new System.Windows.Forms.ComboBox();
+            this.lblEmpleado = new System.Windows.Forms.Label();
             this.lblRol = new System.Windows.Forms.Label();
             this.IdRolControl = new System.Windows.Forms.ComboBox();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.IdEmpleadoControl = new System.Windows.Forms.ComboBox();
-            this.lblEmpleado = new System.Windows.Forms.Label();
+            this.NombreControl = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -196,24 +199,29 @@
             gridTextColumn2.MappingName = "Cuenta";
             gridTextColumn3.AllowEditing = false;
             gridTextColumn3.HeaderText = "IdRol";
-            gridTextColumn3.MappingName = "IdRol";
+            gridTextColumn3.MappingName = "DatosRol.IdRol";
             gridTextColumn3.Visible = false;
             gridTextColumn4.AllowEditing = false;
             gridTextColumn4.HeaderText = "Rol";
-            gridTextColumn4.MappingName = "Nombre";
+            gridTextColumn4.MappingName = "DatosRol.Nombre";
             gridTextColumn5.AllowEditing = false;
             gridTextColumn5.HeaderText = "Column7";
-            gridTextColumn5.MappingName = "IdEmpleado";
+            gridTextColumn5.MappingName = "DatosEmpleado.IdEmpleado";
             gridTextColumn5.Visible = false;
             gridTextColumn6.AllowEditing = false;
-            gridTextColumn6.HeaderText = "Nombre empleado";
-            gridTextColumn6.MappingName = "Nombres";
+            gridTextColumn6.HeaderText = "Nombre";
+            gridTextColumn6.MappingName = "DatosEmpleado.Nombre";
+            gridTextColumn7.AllowEditing = false;
+            gridTextColumn7.HeaderText = "Nombre Usuario";
+            gridTextColumn7.MappingName = "Nombre";
+            gridTextColumn7.Visible = false;
             this.DataGridUsuario.Columns.Add(gridTextColumn1);
             this.DataGridUsuario.Columns.Add(gridTextColumn2);
             this.DataGridUsuario.Columns.Add(gridTextColumn3);
             this.DataGridUsuario.Columns.Add(gridTextColumn4);
             this.DataGridUsuario.Columns.Add(gridTextColumn5);
             this.DataGridUsuario.Columns.Add(gridTextColumn6);
+            this.DataGridUsuario.Columns.Add(gridTextColumn7);
             this.DataGridUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataGridUsuario.Location = new System.Drawing.Point(0, 0);
             this.DataGridUsuario.Name = "DataGridUsuario";
@@ -366,6 +374,8 @@
             // 
             // panel9
             // 
+            this.panel9.Controls.Add(this.IdEmpleadoControl);
+            this.panel9.Controls.Add(this.lblEmpleado);
             this.panel9.Controls.Add(this.lblRol);
             this.panel9.Controls.Add(this.IdRolControl);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -373,6 +383,26 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(474, 59);
             this.panel9.TabIndex = 4;
+            // 
+            // IdEmpleadoControl
+            // 
+            this.IdEmpleadoControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.IdEmpleadoControl.FormattingEnabled = true;
+            this.IdEmpleadoControl.Location = new System.Drawing.Point(233, 23);
+            this.IdEmpleadoControl.Name = "IdEmpleadoControl";
+            this.IdEmpleadoControl.Size = new System.Drawing.Size(223, 29);
+            this.IdEmpleadoControl.TabIndex = 6;
+            this.IdEmpleadoControl.SelectionChangeCommitted += new System.EventHandler(this.IdEmpleadoControl_SelectionChangeCommitted);
+            // 
+            // lblEmpleado
+            // 
+            this.lblEmpleado.AutoSize = true;
+            this.lblEmpleado.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.lblEmpleado.Location = new System.Drawing.Point(236, -1);
+            this.lblEmpleado.Name = "lblEmpleado";
+            this.lblEmpleado.Size = new System.Drawing.Size(152, 20);
+            this.lblEmpleado.TabIndex = 5;
+            this.lblEmpleado.Text = "Nombre empleado:";
             // 
             // lblRol
             // 
@@ -388,39 +418,38 @@
             // 
             this.IdRolControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IdRolControl.FormattingEnabled = true;
-            this.IdRolControl.Location = new System.Drawing.Point(0, 23);
+            this.IdRolControl.Location = new System.Drawing.Point(1, 23);
             this.IdRolControl.Name = "IdRolControl";
             this.IdRolControl.Size = new System.Drawing.Size(215, 29);
             this.IdRolControl.TabIndex = 5;
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.IdEmpleadoControl);
-            this.panel10.Controls.Add(this.lblEmpleado);
+            this.panel10.Controls.Add(this.NombreControl);
+            this.panel10.Controls.Add(this.label1);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(3, 263);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(474, 59);
             this.panel10.TabIndex = 5;
             // 
-            // IdEmpleadoControl
+            // NombreControl
             // 
-            this.IdEmpleadoControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.IdEmpleadoControl.FormattingEnabled = true;
-            this.IdEmpleadoControl.Location = new System.Drawing.Point(4, 27);
-            this.IdEmpleadoControl.Name = "IdEmpleadoControl";
-            this.IdEmpleadoControl.Size = new System.Drawing.Size(211, 29);
-            this.IdEmpleadoControl.TabIndex = 6;
+            this.NombreControl.Location = new System.Drawing.Point(7, 26);
+            this.NombreControl.Margin = new System.Windows.Forms.Padding(0);
+            this.NombreControl.Name = "NombreControl";
+            this.NombreControl.Size = new System.Drawing.Size(336, 27);
+            this.NombreControl.TabIndex = 3;
             // 
-            // lblEmpleado
+            // label1
             // 
-            this.lblEmpleado.AutoSize = true;
-            this.lblEmpleado.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.lblEmpleado.Location = new System.Drawing.Point(3, 0);
-            this.lblEmpleado.Name = "lblEmpleado";
-            this.lblEmpleado.Size = new System.Drawing.Size(152, 20);
-            this.lblEmpleado.TabIndex = 5;
-            this.lblEmpleado.Text = "Nombre empleado:";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.label1.Location = new System.Drawing.Point(7, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 20);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Nombre completo:";
             // 
             // panel11
             // 
@@ -536,5 +565,7 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Panel panelGrid;
         private System.Windows.Forms.Panel panelDatos;
+        private System.Windows.Forms.TextBox NombreControl;
+        private System.Windows.Forms.Label label1;
     }
 }
