@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using System.Data;
+using CIDFares.Library.Code.Utilities.IBase;
 
 namespace CIDFares.Spa.Business.ViewModels.Ventas
 {
@@ -22,6 +23,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         private IServicioRepository ServicioRepository { get; set; }
         private IPaqueteRepository PaqueteRepository { get; set; }
         public IBusqProductoRepository BusqProductoRepository { get; set; }
+        public IImpresoraTicket         Ticket { get; set; }
         #endregion
 
         #region Propiedades públicas
@@ -40,13 +42,14 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         #endregion
 
         #region Constructor
-        public VentasViewModel(IFormaPagoRepository formaPagoRepository, IVentaRepository ventaRepository, IBusqProductoRepository busqProductoRepository, IServicioRepository servicioRepository, IPaqueteRepository paqueteRepository)
+        public VentasViewModel(IFormaPagoRepository formaPagoRepository, IVentaRepository ventaRepository, IBusqProductoRepository busqProductoRepository, IServicioRepository servicioRepository, IPaqueteRepository paqueteRepository, IImpresoraTicket ticket)
         {
             ServicioRepository = servicioRepository;
             PaqueteRepository = paqueteRepository;
             Repository = ventaRepository;
             RepositoryFormaPago = formaPagoRepository;
             BusqProductoRepository = busqProductoRepository;
+            Ticket = ticket;
             ModelCliente = ServiceLocator.Instance.Resolve<ClienteViewModel>();
             ModelPaquete = ServiceLocator.Instance.Resolve<PaqueteViewModel>();
             Listaventa = new BindingList<Venta>();
@@ -94,7 +97,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
             catch (Exception ex)
             {
-
+        
                 throw ex;
             }
         }
