@@ -99,13 +99,13 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
-        public async Task GetBusquedaRapida(int TipoBusqueda, string Busqueda)
+        public async Task GetBusquedaRapida(int TipoBusqueda, string Busqueda, int Idsucursal)
         {
             try
             {
                 if (TipoBusqueda == 1)
                 {
-                    var x = await BusqProductoRepository.GetBusquedaProductoAsync(false, Busqueda, true, Busqueda);
+                    var x = await BusqProductoRepository.GetBusquedaProductoAsync(false, Busqueda, true, Busqueda, Idsucursal);
                     ListaBusquedaProducto.Clear();
                     foreach (var item in x)
                     {

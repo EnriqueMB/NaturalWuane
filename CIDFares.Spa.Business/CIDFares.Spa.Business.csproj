@@ -32,11 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CIDFares.Library.Code">
-      <HintPath>..\..\CIDFaresLibrary\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
-    </Reference>
-    <Reference Include="CIDFares.Library.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CIDFares.Library\CIDFares.Library.Controls\bin\Debug\CIDFares.Library.Controls.dll</HintPath>
+      <HintPath>..\..\CIDFares.Library\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -58,6 +54,7 @@
     <Compile Include="ViewModels\Catalogos\BusquedaProductoViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\CategoriaProductoViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\ClienteViewModel.cs" />
+    <Compile Include="ViewModels\Catalogos\DireccionesClienteViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\EncuestasViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\EmpleadoViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\FormaPagoViewModel.cs" />

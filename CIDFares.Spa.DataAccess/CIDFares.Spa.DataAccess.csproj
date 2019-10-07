@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CIDFares.Library.Code">
-      <HintPath>..\..\CIDFaresLibrary\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
+      <HintPath>..\..\CIDFares.Library\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
     </Reference>
     <Reference Include="Dapper, Version=1.60.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.1.60.6\lib\net451\Dapper.dll</HintPath>
@@ -57,6 +57,7 @@
     <Compile Include="Repositories\General\CategoriaProductoRepository.cs" />
     <Compile Include="Repositories\General\ClienteRepository.cs" />
     <Compile Include="Repositories\General\CompraRepository.cs" />
+    <Compile Include="Repositories\General\DireccionesClienteRepository.cs" />
     <Compile Include="Repositories\General\EmpleadoRepository.cs" />
     <Compile Include="Repositories\General\CuestionarioRepository.cs" />
     <Compile Include="Repositories\General\EntradaSalidaAlmacenRepository.cs" />

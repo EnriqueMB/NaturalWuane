@@ -6,6 +6,7 @@ using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
+using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -122,7 +123,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     if (!string.IsNullOrEmpty(Model.BusquedaClaveCodigo))
                     {
                         errorProvider1.Clear();
-                        await Model.GetAll();
+                        await Model.GetAll(CurrentSession.IdSucursal);
                         if (Model.ListaBusquedaProducto.Count == 0)
                             CIDMessageBox.ShowAlert(Messages.SystemName, "LA BUSQUEDA REALIZADA NO SE ENCUENTA EN LA BASE DE DATOS.", TypeMessage.informacion);
                         else if (Model.ListaBusquedaProducto.Count == 1)
@@ -131,7 +132,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     else if (!string.IsNullOrEmpty(Model.BusquedaNombre))
                     {
                         errorProvider1.Clear();
-                        await Model.GetAll();
+                        await Model.GetAll(CurrentSession.IdSucursal);
                         if (Model.ListaBusquedaProducto.Count == 0)
                             CIDMessageBox.ShowAlert(Messages.SystemName, "LA BUSQUEDA REALIZADA NO SE ENCUENTA EN LA BASE DE DATOS.", TypeMessage.informacion);
                         else if (Model.ListaBusquedaProducto.Count == 1)

@@ -74,7 +74,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 SexoControl.DataBindings.Add("SelectedValue", Model, "Sexo", true, DataSourceUpdateMode.OnPropertyChanged);
                 RutaControl.DataBindings.Add("Text", Model, "ImageLocation", true, DataSourceUpdateMode.OnPropertyChanged);
                 BusquedaControl.DataBindings.Add("Text", Model, "Busqueda", true, DataSourceUpdateMode.OnPropertyChanged);
-                DireccionControl.DataBindings.Add("Text", Model, "Direccion", true, DataSourceUpdateMode.OnPropertyChanged);
+                EmailControl.DataBindings.Add("Text", Model, "Email", true, DataSourceUpdateMode.OnPropertyChanged);
                 this.sfDataGridCliente.AutoGenerateColumns = false;
                 sfDataGridCliente.DataBindings.Add("DataSource", Model, "ListaCliente", true, DataSourceUpdateMode.OnPropertyChanged);
                 this.InicializarCombo();
@@ -110,7 +110,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             Model.IdCliente = Guid.Empty;
             Model.NombreCompleto = string.Empty;
-            Model.Direccion = string.Empty;
+            Model.Email = string.Empty;
             Model.Clave = string.Empty;
             Model.Sexo = 'S';
             Model.FechaNacimiento = DateTime.Now;
@@ -182,7 +182,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 Model.Rfc = item.Rfc;
                 Model.Sexo = item.Sexo;
                 Model.Telefono = item.Telefono;
-                Model.Direccion = item.Direccion;
+                Model.Email = item.Email;
                 Model.Clave = item.Clave;
                 Model.FechaNacimiento = item.FechaNacimiento;
                 await Model.GetFoto(Model.IdCliente);
