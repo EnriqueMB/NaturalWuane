@@ -33,9 +33,9 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@Cuenta", element.Cuenta);
                     dynamicParameters.Add("@Password", element.PasswordHash);
                     dynamicParameters.Add("@IdUsuario", IdUsuario);
-                    dynamicParameters.Add("@IdRol", element.IdRol);
-                    dynamicParameters.Add("@IdEmpleado", element.IdEmpleado);
-                  
+                    dynamicParameters.Add("@IdRol", element.DatosRol.IdRol);                   
+                    dynamicParameters.Add("@IdEmpleado", element.DatosEmpleado.IdEmpleado);
+                    dynamicParameters.Add("@Nombre", element.Nombre);
                     var result = await conexion.ExecuteScalarAsync<int>("[Usuario].[SPCID_AC_Usuario2]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;
@@ -145,11 +145,14 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item = new Usuario();
                         item.IdCuentaUsuario = dr.GetGuid(dr.GetOrdinal("IdCuentaUsuario"));                    
                         item.Cuenta = dr.GetString(dr.GetOrdinal("Cuenta"));
-                        item.IdRol = dr.GetInt32(dr.GetOrdinal("IdRol"));
-                        item.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
-                        item.IdEmpleado = dr.GetGuid(dr.GetOrdinal("IdEmpleado"));
-                        item.Nombres = dr.GetString(dr.GetOrdinal("Nombres"));
-
+                        item.DatosRol.IdRol = dr.GetInt32(dr.GetOrdinal("IdRol"));
+                        item.DatosRol.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
+                        item.DatosEmpleado.IdEmpleado = dr.GetGuid(dr.GetOrdinal("IdEmpleado"));
+                        item.DatosEmpleado.Nombre = dr.GetString(dr.GetOrdinal("Nombres"));
+                        item.Nombre = dr.GetString(dr.GetOrdinal("NombreCompleto"));
+                        if (string.IsNullOrEmpty(item.DatosEmpleado.Nombre))
+                            item.DatosEmpleado.Nombre = item.Nombre;
+                        
 
                         ListaUsuario.Add(item);
                     }
@@ -195,8 +198,9 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@Cuenta", element.Cuenta);
                     dynamicParameters.Add("@Password", element.PasswordHash);
                     dynamicParameters.Add("@IdUsuario", IdUsuario);
-                    dynamicParameters.Add("@IdRol", element.IdRol);
-                    dynamicParameters.Add("@IdEmpleado", element.IdEmpleado);
+                    dynamicParameters.Add("@IdRol", element.DatosRol.IdRol);
+                    dynamicParameters.Add("@IdEmpleado", element.DatosEmpleado.IdEmpleado);
+                    dynamicParameters.Add("@Nombre", element.Nombre);
                     var result = await conexion.ExecuteScalarAsync<int>("[Usuario].[SPCID_AC_Usuario2]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;
