@@ -5,6 +5,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CIDFares.Library.Code.Extensions;
+using CIDFares.Spa.DataAccess.Contracts.DTOs;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using CIDFares.Spa.DataAccess.Repositories.Base;
@@ -215,6 +217,30 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        public async Task<int> AddWithDTO(DTOCliente element)
+        {
+            using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+            {
+                conexion.Open();
+                var dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@NuevoRegistro", element.DatosCliente.NuevoRegistro);
+                dynamicParameters.Add("@UpdateFoto", element.DatosCliente.UpdateFoto);
+                dynamicParameters.Add("@IdCliente", element.DatosCliente.IdCliente);
+                dynamicParameters.Add("@Clave", element.DatosCliente.Clave);
+                dynamicParameters.Add("@NombreCompleto", element.DatosCliente.NombreCompleto);
+                dynamicParameters.Add("@Telefono", element.DatosCliente.Telefono);
+                dynamicParameters.Add("@FechaNacimiento", element.DatosCliente.FechaNacimiento);
+                dynamicParameters.Add("@Sexo", element.DatosCliente.Sexo);
+                dynamicParameters.Add("@Foto", element.DatosCliente.FotoBase64);
+                dynamicParameters.Add("@Rfc", element.DatosCliente.Rfc);
+                dynamicParameters.Add("@email", element.DatosCliente.Email);
+                dynamicParameters.Add("@IdUsuarioL", element.DatosCliente.IdUsuarioL);
+                dynamicParameters.Add("@TablaDirecciones", element.ListaDireciones.ToDataTable(), DbType.Object);
+                var Resultado = await conexion.ExecuteScalarAsync<int>("[Cliente].[SPCID_AC_Cliente]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                return Resultado;
             }
         }
         #endregion

@@ -21,6 +21,7 @@ using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.Business.ValueObjects;
 using System.IO;
+using CIDFares.Spa.DataAccess.Contracts.DTOs.Requests;
 
 namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 {
@@ -193,6 +194,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 else
                     Model.ImageLocation = "Sin Foto";
                 Model.FotoBase64 = string.Empty;
+                await Model.GetDireciones();
             }
             else
             {
@@ -211,7 +213,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 if (validationResults.IsValid)
                 {
                     var Resultado = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
-                    if (Resultado.Resultado == 1)
+                    if (Resultado == 1)
                     {
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
                         LimpiarPropiedades();
@@ -219,7 +221,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         await Model.GetAll();
 
                     }
-                    else if (Resultado.Resultado == 5)
+                    else if (Resultado == 5)
                     {
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorClaveExistente, TypeMessage.informacion);
                         LimpiarPropiedades();
@@ -397,13 +399,33 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                             }
                         }
                     }
-
-                }
+               }
+               else
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+
+        private void btnDirecciones_Click(object sender, EventArgs e)
+        {
+            try
+            {   
+                    FrmDireccionesCliente frmDireccionesCliente = new FrmDireccionesCliente(Model.IdCliente, Model.NombreCompleto, Model.ListaDireccionesR);
+                    frmDireccionesCliente.ShowDialog();
+                    if(frmDireccionesCliente.DialogResult == DialogResult.OK)
+                    {
+                        Model.ListaDireccionesR = frmDireccionesCliente.ListaDirecciones;
+                    }
+                    frmDireccionesCliente.Dispose();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
     }
 }
