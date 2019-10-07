@@ -42,14 +42,13 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         #endregion
 
         #region Constructor
-        public VentasViewModel(IFormaPagoRepository formaPagoRepository, IVentaRepository ventaRepository, IBusqProductoRepository busqProductoRepository, IServicioRepository servicioRepository, IPaqueteRepository paqueteRepository, IImpresoraTicket ticket)
+        public VentasViewModel(IFormaPagoRepository formaPagoRepository, IVentaRepository ventaRepository, IBusqProductoRepository busqProductoRepository, IServicioRepository servicioRepository, IPaqueteRepository paqueteRepository)
         {
             ServicioRepository = servicioRepository;
             PaqueteRepository = paqueteRepository;
             Repository = ventaRepository;
             RepositoryFormaPago = formaPagoRepository;
             BusqProductoRepository = busqProductoRepository;
-            Ticket = ticket;
             ModelCliente = ServiceLocator.Instance.Resolve<ClienteViewModel>();
             ModelPaquete = ServiceLocator.Instance.Resolve<PaqueteViewModel>();
             Listaventa = new BindingList<Venta>();

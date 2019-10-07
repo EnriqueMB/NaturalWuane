@@ -50,6 +50,7 @@ namespace CIDFares.Spa.Business.Dependencies
             ServiceLocator.Instance.Register<ListaMedicionRepository, IListaMedicionRepository>();
             ServiceLocator.Instance.Register<CancelacionVentaRepository, ICancelacionVentaRepository>();
 
+
         }
     }
 }
