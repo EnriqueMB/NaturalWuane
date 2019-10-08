@@ -35,6 +35,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.DescuentoControl = new Syncfusion.Windows.Forms.Tools.CurrencyTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.EsMontoControl = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -44,15 +45,15 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.NombreControl = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.DescuentoControl = new Syncfusion.Windows.Forms.Tools.CurrencyTextBox();
+            this.lblPorcentaje = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DescuentoControl)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DescuentoControl)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -117,6 +118,7 @@
             this.groupBox3.Controls.Add(this.DescuentoControl);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.EsMontoControl);
+            this.groupBox3.Controls.Add(this.lblPorcentaje);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(33, 266);
@@ -125,6 +127,49 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Promocion";
+            // 
+            // DescuentoControl
+            // 
+            this.DescuentoControl.BackGroundColor = System.Drawing.Color.White;
+            this.DescuentoControl.BeforeTouchSize = new System.Drawing.Size(70, 27);
+            this.DescuentoControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
+            this.DescuentoControl.BorderColor = System.Drawing.Color.DarkGray;
+            this.DescuentoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DescuentoControl.CornerRadius = 2;
+            this.DescuentoControl.CurrencySymbol = "";
+            this.DescuentoControl.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.DescuentoControl.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            131072});
+            this.DescuentoControl.FocusBorderColor = System.Drawing.Color.Transparent;
+            this.DescuentoControl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DescuentoControl.ForeColor = System.Drawing.Color.Silver;
+            this.DescuentoControl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.DescuentoControl.Location = new System.Drawing.Point(27, 32);
+            this.DescuentoControl.MaxValue = new decimal(new int[] {
+            -727379968,
+            232,
+            0,
+            0});
+            this.DescuentoControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.DescuentoControl.MinimumSize = new System.Drawing.Size(8, 4);
+            this.DescuentoControl.MinValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.DescuentoControl.Name = "DescuentoControl";
+            this.DescuentoControl.NullString = "";
+            this.DescuentoControl.PositiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.DescuentoControl.SelectAllOnFocus = false;
+            this.DescuentoControl.Size = new System.Drawing.Size(70, 27);
+            this.DescuentoControl.TabIndex = 5;
+            this.DescuentoControl.Text = "0.00";
+            this.DescuentoControl.ThemeStyle.FocusBorderColor = System.Drawing.Color.Gray;
+            this.DescuentoControl.ThemeStyle.HoverBorderColor = System.Drawing.Color.White;
+            this.DescuentoControl.ZeroColor = System.Drawing.Color.Silver;
             // 
             // label2
             // 
@@ -141,9 +186,9 @@
             // EsMontoControl
             // 
             this.EsMontoControl.BackColor = System.Drawing.Color.Transparent;
-            this.EsMontoControl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EsMontoControl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EsMontoControl.ForeColor = System.Drawing.Color.Black;
-            this.EsMontoControl.Location = new System.Drawing.Point(6, 32);
+            this.EsMontoControl.Location = new System.Drawing.Point(6, 34);
             this.EsMontoControl.Name = "EsMontoControl";
             this.EsMontoControl.Size = new System.Drawing.Size(15, 25);
             this.EsMontoControl.TabIndex = 3;
@@ -231,47 +276,18 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // DescuentoControl
+            // lblPorcentaje
             // 
-            this.DescuentoControl.BackGroundColor = System.Drawing.Color.White;
-            this.DescuentoControl.BeforeTouchSize = new System.Drawing.Size(93, 23);
-            this.DescuentoControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
-            this.DescuentoControl.BorderColor = System.Drawing.Color.DarkGray;
-            this.DescuentoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DescuentoControl.CornerRadius = 2;
-            this.DescuentoControl.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.DescuentoControl.DecimalValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            131072});
-            this.DescuentoControl.FocusBorderColor = System.Drawing.Color.Transparent;
-            this.DescuentoControl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DescuentoControl.ForeColor = System.Drawing.Color.Silver;
-            this.DescuentoControl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.DescuentoControl.Location = new System.Drawing.Point(27, 32);
-            this.DescuentoControl.MaxValue = new decimal(new int[] {
-            -727379968,
-            232,
-            0,
-            0});
-            this.DescuentoControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.DescuentoControl.MinimumSize = new System.Drawing.Size(8, 4);
-            this.DescuentoControl.MinValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.DescuentoControl.Name = "DescuentoControl";
-            this.DescuentoControl.NullString = "";
-            this.DescuentoControl.PositiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.DescuentoControl.SelectAllOnFocus = false;
-            this.DescuentoControl.Size = new System.Drawing.Size(76, 27);
-            this.DescuentoControl.TabIndex = 5;
-            this.DescuentoControl.Text = "$0.00";
-            this.DescuentoControl.ThemeStyle.FocusBorderColor = System.Drawing.Color.Gray;
-            this.DescuentoControl.ThemeStyle.HoverBorderColor = System.Drawing.Color.White;
-            this.DescuentoControl.ZeroColor = System.Drawing.Color.Silver;
+            this.lblPorcentaje.BackColor = System.Drawing.Color.Transparent;
+            this.lblPorcentaje.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPorcentaje.ForeColor = System.Drawing.Color.Black;
+            this.lblPorcentaje.Location = new System.Drawing.Point(112, 34);
+            this.lblPorcentaje.Name = "lblPorcentaje";
+            this.lblPorcentaje.Size = new System.Drawing.Size(22, 25);
+            this.lblPorcentaje.TabIndex = 6;
+            this.lblPorcentaje.Text = "%";
+            this.lblPorcentaje.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblPorcentaje.Visible = false;
             // 
             // FrmPromocionDescuento
             // 
@@ -288,11 +304,11 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DescuentoControl)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DescuentoControl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -314,5 +330,6 @@
         private System.Windows.Forms.RadioButton EsMonto;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private Syncfusion.Windows.Forms.Tools.CurrencyTextBox DescuentoControl;
+        private System.Windows.Forms.Label lblPorcentaje;
     }
 }

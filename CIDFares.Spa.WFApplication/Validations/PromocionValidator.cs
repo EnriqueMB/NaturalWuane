@@ -17,6 +17,9 @@ namespace CIDFares.Spa.WFApplication.Validations
             RuleFor(promocion => promocion.Descuento)
                 .GreaterThan(0).When(x => x.EsDescuento).WithMessage("Debe ser mayor a cero");
 
+            RuleFor(promocion => promocion.Descuento)
+                .LessThanOrEqualTo(100).When(x => x.EsDescuento  && !x.EsMonto).WithMessage("No debe ser mayor al 100 porciento");
+
             RuleFor(promocion => promocion.Cantidad)
                 .GreaterThan(0).When(x => x.EsPromocionNxN).WithMessage("Debe ser mayor a cero");
 

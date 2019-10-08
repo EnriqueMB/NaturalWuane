@@ -48,16 +48,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             {
                 if (rbProcentaje.Checked)
                 {
-                    EsMontoControl.Text = "%";
-                    //DescuentoControl.Text = Format(DescuentoControl.Text / 100, "00.00 %");
-                    DescuentoControl.Text = Model.Descuento.ToString("P");
-                    //EfectivoControl.CurrencySymbol = "%";
+                    EsMontoControl.Visible = false;
+                    lblPorcentaje.Visible = true;
                     Model.EsMonto = false;
                 }
                 else if (EsMonto.Checked)
                 {
-                    EsMontoControl.Text = "$";
-                    //EfectivoControl.CurrencySymbol = "$";
+                    EsMontoControl.Visible = true;
+                    lblPorcentaje.Visible = false;
                     Model.EsMonto = true;
                 }
             }
@@ -95,12 +93,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 {
                     if (Model.EsMonto)
                     {
-                        EsMontoControl.Text = "$";
+                        EsMontoControl.Visible = true;
+                        lblPorcentaje.Visible = false;
                         EsMonto.Checked = true;
                     }
                     else
                     {
-                        EsMontoControl.Text = "%";
+                        EsMontoControl.Visible = false;
+                        lblPorcentaje.Visible = true;
                         rbProcentaje.Checked = true;
                     }
                 }
