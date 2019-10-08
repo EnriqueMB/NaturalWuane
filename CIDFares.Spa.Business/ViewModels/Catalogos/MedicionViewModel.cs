@@ -24,6 +24,20 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public BindingList<ListaMedicion> ListaValoresMedicion { get; set; }
         public BindingList<UnidadMedida> ListaUnidadMedida { get; set; }
         public EntityState State { get; set; }
+        /// <summary>
+        /// Almacena el número de pagina siguiente o actual según el caso
+        /// </summary>
+        public int Page { get; set; }
+        /// <summary>
+        /// Almacen si el el grid debe recargarse con los elementos actuales
+        /// ó obtener los nuevos registros de l siguiente página
+        /// </summary>
+        public int Opcion { get; set; }
+        /// <summary>
+        /// Almacena un bit para saber si ya se llego a la pagina maxima
+        /// o cuendo ya la lista viene vacia.
+        /// </summary>
+        public bool PaginaMaxima { get; set; }
         #endregion
 
         #region Constructor
@@ -43,11 +57,18 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             try
             {
-                var list = await MedicionRepository.GetAllAsync();
-                ListaMedicion.Clear();
-                foreach (var item in list)
+                var list = await MedicionRepository.GetAllAsync(Page, Opcion);
+                if (list.Count == 0)
+                    PaginaMaxima = true;
+                else
                 {
-                    ListaMedicion.Add(item);
+                    if(Opcion > 1)
+                        ListaMedicion.Clear();
+                    foreach (var item in list)
+                    {
+                        ListaMedicion.Add(item);
+                    }
+                    PaginaMaxima = false;
                 }
             }
             catch (Exception ex)

@@ -343,8 +343,10 @@
             gridTextColumn2.AllowEditing = false;
             gridTextColumn2.HeaderText = "Nombre";
             gridTextColumn2.MappingName = "Nombre";
+            gridTextColumn2.MaximumWidth = 300D;
+            gridTextColumn2.MinimumWidth = 300D;
             gridTextColumn3.AllowEditing = false;
-            gridTextColumn3.HeaderText = "Cantidad";
+            gridTextColumn3.HeaderText = "Cant.";
             gridTextColumn3.MappingName = "Cantidad";
             gridTextColumn4.AllowEditing = false;
             gridTextColumn4.Format = "c2";

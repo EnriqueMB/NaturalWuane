@@ -35,7 +35,7 @@ namespace CIDFares.Spa.WFApplication
             Application.SetCompatibleTextRenderingDefault(false);
             InitializeContainer();
             Application.Run(new FrmLogin());
-            //Application.Run(new FrmTurno());
+            //Application.Run(new FrmBaseBTN());
         }
 
         public static void InitializeContainer()
@@ -79,6 +79,9 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<CancelacionVentaValidator, IValidator<CancelacionVentaViewModel>>();
             ServiceLocator.Instance.Register<ListaMedicionValidator, IValidator<ListaMedicionViewModel>>();
             ServiceLocator.Instance.Register<MedicionValidator, IValidator<MedicionViewModel>>();
+            ServiceLocator.Instance.Register<AbonoPaqueteValidator, IValidator < PaqueteViewModel >> ();
+            ServiceLocator.Instance.Register<AbonoPaqueteValidator, IValidator < PaqueteViewModel >>();
+            ServiceLocator.Instance.Register<DireccionesClienteValidator, IValidator<DireccionesClienteViewModel>>();
             ServiceLocator.Instance.Register<AbonoPaqueteValidator, IValidator < PaqueteViewModel >>();
             ServiceLocator.Instance.Register<PromocionValidator, IValidator < PromocionViewModel >>();
         }
@@ -117,6 +120,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<MedicionViewModel>();
             ServiceLocator.Instance.Register<ListaMedicionViewModel>();
             ServiceLocator.Instance.Register<AbonoPaqueteDetalleViewModel>();
+            ServiceLocator.Instance.Register<DireccionesClienteViewModel>();
         }
     }
 }

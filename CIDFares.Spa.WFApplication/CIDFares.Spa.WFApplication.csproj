@@ -120,6 +120,12 @@
     <Compile Include="Forms\Catalogos\FrmTurnoPrincipal.Designer.cs">
       <DependentUpon>FrmTurnoPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\General\FrmBaseBTN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\General\FrmBaseBTN.Designer.cs">
+      <DependentUpon>FrmBaseBTN.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\General\FrmEntradaSalidaAlmacen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -499,6 +505,7 @@
     <Compile Include="Validations\CapturaCitaValidator.cs" />
     <Compile Include="Validations\AbonoPaqueteValidator.cs" />
     <Compile Include="Validations\CancelacionVentaValidator.cs" />
+    <Compile Include="Validations\DireccionesClienteValidator.cs" />
     <Compile Include="Validations\PromocionValidator.cs" />
     <Compile Include="Validations\EncuestaValidator.cs" />
     <Compile Include="Validations\EmpleadoValidator.cs" />
@@ -529,6 +536,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmTurnoPrincipal.resx">
       <DependentUpon>FrmTurnoPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\General\FrmBaseBTN.resx">
+      <DependentUpon>FrmBaseBTN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\FrmEntradaSalidaAlmacen.resx">
       <DependentUpon>FrmEntradaSalidaAlmacen.cs</DependentUpon>

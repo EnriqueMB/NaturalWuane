@@ -5,6 +5,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CIDFares.Library.Code.Extensions;
+using CIDFares.Spa.DataAccess.Contracts.DTOs;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using CIDFares.Spa.DataAccess.Repositories.Base;
@@ -215,6 +217,71 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        public async Task<int> AddWithDTO(DTOCliente element)
+        {
+            using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+            {
+                conexion.Open();
+                var dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@NuevoRegistro", element.DatosCliente.NuevoRegistro);
+                dynamicParameters.Add("@UpdateFoto", element.DatosCliente.UpdateFoto);
+                dynamicParameters.Add("@IdCliente", element.DatosCliente.IdCliente);
+                dynamicParameters.Add("@Clave", element.DatosCliente.Clave);
+                dynamicParameters.Add("@NombreCompleto", element.DatosCliente.NombreCompleto);
+                dynamicParameters.Add("@Telefono", element.DatosCliente.Telefono);
+                dynamicParameters.Add("@FechaNacimiento", element.DatosCliente.FechaNacimiento);
+                dynamicParameters.Add("@Sexo", element.DatosCliente.Sexo);
+                dynamicParameters.Add("@Foto", element.DatosCliente.FotoBase64);
+                dynamicParameters.Add("@Rfc", element.DatosCliente.Rfc);
+                dynamicParameters.Add("@email", element.DatosCliente.Email);
+                dynamicParameters.Add("@IdUsuarioL", element.DatosCliente.IdUsuarioL);
+                dynamicParameters.Add("@TablaDirecciones", element.ListaDireciones.ToDataTable(), DbType.Object);
+                var Resultado = await conexion.ExecuteScalarAsync<int>("[Cliente].[SPCID_AC_Cliente]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                return Resultado;
+            }
+        }
+
+        public async Task<List<Cliente>> GetAllAsync(int Pagina, int Opcion)
+        {
+            using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+            {
+                conexion.Open();
+                List<Cliente> Lista = new List<Cliente>();
+                Cliente item;
+                var parametros = new DynamicParameters();
+                parametros.Add("@Pagina", Pagina);
+                parametros.Add("@Cantidad", 50);
+                parametros.Add("@Opcion", Opcion);
+                var dr = await conexion.ExecuteReaderAsync("[Cliente].[SPCID_Get_Cliente]", param: parametros, commandType: CommandType.StoredProcedure);
+                while (dr.Read())
+                {
+                    item = new Cliente();
+                    item.IdCliente = dr.GetGuid(dr.GetOrdinal("IdCliente"));
+                    item.LocalId = dr.GetInt32(dr.GetOrdinal("LocalId"));
+                    item.NombreCompleto = dr.GetString(dr.GetOrdinal("NombreCompleto"));
+                    if (!dr.IsDBNull(dr.GetOrdinal("FechaNacimiento")))
+                    {
+                        DateTime date = dr.GetDateTime(dr.GetOrdinal("FechaNacimiento"));
+                        item.Edad = DateTime.Today.AddTicks(-date.Ticks).Year - 1;
+                    }
+                    else
+                        item.Edad = 0;
+                    item.FechaNacimiento = dr.GetDateTime(dr.GetOrdinal("FechaNacimiento"));
+                    item.Email = dr.GetString(dr.GetOrdinal("Email"));
+                    item.Telefono = dr.GetString(dr.GetOrdinal("Telefono"));
+                    item.Rfc = dr.GetString(dr.GetOrdinal("Rfc"));
+                    item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
+                    item.Sexo = Convert.ToChar(dr.GetString(dr.GetOrdinal("Sexo")));
+                    item.TieneTarjeta = dr.GetBoolean(dr.GetOrdinal("TieneMonedero"));
+                    if (!dr.IsDBNull(dr.GetOrdinal("PuntosMonedero")))
+                        item.PuntosMonedero = dr.GetInt32(dr.GetOrdinal("PuntosMonedero"));
+                    //item.PuntosMonedero = !dr.IsDBNull(dr.GetOrdinal("PuntosMonedero")) ? dr.GetDecimal(dr.GetOrdinal("PuntosMonedero")) : Decimal.Zero;
+                    Lista.Add(item);
+                }
+                return Lista;
             }
         }
         #endregion
