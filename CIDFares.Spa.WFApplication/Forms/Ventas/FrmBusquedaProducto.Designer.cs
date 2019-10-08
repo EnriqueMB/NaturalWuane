@@ -152,19 +152,23 @@
             gridTextColumn2.AllowEditing = false;
             gridTextColumn2.HeaderText = "Clave";
             gridTextColumn2.MappingName = "Clave";
+            gridTextColumn2.MaximumWidth = 100D;
+            gridTextColumn2.MinimumWidth = 90D;
             gridTextColumn3.AllowEditing = false;
             gridTextColumn3.HeaderText = "Nombre";
             gridTextColumn3.MappingName = "Nombre";
+            gridTextColumn3.MaximumWidth = 200D;
+            gridTextColumn3.MinimumWidth = 200D;
             gridTextColumn4.AllowEditing = false;
-            gridTextColumn4.HeaderText = "Categoria";
-            gridTextColumn4.MappingName = "NombreCategoria";
+            gridTextColumn4.HeaderText = "Existencia";
+            gridTextColumn4.MappingName = "CantidadProducto";
             gridTextColumn5.AllowEditing = false;
-            gridTextColumn5.HeaderText = "UnidadMedida";
-            gridTextColumn5.MappingName = "UnidadMedida";
+            gridTextColumn5.HeaderText = "Categoria";
+            gridTextColumn5.MappingName = "NombreCategoria";
+            gridTextColumn5.Visible = false;
             gridTextColumn6.AllowEditing = false;
-            gridTextColumn6.Format = "C2";
-            gridTextColumn6.HeaderText = "Precio Publico";
-            gridTextColumn6.MappingName = "PrecioPublico";
+            gridTextColumn6.HeaderText = "UM";
+            gridTextColumn6.MappingName = "UnidadMedida";
             gridTextColumn7.AllowEditing = false;
             gridTextColumn7.HeaderText = "Porcentaje Paquete";
             gridTextColumn7.MappingName = "PorcentajePaquete";
@@ -181,6 +185,7 @@
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn6);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn7);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn8);
+
             this.sfDataGridBuquedaProducto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridBuquedaProducto.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridBuquedaProducto.Name = "sfDataGridBuquedaProducto";
