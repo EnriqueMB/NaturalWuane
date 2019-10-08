@@ -85,6 +85,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             {
                     FrmBusquedaProducto buscar = new FrmBusquedaProducto();
                     buscar.ShowDialog();
+                if (buscar.producto.IdProducto != 0)
                     AgregarProducto(buscar.producto);
             }
             catch (Exception)
@@ -138,6 +139,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             {
                 FrmBuscarServicio buscar = new FrmBuscarServicio();
                 buscar.ShowDialog();
+                if(buscar.servicio.IdServicio != 0)
                 AgregarServicio(buscar.servicio);
             }
             catch (Exception)

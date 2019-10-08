@@ -80,7 +80,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             BtnAgregar.Text = "Seleccionar";
             CantidadProductoControl.Visible = false;
             Model.CantidadProducto = tipoBusqueda;
-            Model.CantidadProducto = cant;
+            //Model.CantidadProducto = cant;
             sfDataGridBuquedaProducto.Columns[9].Visible = false;
         }
 
