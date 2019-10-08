@@ -81,6 +81,7 @@
             this.Contraseña2Control = new System.Windows.Forms.TextBox();
             this.lblContraseña2 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.CambioContraseñaControl = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -121,7 +122,7 @@
             this.lblSubtitle.Location = new System.Drawing.Point(27, 34);
             this.lblSubtitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSubtitle.Name = "lblSubtitle";
-            this.lblSubtitle.Size = new System.Drawing.Size(102, 15);
+            this.lblSubtitle.Size = new System.Drawing.Size(101, 15);
             this.lblSubtitle.TabIndex = 182;
             this.lblSubtitle.Text = "NUEVO REGISTRO";
             // 
@@ -595,6 +596,7 @@
             // 
             // panel15
             // 
+            this.panel15.Controls.Add(this.CambioContraseñaControl);
             this.panel15.Controls.Add(this.ContraseñaControl);
             this.panel15.Controls.Add(this.lblContraseña);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -652,6 +654,19 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // CambioContraseñaControl
+            // 
+            this.CambioContraseñaControl.AutoSize = true;
+            this.CambioContraseñaControl.Checked = true;
+            this.CambioContraseñaControl.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CambioContraseñaControl.Location = new System.Drawing.Point(139, 7);
+            this.CambioContraseñaControl.Name = "CambioContraseñaControl";
+            this.CambioContraseñaControl.Size = new System.Drawing.Size(126, 17);
+            this.CambioContraseñaControl.TabIndex = 47;
+            this.CambioContraseñaControl.Text = "Modificar Contraseña";
+            this.CambioContraseñaControl.UseVisualStyleBackColor = true;
+            this.CambioContraseñaControl.CheckedChanged += new System.EventHandler(this.CambioContraseñaControl_CheckedChanged);
             // 
             // FrmEmpleado
             // 
@@ -759,5 +774,6 @@
         private System.Windows.Forms.PictureBox FotoControl;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.CheckBox CambioContraseñaControl;
     }
 }

@@ -42,6 +42,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@Direccion", element.Direccion);
                     dynamicParameters.Add("@Foto", element.FotoBase64);
                     dynamicParameters.Add("@Contraseña", element.Contraseña);
+                    dynamicParameters.Add("@CambioContraseña", element.CambiarContraseña);
                     dynamicParameters.Add("@IdSucursal", /*element.IdSucursal*/ 1);
                     
 
@@ -233,6 +234,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@Direccion", element.Direccion);
                     dynamicParameters.Add("@Foto", element.FotoBase64);
                     dynamicParameters.Add("@Contraseña", element.Contraseña);
+                    dynamicParameters.Add("@CambioContraseña", element.CambiarContraseña);
                     dynamicParameters.Add("@IdSucursal", /*element.IdSucursal*/ 1);
                     var Resultado = await conexion.ExecuteScalarAsync<int>("[Usuario].[SPCID_AC_Empleado]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = Resultado;

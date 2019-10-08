@@ -180,5 +180,18 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 throw ex;
             }
         }
+
+        private void pnlTop_MouseDown(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, 0x112, 0xf012, 0);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

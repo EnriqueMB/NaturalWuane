@@ -35,6 +35,7 @@ namespace CIDFares.Spa.Business.ViewModels.Compras
             Repository = compraRepository;
             ModelProveedor = ServiceLocator.Instance.Resolve<ProveedorViewModel>();
             ListaCompra = new BindingList<Compra>();
+            this.FechaCompra = DateTime.Now;
             //GetFolio();
         }
         #endregion
@@ -54,32 +55,77 @@ namespace CIDFares.Spa.Business.ViewModels.Compras
         }
         public async Task<Compra> GuardarVenta(Guid IdCuentaUsuario, int IdSucursal)
         {
-            Compra model = new Compra
+            try
             {
-                ProveedorCompra = new Proveedor { IdProveedor = this.IdProveedor },
-                Folio = this.Folio,
-                SubTotal = this.SubTotal,
-                Total = this.Total,
-                PorcentajeIva = this.Iva,
-                TablaProducto = TablaProducto,                
-            };
-            return await Repository.AddWithIdSucursalAsync(model, IdCuentaUsuario, IdSucursal);
+                Compra model = new Compra
+                {
+                    ProveedorCompra = new Proveedor { IdProveedor = this.IdProveedor },
+                    Folio = this.Folio,
+                    SubTotal = this.SubTotal,
+                    Total = this.Total,
+                    PorcentajeIva = this.Iva,
+                    TablaProducto = TablaProducto,
+                    IdEstatus = this.IdEstatus,
+                };
+                return await Repository.AddWithIdSucursalAsync(model, IdCuentaUsuario, IdSucursal);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }           
+        }
+
+        public async Task<Compra> ModificarCompra(Guid IdUsuario)
+        {
+            try
+            {
+                Compra C = new Compra
+                {
+                    ProveedorCompra = new Proveedor { IdProveedor = this.IdProveedor },
+                    IdCompra = this.IdCompra,
+                    SubTotal = this.SubTotal,
+                    Total = this.Total,
+                    PorcentajeIva = this.Iva,
+                    TablaProducto = TablaProducto,
+                    IdSucursal = this.IdSucursal,
+                    IdEstatus = this.IdEstatus,
+                };
+                return await Repository.UpdateAsync(C, IdUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+           
         }
         public async Task ObtenerComprasCreadas(int IdSucursal)
         {
-            var x = await Repository.GetCompraCreadasAsync(this.Folio, IdSucursal, this.FechaInicio, this.FechaFin);
-            ListaCompra.Clear();
-            foreach (var item in x)
+            try
             {
-                ListaCompra.Add(item);
+                var x = await Repository.GetCompraCreadasAsync(this.Folio, IdSucursal, this.FechaInicio, this.FechaFin);
+                ListaCompra.Clear();
+                foreach (var item in x)
+                {
+                    ListaCompra.Add(item);
+                }
             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }           
         }
-
         public async Task<int> GuardaCancelacionCompra(string Motivo, int IdSucursal, Guid IdCuentaUsuario)
         {
-            return await Repository.AddCancelacionAsync(this.IdCompra, Motivo, IdSucursal, IdCuentaUsuario);
+            try
+            {
+                return await Repository.AddCancelacionAsync(this.IdCompra, Motivo, IdSucursal, IdCuentaUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }            
         }
-
+                
         public void GetDetalle()
         {
             try
@@ -120,17 +166,12 @@ namespace CIDFares.Spa.Business.ViewModels.Compras
             catch (Exception ex)
             {
                 throw ex;
-            }
-           
-        }
-
-
-        
+            }           
+        }        
         #endregion
 
         #region Binding
         private Guid _IdCompra;
-
         public Guid IdCompra
         {
             get { return _IdCompra; }
@@ -140,7 +181,6 @@ namespace CIDFares.Spa.Business.ViewModels.Compras
                 OnPropertyChanged(nameof(IdCompra));
             }
         }
-
         private Guid _IdProveedor;
         public Guid IdProveedor
         {
@@ -161,7 +201,6 @@ namespace CIDFares.Spa.Business.ViewModels.Compras
                 OnPropertyChanged(nameof(Total));
             }
         }
-
         private decimal _SubTotal;
         public decimal SubTotal
         {
@@ -172,7 +211,6 @@ namespace CIDFares.Spa.Business.ViewModels.Compras
                 OnPropertyChanged(nameof(SubTotal));
             }
         }
-
         private decimal _Iva;
         public decimal Iva
         {
@@ -183,7 +221,6 @@ namespace CIDFares.Spa.Business.ViewModels.Compras
                 OnPropertyChanged(nameof(Iva));
             }
         }
-
         private decimal _Efectivo;
         public decimal Efectivo
         {
@@ -194,7 +231,6 @@ namespace CIDFares.Spa.Business.ViewModels.Compras
                 OnPropertyChanged(nameof(Efectivo));
             }
         }              
-
         private string _Folio;
         public string Folio
         {
@@ -205,7 +241,6 @@ namespace CIDFares.Spa.Business.ViewModels.Compras
                 OnPropertyChanged(nameof(Folio));
             }
         }
-
         private string _ClaveProveedor;
         public string ClaveProveedor
         {
@@ -216,7 +251,6 @@ namespace CIDFares.Spa.Business.ViewModels.Compras
                 OnPropertyChanged(nameof(ClaveProveedor));
             }
         }
-
         private DateTime _FechaInicio;
         public DateTime FechaInicio
         {
@@ -228,7 +262,6 @@ namespace CIDFares.Spa.Business.ViewModels.Compras
             }
         }
         private DateTime _FechaFin;
-
         public DateTime FechaFin
         {
             get { return _FechaFin; }
@@ -238,27 +271,45 @@ namespace CIDFares.Spa.Business.ViewModels.Compras
                 OnPropertyChanged(nameof(FechaFin));
             }
         }
-
         private DateTime _FechaCompra;
-
         public DateTime FechaCompra
         {
             get { return _FechaCompra; }
-            set { _FechaCompra = value; }
+            set
+            {
+                _FechaCompra = value;
+                OnPropertyChanged(nameof(FechaCompra));
+            }
+        }
+        private int _IdSucursal;
+        public int IdSucursal
+        {
+            get { return _IdSucursal; }
+            set
+            {
+                _IdSucursal = value;
+                OnPropertyChanged(nameof(IdSucursal));
+            }
+        }
+        private int _IdEstatus;
+        public int IdEstatus
+        {
+            get { return _IdEstatus; }
+            set
+            {
+                _IdEstatus = value;
+                OnPropertyChanged(nameof(IdEstatus));
+            }
         }
 
         #endregion
 
         #region InotifyPropertyChanged Members
         public event PropertyChangedEventHandler PropertyChanged;
-
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        
+        }        
         #endregion
-
     }
 }

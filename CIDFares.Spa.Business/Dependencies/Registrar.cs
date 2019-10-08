@@ -1,4 +1,5 @@
-﻿
+﻿using CIDFares.Library.Code.Utilities.IBase;
+using CIDFares.Library.Code.Utilities.Implements;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using CIDFares.Spa.DataAccess.Repositories.General;
@@ -39,11 +40,17 @@ namespace CIDFares.Spa.Business.Dependencies
             ServiceLocator.Instance.Register<PaqueteRepository, IPaqueteRepository>();
             ServiceLocator.Instance.Register<RegistroEntradaSalidaRepository, IRegistroEntradaSalidaRepository>();
             ServiceLocator.Instance.Register<CompraRepository, ICompraRepository>();
+            ServiceLocator.Instance.Register<PromocionRepository, IPromocionRepository>();
             ServiceLocator.Instance.Register<ProductosMonederoRepository, IProductosMonederoRepository>();
+            ServiceLocator.Instance.Register<EntradaSalidaAlmacenRepository, IEntradaSalidaAlmacenRepository>();
+            ServiceLocator.Instance.Register<InventarioFisicoRepository, IInventarioFisicoRepository>();
+            ServiceLocator.Instance.Register<AlimentoRepository, IAlimentoRepository>();
+            ServiceLocator.Instance.Register<TipoAlimentoRepository, ITipoAlimentoRepository>();
             ServiceLocator.Instance.Register<CambioVentaRepository, ICambioVentaRepository>();
             ServiceLocator.Instance.Register<MedicionRepository, IMedicionRepository>();
             ServiceLocator.Instance.Register<ListaMedicionRepository, IListaMedicionRepository>();
             ServiceLocator.Instance.Register<CancelacionVentaRepository, ICancelacionVentaRepository>();
+
         }
     }
 }

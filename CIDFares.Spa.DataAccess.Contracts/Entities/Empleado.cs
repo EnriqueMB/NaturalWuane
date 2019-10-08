@@ -32,6 +32,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public int Resultado { get; set; }
         public string CodigoBarra { get; set; }
         public bool UpdateFoto { get; set; }
+        public bool CambiarContraseña { get; set; }
 
 
     }

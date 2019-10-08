@@ -119,12 +119,12 @@ namespace CIDFares.Spa.WFApplication.Validations
             RuleFor(empleado => empleado.Contraseña2)
                       .Equal((x) => x.Contraseña)
                       .WithMessage("LAS CONTRASEÑAS NO COINCIDEN.")
-                      .When(empleado => empleado.Modificar); 
+             .When(empleado => empleado.Modificar); 
 
             RuleFor(empleado => empleado.Contraseña2)
                 .NotEmpty()
                 .WithMessage("DEBE INGRESAR UNA CONTRASEÑA")
-                .When(empleado => empleado.Modificar);
+               .When(empleado => empleado.Modificar);
         }
     }
 }

@@ -1,9 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace CIDFares.Spa.DataAccess.Contracts.Entities
 {
     public class Sucursal
     {
+        public Sucursal()
+        {
+            ListaHorario = new List<HorarioSucursal>();
+        }
         public int? IdSucursal { get; set; }
         public int? IdTipoSucursal { get; set; }
         public int NumSucursal { get; set; }
@@ -22,6 +28,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public string NombreRepresentante { get; set; }
         public string RegimenFiscal { get; set; }
         public int Result { get; set; }
+        public List<HorarioSucursal> ListaHorario { get; set; }
     }
 }
     

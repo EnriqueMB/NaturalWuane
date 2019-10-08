@@ -6,6 +6,7 @@ using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
+using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +25,27 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         public BusquedaProductoViewModel Model { get; set; }
         public BusqueProducto producto { get; set; }
         public int IDTipo { get; set; }
+        public int TipoBusqueda { get; set; }
         #endregion
+
+        public FrmBusquedaProducto(string compra)
+        {
+            InitializeComponent();
+            Model = ServiceLocator.Instance.Resolve<BusquedaProductoViewModel>();
+            producto = new BusqueProducto();
+            IniciarBinding();
+            BusClaveBarraControl.CheckedChanged -= BusClaveBarraControl_CheckedChanged;
+            BusClaveBarraControl.Checked = false;
+            BusClaveBarraControl.CheckedChanged += BusClaveBarraControl_CheckedChanged;
+            this.Model.BuscaClaveCodigo = true;
+            this.ActiveControl = this.BuquedaClaveCodigoControl;
+            this.BuquedaClaveCodigoControl.Focus();
+
+            sfDataGridBuquedaProducto.Columns[5].Visible = false;
+            sfDataGridBuquedaProducto.Columns[6].Visible = false;
+            sfDataGridBuquedaProducto.Columns[7].Visible = false;
+
+        }
 
         public FrmBusquedaProducto()
         {
@@ -38,9 +59,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             this.Model.BuscaClaveCodigo = true;
             this.ActiveControl = this.BuquedaClaveCodigoControl;
             this.BuquedaClaveCodigoControl.Focus();
+            sfDataGridBuquedaProducto.Columns[9].Visible = false;
         }
 
-        public FrmBusquedaProducto(int cant)
+        public FrmBusquedaProducto(int tipoBusqueda)
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<BusquedaProductoViewModel>();
@@ -52,8 +74,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             this.Model.BuscaClaveCodigo = true;
             this.ActiveControl = this.BuquedaClaveCodigoControl;
             this.BuquedaClaveCodigoControl.Focus();
+
+            label1.Visible = false;
             CantidadProductoControl.Visible = false;
-            Model.CantidadProducto = cant;
+            BtnAgregar.Text = "Seleccionar";
+            CantidadProductoControl.Visible = false;
+            Model.CantidadProducto = tipoBusqueda;
+            //Model.CantidadProducto = cant;
+            sfDataGridBuquedaProducto.Columns[9].Visible = false;
         }
 
         #region Metodo
@@ -101,7 +129,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     if (!string.IsNullOrEmpty(Model.BusquedaClaveCodigo))
                     {
                         errorProvider1.Clear();
-                        await Model.GetAll();
+                        await Model.GetAll(CurrentSession.IdSucursal);
                         if (Model.ListaBusquedaProducto.Count == 0)
                             CIDMessageBox.ShowAlert(Messages.SystemName, "LA BUSQUEDA REALIZADA NO SE ENCUENTA EN LA BASE DE DATOS.", TypeMessage.informacion);
                         else if (Model.ListaBusquedaProducto.Count == 1)
@@ -110,7 +138,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     else if (!string.IsNullOrEmpty(Model.BusquedaNombre))
                     {
                         errorProvider1.Clear();
-                        await Model.GetAll();
+                        await Model.GetAll(CurrentSession.IdSucursal);
                         if (Model.ListaBusquedaProducto.Count == 0)
                             CIDMessageBox.ShowAlert(Messages.SystemName, "LA BUSQUEDA REALIZADA NO SE ENCUENTA EN LA BASE DE DATOS.", TypeMessage.informacion);
                         else if (Model.ListaBusquedaProducto.Count == 1)

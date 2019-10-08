@@ -720,7 +720,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     {
                         if (rbtProducto.Checked == true)
                         {
-                            await Model.GetBusquedaRapida(1, BusquedaControl.Text);
+                            await Model.GetBusquedaRapida(1, BusquedaControl.Text, CurrentSession.IdSucursal);
                             if (Model.ListaBusquedaProducto.Count == 1)
                             {
                                 var item = Model.ListaBusquedaProducto.ElementAt(0);
@@ -742,7 +742,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                         }
                         else if (rbtServicio.Checked == true)
                         {
-                            await Model.GetBusquedaRapida(2, BusquedaControl.Text);
+                            await Model.GetBusquedaRapida(2, BusquedaControl.Text, CurrentSession.IdSucursal);
                             if (Model.ListaServicio.Count == 1)
                             {
                                 var item = Model.ListaServicio.ElementAt(0);
@@ -753,7 +753,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                         }
                         else if (rbtPaquete.Checked == true)
                         {
-                            await Model.GetBusquedaRapida(3, BusquedaControl.Text);
+                            await Model.GetBusquedaRapida(3, BusquedaControl.Text, CurrentSession.IdSucursal);
                             if (Model.ListaPaquete.Count == 1)
                             {
                                 var item = Model.ListaPaquete.ElementAt(0);
