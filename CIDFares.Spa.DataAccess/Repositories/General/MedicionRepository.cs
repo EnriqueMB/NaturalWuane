@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 using Dapper;
+using System.Linq;
 
 namespace CIDFares.Spa.DataAccess.Repositories.General
 {
@@ -61,6 +62,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 using (IDbConnection conexion = new SqlConnection(WebConnectionString))
                 {
                     conexion.Open();
+                    var param = new DynamicParameters();
                     var lista = await conexion.QueryAsync<Medicion>("[Catalogo].[SPCID_Get_MedicionPaciente]", commandType: CommandType.StoredProcedure);
                     return lista;
                 }
@@ -68,6 +70,20 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        public async Task<List<Medicion>> GetAllAsync(int Pagina, int Opcion)
+        {
+            using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+            {
+                conexion.Open();
+                var parametros = new DynamicParameters();
+                parametros.Add("@Pagina", Pagina);
+                parametros.Add("@Cantidad", 50);
+                parametros.Add("@Opcion", Opcion);
+                var lista = await conexion.QueryAsync<Medicion>("[Catalogo].[SPCID_Get_MedicionPaciente]", param:parametros, commandType: CommandType.StoredProcedure);
+                return lista.ToList();
             }
         }
 

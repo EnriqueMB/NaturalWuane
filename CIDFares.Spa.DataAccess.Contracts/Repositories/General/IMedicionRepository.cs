@@ -10,5 +10,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
 {
     public interface IMedicionRepository : IBaseRepository<Medicion>
     {
+        Task<List<Medicion>> GetAllAsync(int Pagina, int Opcion);
     }
 }
