@@ -223,17 +223,21 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
 
         private void rbProducto_CheckedChanged(object sender, EventArgs e)
         {
-            if(rbProducto.Checked)
+
+            if (rbProducto.Checked)
             {
                 Model.EsProducto = true;
                 grbBuscarServProd.Text = "Producto";
                 button1.Text = "Buscar Producto";
+                //Model.IdGenerico = 0;
+                Model.Nombre = string.Empty;
             }
             else if(rbServicio.Checked)
             {
                 Model.EsProducto = false;
                 grbBuscarServProd.Text = "Servicio";
                 button1.Text = "Buscar servicio";
+                Model.Nombre = string.Empty;
             }
         }
 

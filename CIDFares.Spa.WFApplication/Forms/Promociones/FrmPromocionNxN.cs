@@ -1,4 +1,5 @@
-﻿using CIDFares.Spa.Business.ViewModels.Promociones;
+﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Spa.Business.ViewModels.Promociones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             Model = model;
             EsSiguiente = false;
             this.IniciarBinding();
+            Model.EsPromocionNxN = true;
+            Model.EsDescuento = false;
+            Model.EsPromocionMxN = false;
+            Model.EsCapturaFecha = false;
         }
 
         private void IniciarBinding()
@@ -44,21 +49,36 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            try
+           try
             {
+                errorProvider1.Clear();
+                this.CleanErrors(errorProvider1, typeof(PromocionViewModel));
                 if (String.IsNullOrEmpty(Model.Nombre))
                     errorProvider1.SetError(btnAgregar, "Selecione un producto o servicio");
                 else
                 {
-                    FrmPromocionDias dias = new FrmPromocionDias(Model);
-                    dias.ShowDialog();
-                    if (dias.Resultado == 1)
+                    if (String.IsNullOrEmpty(Model.NombrePromocion))
+                        errorProvider1.SetError(btnAgregar, "Ingrese un nombre de la promoción");
+                    else
                     {
-                        this.Close();
-                        Model.Resultado = 1;
-                        LimpiarPropiedades();
+                        var validationResults = Model.Validate();
+                        validationResults.ToString();
+                        if (validationResults.IsValid)
+                        {
+                            FrmPromocionDias dias = new FrmPromocionDias(Model);
+                            dias.ShowDialog();
+                            if (dias.Resultado == 1)
+                            {
+                                this.Close();
+                                Model.Resultado = 1;
+                                LimpiarPropiedades();
+                            }
+                        }
+                        else
+                            this.ShowErrors(errorProvider1, typeof(PromocionViewModel), validationResults);
                     }
                 }
+                
             }
             catch (Exception)
             {

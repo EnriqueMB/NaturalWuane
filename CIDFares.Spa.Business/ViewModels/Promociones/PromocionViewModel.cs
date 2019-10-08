@@ -587,7 +587,11 @@ namespace CIDFares.Spa.Business.ViewModels.Promociones
             }
         }
 
-        public int Resultado { get; set; } 
+        public int Resultado { get; set; }
+        public bool EsCapturaFecha { get; set; }
+        public bool EsDescuento { get; set; }
+        public bool EsPromocionNxN { get; set; }
+        public bool EsPromocionMxN { get; set; }
 
         #endregion
 

@@ -1,4 +1,5 @@
-﻿using CIDFares.Spa.Business.ViewModels.Promociones;
+﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Spa.Business.ViewModels.Promociones;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             InitializeComponent();
             this.Model = model;
             this.IniciarBinding();
+            Model.EsDescuento = true;
+            Model.EsPromocionMxN = false;
+            Model.EsPromocionNxN = false;
         }
 
         private void IniciarBinding()
@@ -29,7 +33,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             try
             {
                 EsMonto.DataBindings.Add("Checked", Model, "EsMonto", true, DataSourceUpdateMode.OnPropertyChanged);
-                NombreProductoControl.DataBindings.Add("Text", Model, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
+                NombreControl.DataBindings.Add("Text", Model, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
                 DescuentoControl.DataBindings.Add("Text", Model, "Descuento", true, DataSourceUpdateMode.OnPropertyChanged);
             }
             catch (Exception ex)
@@ -110,19 +114,34 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
         {
             try
             {
+                errorProvider1.Clear();
+                this.CleanErrors(errorProvider1, typeof(PromocionViewModel));
                 if (String.IsNullOrEmpty(Model.Nombre))
-                    errorProvider1.SetError(NombreProductoControl, "Selecione un producto o servicio");
+                    errorProvider1.SetError(btnAgregar, "Selecione un producto o servicio");
                 else
                 {
-                    FrmPromocionDias dias = new FrmPromocionDias(Model);
-                    dias.ShowDialog();
-                    if (dias.Resultado == 1)
+                    if (String.IsNullOrEmpty(Model.NombrePromocion))
+                        errorProvider1.SetError(btnAgregar, "Ingrese un nombre de la promoción");
+                    else
                     {
-                        this.Close();
-                        Model.Resultado = 1;
-                        LimpiarPropiedades();
+                        var validationResults = Model.Validate();
+                        validationResults.ToString();
+                        if (validationResults.IsValid)
+                        {
+                            FrmPromocionDias dias = new FrmPromocionDias(Model);
+                            dias.ShowDialog();
+                            if (dias.Resultado == 1)
+                            {
+                                this.Close();
+                                Model.Resultado = 1;
+                                LimpiarPropiedades();
+                            }
+                        }
+                        else
+                            this.ShowErrors(errorProvider1, typeof(PromocionViewModel), validationResults);
                     }
                 }
+                
             }
             catch (Exception)
             {

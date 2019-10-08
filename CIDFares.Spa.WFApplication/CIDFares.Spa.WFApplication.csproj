@@ -469,6 +469,7 @@
     <Compile Include="Validations\CapturaCitaValidator.cs" />
     <Compile Include="Validations\AbonoPaqueteValidator.cs" />
     <Compile Include="Validations\CancelacionVentaValidator.cs" />
+    <Compile Include="Validations\PromocionValidator.cs" />
     <Compile Include="Validations\EncuestaValidator.cs" />
     <Compile Include="Validations\EmpleadoValidator.cs" />
     <Compile Include="Validations\ListaMedicionValidator.cs" />

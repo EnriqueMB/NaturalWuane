@@ -232,9 +232,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(6, 77);
+            this.label2.Location = new System.Drawing.Point(6, 114);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(218, 52);
+            this.label2.Size = new System.Drawing.Size(218, 34);
             this.label2.TabIndex = 3;
             this.label2.Text = "Agregar un nombre a la promocion";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -245,7 +245,7 @@
             this.NombrePromocionControl.Multiline = true;
             this.NombrePromocionControl.Name = "NombrePromocionControl";
             this.NombrePromocionControl.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.NombrePromocionControl.Size = new System.Drawing.Size(212, 39);
+            this.NombrePromocionControl.Size = new System.Drawing.Size(195, 89);
             this.NombrePromocionControl.TabIndex = 0;
             // 
             // panelContenedor

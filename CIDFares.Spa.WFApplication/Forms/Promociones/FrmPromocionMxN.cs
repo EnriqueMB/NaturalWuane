@@ -1,4 +1,5 @@
-﻿using CIDFares.Library.Controls.CIDMessageBox.Code;
+﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Spa.Business.ViewModels.Promociones;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
@@ -27,6 +28,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             Model = model;
             EsSiguiente = false;
             this.IniciarBinding();
+            Model.EsPromocionMxN = true;
+            Model.EsPromocionNxN = false;
+            Model.EsDescuento = false;
         }
 
         private void IniciarBinding()
@@ -227,20 +231,28 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
         {
             try
             {
-                BindingList<PromocionMxN> ListaPromocionMxN = (BindingList<PromocionMxN>)GridPS.DataSource;
-                //this.CleanErrors(errorProvider1, typeof(VentasViewModel));
-                //var validationResults = Model.Validate();
-                //validationResults.ToString();
-
-                //if (validationResults.IsValid)
-                //{
+                errorProvider1.Clear();
+                this.CleanErrors(errorProvider1, typeof(PromocionViewModel));
+                if (String.IsNullOrEmpty(Model.Nombre))
+                    errorProvider1.SetError(btnAgregar, "Selecione un producto o servicio");
+                else
+                {
+                    if (String.IsNullOrEmpty(Model.NombrePromocion))
+                        errorProvider1.SetError(btnAgregar, "Ingrese un nombre de la promoción");
+                    else
+                    {
+                        var validationResults = Model.Validate();
+                        validationResults.ToString();
+                        if (validationResults.IsValid)
+                        {
+                    BindingList<PromocionMxN> ListaPromocionMxN = (BindingList<PromocionMxN>)GridPS.DataSource;
                     if (ListaPromocionMxN.Count > 0)
                     {
                         Model.TablaProducto = ObtenerTablaProducto(ListaPromocionMxN);
                         Model.TablaServicio = ObtenerTablaServicio(ListaPromocionMxN);
                         FrmPromocionDias promocionDias = new FrmPromocionDias(Model);
                         promocionDias.ShowDialog();
-                    if (promocionDias.Resultado == 1)
+                        if (promocionDias.Resultado == 1)
                         {
                             this.Close();
                             Model.Resultado = 1;
@@ -249,9 +261,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                     }
                     else
                         errorProvider1.SetError(btnAgregar, "Seleccione al menos un articulo.");
-                //}
-                //else
-                //    this.ShowErrors(errorProvider1, typeof(VentasViewModel), validationResults);
+                        }
+                        else
+                            this.ShowErrors(errorProvider1, typeof(PromocionViewModel), validationResults);
+                    }
+                }
+
             }
             catch (Exception)
             {

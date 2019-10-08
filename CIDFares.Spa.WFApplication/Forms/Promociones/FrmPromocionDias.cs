@@ -1,4 +1,5 @@
-﻿using CIDFares.Library.Controls.CIDMessageBox.Code;
+﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Spa.Business.ViewModels.Promociones;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
@@ -25,6 +26,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             InitializeComponent();
             this.Model = model;
             this.IniciarBinding();
+            Model.EsCapturaFecha = true;
         }
 
         private void IniciarBinding()
@@ -33,15 +35,15 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             {
                 LimiteControl.DataBindings.Add("Text", Model, "Limite", true, DataSourceUpdateMode.OnPropertyChanged);
                 rbPeriodo.DataBindings.Add("Checked", Model, "EsPeriodo", true, DataSourceUpdateMode.OnPropertyChanged);
-                FechaInicioControl.DataBindings.Add("Text", Model, "FechaInicio", true, DataSourceUpdateMode.OnPropertyChanged);
-                FechaFinControl.DataBindings.Add("Text", Model, "FechaFin", true, DataSourceUpdateMode.OnPropertyChanged);
-                Lunes.DataBindings.Add("Checked", Model, "Lunes", true, DataSourceUpdateMode.OnPropertyChanged);
+                FechaInicioControl.DataBindings.Add("Value", Model, "FechaInicio", true, DataSourceUpdateMode.OnPropertyChanged);
+                FechaFinControl.DataBindings.Add("Value", Model, "FechaFin", true, DataSourceUpdateMode.OnPropertyChanged);
+                LunesControl.DataBindings.Add("Checked", Model, "Lunes", true, DataSourceUpdateMode.OnPropertyChanged);
                 Martes.DataBindings.Add("Checked", Model, "Martes", true, DataSourceUpdateMode.OnPropertyChanged);
                 Miercoles.DataBindings.Add("Checked", Model, "Miercoles", true, DataSourceUpdateMode.OnPropertyChanged);
                 Jueves.DataBindings.Add("Checked", Model, "Jueves", true, DataSourceUpdateMode.OnPropertyChanged);
                 Viernes.DataBindings.Add("Checked", Model, "Viernes", true, DataSourceUpdateMode.OnPropertyChanged);
                 Sabado.DataBindings.Add("Checked", Model, "Sabado", true, DataSourceUpdateMode.OnPropertyChanged);
-                Domingo.DataBindings.Add("Checked", Model, "Domingo", true, DataSourceUpdateMode.OnPropertyChanged);
+                DomingoControl.DataBindings.Add("Checked", Model, "Domingo", true, DataSourceUpdateMode.OnPropertyChanged);
             }
             catch (Exception ex)
             {
@@ -97,11 +99,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                     }
                 }
                 else
-                {
-                    rbPeriodo.Checked = true;
-                    Model.FechaInicio = DateTime.Now;
-                    Model.FechaInicio = DateTime.Now.AddMonths(1);
-                }
+                rbPeriodo.Checked = true;
+                Model.FechaInicio = DateTime.Now;
+                Model.FechaFin = DateTime.Now.AddMonths(1);
             }
             catch (Exception)
             {
@@ -116,31 +116,38 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             try
             {
                 int resultado = 0;
+                this.CleanErrors(errorProvider1, typeof(PromocionViewModel));
+                var validationResults = Model.Validate();
+                validationResults.ToString();
+                if (validationResults.IsValid)
+                {
+                    if (Model.IdTipoPromocion == 1)
+                    {
+                        PromocionDescuento promocionDescuento = await Model.GuardarPromocionDescuento(CurrentSession.IdCuentaUsuario);
+                        resultado = promocionDescuento.Promocion.Resultado;
+                    }
+                    else if (Model.IdTipoPromocion == 2)
+                    {
+                        PromocionNxN promocionNxN = await Model.GuardarPromocionNxN(CurrentSession.IdCuentaUsuario);
+                        resultado = promocionNxN.Promocion.Resultado; 
+                    }
+                    else if (Model.IdTipoPromocion == 3)
+                    {
+                        PromocionMxN promocionMxN = await Model.GuardarPromocionMxN(CurrentSession.IdCuentaUsuario);
+                        resultado = promocionMxN.Promocion.Resultado;
+                    }
 
-                if (Model.IdTipoPromocion == 1)
-                {
-                    PromocionDescuento promocionDescuento = await Model.GuardarPromocionDescuento(CurrentSession.IdCuentaUsuario);
-                    resultado = promocionDescuento.Promocion.Resultado;
-                }
-                else if (Model.IdTipoPromocion == 2)
-                {
-                    PromocionNxN promocionNxN = await Model.GuardarPromocionNxN(CurrentSession.IdCuentaUsuario);
-                    resultado = promocionNxN.Promocion.Resultado; 
-                }
-                else if (Model.IdTipoPromocion == 3)
-                {
-                    PromocionMxN promocionMxN = await Model.GuardarPromocionMxN(CurrentSession.IdCuentaUsuario);
-                    resultado = promocionMxN.Promocion.Resultado;
-                }
-
-                if (resultado == 1)
-                {
-                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
-                    this.Close();
-                    Resultado = 1;
+                    if (resultado == 1)
+                    {
+                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                        this.Close();
+                        Resultado = 1;
+                    }
+                    else
+                        CIDMessageBox.ShowAlert(Messages.ErrorMessage, "Desconocido", TypeMessage.error);
                 }
                 else
-                    CIDMessageBox.ShowAlert(Messages.ErrorMessage, "Desconocido", TypeMessage.error);
+                    this.ShowErrors(errorProvider1, typeof(PromocionViewModel), validationResults);
             }
             catch (Exception)
             {

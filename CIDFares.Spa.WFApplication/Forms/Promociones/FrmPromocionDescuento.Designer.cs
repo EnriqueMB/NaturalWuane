@@ -43,7 +43,7 @@
             this.rbProcentaje = new System.Windows.Forms.RadioButton();
             this.EsMonto = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.NombreProductoControl = new System.Windows.Forms.Label();
+            this.NombreControl = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -216,7 +216,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.NombreProductoControl);
+            this.groupBox1.Controls.Add(this.NombreControl);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(33, 33);
@@ -225,18 +225,17 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // NombreProductoControl
+            // NombreControl
             // 
-            this.NombreProductoControl.BackColor = System.Drawing.Color.Transparent;
-            this.NombreProductoControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.NombreProductoControl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NombreProductoControl.ForeColor = System.Drawing.Color.Black;
-            this.NombreProductoControl.Location = new System.Drawing.Point(3, 19);
-            this.NombreProductoControl.Name = "NombreProductoControl";
-            this.NombreProductoControl.Size = new System.Drawing.Size(633, 41);
-            this.NombreProductoControl.TabIndex = 3;
-            this.NombreProductoControl.Text = "Coca cola ";
-            this.NombreProductoControl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.NombreControl.BackColor = System.Drawing.Color.Transparent;
+            this.NombreControl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NombreControl.ForeColor = System.Drawing.Color.Black;
+            this.NombreControl.Location = new System.Drawing.Point(151, 19);
+            this.NombreControl.Name = "NombreControl";
+            this.NombreControl.Size = new System.Drawing.Size(348, 41);
+            this.NombreControl.TabIndex = 3;
+            this.NombreControl.Text = "Coca cola ";
+            this.NombreControl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // errorProvider1
             // 
@@ -271,7 +270,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label NombreProductoControl;
+        private System.Windows.Forms.Label NombreControl;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.GroupBox groupBox3;
