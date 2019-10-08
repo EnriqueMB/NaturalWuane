@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
@@ -37,11 +38,6 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn17 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn18 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn19 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn20 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn21 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn22 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenedoGridGuardar = new System.Windows.Forms.Panel();
             this.panelGuardar = new System.Windows.Forms.Panel();
@@ -53,12 +49,12 @@
             this.panelBuscador = new System.Windows.Forms.Panel();
             this.BtnBusqueda = new System.Windows.Forms.Button();
             this.ErrorControl = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.NombreControl = new System.Windows.Forms.TextBox();
             this.BuquedaClaveCodigoControl = new System.Windows.Forms.TextBox();
             this.BusqueNombreControl = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
             this.BusClaveBarraControl = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.panelContenedor.SuspendLayout();
             this.panelContenedoGridGuardar.SuspendLayout();
             this.panelGuardar.SuspendLayout();
@@ -85,9 +81,9 @@
             this.panelContenedoGridGuardar.Controls.Add(this.panelGuardar);
             this.panelContenedoGridGuardar.Controls.Add(this.panelGrid);
             this.panelContenedoGridGuardar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedoGridGuardar.Location = new System.Drawing.Point(0, 62);
+            this.panelContenedoGridGuardar.Location = new System.Drawing.Point(0, 58);
             this.panelContenedoGridGuardar.Name = "panelContenedoGridGuardar";
-            this.panelContenedoGridGuardar.Size = new System.Drawing.Size(916, 420);
+            this.panelContenedoGridGuardar.Size = new System.Drawing.Size(916, 424);
             this.panelContenedoGridGuardar.TabIndex = 1;
             // 
             // panelGuardar
@@ -95,6 +91,7 @@
             this.panelGuardar.Controls.Add(this.BtnAgregar);
             this.panelGuardar.Controls.Add(this.label1);
             this.panelGuardar.Controls.Add(this.CantidadProductoControl);
+            this.panelGuardar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelGuardar.Location = new System.Drawing.Point(755, 0);
             this.panelGuardar.Name = "panelGuardar";
             this.panelGuardar.Size = new System.Drawing.Size(161, 420);
@@ -119,11 +116,11 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(16, 94);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 20);
+            this.label1.Size = new System.Drawing.Size(75, 21);
             this.label1.TabIndex = 8;
             this.label1.Text = "Cantidad:";
             // 
@@ -133,7 +130,7 @@
             this.CantidadProductoControl.Location = new System.Drawing.Point(20, 128);
             this.CantidadProductoControl.MaxLength = 200;
             this.CantidadProductoControl.Name = "CantidadProductoControl";
-            this.CantidadProductoControl.Size = new System.Drawing.Size(113, 20);
+            this.CantidadProductoControl.Size = new System.Drawing.Size(113, 29);
             this.CantidadProductoControl.TabIndex = 7;
             // 
             // panelGrid
@@ -142,7 +139,7 @@
             this.panelGrid.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelGrid.Location = new System.Drawing.Point(0, 0);
             this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(755, 420);
+            this.panelGrid.Size = new System.Drawing.Size(755, 424);
             this.panelGrid.TabIndex = 0;
             // 
             // sfDataGridBuquedaProducto
@@ -150,50 +147,44 @@
             this.sfDataGridBuquedaProducto.AccessibleName = "Table";
             this.sfDataGridBuquedaProducto.AllowEditing = false;
             this.sfDataGridBuquedaProducto.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            gridTextColumn10.AllowEditing = false;
+            gridTextColumn10.HeaderText = "IdProducto";
+            gridTextColumn10.MappingName = "IdProducto";
+            gridTextColumn10.Visible = false;
+            gridTextColumn11.AllowEditing = false;
+            gridTextColumn11.HeaderText = "Clave";
+            gridTextColumn11.MappingName = "Clave";
+            gridTextColumn11.MaximumWidth = 100D;
+            gridTextColumn11.MinimumWidth = 90D;
             gridTextColumn12.AllowEditing = false;
-            gridTextColumn12.HeaderText = "IdProducto";
-            gridTextColumn12.MappingName = "IdProducto";
-            gridTextColumn12.Visible = false;
+            gridTextColumn12.HeaderText = "Nombre";
+            gridTextColumn12.MappingName = "Nombre";
+            gridTextColumn12.MaximumWidth = 200D;
+            gridTextColumn12.MinimumWidth = 200D;
             gridTextColumn13.AllowEditing = false;
-            gridTextColumn13.HeaderText = "Clave";
-            gridTextColumn13.MappingName = "Clave";
-            gridTextColumn13.MaximumWidth = 100D;
-            gridTextColumn13.MinimumWidth = 90D;
+            gridTextColumn13.HeaderText = "Existencia";
+            gridTextColumn13.MappingName = "CantidadProducto";
             gridTextColumn14.AllowEditing = false;
-            gridTextColumn14.HeaderText = "Nombre";
-            gridTextColumn14.MappingName = "Nombre";
-            gridTextColumn14.MaximumWidth = 200D;
-            gridTextColumn14.MinimumWidth = 200D;
+            gridTextColumn14.HeaderText = "Categoria";
+            gridTextColumn14.MappingName = "NombreCategoria";
+            gridTextColumn14.Visible = false;
             gridTextColumn15.AllowEditing = false;
-            gridTextColumn15.HeaderText = "Existencia";
-            gridTextColumn15.MappingName = "CantidadProducto";
+            gridTextColumn15.HeaderText = "UM";
+            gridTextColumn15.MappingName = "UnidadMedida";
             gridTextColumn16.AllowEditing = false;
-            gridTextColumn16.HeaderText = "Categoria";
-            gridTextColumn16.MappingName = "NombreCategoria";
-            gridTextColumn16.Visible = false;
+            gridTextColumn16.Format = "C2";
+            gridTextColumn16.HeaderText = "P. Publico";
+            gridTextColumn16.MappingName = "PrecioPublico";
             gridTextColumn17.AllowEditing = false;
-            gridTextColumn17.HeaderText = "UM";
-            gridTextColumn17.MappingName = "UnidadMedida";
+            gridTextColumn17.HeaderText = "Porcentaje Paquete";
+            gridTextColumn17.MappingName = "PorcentajePaquete";
+            gridTextColumn17.Visible = false;
             gridTextColumn18.AllowEditing = false;
-            gridTextColumn18.Format = "C2";
-            gridTextColumn18.HeaderText = "P. Publico";
-            gridTextColumn18.MappingName = "PrecioPublico";
-            gridTextColumn19.AllowEditing = false;
-            gridTextColumn19.Format = "C2";
-            gridTextColumn19.HeaderText = "P. Mayoreo";
-            gridTextColumn19.MappingName = "PrecioMayoreo";
-            gridTextColumn20.AllowEditing = false;
-            gridTextColumn20.Format = "C2";
-            gridTextColumn20.HeaderText = "P. Menudeo";
-            gridTextColumn20.MappingName = "PrecioMenudeo";
-            gridTextColumn21.AllowEditing = false;
-            gridTextColumn21.HeaderText = "Porcentaje Paquete";
-            gridTextColumn21.MappingName = "PorcentajePaquete";
-            gridTextColumn21.Visible = false;
-            gridTextColumn22.AllowEditing = false;
-            gridTextColumn22.Format = "C";
-            gridTextColumn22.HeaderText = "Costo";
-            gridTextColumn22.MappingName = "CostoProducto";
+            gridTextColumn18.Format = "C";
+            gridTextColumn18.HeaderText = "Costo";
+            gridTextColumn18.MappingName = "CostoProducto";
+            this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn10);
+            this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn11);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn12);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn13);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn14);
@@ -201,24 +192,20 @@
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn16);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn17);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn18);
-            this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn19);
-            this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn20);
-            this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn21);
-            this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn22);
             this.sfDataGridBuquedaProducto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridBuquedaProducto.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridBuquedaProducto.Name = "sfDataGridBuquedaProducto";
-            this.sfDataGridBuquedaProducto.Size = new System.Drawing.Size(755, 420);
+            this.sfDataGridBuquedaProducto.Size = new System.Drawing.Size(755, 424);
             this.sfDataGridBuquedaProducto.TabIndex = 2;
             this.sfDataGridBuquedaProducto.Text = "sfDataGrid1";
             this.sfDataGridBuquedaProducto.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.sfDataGridBuquedaProducto_CellDoubleClick);
             // 
             // panelBuscador
             // 
-            this.panelBuscador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.panelBuscador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.panelBuscador.Controls.Add(this.lblTitulo);
             this.panelBuscador.Controls.Add(this.BtnBusqueda);
             this.panelBuscador.Controls.Add(this.ErrorControl);
-            this.panelBuscador.Controls.Add(this.label2);
             this.panelBuscador.Controls.Add(this.NombreControl);
             this.panelBuscador.Controls.Add(this.BuquedaClaveCodigoControl);
             this.panelBuscador.Controls.Add(this.BusqueNombreControl);
@@ -226,7 +213,7 @@
             this.panelBuscador.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBuscador.Location = new System.Drawing.Point(0, 0);
             this.panelBuscador.Name = "panelBuscador";
-            this.panelBuscador.Size = new System.Drawing.Size(916, 62);
+            this.panelBuscador.Size = new System.Drawing.Size(916, 58);
             this.panelBuscador.TabIndex = 0;
             // 
             // BtnBusqueda
@@ -236,7 +223,7 @@
             this.BtnBusqueda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
             this.BtnBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBusqueda.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBusqueda.Location = new System.Drawing.Point(777, 18);
+            this.BtnBusqueda.Location = new System.Drawing.Point(812, 16);
             this.BtnBusqueda.Name = "BtnBusqueda";
             this.BtnBusqueda.Size = new System.Drawing.Size(89, 26);
             this.BtnBusqueda.TabIndex = 13;
@@ -248,26 +235,15 @@
             // 
             this.ErrorControl.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ErrorControl.AutoSize = true;
-            this.ErrorControl.Location = new System.Drawing.Point(752, 25);
+            this.ErrorControl.Location = new System.Drawing.Point(752, 23);
             this.ErrorControl.Name = "ErrorControl";
             this.ErrorControl.Size = new System.Drawing.Size(0, 13);
             this.ErrorControl.TabIndex = 11;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 21);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Buscar producto";
-            // 
             // NombreControl
             // 
             this.NombreControl.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.NombreControl.Location = new System.Drawing.Point(483, 31);
+            this.NombreControl.Location = new System.Drawing.Point(507, 29);
             this.NombreControl.MaxLength = 200;
             this.NombreControl.Name = "NombreControl";
             this.NombreControl.Size = new System.Drawing.Size(226, 20);
@@ -277,7 +253,7 @@
             // BuquedaClaveCodigoControl
             // 
             this.BuquedaClaveCodigoControl.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BuquedaClaveCodigoControl.Location = new System.Drawing.Point(201, 30);
+            this.BuquedaClaveCodigoControl.Location = new System.Drawing.Point(225, 28);
             this.BuquedaClaveCodigoControl.MaxLength = 200;
             this.BuquedaClaveCodigoControl.Name = "BuquedaClaveCodigoControl";
             this.BuquedaClaveCodigoControl.Size = new System.Drawing.Size(238, 20);
@@ -288,7 +264,7 @@
             // 
             this.BusqueNombreControl.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.BusqueNombreControl.BeforeTouchSize = new System.Drawing.Size(175, 21);
-            this.BusqueNombreControl.Location = new System.Drawing.Point(509, 6);
+            this.BusqueNombreControl.Location = new System.Drawing.Point(533, 4);
             this.BusqueNombreControl.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
             this.BusqueNombreControl.Name = "BusqueNombreControl";
             this.BusqueNombreControl.Size = new System.Drawing.Size(175, 21);
@@ -303,7 +279,7 @@
             // 
             this.BusClaveBarraControl.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.BusClaveBarraControl.BeforeTouchSize = new System.Drawing.Size(238, 21);
-            this.BusClaveBarraControl.Location = new System.Drawing.Point(211, 6);
+            this.BusClaveBarraControl.Location = new System.Drawing.Point(235, 4);
             this.BusClaveBarraControl.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
             this.BusClaveBarraControl.Name = "BusClaveBarraControl";
             this.BusClaveBarraControl.Size = new System.Drawing.Size(238, 21);
@@ -317,6 +293,16 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(10, 16);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(174, 30);
+            this.lblTitulo.TabIndex = 14;
+            this.lblTitulo.Text = "Buscar producto";
             // 
             // FrmBusquedaProducto
             // 
@@ -360,8 +346,8 @@
         private System.Windows.Forms.TextBox CantidadProductoControl;
         private System.Windows.Forms.Button BtnAgregar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label ErrorControl;
         private System.Windows.Forms.Button BtnBusqueda;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }
