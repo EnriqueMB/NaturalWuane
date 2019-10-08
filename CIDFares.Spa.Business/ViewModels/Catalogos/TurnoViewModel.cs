@@ -33,14 +33,14 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #endregion
 
         #region Metodos
-        public async Task GetListaTurno()
+        public async Task<Turno> GetListaTurno(int? IdTurno)
         {
             try
             {
                 Turno listaTurno;
                 listaTurno = await TurnoRepository.GetAsync(IdTurno);
                 NombreTurno = listaTurno.NombreTurno;
-                ListaValores = new BindingList<TurnoDias>(listaTurno.DatosValor.ToList());
+                return listaTurno;
             }
             catch(Exception ex)
             {
@@ -48,33 +48,30 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        /*public async Task GetAll()
-        {
-            try
-            {
-                var x = await TurnoRepository.GetAllAsync();
-                ListaTurno.Clear();
-                foreach (var item in x)
-                {
-                    ListaTurno.Add(item);
-                }
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
-        }*/
-
-        public async Task<Turno> GuardarCambios(Guid IdUsuario, DataTable TablaValores)
+         public async Task<Turno> GuardarCambios(Guid IdUsuario, DataTable TablaValores)
         {
             try
             {
                 Turno turno = new Turno();
-                turno.NombreTurno = NombreTurno;
-                turno.TablaValores = TablaValores;
-                turno.IdUsuario = IdUsuario;
-                turno = await TurnoRepository.AddAsync(turno, IdUsuario);
+                if (State == EntityState.Create)
+                { 
+                    turno.NombreTurno = NombreTurno;
+                    turno.TablaValores = TablaValores;
+                    turno.IdUsuario = IdUsuario;
+                    turno = await TurnoRepository.AddAsync(turno, IdUsuario);
+                    return turno;
+                }
+                else if (State == EntityState.Update)
+                {
+                    turno.IdTurno = IdTurno;
+                    turno.NombreTurno = NombreTurno;
+                    turno.TablaValores = TablaValores;
+                    turno.IdUsuario = IdUsuario;
+                    turno = await TurnoRepository.UpdateAsync(turno, IdUsuario);
+                    return turno;
+                }
                 return turno;
+                
             }
             catch(Exception ex)
             {
@@ -94,11 +91,13 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        public async Task<Turno> GetAsync()
+        public async Task GetAsync()
         {
             try
             {
-                return await TurnoRepository.GetAsync(this.IdTurno);
+                Turno turno = new Turno();
+                turno = await TurnoRepository.GetAsync(this.IdTurno);
+                NombreTurno = turno.NombreTurno;
             }
             catch(Exception ex)
             {

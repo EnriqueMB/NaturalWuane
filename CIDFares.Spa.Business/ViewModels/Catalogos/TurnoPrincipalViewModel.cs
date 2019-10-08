@@ -30,12 +30,12 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             {
                 var list = await TurnoPrincipalRepository.GetAllAsync();
                 ListaTurno.Clear();
-                foreach(var item in list)
+                foreach (var item in list)
                 {
                     ListaTurno.Add(item);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
