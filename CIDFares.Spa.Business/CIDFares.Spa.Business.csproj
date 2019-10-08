@@ -70,6 +70,7 @@
     <Compile Include="ViewModels\General\EntradaSalidaAlmacenViewModel.cs" />
     <Compile Include="ViewModels\General\InventarioFisicoViewModel.cs" />
     <Compile Include="ViewModels\General\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Promociones\PromocionViewModel.cs" />
     <Compile Include="ViewModels\Ventas\CapturaCitaViewModel.cs" />
     <Compile Include="ViewModels\General\RegistroEntradaSalidaViewModel.cs" />
     <Compile Include="ViewModels\Paquete\AbonoPaqueteDetalleViewModel.cs" />

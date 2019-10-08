@@ -234,7 +234,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                             int cantidadBusqueda = 0;
                             cantidadActual = Convert.ToInt32(cantidadAnterior);
                             cantidadBusqueda = cantidadActual + Convert.ToInt32(item.CantidadProducto);
-                            var result = await Model.CheckCantidadProducto(item.IdProducto, cantidadBusqueda);
+                            var result = await Model.CheckCantidadProducto(item.IdProducto, cantidadBusqueda, CurrentSession.IdSucursal);
                             if (result == -1)
                             {
                                 LLenarGrid(FProducto.producto);

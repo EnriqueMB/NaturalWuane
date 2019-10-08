@@ -44,6 +44,7 @@
             this.sfDataGridCliente = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.PanelCapturaDatos = new System.Windows.Forms.Panel();
             this.groupBoxCliente = new System.Windows.Forms.GroupBox();
+            this.btnDirecciones = new System.Windows.Forms.Button();
             this.ClaveControl = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -79,6 +80,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnLimpiarBusqueda = new System.Windows.Forms.Button();
             this.PanelPrincipal.SuspendLayout();
             this.PanelContenedor.SuspendLayout();
             this.panelGridDatos.SuspendLayout();
@@ -191,6 +193,7 @@
             // groupBoxCliente
             // 
             this.groupBoxCliente.BackColor = System.Drawing.Color.White;
+            this.groupBoxCliente.Controls.Add(this.btnDirecciones);
             this.groupBoxCliente.Controls.Add(this.ClaveControl);
             this.groupBoxCliente.Controls.Add(this.flowLayoutPanel1);
             this.groupBoxCliente.Controls.Add(this.label8);
@@ -215,6 +218,20 @@
             this.groupBoxCliente.TabIndex = 0;
             this.groupBoxCliente.TabStop = false;
             this.groupBoxCliente.Text = "Datos de cliente";
+            // 
+            // btnDirecciones
+            // 
+            this.btnDirecciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnDirecciones.FlatAppearance.BorderSize = 0;
+            this.btnDirecciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDirecciones.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDirecciones.Location = new System.Drawing.Point(214, 319);
+            this.btnDirecciones.Name = "btnDirecciones";
+            this.btnDirecciones.Size = new System.Drawing.Size(150, 29);
+            this.btnDirecciones.TabIndex = 54;
+            this.btnDirecciones.Text = "Direcciones";
+            this.btnDirecciones.UseVisualStyleBackColor = false;
+            this.btnDirecciones.Click += new System.EventHandler(this.btnDirecciones_Click);
             // 
             // ClaveControl
             // 
@@ -276,13 +293,13 @@
             // 
             this.SexoControl.AutoComplete = false;
             this.SexoControl.BackColor = System.Drawing.Color.White;
-            this.SexoControl.BeforeTouchSize = new System.Drawing.Size(355, 29);
+            this.SexoControl.BeforeTouchSize = new System.Drawing.Size(182, 29);
             this.SexoControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Adjust;
             this.SexoControl.FlatBorderColor = System.Drawing.Color.BurlyWood;
             this.SexoControl.Location = new System.Drawing.Point(9, 319);
             this.SexoControl.MetroBorderColor = System.Drawing.Color.Black;
             this.SexoControl.Name = "SexoControl";
-            this.SexoControl.Size = new System.Drawing.Size(355, 29);
+            this.SexoControl.Size = new System.Drawing.Size(182, 29);
             this.SexoControl.Style = Syncfusion.Windows.Forms.VisualStyle.Metro;
             this.SexoControl.TabIndex = 50;
             this.SexoControl.Text = "comboBoxAdv1";
@@ -531,6 +548,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnLimpiarBusqueda);
             this.panel1.Controls.Add(this.BtnBusqueda);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.BusquedaControl);
@@ -546,7 +564,7 @@
             this.BtnBusqueda.FlatAppearance.BorderSize = 0;
             this.BtnBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBusqueda.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBusqueda.Location = new System.Drawing.Point(572, 9);
+            this.BtnBusqueda.Location = new System.Drawing.Point(496, 15);
             this.BtnBusqueda.Name = "BtnBusqueda";
             this.BtnBusqueda.Size = new System.Drawing.Size(123, 29);
             this.BtnBusqueda.TabIndex = 6;
@@ -570,7 +588,7 @@
             this.BusquedaControl.Location = new System.Drawing.Point(162, 20);
             this.BusquedaControl.MaxLength = 200;
             this.BusquedaControl.Name = "BusquedaControl";
-            this.BusquedaControl.Size = new System.Drawing.Size(355, 20);
+            this.BusquedaControl.Size = new System.Drawing.Size(311, 20);
             this.BusquedaControl.TabIndex = 4;
             this.BusquedaControl.TextChanged += new System.EventHandler(this.BusquedaControl_TextChanged);
             // 
@@ -590,6 +608,23 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
+            // btnLimpiarBusqueda
+            // 
+            this.btnLimpiarBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLimpiarBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnLimpiarBusqueda.FlatAppearance.BorderSize = 0;
+            this.btnLimpiarBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarBusqueda.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnLimpiarBusqueda.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnLimpiarBusqueda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiarBusqueda.Location = new System.Drawing.Point(648, 15);
+            this.btnLimpiarBusqueda.Name = "btnLimpiarBusqueda";
+            this.btnLimpiarBusqueda.Size = new System.Drawing.Size(130, 29);
+            this.btnLimpiarBusqueda.TabIndex = 7;
+            this.btnLimpiarBusqueda.Text = "Eliminar filtros";
+            this.btnLimpiarBusqueda.UseVisualStyleBackColor = false;
+            this.btnLimpiarBusqueda.Click += new System.EventHandler(this.btnLimpiarBusqueda_Click);
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -601,6 +636,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCliente";
             this.Load += new System.EventHandler(this.FrmCliente_Load);
+            this.Shown += new System.EventHandler(this.FrmCliente_Shown);
             this.PanelPrincipal.ResumeLayout(false);
             this.PanelContenedor.ResumeLayout(false);
             this.panelGridDatos.ResumeLayout(false);
@@ -667,5 +703,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox BusquedaControl;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDirecciones;
+        public System.Windows.Forms.Button btnLimpiarBusqueda;
     }
 }

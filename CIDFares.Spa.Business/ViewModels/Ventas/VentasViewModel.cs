@@ -137,11 +137,11 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
-        public async Task<int> CheckCantidadProducto(int IdProducto, int Cantidad)
+        public async Task<int> CheckCantidadProducto(int IdProducto, int Cantidad, int IdSucursal)
         {
             try
             {
-                return await Repository.CheckCantidadProducto(IdProducto, Cantidad);
+                return await Repository.CheckCantidadProducto(IdProducto, Cantidad, IdSucursal);
             }
             catch (Exception ex)
             {

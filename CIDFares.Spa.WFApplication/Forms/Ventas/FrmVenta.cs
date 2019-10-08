@@ -302,7 +302,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     int cantidadBusqueda = 0;
                     cantidadActual = Convert.ToInt32(cantidadAnterior);
                     cantidadBusqueda = cantidadActual + Convert.ToInt32(item.CantidadProducto);
-                    var result = await Model.CheckCantidadProducto(item.IdProducto, cantidadBusqueda);
+                    var result = await Model.CheckCantidadProducto(item.IdProducto, cantidadBusqueda, CurrentSession.IdSucursal);
                     if (result == -1)
                     {
                         var IdTipo = Producto.IDTipo;
@@ -659,7 +659,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                                 int cantidadBusqueda = 0;
                                 cantidadActual = Convert.ToInt32(cantidadAnterior);
                                 cantidadBusqueda = cantidadActual + cantidad;
-                                var result = await Model.CheckCantidadProducto(item.IdProducto, cantidadBusqueda);
+                                var result = await Model.CheckCantidadProducto(item.IdProducto, cantidadBusqueda, CurrentSession.IdSucursal);
                                 if (result == -1)
                                 {
                                     item.CantidadProducto = cantidad;
