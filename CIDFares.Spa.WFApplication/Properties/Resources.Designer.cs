@@ -337,6 +337,12 @@ namespace CIDFares.Spa.WFApplication.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap promocionNxN {
+            get {
+                object obj = ResourceManager.GetObject("promocionNxN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
         internal static System.Drawing.Bitmap plus35Px {
             get {
                 object obj = ResourceManager.GetObject("plus35Px", resourceCulture);

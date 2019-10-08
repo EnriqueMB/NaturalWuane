@@ -25,6 +25,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         public BusquedaProductoViewModel Model { get; set; }
         public BusqueProducto producto { get; set; }
         public int IDTipo { get; set; }
+        public int TipoBusqueda { get; set; }
         #endregion
 
         public FrmBusquedaProducto(string compra)
@@ -59,10 +60,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             this.ActiveControl = this.BuquedaClaveCodigoControl;
             this.BuquedaClaveCodigoControl.Focus();
             sfDataGridBuquedaProducto.Columns[10].Visible = false;
-            
         }
 
-        public FrmBusquedaProducto(int cant)
+        public FrmBusquedaProducto(int tipoBusqueda)
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<BusquedaProductoViewModel>();
@@ -74,8 +74,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             this.Model.BuscaClaveCodigo = true;
             this.ActiveControl = this.BuquedaClaveCodigoControl;
             this.BuquedaClaveCodigoControl.Focus();
+
+            label1.Visible = false;
             CantidadProductoControl.Visible = false;
-            Model.CantidadProducto = cant;
+            BtnAgregar.Text = "Seleccionar";
+            CantidadProductoControl.Visible = false;
+            Model.CantidadProducto = tipoBusqueda;
+            //Model.CantidadProducto = cant;
             sfDataGridBuquedaProducto.Columns[9].Visible = false;
         }
 
