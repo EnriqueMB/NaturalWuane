@@ -22,7 +22,6 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
 
         #region Propiedades públicas
         public BindingList<CapturaCita> ListaCapturaCita { get; set; }
-        public BindingList<Paquetes> ListaPaquetes { get; set; }
         public BindingList<CapturaCita> ListaCapturaCitaDetalle { get; set; }
         public BindingList<CapturaCita> ListaCapturaCitaDetalleServicio { get; set; }
         public BindingList<CapturaCita> ListaHoras { get; set; }
@@ -36,7 +35,6 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             Repository = capturaCitaRepository;
             PaqueteRepository = paqueteRepository;
             ListaCapturaCita = new BindingList<CapturaCita>();
-            ListaPaquetes = new BindingList<Paquetes>();
             ListaCapturaCitaDetalle = new BindingList<CapturaCita>();
             ListaCapturaCitaDetalleServicio = new BindingList<CapturaCita>();
             ListaHoras = new BindingList<CapturaCita>();
@@ -45,6 +43,30 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         #endregion
 
         #region Metodos
+
+        //public async Task GetAllServicioPaquete(Paquetes paquete)
+        //{
+        //    try
+        //    {
+        //        var x = await PaqueteRepository.GetAsync(paquete.IdPaquete);
+        //        ListaCapturaCitaDetalleServicio.Clear();
+        //        foreach (var item in x.ListaDetallePaquete)
+        //        {
+        //            if (item.IdTipo == 2)
+        //            {
+        //                CapturaCita cita = new CapturaCita();
+        //                cita.OrdenServicio.Servicio.Nombre = item.Nombre;
+        //                cita.OrdenServicio.Servicio.IdServicio = item.IdGenerico;
+        //                ListaCapturaCitaDetalleServicio.Add(cita);
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        throw ex;
+        //    }
+        //}
 
         public DataTable obtenerTabla()
         {

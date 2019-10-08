@@ -22,7 +22,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
     public partial class FrmCapturaCita : Form
     {
         #region Propiedades Privadas
-        //private BindingList<Paquetes> ListaPaquete;
+        private Paquetes Paquete;
         #endregion
 
         #region Propiedades Públicas
@@ -36,17 +36,19 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<CapturaCitaViewModel>();
-            cita = new CapturaCita();           
+            cita = new CapturaCita();
+            Paquete = new Paquetes();
         }
 
-        public FrmCapturaCita(BindingList<Paquetes> listaPaquete)
+        public FrmCapturaCita(Paquetes paquete)
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<CapturaCitaViewModel>();
             cita = new CapturaCita();
-            Model.ListaPaquetes = listaPaquete;
+            Paquete = paquete;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
         }
+
         #endregion
 
         #region Metodos generales
@@ -177,9 +179,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                         {
                             v = 1;
                             Console.WriteLine("Detalle");
-                            if (Model.ListaPaquetes.Count > 0)
+                            if (Paquete.IdPaquete != 0)
                             {
-                                FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo(x, Model.ListaPaquetes);
+                                FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo(x, Paquete);
                                 f.ShowDialog();
                             }
                             else
@@ -194,9 +196,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     if (v != 1)
                     {
                         Console.WriteLine("Nuevo");
-                        if (Model.ListaPaquetes.Count > 0)
+                        if (Paquete.IdPaquete != 0)
                         {
-                            FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo(x, Model.ListaPaquetes);
+                            FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo(x, Paquete);
                             f.ShowDialog();
                         }
                         else

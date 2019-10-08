@@ -20,6 +20,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         private IServicioRepository Repository { get; set; }
         private IIvaRepository Repositoryiva { get; set; }
         private ITipoServicioRepository RepositoryTipoServicio { get; set; }
+        private IPaqueteRepository RepositoryPaquete { get; set; }
         #endregion
 
         #region Propiedades públicas
@@ -29,9 +30,10 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public EntityState State { get; set; }
         #endregion
 
-        public ServicioViewModel(IServicioRepository servicioRepository, IIvaRepository ivaRepository, ITipoServicioRepository tipoServicioRepository)
+        public ServicioViewModel(IServicioRepository servicioRepository, IIvaRepository ivaRepository, ITipoServicioRepository tipoServicioRepository, IPaqueteRepository paqueteRepository)
         {
             Repository = servicioRepository;
+            RepositoryPaquete = paqueteRepository;
             Repositoryiva = ivaRepository;
             RepositoryTipoServicio = tipoServicioRepository;
             ListaServicio = new BindingList<Servicio>();            
@@ -54,6 +56,30 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         //        throw ex;
         //    }
         //}
+
+        public async Task GetAllServicioPaquete(Paquetes paquete)
+        {
+            try
+            {
+                var x = await RepositoryPaquete.GetAsync(paquete.IdPaquete);
+                ListaServicio.Clear();
+                foreach (var item in x.ListaDetallePaquete)
+                {
+                    if (item.IdTipo == 2)
+                    {
+                        Servicio servicio = new Servicio();
+                        servicio.Nombre = item.Nombre;
+                        servicio.IdServicio = item.IdGenerico;
+                        ListaServicio.Add(servicio);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
 
         public async Task<Servicio> GuardarCambios(Guid IdUsuario)
         {

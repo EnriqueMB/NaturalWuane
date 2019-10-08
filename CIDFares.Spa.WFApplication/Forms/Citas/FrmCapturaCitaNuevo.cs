@@ -27,7 +27,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         public CapturaCitaViewModel Model { get; set; }
         public CapturaCita cita { get; set; }
         DateTime f;
-        private BindingList<Paquetes> listaPaquetes;
+        private Paquetes Paquetes;
+        bool EsAgregarPaquete;
         #endregion
         public FrmCapturaCitaNuevo(DateTime? fecha)
         {
@@ -44,10 +45,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             Model.ListaCapturaCita = new BindingList<CapturaCita>(new List<CapturaCita>());
             Model.ListaCapturaCitaDetalle = new BindingList<CapturaCita>(new List<CapturaCita>());
             Model.ListaCapturaCitaDetalleServicio = new BindingList<CapturaCita>(new List<CapturaCita>());
+            EsAgregarPaquete = false;
         }
 
         //Agregar un paquete a la cita
-        public FrmCapturaCitaNuevo(DateTime? fecha, BindingList<Paquetes> listaPaquetes)
+        public FrmCapturaCitaNuevo(DateTime? fecha, Paquetes paquete)
         {
             InitializeComponent();
             lblTitle.Text = Convert.ToDateTime(fecha).ToString("dddd, dd MMMM yyyy").ToUpper();
@@ -61,8 +63,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             Model.ListaCapturaCita = new BindingList<CapturaCita>(new List<CapturaCita>());
             Model.ListaCapturaCitaDetalle = new BindingList<CapturaCita>(new List<CapturaCita>());
             Model.ListaCapturaCitaDetalleServicio = new BindingList<CapturaCita>(new List<CapturaCita>());
-
-            Model.ListaPaquetes = listaPaquetes; 
+            EsAgregarPaquete = true;
+            this.Paquetes = paquete;
         }
 
         #region Métodos
@@ -305,7 +307,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             {                
                 if (Model.ListaCapturaCitaDetalleServicio.Count < 1)
                 {                    
-                    FrmBuscarServicio bs = new FrmBuscarServicio();
+                    FrmBuscarServicio bs = new FrmBuscarServicio(Paquetes);
                     bs.ShowDialog();
                     if (bs.servicio.IdServicio > 0)
                     {
