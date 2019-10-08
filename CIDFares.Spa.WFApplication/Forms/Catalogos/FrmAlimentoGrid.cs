@@ -295,7 +295,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void btnBusqueda_Click(object sender, EventArgs e)
+        private async void BtnBuscar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -312,11 +312,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-                ErrorLogHelper.AddExcFileTxt(ex, "FrmAlimentoGrid ~ btnBusqueda_Click(object sender, EventArgs e)");
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmAlimentoGrid ~ BtnBuscar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
+
         #endregion
+
 
     }
 }
