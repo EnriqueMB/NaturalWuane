@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace CIDFares.Spa.Business.ViewModels.Catalogos
 {
-    public class PaqueteViewModel : Validable, INotifyPropertyChanged
+    public class PaqueteViewModel : Validable
     {
         #region Propiedades Privadas
         private IPaqueteRepository Repository { get; set; }
@@ -44,6 +44,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             ListaAbonoPaquete = new BindingList<AbonoPaquete>();
             ListaEspera = new BindingList<AbonoPaquete>();
             this.Cantidad = 1;
+            this.FolioCliente = string.Empty;
+            this.TablaAbonoPaquete = new DataTable();
         }
 
         #endregion
