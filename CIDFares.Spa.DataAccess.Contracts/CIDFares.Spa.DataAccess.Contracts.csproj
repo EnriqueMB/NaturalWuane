@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\General\CitaDto.cs" />
     <Compile Include="DTOs\Requests\DireccionesClienteRequest.cs" />
     <Compile Include="DTOs\Requests\EncuestaRequest.cs" />
     <Compile Include="DTOs\Requests\LoginRequests.cs" />
@@ -67,6 +68,8 @@
     <Compile Include="Entities\CambioVenta.cs" />
     <Compile Include="Entities\CapturaCita.cs" />
     <Compile Include="Entities\CategoriaProducto.cs" />
+    <Compile Include="Entities\OrdenPaquete.cs" />
+    <Compile Include="Entities\OrdenServicio.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Compra.cs" />
     <Compile Include="Entities\CompraCancelacion.cs" />

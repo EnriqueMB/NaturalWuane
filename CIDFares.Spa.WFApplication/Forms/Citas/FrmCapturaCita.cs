@@ -30,7 +30,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<CapturaCitaViewModel>();
-            cita = new CapturaCita();
+            cita = new CapturaCita();           
         }
         #endregion
 
@@ -50,12 +50,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
 
         public void LimpiarPropiedades()
         {
-            Model.IdCita = Guid.Empty;
+            mcCita2.SelectedDate = DateTime.Now;
+            Model.IdAgendaCita = Guid.Empty;
             Model.IdCliente = Guid.Empty;
             Model.IdEstadoCita = 0;
             Model.NombreCompleto = string.Empty;
             Model.Observaciones = string.Empty;
-            Model.FechaCita = DateTime.MinValue;
+            //Model.FechaCita = DateTime.MinValue;
             Model.FechaInicio = DateTime.Now;
             Model.FechaFinal = new DateTime(2020, 05, 01, 06, 30, 05);            
         }
@@ -127,7 +128,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 {
                     SpecialDate special = new SpecialDate();                    
                     special.IsDateVisible = false;
-                    special.Value = item.FechaCita;
+                    special.Value = item.FechaInicio;
                     special.Image = newimage;
                     special.ImageAlign = ContentAlignment.MiddleLeft;
                     listsd.Add(special);
@@ -156,7 +157,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 {
                     foreach (var item in Model.ListaCapturaCita)
                     {
-                        if (item.FechaCita.Date == x.Value.Date)
+                        if (item.FechaInicio.Date == x.Value.Date)
                         {
                             v = 1;
                             Console.WriteLine("Detalle");
