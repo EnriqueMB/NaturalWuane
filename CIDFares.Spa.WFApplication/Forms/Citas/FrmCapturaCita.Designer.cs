@@ -56,7 +56,7 @@
             this.pnlHeader.Controls.Add(this.FechaInicioControl);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlHeader.Margin = new System.Windows.Forms.Padding(2);
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(870, 64);
             this.pnlHeader.TabIndex = 0;
@@ -66,7 +66,7 @@
             this.FechaFinalControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FechaFinalControl.Location = new System.Drawing.Point(533, 36);
-            this.FechaFinalControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FechaFinalControl.Margin = new System.Windows.Forms.Padding(2);
             this.FechaFinalControl.Name = "FechaFinalControl";
             this.FechaFinalControl.Size = new System.Drawing.Size(203, 20);
             this.FechaFinalControl.TabIndex = 6;
@@ -131,7 +131,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FechaInicioControl.Enabled = false;
             this.FechaInicioControl.Location = new System.Drawing.Point(317, 37);
-            this.FechaInicioControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FechaInicioControl.Margin = new System.Windows.Forms.Padding(2);
             this.FechaInicioControl.Name = "FechaInicioControl";
             this.FechaInicioControl.Size = new System.Drawing.Size(203, 20);
             this.FechaInicioControl.TabIndex = 0;
@@ -141,7 +141,7 @@
             this.pnlButtons.BackColor = System.Drawing.Color.White;
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlButtons.Location = new System.Drawing.Point(0, 585);
-            this.pnlButtons.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlButtons.Margin = new System.Windows.Forms.Padding(2);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Size = new System.Drawing.Size(870, 55);
             this.pnlButtons.TabIndex = 1;
@@ -155,7 +155,7 @@
             this.panel1.Controls.Add(this.mcCita2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 64);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(870, 521);
             this.panel1.TabIndex = 3;
@@ -165,7 +165,7 @@
             this.mcCita2.Culture = new System.Globalization.CultureInfo("es-ES");
             this.mcCita2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mcCita2.Location = new System.Drawing.Point(0, 0);
-            this.mcCita2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mcCita2.Margin = new System.Windows.Forms.Padding(2);
             this.mcCita2.Name = "mcCita2";
             this.mcCita2.SelectedDate = new System.DateTime(2019, 9, 10, 0, 0, 0, 0);
             this.mcCita2.Size = new System.Drawing.Size(868, 521);
@@ -185,7 +185,7 @@
             this.Controls.Add(this.pnlButtons);
             this.Controls.Add(this.pnlHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmCapturaCita";
             this.Text = "FrmCapturaCita";
             this.Load += new System.EventHandler(this.FrmCapturaCita_Load);

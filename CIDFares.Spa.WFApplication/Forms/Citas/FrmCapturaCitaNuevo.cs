@@ -27,6 +27,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         public CapturaCitaViewModel Model { get; set; }
         public CapturaCita cita { get; set; }
         DateTime f;
+        private BindingList<Paquetes> listaPaquetes;
         #endregion
         public FrmCapturaCitaNuevo(DateTime? fecha)
         {
@@ -43,7 +44,26 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             Model.ListaCapturaCita = new BindingList<CapturaCita>(new List<CapturaCita>());
             Model.ListaCapturaCitaDetalle = new BindingList<CapturaCita>(new List<CapturaCita>());
             Model.ListaCapturaCitaDetalleServicio = new BindingList<CapturaCita>(new List<CapturaCita>());
-        }        
+        }
+
+        //Agregar un paquete a la cita
+        public FrmCapturaCitaNuevo(DateTime? fecha, BindingList<Paquetes> listaPaquetes)
+        {
+            InitializeComponent();
+            lblTitle.Text = Convert.ToDateTime(fecha).ToString("dddd, dd MMMM yyyy").ToUpper();
+            Model = ServiceLocator.Instance.Resolve<CapturaCitaViewModel>();
+            Model.IdSucursal = CurrentSession.IdSucursal;
+            f = Convert.ToDateTime(fecha);
+            string fi = f.ToShortDateString() + " " + "09:00:00";
+            Model.FechaInicio = Convert.ToDateTime(fi);
+
+            Model.NombreCompleto = string.Empty;
+            Model.ListaCapturaCita = new BindingList<CapturaCita>(new List<CapturaCita>());
+            Model.ListaCapturaCitaDetalle = new BindingList<CapturaCita>(new List<CapturaCita>());
+            Model.ListaCapturaCitaDetalleServicio = new BindingList<CapturaCita>(new List<CapturaCita>());
+
+            Model.ListaPaquetes = listaPaquetes; 
+        }
 
         #region Métodos
         public void LimpiarPropiedades()

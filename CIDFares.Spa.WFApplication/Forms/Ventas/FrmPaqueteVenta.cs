@@ -173,5 +173,20 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 throw;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmCapturaCita cita = new FrmCapturaCita(Model.ListaPaquete);
+                cita.ShowDialog();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

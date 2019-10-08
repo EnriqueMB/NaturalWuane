@@ -17,10 +17,12 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
     {
         #region Propiedades privadas
         private ICapturaCitaRepository Repository { get; set; }
+        private IPaqueteRepository PaqueteRepository { get; set; }
         #endregion
 
         #region Propiedades públicas
         public BindingList<CapturaCita> ListaCapturaCita { get; set; }
+        public BindingList<Paquetes> ListaPaquetes { get; set; }
         public BindingList<CapturaCita> ListaCapturaCitaDetalle { get; set; }
         public BindingList<CapturaCita> ListaCapturaCitaDetalleServicio { get; set; }
         public BindingList<CapturaCita> ListaHoras { get; set; }
@@ -29,10 +31,12 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         #endregion
 
         #region Constructor
-        public CapturaCitaViewModel(ICapturaCitaRepository capturaCitaRepository)
+        public CapturaCitaViewModel(ICapturaCitaRepository capturaCitaRepository, IPaqueteRepository paqueteRepository)
         {
             Repository = capturaCitaRepository;
+            PaqueteRepository = paqueteRepository;
             ListaCapturaCita = new BindingList<CapturaCita>();
+            ListaPaquetes = new BindingList<Paquetes>();
             ListaCapturaCitaDetalle = new BindingList<CapturaCita>();
             ListaCapturaCitaDetalleServicio = new BindingList<CapturaCita>();
             ListaHoras = new BindingList<CapturaCita>();
