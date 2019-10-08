@@ -55,7 +55,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         {
             throw new NotImplementedException();
         }
-        
+
         public async Task<BindingList<CapturaCita>> GetCitaXPeriodo(DateTime fechaInicio, DateTime fechaFin, object IdSucursal)
         {
             try
@@ -63,14 +63,14 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 using (IDbConnection conexion = new SqlConnection(WebConnectionString))
                 {
                     conexion.Open();
-                    List<CapturaCita> Lista = new List<CapturaCita>();                    
+                    List<CapturaCita> Lista = new List<CapturaCita>();
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@fechaInicio", fechaInicio);
                     dynamicParameters.Add("@fechaFin", fechaFin);
                     dynamicParameters.Add("@estadoCita", 5);
-                    dynamicParameters.Add("@idSucursal", IdSucursal);                                        
+                    dynamicParameters.Add("@idSucursal", IdSucursal);
                     var dr = await conexion.QueryAsync<CapturaCita>("[Cita].[SPCID_Get_CitasXPeriodo]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                    return new BindingList<CapturaCita>(dr.ToList());                    
+                    return new BindingList<CapturaCita>(dr.ToList());
                 }
             }
             catch (Exception ex)
@@ -132,25 +132,25 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public async Task<BindingList<CapturaCita>> GetCitaDetalleServicio(Guid idCita)
-        {
-            try
-            {
-                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
-                {
-                    conexion.Open();
-                    List<CapturaCita> Lista = new List<CapturaCita>();                    
-                    var dynamicParameters = new DynamicParameters();
-                    dynamicParameters.Add("@idCita", idCita);                    
-                    var dr = await conexion.QueryAsync<CapturaCita>("[Cita].[SPCID_Get_CitaDetalleServicio]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                    return new BindingList<CapturaCita>(dr.ToList());
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }       
+        //public async Task<BindingList<CapturaCita>> GetCitaDetalleServicio(Guid idCita)
+        //{
+        //    try
+        //    {
+        //        using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+        //        {
+        //            conexion.Open();
+        //            List<CapturaCita> Lista = new List<CapturaCita>();                    
+        //            var dynamicParameters = new DynamicParameters();
+        //            dynamicParameters.Add("@idCita", idCita);                    
+        //            var dr = await conexion.QueryAsync<CapturaCita>("[Cita].[SPCID_Get_CitaDetalleServicio]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+        //            return new BindingList<CapturaCita>(dr.ToList());
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}       
 
         public async Task<CapturaCita> AddCita(CapturaCita element, object IdUsuario, object IdSucursal)
         {
@@ -168,10 +168,9 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@aplicado", false);
                     dynamicParameters.Add("@pagado", false);
                     dynamicParameters.Add("@fechaInicio", element.FechaInicio);
-                    dynamicParameters.Add("@fechaFinal", element.FechaFinal);                    
-                    //dynamicParameters.Add("@TablaServicio", element.TablaServicio, DbType.Object);                    
+                    dynamicParameters.Add("@fechaFinal", element.FechaFinal);                                       
                     dynamicParameters.Add("@idSucursal", IdSucursal);
-                    dynamicParameters.Add("@idCliente", "E49A96A7-C6CC-4CA4-9CE9-56CCB4C0A671");//element.OrdenServicio.Cliente.IdCliente);
+                    dynamicParameters.Add("@idCliente", element.OrdenServicio.Cliente.IdCliente);
                     dynamicParameters.Add("@idEstadoCita", 5);                
                     dynamicParameters.Add("@user", IdUsuario);
                     var result = await conexion.ExecuteScalarAsync<int>("[Cita].[SPCID_AC_Cita]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
@@ -208,7 +207,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@fechaInicio", element.FechaInicio);
                     dynamicParameters.Add("@fechaFinal", element.FechaFinal);                    
                     dynamicParameters.Add("@idSucursal", IdSucursal);
-                    dynamicParameters.Add("@idCliente", "E49A96A7-C6CC-4CA4-9CE9-56CCB4C0A671");//element.OrdenServicio.Cliente.IdCliente);
+                    dynamicParameters.Add("@idCliente", element.OrdenServicio.Cliente.IdCliente);
                     dynamicParameters.Add("@idEstadoCita", 5);
                     dynamicParameters.Add("@user", IdUsuario);
                     var result = await conexion.ExecuteScalarAsync<int>("[Cita].[SPCID_AC_Cita]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
@@ -262,6 +261,29 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@IdSucursal", IdSucursal);
                     var dr = await conexion.QueryAsync<CapturaCita>("[Cita].[SPCID_Get_ComboHorasSucursal]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     return dr;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<int> BusyService2(Guid idAgendaCita, int idServicio, DateTime fechaInicio, object IdSucursal)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@idAgendaCita", idAgendaCita);
+                    dynamicParameters.Add("@idServicio", idServicio);
+                    dynamicParameters.Add("@fechaInicio", fechaInicio);
+                    dynamicParameters.Add("@estadoCita", 5);
+                    dynamicParameters.Add("@idSucursal", IdSucursal);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Cita].[SPCID_Validar_CitaXHorarioServicio]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return result;
                 }
             }
             catch (Exception ex)

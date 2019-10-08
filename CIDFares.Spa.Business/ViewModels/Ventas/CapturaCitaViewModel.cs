@@ -216,26 +216,39 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
-        public async Task GetCitaDetalleServicio(Guid idCita)
-        {
-            try
-            {
-                var x = await Repository.GetCitaDetalleServicio(idCita);
-                ListaCapturaCitaDetalleServicio.Clear();
-                foreach (var item in x)
-                {
-                    ListaCapturaCitaDetalleServicio.Add(item);
-                }
-            }
-            catch (Exception ex)
-            {
+        //public async Task GetCitaDetalleServicio(Guid idCita)
+        //{
+        //    try
+        //    {
+        //        var x = await Repository.GetCitaDetalleServicio(idCita);
+        //        ListaCapturaCitaDetalleServicio.Clear();
+        //        foreach (var item in x)
+        //        {
+        //            ListaCapturaCitaDetalleServicio.Add(item);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                throw ex;
-            }
-        }        
+        //        throw ex;
+        //    }
+        //}        
         #endregion
 
         #region Binding
+
+        private int _IdSucursal;
+
+        public int IdSucursal
+        {
+            get { return _IdSucursal; }
+            set
+            {
+                _IdSucursal = value;
+                OnPropertyChanged(nameof(IdSucursal));
+            }
+        }
+
         private Guid _IdAgendaCita;
 
         public Guid IdAgendaCita

@@ -13,11 +13,12 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
     {                
         Task<BindingList<CapturaCita>> GetCitaXPeriodo(DateTime fechaInicio, DateTime fechaFin, object IdSucursal);
         Task<IEnumerable<CapturaCita>> GetCitaDetalle(DateTime? fecha, object IdSucursal);
-        Task<BindingList<CapturaCita>> GetCitaDetalleServicio(Guid idCita);
+        //Task<BindingList<CapturaCita>> GetCitaDetalleServicio(Guid idCita);
         Task<CapturaCita> AddCita(CapturaCita element, object IdUsuario, object IdSucursal);
         Task<CapturaCita> UpdateCita(CapturaCita element, object IdUsuario, object IdSucursal);
         Task<BindingList<CapturaCita>> ValidarFechaServicio(DateTime? fecha);
         Task<int> BusyService(CapturaCita element, object IdSucursal);
+        Task<int> BusyService2(Guid idAgendaCita, int idServicio, DateTime fechaInicio, object IdSucursal);       
         Task<IEnumerable<CapturaCita>> LlenarComboHorarioSucursal(object Dias, object IdSucursal);
     }
 }
