@@ -38,6 +38,8 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenedoGridGuardar = new System.Windows.Forms.Panel();
             this.panelGuardar = new System.Windows.Forms.Panel();
@@ -107,7 +109,7 @@
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(111, 29);
             this.BtnAgregar.TabIndex = 11;
-            this.BtnAgregar.Text = "Agregar venta";
+            this.BtnAgregar.Text = "Agregar";
             this.BtnAgregar.UseVisualStyleBackColor = false;
             this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
@@ -117,11 +119,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(6, 86);
+            this.label1.Location = new System.Drawing.Point(16, 94);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 20);
+            this.label1.Size = new System.Drawing.Size(82, 20);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Cantidad a vender:";
+            this.label1.Text = "Cantidad:";
             // 
             // CantidadProductoControl
             // 
@@ -153,31 +155,43 @@
             gridTextColumn2.AllowEditing = false;
             gridTextColumn2.HeaderText = "Clave";
             gridTextColumn2.MappingName = "Clave";
+            gridTextColumn2.MaximumWidth = 100D;
+            gridTextColumn2.MinimumWidth = 90D;
             gridTextColumn3.AllowEditing = false;
             gridTextColumn3.HeaderText = "Nombre";
             gridTextColumn3.MappingName = "Nombre";
+            gridTextColumn3.MaximumWidth = 200D;
+            gridTextColumn3.MinimumWidth = 200D;
             gridTextColumn4.AllowEditing = false;
-            gridTextColumn4.HeaderText = "Categoria";
-            gridTextColumn4.MappingName = "NombreCategoria";
+            gridTextColumn4.HeaderText = "Existencia";
+            gridTextColumn4.MappingName = "CantidadProducto";
             gridTextColumn5.AllowEditing = false;
-            gridTextColumn5.HeaderText = "UnidadMedida";
-            gridTextColumn5.MappingName = "UnidadMedida";
+            gridTextColumn5.HeaderText = "Categoria";
+            gridTextColumn5.MappingName = "NombreCategoria";
+            gridTextColumn5.Visible = false;
             gridTextColumn6.AllowEditing = false;
-            gridTextColumn6.Format = "C2";
-            gridTextColumn6.HeaderText = "Precio Publico";
-            gridTextColumn6.MappingName = "PrecioPublico";
+            gridTextColumn6.HeaderText = "UM";
+            gridTextColumn6.MappingName = "UnidadMedida";
             gridTextColumn7.AllowEditing = false;
             gridTextColumn7.Format = "C2";
-            gridTextColumn7.HeaderText = "Precio Mayoreo";
-            gridTextColumn7.MappingName = "PrecioMayoreo";
+            gridTextColumn7.HeaderText = "P. Publico";
+            gridTextColumn7.MappingName = "PrecioPublico";
             gridTextColumn8.AllowEditing = false;
             gridTextColumn8.Format = "C2";
-            gridTextColumn8.HeaderText = "Precio Menudeo";
-            gridTextColumn8.MappingName = "PrecioMenudeo";
+            gridTextColumn8.HeaderText = "P. Mayoreo";
+            gridTextColumn8.MappingName = "PrecioMayoreo";
             gridTextColumn9.AllowEditing = false;
-            gridTextColumn9.HeaderText = "Porcentaje Paquete";
-            gridTextColumn9.MappingName = "PorcentajePaquete";
-            gridTextColumn9.Visible = false;
+            gridTextColumn9.Format = "C2";
+            gridTextColumn9.HeaderText = "P. Menudeo";
+            gridTextColumn9.MappingName = "PrecioMenudeo";
+            gridTextColumn10.AllowEditing = false;
+            gridTextColumn10.HeaderText = "Porcentaje Paquete";
+            gridTextColumn10.MappingName = "PorcentajePaquete";
+            gridTextColumn10.Visible = false;
+            gridTextColumn11.AllowEditing = false;
+            gridTextColumn11.Format = "C";
+            gridTextColumn11.HeaderText = "Costo";
+            gridTextColumn11.MappingName = "CostoProducto";
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn1);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn2);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn3);
@@ -187,6 +201,8 @@
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn7);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn8);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn9);
+            this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn10);
+            this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn11);
             this.sfDataGridBuquedaProducto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridBuquedaProducto.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridBuquedaProducto.Name = "sfDataGridBuquedaProducto";
@@ -309,6 +325,7 @@
             this.MaximumSize = new System.Drawing.Size(932, 521);
             this.MinimumSize = new System.Drawing.Size(932, 521);
             this.Name = "FrmBusquedaProducto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BusquedaProducto";
             this.panelContenedor.ResumeLayout(false);
             this.panelContenedoGridGuardar.ResumeLayout(false);

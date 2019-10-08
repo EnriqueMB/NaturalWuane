@@ -59,6 +59,7 @@
             this.BtnConfigEquipos = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pnlGenerales = new System.Windows.Forms.Panel();
+            this.btnAlmacen = new System.Windows.Forms.Button();
             this.btnCita = new System.Windows.Forms.Button();
             this.btnAbonarPaquete = new System.Windows.Forms.Button();
             this.btnEntradaSalida = new System.Windows.Forms.Button();
@@ -162,8 +163,8 @@
             this.pnlMenu.Controls.Add(this.pnlUsuarios);
             this.pnlMenu.Controls.Add(this.pnlNomina);
             this.pnlMenu.Controls.Add(this.pnlConfiguracion);
-            this.pnlMenu.Controls.Add(this.pnlGenerales);
             this.pnlMenu.Controls.Add(this.pnlCatalogo);
+            this.pnlMenu.Controls.Add(this.pnlGenerales);
             this.pnlMenu.Location = new System.Drawing.Point(0, 174);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(213, 463);
@@ -572,6 +573,7 @@
             // pnlGenerales
             // 
             this.pnlGenerales.BackColor = System.Drawing.Color.White;
+            this.pnlGenerales.Controls.Add(this.btnAlmacen);
             this.pnlGenerales.Controls.Add(this.btnCita);
             this.pnlGenerales.Controls.Add(this.btnAbonarPaquete);
             this.pnlGenerales.Controls.Add(this.btnEntradaSalida);
@@ -587,6 +589,25 @@
             this.pnlGenerales.Name = "pnlGenerales";
             this.pnlGenerales.Size = new System.Drawing.Size(213, 569);
             this.pnlGenerales.TabIndex = 13;
+            // 
+            // btnAlmacen
+            // 
+            this.btnAlmacen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.btnAlmacen.FlatAppearance.BorderSize = 0;
+            this.btnAlmacen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnAlmacen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlmacen.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlmacen.ForeColor = System.Drawing.Color.Black;
+            this.btnAlmacen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlmacen.Location = new System.Drawing.Point(11, 345);
+            this.btnAlmacen.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAlmacen.Name = "btnAlmacen";
+            this.btnAlmacen.Size = new System.Drawing.Size(193, 35);
+            this.btnAlmacen.TabIndex = 30;
+            this.btnAlmacen.Text = "ALMACEN";
+            this.btnAlmacen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAlmacen.UseVisualStyleBackColor = false;
+            this.btnAlmacen.Click += new System.EventHandler(this.btnAlmacen_Click);
             // 
             // btnCita
             // 
@@ -1677,5 +1698,6 @@
         private System.Windows.Forms.Button btnAbonarPaquete;
         private System.Windows.Forms.Button btnPromociones;
         private System.Windows.Forms.Button btnCita;
+        private System.Windows.Forms.Button btnAlmacen;
     }
 }

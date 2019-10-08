@@ -102,11 +102,41 @@
     <Compile Include="Forms\Catalogos\FrmAlimentoNuevo.Designer.cs">
       <DependentUpon>FrmAlimentoNuevo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Catalogos\FrmDireccionesCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmDireccionesCliente.Designer.cs">
+      <DependentUpon>FrmDireccionesCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Catalogos\FrmTurno.Designer.cs">
+      <DependentUpon>FrmTurno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Catalogos\FrmTurnoPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Catalogos\FrmTurnoPrincipal.Designer.cs">
       <DependentUpon>FrmTurnoPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\General\FrmEntradaSalidaAlmacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\General\FrmEntradaSalidaAlmacen.Designer.cs">
+      <DependentUpon>FrmEntradaSalidaAlmacen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\General\FrmInventarioFisico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\General\FrmInventarioFisico.Designer.cs">
+      <DependentUpon>FrmInventarioFisico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\General\FrmInventarioTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\General\FrmInventarioTest.Designer.cs">
+      <DependentUpon>FrmInventarioTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Paquete\FrmAbonarPaquete.cs">
       <SubType>Form</SubType>
@@ -227,12 +257,6 @@
     </Compile>
     <Compile Include="Forms\Compras\FrmCancelacionCompra.Designer.cs">
       <DependentUpon>FrmCancelacionCompra.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Catalogos\FrmTurno.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Catalogos\FrmTurno.Designer.cs">
-      <DependentUpon>FrmTurno.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Compras\FrmCompra.cs">
       <SubType>Form</SubType>
@@ -472,6 +496,7 @@
     <Compile Include="Validations\PromocionValidator.cs" />
     <Compile Include="Validations\EncuestaValidator.cs" />
     <Compile Include="Validations\EmpleadoValidator.cs" />
+    <Compile Include="Validations\EntradaSalidaAlmacenValidator.cs" />
     <Compile Include="Validations\ListaMedicionValidator.cs" />
     <Compile Include="Validations\MedicionValidator.cs" />
     <Compile Include="Validations\PaqueteValidator.cs" />
@@ -490,8 +515,20 @@
     <EmbeddedResource Include="Forms\Catalogos\FrmAlimentoNuevo.resx">
       <DependentUpon>FrmAlimentoNuevo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmDireccionesCliente.resx">
+      <DependentUpon>FrmDireccionesCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Catalogos\FrmTurno.resx">
+      <DependentUpon>FrmTurno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmTurnoPrincipal.resx">
       <DependentUpon>FrmTurnoPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\General\FrmEntradaSalidaAlmacen.resx">
+      <DependentUpon>FrmEntradaSalidaAlmacen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\General\FrmInventarioTest.resx">
+      <DependentUpon>FrmInventarioTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Paquete\FrmAbonarPaquete.resx">
       <DependentUpon>FrmAbonarPaquete.cs</DependentUpon>
@@ -558,9 +595,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compras\FrmCancelacionCompra.resx">
       <DependentUpon>FrmCancelacionCompra.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Catalogos\FrmTurno.resx">
-      <DependentUpon>FrmTurno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compras\FrmCompra.resx">
       <DependentUpon>FrmCompra.cs</DependentUpon>

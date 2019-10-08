@@ -7,6 +7,7 @@ using CIDFares.Spa.Business.ViewModels.Compras;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
+using CIDFares.Spa.WFApplication.Forms.Ventas;
 using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
@@ -415,7 +416,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Compras
         {
             try
             {
-                FrmProductoCompra Producto = new FrmProductoCompra();
+                FrmBusquedaProducto Producto = new FrmBusquedaProducto("");
                 Producto.ShowDialog();
                 if (Producto.producto.IdProducto != 0)
                 {

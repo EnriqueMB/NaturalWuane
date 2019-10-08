@@ -35,7 +35,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         public FrmHomePage()
         {
             InitializeComponent();
-            Model = ServiceLocator.Instance.Resolve<CambioVentaViewModel>();
+            Model = ServiceLocator.Instance.Resolve<CambioVentaViewModel>();        
         }
 
         #region Eventos
@@ -105,6 +105,8 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             {
                 Maximizar();
                 BotonesPerfil();
+                if (CurrentSession.IdEmpleado == Guid.Empty)
+                    btnVenta.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -261,7 +263,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 {
                     SlideGenerales(btnVenta);
                     GetPanel(new FrmVenta());
-                    
+
                 }
                 else
                 {
@@ -277,7 +279,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
 
                 throw ex;
             }
-           
+
         }
 
         private void BtnCompras_Click(object sender, EventArgs e)
@@ -391,13 +393,13 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             {
                 throw ex;
             }
-        }      
+        }
 
         public void Restaurar()
         {
             try
             {
-                Size = new Size(1280, 720);        
+                Size = new Size(1280, 720);
                 this.CenterToScreen();
                 this.btnRestaurar.Visible = false;
                 this.btnMaximizar.Visible = true;
@@ -455,7 +457,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 SlideCatalogo(btnEntradaSalida);
                 FrmRegistroEntradaSalida registro = new FrmRegistroEntradaSalida();
                 registro.ShowDialog();
-                
+
             }
             catch (Exception ex)
             {
@@ -472,10 +474,10 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
+
         private void btnTurnos_Click(object sender, EventArgs e)
         {
             SlideCatalogo(btnTurnos);
@@ -504,6 +506,11 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         {
             SlideCatalogo(btnPromociones);
             GetPanel(new FrmPromocion());
+        }
+        private void btnAlmacen_Click(object sender, EventArgs e)
+        {
+            SlideGenerales(btnAlmacen);
+            GetPanel(new FrmEntradaSalidaAlmacen());
         }
 
         private void SlideGenerales(Button button)

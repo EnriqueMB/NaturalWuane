@@ -396,6 +396,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             RFCControl.Text = RFCControl.Text.Replace("  ", " ");
             RFCControl.Select(RFCControl.Text.Length, 0);
+            RFCControl.Text = RFCControl.Text.ToUpper();
         }
 
         private void DireccionControl_TextChanged(object sender, EventArgs e)

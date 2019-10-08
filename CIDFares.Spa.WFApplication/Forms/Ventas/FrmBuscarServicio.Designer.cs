@@ -185,7 +185,7 @@
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(111, 29);
             this.BtnAgregar.TabIndex = 14;
-            this.BtnAgregar.Text = "Agregar venta";
+            this.BtnAgregar.Text = "Agregar";
             this.BtnAgregar.UseVisualStyleBackColor = false;
             this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
@@ -322,6 +322,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panelContenedor);
             this.Name = "FrmBuscarServicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBuscarServicio";
             this.Load += new System.EventHandler(this.FrmBuscarServicio_Load);
             this.panelContenedor.ResumeLayout(false);

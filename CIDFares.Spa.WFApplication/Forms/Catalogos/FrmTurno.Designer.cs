@@ -28,11 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            this.components = new System.ComponentModel.Container();
             this.PanelTitulo = new System.Windows.Forms.Panel();
             this.Turnos = new System.Windows.Forms.Label();
             this.PanelBTN = new System.Windows.Forms.Panel();
@@ -46,7 +42,7 @@
             this.TBoxNombreTurno = new System.Windows.Forms.TextBox();
             this.LblNombreTurno = new System.Windows.Forms.Label();
             this.PanelDatosNombreDia = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.DiasControl = new System.Windows.Forms.ComboBox();
             this.LblDiaTurno = new System.Windows.Forms.Label();
             this.PanelDatosNumHorarios = new System.Windows.Forms.Panel();
             this.PanelContainsRadioButtons = new System.Windows.Forms.Panel();
@@ -63,10 +59,11 @@
             this.LblHoraSalida1 = new System.Windows.Forms.Label();
             this.LblHoraEntrada1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1BotonesDatosTurno = new System.Windows.Forms.FlowLayoutPanel();
-            this.AnadirBtn = new System.Windows.Forms.Button();
+            this.BtnAgregar = new System.Windows.Forms.Button();
             this.CancelarBtn = new System.Windows.Forms.Button();
             this.panelContainTableDataTurnoDays = new System.Windows.Forms.Panel();
-            this.DGViewDataDaysTurno = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            this.horarioDesignV21 = new CIDFares.Library.Controls.CIDHorario.Design.HorarioDesignV2();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.PanelTitulo.SuspendLayout();
             this.PanelBTN.SuspendLayout();
             this.PanelContainsBtnGuardarç.SuspendLayout();
@@ -81,7 +78,7 @@
             this.PanelDatosHorariosTurno.SuspendLayout();
             this.flowLayoutPanel1BotonesDatosTurno.SuspendLayout();
             this.panelContainTableDataTurnoDays.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGViewDataDaysTurno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelTitulo
@@ -213,20 +210,20 @@
             // 
             // PanelDatosNombreDia
             // 
-            this.PanelDatosNombreDia.Controls.Add(this.comboBox1);
+            this.PanelDatosNombreDia.Controls.Add(this.DiasControl);
             this.PanelDatosNombreDia.Controls.Add(this.LblDiaTurno);
             this.PanelDatosNombreDia.Location = new System.Drawing.Point(3, 60);
             this.PanelDatosNombreDia.Name = "PanelDatosNombreDia";
             this.PanelDatosNombreDia.Size = new System.Drawing.Size(291, 53);
             this.PanelDatosNombreDia.TabIndex = 1;
             // 
-            // comboBox1
+            // DiasControl
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(18, 23);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(256, 28);
-            this.comboBox1.TabIndex = 1;
+            this.DiasControl.FormattingEnabled = true;
+            this.DiasControl.Location = new System.Drawing.Point(18, 23);
+            this.DiasControl.Name = "DiasControl";
+            this.DiasControl.Size = new System.Drawing.Size(256, 28);
+            this.DiasControl.TabIndex = 1;
             // 
             // LblDiaTurno
             // 
@@ -378,24 +375,25 @@
             // flowLayoutPanel1BotonesDatosTurno
             // 
             this.flowLayoutPanel1BotonesDatosTurno.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.flowLayoutPanel1BotonesDatosTurno.Controls.Add(this.AnadirBtn);
+            this.flowLayoutPanel1BotonesDatosTurno.Controls.Add(this.BtnAgregar);
             this.flowLayoutPanel1BotonesDatosTurno.Controls.Add(this.CancelarBtn);
             this.flowLayoutPanel1BotonesDatosTurno.Location = new System.Drawing.Point(14, 395);
             this.flowLayoutPanel1BotonesDatosTurno.Name = "flowLayoutPanel1BotonesDatosTurno";
             this.flowLayoutPanel1BotonesDatosTurno.Size = new System.Drawing.Size(269, 41);
             this.flowLayoutPanel1BotonesDatosTurno.TabIndex = 53;
             // 
-            // AnadirBtn
+            // BtnAgregar
             // 
-            this.AnadirBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(148)))), ((int)(((byte)(65)))));
-            this.AnadirBtn.FlatAppearance.BorderSize = 0;
-            this.AnadirBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AnadirBtn.Location = new System.Drawing.Point(3, 3);
-            this.AnadirBtn.Name = "AnadirBtn";
-            this.AnadirBtn.Size = new System.Drawing.Size(137, 30);
-            this.AnadirBtn.TabIndex = 6;
-            this.AnadirBtn.Text = "Añadir";
-            this.AnadirBtn.UseVisualStyleBackColor = false;
+            this.BtnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(148)))), ((int)(((byte)(65)))));
+            this.BtnAgregar.FlatAppearance.BorderSize = 0;
+            this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAgregar.Location = new System.Drawing.Point(3, 3);
+            this.BtnAgregar.Name = "BtnAgregar";
+            this.BtnAgregar.Size = new System.Drawing.Size(137, 30);
+            this.BtnAgregar.TabIndex = 6;
+            this.BtnAgregar.Text = "Añadir";
+            this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // CancelarBtn
             // 
@@ -412,45 +410,24 @@
             // panelContainTableDataTurnoDays
             // 
             this.panelContainTableDataTurnoDays.BackColor = System.Drawing.Color.White;
-            this.panelContainTableDataTurnoDays.Controls.Add(this.DGViewDataDaysTurno);
+            this.panelContainTableDataTurnoDays.Controls.Add(this.horarioDesignV21);
             this.panelContainTableDataTurnoDays.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelContainTableDataTurnoDays.Location = new System.Drawing.Point(0, 0);
             this.panelContainTableDataTurnoDays.Name = "panelContainTableDataTurnoDays";
             this.panelContainTableDataTurnoDays.Size = new System.Drawing.Size(708, 469);
             this.panelContainTableDataTurnoDays.TabIndex = 0;
             // 
-            // DGViewDataDaysTurno
+            // horarioDesignV21
             // 
-            this.DGViewDataDaysTurno.AccessibleName = "Table";
-            this.DGViewDataDaysTurno.AllowEditing = false;
-            this.DGViewDataDaysTurno.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn6.AllowEditing = false;
-            gridTextColumn6.HeaderText = "Dia";
-            gridTextColumn6.MappingName = "NombreDia";
-            gridTextColumn7.AllowEditing = false;
-            gridTextColumn7.HeaderText = "Hora de entrada";
-            gridTextColumn7.MappingName = "HoraEntrada1";
-            gridTextColumn8.AllowEditing = false;
-            gridTextColumn8.HeaderText = "Hora de salida";
-            gridTextColumn8.MappingName = "HoraSalida1";
-            gridTextColumn9.AllowEditing = false;
-            gridTextColumn9.HeaderText = "Hora de entrada";
-            gridTextColumn9.MappingName = "HoraEntrada1";
-            gridTextColumn10.AllowEditing = false;
-            gridTextColumn10.HeaderText = "Hora de salida";
-            gridTextColumn10.MappingName = "HoraSalida2";
-            this.DGViewDataDaysTurno.Columns.Add(gridTextColumn6);
-            this.DGViewDataDaysTurno.Columns.Add(gridTextColumn7);
-            this.DGViewDataDaysTurno.Columns.Add(gridTextColumn8);
-            this.DGViewDataDaysTurno.Columns.Add(gridTextColumn9);
-            this.DGViewDataDaysTurno.Columns.Add(gridTextColumn10);
-            this.DGViewDataDaysTurno.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DGViewDataDaysTurno.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DGViewDataDaysTurno.Location = new System.Drawing.Point(0, 0);
-            this.DGViewDataDaysTurno.Name = "DGViewDataDaysTurno";
-            this.DGViewDataDaysTurno.Size = new System.Drawing.Size(708, 469);
-            this.DGViewDataDaysTurno.TabIndex = 0;
-            this.DGViewDataDaysTurno.Text = "sfDataGrid1";
+            this.horarioDesignV21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.horarioDesignV21.Location = new System.Drawing.Point(0, 0);
+            this.horarioDesignV21.Name = "horarioDesignV21";
+            this.horarioDesignV21.Size = new System.Drawing.Size(708, 469);
+            this.horarioDesignV21.TabIndex = 0;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmTurno
             // 
@@ -467,6 +444,7 @@
             this.Name = "FrmTurno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmTurno";
+            this.Shown += new System.EventHandler(this.FrmTurno_Shown);
             this.PanelTitulo.ResumeLayout(false);
             this.PanelTitulo.PerformLayout();
             this.PanelBTN.ResumeLayout(false);
@@ -487,7 +465,7 @@
             this.PanelDatosHorariosTurno.PerformLayout();
             this.flowLayoutPanel1BotonesDatosTurno.ResumeLayout(false);
             this.panelContainTableDataTurnoDays.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DGViewDataDaysTurno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -500,7 +478,6 @@
         private System.Windows.Forms.Panel panelContainerPanelsDataTurno;
         private System.Windows.Forms.Panel PanelContainGroupBox;
         private System.Windows.Forms.Panel panelContainTableDataTurnoDays;
-        private Syncfusion.WinForms.DataGrid.SfDataGrid DGViewDataDaysTurno;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel PanelDatosNombreTurno;
@@ -509,7 +486,7 @@
         private System.Windows.Forms.Panel PanelDatosHorariosTurno;
         private System.Windows.Forms.TextBox TBoxNombreTurno;
         private System.Windows.Forms.Label LblNombreTurno;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox DiasControl;
         private System.Windows.Forms.Label LblDiaTurno;
         private System.Windows.Forms.Label LblNumeroHorarios;
         private System.Windows.Forms.Panel PanelContainsRadioButtons;
@@ -524,9 +501,11 @@
         private System.Windows.Forms.DateTimePicker PickerHoraSalida2;
         private System.Windows.Forms.Label LblHoraSalida2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1BotonesDatosTurno;
-        private System.Windows.Forms.Button AnadirBtn;
+        private System.Windows.Forms.Button BtnAgregar;
         private System.Windows.Forms.Button CancelarBtn;
         private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.FlowLayoutPanel PanelContainsBtnGuardarç;
+        private Library.Controls.CIDHorario.Design.HorarioDesignV2 horarioDesignV21;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
