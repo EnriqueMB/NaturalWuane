@@ -134,8 +134,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 StockMax = producto.StockMax;
                 StockMin = producto.StockMin;
                 PrecioPublico = producto.PrecioPublico;
-                PrecioMayoreo = producto.PrecioMayoreo;
-                PrecioMenudeo = producto.PrecioMenudeo;
                 CodigoBarras = producto.CodigoBarras;
                 IdUnidadMedida = producto.IdUnidadMedida;
                 ClaveSat = producto.ClaveSat;
@@ -271,8 +269,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     IdUnidadMedida = IdUnidadMedida,
                     Clave = Clave,
                     PrecioPublico = PrecioPublico,
-                    PrecioMayoreo = PrecioMayoreo,
-                    PrecioMenudeo = PrecioMenudeo,
                     AplicaIva = AplicaIva,
                     Stock = Stock,
                     StockMax = StockMax,

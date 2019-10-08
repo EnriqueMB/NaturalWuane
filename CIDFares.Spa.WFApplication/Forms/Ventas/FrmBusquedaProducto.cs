@@ -57,7 +57,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             this.Model.BuscaClaveCodigo = true;
             this.ActiveControl = this.BuquedaClaveCodigoControl;
             this.BuquedaClaveCodigoControl.Focus();
-            sfDataGridBuquedaProducto.Columns[9].Visible = false;
+            sfDataGridBuquedaProducto.Columns[7].Visible = false;
         }
 
         public FrmBusquedaProducto(int cant)

@@ -27,6 +27,20 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public List<DireccionesCliente> ListaDirecciones { get; set; }
         public List<DireccionesClienteRequest> ListaDireccionesR { get; set; }
         public EntityState State { get; set; }
+        /// <summary>
+        /// Almacena el número de pagina siguiente o actual según el caso
+        /// </summary>
+        public int Page { get; set; }
+        /// <summary>
+        /// Almacen si el el grid debe recargarse con los elementos actuales
+        /// ó obtener los nuevos registros de l siguiente página
+        /// </summary>
+        public int Opcion { get; set; }
+        /// <summary>
+        /// Almacena un bit para saber si ya se llego a la pagina maxima
+        /// o cuendo ya la lista viene vacia.
+        /// </summary>
+        public bool PaginaMaxima { get; set; }
         #endregion
 
         #region Constructor
@@ -74,11 +88,18 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             try
             {
-                var x = await Repository.GetAllAsync();
-                ListaCliente.Clear();
-                foreach (var item in x)
+                var x = await Repository.GetAllAsync(Page, Opcion);
+                if (x.Count == 0)
+                    PaginaMaxima = true;
+                else
                 {
-                    ListaCliente.Add(item);
+                    if(Opcion > 1)
+                        ListaCliente.Clear();
+                    foreach (var item in x)
+                    {
+                        ListaCliente.Add(item);
+                    }
+                    PaginaMaxima = false;
                 }
             }
             catch (Exception ex)

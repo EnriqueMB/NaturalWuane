@@ -15,5 +15,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
         Task<IEnumerable<Cliente>> GetBusquedaAsync(string Busqueda);
         Task<int> SetMonederoCliente(object IdCliente, object IdUsuario, string ClaveTarjeta, int Opcion);
         Task<int> AddWithDTO(DTOCliente element);
+        Task<List<Cliente>> GetAllAsync(int Pagina, int Opcion);
     }
 }

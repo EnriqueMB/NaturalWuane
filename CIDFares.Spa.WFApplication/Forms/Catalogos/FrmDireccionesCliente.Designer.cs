@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlHead = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlBody = new System.Windows.Forms.Panel();
@@ -84,15 +84,15 @@
             this.pnlBotonesGrid = new System.Windows.Forms.Panel();
             this.flpBotonesGrid = new System.Windows.Forms.FlowLayoutPanel();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.pnlBotonesGroup = new System.Windows.Forms.Panel();
             this.flpBotonesGroup = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.lblDireciones = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
             this.pnlHead.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlBody.SuspendLayout();
@@ -179,31 +179,31 @@
             // sdgDirecciones
             // 
             this.sdgDirecciones.AccessibleName = "Table";
-            gridTextColumn8.HeaderText = "Column1";
-            gridTextColumn8.MappingName = "IdDireccion";
-            gridTextColumn8.Visible = false;
-            gridTextColumn9.HeaderText = "Estado";
-            gridTextColumn9.MappingName = "DatosEstado.Descripcion";
-            gridTextColumn9.Width = 120D;
-            gridTextColumn10.HeaderText = "Municipio";
-            gridTextColumn10.MappingName = "DatosMunicipio.Descripcion";
-            gridTextColumn10.Width = 120D;
-            gridTextColumn11.HeaderText = "Calle";
-            gridTextColumn11.MappingName = "Calle";
-            gridTextColumn11.Width = 140D;
-            gridTextColumn12.HeaderText = "Codigo Postal";
-            gridTextColumn12.MappingName = "CodigoPostal";
-            gridTextColumn13.HeaderText = "Numero Interior";
-            gridTextColumn13.MappingName = "NumeroInterior";
-            gridTextColumn14.HeaderText = "Numero Exterior";
-            gridTextColumn14.MappingName = "NumeroExterior";
-            this.sdgDirecciones.Columns.Add(gridTextColumn8);
-            this.sdgDirecciones.Columns.Add(gridTextColumn9);
-            this.sdgDirecciones.Columns.Add(gridTextColumn10);
-            this.sdgDirecciones.Columns.Add(gridTextColumn11);
-            this.sdgDirecciones.Columns.Add(gridTextColumn12);
-            this.sdgDirecciones.Columns.Add(gridTextColumn13);
-            this.sdgDirecciones.Columns.Add(gridTextColumn14);
+            gridTextColumn1.HeaderText = "Column1";
+            gridTextColumn1.MappingName = "IdDireccion";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.HeaderText = "Estado";
+            gridTextColumn2.MappingName = "DatosEstado.Descripcion";
+            gridTextColumn2.Width = 120D;
+            gridTextColumn3.HeaderText = "Municipio";
+            gridTextColumn3.MappingName = "DatosMunicipio.Descripcion";
+            gridTextColumn3.Width = 120D;
+            gridTextColumn4.HeaderText = "Calle";
+            gridTextColumn4.MappingName = "Calle";
+            gridTextColumn4.Width = 140D;
+            gridTextColumn5.HeaderText = "Codigo Postal";
+            gridTextColumn5.MappingName = "CodigoPostal";
+            gridTextColumn6.HeaderText = "Numero Interior";
+            gridTextColumn6.MappingName = "NumeroInterior";
+            gridTextColumn7.HeaderText = "Numero Exterior";
+            gridTextColumn7.MappingName = "NumeroExterior";
+            this.sdgDirecciones.Columns.Add(gridTextColumn1);
+            this.sdgDirecciones.Columns.Add(gridTextColumn2);
+            this.sdgDirecciones.Columns.Add(gridTextColumn3);
+            this.sdgDirecciones.Columns.Add(gridTextColumn4);
+            this.sdgDirecciones.Columns.Add(gridTextColumn5);
+            this.sdgDirecciones.Columns.Add(gridTextColumn6);
+            this.sdgDirecciones.Columns.Add(gridTextColumn7);
             this.sdgDirecciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sdgDirecciones.Location = new System.Drawing.Point(0, 0);
             this.sdgDirecciones.Name = "sdgDirecciones";
@@ -287,7 +287,7 @@
             this.ContactoControl.MaxLength = 200;
             this.ContactoControl.Name = "ContactoControl";
             this.ContactoControl.Size = new System.Drawing.Size(195, 26);
-            this.ContactoControl.TabIndex = 5;
+            this.ContactoControl.TabIndex = 10;
             this.ContactoControl.TextChanged += new System.EventHandler(this.ContactoControl_TextChanged);
             // 
             // pnlTelefonoCont
@@ -316,7 +316,7 @@
             this.TelefonoContactoControl.MaxLength = 15;
             this.TelefonoContactoControl.Name = "TelefonoContactoControl";
             this.TelefonoContactoControl.Size = new System.Drawing.Size(195, 26);
-            this.TelefonoContactoControl.TabIndex = 5;
+            this.TelefonoContactoControl.TabIndex = 11;
             this.TelefonoContactoControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TelefonoContactoControl_KeyPress);
             // 
             // pnlEstado
@@ -351,7 +351,7 @@
             this.IdEstadoControl.Name = "IdEstadoControl";
             this.IdEstadoControl.Size = new System.Drawing.Size(195, 28);
             this.IdEstadoControl.Style = Syncfusion.Windows.Forms.VisualStyle.Metro;
-            this.IdEstadoControl.TabIndex = 52;
+            this.IdEstadoControl.TabIndex = 1;
             this.IdEstadoControl.ThemeName = "Metro";
             this.IdEstadoControl.SelectedValueChanged += new System.EventHandler(this.IdEstadoControl_SelectedValueChanged);
             // 
@@ -387,7 +387,7 @@
             this.IdMunicipioControl.Name = "IdMunicipioControl";
             this.IdMunicipioControl.Size = new System.Drawing.Size(195, 28);
             this.IdMunicipioControl.Style = Syncfusion.Windows.Forms.VisualStyle.Metro;
-            this.IdMunicipioControl.TabIndex = 52;
+            this.IdMunicipioControl.TabIndex = 2;
             this.IdMunicipioControl.ThemeName = "Metro";
             // 
             // pnlColonia
@@ -416,7 +416,7 @@
             this.ColoniaControl.MaxLength = 200;
             this.ColoniaControl.Name = "ColoniaControl";
             this.ColoniaControl.Size = new System.Drawing.Size(195, 26);
-            this.ColoniaControl.TabIndex = 5;
+            this.ColoniaControl.TabIndex = 3;
             this.ColoniaControl.TextChanged += new System.EventHandler(this.ColoniaControl_TextChanged);
             // 
             // pnlCalle
@@ -445,7 +445,7 @@
             this.CalleControl.MaxLength = 200;
             this.CalleControl.Name = "CalleControl";
             this.CalleControl.Size = new System.Drawing.Size(195, 26);
-            this.CalleControl.TabIndex = 5;
+            this.CalleControl.TabIndex = 4;
             this.CalleControl.TextChanged += new System.EventHandler(this.CalleControl_TextChanged);
             // 
             // pnlEntreCalles
@@ -505,7 +505,7 @@
             this.ReferenciasControl.Multiline = true;
             this.ReferenciasControl.Name = "ReferenciasControl";
             this.ReferenciasControl.Size = new System.Drawing.Size(195, 92);
-            this.ReferenciasControl.TabIndex = 5;
+            this.ReferenciasControl.TabIndex = 6;
             // 
             // pnlCodigoPostal
             // 
@@ -533,7 +533,7 @@
             this.CodigoPostalControl.MaxLength = 200;
             this.CodigoPostalControl.Name = "CodigoPostalControl";
             this.CodigoPostalControl.Size = new System.Drawing.Size(195, 26);
-            this.CodigoPostalControl.TabIndex = 5;
+            this.CodigoPostalControl.TabIndex = 7;
             this.CodigoPostalControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CodigoPostalControl_KeyPress);
             // 
             // pnlNumeroInt
@@ -552,7 +552,7 @@
             this.SNInteriorControl.Location = new System.Drawing.Point(154, 18);
             this.SNInteriorControl.Name = "SNInteriorControl";
             this.SNInteriorControl.Size = new System.Drawing.Size(53, 24);
-            this.SNInteriorControl.TabIndex = 51;
+            this.SNInteriorControl.TabIndex = 0;
             this.SNInteriorControl.Text = "S/N";
             this.SNInteriorControl.UseVisualStyleBackColor = true;
             this.SNInteriorControl.CheckedChanged += new System.EventHandler(this.SNInteriorControl_CheckedChanged);
@@ -580,7 +580,7 @@
             this.NumeroInteriorControl.NullString = "";
             this.NumeroInteriorControl.Size = new System.Drawing.Size(107, 27);
             this.NumeroInteriorControl.SpecialCultureValue = Syncfusion.Windows.Forms.Tools.SpecialCultureValues.None;
-            this.NumeroInteriorControl.TabIndex = 50;
+            this.NumeroInteriorControl.TabIndex = 8;
             this.NumeroInteriorControl.Text = "0";
             // 
             // label7
@@ -610,7 +610,7 @@
             this.SNExteriorControl.Location = new System.Drawing.Point(154, 18);
             this.SNExteriorControl.Name = "SNExteriorControl";
             this.SNExteriorControl.Size = new System.Drawing.Size(53, 24);
-            this.SNExteriorControl.TabIndex = 51;
+            this.SNExteriorControl.TabIndex = 0;
             this.SNExteriorControl.Text = "S/N";
             this.SNExteriorControl.UseVisualStyleBackColor = true;
             this.SNExteriorControl.CheckedChanged += new System.EventHandler(this.SNExteriorControl_CheckedChanged);
@@ -638,7 +638,7 @@
             this.NumeroExteriorControl.NullString = "";
             this.NumeroExteriorControl.Size = new System.Drawing.Size(107, 27);
             this.NumeroExteriorControl.SpecialCultureValue = Syncfusion.Windows.Forms.Tools.SpecialCultureValues.None;
-            this.NumeroExteriorControl.TabIndex = 50;
+            this.NumeroExteriorControl.TabIndex = 9;
             this.NumeroExteriorControl.Text = "0";
             // 
             // label9
@@ -698,6 +698,21 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // btnModificar
+            // 
+            this.btnModificar.BackColor = System.Drawing.Color.White;
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnModificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(148)))), ((int)(((byte)(65)))));
+            this.btnModificar.Location = new System.Drawing.Point(142, 23);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(123, 29);
+            this.btnModificar.TabIndex = 13;
+            this.btnModificar.Text = "MODIFICAR";
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.White;
@@ -743,10 +758,25 @@
             this.btnAgregar.Location = new System.Drawing.Point(93, 23);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(123, 29);
-            this.btnAgregar.TabIndex = 8;
+            this.btnAgregar.TabIndex = 12;
             this.btnAgregar.Text = "AÑADIR";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.Color.White;
+            this.btnLimpiar.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnLimpiar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btnLimpiar.Location = new System.Drawing.Point(222, 23);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(123, 29);
+            this.btnLimpiar.TabIndex = 13;
+            this.btnLimpiar.Text = "LIMPIAR";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // pnlTitulo
             // 
@@ -770,36 +800,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.BackColor = System.Drawing.Color.White;
-            this.btnModificar.FlatAppearance.BorderSize = 0;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnModificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(148)))), ((int)(((byte)(65)))));
-            this.btnModificar.Location = new System.Drawing.Point(142, 23);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(123, 29);
-            this.btnModificar.TabIndex = 13;
-            this.btnModificar.Text = "MODIFICAR";
-            this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.White;
-            this.btnLimpiar.FlatAppearance.BorderSize = 0;
-            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnLimpiar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btnLimpiar.Location = new System.Drawing.Point(222, 23);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(123, 29);
-            this.btnLimpiar.TabIndex = 13;
-            this.btnLimpiar.Text = "LIMPIAR";
-            this.btnLimpiar.UseVisualStyleBackColor = false;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // FrmDireccionesCliente
             // 

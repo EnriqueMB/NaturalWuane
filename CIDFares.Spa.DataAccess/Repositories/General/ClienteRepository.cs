@@ -243,6 +243,47 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 return Resultado;
             }
         }
+
+        public async Task<List<Cliente>> GetAllAsync(int Pagina, int Opcion)
+        {
+            using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+            {
+                conexion.Open();
+                List<Cliente> Lista = new List<Cliente>();
+                Cliente item;
+                var parametros = new DynamicParameters();
+                parametros.Add("@Pagina", Pagina);
+                parametros.Add("@Cantidad", 50);
+                parametros.Add("@Opcion", Opcion);
+                var dr = await conexion.ExecuteReaderAsync("[Cliente].[SPCID_Get_Cliente]", param: parametros, commandType: CommandType.StoredProcedure);
+                while (dr.Read())
+                {
+                    item = new Cliente();
+                    item.IdCliente = dr.GetGuid(dr.GetOrdinal("IdCliente"));
+                    item.LocalId = dr.GetInt32(dr.GetOrdinal("LocalId"));
+                    item.NombreCompleto = dr.GetString(dr.GetOrdinal("NombreCompleto"));
+                    if (!dr.IsDBNull(dr.GetOrdinal("FechaNacimiento")))
+                    {
+                        DateTime date = dr.GetDateTime(dr.GetOrdinal("FechaNacimiento"));
+                        item.Edad = DateTime.Today.AddTicks(-date.Ticks).Year - 1;
+                    }
+                    else
+                        item.Edad = 0;
+                    item.FechaNacimiento = dr.GetDateTime(dr.GetOrdinal("FechaNacimiento"));
+                    item.Email = dr.GetString(dr.GetOrdinal("Email"));
+                    item.Telefono = dr.GetString(dr.GetOrdinal("Telefono"));
+                    item.Rfc = dr.GetString(dr.GetOrdinal("Rfc"));
+                    item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
+                    item.Sexo = Convert.ToChar(dr.GetString(dr.GetOrdinal("Sexo")));
+                    item.TieneTarjeta = dr.GetBoolean(dr.GetOrdinal("TieneMonedero"));
+                    if (!dr.IsDBNull(dr.GetOrdinal("PuntosMonedero")))
+                        item.PuntosMonedero = dr.GetInt32(dr.GetOrdinal("PuntosMonedero"));
+                    //item.PuntosMonedero = !dr.IsDBNull(dr.GetOrdinal("PuntosMonedero")) ? dr.GetDecimal(dr.GetOrdinal("PuntosMonedero")) : Decimal.Zero;
+                    Lista.Add(item);
+                }
+                return Lista;
+            }
+        }
         #endregion
 
         #region Metodo No Implementado

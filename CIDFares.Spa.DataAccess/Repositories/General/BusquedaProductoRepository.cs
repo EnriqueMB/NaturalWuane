@@ -41,8 +41,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.NombreCategoria = dr.GetString(dr.GetOrdinal("NombreCategoria"));
                         item.UnidadMedida = dr.GetString(dr.GetOrdinal("UnidadMedidad"));
                         item.PrecioPublico = dr.GetDecimal(dr.GetOrdinal("PrecioPublico"));
-                        item.PrecioMayoreo = dr.GetDecimal(dr.GetOrdinal("PrecioMayoreo"));
-                        item.PrecioMenudeo = dr.GetDecimal(dr.GetOrdinal("PrecioMenudeo"));
                         item.PorcentajeIva = dr.GetDecimal(dr.GetOrdinal("PorcentajeIva"));
                         item.CostoProducto = dr.GetDecimal(dr.GetOrdinal("CostoProducto"));
                         item.PorcentajePaquete = dr.GetDecimal(dr.GetOrdinal("PorcentajePaquete"));

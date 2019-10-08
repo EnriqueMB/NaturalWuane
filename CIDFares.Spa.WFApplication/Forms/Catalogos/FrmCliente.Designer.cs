@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn17 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn18 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.panelGridDatos = new System.Windows.Forms.Panel();
@@ -80,6 +80,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnLimpiarBusqueda = new System.Windows.Forms.Button();
             this.PanelPrincipal.SuspendLayout();
             this.PanelContenedor.SuspendLayout();
             this.panelGridDatos.SuspendLayout();
@@ -133,46 +134,46 @@
             this.sfDataGridCliente.AccessibleName = "Table";
             this.sfDataGridCliente.AllowEditing = false;
             this.sfDataGridCliente.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.AllowEditing = false;
-            gridTextColumn1.HeaderText = "IdCliente";
-            gridTextColumn1.MappingName = "IdCliente";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.AllowEditing = false;
-            gridTextColumn2.HeaderText = "Clave";
-            gridTextColumn2.MappingName = "Clave";
-            gridTextColumn3.AllowEditing = false;
-            gridTextColumn3.HeaderText = "Nombre";
-            gridTextColumn3.MappingName = "NombreCompleto";
-            gridTextColumn4.AllowEditing = false;
-            gridTextColumn4.HeaderText = "Teléfono";
-            gridTextColumn4.MappingName = "Telefono";
-            gridTextColumn5.AllowEditing = false;
-            gridTextColumn5.HeaderText = "Edad";
-            gridTextColumn5.MappingName = "Edad";
-            gridTextColumn6.AllowEditing = false;
-            gridTextColumn6.HeaderText = "Genero";
-            gridTextColumn6.MappingName = "Sexo";
-            gridTextColumn7.AllowEditing = false;
-            gridTextColumn7.HeaderText = "FechaNacimiento";
-            gridTextColumn7.MappingName = "FechaNacimiento";
-            gridTextColumn7.Visible = false;
-            gridTextColumn8.AllowEditing = false;
-            gridTextColumn8.HeaderText = "nada";
-            gridTextColumn8.MappingName = "TieneTarjeta";
-            gridTextColumn8.Visible = false;
-            gridTextColumn9.AllowEditing = false;
-            gridTextColumn9.HeaderText = "Puntos monedero";
-            gridTextColumn9.MappingName = "PuntosMonedero";
-            gridTextColumn9.NullDisplayText = "S/ Monedero";
-            this.sfDataGridCliente.Columns.Add(gridTextColumn1);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn2);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn3);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn4);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn5);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn6);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn7);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn8);
-            this.sfDataGridCliente.Columns.Add(gridTextColumn9);
+            gridTextColumn10.AllowEditing = false;
+            gridTextColumn10.HeaderText = "IdCliente";
+            gridTextColumn10.MappingName = "IdCliente";
+            gridTextColumn10.Visible = false;
+            gridTextColumn11.AllowEditing = false;
+            gridTextColumn11.HeaderText = "Clave";
+            gridTextColumn11.MappingName = "Clave";
+            gridTextColumn12.AllowEditing = false;
+            gridTextColumn12.HeaderText = "Nombre";
+            gridTextColumn12.MappingName = "NombreCompleto";
+            gridTextColumn13.AllowEditing = false;
+            gridTextColumn13.HeaderText = "Teléfono";
+            gridTextColumn13.MappingName = "Telefono";
+            gridTextColumn14.AllowEditing = false;
+            gridTextColumn14.HeaderText = "Edad";
+            gridTextColumn14.MappingName = "Edad";
+            gridTextColumn15.AllowEditing = false;
+            gridTextColumn15.HeaderText = "Genero";
+            gridTextColumn15.MappingName = "Sexo";
+            gridTextColumn16.AllowEditing = false;
+            gridTextColumn16.HeaderText = "FechaNacimiento";
+            gridTextColumn16.MappingName = "FechaNacimiento";
+            gridTextColumn16.Visible = false;
+            gridTextColumn17.AllowEditing = false;
+            gridTextColumn17.HeaderText = "nada";
+            gridTextColumn17.MappingName = "TieneTarjeta";
+            gridTextColumn17.Visible = false;
+            gridTextColumn18.AllowEditing = false;
+            gridTextColumn18.HeaderText = "Puntos monedero";
+            gridTextColumn18.MappingName = "PuntosMonedero";
+            gridTextColumn18.NullDisplayText = "S/ Monedero";
+            this.sfDataGridCliente.Columns.Add(gridTextColumn10);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn11);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn12);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn13);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn14);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn15);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn16);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn17);
+            this.sfDataGridCliente.Columns.Add(gridTextColumn18);
             this.sfDataGridCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridCliente.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridCliente.Name = "sfDataGridCliente";
@@ -547,6 +548,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnLimpiarBusqueda);
             this.panel1.Controls.Add(this.BtnBusqueda);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.BusquedaControl);
@@ -562,7 +564,7 @@
             this.BtnBusqueda.FlatAppearance.BorderSize = 0;
             this.BtnBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBusqueda.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBusqueda.Location = new System.Drawing.Point(572, 9);
+            this.BtnBusqueda.Location = new System.Drawing.Point(496, 15);
             this.BtnBusqueda.Name = "BtnBusqueda";
             this.BtnBusqueda.Size = new System.Drawing.Size(123, 29);
             this.BtnBusqueda.TabIndex = 6;
@@ -586,7 +588,7 @@
             this.BusquedaControl.Location = new System.Drawing.Point(162, 20);
             this.BusquedaControl.MaxLength = 200;
             this.BusquedaControl.Name = "BusquedaControl";
-            this.BusquedaControl.Size = new System.Drawing.Size(355, 20);
+            this.BusquedaControl.Size = new System.Drawing.Size(311, 20);
             this.BusquedaControl.TabIndex = 4;
             this.BusquedaControl.TextChanged += new System.EventHandler(this.BusquedaControl_TextChanged);
             // 
@@ -606,6 +608,23 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
+            // btnLimpiarBusqueda
+            // 
+            this.btnLimpiarBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLimpiarBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnLimpiarBusqueda.FlatAppearance.BorderSize = 0;
+            this.btnLimpiarBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarBusqueda.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnLimpiarBusqueda.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnLimpiarBusqueda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiarBusqueda.Location = new System.Drawing.Point(648, 15);
+            this.btnLimpiarBusqueda.Name = "btnLimpiarBusqueda";
+            this.btnLimpiarBusqueda.Size = new System.Drawing.Size(130, 29);
+            this.btnLimpiarBusqueda.TabIndex = 7;
+            this.btnLimpiarBusqueda.Text = "Eliminar filtros";
+            this.btnLimpiarBusqueda.UseVisualStyleBackColor = false;
+            this.btnLimpiarBusqueda.Click += new System.EventHandler(this.btnLimpiarBusqueda_Click);
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -617,6 +636,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCliente";
             this.Load += new System.EventHandler(this.FrmCliente_Load);
+            this.Shown += new System.EventHandler(this.FrmCliente_Shown);
             this.PanelPrincipal.ResumeLayout(false);
             this.PanelContenedor.ResumeLayout(false);
             this.panelGridDatos.ResumeLayout(false);
@@ -684,5 +704,6 @@
         private System.Windows.Forms.TextBox BusquedaControl;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnDirecciones;
+        public System.Windows.Forms.Button btnLimpiarBusqueda;
     }
 }
