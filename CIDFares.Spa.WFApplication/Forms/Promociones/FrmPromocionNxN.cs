@@ -1,5 +1,9 @@
 ﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Library.Code.Helpers;
+using CIDFares.Library.Controls.CIDMessageBox.Code;
+using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Spa.Business.ViewModels.Promociones;
+using CIDFares.Spa.WFApplication.Constants;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -80,10 +84,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 }
                 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPromocionDias ~ btnAgregar_Click_1(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
 

@@ -1,4 +1,5 @@
 ﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Library.Code.Helpers;
 using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Spa.Business.ViewModels.Promociones;
@@ -59,7 +60,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            try
+            {
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPromocionDias ~ btnCancelar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -103,12 +113,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 Model.FechaInicio = DateTime.Now;
                 Model.FechaFin = DateTime.Now.AddMonths(1);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPromocionDias ~ FrmPromocionDias_Load(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
-            
+
         }
 
         private async void btnAgregar_Click_1(object sender, EventArgs e)
@@ -149,10 +160,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 else
                     this.ShowErrors(errorProvider1, typeof(PromocionViewModel), validationResults);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPromocionDias ~ btnAgregar_Click_1(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
     }

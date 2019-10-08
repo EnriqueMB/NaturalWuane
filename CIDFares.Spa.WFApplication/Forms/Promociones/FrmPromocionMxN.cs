@@ -1,4 +1,5 @@
 ﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Library.Code.Helpers;
 using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Spa.Business.ViewModels.Promociones;
@@ -75,8 +76,18 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
 
         private void FrmPromocionMxN_Load(object sender, EventArgs e)
         {
-            GridPS.Style.HeaderStyle.Borders.All = new GridBorder(GridBorderStyle.None);
-            this.GridPS.Style.CellStyle.Borders.All = new GridBorder(GridBorderStyle.None);
+            try
+            {
+                GridPS.Style.HeaderStyle.Borders.All = new GridBorder(GridBorderStyle.None);
+                this.GridPS.Style.CellStyle.Borders.All = new GridBorder(GridBorderStyle.None);
+            }
+            catch (Exception ex)
+            {
+
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPromocionMxN ~ FrmPromocionMxN_Load(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+            
         }
 
         private void btnProducto_Click(object sender, EventArgs e)
@@ -88,49 +99,68 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 if (buscar.producto.IdProducto != 0)
                     AgregarProducto(buscar.producto);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPromocionMxN ~ btnProducto_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
 
         private void AgregarProducto(BusqueProducto producto)
         {
-            PromocionMxN item = new PromocionMxN();
-            item.Nombre = producto.Nombre;
-            item.IDGenerico = producto.IdProducto;
-            item.CantidadGratis =(int)producto.CantidadProducto;
-            item.IdTipo = producto.IdTipo;
-
-            var x = Model.ListaPromocionMxN.Where(p => p.IDGenerico == producto.IdProducto).Select(u => {
-                u.CantidadGratis +=(int)producto.CantidadProducto; return u;
-            }).ToList();
-            if (x.Count == 1)
+            try
             {
-                this.GridPS.Refresh();
+                PromocionMxN item = new PromocionMxN();
+                item.Nombre = producto.Nombre;
+                item.IDGenerico = producto.IdProducto;
+                item.CantidadGratis = (int)producto.CantidadProducto;
+                item.IdTipo = producto.IdTipo;
+
+                var x = Model.ListaPromocionMxN.Where(p => p.IDGenerico == producto.IdProducto).Select(u => {
+                    u.CantidadGratis += (int)producto.CantidadProducto; return u;
+                }).ToList();
+                if (x.Count == 1)
+                {
+                    this.GridPS.Refresh();
+                }
+                else
+                    Model.ListaPromocionMxN.Add(item);
             }
-            else
-            Model.ListaPromocionMxN.Add(item);
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
         private void AgregarServicio(Servicio servicio)
         {
-            PromocionMxN item = new PromocionMxN();
-            item.Nombre = servicio.Nombre;
-            item.IDGenerico = servicio.IdServicio;
-            item.CantidadGratis = (int)servicio.CantidadServicio;
-            item.IdTipo = servicio.IdTipoServicio;
-
-            var x = Model.ListaPromocionMxN.Where(p => p.IDGenerico == servicio.IdServicio).Select(u => {
-                u.CantidadGratis += (int)servicio.CantidadServicio; return u;
-            }).ToList();
-            if (x.Count == 1)
+            try
             {
-                this.GridPS.Refresh();
+                PromocionMxN item = new PromocionMxN();
+                item.Nombre = servicio.Nombre;
+                item.IDGenerico = servicio.IdServicio;
+                item.CantidadGratis = (int)servicio.CantidadServicio;
+                item.IdTipo = servicio.IdTipoServicio;
+
+                var x = Model.ListaPromocionMxN.Where(p => p.IDGenerico == servicio.IdServicio).Select(u =>
+                {
+                    u.CantidadGratis += (int)servicio.CantidadServicio; return u;
+                }).ToList();
+                if (x.Count == 1)
+                {
+                    this.GridPS.Refresh();
+                }
+                else
+                    Model.ListaPromocionMxN.Add(item);
             }
-            else
-                Model.ListaPromocionMxN.Add(item);
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         private void btnServicio_Click(object sender, EventArgs e)
@@ -142,10 +172,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 if(buscar.servicio.IdServicio != 0)
                 AgregarServicio(buscar.servicio);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPromocionMxN ~ btnServicio_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
         private object ObtenerSeleccionado()
@@ -177,7 +208,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             }
             catch (Exception ex)
             {
-                throw ex;
+
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPromocionMxN ~ btnEliminar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
         private void LimpiarPropiedades()
@@ -270,10 +303,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPromocionMxN ~ btnAgregar_Click_1(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
     }

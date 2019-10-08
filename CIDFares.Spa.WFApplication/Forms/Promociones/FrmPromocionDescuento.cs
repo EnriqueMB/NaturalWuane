@@ -1,6 +1,10 @@
 ﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Library.Code.Helpers;
+using CIDFares.Library.Controls.CIDMessageBox.Code;
+using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Spa.Business.ViewModels.Promociones;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
+using CIDFares.Spa.WFApplication.Constants;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,10 +63,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                     Model.EsMonto = true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPromocionDescuento ~ radioButton1_CheckedChanged(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
 
@@ -107,10 +112,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 else
                 EsMonto.Checked = true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPromocionDescuento ~ FrmPromocionDescuento_Load(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
 
@@ -147,10 +153,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 }
                 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPromocionDescuento ~ btnSiguiente_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
 

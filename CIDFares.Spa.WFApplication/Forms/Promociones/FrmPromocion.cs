@@ -47,36 +47,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
 
         private void Agregar (string titulo, string promocion)
         {
-            Panel panelPromocion = new Panel();
-            Label labelEncabezado = new Label();
-            Label labelPromo = new Label();
-
-            labelEncabezado.AutoEllipsis = true;
-            labelEncabezado.BackColor = Color.Transparent;
-            labelEncabezado.Font = new Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            labelEncabezado.ForeColor = Color.White;
-            labelEncabezado.Size = new Size(197, 59);
-            labelEncabezado.Text = titulo;
-            labelEncabezado.TextAlign = ContentAlignment.MiddleCenter;
-        
-            labelPromo.BackColor = Color.Transparent;
-            labelPromo.Font = new Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            labelPromo.ForeColor = Color.White;
-            labelPromo.Location = new Point(46, 74);
-            labelPromo.Size = new Size(125, 44);
-            labelPromo.TabIndex = 1;
-            labelPromo.Text = promocion;
-            labelPromo.TextAlign = ContentAlignment.MiddleCenter;
-
-            panelPromocion.BackgroundImage = global::CIDFares.Spa.WFApplication.Properties.Resources.promocionNxN;
-            panelPromocion.BackgroundImageLayout = ImageLayout.Stretch;
-            panelPromocion.Controls.Add(labelPromo);
-            panelPromocion.Controls.Add(labelEncabezado);
-            panelPromocion.Location = new Point(3, 3);
-            panelPromocion.Size = new Size(215, 242);
-            panelPromocion.TabIndex = 2;
-            panelPromocion.DoubleClick += new EventHandler(this.panelPromocion_DoubleClick);
-            this.flowLayoutPanel1.Controls.Add(panelPromocion);
+           
         }
                 
         private void panelPromocion_DoubleClick(object sender, EventArgs e)
@@ -118,18 +89,28 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             catch (Exception ex)
             {
 
-                ErrorLogHelper.AddExcFileTxt(ex, "FrmFormaPago ~ btnModificar_Click(object sender, EventArgs e)");
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPromocion ~ btnModificar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
 
         private async void btnNuevo_Click(object sender, EventArgs e)
         {
-            //GetPanel(new FrmNuevaPromocion());
-            FrmNuevaPromocion nuevo = new FrmNuevaPromocion();
-            nuevo.ShowDialog();
-            await Model.GetAllPromocionAsync();
-            this.SfGridPromocion.Refresh();
+            try
+            {
+                //GetPanel(new FrmNuevaPromocion());
+                FrmNuevaPromocion nuevo = new FrmNuevaPromocion();
+                nuevo.ShowDialog();
+                await Model.GetAllPromocionAsync();
+                this.SfGridPromocion.Refresh();
+            }
+            catch (Exception ex)
+            {
+
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPromocion ~ btnNuevo_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+           
         }
 
         public void GetPanel(object Formhijo)

@@ -1,7 +1,11 @@
-﻿using CIDFares.Spa.Business.ValueObjects;
+﻿using CIDFares.Library.Code.Helpers;
+using CIDFares.Library.Controls.CIDMessageBox.Code;
+using CIDFares.Library.Controls.CIDMessageBox.Enums;
+using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.Business.ViewModels.Promociones;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
+using CIDFares.Spa.WFApplication.Constants;
 using CIDFares.Spa.WFApplication.Forms.Ventas;
 using System;
 using System.Collections.Generic;
@@ -162,11 +166,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 }
                 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmNuevaPromocion ~ FrmNuevaPromocion_Load(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
-         }
+        }
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -192,10 +198,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 }
                 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmNuevaPromocion ~ button1_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
         #endregion
@@ -223,33 +230,43 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 }
                 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmNuevaPromocion ~ IdTipoPromocion_SelectedIndexChanged(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
 
         private void rbProducto_CheckedChanged(object sender, EventArgs e)
         {
+            try
+            {
+                if (rbProducto.Checked)
+                {
+                    Model.EsProducto = true;
+                    grbBuscarServProd.Text = "Producto";
+                    button1.Text = "Buscar Producto";
+                    if (!EsModificar)
+                        Model.Nombre = string.Empty;
+                }
+                else if (rbServicio.Checked)
+                {
+                    Model.EsProducto = false;
+                    grbBuscarServProd.Text = "Servicio";
+                    button1.Text = "Buscar servicio";
+                    if (!EsModificar)
+                        Model.Nombre = string.Empty;
+                }
+                EsModificar = false;
+            }
+            catch (Exception ex)
+            {
 
-            if (rbProducto.Checked)
-            {
-                Model.EsProducto = true;
-                grbBuscarServProd.Text = "Producto";
-                button1.Text = "Buscar Producto";
-                if(!EsModificar)
-                Model.Nombre = string.Empty;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmNuevaPromocion ~ rbProducto_CheckedChanged(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
-            else if(rbServicio.Checked)
-            {
-                Model.EsProducto = false;
-                grbBuscarServProd.Text = "Servicio";
-                button1.Text = "Buscar servicio";
-                if(!EsModificar)
-                Model.Nombre = string.Empty;
-            }
-            EsModificar = false;
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
