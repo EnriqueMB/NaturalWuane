@@ -71,6 +71,7 @@
             this.SfGridPromocion.AccessibleName = "Table";
             this.SfGridPromocion.AllowGrouping = false;
             this.SfGridPromocion.AllowResizingColumns = true;
+            this.SfGridPromocion.AutoExpandGroups = true;
             this.SfGridPromocion.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
             gridTextColumn1.AllowGrouping = false;
             gridTextColumn1.AllowResizing = true;
@@ -120,10 +121,20 @@
             this.SfGridPromocion.Name = "SfGridPromocion";
             this.SfGridPromocion.PreviewRowHeightMode = Syncfusion.WinForms.DataGrid.Enums.PreviewRowHeightMode.Auto;
             this.SfGridPromocion.Size = new System.Drawing.Size(858, 428);
+            this.SfGridPromocion.Style.AddNewRowStyle.Font.Facename = "Century Gothic";
+            this.SfGridPromocion.Style.AddNewRowStyle.Font.Size = 10F;
             this.SfGridPromocion.Style.CellStyle.Font.Facename = "Century Gothic";
             this.SfGridPromocion.Style.CellStyle.Font.Size = 10F;
+            this.SfGridPromocion.Style.GroupDropAreaItemStyle.Font.Facename = "Century Gothic";
+            this.SfGridPromocion.Style.GroupDropAreaItemStyle.Font.Size = 10F;
+            this.SfGridPromocion.Style.GroupDropAreaStyle.Font.Facename = "Century Gothic";
+            this.SfGridPromocion.Style.GroupDropAreaStyle.Font.Size = 10F;
+            this.SfGridPromocion.Style.GroupSummaryRowStyle.Font.Facename = "Century";
+            this.SfGridPromocion.Style.GroupSummaryRowStyle.Font.Size = 10F;
             this.SfGridPromocion.Style.HeaderStyle.Font.Facename = "Century Gothic";
             this.SfGridPromocion.Style.HeaderStyle.Font.Size = 10F;
+            this.SfGridPromocion.Style.RowHeaderStyle.Font.Facename = "Century Gothic";
+            this.SfGridPromocion.Style.RowHeaderStyle.Font.Size = 10F;
             this.SfGridPromocion.TabIndex = 2;
             this.SfGridPromocion.Text = "sfDataGrid1";
             // 

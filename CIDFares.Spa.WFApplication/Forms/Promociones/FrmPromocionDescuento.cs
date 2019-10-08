@@ -49,11 +49,15 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 if (rbProcentaje.Checked)
                 {
                     EsMontoControl.Text = "%";
+                    //DescuentoControl.Text = Format(DescuentoControl.Text / 100, "00.00 %");
+                    DescuentoControl.Text = Model.Descuento.ToString("P");
+                    //EfectivoControl.CurrencySymbol = "%";
                     Model.EsMonto = false;
                 }
                 else if (EsMonto.Checked)
                 {
                     EsMontoControl.Text = "$";
+                    //EfectivoControl.CurrencySymbol = "$";
                     Model.EsMonto = true;
                 }
             }

@@ -19,6 +19,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
     {
         public PromocionViewModel Model { get; set; }
         private PromocionGeneral promocion;
+        public bool EsModificar { get; set; }
 
         #region Constructor
         public FrmNuevaPromocion()
@@ -26,6 +27,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<PromocionViewModel>();
             promocion = new PromocionGeneral();
+            this.EsModificar = false;
             this.IniciarBinding();
         }
 
@@ -35,6 +37,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
             Model = ServiceLocator.Instance.Resolve<PromocionViewModel>();
             this.promocion = item;
             this.IniciarBinding();
+            this.EsModificar = true;
             Model.State = EntityState.Update;
             LlenarFormulario();
         }
@@ -138,9 +141,15 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                     this.IdTipoPromocion.Enabled = false;
                     Model.IdTipoPromocion = promocion.TipoPromocion.IdTipoPromocion;
                     if (promocion.IdTipo == 1)
+                    {
+                        EsModificar = true;
                         this.rbServicio.Checked = true;
+                    }
                     else
+                    {
+                        EsModificar = true;
                         this.rbProducto.Checked = true;
+                    }
                 }
                 else
                 {
@@ -229,7 +238,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 Model.EsProducto = true;
                 grbBuscarServProd.Text = "Producto";
                 button1.Text = "Buscar Producto";
-                //Model.IdGenerico = 0;
+                if(!EsModificar)
                 Model.Nombre = string.Empty;
             }
             else if(rbServicio.Checked)
@@ -237,8 +246,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Promociones
                 Model.EsProducto = false;
                 grbBuscarServProd.Text = "Servicio";
                 button1.Text = "Buscar servicio";
+                if(!EsModificar)
                 Model.Nombre = string.Empty;
             }
+            EsModificar = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
