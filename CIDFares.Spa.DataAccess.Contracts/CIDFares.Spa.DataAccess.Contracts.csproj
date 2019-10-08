@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTOs\DTOCliente.cs" />
+    <Compile Include="DTOs\General\PromocionDto.cs" />
+    <Compile Include="DTOs\General\CitaDto.cs" />
     <Compile Include="DTOs\Requests\DireccionesClienteRequest.cs" />
     <Compile Include="DTOs\Requests\EncuestaRequest.cs" />
     <Compile Include="DTOs\Requests\LoginRequests.cs" />
@@ -68,6 +70,8 @@
     <Compile Include="Entities\CambioVenta.cs" />
     <Compile Include="Entities\CapturaCita.cs" />
     <Compile Include="Entities\CategoriaProducto.cs" />
+    <Compile Include="Entities\OrdenPaquete.cs" />
+    <Compile Include="Entities\OrdenServicio.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Compra.cs" />
     <Compile Include="Entities\CompraCancelacion.cs" />
@@ -81,6 +85,14 @@
     <Compile Include="Entities\Municipio.cs" />
     <Compile Include="Entities\Pais.cs" />
     <Compile Include="Entities\Iva.cs" />
+    <Compile Include="Entities\Promocion.cs" />
+    <Compile Include="Entities\PromocionGeneral.cs" />
+    <Compile Include="Entities\PromocionDescuento.cs" />
+    <Compile Include="Entities\PromocionDias.cs" />
+    <Compile Include="Entities\PromocionMxN.cs" />
+    <Compile Include="Entities\PromocionNxN.cs" />
+    <Compile Include="Entities\PromocionProducto.cs" />
+    <Compile Include="Entities\PromocionServicio.cs" />
     <Compile Include="Entities\RegistroEntradaSalida.cs" />
     <Compile Include="Entities\Preguntas.cs" />
     <Compile Include="Entities\ReglasRol.cs" />
@@ -96,6 +108,7 @@
     <Compile Include="Entities\Rol.cs" />
     <Compile Include="Entities\Servicio.cs" />
     <Compile Include="Entities\Sucursal.cs" />
+    <Compile Include="Entities\TipoPromocion.cs" />
     <Compile Include="Entities\TipoAlimento.cs" />
     <Compile Include="Entities\TipoServicio.cs" />
     <Compile Include="Entities\TipoSucursal.cs" />
@@ -134,6 +147,7 @@
     <Compile Include="Repositories\General\IPaisRepository.cs" />
     <Compile Include="Repositories\General\IPaqueteRepository.cs" />
     <Compile Include="Repositories\General\IProductoRepository.cs" />
+    <Compile Include="Repositories\General\IPromocionRepository.cs" />
     <Compile Include="Repositories\General\IProductosMonederoRepository.cs" />
     <Compile Include="Repositories\General\IProveedorACompraRepository.cs" />
     <Compile Include="Repositories\General\IProveedorRepository.cs" />
