@@ -3,6 +3,7 @@ using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using CIDFares.Spa.DataAccess.Repositories.Base;
 using System;
 using System.Collections.Generic;
+using CIDFares.Library.Code.Extensions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,5 +73,24 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
+        public async Task<int> ActualizarProducto(List<Producto> List, object IdSucursal)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    DynamicParameters Parametros = new DynamicParameters();
+                    Parametros.Add("@IdSucursal", IdSucursal);
+                    Parametros.Add("@TablaInventario",List.ToDataTable(new List<string> { "IdProducto", "CantidadProducto" }), DbType.Object);
+                    var x = await conexion.ExecuteScalarAsync<int>("[Inventario].[SPCID_A_InventarioProducto]", param: Parametros, commandType: CommandType.StoredProcedure);
+                    return x;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

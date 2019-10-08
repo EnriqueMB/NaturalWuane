@@ -33,8 +33,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         private async void EXPORTTAR_Click(object sender, EventArgs e)
         {
             try
-            { 
-                
+            {                
                 await Model.GetProducto(CurrentSession.IdSucursal, PathAr, Nombre);
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
             }

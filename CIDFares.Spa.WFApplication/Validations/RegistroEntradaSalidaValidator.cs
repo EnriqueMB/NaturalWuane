@@ -11,13 +11,11 @@ namespace CIDFares.Spa.WFApplication.Validations
 {
     public class RegistroEntradaSalidaValidator : AbstractValidator<RegistroEntradaSalidaViewModel>
     {
-        int mensaje =0;
         public RegistroEntradaSalidaValidator(IRegistroEntradaSalidaRepository Servicio)
         {
             RuleFor(Registro => Registro.CodigoBarra)
-           .NotEmpty()//.When(x => x.Codigo)
+           .NotEmpty()
            .WithMessage("INGRESE EL CODIGO DE BARRA.")
-           //.When(x => x.Codigo)
            .MustAsync(async (Registro, x, context) =>
             {
 
@@ -36,22 +34,35 @@ namespace CIDFares.Spa.WFApplication.Validations
             RuleFor(x => x.Tipo)
                .NotEqual("S")
               .WithMessage("DEBE SELECCIONAR SI ES ENTRADA O SALIDA.")
-              .MustAsync(async (Registro, x, context) =>
+              .MustAsync(async (Registro, x, context, y) =>
               {
-
+                  var Mensaje = "";
                   var result = await Servicio.ValidarTurno(Registro.CodigoBarra, Registro.Tipo);
-                  mensaje = result;
+                  switch (result)
+                  {
+                      case 6:
+                          Mensaje = "YA TE REGISTRASTE 2 VECES";
+                          break;
+                      case 7:
+                          Mensaje = "YA TE REGISTRASTE";
+                          break;
+                      case 9:
+                          Mensaje = "ERROR";
+                          break;
+                      default:
+                          Mensaje = "ERROR DEFAULT";
+                          break;
+                  }
+                  context.MessageFormatter.AppendArgument("Message", Mensaje);
+
                   if (result > 5 )//si esta mal es false
                   {
-                    
-                     // GetMessage();
                       return false;
                   }
                   return true;
 
               })
-             // .WithMessage(GetMessage())
-              .WithMessage("NO PUEDE HACER ESTE REGISTRO")
+              .WithMessage("{Message}")
               .When(x => x.Pass);
 
             RuleFor(Registro => Registro.Password)
@@ -70,22 +81,5 @@ namespace CIDFares.Spa.WFApplication.Validations
           }) .When(x => !x.Pass)
           .WithMessage("LA CONTRASEÑA NO ES CORRECTA");
         }
-        public string GetMessage()
-        {
-            switch(mensaje)
-            {
-                case 6:
-                    return "ERROR YA TE REGISTRASTE";
-                case 7:
-                    return "ERROR YA TE REGISTRASTE";
-                case 8:
-                    return "ERROR, NO PUEDES SALIR SI NO HAS ENTRADO";
-                case 9:
-                    return "ERROR 9";
-                default:
-                    return "Error default";
-            }
-        }
-
     }
 }

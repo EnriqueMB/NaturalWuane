@@ -41,13 +41,9 @@ namespace CIDFares.Spa.Business.ViewModels.General
             {
                 var Productos = await IRepository.GetProductos(Idsucursal);
                 Excels ExportarProductos = new Excels(Productos, Ruta, Nombre, Ex);
-
-
-
             }
             catch (Exception ex)
             {
-
                 throw ex ;
             }
         }
@@ -57,19 +53,45 @@ namespace CIDFares.Spa.Business.ViewModels.General
             try
             {
                 Excels Importar = new Excels(IdSucursal,Ex,  Nombre);
-                //var x = Importar.GenerarArchivo();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
+            }
+        }
+
+        public async Task<int> ActualizarProducto(List<Producto> List,int IdSucursal)
+        {
+            try
+            {
+                var x= await IRepository.ActualizarProducto(List, IdSucursal);
+                return x;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
         #endregion
 
         #region Binding
-        
+        private int _IdProducto;
+
+        public int IdProducto
+        {
+            get { return _IdProducto; }
+            set { _IdProducto = value;OnPropertyChanged("IdProducto"); }
+        }
+
+        private int _CantidadProducto;
+
+        public int CantidadProducto
+        {
+            get { return _CantidadProducto; }
+            set { _CantidadProducto = value; OnPropertyChanged("CantidadProducto"); }
+        }
         #endregion
         #region InotifyPropertyChanged Members
 
