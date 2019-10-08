@@ -97,6 +97,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                errorProvider1.Clear();
                 btnEliminar.Enabled = false;
                 var item = ObtenerSeleccionado();
                 if (item != null)
@@ -194,15 +195,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                if (!string.IsNullOrEmpty(Model.Busqueda))
-                {
-                    await Model.GetBusqueda();
-                    //sfDataGridCliente.DataBindings.Add("DataSource", Model, "ListaCliente", true, DataSourceUpdateMode.OnPropertyChanged);
-                }
-                else
-                {
-                    // errorProvider1.SetError(BusquedaControl, "INGRESE EL CAMPO BUSQUEDA. Y NO PUEDE SER MAYOR A 200 CARACTERES");
-                }
+                errorProvider1.Clear();
+                Buscar();
             }
             catch (Exception ex)
             {
@@ -213,8 +207,48 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         private void btnLimpiarBusqueda_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
             BusquedaControl.Text = String.Empty;
             CargarDatosAsync();
+        }
+
+        private async void Buscar()
+        {
+            try
+            {
+                errorProvider1.SetError(BusquedaControl, string.Empty);
+                if (!string.IsNullOrEmpty(Model.Busqueda))
+                {
+                    await Model.GetBusqueda();
+                    if (Model.ListaProducto.Count == 0)
+                        CIDMessageBox.ShowAlert(Messages.SystemName, "LA BUSQUEDA REALIZADA NO SE ENCUENTA EN LA BASE DE DATOS.", TypeMessage.informacion);
+                }
+                else
+                {
+                    errorProvider1.SetError(BusquedaControl, "INGRESE EL CAMPO BUSQUEDA.");
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmEmpleadoGrid ~ btnBusqueda_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
+            }
+        }
+
+        private void BusquedaControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    Buscar();
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmEmpleadoGrid ~ BusquedaControl_KeyPress(object sender, KeyPressEventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
+            }
         }
     }
 }

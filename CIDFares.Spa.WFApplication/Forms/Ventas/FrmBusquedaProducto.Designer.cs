@@ -39,6 +39,7 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenedoGridGuardar = new System.Windows.Forms.Panel();
             this.panelGuardar = new System.Windows.Forms.Panel();
@@ -74,7 +75,7 @@
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(916, 483);
+            this.panelContenedor.Size = new System.Drawing.Size(916, 482);
             this.panelContenedor.TabIndex = 0;
             // 
             // panelContenedoGridGuardar
@@ -84,7 +85,7 @@
             this.panelContenedoGridGuardar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedoGridGuardar.Location = new System.Drawing.Point(0, 62);
             this.panelContenedoGridGuardar.Name = "panelContenedoGridGuardar";
-            this.panelContenedoGridGuardar.Size = new System.Drawing.Size(916, 421);
+            this.panelContenedoGridGuardar.Size = new System.Drawing.Size(916, 420);
             this.panelContenedoGridGuardar.TabIndex = 1;
             // 
             // panelGuardar
@@ -108,7 +109,7 @@
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(111, 29);
             this.BtnAgregar.TabIndex = 11;
-            this.BtnAgregar.Text = "Agregar venta";
+            this.BtnAgregar.Text = "Agregar";
             this.BtnAgregar.UseVisualStyleBackColor = false;
             this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
@@ -139,7 +140,7 @@
             this.panelGrid.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelGrid.Location = new System.Drawing.Point(0, 0);
             this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(755, 421);
+            this.panelGrid.Size = new System.Drawing.Size(755, 420);
             this.panelGrid.TabIndex = 0;
             // 
             // sfDataGridBuquedaProducto
@@ -154,35 +155,43 @@
             gridTextColumn2.AllowEditing = false;
             gridTextColumn2.HeaderText = "Clave";
             gridTextColumn2.MappingName = "Clave";
+            gridTextColumn2.MaximumWidth = 100D;
+            gridTextColumn2.MinimumWidth = 90D;
             gridTextColumn3.AllowEditing = false;
             gridTextColumn3.HeaderText = "Nombre";
             gridTextColumn3.MappingName = "Nombre";
+            gridTextColumn3.MaximumWidth = 200D;
+            gridTextColumn3.MinimumWidth = 200D;
             gridTextColumn4.AllowEditing = false;
-            gridTextColumn4.HeaderText = "Categoria";
-            gridTextColumn4.MappingName = "NombreCategoria";
+            gridTextColumn4.HeaderText = "Existencia";
+            gridTextColumn4.MappingName = "CantidadProducto";
             gridTextColumn5.AllowEditing = false;
-            gridTextColumn5.HeaderText = "UnidadMedida";
-            gridTextColumn5.MappingName = "UnidadMedida";
+            gridTextColumn5.HeaderText = "Categoria";
+            gridTextColumn5.MappingName = "NombreCategoria";
+            gridTextColumn5.Visible = false;
             gridTextColumn6.AllowEditing = false;
-            gridTextColumn6.Format = "C2";
-            gridTextColumn6.HeaderText = "Precio Publico";
-            gridTextColumn6.MappingName = "PrecioPublico";
+            gridTextColumn6.HeaderText = "UM";
+            gridTextColumn6.MappingName = "UnidadMedida";
             gridTextColumn7.AllowEditing = false;
             gridTextColumn7.Format = "C2";
-            gridTextColumn7.HeaderText = "Precio Mayoreo";
-            gridTextColumn7.MappingName = "PrecioMayoreo";
+            gridTextColumn7.HeaderText = "P. Publico";
+            gridTextColumn7.MappingName = "PrecioPublico";
             gridTextColumn8.AllowEditing = false;
             gridTextColumn8.Format = "C2";
-            gridTextColumn8.HeaderText = "Precio Menudeo";
-            gridTextColumn8.MappingName = "PrecioMenudeo";
+            gridTextColumn8.HeaderText = "P. Mayoreo";
+            gridTextColumn8.MappingName = "PrecioMayoreo";
             gridTextColumn9.AllowEditing = false;
-            gridTextColumn9.HeaderText = "Porcentaje Paquete";
-            gridTextColumn9.MappingName = "PorcentajePaquete";
-            gridTextColumn9.Visible = false;
+            gridTextColumn9.Format = "C2";
+            gridTextColumn9.HeaderText = "P. Menudeo";
+            gridTextColumn9.MappingName = "PrecioMenudeo";
             gridTextColumn10.AllowEditing = false;
-            gridTextColumn10.Format = "C";
-            gridTextColumn10.HeaderText = "Costo";
-            gridTextColumn10.MappingName = "CostoProducto";
+            gridTextColumn10.HeaderText = "Porcentaje Paquete";
+            gridTextColumn10.MappingName = "PorcentajePaquete";
+            gridTextColumn10.Visible = false;
+            gridTextColumn11.AllowEditing = false;
+            gridTextColumn11.Format = "C";
+            gridTextColumn11.HeaderText = "Costo";
+            gridTextColumn11.MappingName = "CostoProducto";
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn1);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn2);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn3);
@@ -193,10 +202,11 @@
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn8);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn9);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn10);
+            this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn11);
             this.sfDataGridBuquedaProducto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridBuquedaProducto.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridBuquedaProducto.Name = "sfDataGridBuquedaProducto";
-            this.sfDataGridBuquedaProducto.Size = new System.Drawing.Size(755, 421);
+            this.sfDataGridBuquedaProducto.Size = new System.Drawing.Size(755, 420);
             this.sfDataGridBuquedaProducto.TabIndex = 2;
             this.sfDataGridBuquedaProducto.Text = "sfDataGrid1";
             this.sfDataGridBuquedaProducto.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.sfDataGridBuquedaProducto_CellDoubleClick);
@@ -310,11 +320,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 483);
+            this.ClientSize = new System.Drawing.Size(916, 482);
             this.Controls.Add(this.panelContenedor);
             this.MaximumSize = new System.Drawing.Size(932, 521);
             this.MinimumSize = new System.Drawing.Size(932, 521);
             this.Name = "FrmBusquedaProducto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BusquedaProducto";
             this.panelContenedor.ResumeLayout(false);
             this.panelContenedoGridGuardar.ResumeLayout(false);

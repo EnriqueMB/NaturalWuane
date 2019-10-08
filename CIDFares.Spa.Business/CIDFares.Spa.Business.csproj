@@ -54,6 +54,7 @@
     <Compile Include="ViewModels\Catalogos\BusquedaProductoViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\CategoriaProductoViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\ClienteViewModel.cs" />
+    <Compile Include="ViewModels\Catalogos\DireccionesClienteViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\EncuestasViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\EmpleadoViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\FormaPagoViewModel.cs" />

@@ -28,20 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            this.components = new System.ComponentModel.Container();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn17 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn18 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn19 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn20 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn21 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn22 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn23 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn24 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn25 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn26 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn27 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn28 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlTitulos = new System.Windows.Forms.Panel();
             this.btnLimpiarBusqueda = new System.Windows.Forms.Button();
             this.BusquedaControl = new System.Windows.Forms.TextBox();
@@ -53,10 +54,12 @@
             this.BtnNuevo = new System.Windows.Forms.Button();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.dataGridMain1 = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlTitulos.SuspendLayout();
             this.FlpBotones.SuspendLayout();
             this.pnlContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridMain1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTitulos
@@ -96,6 +99,7 @@
             this.BusquedaControl.Name = "BusquedaControl";
             this.BusquedaControl.Size = new System.Drawing.Size(355, 19);
             this.BusquedaControl.TabIndex = 182;
+            this.BusquedaControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BusquedaControl_KeyPress);
             // 
             // btnBusqueda
             // 
@@ -202,76 +206,80 @@
             this.dataGridMain1.AccessibleName = "Table";
             this.dataGridMain1.AllowEditing = false;
             this.dataGridMain1.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.AllowEditing = false;
-            gridTextColumn1.HeaderText = "Column1";
-            gridTextColumn1.MappingName = "IdProducto";
-            gridTextColumn1.Visible = false;
-            gridTextColumn2.AllowEditing = false;
-            gridTextColumn2.HeaderText = "Clave";
-            gridTextColumn2.MappingName = "Clave";
-            gridTextColumn3.AllowEditing = false;
-            gridTextColumn3.HeaderText = "Producto";
-            gridTextColumn3.MappingName = "Nombre";
-            gridTextColumn4.AllowEditing = false;
-            gridTextColumn4.HeaderText = "Categoria";
-            gridTextColumn4.MappingName = "Categoria";
-            gridTextColumn5.AllowEditing = false;
-            gridTextColumn5.HeaderText = "Descripcion";
-            gridTextColumn5.MappingName = "Descripcion";
-            gridTextColumn6.AllowEditing = false;
-            gridTextColumn6.HeaderText = "Stock";
-            gridTextColumn6.MappingName = "StockStr";
-            gridTextColumn7.AllowEditing = false;
-            gridTextColumn7.HeaderText = "StockMax";
-            gridTextColumn7.MappingName = "StockMax";
-            gridTextColumn8.AllowEditing = false;
-            gridTextColumn8.HeaderText = "StockMin";
-            gridTextColumn8.MappingName = "StockMin";
-            gridTextColumn9.AllowEditing = false;
-            gridTextColumn9.CellStyle.HorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Right;
-            gridTextColumn9.Format = "C";
-            gridTextColumn9.HeaderText = "Precio publico";
-            gridTextColumn9.MappingName = "PrecioPublico";
-            gridTextColumn10.AllowEditing = false;
-            gridTextColumn10.CellStyle.HorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Right;
-            gridTextColumn10.Format = "C";
-            gridTextColumn10.HeaderText = "Precio mayoreo";
-            gridTextColumn10.MappingName = "PrecioMayoreo";
-            gridTextColumn11.AllowEditing = false;
-            gridTextColumn11.CellStyle.HorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Right;
-            gridTextColumn11.Format = "C";
-            gridTextColumn11.HeaderText = "Precio menudeo";
-            gridTextColumn11.MappingName = "PrecioMenudeo";
-            gridTextColumn12.AllowEditing = false;
-            gridTextColumn12.HeaderText = "Unidad de medida";
-            gridTextColumn12.MappingName = "UnidadMedida";
-            gridTextColumn13.AllowEditing = false;
-            gridTextColumn13.HeaderText = "Clave SAT";
-            gridTextColumn13.MappingName = "ClaveSat";
-            gridTextColumn13.Visible = false;
-            gridTextColumn14.AllowEditing = false;
-            gridTextColumn14.HeaderText = "Porcentaje Iva";
-            gridTextColumn14.MappingName = "Porcentaje";
-            this.dataGridMain1.Columns.Add(gridTextColumn1);
-            this.dataGridMain1.Columns.Add(gridTextColumn2);
-            this.dataGridMain1.Columns.Add(gridTextColumn3);
-            this.dataGridMain1.Columns.Add(gridTextColumn4);
-            this.dataGridMain1.Columns.Add(gridTextColumn5);
-            this.dataGridMain1.Columns.Add(gridTextColumn6);
-            this.dataGridMain1.Columns.Add(gridTextColumn7);
-            this.dataGridMain1.Columns.Add(gridTextColumn8);
-            this.dataGridMain1.Columns.Add(gridTextColumn9);
-            this.dataGridMain1.Columns.Add(gridTextColumn10);
-            this.dataGridMain1.Columns.Add(gridTextColumn11);
-            this.dataGridMain1.Columns.Add(gridTextColumn12);
-            this.dataGridMain1.Columns.Add(gridTextColumn13);
-            this.dataGridMain1.Columns.Add(gridTextColumn14);
+            gridTextColumn15.AllowEditing = false;
+            gridTextColumn15.HeaderText = "Column1";
+            gridTextColumn15.MappingName = "IdProducto";
+            gridTextColumn15.Visible = false;
+            gridTextColumn16.AllowEditing = false;
+            gridTextColumn16.HeaderText = "Clave";
+            gridTextColumn16.MappingName = "Clave";
+            gridTextColumn17.AllowEditing = false;
+            gridTextColumn17.HeaderText = "Producto";
+            gridTextColumn17.MappingName = "Nombre";
+            gridTextColumn18.AllowEditing = false;
+            gridTextColumn18.HeaderText = "Categoria";
+            gridTextColumn18.MappingName = "Categoria";
+            gridTextColumn19.AllowEditing = false;
+            gridTextColumn19.HeaderText = "Descripcion";
+            gridTextColumn19.MappingName = "Descripcion";
+            gridTextColumn20.AllowEditing = false;
+            gridTextColumn20.HeaderText = "Stock";
+            gridTextColumn20.MappingName = "StockStr";
+            gridTextColumn21.AllowEditing = false;
+            gridTextColumn21.HeaderText = "StockMax";
+            gridTextColumn21.MappingName = "StockMax";
+            gridTextColumn22.AllowEditing = false;
+            gridTextColumn22.HeaderText = "StockMin";
+            gridTextColumn22.MappingName = "StockMin";
+            gridTextColumn23.AllowEditing = false;
+            gridTextColumn23.CellStyle.HorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Right;
+            gridTextColumn23.Format = "C";
+            gridTextColumn23.HeaderText = "Precio publico";
+            gridTextColumn23.MappingName = "PrecioPublico";
+            gridTextColumn24.AllowEditing = false;
+            gridTextColumn24.CellStyle.HorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Right;
+            gridTextColumn24.Format = "C";
+            gridTextColumn24.HeaderText = "Precio mayoreo";
+            gridTextColumn24.MappingName = "PrecioMayoreo";
+            gridTextColumn25.AllowEditing = false;
+            gridTextColumn25.CellStyle.HorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Right;
+            gridTextColumn25.Format = "C";
+            gridTextColumn25.HeaderText = "Precio menudeo";
+            gridTextColumn25.MappingName = "PrecioMenudeo";
+            gridTextColumn26.AllowEditing = false;
+            gridTextColumn26.HeaderText = "Unidad de medida";
+            gridTextColumn26.MappingName = "UnidadMedida";
+            gridTextColumn27.AllowEditing = false;
+            gridTextColumn27.HeaderText = "Clave SAT";
+            gridTextColumn27.MappingName = "ClaveSat";
+            gridTextColumn27.Visible = false;
+            gridTextColumn28.AllowEditing = false;
+            gridTextColumn28.HeaderText = "Porcentaje Iva";
+            gridTextColumn28.MappingName = "Porcentaje";
+            this.dataGridMain1.Columns.Add(gridTextColumn15);
+            this.dataGridMain1.Columns.Add(gridTextColumn16);
+            this.dataGridMain1.Columns.Add(gridTextColumn17);
+            this.dataGridMain1.Columns.Add(gridTextColumn18);
+            this.dataGridMain1.Columns.Add(gridTextColumn19);
+            this.dataGridMain1.Columns.Add(gridTextColumn20);
+            this.dataGridMain1.Columns.Add(gridTextColumn21);
+            this.dataGridMain1.Columns.Add(gridTextColumn22);
+            this.dataGridMain1.Columns.Add(gridTextColumn23);
+            this.dataGridMain1.Columns.Add(gridTextColumn24);
+            this.dataGridMain1.Columns.Add(gridTextColumn25);
+            this.dataGridMain1.Columns.Add(gridTextColumn26);
+            this.dataGridMain1.Columns.Add(gridTextColumn27);
+            this.dataGridMain1.Columns.Add(gridTextColumn28);
             this.dataGridMain1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridMain1.Location = new System.Drawing.Point(0, 0);
             this.dataGridMain1.Name = "dataGridMain1";
             this.dataGridMain1.Size = new System.Drawing.Size(1048, 470);
             this.dataGridMain1.TabIndex = 0;
             this.dataGridMain1.Text = "sfDataGrid1";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmProductoGrid
             // 
@@ -290,6 +298,7 @@
             this.FlpBotones.ResumeLayout(false);
             this.pnlContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridMain1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -307,5 +316,6 @@
         public System.Windows.Forms.Button btnLimpiarBusqueda;
         private System.Windows.Forms.TextBox BusquedaControl;
         public System.Windows.Forms.Button btnBusqueda;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
