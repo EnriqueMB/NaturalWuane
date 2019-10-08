@@ -158,5 +158,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 throw ex;
             }
         }
+
+        private void GridNombresTurnos_CellDoubleClick(object sender, Syncfusion.WinForms.DataGrid.Events.CellClickEventArgs e)
+        {
+            BtnModificar_Click(sender, e);
+        }
     }
 }

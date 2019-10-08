@@ -261,25 +261,20 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                             foreach (var item2 in Info)
                             {
                                 hora += item2.HoraEntrada + "\r\n   a\r\n" + item2.HoraSalida + "\r\n\r\n";
-                                Model.ListaValores.Add(new TurnoDias
-                                {
-                                    NombreDia = item.NombreDia,
-                                    HoraEntrada = item2.HoraEntrada,
-                                    HoraSalida = item2.HoraSalida
-                                });                                    
+                                                                   
                             }   
                         }
                         else
                         {
                             hora = item.HoraEntrada + "\r\n   a\r\n" + item.HoraSalida + "\r\n\r\n";
-                            Model.ListaValores.Add(new TurnoDias
-                            {
-                                NombreDia = item.NombreDia,
-                                HoraEntrada = item.HoraEntrada,
-                                HoraSalida = item.HoraSalida
-                            });
                         }
                         horarioDesignV21.AgregarHora((DaysHour)GetNumDia(item.NombreDia), hora);
+                        Model.ListaValores.Add(new TurnoDias
+                        {
+                            NombreDia = item.NombreDia,
+                            HoraEntrada = item.HoraEntrada,
+                            HoraSalida = item.HoraSalida
+                        });
                     }
                 }
                 IniciarBinding();
@@ -435,10 +430,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             else if (sizeList == 4)
             {
                 RbtnCuatroHorarios.Checked = true;
-                PickerHoraEntrada1.Value = Convert.ToDateTime(temp[2]);
-                PickerHoraSalida1.Value = Convert.ToDateTime(temp[3]);
-                PickerHoraEntrada2.Value = Convert.ToDateTime(temp[0]);
-                PickerHoraSalida2.Value = Convert.ToDateTime(temp[1]);
+                PickerHoraEntrada1.Value = Convert.ToDateTime(temp.ElementAt(2));
+                PickerHoraSalida1.Value = Convert.ToDateTime(temp.ElementAt(3));
+                PickerHoraEntrada2.Value = Convert.ToDateTime(temp.ElementAt(0));
+                PickerHoraSalida2.Value = Convert.ToDateTime(temp.ElementAt(1));
             }
         }
 
@@ -491,7 +486,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         this.Close();
                     }
                 }
-                
             }
             catch(Exception ex)
             {

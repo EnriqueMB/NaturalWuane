@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.PanelTitulo = new System.Windows.Forms.Panel();
             this.LblTurno = new System.Windows.Forms.Label();
             this.PanelContainsButtons = new System.Windows.Forms.Panel();
@@ -144,10 +144,10 @@
             this.GridNombresTurnos.AccessibleName = "Table";
             this.GridNombresTurnos.AllowEditing = false;
             this.GridNombresTurnos.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn2.AllowEditing = false;
-            gridTextColumn2.HeaderText = "Nombre del turno";
-            gridTextColumn2.MappingName = "NombreTurno";
-            this.GridNombresTurnos.Columns.Add(gridTextColumn2);
+            gridTextColumn1.AllowEditing = false;
+            gridTextColumn1.HeaderText = "Nombre del turno";
+            gridTextColumn1.MappingName = "NombreTurno";
+            this.GridNombresTurnos.Columns.Add(gridTextColumn1);
             this.GridNombresTurnos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridNombresTurnos.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GridNombresTurnos.Location = new System.Drawing.Point(0, 0);
@@ -155,6 +155,7 @@
             this.GridNombresTurnos.Size = new System.Drawing.Size(1052, 437);
             this.GridNombresTurnos.TabIndex = 2;
             this.GridNombresTurnos.Text = "sfDataGrid1";
+            this.GridNombresTurnos.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.GridNombresTurnos_CellDoubleClick);
             // 
             // FrmTurnoPrincipal
             // 
