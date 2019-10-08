@@ -19,7 +19,7 @@ namespace CIDFares.Spa.WFApplication.Validations
                .MaximumLength(20).WithMessage("LA CLAVE DEL PAQUETE TIENE UN MAXIMO DE 20 CARACTERES")
                .MustAsync(async (paq, x, context) =>
                {
-                    int result = await paqueteRepository.NameExistAsync(paq.Clave);
+                   int result = await paqueteRepository.NameExistAsync(paq.Clave);
                    if (result > 0)
                    {
                        if (result == paq.IdPaquete)
@@ -39,6 +39,10 @@ namespace CIDFares.Spa.WFApplication.Validations
 
             RuleFor(x => x.Descripcion)
                 .MaximumLength(400).WithMessage("LA DESCRIPCIÓN DEL PAQUETE TIENE COMO UN MÁXIMO DE 400 CARACTERES");
+
+            RuleFor(x => x.RutaImagen)
+                .NotEmpty()
+                .WithMessage("SELECCIONE UNA IMAGEN DEL PAQUETE");
         }
     }
 }

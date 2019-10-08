@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,7 @@ using CIDFares.Library.Code.Helpers;
 using CIDFares.Library.Controls.CIDDataGridsf;
 using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
+using CIDFares.Library.Controls.CIDWait.Code;
 using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.CrossCutting.Services;
@@ -28,6 +31,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         public PaqueteViewModel Model { get; set; }
         private Servicio infoServicio { get; set; }
         private Producto InfoProducto { get; set; }
+        public string RutaImagen { get; set; }
         #endregion
 
         #region Constructor
@@ -52,7 +56,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             Model.MontoPaquete = paquete.MontoPaquete;
             Model.Nombre = paquete.Nombre;
             Model.State = EntityState.Update;
+            Model.UrlImagen = paquete.UrlImagen;
             lblPaquete.Text = "MODIFICACIÓN DEL PAQUETE CON CLAVE: " + Model.Clave;
+            CargarImagen();
+            RutaImagen = Model.RutaAux;
         }
 
         #endregion
@@ -62,18 +69,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                this.ActiveControl = this.ClaveControl;
-                this.ClaveControl.Focus();
-                IniciarBinding();
-                if (Model.IdPaquete != 0)
-                {
-                    await Model.ListaDetalle();
-                    TotalVenta();
-                }
-                else
-                {
-                    LimpiarPropiedades();
-                }               
+                
             }
             catch (Exception ex)
             {
@@ -135,6 +131,85 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
+
+        private void BtnSubirImagen_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BtnSubirImagen.Enabled = false;
+                OpenFileDialog BuscarImagen = new OpenFileDialog();
+                BuscarImagen.Filter = "Image Files|*.png;*.jpg;*.bmp";
+                BuscarImagen.FileName = "";
+                BuscarImagen.Title = "Seleccione una imagen";
+                BuscarImagen.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures).ToString();
+                if (BuscarImagen.ShowDialog() == DialogResult.OK)
+                {
+                    Model.Imagen = null;
+                    Model.UpdateImagen = true;
+                    Model.Extencion = Path.GetExtension(BuscarImagen.FileName);//Obtenemos la extención de la imagen.
+                    Model.RutaImagen = BuscarImagen.FileName; //Guardamos la ruta de la imagen.
+                    var x = Image.FromFile(Model.RutaImagen).VaryQualityLevel(35L);//Almacenamos la imagen creada en una variable(Imagen).
+                    var y = Model.Convertir_Imagen_Bytes(x); //Mandamos la variable para convertirla a bytes.
+                    x.Dispose();
+                    Model.Imagen = Model.Convertir_Bytes_Imagen(y); //Le pasamos la imagen convertida a la propiedad Imagen del modelo para mostrarlo en el formulario.
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                BtnSubirImagen.Enabled = true;
+            }
+        }
+
+        private void CargarImagen()
+        {
+            try
+            {
+                if(Model.UrlImagen != string.Empty || Model.UrlImagen != null)
+                {
+                    string User = ConfigurationManager.AppSettings.Get("UsuarioFtpTxt");
+                    string pass = ConfigurationManager.AppSettings.Get("ContraseñaFtpTxt");
+                    Model.Extencion = Path.GetExtension(Model.UrlImagen);//Obtenemos la Extencion del archivo
+                    Model.RutaAux = Path.Combine(Application.StartupPath + @"\Resources\imgPaquetes\" + Model.Clave + Model.Extencion);//Creamos la ruta para guardar la imagen
+                                                                                                                                       //Verificamos que la imagen no exista, si existe la borramos.
+                    if (File.Exists(Model.RutaAux))
+                    {
+                        File.Delete(Model.RutaAux);//Borramos la imagen.
+                    }
+
+                    CIDWait.Show(async () =>
+                    {
+                        //Descargamos la imagen del Servidor FTP a Resources
+                        await Model.DownloadFile(Model.RutaAux, Model.UrlImagen, User, pass);
+                    }, "Espere");
+
+                    if (!File.Exists(Model.RutaAux))
+                    {
+                        //Mensage de error en caso que no se haya obtenido la imagen.
+                        CIDMessageBox.ShowAlert(Messages.SystemName, "NO SE PUEDO OBTENER LA IMAGEN", TypeMessage.informacion);
+                    }
+                    else
+                    {
+                        Model.RutaImagen = Model.RutaAux;
+                        var x = Image.FromFile(Model.RutaAux);
+                        var y = Model.Convertir_Imagen_Bytes(x);
+                        x.Dispose();
+                        Model.Imagen = Model.Convertir_Bytes_Imagen(y);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmPaqueteNuevo() ~ CargarImagen()");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+        }
+
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -148,9 +223,30 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     if (Model.ListaDetallePaquete.Count > 0)
                     {
                         this.ObtenerTablas(Model.ListaDetallePaquete);
+                        if (Model.UpdateImagen)
+                        {
+                            bool subir = false;
+                            CIDWait.Show(async () =>
+                            {
+                                //Subimos la imagen al Servidor FTP
+                                subir = await Model.UploadFTP(Model.RutaImagen,
+                                        ConfigurationManager.AppSettings.Get("ServerFtpTxt") + @"/imgPaquetes/" + Model.Clave + Model.Extencion,
+                                        ConfigurationManager.AppSettings.Get("UsuarioFtpTxt"),
+                                        ConfigurationManager.AppSettings.Get("ContraseñaFtpTxt"));
+                            }, "Espere");
+                              
+                            if (!subir)
+                            {
+                                //Mensaje de avertencia que la imagen no se pudo cargar
+                                CIDMessageBox.ShowAlert(Messages.SystemName, "NO SE PUDO SUBIR LA IMAGEN", TypeMessage.informacion);
+                            }
+                        }
                         Paquetes Resul = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
                         if (Resul.Result == 1)
                         {
+                            Model.UpdateImagen = false;
+                            var a = Model.UrlImagen;
+                            File.Delete(Model.RutaAux);//Borramos la imagen desde la carpeta RESOURCES
                             CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
                             LimpiarPropiedades();
                             this.Close();
@@ -177,7 +273,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             try
             {
                 if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmCancelInput) == DialogResult.OK)
+
+                {
+                    File.Delete(Model.RutaAux);//Borramos la imagen de la carpeta RESOURCES
                     this.Close();
+                }
+                
             }
             catch (Exception ex)
             {
@@ -221,6 +322,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 NPersonaControl.DataBindings.Add("Text", Model, "NPersonal", true, DataSourceUpdateMode.OnPropertyChanged);
                 NPagoControl.DataBindings.Add("Text", Model, "NPago", true, DataSourceUpdateMode.OnPropertyChanged);
                 MontoPaqueteControl.DataBindings.Add("Text", Model, "MontoPaquete", true, DataSourceUpdateMode.OnPropertyChanged);
+                RutaImagenControl.DataBindings.Add("Text", Model, "RutaImagen", true, DataSourceUpdateMode.OnPropertyChanged);
+                ImagenControl.DataBindings.Add("Image", Model, "Imagen", true, DataSourceUpdateMode.OnPropertyChanged);
 
                 this.dataGridsfPaqueteDetalle.AutoGenerateColumns = false;
                 dataGridsfPaqueteDetalle.DataBindings.Add("DataSource", Model, "ListaDetallePaquete", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -241,6 +344,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             Model.MontoPaquete = 0;
             Model.TablaProducto = new DataTable();
             Model.TablaServicio = new DataTable();
+
+            //Propiedades de la imagen
+            Model.Imagen = null;
+            Model.UrlImagen = string.Empty;
+            Model.UpdateImagen = false;
+            Model.RutaImagen = string.Empty;
+            Model.RutaAux = string.Empty;
         }
         public void LLenarGrid(object objetoX, int IdTipo)
         {
@@ -408,6 +518,31 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
 
+
         #endregion
+
+        private async void FrmPaqueteNuevo_Shown(object sender, EventArgs e)
+        {
+            try
+            {
+                this.ActiveControl = this.ClaveControl;
+                this.ClaveControl.Focus();
+                IniciarBinding();
+                if (Model.IdPaquete != 0)
+                {
+                    await Model.ListaDetalle();
+                    TotalVenta();
+                }
+                else
+                {
+                    LimpiarPropiedades();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

@@ -28,5 +28,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public decimal PorcentajePago { get; set; }
         public decimal Abono { get; set; }
         public decimal PorPagar { get; set; }
+        public string UrlImagen { get; set; }
     }
 }
