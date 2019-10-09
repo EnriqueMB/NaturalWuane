@@ -10,6 +10,7 @@ using CIDFares.Spa.WFApplication.Constants;
 using CIDFares.Spa.WFApplication.Session;
 using Syncfusion.WinForms.Controls;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CIDFares.Spa.WFApplication.Forms.Catalogos
