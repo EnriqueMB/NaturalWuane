@@ -22,7 +22,7 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
 
         #region propiedades Privadas
         private IExcel Ex { get; set; }
-        private object idSucursal;
+        private int idSucursal;
         private IEnumerable<Producto> Lista { get; set; }
         #endregion
 
@@ -35,7 +35,7 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
             GenerarArchivo();
         }
 
-        public Excels(object idSucursal, IExcel ex, string nombre)
+        public Excels(int idSucursal, IExcel ex, string nombre)
         {
             Model = ServiceLocator.Instance.Resolve<InventarioFisicoViewModel>();
             this.idSucursal = idSucursal;
@@ -78,31 +78,35 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
             }
         }
         // -------------------------------------------IMPORTAR ARCHIVO-----------------------------------
-        public void Importar()
+        public async void Importar()
         {
             try
             {
                 int FilaInicio = 3;
-                //int idproducto = 0;
-                //int Cantproducto = 0;
-                var Ruta =   Ex.AbrirExcel();
-                Ex.AbrirArchivo(Ruta, Nombre);
-                int TotalProducto = Convert.ToInt32(Ex.LeerExcel(2,7));
-                Producto model = new Producto();
-
-                for (int i = 1; i <= TotalProducto; i++)
+                Ruta =   Ex.AbrirExcel();
+                if (Ruta != null)
                 {
-                    model = new Producto();
-                    model.IdProducto = Convert.ToInt32(Ex.LeerExcel(FilaInicio, 1));
-                    model.CantidadProducto = Convert.ToInt32(Ex.LeerExcel(FilaInicio, 5));
-                    FilaInicio++;
-                    ListaProductos.Add(model);
-                }
-               var x = Model.ActualizarProducto(ListaProductos,1);
-                //if (x==1)
-                //{
+                    Ex.AbrirArchivo(Ruta, Nombre);
+                    int TotalProducto = Convert.ToInt32(Ex.LeerExcel(2, 7));
+                    Producto model = new Producto();
 
-                //}
+                    for (int i = 1; i <= TotalProducto; i++)
+                    {
+                        model = new Producto();
+                        model.IdProducto = Convert.ToInt32(Ex.LeerExcel(FilaInicio, 1));
+                        model.CantidadProducto = Convert.ToInt32(Ex.LeerExcel(FilaInicio, 5));
+                        FilaInicio++;
+                        ListaProductos.Add(model);
+                    }
+
+                    var X = await Model.ActualizarProducto(ListaProductos, idSucursal);
+                    if (X == 1)
+                    {
+
+                    }
+                }
+
+
             }
             catch (Exception ex)
             {
@@ -110,9 +114,14 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
             }
             finally
             {
-                Ex.Cerrar();
+                if (Ruta != null)
+                {
+                    Ex.Cerrar();
+                }
             }
+
         }
+        
     }
     
 }

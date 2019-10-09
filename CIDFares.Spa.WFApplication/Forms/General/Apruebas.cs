@@ -49,11 +49,13 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             try
             {
                  Model.Importar(CurrentSession.IdSucursal,Nombre);
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
             }
             catch (Exception ex)
             {
-
-                throw ex ;
+                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "Apruebas ~ btnImportar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
     }

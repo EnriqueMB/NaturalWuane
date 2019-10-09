@@ -48,7 +48,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
             }
         }
 
-        public  void Importar(object IdSucursal,  string Nombre)
+        public void Importar(int IdSucursal,  string Nombre)
         {
             try
             {
