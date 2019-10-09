@@ -48,8 +48,8 @@
             this.NombreControl = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGuardar = new Syncfusion.Windows.Forms.ButtonAdv();
+            this.btnCancelar = new Syncfusion.Windows.Forms.ButtonAdv();
             this.pnlTitulo.SuspendLayout();
             this.pnlAcciones.SuspendLayout();
             this.pnlCentral.SuspendLayout();
@@ -119,7 +119,7 @@
             // 
             // FibrasControl
             // 
-            this.FibrasControl.BeforeTouchSize = new System.Drawing.Size(141, 29);
+            this.FibrasControl.BeforeTouchSize = new System.Drawing.Size(107, 27);
             this.FibrasControl.ClipMode = Syncfusion.Windows.Forms.Tools.CurrencyClipModes.ExcludeFormatting;
             this.FibrasControl.CurrencyGroupSeparator = "";
             this.FibrasControl.CurrencySymbol = "";
@@ -145,7 +145,7 @@
             // 
             // GrasasControl
             // 
-            this.GrasasControl.BeforeTouchSize = new System.Drawing.Size(141, 29);
+            this.GrasasControl.BeforeTouchSize = new System.Drawing.Size(107, 27);
             this.GrasasControl.ClipMode = Syncfusion.Windows.Forms.Tools.CurrencyClipModes.ExcludeFormatting;
             this.GrasasControl.CurrencyGroupSeparator = "";
             this.GrasasControl.CurrencySymbol = "";
@@ -171,7 +171,7 @@
             // 
             // ProteinasControl
             // 
-            this.ProteinasControl.BeforeTouchSize = new System.Drawing.Size(141, 29);
+            this.ProteinasControl.BeforeTouchSize = new System.Drawing.Size(107, 27);
             this.ProteinasControl.ClipMode = Syncfusion.Windows.Forms.Tools.CurrencyClipModes.ExcludeFormatting;
             this.ProteinasControl.CurrencyGroupSeparator = "";
             this.ProteinasControl.CurrencySymbol = "";
@@ -197,7 +197,7 @@
             // 
             // CaloriasControl
             // 
-            this.CaloriasControl.BeforeTouchSize = new System.Drawing.Size(141, 29);
+            this.CaloriasControl.BeforeTouchSize = new System.Drawing.Size(107, 27);
             this.CaloriasControl.CurrencyGroupSeparator = "";
             this.CaloriasControl.CurrencySymbol = "";
             this.CaloriasControl.DecimalValue = new decimal(new int[] {
@@ -231,7 +231,7 @@
             // 
             // HidratosControl
             // 
-            this.HidratosControl.BeforeTouchSize = new System.Drawing.Size(141, 29);
+            this.HidratosControl.BeforeTouchSize = new System.Drawing.Size(107, 27);
             this.HidratosControl.ClipMode = Syncfusion.Windows.Forms.Tools.CurrencyClipModes.ExcludeFormatting;
             this.HidratosControl.CurrencyGroupSeparator = "";
             this.HidratosControl.CurrencySymbol = "";
@@ -339,36 +339,34 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnGuardar.BeforeTouchSize = new System.Drawing.Size(123, 29);
             this.btnGuardar.FlatAppearance.BorderSize = 0;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.IsBackStageButton = false;
             this.btnGuardar.Location = new System.Drawing.Point(29, 14);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(130, 28);
-            this.btnGuardar.TabIndex = 5;
+            this.btnGuardar.Size = new System.Drawing.Size(123, 29);
+            this.btnGuardar.TabIndex = 15;
             this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.BackColor = System.Drawing.Color.White;
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.btnCancelar.BeforeTouchSize = new System.Drawing.Size(123, 29);
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.Black;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(213, 14);
+            this.btnCancelar.IsBackStageButton = false;
+            this.btnCancelar.Location = new System.Drawing.Point(202, 14);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(130, 28);
-            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.Size = new System.Drawing.Size(123, 29);
+            this.btnCancelar.TabIndex = 17;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // FrmAlimentoNuevo
@@ -421,7 +419,7 @@
         private Syncfusion.Windows.Forms.Tools.CurrencyTextBox GrasasControl;
         private Syncfusion.Windows.Forms.Tools.CurrencyTextBox ProteinasControl;
         private Syncfusion.Windows.Forms.Tools.CurrencyTextBox CaloriasControl;
-        public System.Windows.Forms.Button btnGuardar;
-        public System.Windows.Forms.Button btnCancelar;
+        private Syncfusion.Windows.Forms.ButtonAdv btnGuardar;
+        private Syncfusion.Windows.Forms.ButtonAdv btnCancelar;
     }
 }

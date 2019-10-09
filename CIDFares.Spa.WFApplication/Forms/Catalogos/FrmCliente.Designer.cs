@@ -44,7 +44,7 @@
             this.sfDataGridCliente = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.PanelCapturaDatos = new System.Windows.Forms.Panel();
             this.groupBoxCliente = new System.Windows.Forms.GroupBox();
-            this.btnDirecciones = new System.Windows.Forms.Button();
+            this.btnDirecciones = new CIDFares.Library.Controls.Btn.Btn();
             this.ClaveControl = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -54,9 +54,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.EmailControl = new System.Windows.Forms.TextBox();
             this.PnlFoto = new System.Windows.Forms.Panel();
+            this.BtnSeleccionar = new CIDFares.Library.Controls.Btn.Btn();
             this.RutaControl = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.BtnSeleccionar = new System.Windows.Forms.Button();
             this.FotoControl = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.FechaNacimientoControl = new System.Windows.Forms.DateTimePicker();
@@ -68,19 +67,19 @@
             this.NombreCompletoControl = new System.Windows.Forms.TextBox();
             this.PabelBTN = new System.Windows.Forms.Panel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnNuevo = new CIDFares.Library.Controls.Btn.Btn();
+            this.btnModificar = new CIDFares.Library.Controls.Btn.Btn();
+            this.btnEliminar = new CIDFares.Library.Controls.Btn.Btn();
+            this.btnClienteFrecuente = new CIDFares.Library.Controls.Btn.Btn();
             this.PanelTitulo = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BtnBusqueda = new System.Windows.Forms.Button();
+            this.BtnBusqueda = new System.Windows.Forms.PictureBox();
+            this.btnLimpiarBusqueda = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.BusquedaControl = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnLimpiarBusqueda = new System.Windows.Forms.Button();
             this.PanelPrincipal.SuspendLayout();
             this.PanelContenedor.SuspendLayout();
             this.panelGridDatos.SuspendLayout();
@@ -95,6 +94,7 @@
             this.flowLayoutPanel2.SuspendLayout();
             this.PanelTitulo.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnBusqueda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,7 +105,7 @@
             this.PanelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelPrincipal.Location = new System.Drawing.Point(0, 0);
             this.PanelPrincipal.Name = "PanelPrincipal";
-            this.PanelPrincipal.Size = new System.Drawing.Size(1176, 627);
+            this.PanelPrincipal.Size = new System.Drawing.Size(1176, 653);
             this.PanelPrincipal.TabIndex = 0;
             // 
             // PanelContenedor
@@ -115,7 +115,7 @@
             this.PanelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelContenedor.Location = new System.Drawing.Point(0, 58);
             this.PanelContenedor.Name = "PanelContenedor";
-            this.PanelContenedor.Size = new System.Drawing.Size(1176, 569);
+            this.PanelContenedor.Size = new System.Drawing.Size(1176, 595);
             this.PanelContenedor.TabIndex = 1;
             // 
             // panelGridDatos
@@ -126,7 +126,7 @@
             this.panelGridDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGridDatos.Location = new System.Drawing.Point(0, 0);
             this.panelGridDatos.Name = "panelGridDatos";
-            this.panelGridDatos.Size = new System.Drawing.Size(1176, 522);
+            this.panelGridDatos.Size = new System.Drawing.Size(1176, 527);
             this.panelGridDatos.TabIndex = 1;
             // 
             // sfDataGridCliente
@@ -175,9 +175,10 @@
             this.sfDataGridCliente.Columns.Add(gridTextColumn17);
             this.sfDataGridCliente.Columns.Add(gridTextColumn18);
             this.sfDataGridCliente.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sfDataGridCliente.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.sfDataGridCliente.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridCliente.Name = "sfDataGridCliente";
-            this.sfDataGridCliente.Size = new System.Drawing.Size(770, 522);
+            this.sfDataGridCliente.Size = new System.Drawing.Size(770, 527);
             this.sfDataGridCliente.TabIndex = 1;
             this.sfDataGridCliente.Text = "sfDataGrid1";
             // 
@@ -187,7 +188,7 @@
             this.PanelCapturaDatos.Dock = System.Windows.Forms.DockStyle.Right;
             this.PanelCapturaDatos.Location = new System.Drawing.Point(770, 0);
             this.PanelCapturaDatos.Name = "PanelCapturaDatos";
-            this.PanelCapturaDatos.Size = new System.Drawing.Size(406, 522);
+            this.PanelCapturaDatos.Size = new System.Drawing.Size(406, 527);
             this.PanelCapturaDatos.TabIndex = 0;
             // 
             // groupBoxCliente
@@ -210,25 +211,31 @@
             this.groupBoxCliente.Controls.Add(this.label1);
             this.groupBoxCliente.Controls.Add(this.NombreCompletoControl);
             this.groupBoxCliente.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxCliente.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.groupBoxCliente.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBoxCliente.ForeColor = System.Drawing.Color.Black;
             this.groupBoxCliente.Location = new System.Drawing.Point(0, 0);
             this.groupBoxCliente.Name = "groupBoxCliente";
-            this.groupBoxCliente.Size = new System.Drawing.Size(406, 522);
+            this.groupBoxCliente.Size = new System.Drawing.Size(406, 527);
             this.groupBoxCliente.TabIndex = 0;
             this.groupBoxCliente.TabStop = false;
             this.groupBoxCliente.Text = "Datos de cliente";
             // 
             // btnDirecciones
             // 
-            this.btnDirecciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnDirecciones.FlatAppearance.BorderSize = 0;
+            this.btnDirecciones.BackColor = System.Drawing.Color.White;
+            this.btnDirecciones.BeforeTouchSize = new System.Drawing.Size(151, 29);
+            this.btnDirecciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnDirecciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDirecciones.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDirecciones.Location = new System.Drawing.Point(214, 319);
+            this.btnDirecciones.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDirecciones.ForeColor = System.Drawing.Color.Black;
+            this.btnDirecciones.IsBackStageButton = false;
+            this.btnDirecciones.Location = new System.Drawing.Point(213, 318);
+            this.btnDirecciones.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnDirecciones.MouseHoverForeColor = System.Drawing.Color.White;
+            this.btnDirecciones.MouseLeaveForeColor = System.Drawing.Color.Black;
             this.btnDirecciones.Name = "btnDirecciones";
-            this.btnDirecciones.Size = new System.Drawing.Size(150, 29);
-            this.btnDirecciones.TabIndex = 54;
+            this.btnDirecciones.Size = new System.Drawing.Size(151, 29);
+            this.btnDirecciones.TabIndex = 43;
             this.btnDirecciones.Text = "Direcciones";
             this.btnDirecciones.UseVisualStyleBackColor = false;
             this.btnDirecciones.Click += new System.EventHandler(this.btnDirecciones_Click);
@@ -238,42 +245,48 @@
             this.ClaveControl.Location = new System.Drawing.Point(227, 12);
             this.ClaveControl.Name = "ClaveControl";
             this.ClaveControl.ReadOnly = true;
-            this.ClaveControl.Size = new System.Drawing.Size(135, 27);
+            this.ClaveControl.Size = new System.Drawing.Size(135, 29);
             this.ClaveControl.TabIndex = 53;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.btnGuardar);
             this.flowLayoutPanel1.Controls.Add(this.btnCancelar);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(70, 491);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(47, 485);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(262, 34);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(283, 34);
             this.flowLayoutPanel1.TabIndex = 52;
             // 
             // btnGuardar
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.btnGuardar.FlatAppearance.BorderSize = 0;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnGuardar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardar.Location = new System.Drawing.Point(3, 3);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(123, 29);
-            this.btnGuardar.TabIndex = 6;
+            this.btnGuardar.Size = new System.Drawing.Size(130, 28);
+            this.btnGuardar.TabIndex = 8;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnCancelar.Location = new System.Drawing.Point(132, 3);
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(139, 3);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(123, 29);
-            this.btnCancelar.TabIndex = 7;
+            this.btnCancelar.Size = new System.Drawing.Size(130, 28);
+            this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -281,11 +294,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(29, 297);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 20);
+            this.label8.Size = new System.Drawing.Size(43, 21);
             this.label8.TabIndex = 51;
             this.label8.Text = "Sexo";
             // 
@@ -308,11 +321,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(21, 243);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 20);
+            this.label6.Size = new System.Drawing.Size(48, 21);
             this.label6.TabIndex = 49;
             this.label6.Text = "Email";
             // 
@@ -321,55 +334,47 @@
             this.EmailControl.Location = new System.Drawing.Point(9, 267);
             this.EmailControl.MaxLength = 400;
             this.EmailControl.Name = "EmailControl";
-            this.EmailControl.Size = new System.Drawing.Size(355, 27);
+            this.EmailControl.Size = new System.Drawing.Size(355, 29);
             this.EmailControl.TabIndex = 48;
             // 
             // PnlFoto
             // 
-            this.PnlFoto.Controls.Add(this.RutaControl);
-            this.PnlFoto.Controls.Add(this.label7);
             this.PnlFoto.Controls.Add(this.BtnSeleccionar);
+            this.PnlFoto.Controls.Add(this.RutaControl);
             this.PnlFoto.Controls.Add(this.FotoControl);
             this.PnlFoto.Location = new System.Drawing.Point(9, 363);
             this.PnlFoto.Name = "PnlFoto";
             this.PnlFoto.Size = new System.Drawing.Size(355, 110);
             this.PnlFoto.TabIndex = 47;
             // 
+            // BtnSeleccionar
+            // 
+            this.BtnSeleccionar.BackColor = System.Drawing.Color.White;
+            this.BtnSeleccionar.BeforeTouchSize = new System.Drawing.Size(205, 29);
+            this.BtnSeleccionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.BtnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSeleccionar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSeleccionar.ForeColor = System.Drawing.Color.Black;
+            this.BtnSeleccionar.IsBackStageButton = false;
+            this.BtnSeleccionar.Location = new System.Drawing.Point(8, 16);
+            this.BtnSeleccionar.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.BtnSeleccionar.MouseHoverForeColor = System.Drawing.Color.White;
+            this.BtnSeleccionar.MouseLeaveForeColor = System.Drawing.Color.Black;
+            this.BtnSeleccionar.Name = "BtnSeleccionar";
+            this.BtnSeleccionar.Size = new System.Drawing.Size(205, 29);
+            this.BtnSeleccionar.TabIndex = 42;
+            this.BtnSeleccionar.Text = "Seleccionar imagen";
+            this.BtnSeleccionar.UseVisualStyleBackColor = false;
+            this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
+            // 
             // RutaControl
             // 
             this.RutaControl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RutaControl.Location = new System.Drawing.Point(6, 60);
+            this.RutaControl.Location = new System.Drawing.Point(6, 51);
             this.RutaControl.Multiline = true;
             this.RutaControl.Name = "RutaControl";
             this.RutaControl.Size = new System.Drawing.Size(207, 47);
             this.RutaControl.TabIndex = 41;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.label7.Location = new System.Drawing.Point(3, 3);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(179, 20);
-            this.label7.TabIndex = 40;
-            this.label7.Text = "SELECCIONAR IMAGEN";
-            // 
-            // BtnSeleccionar
-            // 
-            this.BtnSeleccionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnSeleccionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
-            this.BtnSeleccionar.FlatAppearance.BorderSize = 0;
-            this.BtnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSeleccionar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.BtnSeleccionar.ForeColor = System.Drawing.Color.White;
-            this.BtnSeleccionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSeleccionar.Location = new System.Drawing.Point(14, 26);
-            this.BtnSeleccionar.Name = "BtnSeleccionar";
-            this.BtnSeleccionar.Size = new System.Drawing.Size(182, 28);
-            this.BtnSeleccionar.TabIndex = 14;
-            this.BtnSeleccionar.Text = "SUBIR";
-            this.BtnSeleccionar.UseVisualStyleBackColor = false;
-            this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
             // 
             // FotoControl
             // 
@@ -385,11 +390,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(18, 188);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(141, 20);
+            this.label5.Size = new System.Drawing.Size(131, 21);
             this.label5.TabIndex = 10;
             this.label5.Text = "Fecha nacimiento";
             // 
@@ -398,18 +403,18 @@
             this.FechaNacimientoControl.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.FechaNacimientoControl.Location = new System.Drawing.Point(9, 213);
             this.FechaNacimientoControl.Name = "FechaNacimientoControl";
-            this.FechaNacimientoControl.Size = new System.Drawing.Size(355, 27);
+            this.FechaNacimientoControl.Size = new System.Drawing.Size(355, 29);
             this.FechaNacimientoControl.TabIndex = 9;
             this.FechaNacimientoControl.Value = new System.DateTime(2019, 8, 22, 0, 0, 0, 0);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(18, 134);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 20);
+            this.label4.Size = new System.Drawing.Size(68, 21);
             this.label4.TabIndex = 8;
             this.label4.Text = "Teléfono";
             // 
@@ -418,19 +423,19 @@
             this.TelefonoControl.Location = new System.Drawing.Point(9, 158);
             this.TelefonoControl.MaxLength = 10;
             this.TelefonoControl.Name = "TelefonoControl";
-            this.TelefonoControl.Size = new System.Drawing.Size(355, 27);
+            this.TelefonoControl.Size = new System.Drawing.Size(355, 29);
             this.TelefonoControl.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(18, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 20);
+            this.label2.Size = new System.Drawing.Size(38, 21);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Rfc";
+            this.label2.Text = "RFC";
             // 
             // RfcControl
             // 
@@ -438,17 +443,17 @@
             this.RfcControl.Location = new System.Drawing.Point(9, 105);
             this.RfcControl.MaxLength = 13;
             this.RfcControl.Name = "RfcControl";
-            this.RfcControl.Size = new System.Drawing.Size(355, 27);
+            this.RfcControl.Size = new System.Drawing.Size(355, 29);
             this.RfcControl.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(18, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 20);
+            this.label1.Size = new System.Drawing.Size(137, 21);
             this.label1.TabIndex = 4;
             this.label1.Text = "Nombre completo";
             // 
@@ -457,16 +462,17 @@
             this.NombreCompletoControl.Location = new System.Drawing.Point(9, 51);
             this.NombreCompletoControl.MaxLength = 200;
             this.NombreCompletoControl.Name = "NombreCompletoControl";
-            this.NombreCompletoControl.Size = new System.Drawing.Size(355, 27);
+            this.NombreCompletoControl.Size = new System.Drawing.Size(355, 29);
             this.NombreCompletoControl.TabIndex = 3;
             // 
             // PabelBTN
             // 
+            this.PabelBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.PabelBTN.Controls.Add(this.flowLayoutPanel2);
             this.PabelBTN.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PabelBTN.Location = new System.Drawing.Point(0, 522);
+            this.PabelBTN.Location = new System.Drawing.Point(0, 527);
             this.PabelBTN.Name = "PabelBTN";
-            this.PabelBTN.Size = new System.Drawing.Size(1176, 47);
+            this.PabelBTN.Size = new System.Drawing.Size(1176, 68);
             this.PabelBTN.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -474,82 +480,120 @@
             this.flowLayoutPanel2.Controls.Add(this.btnNuevo);
             this.flowLayoutPanel2.Controls.Add(this.btnModificar);
             this.flowLayoutPanel2.Controls.Add(this.btnEliminar);
-            this.flowLayoutPanel2.Controls.Add(this.button1);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 6);
+            this.flowLayoutPanel2.Controls.Add(this.btnClienteFrecuente);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(17, 18);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(767, 38);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(538, 35);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // btnNuevo
             // 
-            this.btnNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnNuevo.BackColor = System.Drawing.Color.White;
+            this.btnNuevo.BeforeTouchSize = new System.Drawing.Size(123, 29);
             this.btnNuevo.FlatAppearance.BorderSize = 0;
+            this.btnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.ForeColor = System.Drawing.Color.Black;
+            this.btnNuevo.IsBackStageButton = false;
             this.btnNuevo.Location = new System.Drawing.Point(3, 3);
+            this.btnNuevo.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnNuevo.MouseHoverForeColor = System.Drawing.Color.White;
+            this.btnNuevo.MouseLeaveForeColor = System.Drawing.Color.Black;
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(123, 29);
-            this.btnNuevo.TabIndex = 3;
+            this.btnNuevo.TabIndex = 7;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnModificar
             // 
-            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(148)))), ((int)(((byte)(65)))));
+            this.btnModificar.BackColor = System.Drawing.Color.White;
+            this.btnModificar.BeforeTouchSize = new System.Drawing.Size(123, 29);
             this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.Black;
+            this.btnModificar.IsBackStageButton = false;
             this.btnModificar.Location = new System.Drawing.Point(132, 3);
+            this.btnModificar.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnModificar.MouseHoverForeColor = System.Drawing.Color.White;
+            this.btnModificar.MouseLeaveForeColor = System.Drawing.Color.Black;
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(123, 29);
-            this.btnModificar.TabIndex = 4;
+            this.btnModificar.TabIndex = 8;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.btnEliminar.BackColor = System.Drawing.Color.White;
+            this.btnEliminar.BeforeTouchSize = new System.Drawing.Size(123, 29);
             this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.Black;
+            this.btnEliminar.IsBackStageButton = false;
             this.btnEliminar.Location = new System.Drawing.Point(261, 3);
+            this.btnEliminar.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnEliminar.MouseHoverForeColor = System.Drawing.Color.White;
+            this.btnEliminar.MouseLeaveForeColor = System.Drawing.Color.Black;
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(123, 29);
-            this.btnEliminar.TabIndex = 5;
+            this.btnEliminar.TabIndex = 9;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // button1
+            // btnClienteFrecuente
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(390, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 29);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Cliente Frec.";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnClienteFrecuente.BackColor = System.Drawing.Color.White;
+            this.btnClienteFrecuente.BeforeTouchSize = new System.Drawing.Size(123, 29);
+            this.btnClienteFrecuente.FlatAppearance.BorderSize = 0;
+            this.btnClienteFrecuente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnClienteFrecuente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClienteFrecuente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClienteFrecuente.ForeColor = System.Drawing.Color.Black;
+            this.btnClienteFrecuente.IsBackStageButton = false;
+            this.btnClienteFrecuente.Location = new System.Drawing.Point(390, 3);
+            this.btnClienteFrecuente.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnClienteFrecuente.MouseHoverForeColor = System.Drawing.Color.White;
+            this.btnClienteFrecuente.MouseLeaveForeColor = System.Drawing.Color.Black;
+            this.btnClienteFrecuente.Name = "btnClienteFrecuente";
+            this.btnClienteFrecuente.Size = new System.Drawing.Size(123, 29);
+            this.btnClienteFrecuente.TabIndex = 10;
+            this.btnClienteFrecuente.Text = "Cliente frec.";
+            this.btnClienteFrecuente.UseVisualStyleBackColor = false;
+            this.btnClienteFrecuente.Click += new System.EventHandler(this.btnClienteFrecuente_Click);
             // 
             // PanelTitulo
             // 
-            this.PanelTitulo.Controls.Add(this.panel1);
             this.PanelTitulo.Controls.Add(this.label3);
+            this.PanelTitulo.Controls.Add(this.panel1);
             this.PanelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelTitulo.Location = new System.Drawing.Point(0, 0);
             this.PanelTitulo.Name = "PanelTitulo";
             this.PanelTitulo.Size = new System.Drawing.Size(1176, 58);
             this.PanelTitulo.TabIndex = 0;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(22, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 30);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Cliente";
+            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnLimpiarBusqueda);
             this.panel1.Controls.Add(this.BtnBusqueda);
+            this.panel1.Controls.Add(this.btnLimpiarBusqueda);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.BusquedaControl);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
@@ -560,76 +604,66 @@
             // 
             // BtnBusqueda
             // 
-            this.BtnBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.BtnBusqueda.FlatAppearance.BorderSize = 0;
-            this.BtnBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBusqueda.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBusqueda.Location = new System.Drawing.Point(496, 15);
+            this.BtnBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.BtnBusqueda.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar;
+            this.BtnBusqueda.Location = new System.Drawing.Point(645, 19);
             this.BtnBusqueda.Name = "BtnBusqueda";
-            this.BtnBusqueda.Size = new System.Drawing.Size(123, 29);
-            this.BtnBusqueda.TabIndex = 6;
-            this.BtnBusqueda.Text = "Busqueda";
-            this.BtnBusqueda.UseVisualStyleBackColor = false;
+            this.BtnBusqueda.Size = new System.Drawing.Size(31, 24);
+            this.BtnBusqueda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.BtnBusqueda.TabIndex = 8;
+            this.BtnBusqueda.TabStop = false;
             this.BtnBusqueda.Click += new System.EventHandler(this.BtnBusqueda_Click);
+            // 
+            // btnLimpiarBusqueda
+            // 
+            this.btnLimpiarBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLimpiarBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnLimpiarBusqueda.FlatAppearance.BorderSize = 0;
+            this.btnLimpiarBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarBusqueda.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnLimpiarBusqueda.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiarBusqueda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiarBusqueda.Location = new System.Drawing.Point(682, 19);
+            this.btnLimpiarBusqueda.Name = "btnLimpiarBusqueda";
+            this.btnLimpiarBusqueda.Size = new System.Drawing.Size(68, 24);
+            this.btnLimpiarBusqueda.TabIndex = 7;
+            this.btnLimpiarBusqueda.Text = "Limpiar";
+            this.btnLimpiarBusqueda.UseVisualStyleBackColor = false;
+            this.btnLimpiarBusqueda.Click += new System.EventHandler(this.btnLimpiarBusqueda_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(24, 19);
+            this.label9.Location = new System.Drawing.Point(202, 19);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(135, 20);
+            this.label9.Size = new System.Drawing.Size(115, 21);
             this.label9.TabIndex = 5;
-            this.label9.Text = "Nombre ó Clave:";
+            this.label9.Text = "Nombre/Clave:";
             // 
             // BusquedaControl
             // 
-            this.BusquedaControl.Location = new System.Drawing.Point(162, 20);
+            this.BusquedaControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BusquedaControl.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.BusquedaControl.Location = new System.Drawing.Point(317, 20);
             this.BusquedaControl.MaxLength = 200;
             this.BusquedaControl.Name = "BusquedaControl";
-            this.BusquedaControl.Size = new System.Drawing.Size(311, 20);
+            this.BusquedaControl.Size = new System.Drawing.Size(311, 22);
             this.BusquedaControl.TabIndex = 4;
             this.BusquedaControl.TextChanged += new System.EventHandler(this.BusquedaControl_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(22, 18);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 22);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Cliente";
             // 
             // errorProvider1
             // 
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
-            // btnLimpiarBusqueda
-            // 
-            this.btnLimpiarBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLimpiarBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnLimpiarBusqueda.FlatAppearance.BorderSize = 0;
-            this.btnLimpiarBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiarBusqueda.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnLimpiarBusqueda.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnLimpiarBusqueda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLimpiarBusqueda.Location = new System.Drawing.Point(648, 15);
-            this.btnLimpiarBusqueda.Name = "btnLimpiarBusqueda";
-            this.btnLimpiarBusqueda.Size = new System.Drawing.Size(130, 29);
-            this.btnLimpiarBusqueda.TabIndex = 7;
-            this.btnLimpiarBusqueda.Text = "Eliminar filtros";
-            this.btnLimpiarBusqueda.UseVisualStyleBackColor = false;
-            this.btnLimpiarBusqueda.Click += new System.EventHandler(this.btnLimpiarBusqueda_Click);
-            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1176, 627);
+            this.ClientSize = new System.Drawing.Size(1176, 653);
             this.Controls.Add(this.PanelPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCliente";
@@ -655,6 +689,7 @@
             this.PanelTitulo.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnBusqueda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
@@ -669,13 +704,10 @@
         private System.Windows.Forms.Panel PabelBTN;
         private System.Windows.Forms.Panel PanelCapturaDatos;
         private System.Windows.Forms.GroupBox groupBoxCliente;
-        private System.Windows.Forms.Label label3;
         private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGridCliente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox NombreCompletoControl;
         private System.Windows.Forms.Panel PnlFoto;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button BtnSeleccionar;
         private System.Windows.Forms.PictureBox FotoControl;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker FechaNacimientoControl;
@@ -690,20 +722,22 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TextBox RutaControl;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.TextBox ClaveControl;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button BtnBusqueda;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox BusquedaControl;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnDirecciones;
         public System.Windows.Forms.Button btnLimpiarBusqueda;
+        private System.Windows.Forms.PictureBox BtnBusqueda;
+        private System.Windows.Forms.Label label3;
+        private Library.Controls.Btn.Btn btnNuevo;
+        private Library.Controls.Btn.Btn btnModificar;
+        private Library.Controls.Btn.Btn btnEliminar;
+        private Library.Controls.Btn.Btn btnClienteFrecuente;
+        private Library.Controls.Btn.Btn BtnSeleccionar;
+        private Library.Controls.Btn.Btn btnDirecciones;
+        public System.Windows.Forms.Button btnGuardar;
+        public System.Windows.Forms.Button btnCancelar;
     }
 }
