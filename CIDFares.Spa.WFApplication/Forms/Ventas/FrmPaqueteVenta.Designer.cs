@@ -41,17 +41,18 @@
             this.PanelPrincipal = new System.Windows.Forms.Panel();
             this.GridPaquete = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnNuevo = new CIDFares.Library.Controls.Btn.Btn();
             this.btnCobrar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PanelPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridPaquete)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelPrincipal
@@ -110,7 +111,6 @@
             this.GridPaquete.Location = new System.Drawing.Point(12, 81);
             this.GridPaquete.Name = "GridPaquete";
             this.GridPaquete.SelectionMode = Syncfusion.WinForms.DataGrid.Enums.GridSelectionMode.Extended;
-            this.GridPaquete.SelectionUnit = Syncfusion.WinForms.DataGrid.Enums.SelectionUnit.Cell;
             this.GridPaquete.Size = new System.Drawing.Size(579, 366);
             gridBordersInfo1.Bottom = new Syncfusion.WinForms.DataGrid.Styles.GridBorder(Syncfusion.WinForms.DataGrid.Styles.GridBorderStyle.Standard, System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204))))));
             this.GridPaquete.Style.AddNewRowStyle.Borders = gridBordersInfo1;
@@ -131,12 +131,32 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.btnNuevo);
             this.panel3.Controls.Add(this.btnCobrar);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 467);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(591, 81);
             this.panel3.TabIndex = 6;
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.BackColor = System.Drawing.Color.White;
+            this.btnNuevo.FlatAppearance.BorderSize = 0;
+            this.btnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.ForeColor = System.Drawing.Color.Black;
+            this.btnNuevo.Location = new System.Drawing.Point(57, 16);
+            this.btnNuevo.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnNuevo.MouseHoverForeColor = System.Drawing.Color.White;
+            this.btnNuevo.MouseLeaveForeColor = System.Drawing.Color.Black;
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(182, 53);
+            this.btnNuevo.TabIndex = 3;
+            this.btnNuevo.Text = "Agendar Cita";
+            this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnCobrar
             // 
@@ -145,9 +165,9 @@
             this.btnCobrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCobrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCobrar.ForeColor = System.Drawing.Color.White;
-            this.btnCobrar.Location = new System.Drawing.Point(135, 16);
+            this.btnCobrar.Location = new System.Drawing.Point(325, 16);
             this.btnCobrar.Name = "btnCobrar";
-            this.btnCobrar.Size = new System.Drawing.Size(312, 53);
+            this.btnCobrar.Size = new System.Drawing.Size(189, 53);
             this.btnCobrar.TabIndex = 2;
             this.btnCobrar.Text = "Siguiente";
             this.btnCobrar.UseVisualStyleBackColor = false;
@@ -163,6 +183,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(591, 75);
             this.panel1.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.cerrar;
+            this.pictureBox1.Location = new System.Drawing.Point(568, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
@@ -180,17 +211,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.cerrar;
-            this.pictureBox1.Location = new System.Drawing.Point(568, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // FrmPaqueteVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -204,8 +224,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.GridPaquete)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -220,5 +240,6 @@
         private Syncfusion.WinForms.DataGrid.SfDataGrid GridPaquete;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private Library.Controls.Btn.Btn btnNuevo;
     }
 }

@@ -25,6 +25,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #region Propiedades Publicas
         public ClienteViewModel ModelCliente { get; set; }
         public BindingList<Paquetes> ListaPaquete { get; set; }
+        public BindingList<Paquetes> ListaPaqueteAgendada { get; set; }
         public BindingList<PaqueteDetalle> ListaDetallePaquete { get; set; }
         public BindingList<AbonoPaquete> ListaAbonoPaquete { get; set; }
         public BindingList<AbonoPaquete> ListaEspera { get; set; }
@@ -46,6 +47,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             ListaDetallePaquete = new BindingList<PaqueteDetalle>();
             ListaAbonoPaquete = new BindingList<AbonoPaquete>();
             ListaEspera = new BindingList<AbonoPaquete>();
+            ListaPaqueteAgendada = new BindingList<Paquetes>();
             this.Cantidad = 1;
             this.FolioCliente = string.Empty;
             this.TablaAbonoPaquete = new DataTable();
@@ -63,6 +65,23 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 foreach (var item in x)
                 {
                     ListaPaquete.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task GetAllAgendada(int idSucursal)
+        {
+            try
+            {
+                var x = await Repository.GetAllAgendaAsync(this.IdCliente, idSucursal);
+                ListaPaqueteAgendada.Clear();
+                foreach (var item in x)
+                {
+                    ListaPaqueteAgendada.Add(item);
                 }
             }
             catch (Exception ex)

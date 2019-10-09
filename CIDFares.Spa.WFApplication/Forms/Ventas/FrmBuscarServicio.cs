@@ -32,6 +32,15 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             Model = ServiceLocator.Instance.Resolve<ServicioViewModel>();
             servicio = new Servicio();
         }
+
+        public FrmBuscarServicio(Paquetes paquetes)
+        {
+            InitializeComponent();
+            Model = ServiceLocator.Instance.Resolve<ServicioViewModel>();
+            servicio = new Servicio();
+            Model.GetAllServicioPaquete(paquetes);
+            btnBuscar.Visible = false;
+        }
         #endregion
 
         #region Metodos
