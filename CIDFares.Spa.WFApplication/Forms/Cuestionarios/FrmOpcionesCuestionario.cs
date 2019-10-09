@@ -48,28 +48,27 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             Model._ListaMediciones = _value.dtoMedicionesConsulta;
             Model._tablaRespuestas = _value.dtoEncuestaConsultaOpciones.ToList().ToDataTable(new List<string> { "IdEncuesta", "IdPregunta", "IdRespuesta", "Respuesta", "RespuestaSINO" });
             Model._tablaRespuestasMultiple = _value.dtoRespuestaMultiple.ToList().ToDataTable(new List<string> { "IdPregunta", "IdRespuesta" });
-            Model._tablaMedicion = TablaMedicion(); //_value.dtoMedicionesConsulta.ToList().ToDataTable(new List<string> { "IdMedicion", "dato.Nombre", "dato.IdValorSeleccionado", "dato.valor" });
+            Model._tablaMedicion = _value.dtoMedicionesConsulta.Where(x=>x.asignar).ToList().ToDataTable(new List<string> {"dato", "IdMedicion","Nombre", "IdValorSeleccionado","valor"});//TablaMedicion();
             Model.State = EntityState.Update;
-
         }
         #endregion
 
         #region Metodos
+        //private DataTable TablaMedicion()
+        //{
+        //    DataTable tblMedicion = new DataTable();
+        //    tblMedicion.Columns.Add("IdMedicion", typeof(int));
+        //    tblMedicion.Columns.Add("Nombre", typeof(string));
+        //    tblMedicion.Columns.Add("IdValorSeleccionado", typeof(int));
+        //    tblMedicion.Columns.Add("valor", typeof(string));
+        //    foreach (var item in dtoConsulta.dtoMedicionesConsulta.Where(x=>x.asignar))
+        //    {
+        //        tblMedicion.Rows.Add(new object[] {item.dato.IdMedicion,item.dato.Nombre,item.dato.IdValorSeleccionado,item.dato.valor });
+        //    }
 
-        private DataTable TablaMedicion()
-        {
-            DataTable tblMedicion = new DataTable();
-            tblMedicion.Columns.Add("IdMedicion", typeof(int));
-            tblMedicion.Columns.Add("Nombre", typeof(string));
-            tblMedicion.Columns.Add("IdValorSeleccionado", typeof(int));
-            tblMedicion.Columns.Add("valor", typeof(string));
-            foreach (var item in dtoConsulta.dtoMedicionesConsulta.Where(x=>x.asignar))
-            {
-                tblMedicion.Rows.Add(new object[] {item.dato.IdMedicion,item.dato.Nombre,item.dato.IdValorSeleccionado,item.dato.valor });
-            }
+        //    return tblMedicion;
+        //}
 
-            return tblMedicion;
-        }
         private void Iniciarcombo()
         {
             try
