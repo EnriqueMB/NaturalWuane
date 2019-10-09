@@ -118,11 +118,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             }
         }
 
-        private async void ServiciosPaquete()
+        private async void ServiciosPaquete(Guid IdOrdenPaquete)
         {
             try
             {
-                var x = await Model.GetAllServicioPaquete(Paquetes);
+                var x = await Model.GetAllServicioPaquete(IdOrdenPaquete);
                 Model.LlenarListaServicioPaquete(x);
             }
             catch (Exception ex)
@@ -151,12 +151,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             try
             {
                 IniciarBinding();
-                HorarioSucursal();
                 IniciarFormulario();
                 if (Paquetes.IdPaquete != 0)
                     FormularioPaquete();
                 await Model.GetCitaDetalle(f, CurrentSession.IdSucursal);
-                
+                HorarioSucursal();
             }
             catch (Exception ex)
             {
@@ -165,7 +164,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             }
         }
 
-        private void FormularioPaquete()
+        private async void FormularioPaquete()
         {
             try
             {
@@ -175,9 +174,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 pictureBox1.Visible = false;
                 pnlButtons.Visible = false;
                 labelNombre.Text = Paquetes.Nombre;
-                ServiciosPaquete();
                 Model.IdPaquete = Paquetes.IdPaquete;
                 Model.Nombre = Paquetes.Nombre;
+
+                OrdenPaquete OP = await Model.AgendarPaquete(CurrentSession.IdSucursal, CurrentSession.IdCuentaUsuario);
+                ServiciosPaquete(OP.IdOrdenPaquete);
+                Model.IdOrdenPaquete = OP.IdOrdenPaquete;
             }
             catch (Exception)
             {
@@ -373,6 +375,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                         await Model.GetCitaDetalle(f, CurrentSession.IdSucursal);
                         HorarioSucursal();
                         Model.Servicio = string.Empty;
+                        ServiciosPaquete(Model.IdOrdenPaquete);
                         if (Model.State == EntityState.Update)
                         {
                             LimpiarPropiedades();

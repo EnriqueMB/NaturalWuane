@@ -85,26 +85,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
         #endregion
-        private async void btnBuscar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!string.IsNullOrEmpty(Model.Buscar))
-                {
-                    await Model.GetBusqueda();      
-                }
-                else
-                {
-                    errorGridProveedor.SetError(BuscarControl, "INGRESE EL CAMPO BUSQUEDA. Y NO PUEDE SER MAYOR A 200 CARACTERES");
-                }
-            }
-            catch (Exception ex)
-            {
-                ErrorLogHelper.AddExcFileTxt(ex, "FrmProveedorGrid ~ btnBuscar_Click(object sender, EventArgs e)");
-                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
-            }
-        }
 
+        #region Evento        
         private void FrmProveedorGrid_Shown(object sender, EventArgs e)
         {
             try
@@ -120,11 +102,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmProveedorGrid ~ FrmProveedorGrid_Shown(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
-
         private async void btnNuevo_Click(object sender, EventArgs e)
         {
             try
@@ -135,7 +116,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 await Model.GetAll();
                 Model.State = EntityState.Create;
                 this.CleanErrors(errorGridProveedor, typeof(ProveedorViewModel));
-
             }
             catch (Exception ex)
             {
@@ -143,7 +123,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
-
         private void BuscarControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
@@ -151,7 +130,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 btnBuscar.PerformClick();
             }
         }
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
             try
@@ -159,12 +137,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 Proveedor item = ObtenerSeleccionado();
                 if (item != null)
                 {
-
                     FrmProveedor Proveedor = new FrmProveedor(item.IdProveedor);
                     Proveedor.ShowDialog();
                     Proveedor.Dispose();
                     GetDataAsync();
-
                 }
                 else
                     CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
@@ -183,7 +159,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 var item = ObtenerSeleccionado();
                 if (item != null)
                 {
-
                     if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmDeleteMessage) == DialogResult.OK)
                     {
                         Model.IdProveedor = item.IdProveedor;
@@ -191,8 +166,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         if (result == 1)
                         {
                             CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.informacion);
-                            await Model.GetAll();
-                    
+                            await Model.GetAll();                    
                         }
                         else
                             CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.informacion);
@@ -207,5 +181,25 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
+        private async void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(Model.Buscar))
+                {
+                    await Model.GetBusqueda();
+                }
+                else
+                {
+                    errorGridProveedor.SetError(BuscarControl, "INGRESE EL CAMPO BUSQUEDA. Y NO PUEDE SER MAYOR A 200 CARACTERES");
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmProveedorGrid ~ btnBuscar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
+            }
+        }
+        #endregion
     }
 }

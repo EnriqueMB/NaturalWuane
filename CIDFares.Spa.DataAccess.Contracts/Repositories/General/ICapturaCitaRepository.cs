@@ -21,5 +21,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
         Task<int> BusyService(CapturaCita element, object IdSucursal);
         Task<int> BusyService2(Guid idAgendaCita, int idServicio, DateTime fechaInicio, object IdSucursal);       
         Task<IEnumerable<CapturaCita>> LlenarComboHorarioSucursal(object Dias, object IdSucursal);
+        Task<OrdenPaquete> AgendarPaquete(int IdPaquete, Guid idCliente, Guid idUsuario, int idSucursal);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Library.Code.Helpers;
 using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Library.Controls.CIDWait.Code;
@@ -371,6 +372,22 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 e.Handled = true;
             else if (Char.IsWhiteSpace(e.KeyChar))
                 e.Handled = true;
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmOutMessageChild) == DialogResult.OK)
+                {
+                    Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmDireccionesCliente ~ BtnCancelar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorAlCancelarFrm, TypeMessage.error);
+            }
         }
     }
 }
