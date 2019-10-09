@@ -22,6 +22,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
             CantidadProducto = 0;
             PorcentajePaquete = 0;
             CostoProducto = 0;
+            Precio = 0;
         }
 
         public int IdProducto { get; set; }
@@ -38,5 +39,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public decimal PorcentajeIva { get; set; }
         public decimal PorcentajePaquete { get; set; }
         public int Existencia { get; set; }
+        public decimal Precio { get; set; }
     }
 }
