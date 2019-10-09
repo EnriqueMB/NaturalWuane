@@ -445,5 +445,24 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 throw;
             }
         }
+
+        private void btnAgregarPaquete_Click(object sender, EventArgs e)
+        {
+            FrmBuscarPaquete busPaquete = new FrmBuscarPaquete();
+            busPaquete.ShowDialog();
+        }
+
+        private void btnCitasSinAgendar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmCitasSinAgendar csa = new FrmCitasSinAgendar();
+                csa.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }            
+        }
     }
 }
