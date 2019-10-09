@@ -55,7 +55,7 @@
             this.EmailControl = new System.Windows.Forms.TextBox();
             this.PnlFoto = new System.Windows.Forms.Panel();
             this.BtnSeleccionar = new CIDFares.Library.Controls.Btn.Btn();
-            this.RutaControl = new System.Windows.Forms.TextBox();
+            this.RutaImagenControl = new System.Windows.Forms.TextBox();
             this.FotoControl = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.FechaNacimientoControl = new System.Windows.Forms.DateTimePicker();
@@ -340,7 +340,7 @@
             // PnlFoto
             // 
             this.PnlFoto.Controls.Add(this.BtnSeleccionar);
-            this.PnlFoto.Controls.Add(this.RutaControl);
+            this.PnlFoto.Controls.Add(this.RutaImagenControl);
             this.PnlFoto.Controls.Add(this.FotoControl);
             this.PnlFoto.Location = new System.Drawing.Point(9, 363);
             this.PnlFoto.Name = "PnlFoto";
@@ -367,14 +367,16 @@
             this.BtnSeleccionar.UseVisualStyleBackColor = false;
             this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
             // 
-            // RutaControl
+            // RutaImagenControl
             // 
-            this.RutaControl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RutaControl.Location = new System.Drawing.Point(6, 51);
-            this.RutaControl.Multiline = true;
-            this.RutaControl.Name = "RutaControl";
-            this.RutaControl.Size = new System.Drawing.Size(207, 47);
-            this.RutaControl.TabIndex = 41;
+            this.RutaImagenControl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RutaImagenControl.Location = new System.Drawing.Point(6, 51);
+            this.RutaImagenControl.Multiline = true;
+            this.RutaImagenControl.Name = "RutaImagenControl";
+            this.RutaImagenControl.ReadOnly = true;
+            this.RutaImagenControl.Size = new System.Drawing.Size(207, 47);
+            this.RutaImagenControl.TabIndex = 0;
+            this.RutaImagenControl.TabStop = false;
             // 
             // FotoControl
             // 
@@ -414,7 +416,7 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(18, 134);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 21);
+            this.label4.Size = new System.Drawing.Size(70, 21);
             this.label4.TabIndex = 8;
             this.label4.Text = "Teléfono";
             // 
@@ -720,7 +722,7 @@
         private System.Windows.Forms.Label label8;
         private Syncfusion.Windows.Forms.Tools.ComboBoxAdv SexoControl;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.TextBox RutaControl;
+        private System.Windows.Forms.TextBox RutaImagenControl;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.TextBox ClaveControl;
         private System.Windows.Forms.ErrorProvider errorProvider1;

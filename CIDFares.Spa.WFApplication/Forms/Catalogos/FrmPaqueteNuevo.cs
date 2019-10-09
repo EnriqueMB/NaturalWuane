@@ -152,6 +152,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     var y = Model.Convertir_Imagen_Bytes(x); //Mandamos la variable para convertirla a bytes.
                     x.Dispose();
                     Model.Imagen = Model.Convertir_Bytes_Imagen(y); //Le pasamos la imagen convertida a la propiedad Imagen del modelo para mostrarlo en el formulario.
+                    var a = Model.UrlImagen;
                 }
             }
             catch (Exception ex)

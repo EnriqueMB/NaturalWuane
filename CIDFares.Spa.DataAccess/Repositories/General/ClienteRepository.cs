@@ -221,7 +221,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public async Task<int> AddWithDTO(DTOCliente element)
+        public async Task<string> AddWithDTO(DTOCliente element, string extencion)
         {
             using (IDbConnection conexion = new SqlConnection(WebConnectionString))
             {
@@ -235,11 +235,12 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 dynamicParameters.Add("@FechaNacimiento", element.DatosCliente.FechaNacimiento);
                 dynamicParameters.Add("@Sexo", element.DatosCliente.Sexo);
                 dynamicParameters.Add("@UrlFoto", element.DatosCliente.UrlFoto);
+                dynamicParameters.Add("@Ext", extencion);
                 dynamicParameters.Add("@Rfc", element.DatosCliente.Rfc);
                 dynamicParameters.Add("@email", element.DatosCliente.Email);
                 dynamicParameters.Add("@IdUsuarioL", element.DatosCliente.IdUsuarioL);
                 dynamicParameters.Add("@TablaDirecciones", element.ListaDireciones.ToDataTable(), DbType.Object);
-                var Resultado = await conexion.ExecuteScalarAsync<int>("[Cliente].[SPCID_AC_Cliente]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                var Resultado = await conexion.ExecuteScalarAsync<string>("[Cliente].[SPCID_AC_Cliente]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                 return Resultado;
             }
         }
@@ -262,6 +263,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     item.IdCliente = dr.GetGuid(dr.GetOrdinal("IdCliente"));
                     item.LocalId = dr.GetInt32(dr.GetOrdinal("LocalId"));
                     item.NombreCompleto = dr.GetString(dr.GetOrdinal("NombreCompleto"));
+                    item.UrlFoto = dr.GetString(dr.GetOrdinal("UrlFoto"));
                     if (!dr.IsDBNull(dr.GetOrdinal("FechaNacimiento")))
                     {
                         DateTime date = dr.GetDateTime(dr.GetOrdinal("FechaNacimiento"));
