@@ -7,6 +7,7 @@ using CIDFares.Spa.Business.ViewModels.Ventas;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
+using CIDFares.Spa.WFApplication.Forms.Ventas.TicketVenta;
 using CIDFares.Spa.WFApplication.Session;
 using Syncfusion.WinForms.DataGrid;
 using Syncfusion.WinForms.DataGrid.Enums;
@@ -94,7 +95,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             try
             {
                 Venta Resultado = new Venta();
+                
                 int res;
+              
                 BindingList<FormaPago> ListaFormaPago = (BindingList<FormaPago>)GridFormaPago.DataSource;
                 this.CleanErrors(errorProvider1, typeof(VentasViewModel));
                 TotalVenta();
@@ -116,7 +119,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                             }
                             else
                                 Resultado = await Model.GuardarVenta(CurrentSession.IdCuentaUsuario, CurrentSession.IdSucursal);
-
+                                var idVenta =  await Model.ObtenerVenta(CurrentSession.IdSucursal, CurrentSession.IdCuentaUsuario);
+                                 var ticket = await Model.ObtenerTicket(idVenta);
+                            if(ticket != null)
+                            {
+                                ImprimirVenta IV = new ImprimirVenta(ticket);
+                            }
                             if (Resultado.Resultado == 1)
                             {
                                 pnlCambio.BringToFront();

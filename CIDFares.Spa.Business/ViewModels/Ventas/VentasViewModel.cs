@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using System.Data;
 using CIDFares.Library.Code.Utilities.IBase;
+using CIDFares.Spa.DataAccess.Contracts.DTOs.Requests;
 
 namespace CIDFares.Spa.Business.ViewModels.Ventas
 {
@@ -41,6 +42,9 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         public EntityState State { get; set; }
         #endregion
 
+        #region Propiedades dto
+        public BindingList<Producto> ListaProducto { get; set; }
+        #endregion
         #region Constructor
         public VentasViewModel(IFormaPagoRepository formaPagoRepository, IVentaRepository ventaRepository, IBusqProductoRepository busqProductoRepository, IServicioRepository servicioRepository, IPaqueteRepository paqueteRepository)
         {
@@ -56,6 +60,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             ListaBusquedaProducto = new BindingList<BusqueProducto>();
             ListaServicio = new BindingList<Servicio>();
             ListaPaquete = new BindingList<Paquetes>();
+            ListaProducto = new BindingList<Producto>();
             this.FechaVenta = DateTime.Now;
             this.IdSucursal = 1;
             //this.Folio = string.Empty;
@@ -158,6 +163,45 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             foreach (var item in x)
             {
                 Listaventa.Add(item);
+            }
+        }
+
+        public async Task<Guid> ObtenerVenta(int IdSucursal, Guid IdEmpleado)
+        {
+           Guid x = await Repository.ObtenerIdVenta(IdSucursal, IdEmpleado);
+           return x;
+        }
+
+        public async Task<VentaTicketRequest> ObtenerTicket(Guid IdVenta)
+        {
+            try
+            {
+                var x = await Repository.GetTicket(IdVenta);
+                ListaProducto.Clear();
+                ListaPaquete.Clear();
+                ListaServicio.Clear();
+
+                foreach (var item in x.dtoProducto)
+                {
+                    ListaProducto.Add(item);
+                }
+
+                foreach (var item in x.dtoPaquete)
+                {
+                    ListaPaquete.Add(item);
+                }
+
+                foreach (var item in x.dtoServicio)
+                {
+                    ListaServicio.Add(item);
+                }
+
+                return x;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
         #endregion

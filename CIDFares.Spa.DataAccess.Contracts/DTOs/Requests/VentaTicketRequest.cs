@@ -1,6 +1,7 @@
 ﻿using CIDFares.Spa.DataAccess.Contracts.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,16 +13,15 @@ namespace CIDFares.Spa.DataAccess.Contracts.DTOs.Requests
         #region Propiedades
         public VentaTicketRequest()
         {
-            DatosVenta = new Venta();
-            DatosSucursal = new Sucursal();
-            DatosEmpleado = new Empleado();
-            DatosCliente = new Cliente();
+            dtoVenta = new Venta();
+            dtoProducto = new BindingList<Producto>();
+            dtoPaquete = new BindingList<Paquetes>();
+            dtoServicio = new List<Servicio>();
         }
-
-        public Venta DatosVenta { get; set; }
-        public Sucursal DatosSucursal { get; set; }
-        public Empleado DatosEmpleado { get; set; }
-        public Cliente  DatosCliente  { get; set; }
+        public Venta dtoVenta { get; set; }
+        public BindingList<Producto>  dtoProducto  { get; set; }
+        public BindingList<Paquetes>  dtoPaquete { get; set; }
+        public List<Servicio>  dtoServicio { get; set; }
         #endregion
 
         
