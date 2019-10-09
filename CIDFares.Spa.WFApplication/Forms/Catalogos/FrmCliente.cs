@@ -63,6 +63,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
             Model.Page = -1;
             Model.Opcion = 1;
+            this.btnDirecciones.FlatAppearance.BorderSize = 1;
+            this.BtnSeleccionar.FlatAppearance.BorderSize = 1;
         }
         #endregion
 
@@ -194,34 +196,42 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         private async void btnModificar_Click(object sender, EventArgs e)
         {
-            var item = ObtenerSeleccionado();
-            if (item != null)
+            try
             {
-                groupBoxCliente.Enabled = true;
-                ClaveControl.Visible = true;
-                Model.State = EntityState.Update;
-                Model.IdCliente = item.IdCliente;
-                Model.NombreCompleto = item.NombreCompleto;
-                Model.Rfc = item.Rfc;
-                Model.Sexo = item.Sexo;
-                Model.Telefono = item.Telefono;
-                Model.Email = item.Email;
-                Model.Clave = item.Clave;
-                Model.FechaNacimiento = item.FechaNacimiento;
-                await Model.GetFoto(Model.IdCliente);
-                if (!string.IsNullOrEmpty(Model.FotoBase64))
+                var item = ObtenerSeleccionado();
+                if (item != null)
                 {
-                    Model.Foto = ComprimirImagenExtensions.ImageBase64ToImage(Model.FotoBase64);
+                    groupBoxCliente.Enabled = true;
+                    ClaveControl.Visible = true;
+                    Model.State = EntityState.Update;
+                    Model.IdCliente = item.IdCliente;
+                    Model.NombreCompleto = item.NombreCompleto;
+                    Model.Rfc = item.Rfc;
+                    Model.Sexo = item.Sexo;
+                    Model.Telefono = item.Telefono;
+                    Model.Email = item.Email;
+                    Model.Clave = item.Clave;
+                    Model.FechaNacimiento = item.FechaNacimiento;
+                    await Model.GetFoto(Model.IdCliente);
+                    if (!string.IsNullOrEmpty(Model.FotoBase64))
+                    {
+                        Model.Foto = ComprimirImagenExtensions.ImageBase64ToImage(Model.FotoBase64);
+                    }
+                    else
+                        Model.ImageLocation = "Sin Foto";
+                    Model.FotoBase64 = string.Empty;
+                    await Model.GetDireciones();
                 }
                 else
-                    Model.ImageLocation = "Sin Foto";
-                Model.FotoBase64 = string.Empty;
-                await Model.GetDireciones();
+                {
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
+                    groupBoxCliente.Enabled = false;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
-                groupBoxCliente.Enabled = false;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCliente ~ btnModificar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
 
@@ -329,7 +339,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             catch (Exception ex)
             {
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmCliente ~ BtnSeleccionar_Click(object sender, EventArgs e)");
-                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
 
@@ -358,6 +368,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 if (!string.IsNullOrEmpty(Model.Busqueda))
                 {
                     await Model.GetBusqueda();
+                    errorProvider1.Clear();
                 }
                 else
                 {
@@ -376,6 +387,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             try
             {
                 Model.ListaCliente.Clear();
+                errorProvider1.Clear();
             }
             catch (Exception)
             {
@@ -383,14 +395,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 throw;
             }
         }
-        #endregion
-
-        private async void button1_Click(object sender, EventArgs e)
+        private async void btnClienteFrecuente_Click(object sender, EventArgs e)
         {
             try
             {
-               var item = ObtenerSeleccionado();
-               if (item != null)
+                var item = ObtenerSeleccionado();
+                if (item != null)
                 {
                     if (!Convert.ToBoolean(item.TieneTarjeta))
                     {
@@ -429,15 +439,17 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                             }
                         }
                     }
-               }
-               else
+                }
+                else
                     CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
             }
             catch (Exception ex)
             {
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCliente ~ btnClienteFrecuente_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
+        #endregion
 
         private void btnDirecciones_Click(object sender, EventArgs e)
         {
@@ -453,7 +465,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-                throw;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCliente ~ btnDirecciones_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
 
@@ -469,7 +482,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCliente ~ FrmCliente_Shown(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
 
@@ -513,6 +527,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 Model.Opcion = 2;
                 CargarGrid();
                 x.ValueChanged += X_ValueChanged;
+                errorProvider1.Clear();
             }
             catch (Exception ex)
             {
