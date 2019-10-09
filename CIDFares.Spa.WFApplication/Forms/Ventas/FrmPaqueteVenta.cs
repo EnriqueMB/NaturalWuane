@@ -4,6 +4,7 @@ using CIDFares.Spa.Business.ViewModels.Ventas;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
+using CIDFares.Spa.WFApplication.Forms.Citas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -215,7 +216,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 if (item != null)
                 {
                     //this.CleanErrors(errorProvider1, typeof(FormaPagoViewModel));
-                    FrmCapturaCita cita = new FrmCapturaCita(item);
+                    Cliente c = new Cliente();
+                        c.NombreCompleto = Model.NombreCompleto;
+                        c.IdCliente = Model.IdCliente;
+                    FrmCapturaCitaNuevo cita = new FrmCapturaCitaNuevo(DateTime.Now, item, c);
                     cita.ShowDialog();
                 }
                 else

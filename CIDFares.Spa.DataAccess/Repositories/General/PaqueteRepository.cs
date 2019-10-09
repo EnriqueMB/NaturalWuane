@@ -299,6 +299,25 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
+
+        public async Task<IEnumerable<Servicio>> ComboServicios(int idPaquete)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdPaquete", idPaquete);
+                    var dr = await conexion.QueryAsync<Servicio>("[Paquete].[SPCID_Get_ComboServicioPaquete]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return dr;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
 
         #region Metodos No Implementado
@@ -309,6 +328,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         }
 
         
+
+
         #endregion
 
     }

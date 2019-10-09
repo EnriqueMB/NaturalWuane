@@ -25,6 +25,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         public BindingList<CapturaCita> ListaCapturaCitaDetalle { get; set; }
         public BindingList<CapturaCita> ListaCapturaCitaDetalleServicio { get; set; }
         public BindingList<CapturaCita> ListaHoras { get; set; }
+        public BindingList<Servicio> ListaServicioPaquete { get; set; }
         public DataTable TablaGServicio { get; set; }        
         public EntityState State { get; set; }
         #endregion
@@ -38,6 +39,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             ListaCapturaCitaDetalle = new BindingList<CapturaCita>();
             ListaCapturaCitaDetalleServicio = new BindingList<CapturaCita>();
             ListaHoras = new BindingList<CapturaCita>();
+            ListaServicioPaquete = new BindingList<Servicio>();
             IdHora = new TimeSpan();
         }
         #endregion
@@ -88,6 +90,8 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
+        
+
         public async Task<CapturaCita> GuardarCambios(Guid IdUsuario, int IdSucursal)
         {
             try
@@ -130,7 +134,37 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 throw ex;
             }
         }
+        #region Combo servicio producto
+        public async Task<IEnumerable<Servicio>> GetAllServicioPaquete(Paquetes paquetes)
+        {
+            try
+            {
+                return await PaqueteRepository.ComboServicios(paquetes.IdPaquete);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void LlenarListaServicioPaquete(IEnumerable<Servicio> servicios)
+        {
+            try
+            {
+                ListaHoras.Clear();
+                foreach (var item in servicios)
+                {
+                    ListaServicioPaquete.Add(item);
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
+        
+        #endregion
         public async Task<int> DeleteAsync(Guid IdAgendaCita, Guid idUsuario)
         {
             try
@@ -391,6 +425,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
 
         private int _IdEstadoCita;
 
+        
         public int IdEstadoCita
         {
             get { return _IdEstadoCita; }

@@ -89,6 +89,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             try
             {
                 Model.IdCliente = cliente.IdCliente;
+                Model.NombreCompleto = cliente.NombreCompleto;
                 NombreControl.Text = cliente.NombreCompleto;
                 TelefonoControl.Text = cliente.Telefono;
                 DireccionControl.Text = cliente.Direccion;

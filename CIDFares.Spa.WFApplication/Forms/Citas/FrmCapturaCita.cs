@@ -181,8 +181,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                             Console.WriteLine("Detalle");
                             if (Paquete.IdPaquete != 0)
                             {
-                                FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo(x, Paquete);
-                                f.ShowDialog();
+                                //FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo(x, Paquete);
+                                //f.ShowDialog();
                             }
                             else
                             {
@@ -198,8 +198,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                         Console.WriteLine("Nuevo");
                         if (Paquete.IdPaquete != 0)
                         {
-                            FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo(x, Paquete);
-                            f.ShowDialog();
+                            //FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo(x, Paquete);
+                            //f.ShowDialog();
                         }
                         else
                         {

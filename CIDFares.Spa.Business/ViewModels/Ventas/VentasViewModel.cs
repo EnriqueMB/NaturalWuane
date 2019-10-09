@@ -303,6 +303,18 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
+        private string _NombreCompleto;
+
+        public string NombreCompleto
+        {
+            get { return _NombreCompleto; }
+            set
+            {
+                _NombreCompleto = value;
+                OnPropertyChanged(nameof(NombreCompleto));
+            }
+        }
+        
 
         #endregion
 
