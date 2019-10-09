@@ -212,6 +212,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.FechaVencimiento = dr.GetDateTime(dr.GetOrdinal("FechaVencimiento"));
                         item.Descripcion = dr.GetString(dr.GetOrdinal("Descripcion"));
                         item.MontoPaquete = dr.GetDecimal(dr.GetOrdinal("MontoPaquete"));
+                        item.UrlImagen = dr.GetString(dr.GetOrdinal("UrlImagen"));
                         Lista.Add(item);
                     }
                     return Lista;

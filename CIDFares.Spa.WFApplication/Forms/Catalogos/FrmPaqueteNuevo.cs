@@ -31,7 +31,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         public PaqueteViewModel Model { get; set; }
         private Servicio infoServicio { get; set; }
         private Producto InfoProducto { get; set; }
-        public string RutaImagen { get; set; }
+        private string ClaveAux { get; set; }
         #endregion
 
         #region Constructor
@@ -57,9 +57,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             Model.Nombre = paquete.Nombre;
             Model.State = EntityState.Update;
             Model.UrlImagen = paquete.UrlImagen;
+            ClaveAux = Model.Clave;
             lblPaquete.Text = "MODIFICACIÓN DEL PAQUETE CON CLAVE: " + Model.Clave;
             CargarImagen();
-            RutaImagen = Model.RutaAux;
         }
 
         #endregion
@@ -152,7 +152,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     var y = Model.Convertir_Imagen_Bytes(x); //Mandamos la variable para convertirla a bytes.
                     x.Dispose();
                     Model.Imagen = Model.Convertir_Bytes_Imagen(y); //Le pasamos la imagen convertida a la propiedad Imagen del modelo para mostrarlo en el formulario.
-                    
                 }
             }
             catch (Exception ex)
@@ -170,7 +169,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                if(Model.UrlImagen != string.Empty || Model.UrlImagen != null)
+                if(Model.UrlImagen != "" && Model.UrlImagen != null)
                 {
                     string User = ConfigurationManager.AppSettings.Get("UsuarioFtpTxt");
                     string pass = ConfigurationManager.AppSettings.Get("ContraseñaFtpTxt");
@@ -202,6 +201,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         Model.Imagen = Model.Convertir_Bytes_Imagen(y);
                     }
                 }
+                else
+                {
+                    CIDMessageBox.ShowAlert(Messages.SystemName, "NO EXISTE LA RUTA DE LA IMAGEN", TypeMessage.informacion);
+                }
             }
             catch (Exception ex)
             {
@@ -223,7 +226,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     if (Model.ListaDetallePaquete.Count > 0)
                     {
                         this.ObtenerTablas(Model.ListaDetallePaquete);
-                        if (Model.UpdateImagen)
+                        if (Model.UpdateImagen || ClaveAux != Model.Clave)//SI se cambia la clave o la imagen se sube la imagen
                         {
                             bool subir = false;
                             CIDWait.Show(async () =>
@@ -239,14 +242,15 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                             {
                                 //Mensaje de avertencia que la imagen no se pudo cargar
                                 CIDMessageBox.ShowAlert(Messages.SystemName, "NO SE PUDO SUBIR LA IMAGEN", TypeMessage.informacion);
+                                
                             }
                         }
+                        Model.UpdateImagen = false;
                         Paquetes Resul = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
                         if (Resul.Result == 1)
                         {
-                            Model.UpdateImagen = false;
-                            var a = Model.UrlImagen;
-                            File.Delete(Model.RutaAux);//Borramos la imagen desde la carpeta RESOURCES
+                            if(Model.RutaAux != "" && Model.RutaAux != null)
+                                File.Delete(Model.RutaAux);//Borramos la imagen desde la carpeta RESOURCES
                             CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
                             LimpiarPropiedades();
                             this.Close();
@@ -275,7 +279,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmCancelInput) == DialogResult.OK)
 
                 {
-                    File.Delete(Model.RutaAux);//Borramos la imagen de la carpeta RESOURCES
+                    if (Model.RutaAux != "" && Model.RutaAux != null)
+                        File.Delete(Model.RutaAux);//Borramos la imagen desde la carpeta RESOURCES
                     this.Close();
                 }
                 

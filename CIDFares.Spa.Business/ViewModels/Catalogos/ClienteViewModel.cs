@@ -146,14 +146,14 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 if (State == EntityState.Create)
                 {
                     model.DatosCliente.NuevoRegistro = true;
-                    model.DatosCliente.UpdateFoto = this.UpdateFoto;
+                    //model.DatosCliente.UpdateFoto = this.UpdateFoto;
                     model.DatosCliente.IdCliente = Guid.Empty;
                     model.DatosCliente.Clave = this.Clave;
                     model.DatosCliente.NombreCompleto = this.NombreCompleto;
                     model.DatosCliente.Telefono = this.Telefono;
                     model.DatosCliente.FechaNacimiento = this.FechaNacimiento;
                     model.DatosCliente.Sexo = this.Sexo;
-                    model.DatosCliente.FotoBase64 = this.FotoBase64;
+                    //model.DatosCliente.FotoBase64 = this.FotoBase64;
                     model.DatosCliente.Rfc = this.Rfc;
                     model.DatosCliente.Email = this.Email;
                     model.ListaDireciones = GuardarLista();
@@ -164,14 +164,14 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 else if (State == EntityState.Update)
                 {
                     model.DatosCliente.NuevoRegistro = false;
-                    model.DatosCliente.UpdateFoto = this.UpdateFoto;
+                    //model.DatosCliente.UpdateFoto = this.UpdateFoto;
                     model.DatosCliente.IdCliente = this.IdCliente;
                     model.DatosCliente.Clave = this.Clave;
                     model.DatosCliente.NombreCompleto = this.NombreCompleto;
                     model.DatosCliente.Telefono = this.Telefono;
                     model.DatosCliente.FechaNacimiento = this.FechaNacimiento;
                     model.DatosCliente.Sexo = this.Sexo;
-                    model.DatosCliente.FotoBase64 = this.FotoBase64;
+                    //model.DatosCliente.FotoBase64 = this.FotoBase64;
                     model.DatosCliente.Rfc = this.Rfc;
                     model.DatosCliente.Email = this.Email;
                     model.ListaDireciones = GuardarLista();
