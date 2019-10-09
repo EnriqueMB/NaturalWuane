@@ -89,6 +89,7 @@
             this.btnProducto = new System.Windows.Forms.Button();
             this.PnlVentaGrid = new System.Windows.Forms.Panel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnVerProducto = new System.Windows.Forms.Button();
             this.pnlGeneral.SuspendLayout();
             this.pnlAcciones.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -342,8 +343,10 @@
             gridTextColumn2.AllowEditing = false;
             gridTextColumn2.HeaderText = "Nombre";
             gridTextColumn2.MappingName = "Nombre";
+            gridTextColumn2.MaximumWidth = 300D;
+            gridTextColumn2.MinimumWidth = 300D;
             gridTextColumn3.AllowEditing = false;
-            gridTextColumn3.HeaderText = "Cantidad";
+            gridTextColumn3.HeaderText = "Cant.";
             gridTextColumn3.MappingName = "Cantidad";
             gridTextColumn4.AllowEditing = false;
             gridTextColumn4.Format = "c2";
@@ -524,6 +527,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnVerProducto);
             this.groupBox1.Controls.Add(this.FotoControl);
             this.groupBox1.Controls.Add(this.FolioClienteControl);
             this.groupBox1.Controls.Add(this.DireccionControl);
@@ -717,6 +721,21 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // btnVerProducto
+            // 
+            this.btnVerProducto.BackColor = System.Drawing.Color.White;
+            this.btnVerProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnVerProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnVerProducto.Location = new System.Drawing.Point(19, 323);
+            this.btnVerProducto.Name = "btnVerProducto";
+            this.btnVerProducto.Size = new System.Drawing.Size(169, 33);
+            this.btnVerProducto.TabIndex = 8;
+            this.btnVerProducto.Text = "Ver paquetes";
+            this.btnVerProducto.UseVisualStyleBackColor = false;
+            this.btnVerProducto.Visible = false;
+            this.btnVerProducto.Click += new System.EventHandler(this.btnVerProducto_Click);
+            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -812,5 +831,6 @@
         private System.Windows.Forms.TextBox BusquedaControl;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel PnlVentaGrid;
+        private System.Windows.Forms.Button btnVerProducto;
     }
 }

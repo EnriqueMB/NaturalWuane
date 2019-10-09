@@ -17,6 +17,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
     {
         #region Propiedades privadas
         private ICapturaCitaRepository Repository { get; set; }
+        private IPaqueteRepository PaqueteRepository { get; set; }
         #endregion
 
         #region Propiedades públicas
@@ -24,23 +25,50 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         public BindingList<CapturaCita> ListaCapturaCitaDetalle { get; set; }
         public BindingList<CapturaCita> ListaCapturaCitaDetalleServicio { get; set; }
         public BindingList<CapturaCita> ListaHoras { get; set; }
+        public BindingList<Servicio> ListaServicioPaquete { get; set; }
         public DataTable TablaGServicio { get; set; }        
         public EntityState State { get; set; }
         #endregion
 
         #region Constructor
-        public CapturaCitaViewModel(ICapturaCitaRepository capturaCitaRepository)
+        public CapturaCitaViewModel(ICapturaCitaRepository capturaCitaRepository, IPaqueteRepository paqueteRepository)
         {
             Repository = capturaCitaRepository;
+            PaqueteRepository = paqueteRepository;
             ListaCapturaCita = new BindingList<CapturaCita>();
             ListaCapturaCitaDetalle = new BindingList<CapturaCita>();
             ListaCapturaCitaDetalleServicio = new BindingList<CapturaCita>();
             ListaHoras = new BindingList<CapturaCita>();
+            ListaServicioPaquete = new BindingList<Servicio>();
             IdHora = new TimeSpan();
         }
         #endregion
 
         #region Metodos
+
+        //public async Task GetAllServicioPaquete(Paquetes paquete)
+        //{
+        //    try
+        //    {
+        //        var x = await PaqueteRepository.GetAsync(paquete.IdPaquete);
+        //        ListaCapturaCitaDetalleServicio.Clear();
+        //        foreach (var item in x.ListaDetallePaquete)
+        //        {
+        //            if (item.IdTipo == 2)
+        //            {
+        //                CapturaCita cita = new CapturaCita();
+        //                cita.OrdenServicio.Servicio.Nombre = item.Nombre;
+        //                cita.OrdenServicio.Servicio.IdServicio = item.IdGenerico;
+        //                ListaCapturaCitaDetalleServicio.Add(cita);
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        throw ex;
+        //    }
+        //}
 
         public DataTable obtenerTabla()
         {
@@ -61,6 +89,8 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 throw ex;
             }
         }
+
+        
 
         public async Task<CapturaCita> GuardarCambios(Guid IdUsuario, int IdSucursal)
         {
@@ -104,7 +134,37 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                 throw ex;
             }
         }
+        #region Combo servicio producto
+        public async Task<IEnumerable<Servicio>> GetAllServicioPaquete(Paquetes paquetes)
+        {
+            try
+            {
+                return await PaqueteRepository.ComboServicios(paquetes.IdPaquete);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void LlenarListaServicioPaquete(IEnumerable<Servicio> servicios)
+        {
+            try
+            {
+                ListaHoras.Clear();
+                foreach (var item in servicios)
+                {
+                    ListaServicioPaquete.Add(item);
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
+        
+        #endregion
         public async Task<int> DeleteAsync(Guid IdAgendaCita, Guid idUsuario)
         {
             try
@@ -365,6 +425,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
 
         private int _IdEstadoCita;
 
+        
         public int IdEstadoCita
         {
             get { return _IdEstadoCita; }
