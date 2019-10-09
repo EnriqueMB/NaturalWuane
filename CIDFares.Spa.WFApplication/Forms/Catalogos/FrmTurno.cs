@@ -50,6 +50,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             horarioDesignV21.Configurar(DaysNumber.LuDo);
             if (IdTurno > 0)
             {
+                if(IdTurno == 1 || IdTurno == 2)
+                {
+                    RbtnCuatroHorarios.Enabled = false;
+                }
                 Model.IdTurno = IdTurno;
                 Model.State = EntityState.Update;
             }
@@ -126,7 +130,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 {
                     if (ValidarDatos(2) == 0)
                     {
-                        if (existListValue())
+                        if (ExistListValue())
                         {
                             string DiasComboBox = DiasControl.SelectedValue.ToString();
                             var Info = (from inf in Model.ListaValores
@@ -163,7 +167,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 {
                     if (ValidarDatos(4) == 0)
                     {
-                        if (existListValue())
+                        if (ExistListValue())
                         {
                             string DiasComboBox = DiasControl.SelectedValue.ToString();
                             var Info = (from inf in Model.ListaValores
@@ -260,8 +264,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         {
                             foreach (var item2 in Info)
                             {
-                                hora += item2.HoraEntrada + "\r\n   a\r\n" + item2.HoraSalida + "\r\n\r\n";
-                                                                   
+                                hora += item2.HoraEntrada + "\r\n   a\r\n" + item2.HoraSalida + "\r\n\r\n";                                    
                             }   
                         }
                         else
@@ -430,10 +433,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             else if (sizeList == 4)
             {
                 RbtnCuatroHorarios.Checked = true;
-                PickerHoraEntrada1.Value = Convert.ToDateTime(temp.ElementAt(2));
-                PickerHoraSalida1.Value = Convert.ToDateTime(temp.ElementAt(3));
-                PickerHoraEntrada2.Value = Convert.ToDateTime(temp.ElementAt(0));
-                PickerHoraSalida2.Value = Convert.ToDateTime(temp.ElementAt(1));
+                PickerHoraEntrada1.Value = Convert.ToDateTime(temp.ElementAt(0));
+                PickerHoraSalida1.Value = Convert.ToDateTime(temp.ElementAt(1));
+                PickerHoraEntrada2.Value = Convert.ToDateTime(temp.ElementAt(2));
+                PickerHoraSalida2.Value = Convert.ToDateTime(temp.ElementAt(3));
             }
         }
 
@@ -451,7 +454,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             //horarioDesignV21.AgregarHora((DaysHour)DiasControl.SelectedValue, horario);
         }
 
-        private bool existListValue()
+        private bool ExistListValue()
         {
             string DiasComboBox = DiasControl.SelectedValue.ToString();
             var Info = (from inf in Model.ListaValores

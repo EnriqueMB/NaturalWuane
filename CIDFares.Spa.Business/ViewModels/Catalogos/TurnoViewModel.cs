@@ -71,7 +71,6 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     return turno;
                 }
                 return turno;
-                
             }
             catch(Exception ex)
             {
