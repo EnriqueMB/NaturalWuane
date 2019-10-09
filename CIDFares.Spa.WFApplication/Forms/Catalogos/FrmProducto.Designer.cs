@@ -40,9 +40,6 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.PrecioPublicoControl = new System.Windows.Forms.TextBox();
             this.lblPrecio = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.PrecioMenudeoControl = new System.Windows.Forms.TextBox();
-            this.lblPrecioMenudeo = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.RutaControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.label7 = new System.Windows.Forms.Label();
@@ -71,9 +68,6 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.DescripcionControl = new System.Windows.Forms.TextBox();
             this.Descripcion = new System.Windows.Forms.Label();
-            this.pnlPrecio = new System.Windows.Forms.Panel();
-            this.PrecioMayoreoControl = new System.Windows.Forms.TextBox();
-            this.lblPrecioMayoreo = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.IdAplicaIvaControl = new System.Windows.Forms.ComboBox();
             this.ClaveSat = new System.Windows.Forms.Panel();
@@ -91,7 +85,6 @@
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RutaControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
@@ -101,7 +94,6 @@
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel11.SuspendLayout();
-            this.pnlPrecio.SuspendLayout();
             this.panel14.SuspendLayout();
             this.ClaveSat.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -199,18 +191,16 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 334F));
             this.tableLayoutPanel1.Controls.Add(this.panel8, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel10, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel12, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel5, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel7, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.panel9, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.panel11, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.pnlPrecio, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel14, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.ClaveSat, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.panel13, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.panel11, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -254,34 +244,6 @@
             this.lblPrecio.TabIndex = 1;
             this.lblPrecio.Text = "PRECIO PUBLICO";
             // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.PrecioMenudeoControl);
-            this.panel10.Controls.Add(this.lblPrecioMenudeo);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(400, 60);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(391, 41);
-            this.panel10.TabIndex = 7;
-            // 
-            // PrecioMenudeoControl
-            // 
-            this.PrecioMenudeoControl.Location = new System.Drawing.Point(7, 19);
-            this.PrecioMenudeoControl.Name = "PrecioMenudeoControl";
-            this.PrecioMenudeoControl.Size = new System.Drawing.Size(268, 20);
-            this.PrecioMenudeoControl.TabIndex = 1;
-            this.PrecioMenudeoControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PrecioMenudeoControl_KeyPress);
-            // 
-            // lblPrecioMenudeo
-            // 
-            this.lblPrecioMenudeo.AutoSize = true;
-            this.lblPrecioMenudeo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioMenudeo.Location = new System.Drawing.Point(4, 0);
-            this.lblPrecioMenudeo.Name = "lblPrecioMenudeo";
-            this.lblPrecioMenudeo.Size = new System.Drawing.Size(119, 17);
-            this.lblPrecioMenudeo.TabIndex = 0;
-            this.lblPrecioMenudeo.Text = "PRECIO MENUDEO";
-            // 
             // panel12
             // 
             this.panel12.Controls.Add(this.RutaControl);
@@ -297,7 +259,7 @@
             // RutaControl
             // 
             this.RutaControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            this.RutaControl.BeforeTouchSize = new System.Drawing.Size(70, 27);
+            this.RutaControl.BeforeTouchSize = new System.Drawing.Size(298, 35);
             this.RutaControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RutaControl.CornerRadius = 2;
             this.RutaControl.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -546,10 +508,10 @@
             // 
             this.panel11.Controls.Add(this.DescripcionControl);
             this.panel11.Controls.Add(this.Descripcion);
-            this.panel11.Location = new System.Drawing.Point(400, 211);
+            this.panel11.Location = new System.Drawing.Point(400, 60);
             this.panel11.Name = "panel11";
             this.tableLayoutPanel1.SetRowSpan(this.panel11, 2);
-            this.panel11.Size = new System.Drawing.Size(391, 98);
+            this.panel11.Size = new System.Drawing.Size(391, 93);
             this.panel11.TabIndex = 10;
             // 
             // DescripcionControl
@@ -569,34 +531,6 @@
             this.Descripcion.Size = new System.Drawing.Size(88, 17);
             this.Descripcion.TabIndex = 1;
             this.Descripcion.Text = "DESCRIPCION";
-            // 
-            // pnlPrecio
-            // 
-            this.pnlPrecio.Controls.Add(this.PrecioMayoreoControl);
-            this.pnlPrecio.Controls.Add(this.lblPrecioMayoreo);
-            this.pnlPrecio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPrecio.Location = new System.Drawing.Point(400, 107);
-            this.pnlPrecio.Name = "pnlPrecio";
-            this.pnlPrecio.Size = new System.Drawing.Size(391, 46);
-            this.pnlPrecio.TabIndex = 8;
-            // 
-            // PrecioMayoreoControl
-            // 
-            this.PrecioMayoreoControl.Location = new System.Drawing.Point(7, 24);
-            this.PrecioMayoreoControl.Name = "PrecioMayoreoControl";
-            this.PrecioMayoreoControl.Size = new System.Drawing.Size(268, 20);
-            this.PrecioMayoreoControl.TabIndex = 1;
-            this.PrecioMayoreoControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PrecioMayoreoControl_KeyPress);
-            // 
-            // lblPrecioMayoreo
-            // 
-            this.lblPrecioMayoreo.AutoSize = true;
-            this.lblPrecioMayoreo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioMayoreo.Location = new System.Drawing.Point(4, 4);
-            this.lblPrecioMayoreo.Name = "lblPrecioMayoreo";
-            this.lblPrecioMayoreo.Size = new System.Drawing.Size(115, 17);
-            this.lblPrecioMayoreo.TabIndex = 1;
-            this.lblPrecioMayoreo.Text = "PRECIO MAYOREO";
             // 
             // panel14
             // 
@@ -726,8 +660,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RutaControl)).EndInit();
@@ -744,8 +676,6 @@
             this.panel9.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
-            this.pnlPrecio.ResumeLayout(false);
-            this.pnlPrecio.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.ClaveSat.ResumeLayout(false);
             this.ClaveSat.PerformLayout();
@@ -784,9 +714,6 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox PrecioPublicoControl;
         private System.Windows.Forms.Label lblPrecio;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.TextBox PrecioMenudeoControl;
-        private System.Windows.Forms.Label lblPrecioMenudeo;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button BtnSeleccionar;
@@ -800,9 +727,6 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.TextBox DescripcionControl;
         private System.Windows.Forms.Label Descripcion;
-        private System.Windows.Forms.Panel pnlPrecio;
-        private System.Windows.Forms.TextBox PrecioMayoreoControl;
-        private System.Windows.Forms.Label lblPrecioMayoreo;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.CheckBox StockControl;
         private System.Windows.Forms.Panel ClaveSat;

@@ -8,6 +8,7 @@ using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
 using CIDFares.Spa.WFApplication.Session;
+using Syncfusion.WinForms.Controls;
 using System;
 using System.Windows.Forms;
 
@@ -22,6 +23,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<MedicionViewModel>();
+            Model.Page = -1;
+            Model.Opcion = 1;
         }
 
         #region Metodos
@@ -101,14 +104,35 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 throw ex;
             }
         }
+
+        private void CargarGrid()
+        {
+            try
+            {
+                
+                    if (Model.Opcion == 1)
+                        Model.Page++;
+                    CIDWait.Show(async () =>
+                    {
+                        await Model.GetAll();
+                    }, "Espere");
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
         private void FrmMedicionGrid_Shown(object sender, EventArgs e)
         {
             try
             {
+                VerticalScrollBar x = (VerticalScrollBar)sfDataGridMedicion.TableControl.VerticalScroll.ScrollBar;
+                x.ValueChanged += X_ValueChanged;
+                CargarGrid();
                 CIDWait.Show(async () =>
                 {
-                    await Model.GetAll();
                     var ListaMedicion = await Model.GetListaMedicionsAsync();
                     Model.LlenarListaMedicion(ListaMedicion);
                     var ListaUnidad = await Model.GetListaUnidadMedida();
@@ -119,6 +143,36 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Evento que detecta cada movimiento del Scroll Vertical del grid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void X_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Syncfusion.WinForms.DataGrid.TableControl tableControl = sfDataGridMedicion.TableControl;
+                if (tableControl.VerticalScroll.Value + tableControl.VerticalScroll.LargeChange == tableControl.VerticalScroll.Maximum)
+                {
+                    if (!Model.PaginaMaxima)
+                    {
+                        Model.Opcion = 1;
+                        CargarGrid();
+                    }
+                    else
+                    {
+                        CIDMessageBox.ShowAlert(Messages.SystemName, "No hay mas registros", TypeMessage.informacion);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
         }
@@ -170,6 +224,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                VerticalScrollBar x = (VerticalScrollBar)sfDataGridMedicion.TableControl.VerticalScroll.ScrollBar;
+                x.ValueChanged -= X_ValueChanged;
                 var item = ObtenerSeleccionado();
                 if (item != null)
                 {
@@ -182,6 +238,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         if(result > 0)
                         {
                             CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.correcto);
+                            Model.Opcion = 2;
+                            CargarGrid();
+                            x.ValueChanged += X_ValueChanged;
                         }
                         else
                             CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.error);
@@ -220,7 +279,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                //btnGuardar.Enabled = false;
+                VerticalScrollBar x = (VerticalScrollBar)sfDataGridMedicion.TableControl.VerticalScroll.ScrollBar;
+                x.ValueChanged -= X_ValueChanged;
                 pnlBotonesDatos.Enabled = false;
                 this.CleanErrors(errorProvider1, typeof(MedicionViewModel));
                 var validation = Model.Validate();
@@ -232,7 +292,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
                         LimpiarPropiedades();
                         GroupMedicion.Enabled = false;
-                        await Model.GetAll();
+                        Model.Opcion = 2;
+                        CargarGrid();
+                        x.ValueChanged += X_ValueChanged;
                     }
                     else
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
@@ -323,23 +385,30 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             try
             {
                 errorProvider1.SetError(IdListaMedicionControl, string.Empty);
+                errorProvider1.SetError(btnElimiarLista, string.Empty);
                 if (Model.IdListaMedicion > 0)
                 {
-                    if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmDeleteMessage) == DialogResult.OK)
+                    var ListaOcupada = Model.ListaMedicion.Where(m => m.IdListaMedicion == Model.IdListaMedicion).Select(u => u.IdListaMedicion).ToList();
+                    if (ListaOcupada.Count == 0)
                     {
-                        var result = await Model.DeleteListaMedicion(CurrentSession.IdCuentaUsuario);
-                        if (result == 1)
+                        if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmDeleteMessage) == DialogResult.OK)
                         {
-                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.correcto);
-                            var ListaMedicion = await Model.GetListaMedicionsAsync();
-                            Model.LlenarListaMedicion(ListaMedicion);
-                            IdListaMedicionControl.SelectedValue = 0;
-                            LimpiarPropiedades();
-                            await Model.GetAll();
+                            var result = await Model.DeleteListaMedicion(CurrentSession.IdCuentaUsuario);
+                            if (result == 1)
+                            {
+                                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.correcto);
+                                var ListaMedicion = await Model.GetListaMedicionsAsync();
+                                Model.LlenarListaMedicion(ListaMedicion);
+                                IdListaMedicionControl.SelectedValue = 0;
+                                LimpiarPropiedades();
+                                await Model.GetAll();
+                            }
+                            else
+                                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.error);
                         }
-                        else
-                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.error);
                     }
+                    else
+                        errorProvider1.SetError(btnElimiarLista, "No puede borrar la lista por que se esta usando");
                 }
                 else
                     errorProvider1.SetError(IdListaMedicionControl, "Debe seleccionar un valor de la lista");

@@ -14,6 +14,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.DTOs.Requests
             DatosEstado = new Estado();
             DatosMunicipio = new Municipio();
         }
+        
         public Guid IdCliente { get; set; }
         public Guid IdDireccion { get; set; }
         public string Calle { get; set; }

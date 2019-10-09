@@ -19,6 +19,10 @@ namespace CIDFares.Spa.WFApplication.Validations
                 .NotEmpty()
                 .WithMessage("SELECCIONE UN CLIENTE.");
 
+            RuleFor(cap => cap.Servicio)
+                .NotEmpty()
+                .When(x => x.IdPaquete == 0).WithMessage("SELECCIONE UN SERVICIO.");
+
             RuleFor(cap => cap.IdHora)
                 .MustAsync(async (cap, x, context, v) =>
                {
@@ -54,16 +58,16 @@ namespace CIDFares.Spa.WFApplication.Validations
                })
                 .WithMessage("{Message}");
 
-            RuleFor(cap => cap.ListaCapturaCitaDetalleServicio.Count)
-                .Must((cap, x, context) =>
-                {
-                    if (cap.ListaCapturaCitaDetalleServicio.Count <= 0)
-                    {
+            //RuleFor(cap => cap.ListaCapturaCitaDetalleServicio.Count)
+            //    .Must((cap, x, context) =>
+            //    {
+            //        if (cap.ListaCapturaCitaDetalleServicio.Count <= 0)
+            //        {
 
-                    }
-                    return false;
-                }
-              ).WithMessage("LA FECHA NO PUEDE SER MAYOR A LA FECHA ACTUAL.");
+            //        }
+            //        return false;
+            //    }
+            //  ).WithMessage("LA FECHA NO PUEDE SER MAYOR A LA FECHA ACTUAL.");
 
             //public string GetMessage(int mensaje)
             //{

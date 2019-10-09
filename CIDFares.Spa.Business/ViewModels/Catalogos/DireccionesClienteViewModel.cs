@@ -25,6 +25,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public BindingList<DireccionesClienteRequest> ListaDirecciones { get; set; }
         public BindingList<Estado> ListaEstados { get; set; }
         public BindingList<Municipio> ListaMunicipios { get; set; }
+        public DireccionesClienteRequest item { get; set; }
         public EntityState State { get; set; }
 
         public DireccionesClienteViewModel(IDireccionesClienteRepository repository, IEstadoRepository estadoRepository, IMunicipioRepository municipioRepository)
@@ -35,6 +36,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             ListaDirecciones = new BindingList<DireccionesClienteRequest>();
             ListaEstados = new BindingList<Estado>();
             ListaMunicipios = new BindingList<Municipio>();
+            item = new DireccionesClienteRequest();
         }
 
         #endregion
@@ -44,14 +46,90 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #endregion
 
         #region Metodos
+        public void CargarLista(List<DireccionesClienteRequest> lista)
+        {
+            try
+            {
+                DireccionesClienteRequest direcciones;
+                foreach (var item in lista)
+                {
+                    direcciones = new DireccionesClienteRequest();
+                    direcciones.Calle = item.Calle;
+                    direcciones.EntreCalles = item.EntreCalles;
+                    direcciones.Colonia = item.Colonia;
+                    direcciones.Referencias = item.Referencias;
+                    direcciones.CodigoPostal = item.CodigoPostal;
+                    direcciones.NumeroInterior = item.NumeroInterior;
+                    direcciones.NumeroExterior = item.NumeroExterior;
+                    direcciones.Contacto = item.Contacto;
+                    direcciones.TelefonoContacto = item.TelefonoContacto;
+                    direcciones.DatosEstado.IdEstado = item.DatosEstado.IdEstado;
+                    direcciones.DatosEstado.Descripcion = item.DatosEstado.Descripcion;
+                    direcciones.DatosMunicipio.IdMunicipio = item.DatosMunicipio.IdMunicipio;
+                    direcciones.DatosMunicipio.Descripcion = item.DatosMunicipio.Descripcion;
+                    ListaDirecciones.Add(direcciones);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public async Task GetAll()
         {
             try
             {
-                var result = await Repository.GetDirecciones(IdCliente);
+                var list = await Repository.GetDirecciones(IdCliente);
                 ListaDirecciones.Clear();
-                foreach (var item in result)
+                foreach (var item in list)
                 {
+                    ListaDirecciones.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void Agregar()
+        {
+            try
+            {
+                if (State == EntityState.Update)
+                {
+                    ListaDirecciones.Remove(item);
+                    DireccionesClienteRequest Newitem = new DireccionesClienteRequest();
+                    Newitem.DatosEstado.IdEstado = IdEstado;
+                    Newitem.DatosEstado.Descripcion = NombreEstado;
+                    Newitem.DatosMunicipio.IdMunicipio = IdMunicipio;
+                    Newitem.DatosMunicipio.Descripcion = NombreMunicipio;
+                    Newitem.Calle = Calle;
+                    Newitem.EntreCalles = EntreCalles;
+                    Newitem.Colonia = Colonia;
+                    Newitem.Referencias = Referencias;
+                    Newitem.NumeroExterior = NumeroExterior;
+                    Newitem.NumeroInterior = NumeroInterior;
+                    Newitem.CodigoPostal = CodigoPostal;
+                    Newitem.Contacto = Contacto;
+                    Newitem.TelefonoContacto = TelefonoContacto;
+                    ListaDirecciones.Add(Newitem);
+                }
+                else
+                {
+                    DireccionesClienteRequest item = new DireccionesClienteRequest();
+                    item.DatosEstado.IdEstado = IdEstado;
+                    item.DatosEstado.Descripcion = NombreEstado;
+                    item.DatosMunicipio.IdMunicipio = IdMunicipio;
+                    item.DatosMunicipio.Descripcion = NombreMunicipio;
+                    item.Calle = Calle;
+                    item.EntreCalles = EntreCalles;
+                    item.Colonia = Colonia;
+                    item.Referencias = Referencias;
+                    item.NumeroExterior = NumeroExterior;
+                    item.NumeroInterior = NumeroInterior;
+                    item.CodigoPostal = CodigoPostal;
+                    item.Contacto = Contacto;
+                    item.TelefonoContacto = TelefonoContacto;
                     ListaDirecciones.Add(item);
                 }
             }
@@ -238,7 +316,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public string Contacto
         {
             get { return _Contacto; }
-            set { _Contacto = value; }
+            set { _Contacto = value; OnPropertyChanged(nameof(Contacto)); }
         }
 
         private string _TelefonoContacto;
@@ -246,7 +324,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public string TelefonoContacto
         {
             get { return _TelefonoContacto; }
-            set { _TelefonoContacto = value; }
+            set { _TelefonoContacto = value; OnPropertyChanged(nameof(TelefonoContacto)); }
         }
 
         private int _IdEstado;
@@ -254,7 +332,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public int IdEstado
         {
             get { return _IdEstado; }
-            set { _IdEstado = value; }
+            set { _IdEstado = value; OnPropertyChanged(nameof(IdEstado)); }
         }
 
         private int _IdMunicipio;
@@ -262,7 +340,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public int IdMunicipio
         {
             get { return _IdMunicipio; }
-            set { _IdMunicipio = value; }
+            set { _IdMunicipio = value; OnPropertyChanged(nameof(IdMunicipio)); }
         }
 
         private int _NumeroInterior;
@@ -270,7 +348,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public int NumeroInterior
         {
             get { return _NumeroInterior; }
-            set { _NumeroInterior = value; }
+            set { _NumeroInterior = value; OnPropertyChanged(nameof(NumeroInterior)); }
         }
 
         private int _NumeroExterior;
@@ -278,9 +356,28 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public int NumeroExterior
         {
             get { return _NumeroExterior; }
-            set { _NumeroExterior = value; }
+            set { _NumeroExterior = value; OnPropertyChanged(nameof(NumeroExterior)); }
         }
 
+        private bool _SNInterior;
+
+        public bool SNInterior
+        {
+            get { return _SNInterior; }
+            set { _SNInterior = value; OnPropertyChanged(nameof(SNInterior)); }
+        }
+
+        private bool _SNExterior;
+
+        public bool SNExterior
+        {
+            get { return _SNExterior; }
+            set { _SNExterior = value; OnPropertyChanged(nameof(SNExterior)); }
+        }
+
+        public string NombreEstado { get; set; }
+
+        public string NombreMunicipio { get; set; }
 
         #region InotifyPropertyChanged Members
 

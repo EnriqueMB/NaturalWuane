@@ -120,6 +120,12 @@
     <Compile Include="Forms\Catalogos\FrmTurnoPrincipal.Designer.cs">
       <DependentUpon>FrmTurnoPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\General\FrmBaseBTN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\General\FrmBaseBTN.Designer.cs">
+      <DependentUpon>FrmBaseBTN.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\General\FrmEntradaSalidaAlmacen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -336,6 +342,48 @@
     <Compile Include="Forms\General\FrmLogin.designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Promociones\FrmNuevaPromocion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Promociones\FrmNuevaPromocion.Designer.cs">
+      <DependentUpon>FrmNuevaPromocion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Promociones\FrmPromocionDias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Promociones\FrmPromocionDias.Designer.cs">
+      <DependentUpon>FrmPromocionDias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Promociones\FrmPromocionMxN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Promociones\FrmPromocionMxN.Designer.cs">
+      <DependentUpon>FrmPromocionMxN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Promociones\FrmPromocion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Promociones\FrmPromocion.Designer.cs">
+      <DependentUpon>FrmPromocion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Promociones\FrmPromocionDescuento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Promociones\FrmPromocionDescuento.Designer.cs">
+      <DependentUpon>FrmPromocionDescuento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Promociones\FrmPromocionNxN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Promociones\FrmPromocionNxN.Designer.cs">
+      <DependentUpon>FrmPromocionNxN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Promociones\FrmSeleccione.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Promociones\FrmSeleccione.Designer.cs">
+      <DependentUpon>FrmSeleccione.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\General\FrmRegistroEntradaSalida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -408,6 +456,12 @@
     <Compile Include="Forms\Ventas\FrmCancelacion.Designer.cs">
       <DependentUpon>FrmCancelacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Ventas\FrmPaquetesCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmPaquetesCliente.Designer.cs">
+      <DependentUpon>FrmPaquetesCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Ventas\FrmPaqueteVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -451,6 +505,8 @@
     <Compile Include="Validations\CapturaCitaValidator.cs" />
     <Compile Include="Validations\AbonoPaqueteValidator.cs" />
     <Compile Include="Validations\CancelacionVentaValidator.cs" />
+    <Compile Include="Validations\DireccionesClienteValidator.cs" />
+    <Compile Include="Validations\PromocionValidator.cs" />
     <Compile Include="Validations\EncuestaValidator.cs" />
     <Compile Include="Validations\EmpleadoValidator.cs" />
     <Compile Include="Validations\EntradaSalidaAlmacenValidator.cs" />
@@ -480,6 +536,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogos\FrmTurnoPrincipal.resx">
       <DependentUpon>FrmTurnoPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\General\FrmBaseBTN.resx">
+      <DependentUpon>FrmBaseBTN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\FrmEntradaSalidaAlmacen.resx">
       <DependentUpon>FrmEntradaSalidaAlmacen.cs</DependentUpon>
@@ -592,6 +651,27 @@
     <EmbeddedResource Include="Forms\General\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Promociones\FrmNuevaPromocion.resx">
+      <DependentUpon>FrmNuevaPromocion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Promociones\FrmPromocionDias.resx">
+      <DependentUpon>FrmPromocionDias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Promociones\FrmPromocionMxN.resx">
+      <DependentUpon>FrmPromocionMxN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Promociones\FrmPromocion.resx">
+      <DependentUpon>FrmPromocion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Promociones\FrmPromocionDescuento.resx">
+      <DependentUpon>FrmPromocionDescuento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Promociones\FrmPromocionNxN.resx">
+      <DependentUpon>FrmPromocionNxN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Promociones\FrmSeleccione.resx">
+      <DependentUpon>FrmSeleccione.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\FrmRegistroEntradaSalida.resx">
       <DependentUpon>FrmRegistroEntradaSalida.cs</DependentUpon>
     </EmbeddedResource>
@@ -627,6 +707,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmCancelacion.resx">
       <DependentUpon>FrmCancelacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ventas\FrmPaquetesCliente.resx">
+      <DependentUpon>FrmPaquetesCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ventas\FrmPaqueteVenta.resx">
       <DependentUpon>FrmPaqueteVenta.cs</DependentUpon>
@@ -715,6 +798,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ajustes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\promocionNxN.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\eliminar.png" />
