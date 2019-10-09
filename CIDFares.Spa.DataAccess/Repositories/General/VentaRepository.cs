@@ -54,7 +54,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@TablaFormaPago", element.TablaFormaPago, DbType.Object);
                     dynamicParameters.Add("@TablaProducto", element.TablaProducto, DbType.Object);
                     dynamicParameters.Add("@TablaServicio", element.TablaServicio, DbType.Object);
-                    dynamicParameters.Add("@TablaPaquete", element.TablaPaquete, DbType.Object);
+                    //dynamicParameters.Add("@TablaPaquete", element.TablaPaquete, DbType.Object);
                     dynamicParameters.Add("@Folio", element.Folio);
                     dynamicParameters.Add("@Subtotal", element.SubTotal);
                     dynamicParameters.Add("@Iva", element.PorcentajeIva);
@@ -124,7 +124,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
-        public async Task<int> CheckCantidadProducto(object IdProducto, int Cantidad)
+        public async Task<int> CheckCantidadProducto(object IdProducto, int Cantidad, object IdSucursal)
         {
             try
             {
@@ -133,6 +133,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     conexion.Open();
                     DynamicParameters parametros = new DynamicParameters();
                     parametros.Add("@IdProducto", IdProducto);
+                    parametros.Add("@IdSucursal", IdSucursal);
                     parametros.Add("@Cantidad", Cantidad);
                     var result = await conexion.ExecuteScalarAsync<int>("[Venta].[SPCID_CheckCantidadProducto]", param: parametros, commandType: CommandType.StoredProcedure);
                     return result;

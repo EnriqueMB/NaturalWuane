@@ -27,7 +27,6 @@ namespace CIDFares.Spa.Business.ViewModels.General
         public EntityState State { get; set; }
         #endregion
 
-
         #region Constructor
         public UsuarioViewModel(IUsuarioRepository usuarioRepository, IRolRepository rolRepository, IEmpleadoRepository empleadoRepository)
         {
@@ -123,8 +122,9 @@ namespace CIDFares.Spa.Business.ViewModels.General
                     IdCuentaUsuario = IdCuentaUsuario,
                     Cuenta = Cuenta,
                     PasswordHash = Password,
-                    IdRol = IdRol,
-                    IdEmpleado = IdEmpleado
+                    DatosRol = { IdRol = IdRol},
+                    DatosEmpleado = { IdEmpleado = IdEmpleado },
+                    Nombre = this.Nombre,
                 };
                 if (State == EntityState.Create)
                 {   
@@ -226,8 +226,18 @@ namespace CIDFares.Spa.Business.ViewModels.General
                 OnPropertyChanged(nameof(Modificar));
             }
         }
+        private string _Nombre;
 
-       
+        public string Nombre
+        {
+            get { return _Nombre; }
+            set { 
+                _Nombre = value;
+                OnPropertyChanged(nameof(Nombre));
+            }
+        }
+
+
         #region InotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;

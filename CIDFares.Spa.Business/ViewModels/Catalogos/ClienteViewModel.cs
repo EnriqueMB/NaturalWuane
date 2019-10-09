@@ -1,4 +1,6 @@
 ﻿using CIDFares.Spa.Business.ValueObjects;
+using CIDFares.Spa.DataAccess.Contracts.DTOs;
+using CIDFares.Spa.DataAccess.Contracts.DTOs.Requests;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using CIDFares.Spa.DataAccess.Contracts.Validations;
@@ -17,32 +19,87 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
     {
         #region Propiedades privadas
         private IClienteRepository Repository { get; set; }
+        private IDireccionesClienteRepository RepositoryDirecciones { get; set; }
         #endregion
 
         #region Propiedades públicas
         public BindingList<Cliente> ListaCliente { get; set; }
+        public List<DireccionesCliente> ListaDirecciones { get; set; }
+        public List<DireccionesClienteRequest> ListaDireccionesR { get; set; }
         public EntityState State { get; set; }
+        /// <summary>
+        /// Almacena el número de pagina siguiente o actual según el caso
+        /// </summary>
+        public int Page { get; set; }
+        /// <summary>
+        /// Almacen si el el grid debe recargarse con los elementos actuales
+        /// ó obtener los nuevos registros de l siguiente página
+        /// </summary>
+        public int Opcion { get; set; }
+        /// <summary>
+        /// Almacena un bit para saber si ya se llego a la pagina maxima
+        /// o cuendo ya la lista viene vacia.
+        /// </summary>
+        public bool PaginaMaxima { get; set; }
         #endregion
 
         #region Constructor
-        public ClienteViewModel(IClienteRepository clienteRepository)
+        public ClienteViewModel(IClienteRepository clienteRepository, IDireccionesClienteRepository direccionesClienteRepository)
         {
             Repository = clienteRepository;
+            RepositoryDirecciones = direccionesClienteRepository;
             ListaCliente = new BindingList<Cliente>();
-           // GetAll();
+            ListaDirecciones = new List<DireccionesCliente>();
+            ListaDireccionesR = new List<DireccionesClienteRequest>();
         }
         #endregion
 
         #region Metodos
+        public List<DireccionesCliente> GuardarLista()
+        {
+            try
+            {
+                List<DireccionesCliente> listaDirecciones = new List<DireccionesCliente>();
+                DireccionesCliente direcciones;
+                foreach (var item in ListaDireccionesR)
+                {
+                    direcciones = new DireccionesCliente();
+                    direcciones.Calle = item.Calle;
+                    direcciones.EntreCalles = item.EntreCalles;
+                    direcciones.Colonia = item.Colonia;
+                    direcciones.Referencias = item.Referencias;
+                    direcciones.CodigoPostal = item.CodigoPostal;
+                    direcciones.NumeroInterior = item.NumeroInterior;
+                    direcciones.NumeroExterior = item.NumeroExterior;
+                    direcciones.Contacto = item.Contacto;
+                    direcciones.TelefonoContacto = item.TelefonoContacto;
+                    direcciones.IdEstado = item.DatosEstado.IdEstado;
+                    direcciones.IdMunicipio = item.DatosMunicipio.IdMunicipio;
+                    listaDirecciones.Add(direcciones);
+                }
+                return listaDirecciones;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public async Task GetAll()
         {
             try
             {
-                var x = await Repository.GetAllAsync();
-                ListaCliente.Clear();
-                foreach (var item in x)
+                var x = await Repository.GetAllAsync(Page, Opcion);
+                if (x.Count == 0)
+                    PaginaMaxima = true;
+                else
                 {
-                    ListaCliente.Add(item);
+                    if(Opcion > 1)
+                        ListaCliente.Clear();
+                    foreach (var item in x)
+                    {
+                        ListaCliente.Add(item);
+                    }
+                    PaginaMaxima = false;
                 }
             }
             catch (Exception ex)
@@ -51,8 +108,23 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                 throw ex;
             }
         }
-        
 
+        public async Task GetDireciones()
+        {
+            try
+            {
+                var list = await RepositoryDirecciones.GetDirecciones(IdCliente);
+                ListaDireccionesR.Clear();
+                foreach (var item in list)
+                {
+                    ListaDireccionesR.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public async Task GetFoto(Guid IdCliente)
         {
             try
@@ -66,42 +138,47 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        public async Task<Cliente> GuardarCambios(Guid IdUsuario)
+        public async Task<int> GuardarCambios(Guid IdUsuario)
         {
             try
             {
-                Cliente model = new Cliente();
+                DTOCliente model = new DTOCliente();
                 if (State == EntityState.Create)
                 {
-                    model.NuevoRegistro = true;
-                    model.UpdateFoto = this.UpdateFoto;
-                    model.IdCliente = Guid.Empty;
-                    model.Clave = this.Clave;
-                    model.NombreCompleto = this.NombreCompleto;
-                    model.Telefono = this.Telefono;
-                    model.FechaNacimiento = this.FechaNacimiento;
-                    model.Sexo = this.Sexo;
-                    model.FotoBase64 = this.FotoBase64;
-                    model.Rfc = this.Rfc;
-                    model.Email = this.Email;
-                    model = await Repository.AddAsync(model, IdUsuario);
+                    model.DatosCliente.NuevoRegistro = true;
+                    model.DatosCliente.UpdateFoto = this.UpdateFoto;
+                    model.DatosCliente.IdCliente = Guid.Empty;
+                    model.DatosCliente.Clave = this.Clave;
+                    model.DatosCliente.NombreCompleto = this.NombreCompleto;
+                    model.DatosCliente.Telefono = this.Telefono;
+                    model.DatosCliente.FechaNacimiento = this.FechaNacimiento;
+                    model.DatosCliente.Sexo = this.Sexo;
+                    model.DatosCliente.FotoBase64 = this.FotoBase64;
+                    model.DatosCliente.Rfc = this.Rfc;
+                    model.DatosCliente.Email = this.Email;
+                    model.ListaDireciones = GuardarLista();
+
+                    var result = await Repository.AddWithDTO(model);
+                    return result;
                 }
                 else if (State == EntityState.Update)
                 {
-                    model.NuevoRegistro = false;
-                    model.UpdateFoto = this.UpdateFoto;
-                    model.IdCliente = this.IdCliente;
-                    model.Clave = this.Clave;
-                    model.NombreCompleto = this.NombreCompleto;
-                    model.Telefono = this.Telefono;
-                    model.FechaNacimiento = this.FechaNacimiento;
-                    model.Sexo = this.Sexo;
-                    model.FotoBase64 = this.FotoBase64;
-                    model.Rfc = this.Rfc;
-                    model.Email = this.Email;
-                    model = await Repository.AddAsync(model, IdUsuario);
+                    model.DatosCliente.NuevoRegistro = false;
+                    model.DatosCliente.UpdateFoto = this.UpdateFoto;
+                    model.DatosCliente.IdCliente = this.IdCliente;
+                    model.DatosCliente.Clave = this.Clave;
+                    model.DatosCliente.NombreCompleto = this.NombreCompleto;
+                    model.DatosCliente.Telefono = this.Telefono;
+                    model.DatosCliente.FechaNacimiento = this.FechaNacimiento;
+                    model.DatosCliente.Sexo = this.Sexo;
+                    model.DatosCliente.FotoBase64 = this.FotoBase64;
+                    model.DatosCliente.Rfc = this.Rfc;
+                    model.DatosCliente.Email = this.Email;
+                    model.ListaDireciones = GuardarLista();
+                    var result = await Repository.AddWithDTO(model);
+                    return result;
                 }
-                return model;
+                return 0;
             }
             catch (Exception ex)
             {

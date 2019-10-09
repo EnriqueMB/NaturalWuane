@@ -53,8 +53,7 @@ namespace CIDFares.Spa.WFApplication.Validations
                  })
                     .WithMessage("EL NOMBRE DE LA CUENTA YA EXISTE");
 
-            RuleFor(x => x.IdEmpleado)
-                .NotEmpty()
+                RuleFor(x => x.IdEmpleado)
                 .MustAsync(async (Empleado, x, context) =>
                 {
 
@@ -78,11 +77,14 @@ namespace CIDFares.Spa.WFApplication.Validations
                  .NotEqual(0)
                  .WithMessage("DEBE SELECCIONAR UN ROL.");
 
-            RuleFor(x => x.IdEmpleado)
-                .NotEqual(Guid.Empty)
-                .WithMessage("DEBE SELECCIONAR UN NOMBRE DE EMPLEADO.");
+            RuleFor(x => x.Nombre)
+                .NotEmpty()
+                .WithMessage("INGRESAR EL NOMBRE COMPLETO DEL USUARIO.");
+            //RuleFor(x => x.IdEmpleado)
+            //    .NotEqual(Guid.Empty)
+            //    .WithMessage("DEBE SELECCIONAR UN NOMBRE DE EMPLEADO.");
 
-           
+
 
 
 

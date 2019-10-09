@@ -19,6 +19,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CIDFares.Spa.DataAccess.Contracts.Entities;
+using CIDFares.Spa.WFApplication.Forms.Promociones;
 
 namespace CIDFares.Spa.WFApplication.Forms.General
 {
@@ -33,7 +35,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         public FrmHomePage()
         {
             InitializeComponent();
-            Model = ServiceLocator.Instance.Resolve<CambioVentaViewModel>();
+            Model = ServiceLocator.Instance.Resolve<CambioVentaViewModel>();        
         }
 
         #region Eventos
@@ -103,6 +105,8 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             {
                 Maximizar();
                 BotonesPerfil();
+                if (CurrentSession.IdEmpleado == Guid.Empty)
+                    btnVenta.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -504,6 +508,11 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             GetPanel(new FrmCapturaCita());
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SlideCatalogo(btnPromociones);
+            GetPanel(new FrmPromocion());
+        }
         private void btnAlmacen_Click(object sender, EventArgs e)
         {
             SlideGenerales(btnAlmacen);

@@ -12,6 +12,8 @@ using CIDFares.Spa.WFApplication.Session;
 using Syncfusion.WinForms.Input;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -19,6 +21,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
 {
     public partial class FrmCapturaCita : Form
     {
+        #region Propiedades Privadas
+        private Paquetes Paquete;
+        #endregion
+
         #region Propiedades Públicas
         public CapturaCitaViewModel Model { get; set; }
         public CapturaCita cita { get; set; }
@@ -31,7 +37,18 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<CapturaCitaViewModel>();
             cita = new CapturaCita();
+            Paquete = new Paquetes();
         }
+
+        public FrmCapturaCita(Paquetes paquete)
+        {
+            InitializeComponent();
+            Model = ServiceLocator.Instance.Resolve<CapturaCitaViewModel>();
+            cita = new CapturaCita();
+            Paquete = paquete;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+        }
+
         #endregion
 
         #region Metodos generales
@@ -39,6 +56,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             try
             {
+                
                 FechaInicioControl.DataBindings.Add("Value", Model, "FechaInicio", true, DataSourceUpdateMode.OnPropertyChanged);
                 FechaFinalControl.DataBindings.Add("Value", Model, "FechaFinal", true, DataSourceUpdateMode.OnPropertyChanged);                
             }
@@ -50,12 +68,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
 
         public void LimpiarPropiedades()
         {
-            Model.IdCita = Guid.Empty;
+            mcCita2.SelectedDate = DateTime.Now;
+            Model.IdAgendaCita = Guid.Empty;
             Model.IdCliente = Guid.Empty;
             Model.IdEstadoCita = 0;
             Model.NombreCompleto = string.Empty;
             Model.Observaciones = string.Empty;
-            Model.FechaCita = DateTime.MinValue;
+            //Model.FechaCita = DateTime.MinValue;
             Model.FechaInicio = DateTime.Now;
             Model.FechaFinal = new DateTime(2020, 05, 01, 06, 30, 05);            
         }
@@ -127,7 +146,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 {
                     SpecialDate special = new SpecialDate();                    
                     special.IsDateVisible = false;
-                    special.Value = item.FechaCita;
+                    special.Value = item.FechaInicio;
                     special.Image = newimage;
                     special.ImageAlign = ContentAlignment.MiddleLeft;
                     listsd.Add(special);
@@ -156,12 +175,20 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 {
                     foreach (var item in Model.ListaCapturaCita)
                     {
-                        if (item.FechaCita.Date == x.Value.Date)
+                        if (item.FechaInicio.Date == x.Value.Date)
                         {
                             v = 1;
                             Console.WriteLine("Detalle");
-                            FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo(x);
-                            f.ShowDialog();
+                            if (Paquete.IdPaquete != 0)
+                            {
+                                //FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo(x, Paquete);
+                                //f.ShowDialog();
+                            }
+                            else
+                            {
+                                FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo(x);
+                                f.ShowDialog();
+                            }
                             Model.State = EntityState.Update;
                             break;
                         }
@@ -169,8 +196,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     if (v != 1)
                     {
                         Console.WriteLine("Nuevo");
-                        FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo(x);
-                        f.ShowDialog();
+                        if (Paquete.IdPaquete != 0)
+                        {
+                            //FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo(x, Paquete);
+                            //f.ShowDialog();
+                        }
+                        else
+                        {
+                            FrmCapturaCitaNuevo f = new FrmCapturaCitaNuevo(x);
+                            f.ShowDialog();
+                        }
                         Model.State = EntityState.Create;
                     }
                 }

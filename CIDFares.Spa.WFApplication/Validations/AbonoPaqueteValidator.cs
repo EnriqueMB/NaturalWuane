@@ -12,11 +12,11 @@ namespace CIDFares.Spa.WFApplication.Validations
     {
         public AbonoPaqueteValidator()
         {
-            RuleFor(AP => AP.PagoPaquete)
-              .NotEmpty().WithMessage("INGRESE UNA CANTIDAD")
-              .NotNull().WithMessage("INGRESE UNA CANTIDAD")
-              .LessThanOrEqualTo(A => A.Adeudo).WithMessage("EL ABONO DEBE SER MENOR O IGUAL AL ADEUDO")
-              .GreaterThan(0).WithMessage("EL PAGO DEBE SER MAYOR A 0");
+            //RuleFor(AP => AP.PagoPaquete)
+            //  .NotEmpty().WithMessage("INGRESE UNA CANTIDAD")
+            //  .NotNull().WithMessage("INGRESE UNA CANTIDAD")
+            //  .LessThanOrEqualTo(A => A.Adeudo).WithMessage("EL ABONO DEBE SER MENOR O IGUAL AL ADEUDO")
+            //  .GreaterThan(0).WithMessage("EL PAGO DEBE SER MAYOR A 0");
         }
     }
 }

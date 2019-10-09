@@ -32,6 +32,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         public BindingList<BusqueProducto> ListaBusquedaProducto { get; set; }
         public BindingList<Servicio> ListaServicio { get; set; }
         public BindingList<Paquetes> ListaPaquete { get; set; }
+        public BindingList<Paquetes> ListaPaqueteCliente { get; set; }
         public DataTable TablaFormaPago { get; set; }
         public DataTable TablaProducto { get; set; }
         public DataTable TablaServicio { get; set; }
@@ -54,6 +55,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             ListaBusquedaProducto = new BindingList<BusqueProducto>();
             ListaServicio = new BindingList<Servicio>();
             ListaPaquete = new BindingList<Paquetes>();
+            ListaPaqueteCliente = new BindingList<Paquetes>();
             this.FechaVenta = DateTime.Now;
             this.IdSucursal = 1;
             //this.Folio = string.Empty;
@@ -99,13 +101,13 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
-        public async Task GetBusquedaRapida(int TipoBusqueda, string Busqueda)
+        public async Task GetBusquedaRapida(int TipoBusqueda, string Busqueda, int Idsucursal)
         {
             try
             {
                 if (TipoBusqueda == 1)
                 {
-                    var x = await BusqProductoRepository.GetBusquedaProductoAsync(false, Busqueda, true, Busqueda);
+                    var x = await BusqProductoRepository.GetBusquedaProductoAsync(false, Busqueda, true, Busqueda, Idsucursal);
                     ListaBusquedaProducto.Clear();
                     foreach (var item in x)
                     {
@@ -137,11 +139,28 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
-        public async Task<int> CheckCantidadProducto(int IdProducto, int Cantidad)
+        public async Task GetAllPaqueteAsync(int idSucursal)
+        {
+                try
+                {
+                    var x = await PaqueteRepository.GetAllAgendaAsync(this.IdCliente, idSucursal);
+                ListaPaqueteCliente.Clear();
+                    foreach (var item in x)
+                    {
+                    ListaPaqueteCliente.Add(item);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+        }
+
+        public async Task<int> CheckCantidadProducto(int IdProducto, int Cantidad, int IdSucursal)
         {
             try
             {
-                return await Repository.CheckCantidadProducto(IdProducto, Cantidad);
+                return await Repository.CheckCantidadProducto(IdProducto, Cantidad, IdSucursal);
             }
             catch (Exception ex)
             {
@@ -284,6 +303,18 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
+        private string _NombreCompleto;
+
+        public string NombreCompleto
+        {
+            get { return _NombreCompleto; }
+            set
+            {
+                _NombreCompleto = value;
+                OnPropertyChanged(nameof(NombreCompleto));
+            }
+        }
+        
 
         #endregion
 

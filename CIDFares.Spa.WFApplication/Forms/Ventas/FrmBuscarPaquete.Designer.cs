@@ -129,10 +129,10 @@
             this.sfDataGridPaquete.Columns.Add(gridTextColumn5);
             this.sfDataGridPaquete.Columns.Add(gridTextColumn6);
             this.sfDataGridPaquete.Columns.Add(gridTextColumn7);
-            this.sfDataGridPaquete.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sfDataGridPaquete.Dock = System.Windows.Forms.DockStyle.Top;
             this.sfDataGridPaquete.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridPaquete.Name = "sfDataGridPaquete";
-            this.sfDataGridPaquete.Size = new System.Drawing.Size(600, 395);
+            this.sfDataGridPaquete.Size = new System.Drawing.Size(600, 352);
             this.sfDataGridPaquete.TabIndex = 4;
             this.sfDataGridPaquete.Text = "sfDataGrid1";
             this.sfDataGridPaquete.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.sfDataGridPaquete_CellDoubleClick);

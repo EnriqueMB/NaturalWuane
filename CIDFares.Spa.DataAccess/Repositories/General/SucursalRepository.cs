@@ -1,5 +1,6 @@
 ﻿using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
+using CIDFares.Library.Code.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -38,7 +39,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@RFC", element.Rfc);
                     dynamicParameters.Add("@NombreRepresentante", element.NombreRepresentante);
                     dynamicParameters.Add("@RegimenFiscal", element.RegimenFiscal);
-                    dynamicParameters.Add("@TablaHorario", ObtenerTabla(element.ListaHorario), DbType.Object);
+                    dynamicParameters.Add("@TablaHorario", element.ListaHorario.ToDataTable(new List<string> { "Dia", "HoraEntrada", "HoraSalida" }), DbType.Object);
                     dynamicParameters.Add("@IdUsuarioL", IdUsuario);
                     var result = await conexion.ExecuteScalarAsync<int>("[General].[SPCID_AC_Sucursales]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     sucursal.Result = result;
@@ -176,7 +177,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@RFC", element.Rfc);
                     dynamicParameters.Add("@NombreRepresentante", element.NombreRepresentante);
                     dynamicParameters.Add("@RegimenFiscal", element.RegimenFiscal);
-                    dynamicParameters.Add("@TablaHorario", ObtenerTabla(element.ListaHorario), DbType.Object);
+                    dynamicParameters.Add("@TablaHorario", element.ListaHorario.ToDataTable(new List<string> { "Dia", "HoraEntrada", "HoraSalida" }), DbType.Object);
                     dynamicParameters.Add("@IdUsuarioL", IdUsuario);
                     var result = await conexion.ExecuteScalarAsync<int>("[General].[SPCID_AC_Sucursales]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     sucursal.Result = result;
@@ -187,19 +188,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             {
                 throw ex;
             }
-        }
-
-        public DataTable ObtenerTabla(List<HorarioSucursal> Lista)
-        {
-            DataTable TablaDatos = new DataTable();
-            TablaDatos.Columns.Add("Dia", typeof(int));
-            TablaDatos.Columns.Add("HoraEntrada", typeof(TimeSpan));
-            TablaDatos.Columns.Add("HoraSalida", typeof(TimeSpan));
-            foreach (var item in Lista)
-            {
-                TablaDatos.Rows.Add(new object[] { item.Dia, item.HoraEntrada.TimeOfDay, item.HoraSalida.TimeOfDay });      
-            }
-            return TablaDatos;
         }
         #endregion
         public Task<bool> ExistAsync(object id)

@@ -56,6 +56,7 @@
             this.pnlHeader.Controls.Add(this.FechaInicioControl);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeader.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(1160, 79);
             this.pnlHeader.TabIndex = 0;
@@ -65,6 +66,7 @@
             this.FechaFinalControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FechaFinalControl.Location = new System.Drawing.Point(711, 44);
+            this.FechaFinalControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FechaFinalControl.Name = "FechaFinalControl";
             this.FechaFinalControl.Size = new System.Drawing.Size(269, 22);
             this.FechaFinalControl.TabIndex = 6;
@@ -79,7 +81,7 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Location = new System.Drawing.Point(1013, 27);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(119, 32);
             this.btnBuscar.TabIndex = 5;
@@ -94,7 +96,7 @@
             this.lblFechaFinal.AutoSize = true;
             this.lblFechaFinal.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaFinal.ForeColor = System.Drawing.Color.Black;
-            this.lblFechaFinal.Location = new System.Drawing.Point(706, 4);
+            this.lblFechaFinal.Location = new System.Drawing.Point(707, 4);
             this.lblFechaFinal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaFinal.Name = "lblFechaFinal";
             this.lblFechaFinal.Size = new System.Drawing.Size(150, 30);
@@ -132,7 +134,8 @@
             this.FechaInicioControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FechaInicioControl.Enabled = false;
-            this.FechaInicioControl.Location = new System.Drawing.Point(423, 45);
+            this.FechaInicioControl.Location = new System.Drawing.Point(423, 46);
+            this.FechaInicioControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FechaInicioControl.Name = "FechaInicioControl";
             this.FechaInicioControl.Size = new System.Drawing.Size(269, 22);
             this.FechaInicioControl.TabIndex = 0;
@@ -141,7 +144,8 @@
             // 
             this.pnlButtons.BackColor = System.Drawing.Color.White;
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlButtons.Location = new System.Drawing.Point(0, 987);
+            this.pnlButtons.Location = new System.Drawing.Point(0, 720);
+            this.pnlButtons.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Size = new System.Drawing.Size(1160, 68);
             this.pnlButtons.TabIndex = 1;
@@ -155,8 +159,9 @@
             this.panel1.Controls.Add(this.mcCita2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 79);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1160, 908);
+            this.panel1.Size = new System.Drawing.Size(1160, 641);
             this.panel1.TabIndex = 3;
             // 
             // mcCita2
@@ -164,9 +169,10 @@
             this.mcCita2.Culture = new System.Globalization.CultureInfo("es-ES");
             this.mcCita2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mcCita2.Location = new System.Drawing.Point(0, 0);
+            this.mcCita2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mcCita2.Name = "mcCita2";
             this.mcCita2.SelectedDate = new System.DateTime(2019, 9, 10, 0, 0, 0, 0);
-            this.mcCita2.Size = new System.Drawing.Size(1155, 908);
+            this.mcCita2.Size = new System.Drawing.Size(1155, 641);
             this.mcCita2.Style.Cell.CellHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.mcCita2.Style.Cell.SelectedCellBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.mcCita2.Style.Cell.SelectedCellHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
@@ -178,11 +184,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1160, 1055);
+            this.ClientSize = new System.Drawing.Size(1160, 788);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlButtons);
             this.Controls.Add(this.pnlHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmCapturaCita";
             this.Text = "FrmCapturaCita";
             this.Load += new System.EventHandler(this.FrmCapturaCita_Load);

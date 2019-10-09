@@ -1,6 +1,10 @@
-﻿using CIDFares.Spa.Business.ViewModels.Ventas;
+﻿using CIDFares.Library.Controls.CIDMessageBox.Code;
+using CIDFares.Library.Controls.CIDMessageBox.Enums;
+using CIDFares.Spa.Business.ViewModels.Ventas;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
+using CIDFares.Spa.WFApplication.Constants;
+using CIDFares.Spa.WFApplication.Forms.Citas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -170,6 +174,62 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private Paquetes ObtenerSeleccionado()
+        {
+            try
+            {
+                if (GridPaquete.SelectedItems.Count == 1)
+                {
+                    return (Paquetes)GridPaquete.SelectedItem;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var item = ObtenerSeleccionado();
+                if (item != null)
+                {
+                    //this.CleanErrors(errorProvider1, typeof(FormaPagoViewModel));
+                    Cliente c = new Cliente();
+                        c.NombreCompleto = Model.NombreCompleto;
+                        c.IdCliente = Model.IdCliente;
+                    FrmCapturaCitaNuevo cita = new FrmCapturaCitaNuevo(DateTime.Now, item, c);
+                    cita.ShowDialog();
+                }
+                else
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
+
+               
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }

@@ -60,6 +60,7 @@
     <Compile Include="Repositories\General\CompraRepository.cs" />
     <Compile Include="Repositories\General\ConsultaRepository.cs" />
     <Compile Include="Repositories\General\ContestarMedicionRepository.cs" />
+    <Compile Include="Repositories\General\DireccionesClienteRepository.cs" />
     <Compile Include="Repositories\General\EmpleadoRepository.cs" />
     <Compile Include="Repositories\General\CuestionarioRepository.cs" />
     <Compile Include="Repositories\General\EntradaSalidaAlmacenRepository.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Repositories\General\PaisRepository.cs" />
     <Compile Include="Repositories\General\PaqueteRepository.cs" />
     <Compile Include="Repositories\General\ProductoRepository.cs" />
+    <Compile Include="Repositories\General\PromocionRepository.cs" />
     <Compile Include="Repositories\General\ProductosMonederoRepository.cs" />
     <Compile Include="Repositories\General\ProveedorACompraRepository.cs" />
     <Compile Include="Repositories\General\ProveedorRepository.cs" />

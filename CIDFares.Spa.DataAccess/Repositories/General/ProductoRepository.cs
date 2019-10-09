@@ -99,8 +99,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@StockMax", entity.StockMax);
                     dynamicParameters.Add("@StockMin", entity.StockMin);
                     dynamicParameters.Add("@PrecioPublico", entity.PrecioPublico);
-                    dynamicParameters.Add("@PrecioMayoreo", entity.PrecioMayoreo);
-                    dynamicParameters.Add("@PrecioMenudeo", entity.PrecioMenudeo);
                     dynamicParameters.Add("@CodigoBarras", entity.CodigoBarras);
                     dynamicParameters.Add("@UnidadMedida", entity.IdUnidadMedida);
                     dynamicParameters.Add("@ClaveSat", entity.ClaveSat);
@@ -139,9 +137,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.StockMax = dr.GetInt32(dr.GetOrdinal("StockMax"));
                         item.StockMin = dr.GetInt32(dr.GetOrdinal("StockMin"));
                         item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
-                        item.PrecioPublico = dr.GetDecimal(dr.GetOrdinal("PrecioPublico"));
-                        item.PrecioMayoreo = dr.GetDecimal(dr.GetOrdinal("PrecioMayoreo"));
-                        item.PrecioMenudeo = dr.GetDecimal(dr.GetOrdinal("PrecioMenudeo"));
+                        item.Precio = dr.GetDecimal(dr.GetOrdinal("Precio"));
                         item.CodigoBarras = dr.GetString(dr.GetOrdinal("CodigoBarras"));
                         item.UnidadMedida = dr.GetString(dr.GetOrdinal("UnidadMedida"));
                         item.ClaveSat = dr.GetInt32(dr.GetOrdinal("ClaveSat"));
@@ -204,8 +200,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     item.Add("@StockMax", element.StockMax);
                     item.Add("@StockMin", element.StockMin);
                     item.Add("@PrecioPublico", element.PrecioPublico);
-                    item.Add("@PrecioMayoreo", element.PrecioMayoreo);
-                    item.Add("@PrecioMenudeo", element.PrecioMenudeo);
                     item.Add("@CodigoBarras", element.CodigoBarras);
                     item.Add("@UnidadMedida", element.IdUnidadMedida);
                     item.Add("@ClaveSat", element.ClaveSat);
@@ -244,8 +238,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         producto.StockMax = dr.GetInt32(dr.GetOrdinal("StockMax"));
                         producto.StockMin = dr.GetInt32(dr.GetOrdinal("StockMin"));
                         producto.PrecioPublico = dr.GetDecimal(dr.GetOrdinal("PrecioPublico"));
-                        producto.PrecioMayoreo = dr.GetDecimal(dr.GetOrdinal("PrecioMayoreo"));
-                        producto.PrecioMenudeo = dr.GetDecimal(dr.GetOrdinal("PrecioMenudeo"));
                         producto.CodigoBarras = dr.GetString(dr.GetOrdinal("CodigoBarras"));
                         producto.IdUnidadMedida = dr.GetInt32(dr.GetOrdinal("IdUnidadMedida"));
                         producto.ClaveSat = dr.GetInt32(dr.GetOrdinal("ClaveSat"));
@@ -324,8 +316,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.StockMax = dr.GetInt32(dr.GetOrdinal("StockMax"));
                         item.StockMin = dr.GetInt32(dr.GetOrdinal("StockMin"));
                         item.PrecioPublico = dr.GetDecimal(dr.GetOrdinal("PrecioPublico"));
-                        item.PrecioMayoreo = dr.GetDecimal(dr.GetOrdinal("PrecioMayoreo"));
-                        item.PrecioMenudeo = dr.GetDecimal(dr.GetOrdinal("PrecioMenudeo"));
                         item.CodigoBarras = dr.GetString(dr.GetOrdinal("CodigoBarras"));
                         item.UnidadMedida = dr.GetString(dr.GetOrdinal("UnidadMedida"));
                         item.ClaveSat = dr.GetInt32(dr.GetOrdinal("ClaveSat"));
