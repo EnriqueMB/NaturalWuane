@@ -461,6 +461,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             {
                 FrmCitasSinAgendar csa = new FrmCitasSinAgendar();
                 csa.ShowDialog();
+                Model.IdOrdenPaquete = csa.capturaCita.OrdenServicio.OrdenPaquete.IdOrdenPaquete;
+                ServiciosPaquete(Model.IdOrdenPaquete);
+                IdServicioControl.Visible = true;
+                groupBoxCita.Enabled = true;
+                BtnBuscar.Enabled = false;
+                ServicioControl.Visible = false;
+                pictureBox1.Visible = false;
+                labelNombre.Text = csa.capturaCita.OrdenServicio.OrdenPaquete.Paquete.Nombre;
+                Model.NombreCompleto = csa.capturaCita.OrdenServicio.Cliente.NombreCompleto;
+                Model.IdCliente = csa.capturaCita.OrdenServicio.Cliente.IdCliente;
             }
             catch (Exception ex)
             {
