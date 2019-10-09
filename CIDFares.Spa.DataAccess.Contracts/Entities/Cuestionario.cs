@@ -21,8 +21,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public string Descripcion { get; set; }
         //public int IdOpcion { get; set; }
         //public int IdPregunta { get; set; }
-        //public Boolean esOpcionMultiple { get; set; }
-
+        //public Boolean esOpcionMultiple { get; set; }       
 
         public List<Preguntas> ListaPreguntas { get; set; }
         public List<Respuestas> ListaRespuestas { get; set; }

@@ -51,6 +51,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         {
             try
             {
+                btnNuevaEncuesta.Enabled = false;
                 Model.State = EntityState.Create;
                 FrmNuevaEncuesta _NEncuesta = new FrmNuevaEncuesta();
                 _NEncuesta.ShowDialog();
@@ -61,6 +62,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             {
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmEncuesta ~ BtnNuevaEncuesta_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+            finally
+            {
+                btnNuevaEncuesta.Enabled = true;
             }
         }
         private async void BtnModificarEncuesta_Click(object sender, EventArgs e)

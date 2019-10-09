@@ -68,7 +68,7 @@
             this.PreguntaControl.Multiline = true;
             this.PreguntaControl.Name = "PreguntaControl";
             this.PreguntaControl.Size = new System.Drawing.Size(539, 121);
-            this.PreguntaControl.TabIndex = 5;
+            this.PreguntaControl.TabIndex = 4;
             this.PreguntaControl.TextChanged += new System.EventHandler(this.TxtPreguntas_TextChanged);
             this.PreguntaControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PreguntaControl_KeyPress);
             // 
@@ -84,7 +84,7 @@
             this.btnGuardarPregunta.Location = new System.Drawing.Point(428, 418);
             this.btnGuardarPregunta.Name = "btnGuardarPregunta";
             this.btnGuardarPregunta.Size = new System.Drawing.Size(130, 28);
-            this.btnGuardarPregunta.TabIndex = 16;
+            this.btnGuardarPregunta.TabIndex = 7;
             this.btnGuardarPregunta.Text = "GUARDAR";
             this.btnGuardarPregunta.UseVisualStyleBackColor = false;
             this.btnGuardarPregunta.Click += new System.EventHandler(this.BtnGuardarPregunta_Click);
@@ -104,7 +104,7 @@
             this.groupBox1.Location = new System.Drawing.Point(16, 172);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(539, 87);
-            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "PREGUNTAS";
             // 
@@ -114,7 +114,7 @@
             this.rbMultiple.Location = new System.Drawing.Point(394, 27);
             this.rbMultiple.Name = "rbMultiple";
             this.rbMultiple.Size = new System.Drawing.Size(78, 17);
-            this.rbMultiple.TabIndex = 1;
+            this.rbMultiple.TabIndex = 2;
             this.rbMultiple.Text = "MULTIPLE";
             this.rbMultiple.UseVisualStyleBackColor = true;
             this.rbMultiple.CheckedChanged += new System.EventHandler(this.CheckMultipleRespuesta_CheckedChanged);
@@ -135,7 +135,7 @@
             this.checkMultipleRespuesta.Location = new System.Drawing.Point(359, 50);
             this.checkMultipleRespuesta.Name = "checkMultipleRespuesta";
             this.checkMultipleRespuesta.Size = new System.Drawing.Size(176, 17);
-            this.checkMultipleRespuesta.TabIndex = 19;
+            this.checkMultipleRespuesta.TabIndex = 3;
             this.checkMultipleRespuesta.Text = "¿ES MULTIPLE RESPUESTA?";
             this.checkMultipleRespuesta.UseVisualStyleBackColor = true;
             this.checkMultipleRespuesta.Visible = false;
@@ -148,7 +148,7 @@
             this.rbAbierta.Location = new System.Drawing.Point(65, 27);
             this.rbAbierta.Name = "rbAbierta";
             this.rbAbierta.Size = new System.Drawing.Size(71, 17);
-            this.rbAbierta.TabIndex = 1;
+            this.rbAbierta.TabIndex = 0;
             this.rbAbierta.TabStop = true;
             this.rbAbierta.Text = "ABIERTA";
             this.rbAbierta.UseVisualStyleBackColor = true;
@@ -159,7 +159,7 @@
             this.checkDepende.Location = new System.Drawing.Point(16, 262);
             this.checkDepende.Name = "checkDepende";
             this.checkDepende.Size = new System.Drawing.Size(265, 17);
-            this.checkDepende.TabIndex = 19;
+            this.checkDepende.TabIndex = 6;
             this.checkDepende.Text = "ESTA PREGUNTA DEPENDE DE LA ANTERIOR";
             this.checkDepende.UseVisualStyleBackColor = true;
             this.checkDepende.CheckedChanged += new System.EventHandler(this.CheckDepende_CheckedChanged);
@@ -171,7 +171,7 @@
             this.cmbPreguntas.Location = new System.Drawing.Point(12, 348);
             this.cmbPreguntas.Name = "cmbPreguntas";
             this.cmbPreguntas.Size = new System.Drawing.Size(321, 26);
-            this.cmbPreguntas.TabIndex = 47;
+            this.cmbPreguntas.TabIndex = 7;
             this.cmbPreguntas.Visible = false;
             // 
             // lblcmb
@@ -181,7 +181,7 @@
             this.lblcmb.Location = new System.Drawing.Point(13, 323);
             this.lblcmb.Name = "lblcmb";
             this.lblcmb.Size = new System.Drawing.Size(175, 13);
-            this.lblcmb.TabIndex = 48;
+            this.lblcmb.TabIndex = 0;
             this.lblcmb.Text = "PREGUNTA DE LA CUAL DEPENDE";
             this.lblcmb.Visible = false;
             // 
@@ -192,7 +192,7 @@
             this.groupBox2.Location = new System.Drawing.Point(342, 323);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(213, 58);
-            this.groupBox2.TabIndex = 49;
+            this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "PREGUNATAR CUANDO SEA";
             this.groupBox2.Visible = false;
@@ -203,7 +203,7 @@
             this.rbtNo.Location = new System.Drawing.Point(126, 25);
             this.rbtNo.Name = "rbtNo";
             this.rbtNo.Size = new System.Drawing.Size(41, 17);
-            this.rbtNo.TabIndex = 0;
+            this.rbtNo.TabIndex = 1;
             this.rbtNo.TabStop = true;
             this.rbtNo.Text = "NO";
             this.rbtNo.UseVisualStyleBackColor = true;

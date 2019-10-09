@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.Business.ViewModels.Catalogos;
+using Syncfusion.Data.Extensions;
 
 namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios.CIDEncuesta
 {
@@ -22,7 +23,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios.CIDEncuesta
         #endregion
 
         #region Contructor
-        public CIDEncuesta(Preguntas pregunta)
+        public CIDEncuesta(Preguntas pregunta, Respuestas respuesta, IEnumerable<Respuestas> respuestas)
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<CIDcontrolViewModel>();
@@ -33,6 +34,23 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios.CIDEncuesta
             txtPregunta.Text = pregunta.Pregunta;
             _pregunta = pregunta;
             Model.IDPre = pregunta.IdPregunta;
+
+            if(respuesta != null)
+            {
+                Model.Respuesta = respuesta.Respuesta;
+                Model.RdioBtonValue = respuesta.RespuestaSINO ?? false;
+                Model.ValueGroupRadioButton = respuesta.IdRespuesta;
+            }
+                
+            if(respuestas != null)
+            {
+                respuestas.ForEach((x) =>
+                    {
+                        var temp = Model.ListaOpciones.FirstOrDefault(opcion => opcion.IdRespuesta.Equals(x.IdRespuesta));
+                        temp.Seleccionado = x.Seleccionado;
+                    }
+                );
+            }
         }
         #endregion
 
@@ -40,7 +58,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios.CIDEncuesta
         private void CIDEncuesta_Load(object sender, EventArgs e)
         {
             Iniciarbinding();
-            this.rbtSi.Checked = true;
+            //this.rbtSi.Checked = true;
             if (_pregunta.TipoPregunta == "MULTIPLE" && _pregunta.respuestasMultiples)
             {
                 pnlOpcMultiple.Visible = false;
@@ -90,6 +108,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios.CIDEncuesta
             {
                 RespuestaControl.DataBindings.Add("Text", Model, "Respuesta", true, DataSourceUpdateMode.OnPropertyChanged);
                 rbtSi.DataBindings.Add("Checked",Model, "RdioBtonValue",true,DataSourceUpdateMode.OnPropertyChanged);
+                rbtNo.DataBindings.Add("Checked", Model, "RadioBtnValueNo", true, DataSourceUpdateMode.OnPropertyChanged);                //
             }
             catch (Exception ex)
             {

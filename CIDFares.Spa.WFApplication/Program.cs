@@ -121,6 +121,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ListaMedicionViewModel>();
             ServiceLocator.Instance.Register<AbonoPaqueteDetalleViewModel>();
             ServiceLocator.Instance.Register<ContestarMedicionViewModel>();
+            ServiceLocator.Instance.Register<CapturaConsultaViewModel>();
         }
     }
 }

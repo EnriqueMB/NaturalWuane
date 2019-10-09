@@ -20,7 +20,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
     public partial class FrmSelectCliente : Form
     {
         #region Propiedades
-        public ClienteViewModel Model { get; set; }
+        public OpcionesViewModel Model { get; set; }
         public Cliente cliente { get; set; }
         #endregion
 
@@ -28,7 +28,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         public FrmSelectCliente()
         {
             InitializeComponent();
-            Model = ServiceLocator.Instance.Resolve<ClienteViewModel>();
+            Model = ServiceLocator.Instance.Resolve<OpcionesViewModel>();
             cliente = new Cliente();
             dtgClientes.ShowGroupDropArea = false;
         }

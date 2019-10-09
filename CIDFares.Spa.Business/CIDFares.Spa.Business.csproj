@@ -52,6 +52,7 @@
     <Compile Include="ValueObjects\EntityState.cs" />
     <Compile Include="ViewModels\Catalogos\AlimentoViewModels.cs" />
     <Compile Include="ViewModels\Catalogos\BusquedaProductoViewModel.cs" />
+    <Compile Include="ViewModels\Catalogos\CapturaConsultaViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\CategoriaProductoViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\CIDcontrolViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\ClienteViewModel.cs" />

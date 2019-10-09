@@ -1,4 +1,5 @@
-﻿using CIDFares.Spa.DataAccess.Contracts.Entities;
+﻿using CIDFares.Spa.Business.ValueObjects;
+using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using CIDFares.Spa.DataAccess.Contracts.Validations;
 using System;
@@ -52,6 +53,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             get { return _txtValor; }
             set { _txtValor = value; }
         }
+
+        public EntityState State { get; set; }
 
         //private List<> _lstValor;
 

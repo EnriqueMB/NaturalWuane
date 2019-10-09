@@ -13,6 +13,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public string pregunta { get; set; }
         public Guid IdPregunta { get; set; }
         public bool Seleccionado { get; set; }
-        public bool RespuestaSINO { get; set; }    
+        public bool? RespuestaSINO { get; set; }    
     }
 }

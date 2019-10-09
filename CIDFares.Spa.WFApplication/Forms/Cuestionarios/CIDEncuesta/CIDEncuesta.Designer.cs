@@ -96,9 +96,9 @@
             this.lblRespuestaAbierta.ForeColor = System.Drawing.Color.Black;
             this.lblRespuestaAbierta.Location = new System.Drawing.Point(22, 37);
             this.lblRespuestaAbierta.Name = "lblRespuestaAbierta";
-            this.lblRespuestaAbierta.Size = new System.Drawing.Size(82, 18);
+            this.lblRespuestaAbierta.Size = new System.Drawing.Size(86, 18);
             this.lblRespuestaAbierta.TabIndex = 18;
-            this.lblRespuestaAbierta.Text = "PREGUNTA";
+            this.lblRespuestaAbierta.Text = "RESPUESTA";
             // 
             // label2
             // 
@@ -110,12 +110,13 @@
             this.label2.Size = new System.Drawing.Size(146, 21);
             this.label2.TabIndex = 18;
             this.label2.Text = "OPCION ABIERTA";
+            this.label2.Visible = false;
             // 
             // RespuestaControl
             // 
             this.RespuestaControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RespuestaControl.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RespuestaControl.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RespuestaControl.Location = new System.Drawing.Point(26, 65);
             this.RespuestaControl.Multiline = true;
             this.RespuestaControl.Name = "RespuestaControl";
@@ -147,12 +148,10 @@
             // rbtSi
             // 
             this.rbtSi.AutoSize = true;
-            this.rbtSi.Checked = true;
             this.rbtSi.Location = new System.Drawing.Point(16, 19);
             this.rbtSi.Name = "rbtSi";
             this.rbtSi.Size = new System.Drawing.Size(35, 19);
             this.rbtSi.TabIndex = 19;
-            this.rbtSi.TabStop = true;
             this.rbtSi.Text = "SI";
             this.rbtSi.UseVisualStyleBackColor = true;
             // 

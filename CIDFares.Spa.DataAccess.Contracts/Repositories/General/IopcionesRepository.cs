@@ -14,8 +14,9 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
         #region Metodos
         Task<IEnumerable<OpcionMedicion>> CargarGridMediciones();
         Task<IEnumerable<Consulta>> LlenarComboTipoConsulta();
-
         Task<int> GuardarEncuesta(Guid idUsuario,int tipoConsulta,CapturaConsulta model,DataTable _tablaRespuestas,DataTable _tablaRespuestasMultiple,DataTable _tablaMedicion,DataTable _tablaComentario,DataTable _tablaCuestionario);
+        Task<int> UpdateEncuesta(Guid IdConsulta,Guid idUsuario,int tipoConsulta,CapturaConsulta model,DataTable _tablaRespuestas,DataTable _tablaRespuestasMultiple,DataTable _tablaMedicion,DataTable _tablaComentario,DataTable _tablaCuestionario);
+        Task<IEnumerable<Cliente>> GetCliente();
         #endregion
     }
 }

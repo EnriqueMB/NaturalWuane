@@ -150,6 +150,7 @@
             this.Name = "FrmContestarMedicion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmContestarMedicion";
+            this.Load += new System.EventHandler(this.FrmContestarMedicion_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

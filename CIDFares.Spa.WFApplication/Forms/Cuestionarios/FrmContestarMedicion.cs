@@ -1,4 +1,5 @@
 ﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
@@ -18,7 +19,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
     public partial class FrmContestarMedicion : Form
     {
         #region Propiedades
-        public List<Medicion> _lstMedicion { get; set; }
         public ContestarMedicionViewModel Model { get; set; }
         public DataTable _tablaMedicion { get; set; }
         #endregion
@@ -27,8 +27,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         public FrmContestarMedicion(List<Medicion> lstMedicion)
         {
             InitializeComponent();
-            Model = ServiceLocator.Instance.Resolve<ContestarMedicionViewModel>();
-            _lstMedicion = lstMedicion;
+            Model = ServiceLocator.Instance.Resolve<ContestarMedicionViewModel>();    
             Model._listaMedicion = lstMedicion;
             cargarMediciones();
         }
@@ -92,12 +91,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                             ComboBox combo = new ComboBox();
                             combo.DataSource = await Model.llenarlistaValor(item.IdListaMedicion);
                             combo.DisplayMember = "Valor";
-                            combo.ValueMember = "IdValorLista";
+                            combo.ValueMember = "IdValorLista";                           
                             combo.Name = string.Format("_listaMedicion[{0}]Control", index);
                             combo.DataBindings.Add("SelectedValue", item, "IdValorSeleccionado", true, DataSourceUpdateMode.OnPropertyChanged);
                             combo.Size = new Size(200, 26);
                             flowLayoutPanel1.Controls.Add(combo);
-                            combo.SelectedIndex = 0;
+                            //combo.SelectedIndex = 0;
                         }
                         catch (Exception ex)
                         {
@@ -156,5 +155,14 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         }
 
         #endregion
+
+        private void FrmContestarMedicion_Load(object sender, EventArgs e)
+        {
+
+            //if (Model.State == EntityState.Update)
+            //{
+
+            //}
+        }
     }
 }

@@ -42,15 +42,25 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
   
-        private bool _RdioBtonValue;
+        private bool? _RdioBtonValue;
 
-        public bool RdioBtonValue 
+        public bool? RdioBtonValue 
         {
             get { return _RdioBtonValue; }
             set { _RdioBtonValue = value;
                 OnPropertyChanged(nameof(RdioBtonValue));
+                OnPropertyChanged(nameof(RadioBtnValueNo));
             }
         }
+
+
+        public bool RadioBtnValueNo
+        {
+            get { return RdioBtonValue is null ? false : (bool)!RdioBtonValue; }
+        }
+
+
+
         public string Pregunta { get; set; }
         private Guid _IDPre;
 

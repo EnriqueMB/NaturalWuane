@@ -49,7 +49,7 @@
             this.btnGuardarRespuesta.Location = new System.Drawing.Point(421, 198);
             this.btnGuardarRespuesta.Name = "btnGuardarRespuesta";
             this.btnGuardarRespuesta.Size = new System.Drawing.Size(130, 28);
-            this.btnGuardarRespuesta.TabIndex = 19;
+            this.btnGuardarRespuesta.TabIndex = 3;
             this.btnGuardarRespuesta.Text = "GUARDAR";
             this.btnGuardarRespuesta.UseVisualStyleBackColor = false;
             this.btnGuardarRespuesta.Click += new System.EventHandler(this.BtnGuardarRespuesta_Click);
@@ -62,7 +62,7 @@
             this.lblTitulo.Location = new System.Drawing.Point(12, 20);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(103, 20);
-            this.lblTitulo.TabIndex = 18;
+            this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "RESPUESTA A:";
             // 
             // RespuestaControl
@@ -73,7 +73,7 @@
             this.RespuestaControl.Multiline = true;
             this.RespuestaControl.Name = "RespuestaControl";
             this.RespuestaControl.Size = new System.Drawing.Size(539, 121);
-            this.RespuestaControl.TabIndex = 17;
+            this.RespuestaControl.TabIndex = 2;
             this.RespuestaControl.TextChanged += new System.EventHandler(this.RespuestaControl_TextChanged);
             this.RespuestaControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RespuestaControl_KeyPress);
             // 
@@ -85,7 +85,7 @@
             this.lblPregunta.Location = new System.Drawing.Point(117, 24);
             this.lblPregunta.Name = "lblPregunta";
             this.lblPregunta.Size = new System.Drawing.Size(106, 16);
-            this.lblPregunta.TabIndex = 20;
+            this.lblPregunta.TabIndex = 1;
             this.lblPregunta.Text = "HACER PREGUNTA";
             this.lblPregunta.Visible = false;
             // 

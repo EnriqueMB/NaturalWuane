@@ -33,8 +33,19 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<ConsultaViewModel>();
-            Model.AplicarEncuestaLista = listaEncuesta;
+            Model.AplicarEncuestaLista = listaEncuesta;     
             this.Tabla();
+        }
+
+        public FrmNuevaConsultaControl(List<Cuestionario> lstEncuesta, List<Respuestas> lstR, List<Respuestas> lstRM)
+        {
+            InitializeComponent();
+            Model = ServiceLocator.Instance.Resolve<ConsultaViewModel>();
+            Model.AplicarEncuestaLista = lstEncuesta;
+            Model._ListaRespuestasEncuesta = lstR;
+            Model._listRespuestasMultiples = lstRM;
+            this.Tabla();
+
         }
         #endregion
 
@@ -125,8 +136,22 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                         //guardar las respuesuestas en una nueva lista.            
                         var value = CargarPreguntas(dato);
 
+                        Model._listRespuestasMultiples.RemoveAll(x => x.IdPregunta.Equals(dato.IDPre));
+                        Model._ListaRespuestasEncuesta.RemoveAll(x => x.IdPregunta.Equals(dato.IDPre));
                         Model._listRespuestasMultiples.AddRange(value.pregunta.Respuesta.ToList());
                         Model._ListaRespuestasEncuesta.Add(value.respuesta);
+
+                        //
+
+                        //var item = Model._ListaRespuestasEncuesta.FirstOrDefault(x => x.IdPregunta.Equals(dato.IDPre));
+                        //item = value.respuesta;
+
+                        
+
+
+                        //Buscar en las listas dependiendo el tipo el objeto de respuestas 
+                        //Actualizar sus valores.
+
                         ObtenerTablaPreguntas();
                         //generar una tabla atravez de la lista.                         
                         ////verificar si lapregunta es de tipo SI/No
@@ -220,11 +245,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 throw ex;
             }
         }
-
         private (DataTable tablaPregunta,DataTable tablaRespuesta) ObtenerTablaPreguntas()
         {
+            tablaRespuestasMultiples.Rows.Clear();
+            tablaRespuestas.Rows.Clear();
             foreach (var item in Model._listRespuestasMultiples)
             {
+                
                 tablaRespuestasMultiples.Rows.Add(new object[] { item.IdPregunta ,item.IdRespuesta});                
             }
 
@@ -232,34 +259,47 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             {
                 tablaRespuestas.Rows.Add(new object[] {Model.cuestionario.IdEncuesta,  resp.IdPregunta,resp.IdRespuesta,resp.Respuesta,resp.RespuestaSINO });                
             }
-            Model._listRespuestasMultiples.Clear();
-            Model._ListaRespuestasEncuesta.Clear();
+            //Model._listRespuestasMultiples.Clear();
+            //Model._ListaRespuestasEncuesta.Clear();
            
             return (tablaRespuestasMultiples, tablaRespuestas);
         }
-
         private void AgregarPreguntaAPanel()
         {
-            if (Model.cuestionario.ListaPreguntas.Count == (IndexPregunta + 1))
-            {
-                button1.Text = "FINALIZAR ENCUESTA";
-                button1.AutoSize = true;                            
+            try
+            {                      
+                if (Model.cuestionario.ListaPreguntas.Count == (IndexPregunta + 1))
+                {
+                    button1.Text = "FINALIZAR ENCUESTA";
+                    button1.AutoSize = true;                   
+                    btnNuevaConsulta.Enabled = true;                   
+                }              
+                else
+                {
+                    button1.Text = ">";
+                    button1.Size = new Size(41, 28);
+                    button1.Location = new Point(762, 6);
+                }
+
+                if (Model.cuestionario.ListaPreguntas.Count > 0 && IndexPregunta >= 0 && IndexPregunta < Model.cuestionario.ListaPreguntas.Count)
+                {
+                    var itemPregunta = Model.cuestionario.ListaPreguntas[IndexPregunta];
+                    var itemRespuesta = Model._ListaRespuestasEncuesta.FirstOrDefault(x => x.IdPregunta.Equals(itemPregunta.IdPregunta));
+                    var itemsRespuestas = Model._listRespuestasMultiples.FindAll(x => x.IdPregunta.Equals(itemPregunta.IdPregunta));
+
+                    CIDEncuesta.CIDEncuesta frmEncuesta =
+                        new CIDEncuesta.CIDEncuesta(itemPregunta, itemRespuesta, itemsRespuestas);
+                    frmEncuesta.Dock = DockStyle.Fill;
+                    PanelPreguntas.Controls.Add(frmEncuesta);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                button1.Text = ">";
-                button1.Size = new Size(41, 28);
-                button1.Location = new Point(762, 6);
-            }
-           
-            if (Model.cuestionario.ListaPreguntas.Count > 0 && IndexPregunta >= 0 && IndexPregunta < Model.cuestionario.ListaPreguntas.Count)
-            {                
-                CIDEncuesta.CIDEncuesta frmEncuesta = new CIDEncuesta.CIDEncuesta(Model.cuestionario.ListaPreguntas[IndexPregunta]);
-                frmEncuesta.Dock = DockStyle.Fill;
-                PanelPreguntas.Controls.Add(frmEncuesta);
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmNuevaConsulta ~ AgregarPreguntaAPanel()");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }            
         }
-
+       
         private void BtnNuevaConsulta_Click(object sender, EventArgs e)
         {
             try

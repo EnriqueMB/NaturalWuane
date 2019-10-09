@@ -18,10 +18,9 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         public IopcionesRepository _repository { get; set; }
         public BindingList<OpcionCuestionario> _listaCuestionario { get; set; }
         public BindingList<OpcionMedicion> _ListaMediciones { get; set; }
-
         public BindingList<Consulta> _ListaTipoconsulta { get; set; }
-
         public BindingList<ComentariosConsulta> _listaComentario { get; set; }
+        public BindingList<Cliente> ListaCliente { get; set; }
         #region Tablas
         public DataTable _tablaMedicion { get; set; }
         public DataTable _tablaRespuestasMultiple { get; set; }
@@ -32,7 +31,9 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #endregion
         public Guid IdCliente { get; set; }
         public Guid idUsuario { get; set; }
+        public Guid IdConsulta { get; set; }
         public EntityState State { get; set; }
+        
         #endregion
 
         #region Constructor
@@ -43,13 +44,31 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             _ListaMediciones = new BindingList<OpcionMedicion>();
             _ListaTipoconsulta = new BindingList<Consulta>();
             _listaComentario = new BindingList<ComentariosConsulta>();
-            llenarListaEncuesta();
-            llenarListaMediciones();
-            listaTipoConsulta();
+            ListaCliente = new BindingList<Cliente>();
+            //llenarListaEncuesta();
+            //llenarListaMediciones();
+            //listaTipoConsulta();        
         }
         #endregion
 
         #region Metodos
+        public async Task GetAll()
+        {
+            try
+            {
+                var x = await _repository.GetCliente();
+                ListaCliente.Clear();
+                foreach (var item in x)
+                {
+                    ListaCliente.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
         public async Task listaTipoConsulta()
         {
             try
@@ -106,15 +125,20 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             try
             {
                 CapturaConsulta model = new CapturaConsulta();
+                model.Observaciones = Observaciones;
+                model.Recomendaciones = Recomendaciones;
+                model.Diagnostico = Diagnostico;
+                model.IdCliente = IdCliente;
+                model.Fecha = FechaConsulta;// DateTime.Now;
                 if (State == EntityState.Create)
-                {
-                    model.Observaciones = Observaciones;
-                    model.Recomendaciones = Recomendaciones;
-                    model.Diagnostico = Diagnostico;
-                    model.IdCliente = IdCliente;
-                    model.Fecha =  DateTime.Now;
+                {            
+                    return await _repository.GuardarEncuesta(idUsuario, IdTipoConsulta, model, _tablaRespuestas, _tablaRespuestasMultiple, _tablaMedicion, _tablaComentario, _tablaCuestionario);
                 }
-                return await _repository.GuardarEncuesta(idUsuario,IdTipoConsulta,model,_tablaRespuestas,_tablaRespuestasMultiple,_tablaMedicion,_tablaComentario,_tablaCuestionario);
+                else if (State == EntityState.Update)
+                {     
+                    return await _repository.UpdateEncuesta(IdConsulta, idUsuario, IdTipoConsulta, model, _tablaRespuestas, _tablaRespuestasMultiple, _tablaMedicion, _tablaComentario, _tablaCuestionario);
+                }
+                return -1;
             }
             catch (Exception ex)
             {
@@ -179,6 +203,15 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             get { return _comentarios; }
             set { _comentarios = value;
                 OnPropertyChanged(nameof(comentarios));
+            }
+        }
+        private DateTime _FechaConsulta;
+
+        public DateTime FechaConsulta
+        {
+            get { return _FechaConsulta; }
+            set { _FechaConsulta = value;
+                OnPropertyChanged(nameof(FechaConsulta));
             }
         }
 

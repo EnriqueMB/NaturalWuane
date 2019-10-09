@@ -221,7 +221,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 throw ex;
             }
         }
-
         private void BtnAgregarRespuesta_Click(object sender, EventArgs e)
         {
             try

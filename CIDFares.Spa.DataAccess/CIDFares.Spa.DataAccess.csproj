@@ -54,6 +54,7 @@
     <Compile Include="Repositories\General\CambioVentaRepository.cs" />
     <Compile Include="Repositories\General\CapturaCitaRepository.cs" />
     <Compile Include="Repositories\General\CancelacionVentaRepository.cs" />
+    <Compile Include="Repositories\General\CapturaConsultaRepository.cs" />
     <Compile Include="Repositories\General\CategoriaProductoRepository.cs" />
     <Compile Include="Repositories\General\ClienteRepository.cs" />
     <Compile Include="Repositories\General\CompraRepository.cs" />
