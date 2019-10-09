@@ -319,8 +319,10 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         {
             try{
                 //CapturaCita Item;
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
                     var dynamicParameters = new DynamicParameters();
-                    dynamicParameters.Add("@nombreCompleto", nombreCompleto);                    
+                    dynamicParameters.Add("@nombreCompleto", nombreCompleto);
                     dynamicParameters.Add("@idSucursal", IdSucursal);
                     var lista = await conexion.QueryAsync<CapturaCita, Cliente, Servicio, OrdenServicio, Paquetes, OrdenPaquete, CapturaCita>("[Cita].[SPCID_Get_CitaSinAgendar]",
                     (cita, cliente, serv, os, p, op) =>
@@ -333,7 +335,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         return cita;
                     },
                     splitOn: "IdAgendaCita, IdCliente, IdServicio, IdOrdenServicio, IdPaquete, IdOrdenPaquete", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                    return lista;                    
+                    return lista;
+                }
             }         
             catch (Exception ex)
             {
