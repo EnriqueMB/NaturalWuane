@@ -451,7 +451,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             Info.ForEach(inf => Model.ListaValores.Remove(inf));
 
             horarioDesignV21.EliminarHora((DaysHour)DiasControl.SelectedValue);
-            //horarioDesignV21.AgregarHora((DaysHour)DiasControl.SelectedValue, horario);
         }
 
         private bool ExistListValue()
@@ -474,19 +473,24 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                DataTable tabla = ObtenerTabla(Model.ListaValores.ToList());
-                var resul = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario, tabla);
                 if (TBoxNombreTurno.Text == "")
                 {
                     errorProvider1.SetError(TBoxNombreTurno, "INGRESE EL NOMBRE DEL TURNO");
                 }
                 else
                 {
+                    DataTable tabla = ObtenerTabla(Model.ListaValores.ToList());
+                    var resul = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario, tabla);
                     if (resul.IdTurno > 0)
                     {
+
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
                         LimpiarPropiedades();
                         this.Close();
+                    }
+                    else if (resul.IdTurno == 0)
+                    {
+                        errorProvider1.SetError(TBoxNombreTurno, "EL NOMBRE DE ESTE TURNO YA EXISTE");
                     }
                 }
             }

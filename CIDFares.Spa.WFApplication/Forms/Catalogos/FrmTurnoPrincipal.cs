@@ -108,9 +108,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             try
             {
                 var item = ObtenerSeleccionado();
-                Model.IdTurno = item.IdTurno;
                 if (item != null)
                 {
+                    Model.IdTurno = item.IdTurno;
                     if (Model.IdTurno == 1 || Model.IdTurno == 2 || Model.IdTurno == 3)
                     {
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.NoEliminarTurno, TypeMessage.error);
@@ -119,14 +119,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     {
                         if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmDeleteMessage) == DialogResult.OK)
                         {
-                            //Model.IdTurno = item.IdTurno;
                             int result = 0;
                             result = await Model.Delete(CurrentSession.IdCuentaUsuario);
                             if (result > 0)
                             {
                                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.correcto);
                                 await Model.GetListaTurno();
-                                //await Model.GetAllAsync();
                             }
                             else
                                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.error);
@@ -135,7 +133,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     //NoEliminarTurno
                 }
                 else
-                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
+                {
+                    CIDMessageBox.ShowAlert(Constants.Messages.SystemName, Constants.Messages.GridSelectMessage, TypeMessage.informacion);
+                }     
             }
             catch (Exception ex)
             {
