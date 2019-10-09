@@ -31,26 +31,45 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         public FrmOpcionesCuestionario()
         {
             InitializeComponent();
-            Model = ServiceLocator.Instance.Resolve<OpcionesViewModel>();     
+            Model = ServiceLocator.Instance.Resolve<OpcionesViewModel>();
             dtgEncuestas.ShowGroupDropArea = false;
             dtgMediciones.ShowGroupDropArea = false;
             dtgComentarios.ShowGroupDropArea = false;
-            //tab.GetControl(1).Enabled = false;
+            tab.GetControl(1).Enabled = false;
         }
 
         public FrmOpcionesCuestionario(ConsultaDto _value)
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<OpcionesViewModel>();
+            dtoConsulta = _value;
             Model._listaComentario = _value.dtoComentariosConsulta;
             Model._listaCuestionario = _value.dtoEncuestaConsulta;
-            Model._ListaMediciones = _value.dtoMedicionesConsulta;            
+            Model._ListaMediciones = _value.dtoMedicionesConsulta;
+            Model._tablaRespuestas = _value.dtoEncuestaConsultaOpciones.ToList().ToDataTable(new List<string> { "IdEncuesta", "IdPregunta", "IdRespuesta", "Respuesta", "RespuestaSINO" });
+            Model._tablaRespuestasMultiple = _value.dtoRespuestaMultiple.ToList().ToDataTable(new List<string> { "IdPregunta", "IdRespuesta" });
+            Model._tablaMedicion = TablaMedicion(); //_value.dtoMedicionesConsulta.ToList().ToDataTable(new List<string> { "IdMedicion", "dato.Nombre", "dato.IdValorSeleccionado", "dato.valor" });
             Model.State = EntityState.Update;
-            dtoConsulta = _value;
+
         }
         #endregion
 
         #region Metodos
+
+        private DataTable TablaMedicion()
+        {
+            DataTable tblMedicion = new DataTable();
+            tblMedicion.Columns.Add("IdMedicion", typeof(int));
+            tblMedicion.Columns.Add("Nombre", typeof(string));
+            tblMedicion.Columns.Add("IdValorSeleccionado", typeof(int));
+            tblMedicion.Columns.Add("valor", typeof(string));
+            foreach (var item in dtoConsulta.dtoMedicionesConsulta.Where(x=>x.asignar))
+            {
+                tblMedicion.Rows.Add(new object[] {item.dato.IdMedicion,item.dato.Nombre,item.dato.IdValorSeleccionado,item.dato.valor });
+            }
+
+            return tblMedicion;
+        }
         private void Iniciarcombo()
         {
             try
@@ -243,16 +262,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                         lista.Add(new Cuestionario { IdEncuesta = Guid.Empty, IdTipoEncuesta = 0, NombreEncuesta = "SELECCIONE", Descripcion = "" });
                         Model._listaCuestionario.Where(x => x.asignar == true).Select(u => { lista.Add(u.datos); return u; }).ToList();
 
-                        FrmNuevaConsultaControl _frmNuevaconsulta;
-
+                        FrmNuevaConsultaControl _frmNuevaconsulta;                       
                         if (Model.State == EntityState.Update)
                         {
                             List<Respuestas> lt = new List<Respuestas>(dtoConsulta.dtoEncuestaConsultaOpciones);
                             List<Respuestas> lstM = new List<Respuestas>(dtoConsulta.dtoRespuestaMultiple);
 
-
-                            _frmNuevaconsulta = new FrmNuevaConsultaControl(lista,lt,lstM);
-                            
+                            _frmNuevaconsulta = new FrmNuevaConsultaControl(lista,lt,lstM);                           
                         }
                         else
                         {
@@ -266,6 +282,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                         {                         
                             Model._tablaRespuestasMultiple = _frmNuevaconsulta.tablaRespuestasMultiples;                        
                             Model._tablaRespuestas = _frmNuevaconsulta.tablaRespuestas;
+                            tab.GetControl(1).Enabled = true;
                         }
                     }
                     else

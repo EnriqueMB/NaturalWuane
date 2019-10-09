@@ -100,24 +100,23 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
  
         private async void CmbEncuestas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var x = cmbEncuestas.SelectedValue;          
+            var x = cmbEncuestas.SelectedValue;
+            
             if(cmbEncuestas.DataBindings["SelectedItem"] != null)
             {
                 cmbEncuestas.DataBindings["SelectedItem"].WriteValue();
             }
             if (!x.Equals(Guid.Empty))
             {
-
-
                 this.button1.Visible = true;
-                await Model.cargarPreguntasEncuesta();
-
-                //var result = Model.cuestionario.ListaPreguntas;                
-                //var result1 = result.Where(a => a.IdPreguntaDepende == item.IdPregunta).ToList();               
-                
+                await Model.cargarPreguntasEncuesta();   
                 IndexPregunta = 0;
-                AgregarPreguntaAPanel();               
-            }
+                AgregarPreguntaAPanel();
+                if (x.ToString() != "ad514d42-55c8-462d-b38d-a49c05e76610")
+                {
+                    btnNuevaConsulta.Enabled = false;
+                }
+            }            
         }
         private void Button1_Click(object sender, EventArgs e)
         {
