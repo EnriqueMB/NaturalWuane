@@ -96,9 +96,6 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         {
             try
             {
-                //CapturaCita item = new CapturaCita();
-                //item.OrdenServicio.IdOrdenServicio = this.IdOrdenServicio;
-                //item.OrdenServicio.OrdenPaquete.IdOrdenPaquete = this.IdOrdenPaquete;
                 CapturaCita model = new CapturaCita
                 {
                     IdAgendaCita = IdAgendaCita,
@@ -115,9 +112,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                         Servicio = new Servicio { IdServicio = IdServicio,
                                                   Nombre = Servicio}
                     },
-
-                    //IdCliente = IdCliente,                    
-                    //TablaServicio = TablaGServicio,                                        
+                                   
                 };
                 if (State == EntityState.Create)
                 {
@@ -135,11 +130,11 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
         #region Combo servicio producto
-        public async Task<IEnumerable<Servicio>> GetAllServicioPaquete(Paquetes paquetes)
+        public async Task<IEnumerable<Servicio>> GetAllServicioPaquete(Guid IdOrdenPaquete)
         {
             try
             {
-                return await PaqueteRepository.ComboServicios(paquetes.IdPaquete);
+                return await PaqueteRepository.ComboServicios(IdOrdenPaquete);
             }
             catch (Exception ex)
             {
@@ -150,7 +145,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         {
             try
             {
-                ListaHoras.Clear();
+                ListaServicioPaquete.Clear();
                 foreach (var item in servicios)
                 {
                     ListaServicioPaquete.Add(item);
@@ -163,8 +158,21 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
-        
+
         #endregion
+        public async Task<OrdenPaquete> AgendarPaquete(int idSucursal, Guid idUsuario)
+        {
+            try
+            {
+                return await Repository.AgendarPaquete(IdPaquete, IdCliente, idUsuario, idSucursal);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public async Task<int> DeleteAsync(Guid IdAgendaCita, Guid idUsuario)
         {
             try
