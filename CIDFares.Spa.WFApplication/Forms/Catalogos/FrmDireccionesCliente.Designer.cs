@@ -88,10 +88,10 @@
             this.flpBotonesGroup = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAgregar = new Syncfusion.Windows.Forms.ButtonAdv();
             this.btnLimpiar = new Syncfusion.Windows.Forms.ButtonAdv();
+            this.BtnCancelar = new Syncfusion.Windows.Forms.ButtonAdv();
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.BtnCancelar = new Syncfusion.Windows.Forms.ButtonAdv();
             this.pnlBody.SuspendLayout();
             this.pnlDatos.SuspendLayout();
             this.pnlGrid.SuspendLayout();
@@ -141,7 +141,7 @@
             this.pnlDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDatos.Location = new System.Drawing.Point(0, 58);
             this.pnlDatos.Name = "pnlDatos";
-            this.pnlDatos.Size = new System.Drawing.Size(1080, 470);
+            this.pnlDatos.Size = new System.Drawing.Size(1080, 482);
             this.pnlDatos.TabIndex = 2;
             // 
             // pnlGrid
@@ -168,7 +168,7 @@
             gridTextColumn4.HeaderText = "Calle";
             gridTextColumn4.MappingName = "Calle";
             gridTextColumn4.Width = 140D;
-            gridTextColumn5.HeaderText = "Codigo postal";
+            gridTextColumn5.HeaderText = "Código postal";
             gridTextColumn5.MappingName = "CodigoPostal";
             gridTextColumn6.HeaderText = "Núm. interior";
             gridTextColumn6.MappingName = "NumeroInterior";
@@ -195,7 +195,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(628, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(452, 470);
+            this.panel1.Size = new System.Drawing.Size(452, 482);
             this.panel1.TabIndex = 0;
             // 
             // groupBox1
@@ -205,7 +205,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(452, 470);
+            this.groupBox1.Size = new System.Drawing.Size(452, 482);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos direccion";
@@ -236,14 +236,14 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(446, 442);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(446, 454);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // pnlContacto
             // 
             this.pnlContacto.Controls.Add(this.label11);
             this.pnlContacto.Controls.Add(this.ContactoControl);
-            this.pnlContacto.Location = new System.Drawing.Point(3, 368);
+            this.pnlContacto.Location = new System.Drawing.Point(3, 378);
             this.pnlContacto.Name = "pnlContacto";
             this.pnlContacto.Size = new System.Drawing.Size(217, 60);
             this.pnlContacto.TabIndex = 12;
@@ -272,7 +272,7 @@
             // 
             this.pnlTelefonoCont.Controls.Add(this.label10);
             this.pnlTelefonoCont.Controls.Add(this.TelefonoContactoControl);
-            this.pnlTelefonoCont.Location = new System.Drawing.Point(226, 368);
+            this.pnlTelefonoCont.Location = new System.Drawing.Point(226, 378);
             this.pnlTelefonoCont.Name = "pnlTelefonoCont";
             this.pnlTelefonoCont.Size = new System.Drawing.Size(217, 60);
             this.pnlTelefonoCont.TabIndex = 11;
@@ -372,7 +372,7 @@
             // 
             this.pnlColonia.Controls.Add(this.label2);
             this.pnlColonia.Controls.Add(this.ColoniaControl);
-            this.pnlColonia.Location = new System.Drawing.Point(3, 76);
+            this.pnlColonia.Location = new System.Drawing.Point(3, 78);
             this.pnlColonia.Name = "pnlColonia";
             this.pnlColonia.Size = new System.Drawing.Size(217, 60);
             this.pnlColonia.TabIndex = 4;
@@ -401,7 +401,7 @@
             // 
             this.pnlCalle.Controls.Add(this.label3);
             this.pnlCalle.Controls.Add(this.CalleControl);
-            this.pnlCalle.Location = new System.Drawing.Point(226, 76);
+            this.pnlCalle.Location = new System.Drawing.Point(226, 78);
             this.pnlCalle.Name = "pnlCalle";
             this.pnlCalle.Size = new System.Drawing.Size(217, 60);
             this.pnlCalle.TabIndex = 5;
@@ -430,7 +430,7 @@
             // 
             this.pnlEntreCalles.Controls.Add(this.label4);
             this.pnlEntreCalles.Controls.Add(this.EntreCallesControl);
-            this.pnlEntreCalles.Location = new System.Drawing.Point(3, 149);
+            this.pnlEntreCalles.Location = new System.Drawing.Point(3, 153);
             this.pnlEntreCalles.Name = "pnlEntreCalles";
             this.pnlEntreCalles.Size = new System.Drawing.Size(217, 60);
             this.pnlEntreCalles.TabIndex = 6;
@@ -459,7 +459,7 @@
             // 
             this.pnlReferencias.Controls.Add(this.label5);
             this.pnlReferencias.Controls.Add(this.ReferenciasControl);
-            this.pnlReferencias.Location = new System.Drawing.Point(226, 149);
+            this.pnlReferencias.Location = new System.Drawing.Point(226, 153);
             this.pnlReferencias.Name = "pnlReferencias";
             this.tableLayoutPanel1.SetRowSpan(this.pnlReferencias, 2);
             this.pnlReferencias.Size = new System.Drawing.Size(217, 126);
@@ -489,7 +489,7 @@
             // 
             this.pnlCodigoPostal.Controls.Add(this.label6);
             this.pnlCodigoPostal.Controls.Add(this.CodigoPostalControl);
-            this.pnlCodigoPostal.Location = new System.Drawing.Point(3, 222);
+            this.pnlCodigoPostal.Location = new System.Drawing.Point(3, 228);
             this.pnlCodigoPostal.Name = "pnlCodigoPostal";
             this.pnlCodigoPostal.Size = new System.Drawing.Size(217, 60);
             this.pnlCodigoPostal.TabIndex = 8;
@@ -519,7 +519,7 @@
             this.pnlNumeroInt.Controls.Add(this.SNInteriorControl);
             this.pnlNumeroInt.Controls.Add(this.NumeroInteriorControl);
             this.pnlNumeroInt.Controls.Add(this.label7);
-            this.pnlNumeroInt.Location = new System.Drawing.Point(3, 295);
+            this.pnlNumeroInt.Location = new System.Drawing.Point(3, 303);
             this.pnlNumeroInt.Name = "pnlNumeroInt";
             this.pnlNumeroInt.Size = new System.Drawing.Size(217, 60);
             this.pnlNumeroInt.TabIndex = 9;
@@ -577,7 +577,7 @@
             this.pnlNumeroExt.Controls.Add(this.SNExteriorControl);
             this.pnlNumeroExt.Controls.Add(this.NumeroExteriorControl);
             this.pnlNumeroExt.Controls.Add(this.label9);
-            this.pnlNumeroExt.Location = new System.Drawing.Point(226, 295);
+            this.pnlNumeroExt.Location = new System.Drawing.Point(226, 303);
             this.pnlNumeroExt.Name = "pnlNumeroExt";
             this.pnlNumeroExt.Size = new System.Drawing.Size(217, 60);
             this.pnlNumeroExt.TabIndex = 10;
@@ -635,9 +635,9 @@
             this.pnlBotones.Controls.Add(this.pnlBotonesGrid);
             this.pnlBotones.Controls.Add(this.pnlBotonesGroup);
             this.pnlBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBotones.Location = new System.Drawing.Point(0, 528);
+            this.pnlBotones.Location = new System.Drawing.Point(0, 540);
             this.pnlBotones.Name = "pnlBotones";
-            this.pnlBotones.Size = new System.Drawing.Size(1080, 72);
+            this.pnlBotones.Size = new System.Drawing.Size(1080, 60);
             this.pnlBotones.TabIndex = 1;
             // 
             // pnlBotonesGrid
@@ -646,7 +646,7 @@
             this.pnlBotonesGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlBotonesGrid.Location = new System.Drawing.Point(0, 0);
             this.pnlBotonesGrid.Name = "pnlBotonesGrid";
-            this.pnlBotonesGrid.Size = new System.Drawing.Size(634, 72);
+            this.pnlBotonesGrid.Size = new System.Drawing.Size(634, 60);
             this.pnlBotonesGrid.TabIndex = 1;
             // 
             // flpBotonesGrid
@@ -658,8 +658,8 @@
             this.flpBotonesGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpBotonesGrid.Location = new System.Drawing.Point(0, 0);
             this.flpBotonesGrid.Name = "flpBotonesGrid";
-            this.flpBotonesGrid.Padding = new System.Windows.Forms.Padding(10, 20, 0, 0);
-            this.flpBotonesGrid.Size = new System.Drawing.Size(634, 72);
+            this.flpBotonesGrid.Padding = new System.Windows.Forms.Padding(10, 13, 0, 0);
+            this.flpBotonesGrid.Size = new System.Drawing.Size(634, 60);
             this.flpBotonesGrid.TabIndex = 0;
             // 
             // btnGuadar
@@ -672,7 +672,7 @@
             this.btnGuadar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuadar.ForeColor = System.Drawing.Color.Black;
             this.btnGuadar.IsBackStageButton = false;
-            this.btnGuadar.Location = new System.Drawing.Point(13, 23);
+            this.btnGuadar.Location = new System.Drawing.Point(13, 16);
             this.btnGuadar.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.btnGuadar.MouseHoverForeColor = System.Drawing.Color.White;
             this.btnGuadar.MouseLeaveForeColor = System.Drawing.Color.Black;
@@ -693,7 +693,7 @@
             this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.Black;
             this.btnModificar.IsBackStageButton = false;
-            this.btnModificar.Location = new System.Drawing.Point(142, 23);
+            this.btnModificar.Location = new System.Drawing.Point(142, 16);
             this.btnModificar.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.btnModificar.MouseHoverForeColor = System.Drawing.Color.White;
             this.btnModificar.MouseLeaveForeColor = System.Drawing.Color.Black;
@@ -714,7 +714,7 @@
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
             this.btnEliminar.IsBackStageButton = false;
-            this.btnEliminar.Location = new System.Drawing.Point(271, 23);
+            this.btnEliminar.Location = new System.Drawing.Point(271, 16);
             this.btnEliminar.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.btnEliminar.MouseHoverForeColor = System.Drawing.Color.White;
             this.btnEliminar.MouseLeaveForeColor = System.Drawing.Color.Black;
@@ -731,7 +731,7 @@
             this.pnlBotonesGroup.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlBotonesGroup.Location = new System.Drawing.Point(634, 0);
             this.pnlBotonesGroup.Name = "pnlBotonesGroup";
-            this.pnlBotonesGroup.Size = new System.Drawing.Size(446, 72);
+            this.pnlBotonesGroup.Size = new System.Drawing.Size(446, 60);
             this.pnlBotonesGroup.TabIndex = 0;
             // 
             // flpBotonesGroup
@@ -744,8 +744,8 @@
             this.flpBotonesGroup.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpBotonesGroup.Location = new System.Drawing.Point(0, 0);
             this.flpBotonesGroup.Name = "flpBotonesGroup";
-            this.flpBotonesGroup.Padding = new System.Windows.Forms.Padding(30, 20, 0, 0);
-            this.flpBotonesGroup.Size = new System.Drawing.Size(446, 72);
+            this.flpBotonesGroup.Padding = new System.Windows.Forms.Padding(30, 13, 0, 0);
+            this.flpBotonesGroup.Size = new System.Drawing.Size(446, 60);
             this.flpBotonesGroup.TabIndex = 0;
             // 
             // btnAgregar
@@ -757,7 +757,7 @@
             this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.IsBackStageButton = false;
-            this.btnAgregar.Location = new System.Drawing.Point(33, 23);
+            this.btnAgregar.Location = new System.Drawing.Point(33, 16);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(123, 29);
             this.btnAgregar.TabIndex = 14;
@@ -773,12 +773,28 @@
             this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
             this.btnLimpiar.IsBackStageButton = false;
-            this.btnLimpiar.Location = new System.Drawing.Point(162, 23);
+            this.btnLimpiar.Location = new System.Drawing.Point(162, 16);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(123, 29);
             this.btnLimpiar.TabIndex = 15;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // BtnCancelar
+            // 
+            this.BtnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.BtnCancelar.BeforeTouchSize = new System.Drawing.Size(123, 29);
+            this.BtnCancelar.FlatAppearance.BorderSize = 0;
+            this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCancelar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCancelar.ForeColor = System.Drawing.Color.Black;
+            this.BtnCancelar.IsBackStageButton = false;
+            this.BtnCancelar.Location = new System.Drawing.Point(291, 16);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(123, 29);
+            this.BtnCancelar.TabIndex = 16;
+            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // pnlTitulo
             // 
@@ -794,7 +810,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(25, 20);
+            this.lblTitulo.Location = new System.Drawing.Point(25, 13);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(125, 30);
             this.lblTitulo.TabIndex = 2;
@@ -803,22 +819,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // BtnCancelar
-            // 
-            this.BtnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.BtnCancelar.BeforeTouchSize = new System.Drawing.Size(123, 29);
-            this.BtnCancelar.FlatAppearance.BorderSize = 0;
-            this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCancelar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCancelar.ForeColor = System.Drawing.Color.Black;
-            this.BtnCancelar.IsBackStageButton = false;
-            this.BtnCancelar.Location = new System.Drawing.Point(291, 23);
-            this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(123, 29);
-            this.BtnCancelar.TabIndex = 16;
-            this.BtnCancelar.Text = "Cancelar";
-            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // FrmDireccionesCliente
             // 

@@ -15,6 +15,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
         Task<IEnumerable<Paquetes>> GetAllAgendaAsync(Guid idCliente, int idSucursal);
         Task<int> AddAbonoAsync(AbonoPaquete element, object IdUsuario);
         Task<IEnumerable<AbonoPaqueteDetalle>> GetAllDetalleAsync(Guid IdVentaPaquete);
-        Task<IEnumerable<Servicio>> ComboServicios(int idPaquete);
+        Task<IEnumerable<Servicio>> ComboServicios(Guid idOrdenPaquete);
     }
 }

@@ -81,7 +81,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             CantidadProductoControl.Visible = false;
             Model.CantidadProducto = tipoBusqueda;
             //Model.CantidadProducto = cant;
-            sfDataGridBuquedaProducto.Columns[9].Visible = false;
+            sfDataGridBuquedaProducto.Columns[8].Visible = false;
         }
 
         #region Metodo

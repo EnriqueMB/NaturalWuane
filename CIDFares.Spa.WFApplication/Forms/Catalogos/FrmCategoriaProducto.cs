@@ -103,7 +103,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                //btnGuardar.Enabled = false;
+                btnGuardar.Enabled = false;
                 this.CleanErrors(errorProvider1, typeof(CategoriaProductoViewModel));
                 var validationResults = Model.Validate();
                 validationResults.ToString();
@@ -131,6 +131,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmCategoriaProducto ~ btnGuardar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
+            finally
+            {
+                btnGuardar.Enabled = true;
+            }
         }
 
         
@@ -146,8 +150,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCategoriaProducto ~ btnNuevo_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
 
@@ -171,7 +175,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCategoriaProducto ~ btnModificar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
 
@@ -179,45 +184,58 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                gbCat.Enabled = false;
-                LimpiarPropiedades();
-                this.CleanErrors(errorProvider1, typeof(CategoriaProductoViewModel));
+                if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmCancelInput) == DialogResult.OK)
+                {
+                    gbCat.Enabled = false;
+                    LimpiarPropiedades();
+                    this.CleanErrors(errorProvider1, typeof(CategoriaProductoViewModel));
+                }
             }
             catch (Exception ex)
             {
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCategoriaProducto ~ btnCancelar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorAlCancelarFrm, TypeMessage.error);
             }
         }
 
         private async void btnEliminar_Click(object sender, EventArgs e)
         {
-            var item = ObtenerSeleccionado();
-            if (item != null)
+            try
             {
-
-                if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmDeleteMessage) == DialogResult.OK)
+                var item = ObtenerSeleccionado();
+                if (item != null)
                 {
-                    Model.IdCategoriaProducto = item.IdCategoriaProducto;
-                    gbCat.Enabled = false;
-                    var result = await Model.DeleteAsync(CurrentSession.IdCuentaUsuario);
-                    if (result == 1)
+
+                    if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmDeleteMessage) == DialogResult.OK)
                     {
-                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.informacion);
-                        LimpiarPropiedades();
-                        this.CleanErrors(errorProvider1, typeof(CategoriaProductoViewModel));
-                        await Model.GetAllAsync();
+                        Model.IdCategoriaProducto = item.IdCategoriaProducto;
+                        gbCat.Enabled = false;
+                        var result = await Model.DeleteAsync(CurrentSession.IdCuentaUsuario);
+                        if (result == 1)
+                        {
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.informacion);
+                            LimpiarPropiedades();
+                            this.CleanErrors(errorProvider1, typeof(CategoriaProductoViewModel));
+                            await Model.GetAllAsync();
+                        }
+                        else if (result == 0)
+                        {
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.CategoryIsOcuped, TypeMessage.informacion);
+                            LimpiarPropiedades();
+                        }
+                        else
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.informacion);
                     }
-                    else if(result == 0)
-                    {
-                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.CategoryIsOcuped, TypeMessage.informacion);
-                        LimpiarPropiedades();
-                    }
-                    else
-                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.informacion);
                 }
+                else
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
             }
-            else
-                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);                     
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCategoriaProducto ~  btnEliminar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.error);
+            }
+
         }
 
         private void NombreControl_TextChanged(object sender, EventArgs e)

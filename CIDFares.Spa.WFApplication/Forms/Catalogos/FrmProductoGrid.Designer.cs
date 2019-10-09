@@ -232,8 +232,8 @@
             gridTextColumn9.AllowEditing = false;
             gridTextColumn9.CellStyle.HorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Right;
             gridTextColumn9.Format = "C";
-            gridTextColumn9.HeaderText = "Precio publico";
-            gridTextColumn9.MappingName = "PrecioPublico";
+            gridTextColumn9.HeaderText = "Precio";
+            gridTextColumn9.MappingName = "Precio";
             gridTextColumn10.AllowEditing = false;
             gridTextColumn10.HeaderText = "Unidad de medida";
             gridTextColumn10.MappingName = "UnidadMedida";
