@@ -40,6 +40,7 @@ namespace CIDFares.Spa.Business.Dependencies
             ServiceLocator.Instance.Register<PaqueteRepository, IPaqueteRepository>();
             ServiceLocator.Instance.Register<RegistroEntradaSalidaRepository, IRegistroEntradaSalidaRepository>();
             ServiceLocator.Instance.Register<CompraRepository, ICompraRepository>();
+            ServiceLocator.Instance.Register<PromocionRepository, IPromocionRepository>();
             ServiceLocator.Instance.Register<ProductosMonederoRepository, IProductosMonederoRepository>();
             ServiceLocator.Instance.Register<EntradaSalidaAlmacenRepository, IEntradaSalidaAlmacenRepository>();
             ServiceLocator.Instance.Register<InventarioFisicoRepository, IInventarioFisicoRepository>();
@@ -50,7 +51,7 @@ namespace CIDFares.Spa.Business.Dependencies
             ServiceLocator.Instance.Register<ListaMedicionRepository, IListaMedicionRepository>();
             ServiceLocator.Instance.Register<CancelacionVentaRepository, ICancelacionVentaRepository>();
             ServiceLocator.Instance.Register<Excel, IExcel>();
-
+            ServiceLocator.Instance.Register<DireccionesClienteRepository, IDireccionesClienteRepository>();
         }
     }
 }

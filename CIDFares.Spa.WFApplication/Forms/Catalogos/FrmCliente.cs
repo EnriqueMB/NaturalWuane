@@ -21,6 +21,9 @@ using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.Business.ValueObjects;
 using System.IO;
+using CIDFares.Spa.DataAccess.Contracts.DTOs.Requests;
+using CIDFares.Library.Controls.CIDWait.Code;
+using Syncfusion.WinForms.Controls;
 
 namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 {
@@ -57,6 +60,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             btnEliminar.Visible = CurrentSession.PermisoUsuario("6");
 
             PanelCapturaDatos.Visible = CurrentSession.PermisoUsuario("4,5");
+
+            Model.Page = -1;
+            Model.Opcion = 1;
+            this.btnDirecciones.FlatAppearance.BorderSize = 1;
+            this.BtnSeleccionar.FlatAppearance.BorderSize = 1;
         }
         #endregion
 
@@ -135,6 +143,23 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 throw ex;
             }
         }
+
+        private void CargarGrid()
+        {
+            try
+            {
+                if (Model.Opcion == 1)
+                    Model.Page++;
+                CIDWait.Show(async () =>
+                {
+                    await Model.GetAll();
+                }, "Espere");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
 
         #region Evento
@@ -142,9 +167,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                await Model.GetAll();
-                IniciarBinding();
-                Model.Foto = Properties.Resources.imagen_subir;
+                //await Model.GetAll();
+                //IniciarBinding();
+                //Model.Foto = Properties.Resources.imagen_subir;
             }
             catch (Exception ex)
             {
@@ -171,33 +196,42 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         private async void btnModificar_Click(object sender, EventArgs e)
         {
-            var item = ObtenerSeleccionado();
-            if (item != null)
+            try
             {
-                groupBoxCliente.Enabled = true;
-                ClaveControl.Visible = true;
-                Model.State = EntityState.Update;
-                Model.IdCliente = item.IdCliente;
-                Model.NombreCompleto = item.NombreCompleto;
-                Model.Rfc = item.Rfc;
-                Model.Sexo = item.Sexo;
-                Model.Telefono = item.Telefono;
-                Model.Email = item.Email;
-                Model.Clave = item.Clave;
-                Model.FechaNacimiento = item.FechaNacimiento;
-                await Model.GetFoto(Model.IdCliente);
-                if (!string.IsNullOrEmpty(Model.FotoBase64))
+                var item = ObtenerSeleccionado();
+                if (item != null)
                 {
-                    Model.Foto = ComprimirImagenExtensions.ImageBase64ToImage(Model.FotoBase64);
+                    groupBoxCliente.Enabled = true;
+                    ClaveControl.Visible = true;
+                    Model.State = EntityState.Update;
+                    Model.IdCliente = item.IdCliente;
+                    Model.NombreCompleto = item.NombreCompleto;
+                    Model.Rfc = item.Rfc;
+                    Model.Sexo = item.Sexo;
+                    Model.Telefono = item.Telefono;
+                    Model.Email = item.Email;
+                    Model.Clave = item.Clave;
+                    Model.FechaNacimiento = item.FechaNacimiento;
+                    await Model.GetFoto(Model.IdCliente);
+                    if (!string.IsNullOrEmpty(Model.FotoBase64))
+                    {
+                        Model.Foto = ComprimirImagenExtensions.ImageBase64ToImage(Model.FotoBase64);
+                    }
+                    else
+                        Model.ImageLocation = "Sin Foto";
+                    Model.FotoBase64 = string.Empty;
+                    await Model.GetDireciones();
                 }
                 else
-                    Model.ImageLocation = "Sin Foto";
-                Model.FotoBase64 = string.Empty;
+                {
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
+                    groupBoxCliente.Enabled = false;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
-                groupBoxCliente.Enabled = false;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCliente ~ btnModificar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
 
@@ -205,21 +239,25 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                VerticalScrollBar x = (VerticalScrollBar)sfDataGridCliente.TableControl.VerticalScroll.ScrollBar;
+                x.ValueChanged -= X_ValueChanged;
                 this.CleanErrors(errorProvider1, typeof(ClienteViewModel));
                 var validationResults = Model.Validate();
                 validationResults.ToString();
                 if (validationResults.IsValid)
                 {
                     var Resultado = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
-                    if (Resultado.Resultado == 1)
+                    if (Resultado == 1)
                     {
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
                         LimpiarPropiedades();
                         groupBoxCliente.Enabled = false;
-                        await Model.GetAll();
+                        Model.Opcion = 2;
+                        CargarGrid();
+                        x.ValueChanged += X_ValueChanged;
 
                     }
-                    else if (Resultado.Resultado == 5)
+                    else if (Resultado == 5)
                     {
                         CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorClaveExistente, TypeMessage.informacion);
                         LimpiarPropiedades();
@@ -246,6 +284,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                VerticalScrollBar x = (VerticalScrollBar)sfDataGridCliente.TableControl.VerticalScroll.ScrollBar;
+                x.ValueChanged -= X_ValueChanged;
                 var item = ObtenerSeleccionado();
                 if (item != null)
                 {
@@ -259,7 +299,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         {
                             CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.correcto);
                             LimpiarPropiedades();
-                            await Model.GetAll();
+                            Model.Opcion = 2;
+                            CargarGrid();
+                            x.ValueChanged += X_ValueChanged;
                         }
                         else
                             CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.error);
@@ -297,7 +339,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             catch (Exception ex)
             {
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmCliente ~ BtnSeleccionar_Click(object sender, EventArgs e)");
-                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
 
@@ -326,6 +368,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 if (!string.IsNullOrEmpty(Model.Busqueda))
                 {
                     await Model.GetBusqueda();
+                    errorProvider1.Clear();
                 }
                 else
                 {
@@ -344,6 +387,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             try
             {
                 Model.ListaCliente.Clear();
+                errorProvider1.Clear();
             }
             catch (Exception)
             {
@@ -351,14 +395,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 throw;
             }
         }
-        #endregion
-
-        private async void button1_Click(object sender, EventArgs e)
+        private async void btnClienteFrecuente_Click(object sender, EventArgs e)
         {
             try
             {
-               var item = ObtenerSeleccionado();
-               if (item != null)
+                var item = ObtenerSeleccionado();
+                if (item != null)
                 {
                     if (!Convert.ToBoolean(item.TieneTarjeta))
                     {
@@ -397,8 +439,95 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                             }
                         }
                     }
-
                 }
+                else
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCliente ~ btnClienteFrecuente_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
+            }
+        }
+        #endregion
+
+        private void btnDirecciones_Click(object sender, EventArgs e)
+        {
+            try
+            {   
+                    FrmDireccionesCliente frmDireccionesCliente = new FrmDireccionesCliente(Model.IdCliente, Model.NombreCompleto, Model.ListaDireccionesR);
+                    frmDireccionesCliente.ShowDialog();
+                    if(frmDireccionesCliente.DialogResult == DialogResult.OK)
+                    {
+                        Model.ListaDireccionesR = frmDireccionesCliente.ListaDirecciones;
+                    }
+                    frmDireccionesCliente.Dispose();
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCliente ~ btnDirecciones_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
+            }
+        }
+
+        private void FrmCliente_Shown(object sender, EventArgs e)
+        {
+            try
+            {
+                VerticalScrollBar x = (VerticalScrollBar)sfDataGridCliente.TableControl.VerticalScroll.ScrollBar;
+                x.ValueChanged += X_ValueChanged;
+                CargarGrid();
+                IniciarBinding();
+                Model.Foto = Properties.Resources.imagen_subir;
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCliente ~ FrmCliente_Shown(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
+            }
+        }
+
+        /// <summary>
+        /// Evento que detecta cada movimiento del Scroll Vertical del grid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void X_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Syncfusion.WinForms.DataGrid.TableControl tableControl = sfDataGridCliente.TableControl;
+                if (tableControl.VerticalScroll.Value + tableControl.VerticalScroll.LargeChange == tableControl.VerticalScroll.Maximum)
+                {
+                    if (!Model.PaginaMaxima)
+                    {
+                        Model.Opcion = 1;
+                        CargarGrid();
+                    }
+                    else
+                    {
+                        CIDMessageBox.ShowAlert(Messages.SystemName, "No hay mas registros", TypeMessage.informacion);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        private void btnLimpiarBusqueda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                VerticalScrollBar x = (VerticalScrollBar)sfDataGridCliente.TableControl.VerticalScroll.ScrollBar;
+                x.ValueChanged -= X_ValueChanged;
+                BusquedaControl.Text = string.Empty;
+                Model.Opcion = 2;
+                CargarGrid();
+                x.ValueChanged += X_ValueChanged;
+                errorProvider1.Clear();
             }
             catch (Exception ex)
             {

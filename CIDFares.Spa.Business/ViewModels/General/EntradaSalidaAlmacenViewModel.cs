@@ -62,11 +62,11 @@ namespace CIDFares.Spa.Business.ViewModels.General
             return await IRepository.AddAsync(model, IdUsuario);
         }
 
-        public async Task<int> CheckCantidadProducto(int IdProducto, int Cantidad)
+        public async Task<int> CheckCantidadProducto(int IdProducto, int Cantidad, int IdSucursal)
         {
             try
             {
-                return await VentaRepository.CheckCantidadProducto(IdProducto, Cantidad);
+                return await VentaRepository.CheckCantidadProducto(IdProducto, Cantidad, IdSucursal);
             }
             catch (Exception ex)
             {
