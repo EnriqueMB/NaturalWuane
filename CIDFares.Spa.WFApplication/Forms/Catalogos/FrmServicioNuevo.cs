@@ -38,6 +38,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             Model = ServiceLocator.Instance.Resolve<ServicioViewModel>();
             //IniciarBinding();
             Model.Duracion = new DateTime(1900, 1, 1, 0, 30, 0);
+            BtnSeleccionar.FlatAppearance.BorderSize = 1;
         }
 
         public FrmServicioNuevo(Servicio ServId)
