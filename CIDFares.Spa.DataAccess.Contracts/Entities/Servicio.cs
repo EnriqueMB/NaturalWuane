@@ -8,6 +8,10 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
 {
     public class Servicio
     {
+        public Servicio()
+        {
+            Nombre = string.Empty;            
+        }
         public int IdServicio { get; set; }
         public int IdTipoServicio { get; set; }
         public int IdTipoIva { get; set; }  

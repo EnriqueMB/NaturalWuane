@@ -126,7 +126,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             }
         }
 
-        private async void ServiciosPaquete(Guid IdOrdenPaquete)
+        private async Task ServiciosPaquete(Guid IdOrdenPaquete)
         {
             try
             {
@@ -195,7 +195,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 Model.Nombre = ordenPaquete.Paquete.Nombre;
 
                 OrdenPaquete OP = await Model.AgendarPaquete(CurrentSession.IdSucursal, CurrentSession.IdCuentaUsuario);
-                ServiciosPaquete(OP.IdOrdenPaquete);
+                await ServiciosPaquete(OP.IdOrdenPaquete);
                 Model.IdOrdenPaquete = OP.IdOrdenPaquete;
                 ordenPaquete.IdOrdenPaquete = OP.IdOrdenPaquete;
             }
@@ -523,7 +523,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         private async void btnReservarCita_Click(object sender, EventArgs e)
         {
             try
-            {
+            {                
                 this.CleanErrors(errorProvider1, typeof(CapturaCitaViewModel));
                 errorProvider1.Clear();
                 btnReservarCita.Enabled = false;
@@ -541,8 +541,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                         await Model.GetCitaDetalle(f, CurrentSession.IdSucursal);
                         HorarioSucursal();
                         Model.Servicio = string.Empty;
-                        ServiciosPaquete(Model.IdOrdenPaquete);
-                        if (Model.ListaServicioPaquete.Count <= 1)
+                        await ServiciosPaquete(Model.IdOrdenPaquete);
+                        if (Model.ListaServicioPaquete.Count == 1)
                         {
                             LimpiarPropiedades();
                             groupBoxCita.Enabled = false;
@@ -552,6 +552,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                             LimpiarPropiedades();
                             groupBoxCita.Enabled = false;
                         }
+                       // IdServicioControl_SelectionChangeCommitted(IdServicioControl, e);
                     }
                     else
                         CIDMessageBox.ShowAlert(Messages.ErrorMessage, "Error", TypeMessage.error);
