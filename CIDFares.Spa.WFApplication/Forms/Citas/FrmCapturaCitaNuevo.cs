@@ -26,8 +26,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         #region Propiedades Públicas
         public CapturaCitaViewModel Model { get; set; }
         public CapturaCita cita { get; set; }
-        DateTime f;
-        bool bandera = false;
+        DateTime f;        
         private Paquetes Paquetes;
         #endregion
         public FrmCapturaCitaNuevo(DateTime? fecha)
@@ -225,8 +224,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         }
         
         private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            bandera = false;
+        {            
             Model.State = EntityState.Create;            
             groupBoxCita.Enabled = true;
             BtnBuscar.Enabled = true;
@@ -451,17 +449,46 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             }
         }
 
-        private void btnAgregarPaquete_Click(object sender, EventArgs e)
+        private async void btnAgregarPaquete_Click(object sender, EventArgs e)
         {
-            FrmBuscarPaquete busPaquete = new FrmBuscarPaquete();
-            busPaquete.ShowDialog();
+            try
+            {
+                if (this.NombreCompletoControl.Text != string.Empty)
+                {
+                    FrmBuscarPaquete busPaquete = new FrmBuscarPaquete();
+                    busPaquete.ShowDialog();
+                    Model.IdPaquete = busPaquete.paquetes.IdPaquete;
+                    var x = await Model.AgendarPaquete(CurrentSession.IdSucursal, CurrentSession.IdCuentaUsuario);
+                    //FrmCitasSinAgendar csa = new FrmCitasSinAgendar();
+                    //csa.ShowDialog();           
+                    Model.IdOrdenPaquete = x.IdOrdenPaquete;
+
+                    ServiciosPaquete(Model.IdOrdenPaquete);
+                    IdServicioControl.Visible = true;
+                    groupBoxCita.Enabled = true;
+                    BtnBuscar.Enabled = false;
+                    ServicioControl.Visible = false;
+                    pictureBox1.Visible = false;
+                }
+                else
+                {
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ClienteSelectMessage, TypeMessage.informacion);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            //labelNombre.Text = csa.capturaCita.OrdenServicio.OrdenPaquete.Paquete.Nombre;
+            //Model.NombreCompleto = csa.capturaCita.OrdenServicio.Cliente.NombreCompleto;
+            //Model.IdCliente = csa.capturaCita.OrdenServicio.Cliente.IdCliente;
         }
 
         private void btnCitasSinAgendar_Click(object sender, EventArgs e)
         {
             try
-            {
-                bandera = true;
+            {               
                 FrmCitasSinAgendar csa = new FrmCitasSinAgendar();
                 csa.ShowDialog();
                 Model.IdOrdenPaquete = csa.capturaCita.OrdenServicio.OrdenPaquete.IdOrdenPaquete;

@@ -315,7 +315,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }       
 
-        public async Task<IEnumerable<CapturaCita>> GetCitasSinAgendar(string nombreCompleto, object IdSucursal)
+        public async Task<IEnumerable<OrdenServicio>> GetCitasSinAgendar(string nombreCompleto, object IdSucursal)
         {
             try{
                 //CapturaCita Item;
@@ -327,39 +327,16 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@nombreCompleto", nombreCompleto);
                     dynamicParameters.Add("@idSucursal", IdSucursal);
                     //var lista = await conexion.QueryAsync<CapturaCita, Cliente, Servicio, OrdenServicio, Paquetes, OrdenPaquete, CapturaCita>("[Cita].[SPCID_Get_CitaSinAgendar]",
-                    var lista = await conexion.QueryAsync<CapturaCita, OrdenServicio, Paquetes, OrdenPaquete, CapturaCita>("[Cita].[SPCID_Get_CitaSinAgendar]",
-                    (cita, os, p, op) =>
+                    var lista = await conexion.QueryAsync<OrdenServicio, Cliente, Paquetes, OrdenPaquete, OrdenServicio>("[Cita].[SPCID_Get_CitaSinAgendar]",
+                    (os, cliente, p, op) =>
                     {
-                        cita.OrdenServicio = os;
-                        cita.OrdenServicio.OrdenPaquete = op;
-                        cita.OrdenServicio.OrdenPaquete.Paquete = p;
-                        //cita.OrdenServicio.Servicio = serv;
-                        //cita.OrdenServicio.Cliente = cliente;
-                        return cita;
-                    },//IdAgendaCita, IdCliente, IdServicio, IdOrdenServicio, IdPaquete, IdOrdenPaquete
-                    splitOn: "IdAgendaCita, IdPaquete, IdOrdenPaquete", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                    return lista;
-
-                    //conexion.Open();
-                    //List<CapturaCita> Lista = new List<CapturaCita>();
-                    ////CapturaCita Item;
-                    //var dynamicParameters = new DynamicParameters();
-                    //dynamicParameters.Add("@fechaCita", fecha);
-                    //dynamicParameters.Add("@estadoCita", 5);
-                    //dynamicParameters.Add("@idSucursal", IdSucursal);
-                    //var lista = await conexion.QueryAsync<CapturaCita, Cliente, Servicio, OrdenServicio, Paquetes, OrdenPaquete, CapturaCita>("[Cita].[SPCID_Get_CitaDetalle]",
-                    //(cita, cliente, serv, os, p, op) =>
-                    //{
-                    //    cita.OrdenServicio = os;
-                    //    cita.OrdenServicio.OrdenPaquete = op;
-                    //    cita.OrdenServicio.OrdenPaquete.Paquete = p;
-                    //    cita.OrdenServicio.Servicio = serv;
-                    //    cita.OrdenServicio.Cliente = cliente;
-                    //    return cita;
-                    //},
-                    //splitOn: "IdAgendaCita, IdCliente, IdServicio, IdOrdenServicio, IdPaquete, IdOrdenPaquete", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                    //return lista;
-
+                        os.Cliente = cliente;
+                        os.OrdenPaquete = op;
+                        os.OrdenPaquete.Paquete = p;                        
+                        return os;
+                    },
+                    splitOn: "IdOrdenServicio, IdCliente, IdPaquete, IdOrdenPaquete", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return lista;                    
                 }
             }         
             catch (Exception ex)

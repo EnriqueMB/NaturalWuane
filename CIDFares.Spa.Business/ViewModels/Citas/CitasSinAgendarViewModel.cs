@@ -18,14 +18,14 @@ namespace CIDFares.Spa.Business.ViewModels.Citas
         #endregion
 
         #region Propiedades públicas
-        public BindingList<CapturaCita> ListaCitasSinAgendar { get; set; }              
+        public BindingList<OrdenServicio> ListaCitasSinAgendar { get; set; }              
         public EntityState State { get; set; }
         #endregion
 
         public CitasSinAgendarViewModel(ICapturaCitaRepository capturaCitaRepository)
         {
             Repository = capturaCitaRepository;
-            ListaCitasSinAgendar = new BindingList<CapturaCita>();            
+            ListaCitasSinAgendar = new BindingList<OrdenServicio>();            
         }
 
         public async Task GetCitasSinAgendar(string nombreCompleto, int IdSucursal)
@@ -44,7 +44,7 @@ namespace CIDFares.Spa.Business.ViewModels.Citas
 
                 throw ex;
             }
-        }
+        }        
 
         #region Binding
         private int _IdSucursal;
