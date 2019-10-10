@@ -185,9 +185,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 btnAgregarPaquete.Visible = false;
                 btnEliminar.Visible = false;
 
-                labelNombre.Text =ordenPaquete.Paquete.Nombre;
+                lblNombre.Text =ordenPaquete.Paquete.Nombre;
                 Model.IdPaquete = ordenPaquete.Paquete.IdPaquete;
-                Model.Nombre = ordenPaquete.Paquete.NombreCompleto
+                Model.Nombre = ordenPaquete.Paquete.Nombre;
 
                 OrdenPaquete OP = await Model.AgendarPaquete(CurrentSession.IdSucursal, CurrentSession.IdCuentaUsuario);
                 ServiciosPaquete(OP.IdOrdenPaquete);

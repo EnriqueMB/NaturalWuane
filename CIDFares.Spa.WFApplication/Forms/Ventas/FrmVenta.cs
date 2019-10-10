@@ -18,6 +18,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CIDFares.Spa.WFApplication.Session;
+using CIDFares.Spa.WFApplication.Forms.Citas;
 
 namespace CIDFares.Spa.WFApplication.Forms.Ventas
 {
@@ -902,6 +903,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             try
             {
+                FrmCitasSinAgendar citas = new FrmCitasSinAgendar();
+                citas.ShowDialog();
                 //AgregarPaquetesCliente();
             }
             catch (Exception)
