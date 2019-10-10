@@ -8,7 +8,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -98,14 +100,15 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     AplicaIEPS = AplicaIEPS,
                     IEPSMonto = IEPSMonto,
                     IEPS = IEPS,
-                    UpdateFoto = UpdateFoto,
-                    FotoBase64 = FotoBase64,
-                    UrlFoto = ImageLocation,
-                    PorcentajePaquete = this.PorcentajeP
-                //Base64String = new Bitmap(Foto).ToBase64String(Formato),
-                //UrlFoto = UrlFoto
-                //Resultado = -2
-            };
+                    UrlImagen = UrlImagen
+                    //UpdateFoto = UpdateFoto,
+                    //FotoBase64 = FotoBase64,
+                    //UrlFoto = UrlFoto,
+                    //PorcentajePaquete = this.PorcentajeP
+                    //Base64String = new Bitmap(Foto).ToBase64String(Formato),
+                    //UrlFoto = UrlFoto
+                    //Resultado = -2
+                };
                 if (State == EntityState.Create)
                 {
                     return await Repository.AddAsync(model, IdUsuario);
@@ -192,10 +195,136 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             {
                 throw ex;
             }
-        }           
+        }
         #endregion
         #endregion
+        /// <summary>
+        /// Método para subir la imagen al Servidor FTP
+        /// </summary>
+        /// <param name="FilePath"></param>
+        /// <param name="RemotePath"></param>
+        /// <param name="Login"></param>
+        /// <param name="Password"></param>
+        /// <returns></returns>
+        public async Task<bool> UploadFTP(string FilePath, string RemotePath, string Login, string Password)
+        {
+            try
+            {
+                using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+                {
+                    UrlImagen = RemotePath;
+                    FtpWebRequest ftp = (FtpWebRequest)FtpWebRequest.Create(UrlImagen);
+                    ftp.Credentials = new NetworkCredential(Login, Password);
+                    ftp.Method = WebRequestMethods.Ftp.UploadFile;
+                    ftp.KeepAlive = false;
+                    ftp.UseBinary = true;
+                    ftp.ContentLength = fs.Length;
+                    ftp.Proxy = null;
+                    fs.Position = 0;
+                    int buffLength = 2048;
+                    byte[] buff = new byte[buffLength];
+                    int contentLen;
+                    using (Stream strm = ftp.GetRequestStream())
+                    {
+                        contentLen = fs.Read(buff, 0, buffLength);
+                        while (contentLen != 0)
+                        {
+                            strm.Write(buff, 0, contentLen);
+                            contentLen = fs.Read(buff, 0, buffLength);
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //LogError.AddExcFileTxt(ex, "UtilFtp ~ UploadFTP");
+                //return false;
+                throw ex;
+            }
+        }
 
+        /// <summary>
+        /// Método para descargar la imagen del Servidor FTP
+        /// </summary>
+        /// <param name="FilePath"></param>
+        /// <param name="RemotePath"></param>
+        /// <param name="Login"></param>
+        /// <param name="Password"></param>
+        /// <returns></returns>
+        public async Task<bool> DownloadFile(string FilePath, string RemotePath, string Login, string Password)
+        {
+            try
+            {
+                //string url = Path.Combine(RemotePath, Path.GetFileName(FilePath));
+                FtpWebRequest ftp = (FtpWebRequest)FtpWebRequest.Create(UrlImagen);
+                ftp.Credentials = new NetworkCredential(Login, Password);
+                ftp.Method = WebRequestMethods.Ftp.DownloadFile;
+                ftp.KeepAlive = false;
+                ftp.UseBinary = true;
+                ftp.Proxy = null;
+                FtpWebResponse response = (FtpWebResponse)ftp.GetResponse();
+                Stream stream = response.GetResponseStream();
+                byte[] buffer = new byte[2048];
+                FileStream fs = new FileStream(FilePath, FileMode.Create);
+                int ReadCount = stream.Read(buffer, 0, buffer.Length);
+                while (ReadCount > 0)
+                {
+                    fs.Write(buffer, 0, ReadCount);
+                    ReadCount = stream.Read(buffer, 0, buffer.Length);
+                }
+                fs.Close();
+                stream.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //LogError.AddExcFileTxt(ex, "UtilFtp ~ DownloadFile");
+                //return false;
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Método para convertir de Bytes a Imagen
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
+        public Image Convertir_Bytes_Imagen(byte[] bytes)
+        {
+            if (bytes == null) return null;
+
+            MemoryStream ms = new MemoryStream(bytes);
+            Bitmap bm = null;
+            try
+            {
+                bm = new Bitmap(ms);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+            return bm;
+        }
+
+        /// <summary>
+        /// Método para convertir de Imagen a Bytes
+        /// </summary>
+        /// <param name="img"></param>
+        /// <returns></returns>
+        public byte[] Convertir_Imagen_Bytes(Image img)
+        {
+            string sTemp = Path.GetTempFileName();
+            FileStream fs = new FileStream(sTemp, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            img.Save(fs, System.Drawing.Imaging.ImageFormat.Png);
+            fs.Position = 0;
+
+            int imgLength = Convert.ToInt32(fs.Length);
+            byte[] bytes = new byte[imgLength];
+            fs.Read(bytes, 0, imgLength);
+            fs.Close();
+            return bytes;
+        }
         public async Task GetAllAsync()
         {
             try
@@ -216,18 +345,18 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        public async Task GetFoto(int IdServicio)
-        {
-            try
-            {
-                var x = await Repository.ObtenerFoto(IdServicio);
-                this.FotoBase64 = x;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        //public async Task GetFoto(int IdServicio)
+        //{
+        //    try
+        //    {
+        //        var x = await Repository.ObtenerFoto(IdServicio);
+        //        this.FotoBase64 = x;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
 
         public async Task BusquedaServicio()
         {
@@ -247,7 +376,152 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
+        #region Binding Imagen
+        /// <summary>
+        /// Variable para almacenar la url de la imagen(urlFTP)
+        /// </summary>
+        private string _UrlImagen;
 
+        public string UrlImagen
+        {
+            get { return _UrlImagen; }
+            set
+            {
+                _UrlImagen = value;
+                OnPropertyChanged(nameof(UrlImagen));
+            }
+        }
+
+        /// <summary>
+        /// Propiedad para almacenar la imagen y mostrarlo en el Formulario
+        /// </summary>
+        private Image _Imagen;
+
+        public Image Imagen
+        {
+            get { return _Imagen; }
+            set
+            {
+                _Imagen = value;
+                OnPropertyChanged(nameof(Imagen));
+            }
+        }
+
+        /// <summary>
+        /// Propiedad Booleana para saber cuando el usuario modificó la imagen
+        /// </summary>
+        public bool UpdateImagen { get; set; }
+        /// <summary>
+        /// Propiedad para almacenar la extensión de la imagen
+        /// </summary>
+        public string Extencion { get; set; }
+        /// <summary>
+        /// Propiedad para almacenar la ruta de la imagen en Resources
+        /// </summary>
+        public string RutaAux { get; set; }
+
+        /// <summary>
+        /// Propiedad para almacenar la ruta de la imagen a subir
+        /// </summary>
+        private string _RutaImagen;
+
+        public string RutaImagen
+        {
+            get { return _RutaImagen; }
+            set
+            {
+                _RutaImagen = value;
+                OnPropertyChanged(nameof(RutaImagen));
+            }
+        }
+        #endregion
+        #region FOTO        
+        //private string _FotoBase64 = "";
+        //public string FotoBase64
+        //{
+        //    get { return _FotoBase64; }
+        //    set
+        //    {
+        //        _FotoBase64 = value;
+        //        OnPropertyChanged(nameof(FotoBase64));
+        //    }
+        //}
+
+        //private string _BaseString64;
+
+        //public string BaseString64
+        //{
+        //    get { return _BaseString64; }
+        //    set { _BaseString64 = value; OnPropertyChanged("BaseString64"); }
+        //}
+
+        //private bool _UpdateFoto;
+        //public bool UpdateFoto
+        //{
+        //    get { return _UpdateFoto; }
+        //    set
+        //    {
+        //        _UpdateFoto = value;
+        //        OnPropertyChanged(nameof(UpdateFoto));
+        //    }
+        //}
+
+        //private string _ImageLocation = "";
+        //public string ImageLocation
+        //{
+        //    get { return _ImageLocation; }
+        //    set
+        //    {
+        //        _ImageLocation = value; OnPropertyChanged(nameof(ImageLocation));
+        //        if (ImageLocation != string.Empty)
+        //        {
+        //            try
+        //            {
+        //                Foto = Image.FromFile(_ImageLocation);
+        //            }
+        //            catch (Exception)
+        //            {
+
+        //            }
+        //        }
+        //    }
+        //}
+
+        //private string _Extencion;
+        //public string Extencion
+        //{
+        //    get { return _Extencion; }
+        //    set
+        //    {
+        //        _Extencion = value;
+        //        OnPropertyChanged(nameof(Extencion));
+        //    }
+        //}
+
+        //private ImageFormat _FormatoImg;
+
+        //public ImageFormat FormatoImg
+        //{
+        //    get { return _FormatoImg; }
+        //    set
+        //    {
+        //        _FormatoImg = value;
+        //        OnPropertyChanged(nameof(FormatoImg));
+        //    }
+        //}
+
+        //private Image _Foto;
+        //public Image Foto
+        //{
+        //    get { return _Foto; }
+        //    set
+        //    {
+        //        _Foto = value;
+        //        OnPropertyChanged(nameof(Foto));
+        //    }
+        //}
+
+        #endregion
         #region Binding(Variables)
         private int _IdServicio = 0;
         public int IdServicio
@@ -463,93 +737,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         }
 
 
-        #region FOTO        
-        private string _FotoBase64 = "";
-        public string FotoBase64
-        {
-            get { return _FotoBase64; }
-            set
-            {
-                _FotoBase64 = value;
-                OnPropertyChanged(nameof(FotoBase64));
-            }
-        }
-
-        //private string _BaseString64;
-
-        //public string BaseString64
-        //{
-        //    get { return _BaseString64; }
-        //    set { _BaseString64 = value; OnPropertyChanged("BaseString64"); }
-        //}
-
-        private bool _UpdateFoto;
-        public bool UpdateFoto
-        {
-            get { return _UpdateFoto; }
-            set
-            {
-                _UpdateFoto = value;
-                OnPropertyChanged(nameof(UpdateFoto));
-            }
-        }
-
-        private string _ImageLocation = "";
-        public string ImageLocation
-        {
-            get { return _ImageLocation; }
-            set
-            {
-                _ImageLocation = value; OnPropertyChanged(nameof(ImageLocation));
-                if (ImageLocation != string.Empty)
-                {
-                    try
-                    {
-                        Foto = Image.FromFile(_ImageLocation);
-                    }
-                    catch (Exception)
-                    {
-
-                    }
-                }
-            }
-        }
-
-        private string _Extencion;
-        public string Extencion
-        {
-            get { return _Extencion; }
-            set
-            {
-                _Extencion = value;
-                OnPropertyChanged(nameof(Extencion));
-            }
-        }
-
-        private ImageFormat _FormatoImg;
-
-        public ImageFormat FormatoImg
-        {
-            get { return _FormatoImg; }
-            set
-            {
-                _FormatoImg = value;
-                OnPropertyChanged(nameof(FormatoImg));
-            }
-        }
-
-        private Image _Foto;
-        public Image Foto
-        {
-            get { return _Foto; }
-            set
-            {
-                _Foto = value;
-                OnPropertyChanged(nameof(Foto));
-            }
-        }
-
-        #endregion
+        
         private decimal _Cantidad;
         public decimal Cantidad
         {
