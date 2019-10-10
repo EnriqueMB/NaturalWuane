@@ -26,13 +26,14 @@ namespace CIDFares.Spa.WFApplication.Constants
         public const string ErrorBusqueda = "OCURRIÓ UN ERROR AL BUSCAR LOS DATOS";
         public const string CategoryIsOcuped = "ESTA CATEGORÍA CONTIENE PRODUCTOS EXISTENTES";
         public const string ConfirmCancelInput = "¿DESEA CANCELAR ESTE REGISTRO?";
-        public const string ConfirmOutMessageChild = "¿DESEA CERRAR EL FORMULARIO?";
-        public const string ServicioSelectMessage = "SELECCIONE UN SERVICIO";
-        public const string CitaSelectMessage = "SELECCIONE UNA CITA";
-        public const string FechaSelectMessage = "SELECCIONA UNA FECHA POSTERIOR O IGUAL A LA HOY";
+        public const string ConfirmOutMessageChild = "¿DESEA CERRAR EL FORMULARIO?";                
         public const string OneService = "SOLO UN SERVICIO A LA VEZ";
         public const string NoEliminarTurno = "NO SE PUEDE ELIMINAR ESTE TURNO";
         public const string HaveProduct = "SE BORRARA LA LISTA DE PRODUCTOS ¿DESEA CONTINUAR?";
+        public const string CitaSelectMessage = "SELECCIONE UNA CITA";
+        public const string FechaSelectMessage = "SELECCIONA UNA FECHA POSTERIOR O IGUAL A LA HOY";
         public const string ClienteSelectMessage = "SELECCIONE UN CLIENTE";
+        public const string PaqueteSelectMessage = "SELECCIONE UN PAQUETE";
+        public const string ServicioSelectMessage = "SELECCIONE UN SERVICIO";
     }
 }
