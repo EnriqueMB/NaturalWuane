@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.PnlHead = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -197,10 +197,10 @@
             this.sfDataGridListaMedicion.AccessibleName = "Table";
             this.sfDataGridListaMedicion.AllowEditing = false;
             this.sfDataGridListaMedicion.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn2.AllowEditing = false;
-            gridTextColumn2.HeaderText = "Valor";
-            gridTextColumn2.MappingName = "Valor";
-            this.sfDataGridListaMedicion.Columns.Add(gridTextColumn2);
+            gridTextColumn1.AllowEditing = false;
+            gridTextColumn1.HeaderText = "Valor";
+            gridTextColumn1.MappingName = "Valor";
+            this.sfDataGridListaMedicion.Columns.Add(gridTextColumn1);
             this.sfDataGridListaMedicion.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridListaMedicion.Name = "sfDataGridListaMedicion";
             this.sfDataGridListaMedicion.Size = new System.Drawing.Size(264, 117);
