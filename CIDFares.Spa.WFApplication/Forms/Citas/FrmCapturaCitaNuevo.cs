@@ -27,6 +27,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         public CapturaCitaViewModel Model { get; set; }
         public CapturaCita cita { get; set; }
         DateTime f;
+        bool bandera = false;
         private Paquetes Paquetes;
         #endregion
         public FrmCapturaCitaNuevo(DateTime? fecha)
@@ -225,6 +226,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            bandera = false;
             Model.State = EntityState.Create;            
             groupBoxCita.Enabled = true;
             BtnBuscar.Enabled = true;
@@ -459,6 +461,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         {
             try
             {
+                bandera = true;
                 FrmCitasSinAgendar csa = new FrmCitasSinAgendar();
                 csa.ShowDialog();
                 Model.IdOrdenPaquete = csa.capturaCita.OrdenServicio.OrdenPaquete.IdOrdenPaquete;
