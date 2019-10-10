@@ -256,8 +256,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 Model.FechaInicio = f.Date + Model.IdHora;
                 Model.FechaFinal = (f.Date + Model.IdHora).AddHours(1);
 
-                string vr = Model.FechaInicio.ToShortDateString() + " " + Model.IdHora;
-                Model.FechaInicio = Convert.ToDateTime(vr);
+                //string vr = Model.FechaInicio.ToShortDateString() + " " + Model.IdHora;
+                //Model.FechaInicio = Convert.ToDateTime(vr);
             }
             catch (Exception ex)
             {
@@ -531,6 +531,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                         HorarioSucursal();
                         Model.Servicio = string.Empty;
                         ServiciosPaquete(Model.IdOrdenPaquete);
+                        if (Model.ListaServicioPaquete.Count <= 1)
+                        {
+                            LimpiarPropiedades();
+                            groupBoxCita.Enabled = false;
+                        }                        
                         if (Model.State == EntityState.Update)
                         {
                             LimpiarPropiedades();
