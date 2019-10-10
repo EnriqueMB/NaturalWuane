@@ -1,6 +1,8 @@
 ﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Library.Code.Helpers;
 using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
+using CIDFares.Library.Controls.CIDWait.Code;
 using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.CrossCutting.Services;
@@ -20,6 +22,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         #region Propiedades
         public ListaMedicionViewModel Model { get; set; }
         #endregion
+
+        #region Constructor
         public FrmListaMedicion(int id)
         {
             InitializeComponent();
@@ -28,6 +32,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             if (id > 0)
                 Model.State = EntityState.Update;
         }
+        #endregion
 
         #region Metodos
 
@@ -97,7 +102,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
         #endregion
-
+        #region Eventos
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -122,7 +127,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmDireccionesCliente ~ BtnAgregar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
             }
         }
 
@@ -141,7 +147,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmDireccionesCliente ~ btnQuitar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.error);
             }
         }
 
@@ -177,6 +184,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmDireccionesCliente ~ btnGuarda_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
             finally {
@@ -184,12 +192,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
 
-        private void FrmListaMedicion_Load(object sender, EventArgs e)
+        private  void FrmListaMedicion_Load(object sender, EventArgs e)
         {
-            LimpiarPropiedades();
-            if (Model.State == EntityState.Update)
-                Model.GetListaMedicion();
-            IniciarBinding();
+            
         }
 
         private async void NombreControl_Leave(object sender, EventArgs e)
@@ -246,6 +251,28 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {
                 BtnAgregar.Focus();
                 BtnAgregar_Click(sender, e);
+            }
+        }
+        #endregion
+
+        private void FrmListaMedicion_Shown(object sender, EventArgs e)
+        {
+            try
+            {
+                LimpiarPropiedades();
+                if (Model.State == EntityState.Update)
+                {
+                    CIDWait.Show(async () =>
+                    {
+                        await Model.GetListaMedicion();
+                    }, "Espere");
+                }
+                IniciarBinding();
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmDireccionesCliente ~ FrmListaMedicion_Shown(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
     }

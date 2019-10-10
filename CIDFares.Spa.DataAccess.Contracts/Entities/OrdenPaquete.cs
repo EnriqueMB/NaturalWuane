@@ -14,5 +14,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         }
         public Guid IdOrdenPaquete { get; set; }
         public Paquetes Paquete { get; set; }
+        public DateTime FechaAlta { get; set; }
     }
 }

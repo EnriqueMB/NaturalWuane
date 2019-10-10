@@ -37,7 +37,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             {
                 BusquedaControl.DataBindings.Add("Text", Model, "Busqueda", true, DataSourceUpdateMode.OnPropertyChanged);
                 this.dgmCitasSinAgendar.AutoGenerateColumns = false;
-                dgmCitasSinAgendar.DataBindings.Add("DataSource", Model, "ListaCitasSinAgendar", true, DataSourceUpdateMode.OnPropertyChanged);
+                dgmCitasSinAgendar.DataBindings.Add("DataSource", Model, "ListaCitasSinAgendarDetalle", true, DataSourceUpdateMode.OnPropertyChanged);
             }
             catch (Exception ex)
             {
@@ -95,11 +95,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             }
         }
 
-        private void btnSeleccionar_Click(object sender, EventArgs e)
+        private async void btnSeleccionar_Click(object sender, EventArgs e)
         {
             try
             {
                 var item = ObtenerSeleccionado();
+                //await Model.GetCitasSinAgendarDetalle(item.Cliente.NombreCompleto, item.OrdenPaquete.IdOrdenPaquete, CurrentSession.IdSucursal);
+                //await Model.
                 if (item != null)
                 {
                     capturaCita = item;
