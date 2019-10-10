@@ -14,13 +14,13 @@ namespace CIDFares.Spa.DataAccess.Contracts.DTOs.Requests
         public VentaTicketRequest()
         {
             dtoVenta = new Venta();
-            dtoProducto = new BindingList<Producto>();
-            dtoPaquete = new BindingList<Paquetes>();
+            dtoProducto = new List<Producto>();
+            //dtoPaquete = new List<Paquetes>();
             dtoServicio = new List<Servicio>();
         }
         public Venta dtoVenta { get; set; }
-        public BindingList<Producto>  dtoProducto  { get; set; }
-        public BindingList<Paquetes>  dtoPaquete { get; set; }
+        public List<Producto>  dtoProducto  { get; set; }
+       // public List<Paquetes>  dtoPaquete { get; set; }
         public List<Servicio>  dtoServicio { get; set; }
         #endregion
 
