@@ -33,7 +33,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #endregion
 
         #region Metodos
-        public async Task<Turno> GetListaTurno(int? IdTurno)
+        public async Task<Turno> GetListaTurno(int? IdTurno)//Los nombres de los metodos deben hacer referencia a lo que en verdan son  o representan
         {
             try
             {

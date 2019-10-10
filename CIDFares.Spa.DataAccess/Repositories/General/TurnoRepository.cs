@@ -127,7 +127,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     conexion.Open();
                     var Parametros = new DynamicParameters();
                     Parametros.Add("@IdTurno", id);
-                    
                     using (var lista2 = conexion.QueryMultipleAsync("[Catalogo].[SPCID_Get_TurnosXId]", param: Parametros, commandType: CommandType.StoredProcedure).Result)
                     {
                         turno = lista2.ReadFirstOrDefault<Turno>();

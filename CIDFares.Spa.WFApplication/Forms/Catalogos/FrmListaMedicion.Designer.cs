@@ -305,6 +305,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmListaMedicion";
             this.Load += new System.EventHandler(this.FrmListaMedicion_Load);
+            this.Shown += new System.EventHandler(this.FrmListaMedicion_Shown);
             this.PnlHead.ResumeLayout(false);
             this.PnlHead.PerformLayout();
             this.panel1.ResumeLayout(false);
