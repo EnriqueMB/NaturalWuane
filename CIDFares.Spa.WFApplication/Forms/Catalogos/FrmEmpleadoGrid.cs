@@ -137,12 +137,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
 
-        private async void btnBusqueda_Click(object sender, EventArgs e)
+        private void btnBusqueda_Click(object sender, EventArgs e)
         {
             try
             {
-                Buscar();
-               
+                Buscar();               
             }
             catch (Exception ex)
             {
