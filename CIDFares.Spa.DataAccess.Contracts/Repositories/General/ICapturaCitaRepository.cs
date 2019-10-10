@@ -14,6 +14,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
         Task<BindingList<CapturaCita>> GetCitaXPeriodo(DateTime fechaInicio, DateTime fechaFin, object IdSucursal);
         Task<IEnumerable<CapturaCita>> GetCitaDetalle(DateTime? fecha, object IdSucursal);
         Task<IEnumerable<OrdenServicio>> GetCitasSinAgendar(string nombreCompleto, object IdSucursal);
+        Task<IEnumerable<CapturaCita>> GetCitasSinAgendarDetalle(string nombreCompleto, object IdSucursal);
         //Task<BindingList<CapturaCita>> GetCitaDetalleServicio(Guid idCita);
         Task<CapturaCita> AddCita(CapturaCita element, object IdUsuario, object IdSucursal);
         Task<CapturaCita> UpdateCita(CapturaCita element, object IdUsuario, object IdSucursal);

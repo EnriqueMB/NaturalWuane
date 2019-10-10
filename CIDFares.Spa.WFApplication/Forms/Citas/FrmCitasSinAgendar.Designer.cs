@@ -34,16 +34,22 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GroupColumnDescription groupColumnDescription1 = new Syncfusion.WinForms.DataGrid.GroupColumnDescription();
             this.pnlGeneral = new System.Windows.Forms.Panel();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgmCitasSinAgendar = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.pnlButtons = new System.Windows.Forms.Panel();
             this.btnSeleccionar = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.BusquedaControl = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.pnlGeneral.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgmCitasSinAgendar)).BeginInit();
@@ -75,36 +81,64 @@
             // 
             this.dgmCitasSinAgendar.AccessibleName = "Table";
             this.dgmCitasSinAgendar.AllowResizingColumns = true;
+            this.dgmCitasSinAgendar.AutoExpandGroups = true;
             this.dgmCitasSinAgendar.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
             gridTextColumn1.AllowResizing = true;
-            gridTextColumn1.HeaderText = "IdCliente";
-            gridTextColumn1.MappingName = "Cliente.IdCliente";
+            gridTextColumn1.HeaderText = "IdAgendaCita";
+            gridTextColumn1.MappingName = "IdAgendaCita";
             gridTextColumn1.Visible = false;
             gridTextColumn2.AllowResizing = true;
-            gridTextColumn2.HeaderText = "NombreCompleto";
-            gridTextColumn2.MappingName = "Cliente.NombreCompleto";
+            gridTextColumn2.HeaderText = "FechaInicio";
+            gridTextColumn2.MappingName = "FechaInicio";
+            gridTextColumn2.Visible = false;
             gridTextColumn3.AllowResizing = true;
-            gridTextColumn3.HeaderText = "IdOrdenServicio";
-            gridTextColumn3.MappingName = "IdOrdenServicio";
+            gridTextColumn3.HeaderText = "FechaFinal";
+            gridTextColumn3.MappingName = "FechaFinal";
             gridTextColumn3.Visible = false;
             gridTextColumn4.AllowResizing = true;
-            gridTextColumn4.HeaderText = "IdPaquete";
-            gridTextColumn4.MappingName = "OrdenPaquete.Paquete.IdPaquete";
+            gridTextColumn4.HeaderText = "IdCliente";
+            gridTextColumn4.MappingName = "OrdenServicio.Cliente.IdCliente";
             gridTextColumn4.Visible = false;
             gridTextColumn5.AllowResizing = true;
             gridTextColumn5.HeaderText = "Paquete";
-            gridTextColumn5.MappingName = "OrdenPaquete.Paquete.Nombre";
+            gridTextColumn5.MappingName = "OrdenServicio.OrdenPaquete.Paquete.Nombre";
             gridTextColumn6.AllowResizing = true;
-            gridTextColumn6.HeaderText = "IdOrdenPaquete";
-            gridTextColumn6.MappingName = "OrdenPaquete.IdOrdenPaquete";
-            gridTextColumn6.Visible = false;
+            gridTextColumn6.HeaderText = "NombreCompleto";
+            gridTextColumn6.MappingName = "OrdenServicio.Cliente.NombreCompleto";
+            gridTextColumn7.AllowResizing = true;
+            gridTextColumn7.HeaderText = "IdOrdenServicio";
+            gridTextColumn7.MappingName = "OrdenServicio.IdOrdenServicio";
+            gridTextColumn7.Visible = false;
+            gridTextColumn8.AllowResizing = true;
+            gridTextColumn8.HeaderText = "IdPaquete";
+            gridTextColumn8.MappingName = "OrdenServicio.OrdenPaquete.Paquete.IdPaquete";
+            gridTextColumn8.Visible = false;
+            gridTextColumn9.AllowResizing = true;
+            gridTextColumn9.HeaderText = "IdOrdenPaquete";
+            gridTextColumn9.MappingName = "OrdenServicio.OrdenPaquete.IdOrdenPaquete";
+            gridTextColumn9.Visible = false;
+            gridTextColumn10.AllowResizing = true;
+            gridTextColumn10.HeaderText = "IdServicio";
+            gridTextColumn10.MappingName = "OrdenServicio.Servicio.IdServicio";
+            gridTextColumn10.Visible = false;
+            gridTextColumn11.AllowResizing = true;
+            gridTextColumn11.HeaderText = "Servicio";
+            gridTextColumn11.MappingName = "OrdenServicio.Servicio.Nombre";
             this.dgmCitasSinAgendar.Columns.Add(gridTextColumn1);
             this.dgmCitasSinAgendar.Columns.Add(gridTextColumn2);
             this.dgmCitasSinAgendar.Columns.Add(gridTextColumn3);
             this.dgmCitasSinAgendar.Columns.Add(gridTextColumn4);
             this.dgmCitasSinAgendar.Columns.Add(gridTextColumn5);
             this.dgmCitasSinAgendar.Columns.Add(gridTextColumn6);
+            this.dgmCitasSinAgendar.Columns.Add(gridTextColumn7);
+            this.dgmCitasSinAgendar.Columns.Add(gridTextColumn8);
+            this.dgmCitasSinAgendar.Columns.Add(gridTextColumn9);
+            this.dgmCitasSinAgendar.Columns.Add(gridTextColumn10);
+            this.dgmCitasSinAgendar.Columns.Add(gridTextColumn11);
             this.dgmCitasSinAgendar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgmCitasSinAgendar.GroupCaptionTextFormat = "{ColumnName} - {ItemsCount} Servicio";
+            groupColumnDescription1.ColumnName = "OrdenServicio.OrdenPaquete.IdOrdenPaquete";
+            this.dgmCitasSinAgendar.GroupColumnDescriptions.Add(groupColumnDescription1);
             this.dgmCitasSinAgendar.Location = new System.Drawing.Point(0, 0);
             this.dgmCitasSinAgendar.Name = "dgmCitasSinAgendar";
             this.dgmCitasSinAgendar.Size = new System.Drawing.Size(963, 334);
@@ -151,6 +185,17 @@
             this.pnlHeader.Size = new System.Drawing.Size(963, 72);
             this.pnlHeader.TabIndex = 0;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(317, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(179, 28);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Nombre del cliente";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -188,17 +233,6 @@
             this.BusquedaControl.Size = new System.Drawing.Size(300, 22);
             this.BusquedaControl.TabIndex = 13;
             this.BusquedaControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BusquedaControl_KeyPress);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(332, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(179, 28);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Nombre del cliente";
             // 
             // FrmCitasSinAgendar
             // 
