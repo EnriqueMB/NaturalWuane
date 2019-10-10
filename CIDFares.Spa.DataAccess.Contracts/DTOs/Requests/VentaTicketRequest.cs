@@ -20,7 +20,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.DTOs.Requests
         }
         public Venta dtoVenta { get; set; }
         public List<Producto>  dtoProducto  { get; set; }
-       // public List<Paquetes>  dtoPaquete { get; set; }
+        //public List<Paquetes>  dtoPaquete { get; set; }
         public List<Servicio>  dtoServicio { get; set; }
         #endregion
 

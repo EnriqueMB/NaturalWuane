@@ -197,7 +197,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             {
                 var x = await Repository.GetTicket(IdVenta);
                 ListaProducto.Clear();
-                ListaPaquete.Clear();
+                //ListaPaquete.Clear();
                 ListaServicio.Clear();
 
                 foreach (var item in x.dtoProducto)
@@ -205,10 +205,10 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
                     ListaProducto.Add(item);
                 }
 
-                foreach (var item in x.dtoPaquete)
-                {
-                    ListaPaquete.Add(item);
-                }
+                //foreach (var item in x.dtoPaquete)
+                //{
+                //    ListaPaquete.Add(item);
+                //}
 
                 foreach (var item in x.dtoServicio)
                 {

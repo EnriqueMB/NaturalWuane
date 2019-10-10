@@ -16,7 +16,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas.TicketVenta
             //Creamos una intancia de la clase CrearTicket
             ImpresoraTicket ticket = new ImpresoraTicket();
             //Ya podemos usar todos sus metodos
-            ticket.AbreCajon();//Para abrir el cajon de dinero 
+            //ticket.AbreCajon();//Para abrir el cajon de dinero 
 
             //Diseño ticket
 
@@ -50,31 +50,29 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas.TicketVenta
 
             }
 
-            foreach (var item in datos.dtoPaquete)
-            {
-                ticket.AgregarArticulos(item.Nombre, item.datoPaquete.Cantidad, item.MontoPaquete, item.datoPaquete.Total );
-            }
+            //foreach (var item in datos.dtoPaquete)
+            //{
+            //    ticket.AgregarArticulos(item.Nombre, item.datoPaquete.Cantidad, item.MontoPaquete, item.datoPaquete.Total );
+            //}
 
             foreach (var item in datos.dtoServicio)
             {
                 ticket.AgregarArticulos(item.Nombre, item.datoServicio.Cantidad, item.Precio, item.datoServicio.Total);
             }
 
+            ticket.lineasAsteriscos();
             //Resumen de la venta
 
             ticket.AgregarTotales("SUBTOTAL......$", datos.dtoVenta.SubTotal);
             ticket.AgregarTotales("IVA...........$", datos.dtoVenta.PorcentajeIva);
             ticket.AgregarTotales("TOTAL.........$", datos.dtoVenta.PrecioConIva);
             ticket.TextoIzquierda("");
-            //ticket.AgregarTotales("EFECTIVO......$", 200);
-            //ticket.AgregarTotales("CAMBIO........$", 200);
-
+          
             //Texto final del ticket
             ticket.TextoIzquierda("");
-            //ticket.TextoIzquierda("ARTICULOS VENDIDOS:3 ");
-            ticket.TextoIzquierda("");
+   
             ticket.TextoCentro("GRACIAS POR SU COMPRA");
-            ticket.CortaTicket();
+            //ticket.CortaTicket();
             ticket.ImprimirTicket("BIXOLON SRP-350plus");
         }
     }     

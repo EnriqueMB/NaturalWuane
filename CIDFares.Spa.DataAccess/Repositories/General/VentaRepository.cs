@@ -242,23 +242,23 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         //    splitOn: "IdVenta,IdCliente").ToList());
                             
 
-                        venta.dtoProducto = new BindingList<Producto>(dr.Read<Producto>(new[] { typeof(Producto),typeof(DetalleProducto)},
+                        venta.dtoProducto = dr.Read<Producto>(new[] { typeof(Producto),typeof(DetalleProducto)},
                             (result) =>
                             {
                                 var opcion = (result[0] as Producto);
                                 opcion.datoProducto = (result[1] as DetalleProducto);
                                 return opcion;
                             },
-                            splitOn: "IdVentaProducto,Nombre").ToList());
+                            splitOn: "IdProducto,IdVentaProducto").ToList();
 
-                        venta.dtoPaquete = new BindingList<Paquetes>(dr.Read<Paquetes>(new[] { typeof(Paquetes), typeof(DetallesPaquete)},
-                            (result) =>
-                            {
-                               var opcion = (result[0] as Paquetes);
-                                opcion.datoPaquete = (result[1] as DetallesPaquete);
-                                return opcion;
-                            },
-                            splitOn: "IdVentaPaquete,Nombre").ToList());
+                        //venta.dtoPaquete = dr.Read<Paquetes>(new[] { typeof(Paquetes), typeof(DetallesPaquete)},
+                        //    (result) =>
+                        //    {
+                        //       var opcion = (result[0] as Paquetes);
+                        //        opcion.datoPaquete = (result[1] as DetallesPaquete);
+                        //        return opcion;
+                        //    },
+                        //    splitOn: "IdPaquete,IdVentaPaquete").ToList();
 
                         venta.dtoServicio = dr.Read<Servicio>(new[] { typeof(Servicio), typeof(DetalleServicio) },
                             (result) =>
