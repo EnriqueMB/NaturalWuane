@@ -38,7 +38,6 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenedoGridGuardar = new System.Windows.Forms.Panel();
             this.panelGuardar = new System.Windows.Forms.Panel();
@@ -48,14 +47,15 @@
             this.panelGrid = new System.Windows.Forms.Panel();
             this.sfDataGridBuquedaProducto = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.panelBuscador = new System.Windows.Forms.Panel();
-            this.BtnBusqueda = new System.Windows.Forms.Button();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.ErrorControl = new System.Windows.Forms.Label();
             this.NombreControl = new System.Windows.Forms.TextBox();
             this.BuquedaClaveCodigoControl = new System.Windows.Forms.TextBox();
             this.BusqueNombreControl = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
             this.BusClaveBarraControl = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblTitulo = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.BtnBusqueda = new System.Windows.Forms.Button();
             this.panelContenedor.SuspendLayout();
             this.panelContenedoGridGuardar.SuspendLayout();
             this.panelGuardar.SuspendLayout();
@@ -204,6 +204,7 @@
             // panelBuscador
             // 
             this.panelBuscador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.panelBuscador.Controls.Add(this.btnBuscar);
             this.panelBuscador.Controls.Add(this.lblTitulo);
             this.panelBuscador.Controls.Add(this.BtnBusqueda);
             this.panelBuscador.Controls.Add(this.ErrorControl);
@@ -217,20 +218,15 @@
             this.panelBuscador.Size = new System.Drawing.Size(916, 58);
             this.panelBuscador.TabIndex = 0;
             // 
-            // BtnBusqueda
+            // lblTitulo
             // 
-            this.BtnBusqueda.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BtnBusqueda.BackColor = System.Drawing.Color.White;
-            this.BtnBusqueda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.BtnBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBusqueda.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBusqueda.Location = new System.Drawing.Point(812, 16);
-            this.BtnBusqueda.Name = "BtnBusqueda";
-            this.BtnBusqueda.Size = new System.Drawing.Size(89, 26);
-            this.BtnBusqueda.TabIndex = 13;
-            this.BtnBusqueda.Text = "Buscar";
-            this.BtnBusqueda.UseVisualStyleBackColor = false;
-            this.BtnBusqueda.Click += new System.EventHandler(this.BtnBusqueda_Click);
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(10, 16);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(174, 30);
+            this.lblTitulo.TabIndex = 14;
+            this.lblTitulo.Text = "Buscar producto";
             // 
             // ErrorControl
             // 
@@ -295,15 +291,35 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // lblTitulo
+            // btnBuscar
             // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(10, 16);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(174, 30);
-            this.lblTitulo.TabIndex = 14;
-            this.lblTitulo.Text = "Buscar producto";
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar;
+            this.btnBuscar.Location = new System.Drawing.Point(775, 18);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(31, 24);
+            this.btnBuscar.TabIndex = 187;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            // 
+            // BtnBusqueda
+            // 
+            this.BtnBusqueda.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.BtnBusqueda.BackColor = System.Drawing.Color.White;
+            this.BtnBusqueda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.BtnBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBusqueda.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBusqueda.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar0;
+            this.BtnBusqueda.Location = new System.Drawing.Point(812, 16);
+            this.BtnBusqueda.Name = "BtnBusqueda";
+            this.BtnBusqueda.Size = new System.Drawing.Size(31, 24);
+            this.BtnBusqueda.TabIndex = 13;
+            this.BtnBusqueda.UseVisualStyleBackColor = false;
+            this.BtnBusqueda.Click += new System.EventHandler(this.BtnBusqueda_Click);
             // 
             // FrmBusquedaProducto
             // 
@@ -350,5 +366,6 @@
         private System.Windows.Forms.Label ErrorControl;
         private System.Windows.Forms.Button BtnBusqueda;
         private System.Windows.Forms.Label lblTitulo;
+        public System.Windows.Forms.Button btnBuscar;
     }
 }

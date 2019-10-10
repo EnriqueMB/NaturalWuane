@@ -121,6 +121,12 @@
     <Compile Include="Forms\Catalogos\FrmTurnoPrincipal.Designer.cs">
       <DependentUpon>FrmTurnoPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Citas\FrmCitasSinAgendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Citas\FrmCitasSinAgendar.Designer.cs">
+      <DependentUpon>FrmCitasSinAgendar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\General\FrmBaseBTN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -538,6 +544,9 @@
     <EmbeddedResource Include="Forms\Catalogos\FrmTurnoPrincipal.resx">
       <DependentUpon>FrmTurnoPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Citas\FrmCitasSinAgendar.resx">
+      <DependentUpon>FrmCitasSinAgendar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\FrmBaseBTN.resx">
       <DependentUpon>FrmBaseBTN.cs</DependentUpon>
     </EmbeddedResource>
@@ -875,6 +884,8 @@
   <ItemGroup>
     <None Include="Resources\cerrar.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\buscar0.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

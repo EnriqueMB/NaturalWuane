@@ -304,7 +304,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public async Task<IEnumerable<Servicio>> ComboServicios(int idPaquete)
+        public async Task<IEnumerable<Servicio>> ComboServicios(Guid idOrdenPaquete)
         {
             try
             {
@@ -312,7 +312,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 {
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
-                    dynamicParameters.Add("@IdPaquete", idPaquete);
+                    dynamicParameters.Add("@IdOrdenPaquete", idOrdenPaquete);
                     var dr = await conexion.QueryAsync<Servicio>("[Paquete].[SPCID_Get_ComboServicioPaquete]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     return dr;
                 }

@@ -38,21 +38,20 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlTitulo = new System.Windows.Forms.Panel();
-            this.BtnBuscar = new System.Windows.Forms.PictureBox();
-            this.btnLimpiarBusqueda = new System.Windows.Forms.Button();
+            this.btnBuscador = new Syncfusion.Windows.Forms.ButtonAdv();
+            this.btnLimpiarBusqueda = new Syncfusion.Windows.Forms.ButtonAdv();
             this.BusquedaControl = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlAcciones = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnNuevo = new CIDFares.Library.Controls.Btn.Btn();
+            this.btnModificar = new CIDFares.Library.Controls.Btn.Btn();
+            this.btnEliminar = new CIDFares.Library.Controls.Btn.Btn();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.DGridAlimento = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.pnlCentral = new System.Windows.Forms.Panel();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnModificar = new CIDFares.Library.Controls.Btn.Btn();
-            this.btnEliminar = new CIDFares.Library.Controls.Btn.Btn();
             this.pnlTitulo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnBuscar)).BeginInit();
             this.pnlAcciones.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlGrid.SuspendLayout();
@@ -63,7 +62,7 @@
             // 
             // pnlTitulo
             // 
-            this.pnlTitulo.Controls.Add(this.BtnBuscar);
+            this.pnlTitulo.Controls.Add(this.btnBuscador);
             this.pnlTitulo.Controls.Add(this.btnLimpiarBusqueda);
             this.pnlTitulo.Controls.Add(this.BusquedaControl);
             this.pnlTitulo.Controls.Add(this.label1);
@@ -73,42 +72,49 @@
             this.pnlTitulo.Size = new System.Drawing.Size(1066, 57);
             this.pnlTitulo.TabIndex = 1;
             // 
-            // BtnBuscar
+            // btnBuscador
             // 
-            this.BtnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
-            this.BtnBuscar.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar;
-            this.BtnBuscar.Location = new System.Drawing.Point(944, 19);
-            this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(31, 24);
-            this.BtnBuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.BtnBuscar.TabIndex = 4;
-            this.BtnBuscar.TabStop = false;
-            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
+            this.btnBuscador.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnBuscador.BeforeTouchSize = new System.Drawing.Size(31, 24);
+            this.btnBuscador.FlatAppearance.BorderSize = 0;
+            this.btnBuscador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscador.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnBuscador.ForeColor = System.Drawing.Color.White;
+            this.btnBuscador.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar;
+            this.btnBuscador.IsBackStageButton = false;
+            this.btnBuscador.Location = new System.Drawing.Point(949, 19);
+            this.btnBuscador.Name = "btnBuscador";
+            this.btnBuscador.Size = new System.Drawing.Size(31, 24);
+            this.btnBuscador.TabIndex = 17;
+            this.btnBuscador.Click += new System.EventHandler(this.btnBuscador_Click);
             // 
             // btnLimpiarBusqueda
             // 
-            this.btnLimpiarBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLimpiarBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLimpiarBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnLimpiarBusqueda.BeforeTouchSize = new System.Drawing.Size(68, 24);
             this.btnLimpiarBusqueda.FlatAppearance.BorderSize = 0;
             this.btnLimpiarBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiarBusqueda.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarBusqueda.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnLimpiarBusqueda.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiarBusqueda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLimpiarBusqueda.Location = new System.Drawing.Point(981, 19);
+            this.btnLimpiarBusqueda.IsBackStageButton = false;
+            this.btnLimpiarBusqueda.Location = new System.Drawing.Point(986, 19);
             this.btnLimpiarBusqueda.Name = "btnLimpiarBusqueda";
             this.btnLimpiarBusqueda.Size = new System.Drawing.Size(68, 24);
-            this.btnLimpiarBusqueda.TabIndex = 3;
+            this.btnLimpiarBusqueda.TabIndex = 16;
             this.btnLimpiarBusqueda.Text = "Limpiar";
-            this.btnLimpiarBusqueda.UseVisualStyleBackColor = false;
             this.btnLimpiarBusqueda.Click += new System.EventHandler(this.btnLimpiarBusqueda_Click);
             // 
             // BusquedaControl
             // 
-            this.BusquedaControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BusquedaControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.BusquedaControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BusquedaControl.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.BusquedaControl.Location = new System.Drawing.Point(573, 20);
+            this.BusquedaControl.Location = new System.Drawing.Point(586, 20);
+            this.BusquedaControl.MaxLength = 200;
             this.BusquedaControl.Name = "BusquedaControl";
             this.BusquedaControl.Size = new System.Drawing.Size(355, 22);
             this.BusquedaControl.TabIndex = 1;
@@ -147,11 +153,13 @@
             // btnNuevo
             // 
             this.btnNuevo.BackColor = System.Drawing.Color.White;
+            this.btnNuevo.BeforeTouchSize = new System.Drawing.Size(123, 29);
             this.btnNuevo.FlatAppearance.BorderSize = 0;
             this.btnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.Color.Black;
+            this.btnNuevo.IsBackStageButton = false;
             this.btnNuevo.Location = new System.Drawing.Point(3, 3);
             this.btnNuevo.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.btnNuevo.MouseHoverForeColor = System.Drawing.Color.White;
@@ -162,6 +170,48 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.BackColor = System.Drawing.Color.White;
+            this.btnModificar.BeforeTouchSize = new System.Drawing.Size(123, 29);
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.Black;
+            this.btnModificar.IsBackStageButton = false;
+            this.btnModificar.Location = new System.Drawing.Point(132, 3);
+            this.btnModificar.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnModificar.MouseHoverForeColor = System.Drawing.Color.White;
+            this.btnModificar.MouseLeaveForeColor = System.Drawing.Color.Black;
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(123, 29);
+            this.btnModificar.TabIndex = 4;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.White;
+            this.btnEliminar.BeforeTouchSize = new System.Drawing.Size(123, 29);
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.Black;
+            this.btnEliminar.IsBackStageButton = false;
+            this.btnEliminar.Location = new System.Drawing.Point(261, 3);
+            this.btnEliminar.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnEliminar.MouseHoverForeColor = System.Drawing.Color.White;
+            this.btnEliminar.MouseLeaveForeColor = System.Drawing.Color.Black;
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(123, 29);
+            this.btnEliminar.TabIndex = 5;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // pnlGrid
             // 
@@ -257,44 +307,6 @@
             // 
             this.error.ContainerControl = this;
             // 
-            // btnModificar
-            // 
-            this.btnModificar.BackColor = System.Drawing.Color.White;
-            this.btnModificar.FlatAppearance.BorderSize = 0;
-            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.ForeColor = System.Drawing.Color.Black;
-            this.btnModificar.Location = new System.Drawing.Point(132, 3);
-            this.btnModificar.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
-            this.btnModificar.MouseHoverForeColor = System.Drawing.Color.White;
-            this.btnModificar.MouseLeaveForeColor = System.Drawing.Color.Black;
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(123, 29);
-            this.btnModificar.TabIndex = 4;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.White;
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminar.Location = new System.Drawing.Point(261, 3);
-            this.btnEliminar.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
-            this.btnEliminar.MouseHoverForeColor = System.Drawing.Color.White;
-            this.btnEliminar.MouseLeaveForeColor = System.Drawing.Color.Black;
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(123, 29);
-            this.btnEliminar.TabIndex = 5;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
             // FrmAlimentoGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,7 +321,6 @@
             this.Shown += new System.EventHandler(this.FrmAlimentoGrid_Shown);
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnBuscar)).EndInit();
             this.pnlAcciones.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
@@ -330,11 +341,11 @@
         private Syncfusion.WinForms.DataGrid.SfDataGrid DGridAlimento;
         private System.Windows.Forms.Panel pnlCentral;
         private System.Windows.Forms.TextBox BusquedaControl;
-        public System.Windows.Forms.Button btnLimpiarBusqueda;
         private System.Windows.Forms.ErrorProvider error;
         private Library.Controls.Btn.Btn btnNuevo;
-        private System.Windows.Forms.PictureBox BtnBuscar;
         private Library.Controls.Btn.Btn btnModificar;
         private Library.Controls.Btn.Btn btnEliminar;
+        private Syncfusion.Windows.Forms.ButtonAdv btnLimpiarBusqueda;
+        private Syncfusion.Windows.Forms.ButtonAdv btnBuscador;
     }
 }
