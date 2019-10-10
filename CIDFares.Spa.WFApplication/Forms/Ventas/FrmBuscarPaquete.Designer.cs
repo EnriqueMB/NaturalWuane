@@ -70,8 +70,9 @@
             this.panelContenedor.Controls.Add(this.panelBuscador);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
+            this.panelContenedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(800, 450);
+            this.panelContenedor.Size = new System.Drawing.Size(1067, 554);
             this.panelContenedor.TabIndex = 0;
             // 
             // panelContenedor1
@@ -79,9 +80,10 @@
             this.panelContenedor1.Controls.Add(this.panelGrid);
             this.panelContenedor1.Controls.Add(this.panelcantidad);
             this.panelContenedor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor1.Location = new System.Drawing.Point(0, 55);
+            this.panelContenedor1.Location = new System.Drawing.Point(0, 68);
+            this.panelContenedor1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelContenedor1.Name = "panelContenedor1";
-            this.panelContenedor1.Size = new System.Drawing.Size(800, 395);
+            this.panelContenedor1.Size = new System.Drawing.Size(1067, 486);
             this.panelContenedor1.TabIndex = 1;
             // 
             // panelGrid
@@ -89,8 +91,9 @@
             this.panelGrid.Controls.Add(this.sfDataGridPaquete);
             this.panelGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGrid.Location = new System.Drawing.Point(0, 0);
+            this.panelGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(600, 395);
+            this.panelGrid.Size = new System.Drawing.Size(800, 486);
             this.panelGrid.TabIndex = 1;
             // 
             // sfDataGridPaquete
@@ -131,8 +134,9 @@
             this.sfDataGridPaquete.Columns.Add(gridTextColumn7);
             this.sfDataGridPaquete.Dock = System.Windows.Forms.DockStyle.Top;
             this.sfDataGridPaquete.Location = new System.Drawing.Point(0, 0);
+            this.sfDataGridPaquete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sfDataGridPaquete.Name = "sfDataGridPaquete";
-            this.sfDataGridPaquete.Size = new System.Drawing.Size(600, 352);
+            this.sfDataGridPaquete.Size = new System.Drawing.Size(800, 433);
             this.sfDataGridPaquete.TabIndex = 4;
             this.sfDataGridPaquete.Text = "sfDataGrid1";
             this.sfDataGridPaquete.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.sfDataGridPaquete_CellDoubleClick);
@@ -143,9 +147,10 @@
             this.panelcantidad.Controls.Add(this.label2);
             this.panelcantidad.Controls.Add(this.CantidadServicioControl);
             this.panelcantidad.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelcantidad.Location = new System.Drawing.Point(600, 0);
+            this.panelcantidad.Location = new System.Drawing.Point(800, 0);
+            this.panelcantidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelcantidad.Name = "panelcantidad";
-            this.panelcantidad.Size = new System.Drawing.Size(200, 395);
+            this.panelcantidad.Size = new System.Drawing.Size(267, 486);
             this.panelcantidad.TabIndex = 0;
             // 
             // BtnAgregar
@@ -155,9 +160,10 @@
             this.BtnAgregar.FlatAppearance.BorderSize = 0;
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAgregar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAgregar.Location = new System.Drawing.Point(37, 210);
+            this.BtnAgregar.Location = new System.Drawing.Point(49, 258);
+            this.BtnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnAgregar.Name = "BtnAgregar";
-            this.BtnAgregar.Size = new System.Drawing.Size(111, 29);
+            this.BtnAgregar.Size = new System.Drawing.Size(148, 36);
             this.BtnAgregar.TabIndex = 14;
             this.BtnAgregar.Text = "Agregar venta";
             this.BtnAgregar.UseVisualStyleBackColor = false;
@@ -169,19 +175,21 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(21, 127);
+            this.label2.Location = new System.Drawing.Point(28, 156);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 20);
+            this.label2.Size = new System.Drawing.Size(195, 22);
             this.label2.TabIndex = 13;
             this.label2.Text = "Cantidad a vender:";
             // 
             // CantidadServicioControl
             // 
             this.CantidadServicioControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.CantidadServicioControl.Location = new System.Drawing.Point(35, 169);
+            this.CantidadServicioControl.Location = new System.Drawing.Point(47, 208);
+            this.CantidadServicioControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CantidadServicioControl.MaxLength = 200;
             this.CantidadServicioControl.Name = "CantidadServicioControl";
-            this.CantidadServicioControl.Size = new System.Drawing.Size(113, 20);
+            this.CantidadServicioControl.Size = new System.Drawing.Size(149, 22);
             this.CantidadServicioControl.TabIndex = 12;
             // 
             // panelBuscador
@@ -196,17 +204,19 @@
             this.panelBuscador.Controls.Add(this.label1);
             this.panelBuscador.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBuscador.Location = new System.Drawing.Point(0, 0);
+            this.panelBuscador.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelBuscador.Name = "panelBuscador";
-            this.panelBuscador.Size = new System.Drawing.Size(800, 55);
+            this.panelBuscador.Size = new System.Drawing.Size(1067, 68);
             this.panelBuscador.TabIndex = 0;
             // 
             // ErrorControl
             // 
             this.ErrorControl.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ErrorControl.AutoSize = true;
-            this.ErrorControl.Location = new System.Drawing.Point(663, 22);
+            this.ErrorControl.Location = new System.Drawing.Point(884, 27);
+            this.ErrorControl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ErrorControl.Name = "ErrorControl";
-            this.ErrorControl.Size = new System.Drawing.Size(0, 13);
+            this.ErrorControl.Size = new System.Drawing.Size(0, 17);
             this.ErrorControl.TabIndex = 12;
             // 
             // btnBuscar
@@ -216,9 +226,10 @@
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(686, 15);
+            this.btnBuscar.Location = new System.Drawing.Point(915, 18);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(89, 26);
+            this.btnBuscar.Size = new System.Drawing.Size(119, 32);
             this.btnBuscar.TabIndex = 5;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
@@ -227,21 +238,24 @@
             // BuquedaClaveControl
             // 
             this.BuquedaClaveControl.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BuquedaClaveControl.Location = new System.Drawing.Point(156, 29);
+            this.BuquedaClaveControl.Location = new System.Drawing.Point(208, 36);
+            this.BuquedaClaveControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BuquedaClaveControl.MaxLength = 200;
             this.BuquedaClaveControl.Name = "BuquedaClaveControl";
-            this.BuquedaClaveControl.Size = new System.Drawing.Size(238, 20);
+            this.BuquedaClaveControl.Size = new System.Drawing.Size(316, 22);
             this.BuquedaClaveControl.TabIndex = 2;
             this.BuquedaClaveControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BuquedaClaveControl_KeyPress);
             // 
             // BandClaveControl
             // 
             this.BandClaveControl.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BandClaveControl.BeforeTouchSize = new System.Drawing.Size(238, 21);
-            this.BandClaveControl.Location = new System.Drawing.Point(166, 5);
+            this.BandClaveControl.BeforeTouchSize = new System.Drawing.Size(317, 26);
+            this.BandClaveControl.ImageCheckBoxSize = new System.Drawing.Size(16, 16);
+            this.BandClaveControl.Location = new System.Drawing.Point(221, 6);
+            this.BandClaveControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BandClaveControl.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
             this.BandClaveControl.Name = "BandClaveControl";
-            this.BandClaveControl.Size = new System.Drawing.Size(238, 21);
+            this.BandClaveControl.Size = new System.Drawing.Size(317, 26);
             this.BandClaveControl.Style = Syncfusion.Windows.Forms.Tools.CheckBoxAdvStyle.Metro;
             this.BandClaveControl.TabIndex = 1;
             this.BandClaveControl.Text = "Buscar por clave o codigo de barra";
@@ -252,21 +266,24 @@
             // NombreControl
             // 
             this.NombreControl.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.NombreControl.Location = new System.Drawing.Point(410, 29);
+            this.NombreControl.Location = new System.Drawing.Point(547, 36);
+            this.NombreControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.NombreControl.MaxLength = 200;
             this.NombreControl.Name = "NombreControl";
-            this.NombreControl.Size = new System.Drawing.Size(226, 20);
+            this.NombreControl.Size = new System.Drawing.Size(300, 22);
             this.NombreControl.TabIndex = 4;
             this.NombreControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombreControl_KeyPress);
             // 
             // BandNombreControl
             // 
             this.BandNombreControl.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BandNombreControl.BeforeTouchSize = new System.Drawing.Size(175, 21);
-            this.BandNombreControl.Location = new System.Drawing.Point(436, 4);
+            this.BandNombreControl.BeforeTouchSize = new System.Drawing.Size(233, 26);
+            this.BandNombreControl.ImageCheckBoxSize = new System.Drawing.Size(16, 16);
+            this.BandNombreControl.Location = new System.Drawing.Point(581, 5);
+            this.BandNombreControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BandNombreControl.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
             this.BandNombreControl.Name = "BandNombreControl";
-            this.BandNombreControl.Size = new System.Drawing.Size(175, 21);
+            this.BandNombreControl.Size = new System.Drawing.Size(233, 26);
             this.BandNombreControl.Style = Syncfusion.Windows.Forms.Tools.CheckBoxAdvStyle.Metro;
             this.BandNombreControl.TabIndex = 3;
             this.BandNombreControl.Text = "Buscar por servicio";
@@ -279,9 +296,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 16);
+            this.label1.Location = new System.Drawing.Point(16, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 21);
+            this.label1.Size = new System.Drawing.Size(167, 23);
             this.label1.TabIndex = 1;
             this.label1.Text = "Buscar paquete";
             // 
@@ -291,11 +309,13 @@
             // 
             // FrmBuscarPaquete
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.panelContenedor);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmBuscarPaquete";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBuscarServicio";
             this.Load += new System.EventHandler(this.FrmBuscarPaquete_Load);
             this.panelContenedor.ResumeLayout(false);
