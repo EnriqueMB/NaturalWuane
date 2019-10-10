@@ -152,7 +152,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                         if (dato.TipoPregunta == "SI/NO")
                         {
                             //ver si el id de la pregunta actual sean iguales a algun iddependede de la lista
-                            //var result = Model.cuestionario.ListaPreguntas.Where(x => x.IdPreguntaDepende == dato.IDPre && x.ActivarCuando.Equals((dato.RdioBtonValue) ? "SI" : "NO")).OrderBy(x => x.Orden).ToList();
+                            //si existe resultados que sean iguales preguntar cuando activarla(si o no)
                             var result = Model.cuestionario.ListaPreguntas.Where(x => x.IdPreguntaDepende == dato.IDPre && x.ActivarCuando.Equals((dato.RdioBtonValue ?? false) ? "SI" : "NO")).OrderBy(x => x.Orden).ToList();
 
                             if(result != null)
@@ -170,7 +170,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                             //if (PreguntasDependientes.Count > 0)
                             //{
                             //    //string value = "";
-                            //    //si existe resultados que sean iguales preguntar cuando activarla(si o no)
                             //    //foreach (var item in result)
                             //    //{
                             //    //    value = item.ActivarCuando;
