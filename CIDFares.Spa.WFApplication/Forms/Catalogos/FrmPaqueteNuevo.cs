@@ -204,7 +204,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 }
                 else
                 {
-                    CIDMessageBox.ShowAlert(Messages.SystemName, "NO EXISTE LA RUTA DE LA IMAGEN", TypeMessage.informacion);
+                    Model.RutaImagen = "SIN FOTO";
                 }
             }
             catch (Exception ex)

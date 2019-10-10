@@ -76,7 +76,6 @@
             this.RutaImagenControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.ImagenControl = new System.Windows.Forms.PictureBox();
             this.BtnSeleccionar = new CIDFares.Library.Controls.Btn.Btn();
-            this.FotoControl = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pnlHeader.SuspendLayout();
@@ -124,7 +123,7 @@
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Location = new System.Drawing.Point(12, 13);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(159, 30);
+            this.lblTitle.Size = new System.Drawing.Size(158, 30);
             this.lblTitle.TabIndex = 3;
             this.lblTitle.Text = "Nuevo servicio";
             // 
@@ -133,7 +132,7 @@
             this.pnlButtons.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.pnlButtons.Controls.Add(this.flButtons);
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlButtons.Location = new System.Drawing.Point(0, 274);
+            this.pnlButtons.Location = new System.Drawing.Point(0, 319);
             this.pnlButtons.Margin = new System.Windows.Forms.Padding(2);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Size = new System.Drawing.Size(837, 60);
@@ -190,7 +189,7 @@
             this.pnlGrid.Location = new System.Drawing.Point(0, 58);
             this.pnlGrid.Margin = new System.Windows.Forms.Padding(2);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(821, 224);
+            this.pnlGrid.Size = new System.Drawing.Size(837, 261);
             this.pnlGrid.TabIndex = 2;
             // 
             // panel1
@@ -268,7 +267,7 @@
             // 
             // IEPSControl
             // 
-            this.IEPSControl.BeforeTouchSize = new System.Drawing.Size(175, 38);
+            this.IEPSControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
             this.IEPSControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.IEPSControl.Location = new System.Drawing.Point(28, 37);
             this.IEPSControl.Margin = new System.Windows.Forms.Padding(2);
@@ -322,7 +321,7 @@
             this.rbPorcentajeControl.Location = new System.Drawing.Point(0, 25);
             this.rbPorcentajeControl.Margin = new System.Windows.Forms.Padding(2);
             this.rbPorcentajeControl.Name = "rbPorcentajeControl";
-            this.rbPorcentajeControl.Size = new System.Drawing.Size(100, 25);
+            this.rbPorcentajeControl.Size = new System.Drawing.Size(101, 25);
             this.rbPorcentajeControl.TabIndex = 1;
             this.rbPorcentajeControl.TabStop = true;
             this.rbPorcentajeControl.Text = "Porcentaje";
@@ -385,13 +384,13 @@
             this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(79, 9);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(122, 21);
+            this.label10.Size = new System.Drawing.Size(123, 21);
             this.label10.TabIndex = 9;
             this.label10.Text = "% Desc. Paquete";
             // 
             // PorcentajePControl
             // 
-            this.PorcentajePControl.BeforeTouchSize = new System.Drawing.Size(175, 38);
+            this.PorcentajePControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
             this.PorcentajePControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.PorcentajePControl.Location = new System.Drawing.Point(103, 35);
             this.PorcentajePControl.Margin = new System.Windows.Forms.Padding(2);
@@ -434,14 +433,14 @@
             // 
             // DescripcionControl
             // 
-            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(175, 38);
+            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(189, 74);
             this.DescripcionControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.DescripcionControl.Location = new System.Drawing.Point(8, 30);
             this.DescripcionControl.Margin = new System.Windows.Forms.Padding(2);
             this.DescripcionControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.DescripcionControl.Multiline = true;
             this.DescripcionControl.Name = "DescripcionControl";
-            this.DescripcionControl.Size = new System.Drawing.Size(154, 23);
+            this.DescripcionControl.Size = new System.Drawing.Size(154, 48);
             this.DescripcionControl.TabIndex = 7;
             // 
             // label4
@@ -501,7 +500,7 @@
             // 
             // PrecioControl
             // 
-            this.PrecioControl.BeforeTouchSize = new System.Drawing.Size(175, 38);
+            this.PrecioControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
             this.PrecioControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.PrecioControl.Location = new System.Drawing.Point(5, 30);
             this.PrecioControl.Margin = new System.Windows.Forms.Padding(2);
@@ -535,7 +534,7 @@
             // 
             // ClaveControl
             // 
-            this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(175, 38);
+            this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
             this.ClaveControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ClaveControl.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.ClaveControl.Location = new System.Drawing.Point(8, 32);
@@ -613,7 +612,7 @@
             // 
             // NombreControl
             // 
-            this.NombreControl.BeforeTouchSize = new System.Drawing.Size(175, 38);
+            this.NombreControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
             this.NombreControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.NombreControl.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.NombreControl.Location = new System.Drawing.Point(6, 35);
@@ -626,32 +625,29 @@
             // 
             // pnlFoto
             // 
+            this.pnlFoto.Controls.Add(this.RutaImagenControl);
             this.pnlFoto.Controls.Add(this.ImagenControl);
             this.pnlFoto.Controls.Add(this.BtnSeleccionar);
-            this.pnlFoto.Controls.Add(this.FotoControl);
             this.pnlFoto.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlFoto.Location = new System.Drawing.Point(630, 0);
             this.pnlFoto.Margin = new System.Windows.Forms.Padding(2);
             this.pnlFoto.Name = "pnlFoto";
-            this.pnlFoto.Size = new System.Drawing.Size(207, 224);
+            this.pnlFoto.Size = new System.Drawing.Size(207, 261);
             this.pnlFoto.TabIndex = 1;
             // 
             // RutaImagenControl
             // 
             this.RutaImagenControl.BackColor = System.Drawing.Color.White;
-            this.RutaImagenControl.BeforeTouchSize = new System.Drawing.Size(175, 38);
-            this.RutaImagenControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RutaImagenControl.BeforeTouchSize = new System.Drawing.Size(189, 74);
             this.RutaImagenControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.RutaImagenControl.CornerRadius = 2;
-            this.RutaImagenControl.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.RutaImagenControl.Location = new System.Drawing.Point(11, 143);
+            this.RutaImagenControl.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.RutaImagenControl.Location = new System.Drawing.Point(7, 145);
             this.RutaImagenControl.Margin = new System.Windows.Forms.Padding(2);
             this.RutaImagenControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.RutaImagenControl.MinimumSize = new System.Drawing.Size(8, 4);
             this.RutaImagenControl.Multiline = true;
             this.RutaImagenControl.Name = "RutaImagenControl";
             this.RutaImagenControl.ReadOnly = true;
-            this.RutaImagenControl.Size = new System.Drawing.Size(175, 38);
+            this.RutaImagenControl.Size = new System.Drawing.Size(189, 74);
             this.RutaImagenControl.TabIndex = 0;
             this.RutaImagenControl.TabStop = false;
             // 
@@ -668,32 +664,16 @@
             // BtnSeleccionar
             // 
             this.BtnSeleccionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnSeleccionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(157)))), ((int)(((byte)(44)))));
-            this.BtnSeleccionar.FlatAppearance.BorderSize = 0;
-            this.BtnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSeleccionar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.BtnSeleccionar.ForeColor = System.Drawing.Color.White;
-            this.BtnSeleccionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSeleccionar.Location = new System.Drawing.Point(43, 188);
-            this.BtnSeleccionar.Name = "BtnSeleccionar";
-            this.BtnSeleccionar.Size = new System.Drawing.Size(118, 28);
-            this.BtnSeleccionar.TabIndex = 44;
-            this.BtnSeleccionar.Text = "Seleccionar imagen";
-            this.BtnSeleccionar.UseVisualStyleBackColor = false;
-            this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
-            // 
-            this.pnlFoto.TabIndex = 1;
-            // 
-            // BtnSeleccionar
-            // 
             this.BtnSeleccionar.BackColor = System.Drawing.Color.White;
             this.BtnSeleccionar.BeforeTouchSize = new System.Drawing.Size(118, 28);
+            this.BtnSeleccionar.FlatAppearance.BorderSize = 0;
             this.BtnSeleccionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.BtnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSeleccionar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSeleccionar.ForeColor = System.Drawing.Color.Black;
+            this.BtnSeleccionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnSeleccionar.IsBackStageButton = false;
-            this.BtnSeleccionar.Location = new System.Drawing.Point(53, 174);
+            this.BtnSeleccionar.Location = new System.Drawing.Point(51, 224);
             this.BtnSeleccionar.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.BtnSeleccionar.MouseHoverForeColor = System.Drawing.Color.White;
             this.BtnSeleccionar.MouseLeaveForeColor = System.Drawing.Color.Black;
@@ -704,16 +684,7 @@
             this.BtnSeleccionar.UseVisualStyleBackColor = false;
             this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
             // 
-            // FotoControl
-            // 
-            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FotoControl.Location = new System.Drawing.Point(2, 11);
-            this.FotoControl.Name = "FotoControl";
-            this.FotoControl.Size = new System.Drawing.Size(203, 124);
-            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.FotoControl.TabIndex = 45;
-            this.FotoControl.TabStop = false;
-            // 
+            // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
@@ -721,7 +692,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 341);
+            this.ClientSize = new System.Drawing.Size(837, 379);
             this.Controls.Add(this.pnlGrid);
             this.Controls.Add(this.pnlButtons);
             this.Controls.Add(this.pnlHeader);
@@ -817,7 +788,6 @@
         private System.Windows.Forms.Label lblIEPS;
         private System.Windows.Forms.Panel pnlFoto;
         private System.Windows.Forms.PictureBox ImagenControl;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt RutaImagenControl;
         private System.Windows.Forms.DateTimePicker DuracionControl;
         private System.Windows.Forms.Label label10;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt PorcentajePControl;
@@ -826,5 +796,6 @@
         private Syncfusion.Windows.Forms.ButtonAdv btnCancelar;
         private Library.Controls.Btn.Btn BtnSeleccionar;
         private System.Windows.Forms.Panel panel1;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt RutaImagenControl;
     }
 }
