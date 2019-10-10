@@ -266,8 +266,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                     BtnBuscar.Enabled = false;
                     groupBoxCita.Enabled = true;
                     NombreCompletoControl.ReadOnly = true;
+                    IdServicioControl.Visible = false;
                     NombreCompletoControl.Text = item.OrdenServicio.Cliente.NombreCompleto;
-                    //Model.IdHora = (TimeSpan)item.FechaInicio;
+                    //var b = item.FechaInicio.TimeOfDay;
+                    Model.IdHora = item.FechaInicio.TimeOfDay;
                     Model.IdCliente = item.OrdenServicio.Cliente.IdCliente;
                     Model.IdAgendaCita = item.IdAgendaCita;
                     Model.IdOrdenServicio = item.OrdenServicio.IdOrdenServicio;
