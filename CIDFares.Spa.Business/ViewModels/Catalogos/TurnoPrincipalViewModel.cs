@@ -11,6 +11,8 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
 {
     public class TurnoPrincipalViewModel : Validable, INotifyPropertyChanged
     {
+        //Faltan las regiones
+
         public BindingList<Turno> ListaTurno { get; set; }
         public BindingList<TurnoDias> ListaValoresDias { get; set; }
         public EntityState State { get; set; }
