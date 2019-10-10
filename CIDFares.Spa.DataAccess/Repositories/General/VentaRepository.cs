@@ -54,7 +54,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@TablaFormaPago", element.TablaFormaPago, DbType.Object);
                     dynamicParameters.Add("@TablaProducto", element.TablaProducto, DbType.Object);
                     dynamicParameters.Add("@TablaServicio", element.TablaServicio, DbType.Object);
-                    //dynamicParameters.Add("@TablaPaquete", element.TablaPaquete, DbType.Object);
+                    dynamicParameters.Add("@TablaPaquete", element.TablaPaquete, DbType.Object);
                     dynamicParameters.Add("@Folio", element.Folio);
                     dynamicParameters.Add("@Subtotal", element.SubTotal);
                     dynamicParameters.Add("@Iva", element.PorcentajeIva);

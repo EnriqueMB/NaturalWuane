@@ -362,6 +362,35 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
+        public async Task<IEnumerable<OrdenServicio>> GetCitasSinPagar(Guid idCliente, int idSucursal)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdCliente", idCliente);
+                    dynamicParameters.Add("@IdSucursal", idSucursal);
+                    //var result = await conexion.QueryAsync<CapturaCita>("[Cita].[SPCID_Get_CitaSinPagar]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var lista = await conexion.QueryAsync<OrdenServicio, Cliente, Paquetes, OrdenPaquete, OrdenServicio>("[Cita].[SPCID_Get_CitaSinPagar]",
+                    (os, cliente, p, op) =>
+                    {
+                        os.Cliente = cliente;
+                        os.OrdenPaquete = op;
+                        os.OrdenPaquete.Paquete = p;
+                        return os;
+                    },
+                    splitOn: "IdOrdenServicio, IdCliente, IdPaquete, IdOrdenPaquete", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<int> DeleteCita(Guid idAgendaCita, Guid idOrdenPaquete, Guid idOrdenServicio, object IdUsuario)
         {
             try

@@ -21,6 +21,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
     {
         public VentasViewModel Model { get; set; }
         public bool resultado { get; set; }
+        public OrdenPaquete OrdenPaquete { get; set; }
 
         public FrmPaqueteVenta(VentasViewModel model)
         {
@@ -34,7 +35,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             try
             {
                 this.GridPaquete.AutoGenerateColumns = false;
-                GridPaquete.DataBindings.Add("DataSource", Model, "ListaPaquete", true, DataSourceUpdateMode.OnPropertyChanged);
+                GridPaquete.DataBindings.Add("DataSource", Model, "ListaOrdenPaquete", true, DataSourceUpdateMode.OnPropertyChanged);
             }
             catch (Exception ex)
             {
@@ -72,25 +73,33 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             
         }
 
-        private DataTable ObtenerTablaPaquete(BindingList<Paquetes> Lista)
+        private DataTable ObtenerTablaPaquete(BindingList<OrdenPaquete> Lista)
         {
-            DataTable Tabla = new DataTable();
-            Tabla.Columns.Add("IdPaquete", typeof(int));
-            Tabla.Columns.Add("EsAbono", typeof(bool));
-            Tabla.Columns.Add("Cantidad", typeof(decimal));
-            Tabla.Columns.Add("Total", typeof(decimal));
-            foreach (var item in Lista)
+            try
             {
-                Tabla.Rows.Add(new object[] { item.IdPaquete, item.Seleccionar, item.CantidadServicio, item.Abono });
+                DataTable Tabla = new DataTable();
+                Tabla.Columns.Add("IdOrdenPaquete", typeof(Guid));
+                Tabla.Columns.Add("EsAbono", typeof(bool));
+                Tabla.Columns.Add("Cantidad", typeof(decimal));
+                Tabla.Columns.Add("Total", typeof(decimal));
+                foreach (var item in Lista)
+                {
+                    Tabla.Rows.Add(new object[] { item.IdOrdenPaquete, item.Paquete.Seleccionar, item.Paquete.CantidadServicio, item.Paquete.Abono });
+                }
+                return Tabla;
             }
-            return Tabla;
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void btnCobrar_Click(object sender, EventArgs e)
         {
             try
             {
-                BindingList<Paquetes> Lista = (BindingList<Paquetes>)GridPaquete.DataSource;
+                BindingList<OrdenPaquete> Lista = (BindingList<OrdenPaquete>)GridPaquete.DataSource;
                 //this.CleanErrors(errorProvider1, typeof(VentasViewModel));
                 //var validationResults = Model.Validate();
                 //validationResults.ToString();
@@ -99,6 +108,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 //{
                     if (Lista.Count > 0)
                     {
+                        
                         Model.Total = Model.Total - TotalVenta();
                         Model.TablaPaquete = ObtenerTablaPaquete(Lista);
                             FrmSeleccionarPago pago = new FrmSeleccionarPago(Model);
@@ -122,7 +132,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             try
             {
-                decimal x = Model.ListaPaquete.Where(p => p.Seleccionar == false).Sum(u => u.Abono);
+                decimal x = Model.ListaOrdenPaquete.Where(p => p.Paquete.Seleccionar == false).Sum(u => u.Paquete.PorPagar);
                 return x;
             }
             catch (Exception ex)
@@ -133,10 +143,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
 
         private void GridPaquete_CurrentCellEndEdit(object sender, Syncfusion.WinForms.DataGrid.Events.CurrentCellEndEditEventArgs e)
         {
-            var x = Model.ListaPaquete.Where(p => p.Abono >= p.MontoPaquete).Select(u => {
-                u.Seleccionar = true;
-                u.Abono = u.MontoPaquete;
-                u.PorPagar = u.MontoPaquete - u.Abono;
+            var x = Model.ListaOrdenPaquete.Where(p => p.Paquete.Abono >= p.Paquete.MontoPaquete).Select(u => {
+                u.Paquete.Seleccionar = true;
+                u.Paquete.Abono = u.Paquete.MontoPaquete;
+                u.Paquete.PorPagar = u.Paquete.MontoPaquete - u.Paquete.Abono;
                 return u;
             }).ToList();
             if (x.Count > 0)
@@ -144,10 +154,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 this.GridPaquete.Refresh();
             }
 
-            var y = Model.ListaPaquete.Where(p => p.Abono <= p.PagoMinimo).Select(u => {
-                u.Seleccionar = false;
-                u.Abono = u.PagoMinimo;
-                u.PorPagar = u.MontoPaquete - u.Abono;
+            var y = Model.ListaOrdenPaquete.Where(p => p.Paquete.Abono <= p.Paquete.PagoMinimo).Select(u => {
+                u.Paquete.Seleccionar = false;
+                u.Paquete.Abono = u.Paquete.PagoMinimo;
+                u.Paquete.PorPagar = u.Paquete.MontoPaquete - u.Paquete.Abono;
                 return u;
             }).ToList();
             if (y.Count > 0)
@@ -155,9 +165,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 this.GridPaquete.Refresh();
             }
 
-            var z = Model.ListaPaquete.Where(p => p.Abono < p.MontoPaquete && p.Abono > p.PagoMinimo).Select(u => {
-                u.Seleccionar = false;
-                u.PorPagar = u.MontoPaquete - u.Abono;
+            var z = Model.ListaOrdenPaquete.Where(p => p.Paquete.Abono < p.Paquete.MontoPaquete && p.Paquete.Abono > p.Paquete.PagoMinimo).Select(u => {
+                u.Paquete.Seleccionar = false;
+                u.Paquete.PorPagar = u.Paquete.MontoPaquete - u.Paquete.Abono;
                 return u;
             }).ToList();
             if (z.Count > 0)
@@ -192,13 +202,13 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             }
         }
 
-        private Paquetes ObtenerSeleccionado()
+        private OrdenPaquete ObtenerSeleccionado()
         {
             try
             {
                 if (GridPaquete.SelectedItems.Count == 1)
                 {
-                    return (Paquetes)GridPaquete.SelectedItem;
+                    return (OrdenPaquete)GridPaquete.SelectedItem;
                 }
                 return null;
             }
@@ -215,17 +225,59 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 var item = ObtenerSeleccionado();
                 if (item != null)
                 {
-                    //this.CleanErrors(errorProvider1, typeof(FormaPagoViewModel));
-                    Cliente c = new Cliente();
+                    if (item.IdOrdenPaquete == Guid.Empty)
+                    {//this.CleanErrors(errorProvider1, typeof(FormaPagoViewModel));
+                        Cliente c = new Cliente();
                         c.NombreCompleto = Model.NombreCompleto;
                         c.IdCliente = Model.IdCliente;
-                    FrmCapturaCitaNuevo cita = new FrmCapturaCitaNuevo(DateTime.Now, item, c);
-                    cita.ShowDialog();
+                        FrmCapturaCitaNuevo cita = new FrmCapturaCitaNuevo(DateTime.Now, item, c);
+                        cita.ShowDialog();
+                        Model.ListaOrdenPaquete.Remove(item);
+                        Model.ListaOrdenPaquete.Add(cita.ordenPaquete);
+                        OrdenPaquete = cita.ordenPaquete;
+                        GridPaquete.Refresh();
+                        ValidarPaquete();
+                    }
+                    else
+                        CIDMessageBox.ShowAlert(Messages.SystemName,"El paquete ya esta agendado", TypeMessage.informacion);
                 }
                 else
                     CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
 
                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void ValidarPaquete()
+        {
+            try
+            {
+                var x = Model.ListaOrdenPaquete.Where(p => p.IdOrdenPaquete == Guid.Empty).Select(u => {
+                    return u;
+                }).ToList();
+                if (x.Count == 0)
+                {
+                    btnCobrar.Enabled = true;
+                    btnNuevo.Enabled = false;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void FrmPaqueteVenta_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                ValidarPaquete();
             }
             catch (Exception)
             {

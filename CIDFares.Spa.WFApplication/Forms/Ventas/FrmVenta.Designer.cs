@@ -71,6 +71,7 @@
             this.lblVenta = new System.Windows.Forms.Label();
             this.pnlCliente = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAgendaPaquete = new System.Windows.Forms.Button();
             this.FotoControl = new System.Windows.Forms.PictureBox();
             this.FolioClienteControl = new System.Windows.Forms.Label();
             this.DireccionControl = new System.Windows.Forms.Label();
@@ -89,7 +90,6 @@
             this.btnProducto = new System.Windows.Forms.Button();
             this.PnlVentaGrid = new System.Windows.Forms.Panel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnVerProducto = new System.Windows.Forms.Button();
             this.pnlGeneral.SuspendLayout();
             this.pnlAcciones.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -527,7 +527,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnVerProducto);
+            this.groupBox1.Controls.Add(this.btnAgendaPaquete);
             this.groupBox1.Controls.Add(this.FotoControl);
             this.groupBox1.Controls.Add(this.FolioClienteControl);
             this.groupBox1.Controls.Add(this.DireccionControl);
@@ -542,6 +542,21 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del cliente";
+            // 
+            // btnAgendaPaquete
+            // 
+            this.btnAgendaPaquete.BackColor = System.Drawing.Color.White;
+            this.btnAgendaPaquete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnAgendaPaquete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgendaPaquete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnAgendaPaquete.Location = new System.Drawing.Point(16, 323);
+            this.btnAgendaPaquete.Name = "btnAgendaPaquete";
+            this.btnAgendaPaquete.Size = new System.Drawing.Size(182, 33);
+            this.btnAgendaPaquete.TabIndex = 8;
+            this.btnAgendaPaquete.Text = "Paquetes Agendadas";
+            this.btnAgendaPaquete.UseVisualStyleBackColor = false;
+            this.btnAgendaPaquete.Visible = false;
+            this.btnAgendaPaquete.Click += new System.EventHandler(this.btnVerProducto_Click);
             // 
             // FotoControl
             // 
@@ -721,21 +736,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // btnVerProducto
-            // 
-            this.btnVerProducto.BackColor = System.Drawing.Color.White;
-            this.btnVerProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnVerProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnVerProducto.Location = new System.Drawing.Point(19, 323);
-            this.btnVerProducto.Name = "btnVerProducto";
-            this.btnVerProducto.Size = new System.Drawing.Size(169, 33);
-            this.btnVerProducto.TabIndex = 8;
-            this.btnVerProducto.Text = "Ver paquetes";
-            this.btnVerProducto.UseVisualStyleBackColor = false;
-            this.btnVerProducto.Visible = false;
-            this.btnVerProducto.Click += new System.EventHandler(this.btnVerProducto_Click);
-            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -831,6 +831,6 @@
         private System.Windows.Forms.TextBox BusquedaControl;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel PnlVentaGrid;
-        private System.Windows.Forms.Button btnVerProducto;
+        private System.Windows.Forms.Button btnAgendaPaquete;
     }
 }

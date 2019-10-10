@@ -295,7 +295,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmOutMessage) == DialogResult.OK)
+                if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmCancelInput) == DialogResult.OK)
                     this.Close();
             }
             catch (Exception ex)
