@@ -31,8 +31,8 @@
             this.pnlTop = new System.Windows.Forms.Panel();
             this.pnlButtom = new System.Windows.Forms.Panel();
             this.pnlCenter = new System.Windows.Forms.Panel();
-            this.btnImportar = new System.Windows.Forms.Button();
             this.btnExportar = new System.Windows.Forms.Button();
+            this.btnImportar = new System.Windows.Forms.Button();
             this.pnlCenter.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,24 +62,25 @@
             this.pnlCenter.Size = new System.Drawing.Size(352, 250);
             this.pnlCenter.TabIndex = 2;
             // 
-            // btnImportar
-            // 
-            this.btnImportar.Location = new System.Drawing.Point(73, 127);
-            this.btnImportar.Name = "btnImportar";
-            this.btnImportar.Size = new System.Drawing.Size(75, 23);
-            this.btnImportar.TabIndex = 0;
-            this.btnImportar.Text = "IMPORTAR";
-            this.btnImportar.UseVisualStyleBackColor = true;
-            // 
             // btnExportar
             // 
-            this.btnExportar.Location = new System.Drawing.Point(217, 127);
+            this.btnExportar.Location = new System.Drawing.Point(218, 131);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(75, 23);
             this.btnExportar.TabIndex = 1;
             this.btnExportar.Text = "EXPORTAR";
             this.btnExportar.UseVisualStyleBackColor = true;
             this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
+            // btnImportar
+            // 
+            this.btnImportar.Location = new System.Drawing.Point(69, 131);
+            this.btnImportar.Name = "btnImportar";
+            this.btnImportar.Size = new System.Drawing.Size(75, 23);
+            this.btnImportar.TabIndex = 0;
+            this.btnImportar.Text = "IMPORTAR";
+            this.btnImportar.UseVisualStyleBackColor = true;
+            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
             // 
             // FrmInventarioTest
             // 

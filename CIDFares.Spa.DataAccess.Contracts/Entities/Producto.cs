@@ -44,6 +44,8 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public string Base64String { get; set; }
         public string UrlFoto { get; set; }
         public bool UpdateFoto { get; set; }
+
+        public int CantidadProducto { get; set; }
         #endregion
 
     }

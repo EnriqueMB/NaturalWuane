@@ -36,7 +36,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
             #region  Binding
            // Folio = string.Empty;
             Busqueda = string.Empty;
-            Tipo = 0;
+            Tipo = "S";
             Cantidad = 0;
             Fecha = DateTime.Now;
             #endregion
@@ -109,9 +109,9 @@ namespace CIDFares.Spa.Business.ViewModels.General
                 OnPropertyChanged(nameof(Busqueda));
             }
         }
-        private int _Tipo;
+        private string _Tipo;
 
-        public int Tipo
+        public string Tipo
         {
             get { return _Tipo; }
             set { _Tipo = value; OnPropertyChanged("Tipo"); }

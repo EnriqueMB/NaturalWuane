@@ -1,11 +1,17 @@
-﻿using CIDFares.Spa.Business.ViewModels.General;
+﻿using CIDFares.Library.Code.Helpers;
+using CIDFares.Library.Controls.CIDMessageBox.Code;
+using CIDFares.Library.Controls.CIDMessageBox.Enums;
+using CIDFares.Library.Controls.CIDWait.Code;
+using CIDFares.Spa.Business.ViewModels.General;
 using CIDFares.Spa.CrossCutting.Services;
+using CIDFares.Spa.WFApplication.Constants;
 using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +23,8 @@ namespace CIDFares.Spa.WFApplication.Forms.General
     {
         #region Propiedades privadas
         public InventarioFisicoViewModel Model { get; set; }
+        public static string PathAr = Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Excel\Producto.xlsx");
+        public static string Nombre = "Producto";
         #endregion
         #region Propiedades publicas
 
@@ -27,32 +35,36 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             Model = ServiceLocator.Instance.Resolve<InventarioFisicoViewModel>();
         }
 
-        private void btnExportar_Click(object sender, EventArgs e)
+        private async void btnExportar_Click(object sender, EventArgs e)
         {
             try
             {
-                //if (ValidarExcel())
+                //CIDWait.Show(async () =>
                 //{
-                    this.ExportarExcel();
-                //}
+                    await Model.GetProducto(CurrentSession.IdSucursal, PathAr, Nombre);
+                //    await Task.Delay(2000);
+                //}, "Espere");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
             }
             catch (Exception ex)
             {
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmInventarioTest ~ btnExportar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
 
-        private async void ExportarExcel()
+
+        private void btnImportar_Click(object sender, EventArgs e)
         {
             try
             {
-                this.btnExportar.Enabled = false;
-                await Model.GetProducto(CurrentSession.IdSucursal);
-         
+                Model.Importar(CurrentSession.IdSucursal, Nombre);
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
             }
             catch (Exception ex)
             {
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmInventarioTest ~ btnImportar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
     }

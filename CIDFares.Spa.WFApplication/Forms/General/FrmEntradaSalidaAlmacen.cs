@@ -33,8 +33,8 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         private class Tipo
         {
             public string Nombre { get; set; }
-            public int Id { get; set; }
-            public Tipo(string N, int I)
+            public string Id { get; set; }
+            public Tipo(string N, string I)
             {
                 Nombre = N;
                 Id = I;
@@ -156,7 +156,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         {
             Model.ListaProducto.Clear();
             Model.Fecha = DateTime.Now;
-            Model.Tipo = 2;
+            Model.Tipo = "S";
             Model.Motivo = string.Empty;
             Model.GetFolio();
             Model.Cantidad = 0;
@@ -167,9 +167,9 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         public void IniciarCombos()
         {
             List<Tipo> ListaTipo = new List<Tipo>();
-            ListaTipo.Add(new Tipo("SELECCIONE", 2));
-            ListaTipo.Add(new Tipo("ENTRADA", 0));
-            ListaTipo.Add(new Tipo("SALIDA", 1));
+            ListaTipo.Add(new Tipo("SELECCIONE", "S"));
+            ListaTipo.Add(new Tipo("ENTRADA", "ENTRADA"));
+            ListaTipo.Add(new Tipo("SALIDA", "SALIDA"));
 
             TipoControl.DataSource = ListaTipo;
 
@@ -216,18 +216,18 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             try
             {
                 errorProvider1.SetError(TipoControl, string.Empty);
-                if(Model.Tipo != 2)
+                if(Model.Tipo != "S")
                 { 
                     FrmBusquedaProducto FProducto = new FrmBusquedaProducto();
                     FProducto.ShowDialog();
                     if (FProducto.producto.IdProducto != 0)
                     {
                         var item = FProducto.producto;
-                        if (Model.Tipo == 0)
+                        if (Model.Tipo == "ENTRADA")
                         {
                             LLenarGrid(FProducto.producto);
                         }
-                        else if (Model.Tipo == 1)
+                        else if (Model.Tipo == "SALIDA")
                         {
                             decimal cantidadAnterior = BuscarCantidad(item);
                             int cantidadActual = 0;
@@ -245,7 +245,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                     }
                     
                 }
-                else if (Model.Tipo == 2)
+                else if (Model.Tipo == "S")
                 {
                     errorProvider1.SetError(TipoControl, "Debe seleccionar un tipo");
                 }
@@ -391,7 +391,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         {
             var X = Model.Tipo;
             var Y = Model.Cantidad;
-            if (X==1 && Y!=0)
+            if (X=="SALIDA" && Y!=0)
             {
                 if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.HaveProduct) == DialogResult.OK )
                 Model.ListaProducto.Clear();

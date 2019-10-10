@@ -25,7 +25,7 @@ namespace CIDFares.Spa.WFApplication.Validations
               ).WithMessage("LA FECHA NO PUEDE SER MAYOR A LA FECHA ACTUAL.");
 
             RuleFor(EntradaSalida => EntradaSalida.Tipo)
-                .NotEqual(2)
+                .NotEqual("S")
                 .WithMessage("DEBES SELECCIONAR EL TIPO DE MOVIMIENTO");
 
             RuleFor(EntrdaSalida => EntrdaSalida.Motivo)

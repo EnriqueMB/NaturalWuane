@@ -513,6 +513,20 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             GetPanel(new FrmEntradaSalidaAlmacen());
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmInventarioTest nv = new FrmInventarioTest();
+                nv.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         private void SlideGenerales(Button button)
         {
             SlidePanelgenerales.Visible = true;

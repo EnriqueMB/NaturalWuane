@@ -3,6 +3,7 @@ using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using CIDFares.Spa.DataAccess.Repositories.Base;
 using System;
 using System.Collections.Generic;
+using CIDFares.Library.Code.Extensions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,7 +41,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
-        
+
 
         public Task<int> NameExistAsync(string name)
         {
@@ -60,10 +61,10 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 using (IDbConnection conexion = new SqlConnection(WebConnectionString))
                 {
                     conexion.Open();
-                    DynamicParameters  Parametros = new DynamicParameters();
+                    DynamicParameters Parametros = new DynamicParameters();
                     Parametros.Add("@IdSucursal", IdSucursal);
-                    return  await conexion.QueryAsync<Producto>("[Inventario].[SPCID_Get_InventarioFisico]", param: IdSucursal, commandType: CommandType.StoredProcedure);
-                    
+                    return await conexion.QueryAsync<Producto>("[Inventario].[SPCID_Get_InventarioFisico]", param: Parametros, commandType: CommandType.StoredProcedure);
+
                 }
             }
             catch (Exception ex)
@@ -72,5 +73,43 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
+        public async Task<int> ActualizarProducto(List<Producto> List, object IdSucursal)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    DynamicParameters Parametros = new DynamicParameters();
+                    Parametros.Add("@IdSucursal", IdSucursal);
+                    Parametros.Add("@TablaInventario", List.ToDataTable(new List<string> { "IdProducto", "CantidadProducto" }), DbType.Object);
+                    var x = await conexion.ExecuteScalarAsync<int>("[Inventario].[SPCID_A_InventarioProducto]", param: Parametros, commandType: CommandType.StoredProcedure);
+                    return x;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task<IEnumerable<Producto>> GetCantidadProductos(object IdSucursal)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    DynamicParameters Parametros = new DynamicParameters();
+                    Parametros.Add("@IdSucursal", IdSucursal);
+                    var x= await conexion.QueryAsync<Producto>("[Inventario].[SPCID_Get_CantidadProducto]", param: Parametros, commandType: CommandType.StoredProcedure);
+                    return x;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

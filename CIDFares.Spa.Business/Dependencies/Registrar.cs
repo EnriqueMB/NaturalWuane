@@ -44,6 +44,7 @@ namespace CIDFares.Spa.Business.Dependencies
             ServiceLocator.Instance.Register<ProductosMonederoRepository, IProductosMonederoRepository>();
             ServiceLocator.Instance.Register<EntradaSalidaAlmacenRepository, IEntradaSalidaAlmacenRepository>();
             ServiceLocator.Instance.Register<InventarioFisicoRepository, IInventarioFisicoRepository>();
+            ServiceLocator.Instance.Register<Excel, IExcel>();
             ServiceLocator.Instance.Register<AlimentoRepository, IAlimentoRepository>();
             ServiceLocator.Instance.Register<TipoAlimentoRepository, ITipoAlimentoRepository>();
             ServiceLocator.Instance.Register<CambioVentaRepository, ICambioVentaRepository>();

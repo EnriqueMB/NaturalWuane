@@ -19,7 +19,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public string Nombre { get; set; }
         public string Clave { get; set; }
         public string Motivo { get; set; }
-        public int Tipo { get; set; }
+        public string Tipo { get; set; }
         public int Cantidad { get; set; }
         public string Descripcion { get; set; }
         public decimal PrecioCosto { get; set; }
