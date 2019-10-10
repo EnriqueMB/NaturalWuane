@@ -52,6 +52,7 @@ namespace CIDFares.Spa.Business.Dependencies
             ServiceLocator.Instance.Register<CancelacionVentaRepository, ICancelacionVentaRepository>();
             ServiceLocator.Instance.Register<TurnoPrincipalRepository, ITurnoPrincipalRepository>();
             ServiceLocator.Instance.Register<DireccionesClienteRepository, IDireccionesClienteRepository>();
+
         }
     }
 }

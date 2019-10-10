@@ -121,9 +121,10 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(12, 13);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(158, 30);
+            this.lblTitle.Size = new System.Drawing.Size(159, 30);
             this.lblTitle.TabIndex = 3;
             this.lblTitle.Text = "Nuevo servicio";
             // 
@@ -267,14 +268,14 @@
             // 
             // IEPSControl
             // 
-            this.IEPSControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
+            this.IEPSControl.BeforeTouchSize = new System.Drawing.Size(78, 26);
             this.IEPSControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.IEPSControl.Location = new System.Drawing.Point(28, 37);
             this.IEPSControl.Margin = new System.Windows.Forms.Padding(2);
             this.IEPSControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.IEPSControl.Multiline = true;
             this.IEPSControl.Name = "IEPSControl";
-            this.IEPSControl.Size = new System.Drawing.Size(134, 23);
+            this.IEPSControl.Size = new System.Drawing.Size(134, 26);
             this.IEPSControl.TabIndex = 9;
             // 
             // label6
@@ -321,7 +322,7 @@
             this.rbPorcentajeControl.Location = new System.Drawing.Point(0, 25);
             this.rbPorcentajeControl.Margin = new System.Windows.Forms.Padding(2);
             this.rbPorcentajeControl.Name = "rbPorcentajeControl";
-            this.rbPorcentajeControl.Size = new System.Drawing.Size(101, 25);
+            this.rbPorcentajeControl.Size = new System.Drawing.Size(100, 25);
             this.rbPorcentajeControl.TabIndex = 1;
             this.rbPorcentajeControl.TabStop = true;
             this.rbPorcentajeControl.Text = "Porcentaje";
@@ -384,20 +385,20 @@
             this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(79, 9);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(123, 21);
+            this.label10.Size = new System.Drawing.Size(122, 21);
             this.label10.TabIndex = 9;
             this.label10.Text = "% Desc. Paquete";
             // 
             // PorcentajePControl
             // 
-            this.PorcentajePControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
+            this.PorcentajePControl.BeforeTouchSize = new System.Drawing.Size(78, 26);
             this.PorcentajePControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.PorcentajePControl.Location = new System.Drawing.Point(103, 35);
             this.PorcentajePControl.Margin = new System.Windows.Forms.Padding(2);
             this.PorcentajePControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.PorcentajePControl.Multiline = true;
             this.PorcentajePControl.Name = "PorcentajePControl";
-            this.PorcentajePControl.Size = new System.Drawing.Size(78, 23);
+            this.PorcentajePControl.Size = new System.Drawing.Size(78, 26);
             this.PorcentajePControl.TabIndex = 8;
             // 
             // label8
@@ -433,7 +434,7 @@
             // 
             // DescripcionControl
             // 
-            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(189, 74);
+            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(78, 26);
             this.DescripcionControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.DescripcionControl.Location = new System.Drawing.Point(8, 30);
             this.DescripcionControl.Margin = new System.Windows.Forms.Padding(2);
@@ -500,14 +501,14 @@
             // 
             // PrecioControl
             // 
-            this.PrecioControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
+            this.PrecioControl.BeforeTouchSize = new System.Drawing.Size(78, 26);
             this.PrecioControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.PrecioControl.Location = new System.Drawing.Point(5, 30);
             this.PrecioControl.Margin = new System.Windows.Forms.Padding(2);
             this.PrecioControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.PrecioControl.Multiline = true;
             this.PrecioControl.Name = "PrecioControl";
-            this.PrecioControl.Size = new System.Drawing.Size(176, 23);
+            this.PrecioControl.Size = new System.Drawing.Size(176, 26);
             this.PrecioControl.TabIndex = 7;
             // 
             // label2
@@ -534,7 +535,7 @@
             // 
             // ClaveControl
             // 
-            this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
+            this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(78, 26);
             this.ClaveControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ClaveControl.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.ClaveControl.Location = new System.Drawing.Point(8, 32);
@@ -542,7 +543,7 @@
             this.ClaveControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.ClaveControl.Multiline = true;
             this.ClaveControl.Name = "ClaveControl";
-            this.ClaveControl.Size = new System.Drawing.Size(154, 23);
+            this.ClaveControl.Size = new System.Drawing.Size(175, 26);
             this.ClaveControl.TabIndex = 9;
             // 
             // label5
@@ -612,7 +613,7 @@
             // 
             // NombreControl
             // 
-            this.NombreControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
+            this.NombreControl.BeforeTouchSize = new System.Drawing.Size(78, 26);
             this.NombreControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.NombreControl.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.NombreControl.Location = new System.Drawing.Point(6, 35);
@@ -620,7 +621,7 @@
             this.NombreControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.NombreControl.Multiline = true;
             this.NombreControl.Name = "NombreControl";
-            this.NombreControl.Size = new System.Drawing.Size(175, 23);
+            this.NombreControl.Size = new System.Drawing.Size(175, 26);
             this.NombreControl.TabIndex = 0;
             // 
             // pnlFoto
@@ -638,7 +639,7 @@
             // RutaImagenControl
             // 
             this.RutaImagenControl.BackColor = System.Drawing.Color.White;
-            this.RutaImagenControl.BeforeTouchSize = new System.Drawing.Size(189, 74);
+            this.RutaImagenControl.BeforeTouchSize = new System.Drawing.Size(78, 26);
             this.RutaImagenControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.RutaImagenControl.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.RutaImagenControl.Location = new System.Drawing.Point(7, 145);

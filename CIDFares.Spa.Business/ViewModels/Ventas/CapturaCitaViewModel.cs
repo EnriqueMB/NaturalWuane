@@ -173,11 +173,11 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
-        public async Task<int> DeleteAsync(Guid IdAgendaCita, Guid idUsuario)
+        public async Task<int> DeleteAsync(Guid IdAgendaCita, Guid idOrdenPaquete, Guid idOrdenServicio, Guid idUsuario)
         {
             try
             {
-                return await Repository.DeleteAsync(IdAgendaCita, idUsuario);                
+                return await Repository.DeleteCita(IdAgendaCita, idOrdenPaquete, idOrdenServicio, idUsuario);                
             }
             catch (Exception ex)
             {

@@ -116,6 +116,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(20, 4);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(190, 30);
@@ -126,6 +127,7 @@
             // 
             this.lblSubtitle.AutoSize = true;
             this.lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblSubtitle.ForeColor = System.Drawing.Color.White;
             this.lblSubtitle.Location = new System.Drawing.Point(23, 34);
             this.lblSubtitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSubtitle.Name = "lblSubtitle";

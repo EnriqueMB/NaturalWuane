@@ -80,6 +80,7 @@
     <Compile Include="ViewModels\General\ProductosMonederoViewModel.cs" />
     <Compile Include="ViewModels\Ventas\CambioVentaViewModel.cs" />
     <Compile Include="ViewModels\Ventas\CancelacionVentaViewModel.cs" />
+    <Compile Include="ViewModels\Ventas\PaquetesClienteViewModel.cs" />
     <Compile Include="ViewModels\Ventas\SeleccionarPagoViewModel.cs" />
     <Compile Include="ViewModels\General\SucursalViewModel.cs" />
     <Compile Include="ViewModels\Ventas\VentasViewModel.cs" />

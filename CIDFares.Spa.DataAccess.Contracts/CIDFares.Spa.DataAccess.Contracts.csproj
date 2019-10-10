@@ -63,6 +63,7 @@
     <Compile Include="DTOs\Requests\DireccionesClienteRequest.cs" />
     <Compile Include="DTOs\Requests\EncuestaRequest.cs" />
     <Compile Include="DTOs\Requests\LoginRequests.cs" />
+    <Compile Include="DTOs\Requests\VentaTicketRequest.cs" />
     <Compile Include="Entities\Alimento.cs" />
     <Compile Include="Entities\AbonoPaquete.cs" />
     <Compile Include="Entities\AbonoPaqueteDetalle.cs" />
@@ -76,6 +77,9 @@
     <Compile Include="Entities\Compra.cs" />
     <Compile Include="Entities\CompraCancelacion.cs" />
     <Compile Include="Entities\Cuestionario.cs" />
+    <Compile Include="Entities\DetalleProducto.cs" />
+    <Compile Include="Entities\DetalleServicio.cs" />
+    <Compile Include="Entities\DetallesPaquete.cs" />
     <Compile Include="Entities\DireccionesCliente.cs" />
     <Compile Include="Entities\EntradaSalidaAlmacen.cs" />
     <Compile Include="Entities\Estado.cs" />

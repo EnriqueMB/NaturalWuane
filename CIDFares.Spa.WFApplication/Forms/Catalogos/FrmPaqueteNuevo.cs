@@ -41,6 +41,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<PaqueteViewModel>();
             Model.State = EntityState.Create;
+            BtnSubirImagen.FlatAppearance.BorderSize = 1;
+            this.ActiveControl = this.ClaveControl;
+            this.ClaveControl.Focus();
         }
 
         public FrmPaqueteNuevo(Paquetes paquete)
@@ -124,6 +127,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     Model.ListaDetallePaquete.Remove(item);
                     TotalVenta();
                 }
+                else
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
             }
             catch (Exception ex)
             {
@@ -282,8 +287,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     if (Model.RutaAux != "" && Model.RutaAux != null)
                         File.Delete(Model.RutaAux);//Borramos la imagen desde la carpeta RESOURCES
                     this.Close();
-                }
-                
+                }                
             }
             catch (Exception ex)
             {
@@ -373,10 +377,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                             Tipo = "Producto",
                             Cantidad = Producto.CantidadProducto,
                             Nombre = Producto.Nombre,
-                            Precios = Producto.PrecioPublico,
-                            PrecioSinDescuento = Producto.CantidadProducto * Producto.PrecioPublico,
+                            Precios = Producto.Precio,
+                            PrecioSinDescuento = Producto.CantidadProducto * Producto.Precio,
                             PorcentajeDescuento = Producto.PorcentajePaquete,
-                            PrecioDescuento = Producto.CantidadProducto * (Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajePaquete / 100)))
+                            PrecioDescuento = Producto.CantidadProducto * (Producto.Precio - (Producto.Precio * (Producto.PorcentajePaquete / 100)))
                         });
                         TotalVenta();
                     }
@@ -385,8 +389,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         List<PaqueteDetalle> x = Model.ListaDetallePaquete.Where(p => p.IdGenerico == Producto.IdProducto && p.IdTipo == Producto.IdTipo).Select(u =>
                         {
                             u.Cantidad += Producto.CantidadProducto;
-                            u.PrecioSinDescuento = u.Cantidad * Producto.PrecioPublico;
-                            u.PrecioDescuento += Producto.PrecioPublico - (Producto.PrecioPublico * (u.PorcentajeDescuento / 100));
+                            u.PrecioSinDescuento = u.Cantidad * Producto.Precio;
+                            u.PrecioDescuento += Producto.Precio - (Producto.Precio * (u.PorcentajeDescuento / 100));
                             return u;
                         }).ToList();
                         if (x.Count == 1)
@@ -403,10 +407,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                                 Tipo = "Producto",
                                 Cantidad = Producto.CantidadProducto,
                                 Nombre = Producto.Nombre,
-                                Precios = Producto.PrecioPublico,
-                                PrecioSinDescuento = Producto.CantidadProducto * Producto.PrecioPublico,
+                                Precios = Producto.Precio,
+                                PrecioSinDescuento = Producto.CantidadProducto * Producto.Precio,
                                 PorcentajeDescuento = Producto.PorcentajePaquete,
-                                PrecioDescuento = Producto.CantidadProducto * (Producto.PrecioPublico - (Producto.PrecioPublico * (Producto.PorcentajePaquete / 100)))
+                                PrecioDescuento = Producto.CantidadProducto * (Producto.Precio - (Producto.Precio * (Producto.PorcentajePaquete / 100)))
                             });
                             TotalVenta();
                         }

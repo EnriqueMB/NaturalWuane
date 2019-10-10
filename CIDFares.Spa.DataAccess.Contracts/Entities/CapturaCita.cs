@@ -24,6 +24,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public int Resultado { get; set; }
         public TimeSpan IdHora { get; set; }
         public string Hora { get; set; }
+        
 
 
 

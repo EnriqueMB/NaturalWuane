@@ -9,6 +9,10 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
 {
     public class Paquetes
     {
+        public Paquetes()
+        {
+            datoPaquete = new DetallesPaquete();
+        }
         public int IdPaquete { get; set; }
         public string Clave { get; set; }
         public string Nombre { get; set; }
@@ -28,6 +32,8 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public decimal PorcentajePago { get; set; }
         public decimal Abono { get; set; }
         public decimal PorPagar { get; set; }
+        public DetallesPaquete datoPaquete { get; set; }
         public string UrlImagen { get; set; }
+
     }
 }

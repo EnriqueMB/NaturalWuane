@@ -18,6 +18,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CIDFares.Spa.WFApplication.Session;
+using CIDFares.Spa.WFApplication.Forms.Citas;
 
 namespace CIDFares.Spa.WFApplication.Forms.Ventas
 {
@@ -29,6 +30,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
 
         #region propiedades privadas
         private Cliente cliente = new Cliente();
+        private OrdenPaquete ordenPaquete = new OrdenPaquete();
         #endregion
 
         #region Constructor
@@ -115,20 +117,20 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             try
             {
-                Model.ListaPaqueteCliente.Clear();
+                EliminarPaquetes();
                 FrmBuscarCliente cliente = new FrmBuscarCliente();
                 cliente.ShowDialog();
                 if (cliente.cliente.IdCliente != Guid.Empty)
                 {
-                    btnVerProducto.Visible = false;
+                    btnAgendaPaquete.Visible = false;
                     LlenarCliente(cliente.cliente);
-                    await Model.GetAllPaqueteAsync(CurrentSession.IdSucursal);
-                    if(Model.ListaPaqueteCliente.Count > 0)
-                    {
-                        AgregarPaquetesCliente();
+                    btnAgendaPaquete.Visible = true;
+                    //await Model.GetAllPaqueteAsync(CurrentSession.IdSucursal);
+                    //if(Model.ListaPaqueteCliente.Count > 0)
+                    //{
+                    //    AgregarPaquetesCliente();
                        
-                    }
-                    
+                    //}
                 }
 
             }
@@ -202,28 +204,53 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
 
         private void ObtenerLista(BindingList<Venta> Lista)
         {
-            Model.ListaPaquete.Clear();
-            Paquetes paquete;
+            Model.ListaOrdenPaquete.Clear();
+            OrdenPaquete ordenPaquete;
             foreach (var item in Lista)
             {
                 if (item.IdTipo == 3)
                 {
 
-                    paquete = new Paquetes();
-                    paquete.PorcentajePago = 50;
-                    paquete.IdPaquete = item.IdGenerico;
-                    paquete.Nombre = item.Nombre;
-                    paquete.MontoPaquete = item.Total;
-                    paquete.CantidadServicio = (int)item.Cantidad;
-                    paquete.Seleccionar = true;
-                    paquete.PagoMinimo = paquete.MontoPaquete - (paquete.MontoPaquete * (paquete.PorcentajePago / 100));
-                    paquete.Abono = paquete.MontoPaquete;
-                    paquete.PorPagar = paquete.MontoPaquete - paquete.Abono;
-                    Model.ListaPaquete.Add(paquete);
+                    ordenPaquete = new OrdenPaquete();
+                    ordenPaquete.IdOrdenPaquete = item.IdOrdenPaquete;
+                    ordenPaquete.Paquete.PorcentajePago = 50;
+                    ordenPaquete.Paquete.IdPaquete = item.IdGenerico;
+                    ordenPaquete.Paquete.Nombre = item.Nombre;
+                    ordenPaquete.Paquete.MontoPaquete = item.Total;
+                    ordenPaquete.Paquete.CantidadServicio = (int)item.Cantidad;
+                    ordenPaquete.Paquete.Seleccionar = true;
+                    ordenPaquete.Paquete.PagoMinimo = ordenPaquete.Paquete.MontoPaquete - (ordenPaquete.Paquete.MontoPaquete * (ordenPaquete.Paquete.PorcentajePago / 100));
+                    ordenPaquete.Paquete.Abono = ordenPaquete.Paquete.MontoPaquete;
+                    ordenPaquete.Paquete.PorPagar = ordenPaquete.Paquete.MontoPaquete - ordenPaquete.Paquete.Abono;
+                    Model.ListaOrdenPaquete.Add(ordenPaquete);
                 }
             }
-            
+
+
+            //Model.ListaPaquete.Clear();
+            //Paquetes paquete;
+            //foreach (var item in Lista)
+            //{
+            //    if (item.IdTipo == 3)
+            //    {
+
+            //        paquete = new Paquetes();
+            //        paquete.PorcentajePago = 50;
+            //        paquete.IdPaquete = item.IdGenerico;
+            //        paquete.Nombre = item.Nombre;
+            //        paquete.MontoPaquete = item.Total;
+            //        paquete.CantidadServicio = (int)item.Cantidad;
+            //        paquete.Seleccionar = true;
+            //        paquete.PagoMinimo = paquete.MontoPaquete - (paquete.MontoPaquete * (paquete.PorcentajePago / 100));
+            //        paquete.Abono = paquete.MontoPaquete;
+            //        paquete.PorPagar = paquete.MontoPaquete - paquete.Abono;
+            //        Model.ListaPaquete.Add(paquete);
+            //    }
+            //}
+
         }
+
+
 
         #endregion
 
@@ -248,10 +275,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     Model.TablaProducto = ObtenerTablaProducto(Lista);
                     Model.TablaServicio = ObtenerTablaServicio(Lista);
                     ObtenerLista(Lista);
-                    if (Model.ListaPaquete.Count > 0)
+                    if (Model.ListaOrdenPaquete.Count > 0)
                     {
                         FrmPaqueteVenta paquete = new FrmPaqueteVenta(Model);
                         paquete.ShowDialog();
+                        AgregarPaquetes(Model.ListaOrdenPaquete);
+                        sfDataGridVenta.Refresh();
                         if (paquete.resultado)
                             LimpiarPropiedades();
                     }
@@ -269,6 +298,63 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             else
                     this.ShowErrors(errorProvider1, typeof(VentasViewModel), validationResults);
     }
+
+        private void AgregarPaquetes(BindingList<OrdenPaquete> listaOrdenPaquete)
+        {
+            try
+            {
+                EliminarPaquetes();
+
+                sfDataGridVenta.Refresh();
+                foreach (var item in listaOrdenPaquete)
+                {
+                    Venta venta = new Venta();
+                    venta.IdOrdenPaquete = item.IdOrdenPaquete;
+                    venta.IdGenerico = item.Paquete.IdPaquete;
+                    venta.IdTipo = 3;
+                    venta.Cantidad = item.Paquete.CantidadServicio;
+                    venta.Nombre = item.Paquete.Nombre;
+                    venta.Precio = item.Paquete.MontoPaquete;
+                    venta.PorcentajeIva = 0;
+                    venta.Total = item.Paquete.CantidadServicio * item.Paquete.MontoPaquete;
+                    venta.SubTotal = item.Paquete.CantidadServicio * item.Paquete.MontoPaquete;
+
+                    
+                    Model.Listaventa.Add(venta);
+                    TotalVenta();
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmVenta ~ btnProducto_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
+            }
+            
+        }
+
+        private void EliminarPaquetes()
+        {
+            try
+            {
+                List<Venta> Aux = new List<Venta>();
+                
+                foreach (var item in Model.Listaventa)
+                {
+                    Aux.Add(item);
+                }
+
+                foreach (var item in Aux)
+                {
+                    if (item.IdTipo == 3)
+                        Model.Listaventa.Remove(item);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
         private void LimpiarPropiedades()
         {
@@ -419,7 +505,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                         p.MontoPaquete = item.Precio;
                         //p.Clave = item.clave;
                         Model.ListaPaqueteCliente.Add(p);
-                        btnVerProducto.Visible = true;
+                        btnAgendaPaquete.Visible = true;
                     }
                    Model.Listaventa.Remove(item);
                    TotalVenta();
@@ -598,10 +684,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 if (IdTipo == 3)
                 {
                     var paquetes = (Paquetes)objetoX;
-                    if (Model.Listaventa.Count == 0)
-                    {
-                        Model.Listaventa.Add(new Venta
+                    Model.Listaventa.Add(new Venta
                         {
+                            IdOrdenPaquete = Guid.Empty,
                             IdGenerico = paquetes.IdPaquete,
                             IdTipo = paquetes.IdTipo,
                             Cantidad = paquetes.CantidadServicio,
@@ -612,37 +697,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                             SubTotal = paquetes.CantidadServicio * paquetes.MontoPaquete //- (paquetes.MontoPaquete * (paquetes. / 100))
                         });
                         TotalVenta();
-                    }
-                    else
-                    {
-                        var x = Model.Listaventa.Where(p => p.IdGenerico == paquetes.IdPaquete && p.IdTipo == paquetes.IdTipo).Select(u => {
-                            u.Cantidad += paquetes.CantidadServicio;
-                            u.Precio = paquetes.MontoPaquete; //- (paquetes.MontoPaquete * (paquetes.ProcentajeIva / 100));
-                            u.PorcentajeIva = 0; //(paquetes. * (paquetes.ProcentajeIva / 100));
-                            u.Total = u.Cantidad * paquetes.MontoPaquete;
-                            u.SubTotal = u.Cantidad * u.Precio; return u;
-                        }).ToList();
-                        if (x.Count == 1)
-                        {
-                            this.sfDataGridVenta.Refresh();
-                            TotalVenta();
-                        }
-                        else
-                        {
-                            Model.Listaventa.Add(new Venta
-                            {
-                                IdGenerico = paquetes.IdPaquete,
-                                IdTipo = paquetes.IdTipo,
-                                Cantidad = paquetes.CantidadServicio,
-                                Nombre = paquetes.Nombre,
-                                Precio = paquetes.MontoPaquete, //- (paquetes.MontoPaquete * (paquetes.ProcentajeIva / 100)),
-                                PorcentajeIva = 0,// (paquetes.MontoPaquete * (paquetes.ProcentajeIva / 100)),
-                                Total = paquetes.CantidadServicio * paquetes.MontoPaquete,
-                                SubTotal = paquetes.CantidadServicio * paquetes.MontoPaquete// - (paquetes.PrecioPublico * (paquetes.ProcentajeIva / 100))
-                            });
-                            TotalVenta();
-                        }
-                    }
                 }
                 else
                 if (IdTipo == 4)
@@ -811,22 +865,35 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             }
         }
 
-        private void AgregarPaquetesCliente()
+        private void AgregarPaquete(OrdenPaquete orden_paquete)
         {
             try
             {
-                FrmPaquetesCliente paquetesCliente = new FrmPaquetesCliente(Model.ListaPaqueteCliente, Model.ModelCliente.NombreCompleto);
-                paquetesCliente.ShowDialog();
-                if (paquetesCliente.paquetes.IdPaquete != 0)
+                Model.Listaventa.Add(new Venta
                 {
-                    int Tipo = 4;
-                    Model.ListaPaqueteCliente.Remove(paquetesCliente.paquetes);
-                    LLenarGrid2(paquetesCliente.paquetes, Tipo);
-                }
-                if (Model.ListaPaqueteCliente.Count > 0)
-                    btnVerProducto.Visible = true;
-                else
-                    btnVerProducto.Visible = false;
+                    IdOrdenPaquete = orden_paquete.IdOrdenPaquete,
+                    IdGenerico = orden_paquete.Paquete.IdPaquete,
+                    IdTipo = orden_paquete.Paquete.IdTipo,
+                    Cantidad = orden_paquete.Paquete.CantidadServicio,
+                    Nombre = orden_paquete.Paquete.Nombre,
+                    Precio = orden_paquete.Paquete.MontoPaquete,
+                    PorcentajeIva = 0,
+                    Total = orden_paquete.Paquete.CantidadServicio * orden_paquete.Paquete.MontoPaquete,
+                    SubTotal = orden_paquete.Paquete.CantidadServicio * orden_paquete.Paquete.MontoPaquete 
+                });
+                TotalVenta();
+                //FrmPaquetesCliente paquetesCliente = new FrmPaquetesCliente(Model.ListaPaqueteCliente, Model.ModelCliente.NombreCompleto);
+                //paquetesCliente.ShowDialog();
+                //if (paquetesCliente.paquetes.IdPaquete != 0)
+                //{
+                //    int Tipo = 4;
+                //    Model.ListaPaqueteCliente.Remove(paquetesCliente.paquetes);
+                //    LLenarGrid2(paquetesCliente.paquetes, Tipo);
+                //}
+                //if (Model.ListaPaqueteCliente.Count > 0)
+                //    btnAgendaPaquete.Visible = true;
+                //else
+                //    btnAgendaPaquete.Visible = false;
 
             }
             catch (Exception)
@@ -839,7 +906,21 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             try
             {
-                AgregarPaquetesCliente();
+                FrmPaquetesCliente citas = new FrmPaquetesCliente(Model.IdCliente);
+                citas.ShowDialog();
+                if (citas.orden_paquete.IdOrdenPaquete != Guid.Empty)
+                {
+                    var x = Model.Listaventa.Where(p => p.IdOrdenPaquete == citas.orden_paquete.IdOrdenPaquete ).Select(u => {
+                        return u;
+                    }).ToList();
+                    if (x.Count == 1)
+                    {
+                        CIDMessageBox.ShowAlert(Messages.SystemName, "El paquete ya ha sido agregado", TypeMessage.informacion);
+                        TotalVenta();
+                    }
+                    else
+                    AgregarPaquete(citas.orden_paquete);
+                }
             }
             catch (Exception)
             {

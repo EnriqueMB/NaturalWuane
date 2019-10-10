@@ -26,9 +26,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 {
     public partial class FrmTurno : Form
     {
+        #region Propiedades publicas
+
         public TurnoViewModel Model { get; set; }
 
         public TurnoPrincipalViewModel ModelP { get; set; }
+        #endregion
         #region Propiedades privadas
         private class Dias
         {
@@ -45,7 +48,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<TurnoViewModel>();
-            ModelP = ServiceLocator.Instance.Resolve<TurnoPrincipalViewModel>();
+            ModelP = ServiceLocator.Instance.Resolve<TurnoPrincipalViewModel>();//Esto esta mal
             RbtnDosHorarios.Checked = true;
             horarioDesignV21.Configurar(DaysNumber.LuDo);
             if (IdTurno > 0)
@@ -318,10 +321,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             return Value;
         }
 
-        private int ValidarDatos(int NumHorarios)
+        private int ValidarDatos(int NumHorarios) //Este metodo pudo haber regresado un valor bool
         {
             int validation = 0;
-            if(DiasControl.Text.ToString() == "SELECCIONE")
+            if(DiasControl.Text.ToString() == "SELECCIONE")//Utilizar el selected value del combo, el cual devuelve el valor del item seleccionado
             {
                 errorProvider1.SetError(DiasControl, "SELECCIONE UN DÍA");
                 validation++;
@@ -416,7 +419,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 temp.Add(num.HoraEntrada);
                 temp.Add(num.HoraSalida);
             }
-            int sizeList = temp.Count;
+            int sizeList = temp.Count; //Puedes usar directo el Count de la lista en el if
             if(sizeList == 0)
             {
                 RbtnDosHorarios.Checked = true;
@@ -442,7 +445,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         private void EliminarBtn_Click(object sender, EventArgs e)
         {
-            string DiasComboBox = DiasControl.SelectedValue.ToString();
+            string DiasComboBox = DiasControl.SelectedValue.ToString();//Puedes usar esto directo
 
             var Info = (from inf in Model.ListaValores
                         where inf.NombreDia == DiasComboBox
@@ -479,7 +482,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 }
                 else
                 {
-                    DataTable tabla = ObtenerTabla(Model.ListaValores.ToList());
+                    DataTable tabla = ObtenerTabla(Model.ListaValores.ToList());//Esto seva hasta el repositorio tal como lo comento el inge marcos
                     var resul = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario, tabla);
                     if (resul.IdTurno > 0)
                     {

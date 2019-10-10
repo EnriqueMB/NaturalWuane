@@ -51,7 +51,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             Model = ServiceLocator.Instance.Resolve<EmpleadoViewModel>();
             //  Model.GetListaCataegoriaProduto();
             Model.Modificar = true;
-
+            BtnSeleccionar.FlatAppearance.BorderSize = 1;
 
 
         }
@@ -76,30 +76,23 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 this.CleanErrors(errorProvider1, typeof(EmpleadoViewModel));
                 var validationResults = Model.Validate();
                 validationResults.ToString();
-               
-
-                    if (validationResults.IsValid)
+                if (validationResults.IsValid)
+                {
+                    var Resultado = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
+                    if (Resultado.Resultado == 1)
                     {
-                        var Resultado = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario);
-                        if (Resultado.Resultado == 1)
-                        {
-                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
-                            LimpiarPropiedades();
-                            this.Close();
-
-
-
-                    }
-                        else
-                        {
-                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
-                            LimpiarPropiedades();
-
-                        }
+                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                        LimpiarPropiedades();
+                        this.Close();
                     }
                     else
-                        this.ShowErrors(errorProvider1, typeof(EmpleadoViewModel), validationResults);
-               
+                    {
+                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+                        LimpiarPropiedades();
+                    }
+                }
+                else
+                    this.ShowErrors(errorProvider1, typeof(EmpleadoViewModel), validationResults);               
             }
             catch (Exception ex)
             {
@@ -285,7 +278,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            try
+            {
+                if (CIDMessageBox.ShowAlertRequest(Constants.Messages.SystemName, Constants.Messages.ConfirmCancelInput) == DialogResult.OK)
+                    this.Close();
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmEmpleado ~ btnCancelar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorAlCancelarFrm, TypeMessage.error);
+            }
         }
 
         private void TelefonoControl_KeyPress(object sender, KeyPressEventArgs e)
