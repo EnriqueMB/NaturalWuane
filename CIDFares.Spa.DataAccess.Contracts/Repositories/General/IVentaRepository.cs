@@ -15,7 +15,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
         Task<Guid> ObtenerIdVenta(object IdSucursal, object IdEmpleado);
         Task<VentaTicketRequest> GetTicket(object id);
         Task<Venta> AddWithIdSucursalAsync(Venta element, object IdUsuario, object IdSucursal);
-        Task<int> CheckCantidadProducto(object IdProducto, int Cantidad);
+        Task<int> CheckCantidadProducto(object IdProducto, int Cantidad, object IdSucursal);
         Task<IEnumerable<Venta>> GetVentaDiasSucursalActiva(object FechaActual, object IdSucursal, object Folio);
     }
 }

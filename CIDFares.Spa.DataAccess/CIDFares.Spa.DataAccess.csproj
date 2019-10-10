@@ -73,6 +73,7 @@
     <Compile Include="Repositories\General\PaisRepository.cs" />
     <Compile Include="Repositories\General\PaqueteRepository.cs" />
     <Compile Include="Repositories\General\ProductoRepository.cs" />
+    <Compile Include="Repositories\General\PromocionRepository.cs" />
     <Compile Include="Repositories\General\ProductosMonederoRepository.cs" />
     <Compile Include="Repositories\General\ProveedorACompraRepository.cs" />
     <Compile Include="Repositories\General\ProveedorRepository.cs" />

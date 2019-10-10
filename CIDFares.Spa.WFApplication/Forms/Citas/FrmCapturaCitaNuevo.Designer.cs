@@ -29,96 +29,156 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn17 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn18 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.btnAnterior = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlButtons = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnAgregarPaquete = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.gbCita = new System.Windows.Forms.GroupBox();
-            this.lblCitaOcupadaControl = new System.Windows.Forms.Label();
-            this.HorasControl = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.HoraCitaControl = new System.Windows.Forms.DateTimePicker();
-            this.FechaCitaControl = new System.Windows.Forms.DateTimePicker();
-            this.dtpFechaFinal = new System.Windows.Forms.DateTimePicker();
-            this.lblErrorControl = new System.Windows.Forms.Label();
-            this.btnEliminarServicio = new System.Windows.Forms.Button();
+            this.btnCitasSinAgendar = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.FechaControl = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.lblServicios = new System.Windows.Forms.Label();
-            this.dgmServicio = new Syncfusion.WinForms.DataGrid.SfDataGrid();
-            this.btnBuscarServicio = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnBuscarCliente = new System.Windows.Forms.Button();
-            this.ClienteControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.IdHoraControl = new System.Windows.Forms.ComboBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.BtnBuscar = new System.Windows.Forms.PictureBox();
+            this.NombreCompletoControl = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.IdServicioControl = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ServicioControl = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.labelNombre = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlGrid = new System.Windows.Forms.Panel();
+            this.panelGrid = new System.Windows.Forms.Panel();
             this.dgmCita = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panelEncabezado = new System.Windows.Forms.Panel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxCita = new System.Windows.Forms.GroupBox();
             this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAnterior)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlButtons.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.gbCita.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgmServicio)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ClienteControl)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnBuscar)).BeginInit();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel10.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.pnlGrid.SuspendLayout();
+            this.panelGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgmCita)).BeginInit();
+            this.panel7.SuspendLayout();
+            this.panelEncabezado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBoxCita.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.White;
+            this.pnlHeader.Controls.Add(this.btnAnterior);
+            this.pnlHeader.Controls.Add(this.pictureBox2);
             this.pnlHeader.Controls.Add(this.lblTitle);
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeader.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1269, 89);
+            this.pnlHeader.Size = new System.Drawing.Size(781, 64);
             this.pnlHeader.TabIndex = 0;
+            // 
+            // btnAnterior
+            // 
+            this.btnAnterior.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.chevronizquierdaO;
+            this.btnAnterior.Location = new System.Drawing.Point(104, 9);
+            this.btnAnterior.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(27, 43);
+            this.btnAnterior.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnAnterior.TabIndex = 2;
+            this.btnAnterior.TabStop = false;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.chevronderechaO;
+            this.pictureBox2.Location = new System.Drawing.Point(660, 9);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(27, 43);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // lblTitle
             // 
-            this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(69, 26);
+            this.lblTitle.Location = new System.Drawing.Point(137, 12);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(160, 38);
+            this.lblTitle.Size = new System.Drawing.Size(516, 37);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Nueva Cita";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlButtons
             // 
             this.pnlButtons.BackColor = System.Drawing.Color.White;
             this.pnlButtons.Controls.Add(this.flowLayoutPanel1);
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlButtons.Location = new System.Drawing.Point(0, 695);
+            this.pnlButtons.Location = new System.Drawing.Point(0, 586);
+            this.pnlButtons.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlButtons.Name = "pnlButtons";
-            this.pnlButtons.Size = new System.Drawing.Size(1269, 67);
+            this.pnlButtons.Size = new System.Drawing.Size(1268, 66);
             this.pnlButtons.TabIndex = 1;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.btnNuevo);
+            this.flowLayoutPanel1.Controls.Add(this.btnAgregarPaquete);
             this.flowLayoutPanel1.Controls.Add(this.btnModificar);
             this.flowLayoutPanel1.Controls.Add(this.btnEliminar);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(86, 10);
+            this.flowLayoutPanel1.Controls.Add(this.btnCitasSinAgendar);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(16, 10);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(604, 44);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(900, 44);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // btnNuevo
@@ -127,7 +187,7 @@
             this.btnNuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
             this.btnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.Location = new System.Drawing.Point(4, 4);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.Name = "btnNuevo";
@@ -137,6 +197,22 @@
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
+            // btnAgregarPaquete
+            // 
+            this.btnAgregarPaquete.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarPaquete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnAgregarPaquete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnAgregarPaquete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarPaquete.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnAgregarPaquete.Location = new System.Drawing.Point(176, 4);
+            this.btnAgregarPaquete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAgregarPaquete.Name = "btnAgregarPaquete";
+            this.btnAgregarPaquete.Size = new System.Drawing.Size(200, 36);
+            this.btnAgregarPaquete.TabIndex = 3;
+            this.btnAgregarPaquete.Text = "Agregar paquete";
+            this.btnAgregarPaquete.UseVisualStyleBackColor = false;
+            this.btnAgregarPaquete.Click += new System.EventHandler(this.btnAgregarPaquete_Click);
+            // 
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.Transparent;
@@ -144,12 +220,12 @@
             this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnModificar.Location = new System.Drawing.Point(176, 4);
+            this.btnModificar.Location = new System.Drawing.Point(384, 4);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(164, 36);
             this.btnModificar.TabIndex = 1;
-            this.btnModificar.Text = "Ver";
+            this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
@@ -160,7 +236,7 @@
             this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnEliminar.Location = new System.Drawing.Point(348, 4);
+            this.btnEliminar.Location = new System.Drawing.Point(556, 4);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(164, 36);
@@ -169,286 +245,345 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // panel1
+            // btnCitasSinAgendar
             // 
-            this.panel1.Controls.Add(this.gbCita);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(783, 89);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(486, 606);
-            this.panel1.TabIndex = 2;
+            this.btnCitasSinAgendar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCitasSinAgendar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnCitasSinAgendar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.btnCitasSinAgendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCitasSinAgendar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnCitasSinAgendar.Location = new System.Drawing.Point(728, 4);
+            this.btnCitasSinAgendar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCitasSinAgendar.Name = "btnCitasSinAgendar";
+            this.btnCitasSinAgendar.Size = new System.Drawing.Size(164, 36);
+            this.btnCitasSinAgendar.TabIndex = 4;
+            this.btnCitasSinAgendar.Text = "Sin agendar";
+            this.btnCitasSinAgendar.UseVisualStyleBackColor = false;
+            this.btnCitasSinAgendar.Click += new System.EventHandler(this.btnCitasSinAgendar_Click);
             // 
-            // gbCita
+            // panel2
             // 
-            this.gbCita.BackColor = System.Drawing.Color.White;
-            this.gbCita.Controls.Add(this.lblCitaOcupadaControl);
-            this.gbCita.Controls.Add(this.HorasControl);
-            this.gbCita.Controls.Add(this.label1);
-            this.gbCita.Controls.Add(this.HoraCitaControl);
-            this.gbCita.Controls.Add(this.FechaCitaControl);
-            this.gbCita.Controls.Add(this.dtpFechaFinal);
-            this.gbCita.Controls.Add(this.lblErrorControl);
-            this.gbCita.Controls.Add(this.btnEliminarServicio);
-            this.gbCita.Controls.Add(this.label2);
-            this.gbCita.Controls.Add(this.btnCancelar);
-            this.gbCita.Controls.Add(this.lblServicios);
-            this.gbCita.Controls.Add(this.dgmServicio);
-            this.gbCita.Controls.Add(this.btnBuscarServicio);
-            this.gbCita.Controls.Add(this.btnGuardar);
-            this.gbCita.Controls.Add(this.btnBuscarCliente);
-            this.gbCita.Controls.Add(this.ClienteControl);
-            this.gbCita.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbCita.Enabled = false;
-            this.gbCita.Location = new System.Drawing.Point(0, 0);
-            this.gbCita.Name = "gbCita";
-            this.gbCita.Size = new System.Drawing.Size(486, 606);
-            this.gbCita.TabIndex = 12;
-            this.gbCita.TabStop = false;
+            this.panel2.Controls.Add(this.panel9);
+            this.panel2.Controls.Add(this.panel8);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(4, 19);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(441, 543);
+            this.panel2.TabIndex = 4;
             // 
-            // lblCitaOcupadaControl
+            // panel9
             // 
-            this.lblCitaOcupadaControl.AutoSize = true;
-            this.lblCitaOcupadaControl.Location = new System.Drawing.Point(350, 98);
-            this.lblCitaOcupadaControl.Name = "lblCitaOcupadaControl";
-            this.lblCitaOcupadaControl.Size = new System.Drawing.Size(0, 17);
-            this.lblCitaOcupadaControl.TabIndex = 35;
+            this.panel9.Controls.Add(this.tableLayoutPanel1);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(0, 64);
+            this.panel9.Margin = new System.Windows.Forms.Padding(4);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(441, 479);
+            this.panel9.TabIndex = 2;
             // 
-            // HorasControl
+            // tableLayoutPanel1
             // 
-            this.HorasControl.FormattingEnabled = true;
-            this.HorasControl.Location = new System.Drawing.Point(46, 91);
-            this.HorasControl.Name = "HorasControl";
-            this.HorasControl.Size = new System.Drawing.Size(278, 24);
-            this.HorasControl.TabIndex = 34;
-            this.HorasControl.SelectedValueChanged += new System.EventHandler(this.HorasControl_SelectedValueChanged);
-            this.HorasControl.VisibleChanged += new System.EventHandler(this.HorasControl_VisibleChanged);
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel5, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.panel10, 0, 4);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.56062F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.96991F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.85596F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.85596F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.75754F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(441, 479);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // label1
+            // panel3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(42, 478);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 23);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Inicio";
-            this.label1.Visible = false;
+            this.panel3.Controls.Add(this.FechaControl);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(433, 95);
+            this.panel3.TabIndex = 5;
             // 
-            // HoraCitaControl
+            // FechaControl
             // 
-            this.HoraCitaControl.CustomFormat = "HH:mm";
-            this.HoraCitaControl.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HoraCitaControl.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.HoraCitaControl.Location = new System.Drawing.Point(56, 509);
-            this.HoraCitaControl.Name = "HoraCitaControl";
-            this.HoraCitaControl.ShowUpDown = true;
-            this.HoraCitaControl.Size = new System.Drawing.Size(93, 28);
-            this.HoraCitaControl.TabIndex = 32;
-            this.HoraCitaControl.Visible = false;
+            this.FechaControl.BackColor = System.Drawing.Color.White;
+            this.FechaControl.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.FechaControl.Location = new System.Drawing.Point(19, 37);
+            this.FechaControl.Margin = new System.Windows.Forms.Padding(4);
+            this.FechaControl.Name = "FechaControl";
+            this.FechaControl.ReadOnly = true;
+            this.FechaControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.FechaControl.Size = new System.Drawing.Size(396, 34);
+            this.FechaControl.TabIndex = 8;
+            this.FechaControl.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // FechaCitaControl
+            // label3
             // 
-            this.FechaCitaControl.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FechaCitaControl.Location = new System.Drawing.Point(174, 509);
-            this.FechaCitaControl.Name = "FechaCitaControl";
-            this.FechaCitaControl.Size = new System.Drawing.Size(250, 28);
-            this.FechaCitaControl.TabIndex = 31;
-            this.FechaCitaControl.Visible = false;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 12);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 23);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Fecha";
             // 
-            // dtpFechaFinal
+            // panel4
             // 
-            this.dtpFechaFinal.CustomFormat = "dd MMMM yyyy, HH:mm tt";
-            this.dtpFechaFinal.Font = new System.Drawing.Font("Montserrat", 10.2F);
-            this.dtpFechaFinal.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFechaFinal.Location = new System.Drawing.Point(41, 374);
-            this.dtpFechaFinal.Name = "dtpFechaFinal";
-            this.dtpFechaFinal.Size = new System.Drawing.Size(368, 28);
-            this.dtpFechaFinal.TabIndex = 30;
-            this.dtpFechaFinal.Visible = false;
-            // 
-            // lblErrorControl
-            // 
-            this.lblErrorControl.AutoSize = true;
-            this.lblErrorControl.Location = new System.Drawing.Point(118, 153);
-            this.lblErrorControl.Name = "lblErrorControl";
-            this.lblErrorControl.Size = new System.Drawing.Size(0, 17);
-            this.lblErrorControl.TabIndex = 29;
-            // 
-            // btnEliminarServicio
-            // 
-            this.btnEliminarServicio.BackColor = System.Drawing.Color.Transparent;
-            this.btnEliminarServicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnEliminarServicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnEliminarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarServicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarServicio.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.eliminar;
-            this.btnEliminarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarServicio.Location = new System.Drawing.Point(327, 147);
-            this.btnEliminarServicio.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEliminarServicio.Name = "btnEliminarServicio";
-            this.btnEliminarServicio.Size = new System.Drawing.Size(96, 32);
-            this.btnEliminarServicio.TabIndex = 28;
-            this.btnEliminarServicio.Text = " Elimnar Servicio";
-            this.btnEliminarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminarServicio.UseVisualStyleBackColor = false;
-            this.btnEliminarServicio.Click += new System.EventHandler(this.btnEliminarServicio_Click);
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.IdHoraControl);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(4, 107);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(433, 92);
+            this.panel4.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(25, 339);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(15, 11);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 20);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "Fin";
-            this.label2.Visible = false;
+            this.label2.Size = new System.Drawing.Size(48, 23);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Hora";
             // 
-            // btnCancelar
+            // IdHoraControl
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
-            this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(77)))), ((int)(((byte)(65)))));
-            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(77)))), ((int)(((byte)(65)))));
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Montserrat", 10.2F);
-            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
-            this.btnCancelar.Location = new System.Drawing.Point(245, 418);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(164, 36);
-            this.btnCancelar.TabIndex = 20;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.IdHoraControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IdHoraControl.FormattingEnabled = true;
+            this.IdHoraControl.Location = new System.Drawing.Point(19, 38);
+            this.IdHoraControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.IdHoraControl.Name = "IdHoraControl";
+            this.IdHoraControl.Size = new System.Drawing.Size(396, 36);
+            this.IdHoraControl.TabIndex = 34;
             // 
-            // lblServicios
+            // panel5
             // 
-            this.lblServicios.AutoSize = true;
-            this.lblServicios.Font = new System.Drawing.Font("Montserrat", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblServicios.Location = new System.Drawing.Point(23, 147);
-            this.lblServicios.Name = "lblServicios";
-            this.lblServicios.Size = new System.Drawing.Size(89, 24);
-            this.lblServicios.TabIndex = 19;
-            this.lblServicios.Text = "Servicios";
+            this.panel5.Controls.Add(this.BtnBuscar);
+            this.panel5.Controls.Add(this.NombreCompletoControl);
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(4, 207);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(433, 96);
+            this.panel5.TabIndex = 7;
             // 
-            // dgmServicio
+            // BtnBuscar
             // 
-            this.dgmServicio.AccessibleName = "Table";
-            this.dgmServicio.AllowResizingColumns = true;
-            this.dgmServicio.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn12.AllowEditing = false;
-            gridTextColumn12.AllowResizing = true;
-            gridTextColumn12.HeaderText = "IdServicio";
-            gridTextColumn12.MappingName = "IdServicio";
-            gridTextColumn12.Visible = false;
-            gridTextColumn13.AllowEditing = false;
-            gridTextColumn13.AllowMultiline = true;
-            gridTextColumn13.AllowResizing = true;
-            gridTextColumn13.HeaderText = "Servicio";
-            gridTextColumn13.MappingName = "Servicio";
-            gridTextColumn14.AllowEditing = false;
-            gridTextColumn14.AllowResizing = true;
-            gridTextColumn14.Format = "HH:mm";
-            gridTextColumn14.HeaderText = "Inicio";
-            gridTextColumn14.MappingName = "FechaIServicio";
-            gridTextColumn14.MaximumWidth = 50D;
-            gridTextColumn15.AllowEditing = false;
-            gridTextColumn15.AllowResizing = true;
-            gridTextColumn15.Format = "HH:mm";
-            gridTextColumn15.HeaderText = "Fin";
-            gridTextColumn15.MappingName = "FechaFServicio";
-            gridTextColumn15.MaximumWidth = 50D;
-            this.dgmServicio.Columns.Add(gridTextColumn12);
-            this.dgmServicio.Columns.Add(gridTextColumn13);
-            this.dgmServicio.Columns.Add(gridTextColumn14);
-            this.dgmServicio.Columns.Add(gridTextColumn15);
-            this.dgmServicio.Location = new System.Drawing.Point(27, 186);
-            this.dgmServicio.Name = "dgmServicio";
-            this.dgmServicio.Size = new System.Drawing.Size(428, 117);
-            this.dgmServicio.TabIndex = 18;
-            this.dgmServicio.Text = "sfDataGrid1";
+            this.BtnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.BtnBuscar.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar;
+            this.BtnBuscar.Location = new System.Drawing.Point(372, 36);
+            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(41, 36);
+            this.BtnBuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.BtnBuscar.TabIndex = 8;
+            this.BtnBuscar.TabStop = false;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
-            // btnBuscarServicio
+            // NombreCompletoControl
             // 
-            this.btnBuscarServicio.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscarServicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnBuscarServicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnBuscarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarServicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarServicio.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.mas_26px;
-            this.btnBuscarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarServicio.Location = new System.Drawing.Point(142, 147);
-            this.btnBuscarServicio.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscarServicio.Name = "btnBuscarServicio";
-            this.btnBuscarServicio.Size = new System.Drawing.Size(162, 32);
-            this.btnBuscarServicio.TabIndex = 17;
-            this.btnBuscarServicio.Text = "Servicio";
-            this.btnBuscarServicio.UseVisualStyleBackColor = false;
-            this.btnBuscarServicio.Click += new System.EventHandler(this.btnBuscarServicio_Click_1);
+            this.NombreCompletoControl.BackColor = System.Drawing.Color.White;
+            this.NombreCompletoControl.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.NombreCompletoControl.Location = new System.Drawing.Point(16, 36);
+            this.NombreCompletoControl.Margin = new System.Windows.Forms.Padding(4);
+            this.NombreCompletoControl.Name = "NombreCompletoControl";
+            this.NombreCompletoControl.ReadOnly = true;
+            this.NombreCompletoControl.Size = new System.Drawing.Size(349, 34);
+            this.NombreCompletoControl.TabIndex = 7;
             // 
-            // btnGuardar
+            // label4
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.Transparent;
-            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(62, 418);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(156, 36);
-            this.btnGuardar.TabIndex = 16;
-            this.btnGuardar.Text = "Guardar Cita";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(13, 11);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 23);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Nombre";
             // 
-            // btnBuscarCliente
+            // panel6
             // 
-            this.btnBuscarCliente.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscarCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnBuscarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarCliente.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar;
-            this.btnBuscarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarCliente.Location = new System.Drawing.Point(353, 36);
-            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(113, 32);
-            this.btnBuscarCliente.TabIndex = 13;
-            this.btnBuscarCliente.Text = "   Cliente";
-            this.btnBuscarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscarCliente.UseVisualStyleBackColor = false;
-            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click_1);
+            this.panel6.Controls.Add(this.IdServicioControl);
+            this.panel6.Controls.Add(this.pictureBox1);
+            this.panel6.Controls.Add(this.ServicioControl);
+            this.panel6.Controls.Add(this.label5);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(4, 311);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(433, 96);
+            this.panel6.TabIndex = 8;
             // 
-            // ClienteControl
+            // IdServicioControl
             // 
-            this.ClienteControl.BackColor = System.Drawing.Color.White;
-            this.ClienteControl.BeforeTouchSize = new System.Drawing.Size(300, 49);
-            this.ClienteControl.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
-            this.ClienteControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ClienteControl.Enabled = false;
-            this.ClienteControl.FocusBorderColor = System.Drawing.Color.Transparent;
-            this.ClienteControl.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClienteControl.Location = new System.Drawing.Point(41, 19);
-            this.ClienteControl.Metrocolor = System.Drawing.Color.Transparent;
-            this.ClienteControl.Multiline = true;
-            this.ClienteControl.Name = "ClienteControl";
-            this.ClienteControl.Size = new System.Drawing.Size(300, 49);
-            this.ClienteControl.TabIndex = 12;
-            this.ClienteControl.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.IdServicioControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IdServicioControl.FormattingEnabled = true;
+            this.IdServicioControl.Location = new System.Drawing.Point(16, 38);
+            this.IdServicioControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.IdServicioControl.Name = "IdServicioControl";
+            this.IdServicioControl.Size = new System.Drawing.Size(396, 36);
+            this.IdServicioControl.TabIndex = 35;
+            this.IdServicioControl.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.pictureBox1.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar;
+            this.pictureBox1.Location = new System.Drawing.Point(372, 38);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(41, 36);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // ServicioControl
+            // 
+            this.ServicioControl.BackColor = System.Drawing.Color.White;
+            this.ServicioControl.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.ServicioControl.Location = new System.Drawing.Point(17, 38);
+            this.ServicioControl.Margin = new System.Windows.Forms.Padding(4);
+            this.ServicioControl.Name = "ServicioControl";
+            this.ServicioControl.ReadOnly = true;
+            this.ServicioControl.Size = new System.Drawing.Size(348, 34);
+            this.ServicioControl.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(15, 14);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(70, 23);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Servicio";
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.button2);
+            this.panel10.Controls.Add(this.button1);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(4, 415);
+            this.panel10.Margin = new System.Windows.Forms.Padding(4);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(433, 60);
+            this.panel10.TabIndex = 9;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(200, 14);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(173, 34);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Cancelar";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(19, 14);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(173, 34);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Reservar cita";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.panel8.Controls.Add(this.labelNombre);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(441, 64);
+            this.panel8.TabIndex = 1;
+            // 
+            // labelNombre
+            // 
+            this.labelNombre.AutoEllipsis = true;
+            this.labelNombre.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombre.ForeColor = System.Drawing.Color.White;
+            this.labelNombre.Location = new System.Drawing.Point(17, 18);
+            this.labelNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNombre.Name = "labelNombre";
+            this.labelNombre.Size = new System.Drawing.Size(403, 26);
+            this.labelNombre.TabIndex = 1;
+            this.labelNombre.Text = "Agendar cita";
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(-4, -4);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(433, 41);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Cita";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlGrid
             // 
-            this.pnlGrid.Controls.Add(this.dgmCita);
+            this.pnlGrid.Controls.Add(this.panelGrid);
+            this.pnlGrid.Controls.Add(this.panelEncabezado);
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlGrid.Location = new System.Drawing.Point(0, 89);
+            this.pnlGrid.Location = new System.Drawing.Point(4, 19);
+            this.pnlGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(783, 606);
+            this.pnlGrid.Size = new System.Drawing.Size(781, 543);
             this.pnlGrid.TabIndex = 3;
+            // 
+            // panelGrid
+            // 
+            this.panelGrid.Controls.Add(this.dgmCita);
+            this.panelGrid.Controls.Add(this.panel7);
+            this.panelGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelGrid.Location = new System.Drawing.Point(0, 64);
+            this.panelGrid.Margin = new System.Windows.Forms.Padding(4);
+            this.panelGrid.Name = "panelGrid";
+            this.panelGrid.Size = new System.Drawing.Size(781, 479);
+            this.panelGrid.TabIndex = 2;
             // 
             // dgmCita
             // 
@@ -459,83 +594,178 @@
             this.dgmCita.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
             gridTextColumn1.AllowEditing = false;
             gridTextColumn1.AllowResizing = true;
-            gridTextColumn1.HeaderText = "IdCita";
-            gridTextColumn1.MappingName = "IdCita";
-            gridTextColumn1.Visible = false;
+            gridTextColumn1.HeaderText = "Cliente";
+            gridTextColumn1.MappingName = "OrdenServicio.Cliente.NombreCompleto";
             gridTextColumn2.AllowEditing = false;
             gridTextColumn2.AllowResizing = true;
-            gridTextColumn2.HeaderText = "IdCliente";
-            gridTextColumn2.MappingName = "IdCliente";
-            gridTextColumn2.Visible = false;
+            gridTextColumn2.HeaderText = "Servicio";
+            gridTextColumn2.MappingName = "OrdenServicio.Servicio.Nombre";
             gridTextColumn3.AllowEditing = false;
             gridTextColumn3.AllowResizing = true;
-            gridTextColumn3.HeaderText = "IdServicio";
-            gridTextColumn3.MappingName = "IdServicio";
-            gridTextColumn3.Visible = false;
+            gridTextColumn3.Format = "HH:mm";
+            gridTextColumn3.HeaderText = "Inicio";
+            gridTextColumn3.MappingName = "FechaInicio";
             gridTextColumn4.AllowEditing = false;
             gridTextColumn4.AllowResizing = true;
-            gridTextColumn4.HeaderText = "Cliente";
-            gridTextColumn4.MappingName = "NombreCompleto";
-            gridTextColumn16.AllowEditing = false;
-            gridTextColumn16.AllowResizing = true;
-            gridTextColumn16.HeaderText = "Servicio";
-            gridTextColumn16.MappingName = "Servicio";
-            gridTextColumn17.AllowEditing = false;
-            gridTextColumn17.AllowResizing = true;
-            gridTextColumn17.Format = "HH:mm";
-            gridTextColumn17.HeaderText = "Hora";
-            gridTextColumn17.MappingName = "FechaIServicio";
-            gridTextColumn17.MaximumWidth = 150D;
-            gridTextColumn18.AllowEditing = false;
-            gridTextColumn18.AllowResizing = true;
-            gridTextColumn18.HeaderText = "FechaFServicio";
-            gridTextColumn18.MappingName = "FechaFServicio";
-            gridTextColumn18.Visible = false;
+            gridTextColumn4.Format = "HH:mm";
+            gridTextColumn4.HeaderText = "Fin";
+            gridTextColumn4.MappingName = "FechaFinal";
+            gridTextColumn5.AllowEditing = false;
+            gridTextColumn5.AllowResizing = true;
+            gridTextColumn5.HeaderText = "IdOrdenPaquete";
+            gridTextColumn5.MappingName = "OrdenServicio.OrdenPaquete.IdOrdenPaquete";
+            gridTextColumn5.Visible = false;
+            gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.AllowResizing = true;
+            gridTextColumn6.HeaderText = "IdAgendaCita";
+            gridTextColumn6.MappingName = "IdAgendaCita";
+            gridTextColumn6.Visible = false;
+            gridTextColumn7.AllowEditing = false;
+            gridTextColumn7.AllowResizing = true;
+            gridTextColumn7.HeaderText = "IdOrdenServicio";
+            gridTextColumn7.MappingName = "OrdenServicio.IdOrdenServicio";
+            gridTextColumn7.Visible = false;
+            gridTextColumn8.AllowEditing = false;
+            gridTextColumn8.AllowResizing = true;
+            gridTextColumn8.HeaderText = "IdCliente";
+            gridTextColumn8.MappingName = "OrdenServicio.Cliente.IdCliente";
+            gridTextColumn8.Visible = false;
+            gridTextColumn9.AllowEditing = false;
+            gridTextColumn9.AllowResizing = true;
+            gridTextColumn9.HeaderText = "IdServicio";
+            gridTextColumn9.MappingName = "OrdenServicio.Servicio.IdServicio";
+            gridTextColumn9.Visible = false;
+            gridTextColumn10.AllowEditing = false;
+            gridTextColumn10.AllowResizing = true;
+            gridTextColumn10.HeaderText = "Paquete";
+            gridTextColumn10.MappingName = "OrdenServicio.OrdenPaquete.Paquete.Nombre";
             this.dgmCita.Columns.Add(gridTextColumn1);
             this.dgmCita.Columns.Add(gridTextColumn2);
             this.dgmCita.Columns.Add(gridTextColumn3);
             this.dgmCita.Columns.Add(gridTextColumn4);
-            this.dgmCita.Columns.Add(gridTextColumn16);
-            this.dgmCita.Columns.Add(gridTextColumn17);
-            this.dgmCita.Columns.Add(gridTextColumn18);
+            this.dgmCita.Columns.Add(gridTextColumn5);
+            this.dgmCita.Columns.Add(gridTextColumn6);
+            this.dgmCita.Columns.Add(gridTextColumn7);
+            this.dgmCita.Columns.Add(gridTextColumn8);
+            this.dgmCita.Columns.Add(gridTextColumn9);
+            this.dgmCita.Columns.Add(gridTextColumn10);
             this.dgmCita.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgmCita.Location = new System.Drawing.Point(0, 0);
+            this.dgmCita.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgmCita.Name = "dgmCita";
-            this.dgmCita.Size = new System.Drawing.Size(783, 606);
+            this.dgmCita.Size = new System.Drawing.Size(781, 479);
             this.dgmCita.TabIndex = 0;
             this.dgmCita.Text = "sfDataGrid1";
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.panel7.Controls.Add(this.label1);
+            this.panel7.Location = new System.Drawing.Point(269, 145);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(433, 47);
+            this.panel7.TabIndex = 9;
+            // 
+            // panelEncabezado
+            // 
+            this.panelEncabezado.Controls.Add(this.pnlHeader);
+            this.panelEncabezado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelEncabezado.Location = new System.Drawing.Point(0, 0);
+            this.panelEncabezado.Margin = new System.Windows.Forms.Padding(4);
+            this.panelEncabezado.Name = "panelEncabezado";
+            this.panelEncabezado.Size = new System.Drawing.Size(781, 64);
+            this.panelEncabezado.TabIndex = 1;
             // 
             // errorProvider1
             // 
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.58811F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.41189F));
+            this.tableLayoutPanel2.Controls.Add(this.groupBox1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.groupBoxCita, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1268, 586);
+            this.tableLayoutPanel2.TabIndex = 4;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.pnlGrid);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(11, 10);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(789, 566);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            // 
+            // groupBoxCita
+            // 
+            this.groupBoxCita.Controls.Add(this.panel2);
+            this.groupBoxCita.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxCita.Location = new System.Drawing.Point(808, 10);
+            this.groupBoxCita.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBoxCita.Name = "groupBoxCita";
+            this.groupBoxCita.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBoxCita.Size = new System.Drawing.Size(449, 566);
+            this.groupBoxCita.TabIndex = 1;
+            this.groupBoxCita.TabStop = false;
+            // 
             // FrmCapturaCitaNuevo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1269, 762);
-            this.Controls.Add(this.pnlGrid);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1268, 652);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.pnlButtons);
-            this.Controls.Add(this.pnlHeader);
-            this.MaximumSize = new System.Drawing.Size(1287, 809);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(1286, 808);
             this.Name = "FrmCapturaCitaNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCapturaCitaNuevo";
             this.Load += new System.EventHandler(this.FrmCapturaCitaNuevo_Load);
             this.pnlHeader.ResumeLayout(false);
-            this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAnterior)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnlButtons.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.gbCita.ResumeLayout(false);
-            this.gbCita.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgmServicio)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ClienteControl)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnBuscar)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
+            this.panelGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgmCita)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panelEncabezado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBoxCita.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -544,7 +774,6 @@
 
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Panel pnlButtons;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnlGrid;
         private Syncfusion.WinForms.DataGrid.SfDataGrid dgmCita;
         private System.Windows.Forms.Label lblTitle;
@@ -552,23 +781,40 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.GroupBox gbCita;
-        private System.Windows.Forms.Button btnBuscarServicio;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnBuscarCliente;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt ClienteControl;
-        private System.Windows.Forms.Label lblServicios;
-        private Syncfusion.WinForms.DataGrid.SfDataGrid dgmServicio;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnEliminarServicio;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Label lblErrorControl;
-        private System.Windows.Forms.DateTimePicker dtpFechaFinal;
-        private System.Windows.Forms.ComboBox HorasControl;
+        private System.Windows.Forms.Button btnAgregarPaquete;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker HoraCitaControl;
-        private System.Windows.Forms.DateTimePicker FechaCitaControl;
-        private System.Windows.Forms.Label lblCitaOcupadaControl;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.PictureBox BtnBuscar;
+        private System.Windows.Forms.TextBox NombreCompletoControl;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox ServicioControl;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panelGrid;
+        private System.Windows.Forms.Panel panelEncabezado;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxCita;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel10;
+        public System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label labelNombre;
+        private System.Windows.Forms.TextBox FechaControl;
+        private System.Windows.Forms.ComboBox IdHoraControl;
+        public System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox btnAnterior;
+        private System.Windows.Forms.ComboBox IdServicioControl;
+        private System.Windows.Forms.Button btnCitasSinAgendar;
     }
 }

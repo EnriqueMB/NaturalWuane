@@ -38,8 +38,6 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenedoGridGuardar = new System.Windows.Forms.Panel();
             this.panelGuardar = new System.Windows.Forms.Panel();
@@ -49,14 +47,15 @@
             this.panelGrid = new System.Windows.Forms.Panel();
             this.sfDataGridBuquedaProducto = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.panelBuscador = new System.Windows.Forms.Panel();
-            this.BtnBusqueda = new System.Windows.Forms.Button();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.ErrorControl = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.NombreControl = new System.Windows.Forms.TextBox();
             this.BuquedaClaveCodigoControl = new System.Windows.Forms.TextBox();
             this.BusqueNombreControl = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
             this.BusClaveBarraControl = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.BtnBusqueda = new System.Windows.Forms.Button();
             this.panelContenedor.SuspendLayout();
             this.panelContenedoGridGuardar.SuspendLayout();
             this.panelGuardar.SuspendLayout();
@@ -83,9 +82,9 @@
             this.panelContenedoGridGuardar.Controls.Add(this.panelGuardar);
             this.panelContenedoGridGuardar.Controls.Add(this.panelGrid);
             this.panelContenedoGridGuardar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedoGridGuardar.Location = new System.Drawing.Point(0, 62);
+            this.panelContenedoGridGuardar.Location = new System.Drawing.Point(0, 58);
             this.panelContenedoGridGuardar.Name = "panelContenedoGridGuardar";
-            this.panelContenedoGridGuardar.Size = new System.Drawing.Size(916, 420);
+            this.panelContenedoGridGuardar.Size = new System.Drawing.Size(916, 424);
             this.panelContenedoGridGuardar.TabIndex = 1;
             // 
             // panelGuardar
@@ -93,6 +92,7 @@
             this.panelGuardar.Controls.Add(this.BtnAgregar);
             this.panelGuardar.Controls.Add(this.label1);
             this.panelGuardar.Controls.Add(this.CantidadProductoControl);
+            this.panelGuardar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelGuardar.Location = new System.Drawing.Point(755, 0);
             this.panelGuardar.Name = "panelGuardar";
             this.panelGuardar.Size = new System.Drawing.Size(161, 420);
@@ -101,8 +101,8 @@
             // BtnAgregar
             // 
             this.BtnAgregar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BtnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.BtnAgregar.FlatAppearance.BorderSize = 0;
+            this.BtnAgregar.BackColor = System.Drawing.Color.White;
+            this.BtnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAgregar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAgregar.Location = new System.Drawing.Point(22, 169);
@@ -117,11 +117,11 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(16, 94);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 20);
+            this.label1.Size = new System.Drawing.Size(75, 21);
             this.label1.TabIndex = 8;
             this.label1.Text = "Cantidad:";
             // 
@@ -131,7 +131,7 @@
             this.CantidadProductoControl.Location = new System.Drawing.Point(20, 128);
             this.CantidadProductoControl.MaxLength = 200;
             this.CantidadProductoControl.Name = "CantidadProductoControl";
-            this.CantidadProductoControl.Size = new System.Drawing.Size(113, 20);
+            this.CantidadProductoControl.Size = new System.Drawing.Size(113, 29);
             this.CantidadProductoControl.TabIndex = 7;
             // 
             // panelGrid
@@ -140,7 +140,7 @@
             this.panelGrid.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelGrid.Location = new System.Drawing.Point(0, 0);
             this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(755, 420);
+            this.panelGrid.Size = new System.Drawing.Size(755, 424);
             this.panelGrid.TabIndex = 0;
             // 
             // sfDataGridBuquedaProducto
@@ -166,32 +166,24 @@
             gridTextColumn4.HeaderText = "Existencia";
             gridTextColumn4.MappingName = "CantidadProducto";
             gridTextColumn5.AllowEditing = false;
-            gridTextColumn5.HeaderText = "Categoria";
-            gridTextColumn5.MappingName = "NombreCategoria";
-            gridTextColumn5.Visible = false;
+            gridTextColumn5.Format = "C";
+            gridTextColumn5.HeaderText = "Precio";
+            gridTextColumn5.MappingName = "Precio";
             gridTextColumn6.AllowEditing = false;
-            gridTextColumn6.HeaderText = "UM";
-            gridTextColumn6.MappingName = "UnidadMedida";
+            gridTextColumn6.HeaderText = "Categoria";
+            gridTextColumn6.MappingName = "NombreCategoria";
+            gridTextColumn6.Visible = false;
             gridTextColumn7.AllowEditing = false;
-            gridTextColumn7.Format = "C2";
-            gridTextColumn7.HeaderText = "P. Publico";
-            gridTextColumn7.MappingName = "PrecioPublico";
+            gridTextColumn7.HeaderText = "UM";
+            gridTextColumn7.MappingName = "UnidadMedida";
             gridTextColumn8.AllowEditing = false;
-            gridTextColumn8.Format = "C2";
-            gridTextColumn8.HeaderText = "P. Mayoreo";
-            gridTextColumn8.MappingName = "PrecioMayoreo";
+            gridTextColumn8.HeaderText = "Porcentaje Paquete";
+            gridTextColumn8.MappingName = "PorcentajePaquete";
+            gridTextColumn8.Visible = false;
             gridTextColumn9.AllowEditing = false;
-            gridTextColumn9.Format = "C2";
-            gridTextColumn9.HeaderText = "P. Menudeo";
-            gridTextColumn9.MappingName = "PrecioMenudeo";
-            gridTextColumn10.AllowEditing = false;
-            gridTextColumn10.HeaderText = "Porcentaje Paquete";
-            gridTextColumn10.MappingName = "PorcentajePaquete";
-            gridTextColumn10.Visible = false;
-            gridTextColumn11.AllowEditing = false;
-            gridTextColumn11.Format = "C";
-            gridTextColumn11.HeaderText = "Costo";
-            gridTextColumn11.MappingName = "CostoProducto";
+            gridTextColumn9.Format = "C";
+            gridTextColumn9.HeaderText = "Costo";
+            gridTextColumn9.MappingName = "CostoProducto";
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn1);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn2);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn3);
@@ -201,22 +193,21 @@
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn7);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn8);
             this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn9);
-            this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn10);
-            this.sfDataGridBuquedaProducto.Columns.Add(gridTextColumn11);
             this.sfDataGridBuquedaProducto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGridBuquedaProducto.Location = new System.Drawing.Point(0, 0);
             this.sfDataGridBuquedaProducto.Name = "sfDataGridBuquedaProducto";
-            this.sfDataGridBuquedaProducto.Size = new System.Drawing.Size(755, 420);
+            this.sfDataGridBuquedaProducto.Size = new System.Drawing.Size(755, 424);
             this.sfDataGridBuquedaProducto.TabIndex = 2;
             this.sfDataGridBuquedaProducto.Text = "sfDataGrid1";
             this.sfDataGridBuquedaProducto.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.sfDataGridBuquedaProducto_CellDoubleClick);
             // 
             // panelBuscador
             // 
-            this.panelBuscador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.panelBuscador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.panelBuscador.Controls.Add(this.btnBuscar);
+            this.panelBuscador.Controls.Add(this.lblTitulo);
             this.panelBuscador.Controls.Add(this.BtnBusqueda);
             this.panelBuscador.Controls.Add(this.ErrorControl);
-            this.panelBuscador.Controls.Add(this.label2);
             this.panelBuscador.Controls.Add(this.NombreControl);
             this.panelBuscador.Controls.Add(this.BuquedaClaveCodigoControl);
             this.panelBuscador.Controls.Add(this.BusqueNombreControl);
@@ -224,48 +215,32 @@
             this.panelBuscador.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBuscador.Location = new System.Drawing.Point(0, 0);
             this.panelBuscador.Name = "panelBuscador";
-            this.panelBuscador.Size = new System.Drawing.Size(916, 62);
+            this.panelBuscador.Size = new System.Drawing.Size(916, 58);
             this.panelBuscador.TabIndex = 0;
             // 
-            // BtnBusqueda
+            // lblTitulo
             // 
-            this.BtnBusqueda.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BtnBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.BtnBusqueda.FlatAppearance.BorderSize = 0;
-            this.BtnBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBusqueda.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBusqueda.Location = new System.Drawing.Point(777, 18);
-            this.BtnBusqueda.Name = "BtnBusqueda";
-            this.BtnBusqueda.Size = new System.Drawing.Size(89, 26);
-            this.BtnBusqueda.TabIndex = 13;
-            this.BtnBusqueda.Text = "Buscar";
-            this.BtnBusqueda.UseVisualStyleBackColor = false;
-            this.BtnBusqueda.Click += new System.EventHandler(this.BtnBusqueda_Click);
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(10, 16);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(174, 30);
+            this.lblTitulo.TabIndex = 14;
+            this.lblTitulo.Text = "Buscar producto";
             // 
             // ErrorControl
             // 
             this.ErrorControl.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ErrorControl.AutoSize = true;
-            this.ErrorControl.Location = new System.Drawing.Point(752, 25);
+            this.ErrorControl.Location = new System.Drawing.Point(752, 23);
             this.ErrorControl.Name = "ErrorControl";
             this.ErrorControl.Size = new System.Drawing.Size(0, 13);
             this.ErrorControl.TabIndex = 11;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 21);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Buscar producto";
-            // 
             // NombreControl
             // 
             this.NombreControl.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.NombreControl.Location = new System.Drawing.Point(483, 31);
+            this.NombreControl.Location = new System.Drawing.Point(507, 29);
             this.NombreControl.MaxLength = 200;
             this.NombreControl.Name = "NombreControl";
             this.NombreControl.Size = new System.Drawing.Size(226, 20);
@@ -275,7 +250,7 @@
             // BuquedaClaveCodigoControl
             // 
             this.BuquedaClaveCodigoControl.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BuquedaClaveCodigoControl.Location = new System.Drawing.Point(201, 30);
+            this.BuquedaClaveCodigoControl.Location = new System.Drawing.Point(225, 28);
             this.BuquedaClaveCodigoControl.MaxLength = 200;
             this.BuquedaClaveCodigoControl.Name = "BuquedaClaveCodigoControl";
             this.BuquedaClaveCodigoControl.Size = new System.Drawing.Size(238, 20);
@@ -286,7 +261,7 @@
             // 
             this.BusqueNombreControl.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.BusqueNombreControl.BeforeTouchSize = new System.Drawing.Size(175, 21);
-            this.BusqueNombreControl.Location = new System.Drawing.Point(509, 6);
+            this.BusqueNombreControl.Location = new System.Drawing.Point(533, 4);
             this.BusqueNombreControl.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
             this.BusqueNombreControl.Name = "BusqueNombreControl";
             this.BusqueNombreControl.Size = new System.Drawing.Size(175, 21);
@@ -301,7 +276,7 @@
             // 
             this.BusClaveBarraControl.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.BusClaveBarraControl.BeforeTouchSize = new System.Drawing.Size(238, 21);
-            this.BusClaveBarraControl.Location = new System.Drawing.Point(211, 6);
+            this.BusClaveBarraControl.Location = new System.Drawing.Point(235, 4);
             this.BusClaveBarraControl.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
             this.BusClaveBarraControl.Name = "BusClaveBarraControl";
             this.BusClaveBarraControl.Size = new System.Drawing.Size(238, 21);
@@ -315,6 +290,36 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar;
+            this.btnBuscar.Location = new System.Drawing.Point(775, 18);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(31, 24);
+            this.btnBuscar.TabIndex = 187;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            // 
+            // BtnBusqueda
+            // 
+            this.BtnBusqueda.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.BtnBusqueda.BackColor = System.Drawing.Color.White;
+            this.BtnBusqueda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.BtnBusqueda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBusqueda.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBusqueda.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar0;
+            this.BtnBusqueda.Location = new System.Drawing.Point(812, 16);
+            this.BtnBusqueda.Name = "BtnBusqueda";
+            this.BtnBusqueda.Size = new System.Drawing.Size(31, 24);
+            this.BtnBusqueda.TabIndex = 13;
+            this.BtnBusqueda.UseVisualStyleBackColor = false;
+            this.BtnBusqueda.Click += new System.EventHandler(this.BtnBusqueda_Click);
             // 
             // FrmBusquedaProducto
             // 
@@ -358,8 +363,9 @@
         private System.Windows.Forms.TextBox CantidadProductoControl;
         private System.Windows.Forms.Button BtnAgregar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label ErrorControl;
         private System.Windows.Forms.Button BtnBusqueda;
+        private System.Windows.Forms.Label lblTitulo;
+        public System.Windows.Forms.Button btnBuscar;
     }
 }

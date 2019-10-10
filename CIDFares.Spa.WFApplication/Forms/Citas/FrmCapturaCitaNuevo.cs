@@ -27,31 +27,42 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         public CapturaCitaViewModel Model { get; set; }
         public CapturaCita cita { get; set; }
         DateTime f;
+        private Paquetes Paquetes;
         #endregion
         public FrmCapturaCitaNuevo(DateTime? fecha)
         {
             InitializeComponent();            
+            Model = ServiceLocator.Instance.Resolve<CapturaCitaViewModel>();
             lblTitle.Text = Convert.ToDateTime(fecha).ToString("dddd, dd MMMM yyyy").ToUpper();
-            Model = ServiceLocator.Instance.Resolve<CapturaCitaViewModel>();            
-            f = Convert.ToDateTime(fecha);            
-            string cf = fecha.Value.ToShortDateString() + " " + DateTime.Now.ToLongTimeString();           
-            Model.HoraCita = Convert.ToDateTime(cf);
-            Model.Cliente = string.Empty;
-            Model.ListaCapturaCita = new BindingList<CapturaCita>(new List<CapturaCita>());
-            Model.ListaCapturaCitaDetalle = new BindingList<CapturaCita>(new List<CapturaCita>());
-            Model.ListaCapturaCitaDetalleServicio = new BindingList<CapturaCita>(new List<CapturaCita>());
-            
-        }        
+            Model.IdSucursal = CurrentSession.IdSucursal;
+            f = Convert.ToDateTime(fecha);
+            groupBoxCita.Enabled = false;
+            Model.NombreCompleto = string.Empty;
+            Model.IdPaquete = 0;
+            Paquetes = new Paquetes();
+        }
+
+        //Agregar un paquete a la cita
+        public FrmCapturaCitaNuevo(DateTime? fecha, Paquetes paquete, Cliente cliente)
+        {
+            InitializeComponent();
+            Model = ServiceLocator.Instance.Resolve<CapturaCitaViewModel>();
+            lblTitle.Text = Convert.ToDateTime(fecha).ToString("dddd, dd MMMM yyyy").ToUpper();
+            Model.IdSucursal = CurrentSession.IdSucursal;
+            f = Convert.ToDateTime(fecha);
+            Paquetes = paquete;
+            Model.IdCliente = cliente.IdCliente;
+            Model.NombreCompleto = cliente.NombreCompleto;
+        }
 
         #region Métodos
         public void LimpiarPropiedades()
         {
-            Model.IdCita = Guid.Empty;
+            Model.IdAgendaCita = Guid.Empty;
             Model.IdCliente = Guid.Empty;
             Model.IdEstadoCita = 0;
             Model.NombreCompleto = string.Empty;
             Model.Observaciones = string.Empty;
-            Model.FechaCita = DateTime.MinValue;            
         }
 
         #endregion                    
@@ -60,18 +71,20 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         {
             try
             {
-                ClienteControl.DataBindings.Add("Text", Model, "Cliente", true, DataSourceUpdateMode.OnPropertyChanged);                
+                NombreCompletoControl.DataBindings.Add("Text", Model, "NombreCompleto", true, DataSourceUpdateMode.OnPropertyChanged);                
+                ServicioControl.DataBindings.Add("Text", Model, "Servicio", true, DataSourceUpdateMode.OnPropertyChanged);                
 
                 this.dgmCita.AutoGenerateColumns = false;
                 dgmCita.DataBindings.Add("DataSource", Model, "ListaCapturaCitaDetalle", true, DataSourceUpdateMode.OnPropertyChanged);
 
-                this.dgmServicio.AutoGenerateColumns = false;
-                dgmServicio.DataBindings.Add("DataSource", Model, "ListaCapturaCitaDetalleServicio", true, DataSourceUpdateMode.OnPropertyChanged);
-
                 IniciarCombo();
-                HorasControl.DataBindings.Add("SelectedValue", Model, "IdHora", true, DataSourceUpdateMode.OnPropertyChanged);
-                HorasControl.DataBindings.Add("DataSource", Model, "ListaHoras", true, DataSourceUpdateMode.OnPropertyChanged);
-                
+                IdHoraControl.DataBindings.Add("SelectedValue", Model, "IdHora", true, DataSourceUpdateMode.OnPropertyChanged);
+                IdHoraControl.DataBindings.Add("DataSource", Model, "ListaHoras", true, DataSourceUpdateMode.OnPropertyChanged);
+
+                IniciarComboPaquete();
+                IdServicioControl.DataBindings.Add("SelectedValue", Model, "IdServicio", true, DataSourceUpdateMode.OnPropertyChanged);
+                IdServicioControl.DataBindings.Add("DataSource", Model, "ListaServicioPaquete", true, DataSourceUpdateMode.OnPropertyChanged);
+
             }
             catch (Exception ex)
             {
@@ -83,28 +96,115 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         {
             try
             {
-                HorasControl.DisplayMember = "Hora";
-                HorasControl.ValueMember = "IdHora";
+                IdHoraControl.DisplayMember = "Hora";
+                IdHoraControl.ValueMember = "IdHora";
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        private async void comboHoras()
+
+        private void IniciarComboPaquete()
         {
-            DateTime primeraHora = new DateTime(2019, 11, 05, 9, 0, 0);
-            var z = await Model.GetListaHoras(f, primeraHora);
-            Model.LlenarListaHoras(z);
+            try
+            {
+                IdServicioControl.DisplayMember = "Nombre";
+                IdServicioControl.ValueMember = "IdServicio";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private async void ServiciosPaquete(Guid IdOrdenPaquete)
+        {
+            try
+            {
+                var x = await Model.GetAllServicioPaquete(IdOrdenPaquete);
+                Model.LlenarListaServicioPaquete(x);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        private async void HorarioSucursal()
+        {
+            try
+            {
+                var x = await Model.HorarioSucursal(Model.Dias(f), CurrentSession.IdSucursal);
+                Model.LlenarListaHoras(x);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+           
         }
 
         private async void FrmCapturaCitaNuevo_Load(object sender, EventArgs e)
         {
-            
-            await Model.GetCitaDetalle(f, CurrentSession.IdSucursal);
-            IniciarBinding();
-            comboHoras();
-                    
+            try
+            {
+                IniciarBinding();
+                IniciarFormulario();
+                if (Paquetes.IdPaquete != 0)
+                    FormularioPaquete();
+                await Model.GetCitaDetalle(f, CurrentSession.IdSucursal);
+                HorarioSucursal();
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCapturaCitaNuevo(DateTime? fecha) ~ FrmCapturaCitaNuevo_Load(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
+            }
+        }
+
+        private async void FormularioPaquete()
+        {
+            try
+            {
+                IdServicioControl.Visible = true;
+                BtnBuscar.Enabled = false;
+                ServicioControl.Visible = false;
+                pictureBox1.Visible = false;
+                pnlButtons.Visible = false;
+                labelNombre.Text = Paquetes.Nombre;
+                Model.IdPaquete = Paquetes.IdPaquete;
+                Model.Nombre = Paquetes.Nombre;
+
+                OrdenPaquete OP = await Model.AgendarPaquete(CurrentSession.IdSucursal, CurrentSession.IdCuentaUsuario);
+                ServiciosPaquete(OP.IdOrdenPaquete);
+                Model.IdOrdenPaquete = OP.IdOrdenPaquete;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void IniciarFormulario()
+        {
+            try
+            {
+                string fi = f.ToShortDateString() + " " + "09:00:00";
+                Model.FechaInicio = Convert.ToDateTime(fi);
+                FechaControl.Text = f.ToShortDateString();
+                if (f == DateTime.Now)
+                    btnAnterior.Visible = false;
+                else
+                    btnAnterior.Visible = true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private CapturaCita ObtenerSeleccionado()
@@ -122,192 +222,58 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 throw ex;
             }
         }
-
-        private CapturaCita ObtenerSeleccionadoServicio()
-        {
-            try
-            {
-                if (dgmServicio.SelectedItems.Count == 1)
-                {
-                    return (CapturaCita)dgmServicio.SelectedItem;
-                }
-                return null;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        private DataTable ObtenerDatosTabla(BindingList<CapturaCita> Lista)
-        {
-            DataTable Tabla = new DataTable();
-            Tabla.Columns.Add("IdServicio", typeof(int));
-            Tabla.Columns.Add("FechaInicio", typeof(DateTime));
-            Tabla.Columns.Add("FechaFinal", typeof(DateTime));
-            foreach (var item in Lista)
-            {
-                Tabla.Rows.Add(new object[] { item.IdServicio, item.FechaIServicio, item.FechaFServicio });
-            }
-            return Tabla;
-        }
-
+        
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             Model.State = EntityState.Create;            
-            gbCita.Enabled = true;
-            //btnBuscarServicio.Enabled = false;
-            btnBuscarCliente.Visible = true;
-            ClienteControl.Text = string.Empty;
-            Model.ListaCapturaCitaDetalleServicio.Clear();            
+            groupBoxCita.Enabled = true;
+            BtnBuscar.Enabled = true;
+            NombreCompletoControl.Text = string.Empty;
         }
 
         private void btnBuscarCliente_Click_1(object sender, EventArgs e)
         {
-            FrmBuscarCliente f = new FrmBuscarCliente();
-            f.ShowDialog();
-            Model.IdCliente = f.cliente.IdCliente;
-            Model.Cliente = f.cliente.NombreCompleto;            
+            FrmBuscarCliente cli = new FrmBuscarCliente();
+            cli.ShowDialog();
+            Model.IdCliente = cli.cliente.IdCliente;
+            Model.NombreCompleto = cli.cliente.NombreCompleto;            
         }
 
-        private async void btnGuardar_Click_1(object sender, EventArgs e)
+        private void ObtenerDatos()
         {
             try
             {
-                this.CleanErrors(errorProvider1, typeof(CapturaCitaViewModel));
-                errorProvider1.Clear();
-                btnGuardar.Enabled = false;
-                BindingList<CapturaCita> ListaServicio = (BindingList<CapturaCita>)dgmServicio.DataSource;
-                Model.TablaGServicio = ObtenerDatosTabla(ListaServicio);
-                int exists = await Model.BusyService(CurrentSession.IdSucursal);                                
-                var validationResults = Model.Validate();
-                validationResults.ToString();
-                if (exists != 1 && exists != 5)
-                {                    
-                    if (Model.ListaCapturaCitaDetalleServicio.Count > 0)
-                    {
-                        if (validationResults.IsValid)
-                        {
-                            var Resul = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario, CurrentSession.IdSucursal);
-                            if (Resul.Resultado == 1)
-                            {
-                                
-                                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);                                
-                                await Model.GetCitaDetalle(f, CurrentSession.IdSucursal);
-                                comboHoras();
-                                ClienteControl.Text = string.Empty;
-                                Model.ListaCapturaCitaDetalleServicio.Clear();
-                                
-                                gbCita.Enabled = false;
-                            }
-                            else
-                                CIDMessageBox.ShowAlert(Messages.ErrorMessage, "Error", TypeMessage.error);
-                        }
-                        else
-                            this.ShowErrors(errorProvider1, typeof(CapturaCitaViewModel), validationResults);
-                    }
-                    else
-                    {
-                        errorProvider1.SetError(lblErrorControl, "SELECCIONE EL SERVICIO");
-                        //this.ShowErrors(errorProvider1, typeof(CapturaCitaViewModel), validationResults);
-                    }
-                }
-                else
-                {
-                    if (exists == 5)
-                    {
-                        errorProvider1.SetError(lblCitaOcupadaControl, "NO PUEDES AGENDAR CITAS MENOR A LA HORA ACTUAL");
-                    }
-                    else
-                    {
-                        errorProvider1.SetError(lblCitaOcupadaControl, "HORARIO OCUPADO");
-                    }                    
-                    //this.ShowErrors(errorProvider1, typeof(CapturaCitaViewModel), validationResults);
-                }
-            }
-            catch (Exception ex)
-            {
-                ErrorLogHelper.AddExcFileTxt(ex, "FrmServicioNuevo ~ btnGuardar_Click(object sender, EventArgs e)");
-                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
-            }
-            finally
-            {
-                btnGuardar.Enabled = true;
-            }
-        }
+                Model.FechaInicio = f.Date + Model.IdHora;
+                Model.FechaFinal = (f.Date + Model.IdHora).AddHours(1);
 
-        private void btnBuscarServicio_Click_1(object sender, EventArgs e)
-        {
-            try
-            {                
-                if (Model.ListaCapturaCitaDetalleServicio.Count < 1)
-                {                    
-                    FrmBuscarServicio bs = new FrmBuscarServicio();
-                    bs.ShowDialog();
-                    if (bs.servicio.IdServicio > 0)
-                    {
-                        agregarServicioLista(bs.servicio);
-                        //btnBuscarServicio.Enabled = false;
-                    }                                 
-                }
-                else
-                {
-                    //btnBuscarServicio.Enabled = false;
-                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.OneService, TypeMessage.informacion);
-                }                       
+                string vr = Model.FechaInicio.ToShortDateString() + " " + Model.IdHora;
+                Model.FechaInicio = Convert.ToDateTime(vr);
             }
             catch (Exception ex)
             {
                 throw ex;
-            }            
-        }
-
-        private void agregarServicioLista(Servicio ex)
-        {
-            if (Model.ListaCapturaCitaDetalleServicio.Count == 0)
-            {
-                HoraCitaControl.Enabled = true;
-                Model.ListaCapturaCitaDetalleServicio.Add(new CapturaCita
-                {
-                    IdServicio = ex.IdServicio,
-                    Servicio = ex.Nombre,                    
-                    FechaIServicio = f.Date + Model.IdHora,                   
-                    FechaFServicio = (f.Date + Model.IdHora).AddHours(1)
-                });
-            }
-            else if(Model.ListaCapturaCitaDetalleServicio.Count >= 1)
-            {
-                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.OneService, TypeMessage.informacion);
-                // var UltimaFecha = DateTime.Now;
-
-                //List<CapturaCita> Data = Model.ListaCapturaCitaDetalleServicio.Skip(Math.Max(0, Model.ListaCapturaCitaDetalleServicio.Count - 4)).Select(x => { UltimaFecha = x.FechaFServicio; return x; }).ToList();
-                // //var gg = Model.FechaCita;
-                //     Model.ListaCapturaCitaDetalleServicio.Add(new CapturaCita
-                //     {
-                //         IdServicio = ex.IdServicio,
-                //         Servicio = ex.Nombre,
-                //         FechaIServicio = UltimaFecha,
-                //         FechaFServicio = UltimaFecha.AddHours(1)
-                //     });
-
             }
         }
 
-        private async void btnModificar_Click(object sender, EventArgs e)
+        
+        private void btnModificar_Click(object sender, EventArgs e)
         {
             try
             {
                 var item = ObtenerSeleccionado();
                 if (item != null)
                 {
-                    btnBuscarCliente.Visible = false;
+                    BtnBuscar.Enabled = false;
+                    groupBoxCita.Enabled = true;
+                    NombreCompletoControl.ReadOnly = true;
+                    NombreCompletoControl.Text = item.OrdenServicio.Cliente.NombreCompleto;
+                    //Model.IdHora = (TimeSpan)item.FechaInicio;
+                    Model.IdCliente = item.OrdenServicio.Cliente.IdCliente;
+                    Model.IdAgendaCita = item.IdAgendaCita;
+                    Model.IdOrdenServicio = item.OrdenServicio.IdOrdenServicio;
+                    Model.IdServicio = item.OrdenServicio.Servicio.IdServicio;
+                    Model.Servicio = item.OrdenServicio.Servicio.Nombre;
                     Model.State = EntityState.Update;
-                    gbCita.Enabled = true;                    
-                    ClienteControl.Text = item.NombreCompleto;
-                    Model.IdCliente = item.IdCliente;
-                    Model.IdCita = item.IdCita;                    
-                    Model.State = EntityState.Update;                                                       
-                    await Model.GetCitaDetalleServicio(item.IdCita);                                        
                 }
                 else
                     CIDMessageBox.ShowAlert(Messages.SystemName, Messages.CitaSelectMessage, TypeMessage.informacion);
@@ -317,108 +283,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 throw ex;
             }
         }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            gbCita.Enabled = false;
-            ClienteControl.Text = string.Empty;
-            Model.ListaCapturaCitaDetalleServicio.Clear();
-            this.CleanErrors(errorProvider1, typeof(CapturaCitaViewModel));
-            Model.FechaCita = DateTime.Today;
-        }
-
-        private void btnEliminarServicio_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Model.ListaCapturaCitaDetalleServicio.Clear();
-                //List<CapturaCita> Data;
-                //Servicio ex;
-                //var item = ObtenerSeleccionadoServicio();
-                //if (item != null)
-                //{
-                //    Model.ListaCapturaCitaDetalleServicio.Remove(item);      
-                //    Data = Model.ListaCapturaCitaDetalleServicio.ToList();
-                //    Model.ListaCapturaCitaDetalleServicio.Clear();
-                //    foreach (var servicio in Data)
-                //    {
-                //        ex = new Servicio();
-                //        ex.IdServicio = servicio.IdServicio;
-                //        ex.Nombre = servicio.Servicio;
-                //        agregarServicioLista(ex);
-                //    }
-                //    btnBuscarServicio.Enabled = true;
-                //}
-                //else
-                //    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ServicioSelectMessage, TypeMessage.informacion);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        private void HoraCitaControl_ValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Model.ListaCapturaCitaDetalleServicio.Count > 0)
-                {
-                    Model.HoraCita = HoraCitaControl.Value;
-                    Servicio ex;
-                    List<CapturaCita> Data = Model.ListaCapturaCitaDetalleServicio.ToList();
-                    Model.ListaCapturaCitaDetalleServicio.Clear();
-                    foreach (var servicio in Data)
-                    {
-                        ex = new Servicio();
-                        ex.IdServicio = servicio.IdServicio;
-                        ex.Nombre = servicio.Servicio;
-                        agregarServicioLista(ex);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        private void HorasControl_VisibleChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void HorasControl_SelectedValueChanged(object sender, EventArgs e)
-        {
-            
-            try
-            {
-                //btnBuscarServicio.Enabled = true;
-                if (HorasControl.DataBindings["SelectedValue"] != null)
-                {
-                    HorasControl.DataBindings["SelectedValue"].WriteValue();
-                }
-                if (Model.ListaCapturaCitaDetalleServicio.Count > 0)
-                {
-                    Model.HoraCita = HoraCitaControl.Value;
-                    Servicio ex;
-                    List<CapturaCita> Data = Model.ListaCapturaCitaDetalleServicio.ToList();
-                    Model.ListaCapturaCitaDetalleServicio.Clear();
-                    foreach (var servicio in Data)
-                    {
-                        ex = new Servicio();
-                        ex.IdServicio = servicio.IdServicio;
-                        ex.Nombre = servicio.Servicio;
-                        agregarServicioLista(ex);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
+        
         private async void btnEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -429,21 +294,15 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 {
 
                     if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmDeleteMessage) == DialogResult.OK)
-                    {
-                        Model.IdCita = item.IdCita;                        
-                        var result = await Model.DeleteAsync(CurrentSession.IdCuentaUsuario);
+                    {     
+                        var result = await Model.DeleteAsync(item.IdAgendaCita, CurrentSession.IdCuentaUsuario);
                         if (result == 1)
                         {
                             CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.informacion);
                             LimpiarPropiedades();
                             await Model.GetCitaDetalle(f, CurrentSession.IdSucursal);
                             this.CleanErrors(errorProvider1, typeof(CapturaCitaViewModel));                            
-                        }
-                        else if (result == 0)
-                        {
-                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.CategoryIsOcuped, TypeMessage.informacion);
-                            LimpiarPropiedades();
-                        }
+                        }                        
                         else
                             CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.informacion);
                     }
@@ -461,38 +320,162 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             }
         }
 
-        //private void agregarServicioLista(List<CapturaCita> data)
-        //{
-        //    string cf = Model.FechaCita.ToShortDateString() + " " + Model.HoraCita.ToLongTimeString();
-        //    Model.FechaCita = Convert.ToDateTime(cf);
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmBuscarCliente cli = new FrmBuscarCliente();
+                cli.ShowDialog();
+                Model.IdCliente = cli.cliente.IdCliente;
+                Model.NombreCompleto = cli.cliente.NombreCompleto;
+            }
+            catch (Exception)
+            {
 
-        //    if (Model.ListaCapturaCitaDetalleServicio.Count == 0)
-        //    {
-        //        HoraCitaControl.Enabled = true;
-        //        Model.ListaCapturaCitaDetalleServicio.Add(new CapturaCita
-        //        {
-        //            IdServicio = ex.IdServicio,
-        //            Servicio = ex.Nombre,
-        //            FechaIServicio = Model.FechaCita,
-        //            FechaFServicio = Model.FechaCita.AddHours(1)
-        //        });
+                throw;
+            }
+        }
 
-        //    }
-        //    else
-        //    {
-        //        var UltimaFecha = DateTime.Now;
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                    FrmBuscarServicio bs = new FrmBuscarServicio(Paquetes);
+                    bs.ShowDialog();
+                    if (bs.servicio.IdServicio > 0)
+                    {
+                        Model.Servicio = bs.servicio.Nombre;
+                        Model.IdServicio = bs.servicio.IdServicio;
+                    }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
-        //        List<CapturaCita> Data = Model.ListaCapturaCitaDetalleServicio.Skip(Math.Max(0, Model.ListaCapturaCitaDetalleServicio.Count - 4)).Select(x => { UltimaFecha = x.FechaFServicio; return x; }).ToList();
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.CleanErrors(errorProvider1, typeof(CapturaCitaViewModel));
+                errorProvider1.Clear();
+                button1.Enabled = false;
+                ObtenerDatos();
+                var validationResults = Model.Validate();
+                validationResults.ToString();
+                if (validationResults.IsValid )
+                {
+                    int res = 0;
+                        var Resul = await Model.GuardarCambios(CurrentSession.IdCuentaUsuario, CurrentSession.IdSucursal);
+                        res = Resul.Resultado;
+                    if (res == 1)
+                    {
+                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                        await Model.GetCitaDetalle(f, CurrentSession.IdSucursal);
+                        HorarioSucursal();
+                        Model.Servicio = string.Empty;
+                        ServiciosPaquete(Model.IdOrdenPaquete);
+                        if (Model.State == EntityState.Update)
+                        {
+                            LimpiarPropiedades();
+                            groupBoxCita.Enabled = false;
+                        }
+                    }
+                    else
+                        CIDMessageBox.ShowAlert(Messages.ErrorMessage, "Error", TypeMessage.error);
+                }
+                else
+                    this.ShowErrors(errorProvider1, typeof(CapturaCitaViewModel), validationResults);
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmServicioNuevo ~ btnGuardar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+            }
+            finally
+            {
+                button1.Enabled = true;
+            }
+        }
 
-        //        Model.ListaCapturaCitaDetalleServicio.Add(new CapturaCita
-        //        {
-        //            IdServicio = ex.IdServicio,
-        //            Servicio = ex.Nombre,
-        //            FechaIServicio = UltimaFecha,
-        //            FechaFServicio = UltimaFecha.AddHours(1)
-        //        });
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LimpiarPropiedades();
+                groupBoxCita.Enabled = false;
+            }
+            catch (Exception)
+            {
 
-        //    }
-        //}        
+                throw;
+            }
+        }
+
+        private async void pictureBox2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lblTitle.Text = Convert.ToDateTime(f.AddDays(1)).ToString("dddd, dd MMMM yyyy").ToUpper();
+                f = Convert.ToDateTime(f.AddDays(1));
+                IniciarFormulario();
+                await Model.GetCitaDetalle(f, CurrentSession.IdSucursal);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private async void btnAnterior_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(f == DateTime.Now)
+                {
+                    btnAnterior.Visible = false;
+                }
+                lblTitle.Text = Convert.ToDateTime(f.AddDays(-1)).ToString("dddd, dd MMMM yyyy").ToUpper();
+                f = Convert.ToDateTime(f.AddDays(-1));
+                IniciarFormulario();
+                await Model.GetCitaDetalle(f, CurrentSession.IdSucursal);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnAgregarPaquete_Click(object sender, EventArgs e)
+        {
+            FrmBuscarPaquete busPaquete = new FrmBuscarPaquete();
+            busPaquete.ShowDialog();
+        }
+
+        private void btnCitasSinAgendar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmCitasSinAgendar csa = new FrmCitasSinAgendar();
+                csa.ShowDialog();
+                Model.IdOrdenPaquete = csa.capturaCita.OrdenServicio.OrdenPaquete.IdOrdenPaquete;
+                ServiciosPaquete(Model.IdOrdenPaquete);
+                IdServicioControl.Visible = true;
+                groupBoxCita.Enabled = true;
+                BtnBuscar.Enabled = false;
+                ServicioControl.Visible = false;
+                pictureBox1.Visible = false;
+                labelNombre.Text = csa.capturaCita.OrdenServicio.OrdenPaquete.Paquete.Nombre;
+                Model.NombreCompleto = csa.capturaCita.OrdenServicio.Cliente.NombreCompleto;
+                Model.IdCliente = csa.capturaCita.OrdenServicio.Cliente.IdCliente;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }            
+        }
     }
 }

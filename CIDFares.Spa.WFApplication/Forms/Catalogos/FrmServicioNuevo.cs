@@ -224,7 +224,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             catch (Exception ex)
             {
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmServicioNuevo ~ btnCancelar_Click(object sender, EventArgs e)");
-                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorAlCancelarFrm, TypeMessage.error);
             }
         }
         
@@ -289,11 +289,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmServicio ~ BtnSeleccionar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
-        }
-
-        private void DuracionControl_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
