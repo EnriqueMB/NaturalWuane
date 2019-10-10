@@ -278,7 +278,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             try
             {
                 if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmCancelInput) == DialogResult.OK)
-
                 {
                     if (Model.RutaAux != "" && Model.RutaAux != null)
                         File.Delete(Model.RutaAux);//Borramos la imagen desde la carpeta RESOURCES

@@ -41,6 +41,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public Guid Usuario { get; set; }
         public decimal CostoProducto { get; set; }
         public decimal PorcentajeP { get; set; }
+        public string UrlImagen { get; set; }
         //foto
         public string Base64String { get; set; }
         public string UrlFoto { get; set; }

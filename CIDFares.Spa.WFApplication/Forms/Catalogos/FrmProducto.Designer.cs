@@ -42,9 +42,9 @@
             this.lblPrecio = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.BtnSeleccionar = new CIDFares.Library.Controls.Btn.Btn();
-            this.RutaControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.RutaImagenControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.label7 = new System.Windows.Forms.Label();
-            this.FotoControl = new System.Windows.Forms.PictureBox();
+            this.ImagenControl = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.NombreControl = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -87,8 +87,8 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RutaControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RutaImagenControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImagenControl)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -129,7 +129,7 @@
             this.lblSubtitle.Location = new System.Drawing.Point(23, 34);
             this.lblSubtitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSubtitle.Name = "lblSubtitle";
-            this.lblSubtitle.Size = new System.Drawing.Size(101, 15);
+            this.lblSubtitle.Size = new System.Drawing.Size(102, 15);
             this.lblSubtitle.TabIndex = 182;
             this.lblSubtitle.Text = "NUEVO REGISTRO";
             // 
@@ -248,9 +248,9 @@
             // panel12
             // 
             this.panel12.Controls.Add(this.BtnSeleccionar);
-            this.panel12.Controls.Add(this.RutaControl);
+            this.panel12.Controls.Add(this.RutaImagenControl);
             this.panel12.Controls.Add(this.label7);
-            this.panel12.Controls.Add(this.FotoControl);
+            this.panel12.Controls.Add(this.ImagenControl);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(797, 3);
             this.panel12.Name = "panel12";
@@ -278,23 +278,23 @@
             this.BtnSeleccionar.UseVisualStyleBackColor = false;
             this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click_1);
             // 
-            // RutaControl
+            // RutaImagenControl
             // 
-            this.RutaControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            this.RutaControl.BeforeTouchSize = new System.Drawing.Size(298, 35);
-            this.RutaControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RutaControl.CornerRadius = 2;
-            this.RutaControl.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.RutaControl.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.RutaControl.Location = new System.Drawing.Point(13, 161);
-            this.RutaControl.MaxLength = 80;
-            this.RutaControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.RutaControl.MinimumSize = new System.Drawing.Size(8, 4);
-            this.RutaControl.Multiline = true;
-            this.RutaControl.Name = "RutaControl";
-            this.RutaControl.ReadOnly = true;
-            this.RutaControl.Size = new System.Drawing.Size(298, 35);
-            this.RutaControl.TabIndex = 2;
+            this.RutaImagenControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
+            this.RutaImagenControl.BeforeTouchSize = new System.Drawing.Size(298, 35);
+            this.RutaImagenControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RutaImagenControl.CornerRadius = 2;
+            this.RutaImagenControl.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.RutaImagenControl.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.RutaImagenControl.Location = new System.Drawing.Point(13, 161);
+            this.RutaImagenControl.MaxLength = 80;
+            this.RutaImagenControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.RutaImagenControl.MinimumSize = new System.Drawing.Size(8, 4);
+            this.RutaImagenControl.Multiline = true;
+            this.RutaImagenControl.Name = "RutaImagenControl";
+            this.RutaImagenControl.ReadOnly = true;
+            this.RutaImagenControl.Size = new System.Drawing.Size(298, 35);
+            this.RutaImagenControl.TabIndex = 2;
             // 
             // label7
             // 
@@ -306,15 +306,15 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Seleccionar imagen";
             // 
-            // FotoControl
+            // ImagenControl
             // 
-            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FotoControl.Location = new System.Drawing.Point(108, 31);
-            this.FotoControl.Name = "FotoControl";
-            this.FotoControl.Size = new System.Drawing.Size(216, 121);
-            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.FotoControl.TabIndex = 42;
-            this.FotoControl.TabStop = false;
+            this.ImagenControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ImagenControl.Location = new System.Drawing.Point(108, 31);
+            this.ImagenControl.Name = "ImagenControl";
+            this.ImagenControl.Size = new System.Drawing.Size(216, 121);
+            this.ImagenControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ImagenControl.TabIndex = 42;
+            this.ImagenControl.TabStop = false;
             // 
             // panel4
             // 
@@ -430,7 +430,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(148, 1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 21);
+            this.label1.Size = new System.Drawing.Size(79, 21);
             this.label1.TabIndex = 54;
             this.label1.Text = "Clave SAT";
             // 
@@ -472,7 +472,7 @@
             this.StockControl.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.StockControl.Location = new System.Drawing.Point(22, 23);
             this.StockControl.Name = "StockControl";
-            this.StockControl.Size = new System.Drawing.Size(66, 25);
+            this.StockControl.Size = new System.Drawing.Size(67, 25);
             this.StockControl.TabIndex = 4;
             this.StockControl.Text = "Stock";
             this.StockControl.UseVisualStyleBackColor = true;
@@ -502,7 +502,7 @@
             this.lblStockMax.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStockMax.Location = new System.Drawing.Point(115, 6);
             this.lblStockMax.Name = "lblStockMax";
-            this.lblStockMax.Size = new System.Drawing.Size(107, 21);
+            this.lblStockMax.Size = new System.Drawing.Size(108, 21);
             this.lblStockMax.TabIndex = 43;
             this.lblStockMax.Text = "Stock maximo";
             // 
@@ -512,7 +512,7 @@
             this.lblStockMin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStockMin.Location = new System.Drawing.Point(253, 6);
             this.lblStockMin.Name = "lblStockMin";
-            this.lblStockMin.Size = new System.Drawing.Size(105, 21);
+            this.lblStockMin.Size = new System.Drawing.Size(106, 21);
             this.lblStockMin.TabIndex = 42;
             this.lblStockMin.Text = "Stock minimo";
             // 
@@ -532,7 +532,7 @@
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(9, -3);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 21);
+            this.label6.Size = new System.Drawing.Size(68, 21);
             this.label6.TabIndex = 56;
             this.label6.Text = "Tipo IVA";
             // 
@@ -573,7 +573,7 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(151, 1);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 21);
+            this.label4.Size = new System.Drawing.Size(123, 21);
             this.label4.TabIndex = 58;
             this.label4.Text = "% Desc. Paquete";
             // 
@@ -694,8 +694,8 @@
             this.panel8.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RutaControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RutaImagenControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImagenControl)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -746,7 +746,7 @@
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox FotoControl;
+        private System.Windows.Forms.PictureBox ImagenControl;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.ComboBox IdUnidadMedidaControl;
         private System.Windows.Forms.Label lblUnidadMedida;
@@ -759,7 +759,7 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.CheckBox StockControl;
         private System.Windows.Forms.Panel ClaveSat;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt RutaControl;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt RutaImagenControl;
         private System.Windows.Forms.CheckBox GenerarCodigoBarrasControl;
         private System.Windows.Forms.ComboBox IdAplicaIvaControl;
         private System.Windows.Forms.TextBox ClaveSatControl;
