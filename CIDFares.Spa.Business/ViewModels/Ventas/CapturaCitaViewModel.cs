@@ -41,6 +41,11 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             ListaHoras = new BindingList<CapturaCita>();
             ListaServicioPaquete = new BindingList<Servicio>();
             IdHora = new TimeSpan();
+            TablaGServicio = new DataTable();
+            Observaciones = string.Empty;
+            Cliente = string.Empty;
+            Hora = string.Empty;
+            Servicio = string.Empty;
         }
         #endregion
 

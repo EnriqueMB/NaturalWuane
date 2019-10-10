@@ -10,6 +10,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
     {
         public Servicio()
         {
+            Nombre = string.Empty;            
             datoServicio = new DetalleServicio();
         }
         public int IdServicio { get; set; }
