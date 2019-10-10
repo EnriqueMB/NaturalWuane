@@ -124,6 +124,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<TurnoPrincipalViewModel>();
             ServiceLocator.Instance.Register<DireccionesClienteViewModel>();
             ServiceLocator.Instance.Register<CitasSinAgendarViewModel>();
+            ServiceLocator.Instance.Register<PaquetesClienteViewModel>();
         }
     }
 }

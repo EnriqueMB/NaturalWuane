@@ -173,7 +173,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@idCliente", element.OrdenServicio.Cliente.IdCliente);
                     dynamicParameters.Add("@idEstadoCita", 5);                
                     dynamicParameters.Add("@user", IdUsuario);
-                    var result = await conexion.ExecuteScalarAsync<int>("[Cita].[SPCID_AC_Cita2]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Cita].[SPCID_AC_Cita]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;
                 }
@@ -343,6 +343,35 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             {
                 throw ex;
             }
-        }                
+        }
+
+        public async Task<IEnumerable<OrdenServicio>> GetCitasSinPagar(Guid idCliente, int idSucursal)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdCliente", idCliente);
+                    dynamicParameters.Add("@IdSucursal", idSucursal);
+                    //var result = await conexion.QueryAsync<CapturaCita>("[Cita].[SPCID_Get_CitaSinPagar]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var lista = await conexion.QueryAsync<OrdenServicio, Cliente, Paquetes, OrdenPaquete, OrdenServicio>("[Cita].[SPCID_Get_CitaSinPagar]",
+                    (os, cliente, p, op) =>
+                    {
+                        os.Cliente = cliente;
+                        os.OrdenPaquete = op;
+                        os.OrdenPaquete.Paquete = p;
+                        return os;
+                    },
+                    splitOn: "IdOrdenServicio, IdCliente, IdPaquete, IdOrdenPaquete", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

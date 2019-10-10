@@ -108,6 +108,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 //{
                     if (Lista.Count > 0)
                     {
+                        
                         Model.Total = Model.Total - TotalVenta();
                         Model.TablaPaquete = ObtenerTablaPaquete(Lista);
                             FrmSeleccionarPago pago = new FrmSeleccionarPago(Model);
@@ -131,7 +132,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             try
             {
-                decimal x = Model.ListaOrdenPaquete.Where(p => p.Paquete.Seleccionar == false).Sum(u => u.Paquete.Abono);
+                decimal x = Model.ListaOrdenPaquete.Where(p => p.Paquete.Seleccionar == false).Sum(u => u.Paquete.PorPagar);
                 return x;
             }
             catch (Exception ex)
