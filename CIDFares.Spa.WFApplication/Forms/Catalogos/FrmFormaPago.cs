@@ -220,14 +220,17 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                grpBoxFormaPago.Enabled = false;
-                LimpiarPropiedades();
-                this.CleanErrors(errorProvider1, typeof(FormaPagoViewModel));
+                if (CIDMessageBox.ShowAlertRequest(Constants.Messages.SystemName, Constants.Messages.ConfirmCancelInput) == DialogResult.OK)
+                {
+                    grpBoxFormaPago.Enabled = false;
+                    LimpiarPropiedades();
+                    this.CleanErrors(errorProvider1, typeof(FormaPagoViewModel));
+                }
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmFormaPago ~ btnCancelar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorAlCancelarFrm, TypeMessage.error);
             }
         }
 

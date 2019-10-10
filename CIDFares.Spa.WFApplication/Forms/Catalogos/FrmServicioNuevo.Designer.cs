@@ -73,8 +73,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.NombreControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.pnlFoto = new System.Windows.Forms.Panel();
+            this.RutaImagenControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.ImagenControl = new System.Windows.Forms.PictureBox();
             this.BtnSeleccionar = new CIDFares.Library.Controls.Btn.Btn();
-            this.FotoControl = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pnlHeader.SuspendLayout();
@@ -100,7 +101,8 @@
             this.pnlServicio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NombreControl)).BeginInit();
             this.pnlFoto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RutaImagenControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImagenControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,9 +121,10 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(12, 13);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(159, 30);
+            this.lblTitle.Size = new System.Drawing.Size(158, 30);
             this.lblTitle.TabIndex = 3;
             this.lblTitle.Text = "Nuevo servicio";
             // 
@@ -319,7 +322,7 @@
             this.rbPorcentajeControl.Location = new System.Drawing.Point(0, 25);
             this.rbPorcentajeControl.Margin = new System.Windows.Forms.Padding(2);
             this.rbPorcentajeControl.Name = "rbPorcentajeControl";
-            this.rbPorcentajeControl.Size = new System.Drawing.Size(100, 25);
+            this.rbPorcentajeControl.Size = new System.Drawing.Size(101, 25);
             this.rbPorcentajeControl.TabIndex = 1;
             this.rbPorcentajeControl.TabStop = true;
             this.rbPorcentajeControl.Text = "Porcentaje";
@@ -382,7 +385,7 @@
             this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(79, 9);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(122, 21);
+            this.label10.Size = new System.Drawing.Size(123, 21);
             this.label10.TabIndex = 9;
             this.label10.Text = "% Desc. Paquete";
             // 
@@ -431,14 +434,14 @@
             // 
             // DescripcionControl
             // 
-            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
+            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(189, 74);
             this.DescripcionControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.DescripcionControl.Location = new System.Drawing.Point(8, 30);
             this.DescripcionControl.Margin = new System.Windows.Forms.Padding(2);
             this.DescripcionControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.DescripcionControl.Multiline = true;
             this.DescripcionControl.Name = "DescripcionControl";
-            this.DescripcionControl.Size = new System.Drawing.Size(154, 23);
+            this.DescripcionControl.Size = new System.Drawing.Size(154, 48);
             this.DescripcionControl.TabIndex = 7;
             // 
             // label4
@@ -623,8 +626,9 @@
             // 
             // pnlFoto
             // 
+            this.pnlFoto.Controls.Add(this.RutaImagenControl);
+            this.pnlFoto.Controls.Add(this.ImagenControl);
             this.pnlFoto.Controls.Add(this.BtnSeleccionar);
-            this.pnlFoto.Controls.Add(this.FotoControl);
             this.pnlFoto.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlFoto.Location = new System.Drawing.Point(630, 0);
             this.pnlFoto.Margin = new System.Windows.Forms.Padding(2);
@@ -632,16 +636,45 @@
             this.pnlFoto.Size = new System.Drawing.Size(207, 261);
             this.pnlFoto.TabIndex = 1;
             // 
+            // RutaImagenControl
+            // 
+            this.RutaImagenControl.BackColor = System.Drawing.Color.White;
+            this.RutaImagenControl.BeforeTouchSize = new System.Drawing.Size(189, 74);
+            this.RutaImagenControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.RutaImagenControl.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.RutaImagenControl.Location = new System.Drawing.Point(7, 145);
+            this.RutaImagenControl.Margin = new System.Windows.Forms.Padding(2);
+            this.RutaImagenControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.RutaImagenControl.Multiline = true;
+            this.RutaImagenControl.Name = "RutaImagenControl";
+            this.RutaImagenControl.ReadOnly = true;
+            this.RutaImagenControl.Size = new System.Drawing.Size(189, 74);
+            this.RutaImagenControl.TabIndex = 0;
+            this.RutaImagenControl.TabStop = false;
+            // 
+            // ImagenControl
+            // 
+            this.ImagenControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ImagenControl.Location = new System.Drawing.Point(7, 10);
+            this.ImagenControl.Name = "ImagenControl";
+            this.ImagenControl.Size = new System.Drawing.Size(194, 115);
+            this.ImagenControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ImagenControl.TabIndex = 45;
+            this.ImagenControl.TabStop = false;
+            // 
             // BtnSeleccionar
             // 
+            this.BtnSeleccionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnSeleccionar.BackColor = System.Drawing.Color.White;
             this.BtnSeleccionar.BeforeTouchSize = new System.Drawing.Size(118, 28);
+            this.BtnSeleccionar.FlatAppearance.BorderSize = 0;
             this.BtnSeleccionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.BtnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSeleccionar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSeleccionar.ForeColor = System.Drawing.Color.Black;
+            this.BtnSeleccionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnSeleccionar.IsBackStageButton = false;
-            this.BtnSeleccionar.Location = new System.Drawing.Point(53, 174);
+            this.BtnSeleccionar.Location = new System.Drawing.Point(51, 224);
             this.BtnSeleccionar.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.BtnSeleccionar.MouseHoverForeColor = System.Drawing.Color.White;
             this.BtnSeleccionar.MouseLeaveForeColor = System.Drawing.Color.Black;
@@ -651,16 +684,6 @@
             this.BtnSeleccionar.Text = "Seleccionar";
             this.BtnSeleccionar.UseVisualStyleBackColor = false;
             this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
-            // 
-            // FotoControl
-            // 
-            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FotoControl.Location = new System.Drawing.Point(2, 11);
-            this.FotoControl.Name = "FotoControl";
-            this.FotoControl.Size = new System.Drawing.Size(203, 124);
-            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.FotoControl.TabIndex = 45;
-            this.FotoControl.TabStop = false;
             // 
             // errorProvider1
             // 
@@ -681,7 +704,7 @@
             this.Name = "FrmServicioNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmServicioNuevo";
-            this.Load += new System.EventHandler(this.FrmServicioNuevo_Load);
+            this.Shown += new System.EventHandler(this.FrmServicioNuevo_Shown);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlButtons.ResumeLayout(false);
@@ -716,7 +739,9 @@
             this.pnlServicio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NombreControl)).EndInit();
             this.pnlFoto.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
+            this.pnlFoto.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RutaImagenControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImagenControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
@@ -763,7 +788,7 @@
         private System.Windows.Forms.RadioButton rbMontoControl;
         private System.Windows.Forms.Label lblIEPS;
         private System.Windows.Forms.Panel pnlFoto;
-        private System.Windows.Forms.PictureBox FotoControl;
+        private System.Windows.Forms.PictureBox ImagenControl;
         private System.Windows.Forms.DateTimePicker DuracionControl;
         private System.Windows.Forms.Label label10;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt PorcentajePControl;
@@ -772,5 +797,6 @@
         private Syncfusion.Windows.Forms.ButtonAdv btnCancelar;
         private Library.Controls.Btn.Btn BtnSeleccionar;
         private System.Windows.Forms.Panel panel1;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt RutaImagenControl;
     }
 }

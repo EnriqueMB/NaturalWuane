@@ -14,7 +14,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
         Task<string> ObtenerFoto(Guid IdCliente);
         Task<IEnumerable<Cliente>> GetBusquedaAsync(string Busqueda);
         Task<int> SetMonederoCliente(object IdCliente, object IdUsuario, string ClaveTarjeta, int Opcion);
-        Task<int> AddWithDTO(DTOCliente element);
+        Task<string> AddWithDTO(DTOCliente element, string extencion);
         Task<List<Cliente>> GetAllAsync(int Pagina, int Opcion);
     }
 }

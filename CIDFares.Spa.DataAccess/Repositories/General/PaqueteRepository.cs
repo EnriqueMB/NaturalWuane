@@ -22,7 +22,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 using (IDbConnection conexion = new SqlConnection(WebConnectionString))
                 {
                     conexion.Open();
-                    var dynamicParameters = new DynamicParameters();                    
+                    var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@TablaProducto", element.TablaProducto, DbType.Object);
                     dynamicParameters.Add("@TablaServicio", element.TablaServicio, DbType.Object);
                     dynamicParameters.Add("@IdPaquete", element.IdPaquete);
@@ -32,6 +32,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@NPersona", element.NPersona);
                     dynamicParameters.Add("@NPago", element.NPago);
                     dynamicParameters.Add("@MontoPaquete", element.MontoPaquete);
+                    dynamicParameters.Add("@UrlImagen", element.UrlImagen);
                     dynamicParameters.Add("@FechaVencimiento", element.FechaVencimiento);
                     dynamicParameters.Add("@IdUsuario", IdUsuario);
                     var Resultado = await conexion.ExecuteScalarAsync<int>("[Paquete].[spCID_AC_Paquete]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
@@ -86,6 +87,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.FechaVencimiento = dr.GetDateTime(dr.GetOrdinal("FechaVencimiento"));
                         item.Descripcion = dr.GetString(dr.GetOrdinal("Descripcion"));
                         item.MontoPaquete = dr.GetDecimal(dr.GetOrdinal("MontoPaquete"));
+                        item.UrlImagen = dr.GetString(dr.GetOrdinal("UrlImagen"));
                         Lista.Add(item);
                     }
                     return Lista;
@@ -170,6 +172,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@NPersona", element.NPersona);
                     dynamicParameters.Add("@NPago", element.NPago);
                     dynamicParameters.Add("@MontoPaquete", element.MontoPaquete);
+                    dynamicParameters.Add("@UrlImagen", element.UrlImagen);
                     dynamicParameters.Add("@FechaVencimiento", element.FechaVencimiento);
                     dynamicParameters.Add("@IdUsuario", IdUsuario);
                     var Resultado = await conexion.ExecuteScalarAsync<int>("[Paquete].[spCID_C_Paquete]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
@@ -209,6 +212,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.FechaVencimiento = dr.GetDateTime(dr.GetOrdinal("FechaVencimiento"));
                         item.Descripcion = dr.GetString(dr.GetOrdinal("Descripcion"));
                         item.MontoPaquete = dr.GetDecimal(dr.GetOrdinal("MontoPaquete"));
+                        item.UrlImagen = dr.GetString(dr.GetOrdinal("UrlImagen"));
                         Lista.Add(item);
                     }
                     return Lista;

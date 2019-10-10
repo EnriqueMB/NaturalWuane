@@ -478,7 +478,7 @@
             this.Controls.Add(this.PnlHead);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmMedicionGrid";
-            this.Text = "FrmMedicionGrid";
+            this.Text = "0";
             this.Shown += new System.EventHandler(this.FrmMedicionGrid_Shown);
             this.PnlHead.ResumeLayout(false);
             this.PnlHead.PerformLayout();

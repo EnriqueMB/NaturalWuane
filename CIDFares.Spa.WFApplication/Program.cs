@@ -80,6 +80,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<CancelacionVentaValidator, IValidator<CancelacionVentaViewModel>>();
             ServiceLocator.Instance.Register<ListaMedicionValidator, IValidator<ListaMedicionViewModel>>();
             ServiceLocator.Instance.Register<MedicionValidator, IValidator<MedicionViewModel>>();
+            //ServiceLocator.Instance.Register<AbonoPaqueteValidator, IValidator<PaqueteViewModel>>();
             ServiceLocator.Instance.Register<AbonoPaqueteValidator, IValidator < PaqueteViewModel >> ();
             ServiceLocator.Instance.Register<AbonoPaqueteValidator, IValidator < PaqueteViewModel >>();
             ServiceLocator.Instance.Register<DireccionesClienteValidator, IValidator<DireccionesClienteViewModel>>();
@@ -121,6 +122,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<MedicionViewModel>();
             ServiceLocator.Instance.Register<ListaMedicionViewModel>();
             ServiceLocator.Instance.Register<AbonoPaqueteDetalleViewModel>();
+            ServiceLocator.Instance.Register<TurnoPrincipalViewModel>();
             ServiceLocator.Instance.Register<DireccionesClienteViewModel>();
             ServiceLocator.Instance.Register<CitasSinAgendarViewModel>();
         }

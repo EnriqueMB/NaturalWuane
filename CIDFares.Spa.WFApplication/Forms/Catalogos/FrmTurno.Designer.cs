@@ -33,7 +33,6 @@
             this.Turnos = new System.Windows.Forms.Label();
             this.PanelBTN = new System.Windows.Forms.Panel();
             this.PanelContainsBtnGuardarç = new System.Windows.Forms.FlowLayoutPanel();
-            this.BtnGuardar = new System.Windows.Forms.Button();
             this.panelContainerPanelsDataTurno = new System.Windows.Forms.Panel();
             this.PanelContainGroupBox = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -60,10 +59,12 @@
             this.LblHoraEntrada1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1BotonesDatosTurno = new System.Windows.Forms.FlowLayoutPanel();
             this.BtnAgregar = new System.Windows.Forms.Button();
-            this.CancelarBtn = new System.Windows.Forms.Button();
+            this.EliminarBtn = new System.Windows.Forms.Button();
             this.panelContainTableDataTurnoDays = new System.Windows.Forms.Panel();
             this.horarioDesignV21 = new CIDFares.Library.Controls.CIDHorario.Design.HorarioDesignV2();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.BtnGuardar = new Syncfusion.Windows.Forms.ButtonAdv();
+            this.CancelarBtn = new Syncfusion.Windows.Forms.ButtonAdv();
             this.PanelTitulo.SuspendLayout();
             this.PanelBTN.SuspendLayout();
             this.PanelContainsBtnGuardarç.SuspendLayout();
@@ -83,7 +84,7 @@
             // 
             // PanelTitulo
             // 
-            this.PanelTitulo.BackColor = System.Drawing.Color.White;
+            this.PanelTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.PanelTitulo.Controls.Add(this.Turnos);
             this.PanelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelTitulo.Location = new System.Drawing.Point(0, 0);
@@ -94,10 +95,11 @@
             // Turnos
             // 
             this.Turnos.AutoSize = true;
-            this.Turnos.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Turnos.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.Turnos.ForeColor = System.Drawing.Color.White;
             this.Turnos.Location = new System.Drawing.Point(47, 18);
             this.Turnos.Name = "Turnos";
-            this.Turnos.Size = new System.Drawing.Size(67, 22);
+            this.Turnos.Size = new System.Drawing.Size(80, 30);
             this.Turnos.TabIndex = 0;
             this.Turnos.Text = "Turnos";
             // 
@@ -113,23 +115,11 @@
             // PanelContainsBtnGuardarç
             // 
             this.PanelContainsBtnGuardarç.Controls.Add(this.BtnGuardar);
-            this.PanelContainsBtnGuardarç.Location = new System.Drawing.Point(783, 3);
+            this.PanelContainsBtnGuardarç.Controls.Add(this.CancelarBtn);
+            this.PanelContainsBtnGuardarç.Location = new System.Drawing.Point(731, 6);
             this.PanelContainsBtnGuardarç.Name = "PanelContainsBtnGuardarç";
-            this.PanelContainsBtnGuardarç.Size = new System.Drawing.Size(213, 41);
+            this.PanelContainsBtnGuardarç.Size = new System.Drawing.Size(321, 41);
             this.PanelContainsBtnGuardarç.TabIndex = 2;
-            // 
-            // BtnGuardar
-            // 
-            this.BtnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.BtnGuardar.FlatAppearance.BorderSize = 0;
-            this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnGuardar.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.BtnGuardar.Location = new System.Drawing.Point(3, 3);
-            this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(206, 35);
-            this.BtnGuardar.TabIndex = 1;
-            this.BtnGuardar.Text = "Guardar";
-            this.BtnGuardar.UseVisualStyleBackColor = false;
             // 
             // panelContainerPanelsDataTurno
             // 
@@ -142,7 +132,7 @@
             // 
             // PanelContainGroupBox
             // 
-            this.PanelContainGroupBox.BackColor = System.Drawing.Color.White;
+            this.PanelContainGroupBox.BackColor = System.Drawing.SystemColors.Control;
             this.PanelContainGroupBox.Controls.Add(this.groupBox1);
             this.PanelContainGroupBox.Dock = System.Windows.Forms.DockStyle.Right;
             this.PanelContainGroupBox.Location = new System.Drawing.Point(717, 0);
@@ -219,11 +209,13 @@
             // 
             // DiasControl
             // 
+            this.DiasControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DiasControl.FormattingEnabled = true;
             this.DiasControl.Location = new System.Drawing.Point(18, 23);
             this.DiasControl.Name = "DiasControl";
             this.DiasControl.Size = new System.Drawing.Size(256, 28);
             this.DiasControl.TabIndex = 1;
+            this.DiasControl.SelectedIndexChanged += new System.EventHandler(this.DiasControl_SelectedIndexChanged);
             // 
             // LblDiaTurno
             // 
@@ -376,7 +368,7 @@
             // 
             this.flowLayoutPanel1BotonesDatosTurno.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flowLayoutPanel1BotonesDatosTurno.Controls.Add(this.BtnAgregar);
-            this.flowLayoutPanel1BotonesDatosTurno.Controls.Add(this.CancelarBtn);
+            this.flowLayoutPanel1BotonesDatosTurno.Controls.Add(this.EliminarBtn);
             this.flowLayoutPanel1BotonesDatosTurno.Location = new System.Drawing.Point(14, 395);
             this.flowLayoutPanel1BotonesDatosTurno.Name = "flowLayoutPanel1BotonesDatosTurno";
             this.flowLayoutPanel1BotonesDatosTurno.Size = new System.Drawing.Size(269, 41);
@@ -384,9 +376,10 @@
             // 
             // BtnAgregar
             // 
-            this.BtnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(148)))), ((int)(((byte)(65)))));
-            this.BtnAgregar.FlatAppearance.BorderSize = 0;
+            this.BtnAgregar.BackColor = System.Drawing.Color.White;
+            this.BtnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAgregar.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.BtnAgregar.Location = new System.Drawing.Point(3, 3);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(137, 30);
@@ -395,17 +388,19 @@
             this.BtnAgregar.UseVisualStyleBackColor = false;
             this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
-            // CancelarBtn
+            // EliminarBtn
             // 
-            this.CancelarBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.CancelarBtn.FlatAppearance.BorderSize = 0;
-            this.CancelarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelarBtn.Location = new System.Drawing.Point(146, 3);
-            this.CancelarBtn.Name = "CancelarBtn";
-            this.CancelarBtn.Size = new System.Drawing.Size(120, 30);
-            this.CancelarBtn.TabIndex = 7;
-            this.CancelarBtn.Text = "Cancelar";
-            this.CancelarBtn.UseVisualStyleBackColor = false;
+            this.EliminarBtn.BackColor = System.Drawing.Color.White;
+            this.EliminarBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.EliminarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EliminarBtn.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.EliminarBtn.Location = new System.Drawing.Point(146, 3);
+            this.EliminarBtn.Name = "EliminarBtn";
+            this.EliminarBtn.Size = new System.Drawing.Size(120, 30);
+            this.EliminarBtn.TabIndex = 7;
+            this.EliminarBtn.Text = "Eliminar";
+            this.EliminarBtn.UseVisualStyleBackColor = false;
+            this.EliminarBtn.Click += new System.EventHandler(this.EliminarBtn_Click);
             // 
             // panelContainTableDataTurnoDays
             // 
@@ -419,6 +414,7 @@
             // 
             // horarioDesignV21
             // 
+            this.horarioDesignV21.BackColor = System.Drawing.SystemColors.Control;
             this.horarioDesignV21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.horarioDesignV21.Location = new System.Drawing.Point(0, 0);
             this.horarioDesignV21.Name = "horarioDesignV21";
@@ -429,18 +425,51 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // BtnGuardar
+            // 
+            this.BtnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.BtnGuardar.BeforeTouchSize = new System.Drawing.Size(123, 29);
+            this.BtnGuardar.FlatAppearance.BorderSize = 0;
+            this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGuardar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGuardar.ForeColor = System.Drawing.Color.White;
+            this.BtnGuardar.IsBackStageButton = false;
+            this.BtnGuardar.Location = new System.Drawing.Point(22, 5);
+            this.BtnGuardar.Margin = new System.Windows.Forms.Padding(22, 5, 3, 3);
+            this.BtnGuardar.Name = "BtnGuardar";
+            this.BtnGuardar.Size = new System.Drawing.Size(123, 29);
+            this.BtnGuardar.TabIndex = 16;
+            this.BtnGuardar.Text = "Guardar";
+            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
+            // 
+            // CancelarBtn
+            // 
+            this.CancelarBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.CancelarBtn.BeforeTouchSize = new System.Drawing.Size(123, 29);
+            this.CancelarBtn.FlatAppearance.BorderSize = 0;
+            this.CancelarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelarBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelarBtn.ForeColor = System.Drawing.Color.Black;
+            this.CancelarBtn.IsBackStageButton = false;
+            this.CancelarBtn.Location = new System.Drawing.Point(168, 5);
+            this.CancelarBtn.Margin = new System.Windows.Forms.Padding(20, 5, 3, 3);
+            this.CancelarBtn.Name = "CancelarBtn";
+            this.CancelarBtn.Size = new System.Drawing.Size(123, 29);
+            this.CancelarBtn.TabIndex = 18;
+            this.CancelarBtn.Text = "Cancelar";
+            this.CancelarBtn.Click += new System.EventHandler(this.CancelarBtn_Click);
+            // 
             // FrmTurno
             // 
             this.AccessibleName = "Table";
-            this.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
-            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1052, 574);
             this.Controls.Add(this.panelContainerPanelsDataTurno);
             this.Controls.Add(this.PanelBTN);
             this.Controls.Add(this.PanelTitulo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmTurno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmTurno";
@@ -502,10 +531,11 @@
         private System.Windows.Forms.Label LblHoraSalida2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1BotonesDatosTurno;
         private System.Windows.Forms.Button BtnAgregar;
-        private System.Windows.Forms.Button CancelarBtn;
-        private System.Windows.Forms.Button BtnGuardar;
+        private System.Windows.Forms.Button EliminarBtn;
         private System.Windows.Forms.FlowLayoutPanel PanelContainsBtnGuardarç;
         private Library.Controls.CIDHorario.Design.HorarioDesignV2 horarioDesignV21;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private Syncfusion.Windows.Forms.ButtonAdv BtnGuardar;
+        private Syncfusion.Windows.Forms.ButtonAdv CancelarBtn;
     }
 }

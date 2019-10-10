@@ -27,14 +27,13 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     conexion.Open();
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@NuevoRegistro", element.NuevoRegistro);
-                    dynamicParameters.Add("@UpdateFoto", element.UpdateFoto);
                     dynamicParameters.Add("@IdCliente", element.IdCliente);
                     dynamicParameters.Add("@Clave", element.Clave);
                     dynamicParameters.Add("@NombreCompleto", element.NombreCompleto);
                     dynamicParameters.Add("@Telefono", element.Telefono);
                     dynamicParameters.Add("@FechaNacimiento", element.FechaNacimiento);
                     dynamicParameters.Add("@Sexo", element.Sexo);
-                    dynamicParameters.Add("@Foto", element.FotoBase64);
+                    dynamicParameters.Add("@UrlFoto", element.UrlFoto);
                     dynamicParameters.Add("@Rfc", element.Rfc);
                     dynamicParameters.Add("@email", element.Email);
                     dynamicParameters.Add("@IdUsuarioL", IdUsuario);
@@ -66,6 +65,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.IdCliente = dr.GetGuid(dr.GetOrdinal("IdCliente"));
                         item.LocalId = dr.GetInt32(dr.GetOrdinal("LocalId"));
                         item.NombreCompleto = dr.GetString(dr.GetOrdinal("NombreCompleto"));
+                        item.UrlFoto = dr.GetString(dr.GetOrdinal("UrlFoto"));
                         if (!dr.IsDBNull(dr.GetOrdinal("FechaNacimiento")))
                         {
                             DateTime date = dr.GetDateTime(dr.GetOrdinal("FechaNacimiento"));
@@ -93,7 +93,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
-
+        
         public async Task<string> ObtenerFoto(Guid IdCliente)
         {
             try
@@ -111,7 +111,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             {
                 throw ex;
             }
-            
+
         }
 
         public async Task<int> DeleteAsync(object id)
@@ -175,6 +175,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.IdCliente = dr.GetGuid(dr.GetOrdinal("IdCliente"));
                         item.LocalId = dr.GetInt32(dr.GetOrdinal("LocalId"));
                         item.NombreCompleto = dr.GetString(dr.GetOrdinal("NombreCompleto"));
+                        item.UrlFoto = dr.GetString(dr.GetOrdinal("UrlFoto"));
                         if (!dr.IsDBNull(dr.GetOrdinal("FechaNacimiento")))
                         {
                             DateTime date = dr.GetDateTime(dr.GetOrdinal("FechaNacimiento"));
@@ -220,26 +221,26 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public async Task<int> AddWithDTO(DTOCliente element)
+        public async Task<string> AddWithDTO(DTOCliente element, string extencion)
         {
             using (IDbConnection conexion = new SqlConnection(WebConnectionString))
             {
                 conexion.Open();
                 var dynamicParameters = new DynamicParameters();
                 dynamicParameters.Add("@NuevoRegistro", element.DatosCliente.NuevoRegistro);
-                dynamicParameters.Add("@UpdateFoto", element.DatosCliente.UpdateFoto);
                 dynamicParameters.Add("@IdCliente", element.DatosCliente.IdCliente);
                 dynamicParameters.Add("@Clave", element.DatosCliente.Clave);
                 dynamicParameters.Add("@NombreCompleto", element.DatosCliente.NombreCompleto);
                 dynamicParameters.Add("@Telefono", element.DatosCliente.Telefono);
                 dynamicParameters.Add("@FechaNacimiento", element.DatosCliente.FechaNacimiento);
                 dynamicParameters.Add("@Sexo", element.DatosCliente.Sexo);
-                dynamicParameters.Add("@Foto", element.DatosCliente.FotoBase64);
+                dynamicParameters.Add("@UrlFoto", element.DatosCliente.UrlFoto);
+                dynamicParameters.Add("@Ext", extencion);
                 dynamicParameters.Add("@Rfc", element.DatosCliente.Rfc);
                 dynamicParameters.Add("@email", element.DatosCliente.Email);
                 dynamicParameters.Add("@IdUsuarioL", element.DatosCliente.IdUsuarioL);
                 dynamicParameters.Add("@TablaDirecciones", element.ListaDireciones.ToDataTable(), DbType.Object);
-                var Resultado = await conexion.ExecuteScalarAsync<int>("[Cliente].[SPCID_AC_Cliente]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                var Resultado = await conexion.ExecuteScalarAsync<string>("[Cliente].[SPCID_AC_Cliente]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                 return Resultado;
             }
         }
@@ -262,6 +263,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     item.IdCliente = dr.GetGuid(dr.GetOrdinal("IdCliente"));
                     item.LocalId = dr.GetInt32(dr.GetOrdinal("LocalId"));
                     item.NombreCompleto = dr.GetString(dr.GetOrdinal("NombreCompleto"));
+                    item.UrlFoto = dr.GetString(dr.GetOrdinal("UrlFoto"));
                     if (!dr.IsDBNull(dr.GetOrdinal("FechaNacimiento")))
                     {
                         DateTime date = dr.GetDateTime(dr.GetOrdinal("FechaNacimiento"));

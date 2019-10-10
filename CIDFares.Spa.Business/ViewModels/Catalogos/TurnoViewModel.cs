@@ -14,11 +14,11 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
     public class TurnoViewModel : Validable, INotifyPropertyChanged
     {
         #region Propiedades Privadas
-        private ITurnoRepository TurnoPrincipalRepository { get; set; }
+        private ITurnoRepository TurnoRepository { get; set; }
         #endregion
 
         #region Propiedades Publicas
-        public BindingList<TurnoDias> ListaTurno { get; set; }
+        public BindingList<TurnoDias> ListaValores { get; set; }
         public bool ValidarValor { get; set; }
         public EntityState State { get; set; }
         #endregion
@@ -26,21 +26,21 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         #region Contructor
         public TurnoViewModel(ITurnoRepository turnoRepository)
         {
-            TurnoPrincipalRepository = turnoRepository;
-            ListaTurno = new BindingList<TurnoDias>();
+            TurnoRepository = turnoRepository;
+            ListaValores = new BindingList<TurnoDias>();
             ValidarValor = false;
         }
         #endregion
 
         #region Metodos
-        public async Task GetListaTurno()
+        public async Task<Turno> GetListaTurno(int? IdTurno)
         {
             try
             {
                 Turno listaTurno;
-                listaTurno = await TurnoPrincipalRepository.GetAsync(IdTurno);
+                listaTurno = await TurnoRepository.GetAsync(IdTurno);
                 NombreTurno = listaTurno.NombreTurno;
-                ListaTurno = new BindingList<TurnoDias>(listaTurno.DatosValor.ToList());
+                return listaTurno;
             }
             catch(Exception ex)
             {
@@ -48,32 +48,28 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        /*public async Task GetAll()
-        {
-            try
-            {
-                var x = await TurnoRepository.GetAllAsync();
-                ListaTurno.Clear();
-                foreach (var item in x)
-                {
-                    ListaTurno.Add(item);
-                }
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
-        }*/
-
-        public async Task<Turno> GuardarCambios(Guid IdUsuario, DataTable TablaValores)
+         public async Task<Turno> GuardarCambios(Guid IdUsuario, DataTable TablaValores)
         {
             try
             {
                 Turno turno = new Turno();
-                turno.NombreTurno = NombreTurno;
-                turno.TablaValores = TablaValores;
-                turno.IdUsuario = IdUsuario;
-                turno = await TurnoPrincipalRepository.AddAsync(turno, IdUsuario);
+                if (State == EntityState.Create)
+                { 
+                    turno.NombreTurno = NombreTurno;
+                    turno.TablaValores = TablaValores;
+                    turno.IdUsuario = IdUsuario;
+                    turno = await TurnoRepository.AddAsync(turno, IdUsuario);
+                    return turno;
+                }
+                else if (State == EntityState.Update)
+                {
+                    turno.IdTurno = IdTurno;
+                    turno.NombreTurno = NombreTurno;
+                    turno.TablaValores = TablaValores;
+                    turno.IdUsuario = IdUsuario;
+                    turno = await TurnoRepository.UpdateAsync(turno, IdUsuario);
+                    return turno;
+                }
                 return turno;
             }
             catch(Exception ex)
@@ -86,7 +82,7 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
         {
             try
             {
-                return await TurnoPrincipalRepository.DeleteAsync(this.IdTurno, this.IdUsuario);
+                return await TurnoRepository.DeleteAsync(this.IdTurno, this.IdUsuario);
             }
             catch (Exception ex)
             {
@@ -94,11 +90,13 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
-        public async Task<Turno> GetAsync()
+        public async Task GetAsync()
         {
             try
             {
-                return await TurnoPrincipalRepository.GetAsync(this.IdTurno);
+                Turno turno = new Turno();
+                turno = await TurnoRepository.GetAsync(this.IdTurno);
+                NombreTurno = turno.NombreTurno;
             }
             catch(Exception ex)
             {

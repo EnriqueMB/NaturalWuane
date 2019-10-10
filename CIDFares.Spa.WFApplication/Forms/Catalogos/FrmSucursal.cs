@@ -1,4 +1,5 @@
 ﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Library.Code.Helpers;
 using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Library.Controls.CIDWait.Code;
@@ -6,6 +7,7 @@ using CIDFares.Spa.Business.ValueObjects;
 using CIDFares.Spa.Business.ViewModels.General;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
+using CIDFares.Spa.WFApplication.Constants;
 using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
@@ -126,8 +128,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 throw ex;
             }
         }
-
-
         #endregion
 
         private void FrmSucursal_Shown(object sender, EventArgs e)
@@ -173,7 +173,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmSucursal ~ FrmSucursal_Shown(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorAlCancelarFrm, TypeMessage.error);
             }
         }
 
@@ -234,7 +235,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmSucursal ~ btnGuardar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
             }
             finally
             {
@@ -244,8 +246,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (CIDMessageBox.ShowAlertRequest(Constants.Messages.SystemName, Constants.Messages.ConfirmCancelInput) == DialogResult.OK)
-                Close();
+            try
+            {
+                if (CIDMessageBox.ShowAlertRequest(Constants.Messages.SystemName, Constants.Messages.ConfirmCancelInput) == DialogResult.OK)
+                    Close();
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmSucursal ~ btnCancelar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorAlCancelarFrm, TypeMessage.error);
+            }
         }
 
         private void NombreControl_TextChanged(object sender, EventArgs e)

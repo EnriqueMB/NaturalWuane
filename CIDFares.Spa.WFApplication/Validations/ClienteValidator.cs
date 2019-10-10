@@ -50,7 +50,9 @@ namespace CIDFares.Spa.WFApplication.Validations
                 .Matches("\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*")
                .WithMessage("NO TIENE FORMATO DE CORREO ELECTRONICO");
 
-
+            //RuleFor(x => x.UrlFoto)
+            //    .NotEmpty()
+            //    .WithMessage("SELECCIONE UNA FOTO");
         }
     }
 }
