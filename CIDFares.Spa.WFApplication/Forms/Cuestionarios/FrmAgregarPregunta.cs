@@ -195,7 +195,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 if (checkDepende.Checked)
                 {
                     dato.IdPreguntaDepende = Paux.IdPregunta;
-                    dato.DependePregunta = Paux.Pregunta;
+                    dato.DependePregunta = Paux.Pregunta;              
 
                     if (rbtSi.Checked)
                     {
@@ -205,9 +205,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                     {
                         dato.ActivarCuando = "NO";
                     }
-                }
-
-               
+                }               
                 return dato;
             }
             catch (Exception ex)
@@ -232,6 +230,19 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 throw ex;
             }
         }
-        #endregion        
+        #endregion
+
+        private void BtnCancelarPregunta_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmCancelInput) == DialogResult.OK)
+                    this.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
