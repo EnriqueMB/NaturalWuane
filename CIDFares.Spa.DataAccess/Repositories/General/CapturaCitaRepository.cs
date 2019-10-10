@@ -20,25 +20,9 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
-        public async Task<int> DeleteAsync(object id, object IdUsuario)
+        public Task<int> DeleteAsync(object id, object IdUsuario)
         {
-            try
-            {
-                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
-                {
-                    conexion.Open();
-                    var dynamicParameters = new DynamicParameters();
-                    dynamicParameters.Add("@idAgendaCita", id);
-                    dynamicParameters.Add("@idEstadoCita", 8);
-                    dynamicParameters.Add("@user", IdUsuario);
-                    var result = await conexion.ExecuteScalarAsync<int>("[Cita].[SPCID_Delete_Cita]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                    return result;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            throw new NotImplementedException();
         }
 
         public Task<bool> ExistAsync(object id)
@@ -173,7 +157,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@idCliente", element.OrdenServicio.Cliente.IdCliente);
                     dynamicParameters.Add("@idEstadoCita", 5);                
                     dynamicParameters.Add("@user", IdUsuario);
-                    var result = await conexion.ExecuteScalarAsync<int>("[Cita].[SPCID_AC_Cita2]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Cita].[SPCID_AC_Cita]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;
                 }
@@ -200,7 +184,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@opcion", 2);
                     dynamicParameters.Add("@idAgendaCita", element.IdAgendaCita);
                     dynamicParameters.Add("@idOrdenServicio", element.OrdenServicio.IdOrdenServicio);
-                    dynamicParameters.Add("@idPaquete", element.OrdenServicio.OrdenPaquete.Paquete.IdPaquete);
+                    dynamicParameters.Add("@idOrdenPaquete", element.OrdenServicio.OrdenPaquete.IdOrdenPaquete);
                     dynamicParameters.Add("@idServicio", element.OrdenServicio.Servicio.IdServicio);
                     dynamicParameters.Add("@aplicado", false);
                     dynamicParameters.Add("@pagado", false);
@@ -370,6 +354,29 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     },
                     splitOn: "IdAgendaCita, IdCliente, IdServicio, IdOrdenServicio, IdPaquete, IdOrdenPaquete", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     return lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<int> DeleteCita(Guid idAgendaCita, Guid idOrdenPaquete, Guid idOrdenServicio, object IdUsuario)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@idAgendaCita", idAgendaCita);
+                    dynamicParameters.Add("@idOrdenPaquete", idOrdenPaquete);
+                    dynamicParameters.Add("@idOrdenServicio", idOrdenServicio);
+                    dynamicParameters.Add("@idEstadoCita", 8);
+                    dynamicParameters.Add("@user", IdUsuario);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Cita].[SPCID_Delete_Cita]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return result;
                 }
             }
             catch (Exception ex)

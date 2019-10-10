@@ -178,7 +178,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 IdServicioControl.Visible = true;
                 BtnBuscar.Enabled = false;
                 ServicioControl.Visible = false;
-                pictureBox1.Visible = false;
+                btnBuscarServicio.Visible = false;
                 pnlButtons.Visible = false;
                 lblNombre.Text = Paquetes.Nombre;
                 Model.IdPaquete = Paquetes.IdPaquete;
@@ -236,6 +236,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             groupBoxCita.Enabled = true;
             BtnBuscar.Enabled = true;
             NombreCompletoControl.Text = string.Empty;
+            IdServicioControl.Visible = false;
+            ServicioControl.Visible = true;
+            btnBuscarServicio.Visible = true;
         }
 
         private void btnBuscarCliente_Click_1(object sender, EventArgs e)
@@ -317,7 +320,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
 
                     if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmDeleteMessage) == DialogResult.OK)
                     {     
-                        var result = await Model.DeleteAsync(item.IdAgendaCita, CurrentSession.IdCuentaUsuario);
+                        var result = await Model.DeleteAsync(item.IdAgendaCita,item.OrdenServicio.OrdenPaquete.IdOrdenPaquete, item.OrdenServicio.IdOrdenServicio, CurrentSession.IdCuentaUsuario);
                         if (result == 1)
                         {
                             CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessDeleteMessage, TypeMessage.informacion);
@@ -325,8 +328,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                             await Model.GetCitaDetalle(f, CurrentSession.IdSucursal);
                             this.CleanErrors(errorProvider1, typeof(CapturaCitaViewModel));                            
                         }                        
-                        else
-                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.informacion);
+                        else if (result == 2)
+                        {
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.PaidAppointment, TypeMessage.informacion);
+                        }                            
                     }
                 }
                 else
@@ -438,7 +443,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                             lblNombre.Text = busPaquete.paquetes.Nombre;
                             BtnBuscar.Enabled = false;
                             ServicioControl.Visible = false;
-                            pictureBox1.Visible = false;
+                            btnBuscarServicio.Visible = false;
                         }
                         else
                         {
@@ -477,7 +482,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 groupBoxCita.Enabled = true;
                 BtnBuscar.Enabled = false;
                 ServicioControl.Visible = false;
-                pictureBox1.Visible = false;
+                btnBuscarServicio.Visible = false;
                 lblNombre.Text = csa.capturaCita.OrdenServicio.OrdenPaquete.Paquete.Nombre;
                 Model.NombreCompleto = csa.capturaCita.OrdenServicio.Cliente.NombreCompleto;
                 Model.IdCliente = csa.capturaCita.OrdenServicio.Cliente.IdCliente;
@@ -492,6 +497,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         {
             try
             {
+                errorProvider1.Clear();
+                this.CleanErrors(errorProvider1, typeof(CapturaCitaViewModel));
                 LimpiarPropiedades();
                 groupBoxCita.Enabled = false;
             }

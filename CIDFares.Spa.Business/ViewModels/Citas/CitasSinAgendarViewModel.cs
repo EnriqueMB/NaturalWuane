@@ -245,7 +245,19 @@ namespace CIDFares.Spa.Business.ViewModels.Citas
                 _Servicio = value;
                 OnPropertyChanged(nameof(Servicio));
             }
-        }        
+        }
+
+        private DateTime _FechaAlta;
+
+        public DateTime FechaAlta
+        {
+            get { return _FechaAlta; }
+            set
+            {
+                _FechaAlta = value;
+                OnPropertyChanged(nameof(FechaAlta));
+            }
+        }
         #endregion
         #region InotifyPropertyChanged Members
 

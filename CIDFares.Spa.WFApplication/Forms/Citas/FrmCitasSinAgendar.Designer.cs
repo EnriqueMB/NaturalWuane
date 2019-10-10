@@ -39,7 +39,7 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GroupColumnDescription groupColumnDescription1 = new Syncfusion.WinForms.DataGrid.GroupColumnDescription();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlGeneral = new System.Windows.Forms.Panel();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgmCitasSinAgendar = new Syncfusion.WinForms.DataGrid.SfDataGrid();
@@ -124,6 +124,11 @@
             gridTextColumn11.AllowResizing = true;
             gridTextColumn11.HeaderText = "Servicio";
             gridTextColumn11.MappingName = "OrdenServicio.Servicio.Nombre";
+            gridTextColumn11.Visible = false;
+            gridTextColumn12.AllowResizing = true;
+            gridTextColumn12.Format = "dddd, dd MMMM yyyy h:mm tt";
+            gridTextColumn12.HeaderText = "Fecha Alta";
+            gridTextColumn12.MappingName = "OrdenServicio.OrdenPaquete.FechaAlta";
             this.dgmCitasSinAgendar.Columns.Add(gridTextColumn1);
             this.dgmCitasSinAgendar.Columns.Add(gridTextColumn2);
             this.dgmCitasSinAgendar.Columns.Add(gridTextColumn3);
@@ -135,10 +140,9 @@
             this.dgmCitasSinAgendar.Columns.Add(gridTextColumn9);
             this.dgmCitasSinAgendar.Columns.Add(gridTextColumn10);
             this.dgmCitasSinAgendar.Columns.Add(gridTextColumn11);
+            this.dgmCitasSinAgendar.Columns.Add(gridTextColumn12);
             this.dgmCitasSinAgendar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgmCitasSinAgendar.GroupCaptionTextFormat = "{ColumnName} - {ItemsCount} Servicio";
-            groupColumnDescription1.ColumnName = "OrdenServicio.OrdenPaquete.IdOrdenPaquete";
-            this.dgmCitasSinAgendar.GroupColumnDescriptions.Add(groupColumnDescription1);
             this.dgmCitasSinAgendar.Location = new System.Drawing.Point(0, 0);
             this.dgmCitasSinAgendar.Name = "dgmCitasSinAgendar";
             this.dgmCitasSinAgendar.Size = new System.Drawing.Size(963, 334);
