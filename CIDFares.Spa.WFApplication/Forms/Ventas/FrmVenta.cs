@@ -121,8 +121,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 cliente.ShowDialog();
                 if (cliente.cliente.IdCliente != Guid.Empty)
                 {
-                    btnVerProducto.Visible = false;
+                    btnAgendaPaquete.Visible = false;
                     LlenarCliente(cliente.cliente);
+                    btnAgendaPaquete.Visible = true;
                     //await Model.GetAllPaqueteAsync(CurrentSession.IdSucursal);
                     //if(Model.ListaPaqueteCliente.Count > 0)
                     //{
@@ -479,7 +480,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                         p.MontoPaquete = item.Precio;
                         //p.Clave = item.clave;
                         Model.ListaPaqueteCliente.Add(p);
-                        btnVerProducto.Visible = true;
+                        btnAgendaPaquete.Visible = true;
                     }
                    Model.Listaventa.Remove(item);
                    TotalVenta();
@@ -886,9 +887,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                     LLenarGrid2(paquetesCliente.paquetes, Tipo);
                 }
                 if (Model.ListaPaqueteCliente.Count > 0)
-                    btnVerProducto.Visible = true;
+                    btnAgendaPaquete.Visible = true;
                 else
-                    btnVerProducto.Visible = false;
+                    btnAgendaPaquete.Visible = false;
 
             }
             catch (Exception)
@@ -901,7 +902,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         {
             try
             {
-                AgregarPaquetesCliente();
+                //AgregarPaquetesCliente();
             }
             catch (Exception)
             {
