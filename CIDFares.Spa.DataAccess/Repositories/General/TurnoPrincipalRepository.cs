@@ -1,21 +1,54 @@
-﻿using CIDFares.Spa.DataAccess.Contracts.Entities;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using CIDFares.Spa.DataAccess.Repositories.Base;
 using Dapper;
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CIDFares.Spa.DataAccess.Repositories.General
 {
-    public class TurnoRepository : Repository, ITurnoRepository
+    public class TurnoPrincipalRepository : Repository, ITurnoPrincipalRepository
     {
+        public async Task<int> DeleteAsync(object id, object IdUsuario)
+        {
+            try
+            {
+                using(IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var Parametros = new DynamicParameters();
+                    Parametros.Add("@IdTurno", id);
+                    Parametros.Add("@IdUsuario", IdUsuario);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_Delete_Turno]", param: Parametros, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
 
-        #region metodos no implementados
+        public async Task<IEnumerable<Turno>> GetAllAsync()
+        {
+            //throw new NotImplementedException();
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var lista = await conexion.QueryAsync<Turno>("[Catalogo].[SPCID_Get_Turnos]", commandType: CommandType.StoredProcedure);
+                    return lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public Task<bool> ExistAsync(object id)
         {
@@ -26,7 +59,6 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         {
             throw new NotImplementedException();
         }
-        #endregion
 
         public async Task<IEnumerable<Turno>> GetComboTurno()
         {
@@ -67,47 +99,8 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     Parametros.Add("@NombreTurno", element.NombreTurno);
                     Parametros.Add("@turnoDias", element.TablaValores, DbType.Object);
                     Parametros.Add("@IdUsuario", element.IdUsuario);
-                    var result = await conexion.QueryFirstOrDefaultAsync<Turno> ("[Catalogo].[SPCID_A_Turnos]", param: Parametros, commandType: CommandType.StoredProcedure);
+                    var result = await conexion.QueryFirstOrDefaultAsync<Turno>("[Catalogo].[SPCID_A_Turnos]", param: Parametros, commandType: CommandType.StoredProcedure);
                     return result;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public async Task<int> DeleteAsync(object id, object IdUsuario)
-        {
-            //throw new NotImplementedException();
-            try
-            {
-                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
-                {
-                    conexion.Open();
-                    var Parametros = new DynamicParameters();
-                    Parametros.Add("@IdTurno", id);
-                    Parametros.Add("@IdUsuario", IdUsuario);
-                    var result = await conexion.ExecuteScalarAsync<int>("[Catalogo].[SPCID_Delete_Turno]", param: Parametros, commandType: CommandType.StoredProcedure);
-                    return result;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public async Task<IEnumerable<Turno>> GetAllAsync()
-        {
-            //throw new NotImplementedException();
-            try
-            {
-                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
-                {
-                    conexion.Open();
-                    var lista = await conexion.QueryAsync<Turno>("[Catalogo].[SPCID_Get_Turnos]", commandType: CommandType.StoredProcedure);
-                    return lista;
                 }
             }
             catch (Exception ex)
@@ -127,11 +120,10 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     conexion.Open();
                     var Parametros = new DynamicParameters();
                     Parametros.Add("@IdTurno", id);
-                    
-                    using (var lista2 = conexion.QueryMultipleAsync("[Catalogo].[SPCID_Get_TurnosXId]", param: Parametros, commandType: CommandType.StoredProcedure).Result)
+                    using (var lista = conexion.QueryMultipleAsync("[Catalogo].[SPCID_Get_TurnosXId] ", param: Parametros, commandType: CommandType.StoredProcedure).Result)
                     {
-                        turno = lista2.ReadFirstOrDefault<Turno>();
-                        turno.DatosValor = lista2.Read<TurnoDias>();
+                        turno = lista.ReadFirstOrDefault<Turno>();
+                        turno.DatosValor = lista.Read<TurnoDias>();
                     }
                     return turno;
                 }
@@ -166,3 +158,4 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
         }
     }
 }
+

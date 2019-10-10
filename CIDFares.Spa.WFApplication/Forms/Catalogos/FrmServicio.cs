@@ -37,7 +37,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             btnEliminar.Visible = CurrentSession.PermisoUsuario("18");
         }
         #endregion
-
+        
         #region Metodos generales
         private void IniciarBinding()
         {

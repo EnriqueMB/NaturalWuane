@@ -126,6 +126,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             Model.Rfc = string.Empty;
             Model.Foto = Properties.Resources.imagen_subir; ;
             Model.ImageLocation = string.Empty;
+            Model.ListaDireccionesR.Clear();
         }
 
         private Cliente ObtenerSeleccionado()

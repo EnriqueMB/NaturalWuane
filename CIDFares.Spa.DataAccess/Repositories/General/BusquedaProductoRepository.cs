@@ -40,11 +40,12 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
                         item.NombreCategoria = dr.GetString(dr.GetOrdinal("NombreCategoria"));
                         item.UnidadMedida = dr.GetString(dr.GetOrdinal("UnidadMedidad"));
-                        item.PrecioPublico = dr.GetDecimal(dr.GetOrdinal("PrecioPublico"));
+                        item.Precio = dr.GetDecimal(dr.GetOrdinal("Precio"));
                         item.PorcentajeIva = dr.GetDecimal(dr.GetOrdinal("PorcentajeIva"));
                         item.CostoProducto = dr.GetDecimal(dr.GetOrdinal("CostoProducto"));
                         item.PorcentajePaquete = dr.GetDecimal(dr.GetOrdinal("PorcentajePaquete"));
                         item.CostoProducto = dr.GetDecimal(dr.GetOrdinal("CostoProducto"));
+                        
                         Lista.Add(item);
                     }
                     return Lista;
@@ -153,7 +154,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.Nombre = dr.GetString(dr.GetOrdinal("Nombre"));
                         item.NombreCategoria = dr.GetString(dr.GetOrdinal("NombreCategoria"));
                         item.UnidadMedida = dr.GetString(dr.GetOrdinal("UnidadMedidad"));
-                        item.PrecioPublico = dr.GetDecimal(dr.GetOrdinal("PrecioPublico"));
+                        item.Precio = dr.GetDecimal(dr.GetOrdinal("Precio"));
                         item.PorcentajeIva = dr.GetDecimal(dr.GetOrdinal("PorcentajeIva"));
                         item.CostoProducto = dr.GetDecimal(dr.GetOrdinal("CostoProducto"));
                         item.PorcentajePaquete = dr.GetDecimal(dr.GetOrdinal("PorcentajePaquete"));

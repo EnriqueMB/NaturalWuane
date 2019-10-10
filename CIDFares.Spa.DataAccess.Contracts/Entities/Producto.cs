@@ -27,6 +27,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public string StockStr { get; set; }
         public int StockMax { get; set; }
         public int StockMin { get; set; }
+        public decimal Precio { get; set; }
         public decimal PrecioPublico { get; set; }
         public decimal PrecioMayoreo { get; set; }
         public decimal PrecioMenudeo { get; set; }

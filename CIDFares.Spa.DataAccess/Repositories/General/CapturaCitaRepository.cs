@@ -163,7 +163,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@opcion", 1);
                     dynamicParameters.Add("@idAgendaCita", element.IdAgendaCita);
                     dynamicParameters.Add("@idOrdenServicio", element.OrdenServicio.IdOrdenServicio);
-                    dynamicParameters.Add("@idPaquete", element.OrdenServicio.OrdenPaquete.Paquete.IdPaquete);
+                    dynamicParameters.Add("@idOrdenPaquete", element.OrdenServicio.OrdenPaquete.IdOrdenPaquete);
                     dynamicParameters.Add("@idServicio", element.OrdenServicio.Servicio.IdServicio);
                     dynamicParameters.Add("@aplicado", false);
                     dynamicParameters.Add("@pagado", false);
@@ -173,7 +173,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@idCliente", element.OrdenServicio.Cliente.IdCliente);
                     dynamicParameters.Add("@idEstadoCita", 5);                
                     dynamicParameters.Add("@user", IdUsuario);
-                    var result = await conexion.ExecuteScalarAsync<int>("[Cita].[SPCID_AC_Cita]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Cita].[SPCID_AC_Cita2]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;
                 }
@@ -291,5 +291,57 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                 throw ex;
             }
         }
+
+        public async Task<OrdenPaquete> AgendarPaquete(int IdPaquete, Guid idCliente, Guid idUsuario, int idSucursal)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    List<CapturaCita> Lista = new List<CapturaCita>();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@idPaquete", IdPaquete);
+                    dynamicParameters.Add("@idCliente", idCliente);
+                    dynamicParameters.Add("@idSucursal", idSucursal);
+                    dynamicParameters.Add("@user", idUsuario);
+                    var result = await conexion.QuerySingleAsync<OrdenPaquete>("[Cita].[SPCID_A_ServicioPaquete]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }       
+
+        public async Task<IEnumerable<CapturaCita>> GetCitasSinAgendar(string nombreCompleto, object IdSucursal)
+        {
+            try{
+                //CapturaCita Item;
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@nombreCompleto", nombreCompleto);
+                    dynamicParameters.Add("@idSucursal", IdSucursal);
+                    var lista = await conexion.QueryAsync<CapturaCita, Cliente, Servicio, OrdenServicio, Paquetes, OrdenPaquete, CapturaCita>("[Cita].[SPCID_Get_CitaSinAgendar]",
+                    (cita, cliente, serv, os, p, op) =>
+                    {
+                        cita.OrdenServicio = os;
+                        cita.OrdenServicio.OrdenPaquete = op;
+                        cita.OrdenServicio.OrdenPaquete.Paquete = p;
+                        cita.OrdenServicio.Servicio = serv;
+                        cita.OrdenServicio.Cliente = cliente;
+                        return cita;
+                    },
+                    splitOn: "IdAgendaCita, IdCliente, IdServicio, IdOrdenServicio, IdPaquete, IdOrdenPaquete", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return lista;
+                }
+            }         
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }                
     }
 }

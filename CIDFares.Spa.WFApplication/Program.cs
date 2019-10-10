@@ -20,6 +20,7 @@ using CIDFares.Spa.Business.ViewModels.Compras;
 using CIDFares.Spa.WFApplication.Forms.Promociones;
 using CIDFares.Spa.Business.ViewModels.Promociones;
 using CIDFares.Spa.Business.ViewModels.Paquete;
+using CIDFares.Spa.Business.ViewModels.Citas;
 
 namespace CIDFares.Spa.WFApplication
 {
@@ -120,7 +121,9 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<MedicionViewModel>();
             ServiceLocator.Instance.Register<ListaMedicionViewModel>();
             ServiceLocator.Instance.Register<AbonoPaqueteDetalleViewModel>();
+            ServiceLocator.Instance.Register<TurnoPrincipalViewModel>();
             ServiceLocator.Instance.Register<DireccionesClienteViewModel>();
+            ServiceLocator.Instance.Register<CitasSinAgendarViewModel>();
         }
     }
 }
