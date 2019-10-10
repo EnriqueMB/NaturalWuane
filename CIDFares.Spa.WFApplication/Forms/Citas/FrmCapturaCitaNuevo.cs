@@ -28,6 +28,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         public CapturaCita cita { get; set; }
         DateTime f;
         private Paquetes Paquetes;
+        public OrdenPaquete ordenPaquete { get; set; }
         #endregion
         public FrmCapturaCitaNuevo(DateTime? fecha)
         {
@@ -39,18 +40,18 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             groupBoxCita.Enabled = false;
             Model.NombreCompleto = string.Empty;
             Model.IdPaquete = 0;
-            Paquetes = new Paquetes();
+            ordenPaquete = new OrdenPaquete();
         }
 
         //Agregar un paquete a la cita
-        public FrmCapturaCitaNuevo(DateTime? fecha, Paquetes paquete, Cliente cliente)
+        public FrmCapturaCitaNuevo(DateTime? fecha, OrdenPaquete orden, Cliente cliente)
         {
             InitializeComponent();
             Model = ServiceLocator.Instance.Resolve<CapturaCitaViewModel>();
             lblTitle.Text = Convert.ToDateTime(fecha).ToString("dddd, dd MMMM yyyy").ToUpper();
             Model.IdSucursal = CurrentSession.IdSucursal;
             f = Convert.ToDateTime(fecha);
-            Paquetes = paquete;
+            this.ordenPaquete = orden;
             Model.IdCliente = cliente.IdCliente;
             Model.NombreCompleto = cliente.NombreCompleto;
         }
@@ -152,7 +153,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
             {
                 IniciarBinding();
                 IniciarFormulario();
-                if (Paquetes.IdPaquete != 0)
+                if (ordenPaquete.Paquete.IdPaquete != 0)
                     FormularioPaquete();
                 await Model.GetCitaDetalle(f, CurrentSession.IdSucursal);
                 HorarioSucursal();
@@ -172,14 +173,20 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 BtnBuscar.Enabled = false;
                 ServicioControl.Visible = false;
                 pictureBox1.Visible = false;
-                pnlButtons.Visible = false;
-                labelNombre.Text = Paquetes.Nombre;
-                Model.IdPaquete = Paquetes.IdPaquete;
-                Model.Nombre = Paquetes.Nombre;
+
+                btnNuevo.Visible = false;
+                btnModificar.Visible = false;
+                btnAgregarPaquete.Visible = false;
+                btnEliminar.Visible = false;
+
+                labelNombre.Text =ordenPaquete.Paquete.Nombre;
+                Model.IdPaquete = ordenPaquete.Paquete.IdPaquete;
+                Model.Nombre = ordenPaquete.Paquete.Nombre;
 
                 OrdenPaquete OP = await Model.AgendarPaquete(CurrentSession.IdSucursal, CurrentSession.IdCuentaUsuario);
                 ServiciosPaquete(OP.IdOrdenPaquete);
                 Model.IdOrdenPaquete = OP.IdOrdenPaquete;
+                ordenPaquete.IdOrdenPaquete = OP.IdOrdenPaquete;
             }
             catch (Exception)
             {

@@ -33,6 +33,9 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         public BindingList<Servicio> ListaServicio { get; set; }
         public BindingList<Paquetes> ListaPaquete { get; set; }
         public BindingList<Paquetes> ListaPaqueteCliente { get; set; }
+
+        public BindingList<OrdenPaquete> ListaOrdenPaquete { get; set; }
+
         public DataTable TablaFormaPago { get; set; }
         public DataTable TablaProducto { get; set; }
         public DataTable TablaServicio { get; set; }
@@ -56,6 +59,9 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             ListaServicio = new BindingList<Servicio>();
             ListaPaquete = new BindingList<Paquetes>();
             ListaPaqueteCliente = new BindingList<Paquetes>();
+
+            ListaOrdenPaquete = new BindingList<OrdenPaquete>();
+
             this.FechaVenta = DateTime.Now;
             this.IdSucursal = 1;
             //this.Folio = string.Empty;

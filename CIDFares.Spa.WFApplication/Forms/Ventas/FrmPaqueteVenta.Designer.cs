@@ -70,36 +70,36 @@
             // 
             this.GridPaquete.AccessibleName = "Table";
             gridTextColumn1.HeaderText = "IdPaquete";
-            gridTextColumn1.MappingName = "IdPaquete";
+            gridTextColumn1.MappingName = "OrdenPaquete.Paquete.IdPaquete";
             gridTextColumn1.Visible = false;
             gridCheckBoxColumn1.AllowEditing = false;
             gridCheckBoxColumn1.HeaderText = "Seleccionar";
-            gridCheckBoxColumn1.MappingName = "Seleccionar";
+            gridCheckBoxColumn1.MappingName = "Paquete.Seleccionar";
             gridCheckBoxColumn1.Width = 28D;
             gridTextColumn2.HeaderText = "Cantidad";
-            gridTextColumn2.MappingName = "CantidadServicio";
+            gridTextColumn2.MappingName = "Paquete.CantidadServicio";
             gridTextColumn2.Width = 30D;
             gridTextColumn3.AllowEditing = false;
             gridTextColumn3.AllowGrouping = false;
             gridTextColumn3.HeaderText = "Paquete";
-            gridTextColumn3.MappingName = "Nombre";
+            gridTextColumn3.MappingName = "Paquete.Nombre";
             gridTextColumn3.Width = 150D;
             gridTextColumn4.Format = "C2";
             gridTextColumn4.HeaderText = "Total";
-            gridTextColumn4.MappingName = "MontoPaquete";
+            gridTextColumn4.MappingName = "Paquete.MontoPaquete";
             gridTextColumn4.Width = 80D;
             gridTextColumn5.Format = "C2";
             gridTextColumn5.HeaderText = "Pago minimo";
-            gridTextColumn5.MappingName = "PagoMinimo";
+            gridTextColumn5.MappingName = "Paquete.PagoMinimo";
             gridTextColumn6.CellStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
             gridTextColumn6.Format = "C2";
             gridTextColumn6.HeaderText = "Abono";
-            gridTextColumn6.MappingName = "Abono";
+            gridTextColumn6.MappingName = "Paquete.Abono";
             gridTextColumn7.AllowEditing = false;
             gridTextColumn7.CellStyle.TextColor = System.Drawing.Color.Red;
             gridTextColumn7.Format = "c2";
             gridTextColumn7.HeaderText = "Adeudo";
-            gridTextColumn7.MappingName = "PorPagar";
+            gridTextColumn7.MappingName = "Paquete.PorPagar";
             this.GridPaquete.Columns.Add(gridTextColumn1);
             this.GridPaquete.Columns.Add(gridCheckBoxColumn1);
             this.GridPaquete.Columns.Add(gridTextColumn2);
@@ -142,11 +142,13 @@
             // btnNuevo
             // 
             this.btnNuevo.BackColor = System.Drawing.Color.White;
+            this.btnNuevo.BeforeTouchSize = new System.Drawing.Size(182, 53);
             this.btnNuevo.FlatAppearance.BorderSize = 0;
             this.btnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.Color.Black;
+            this.btnNuevo.IsBackStageButton = false;
             this.btnNuevo.Location = new System.Drawing.Point(57, 16);
             this.btnNuevo.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.btnNuevo.MouseHoverForeColor = System.Drawing.Color.White;
@@ -161,6 +163,7 @@
             // btnCobrar
             // 
             this.btnCobrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(176)))), ((int)(((byte)(50)))));
+            this.btnCobrar.Enabled = false;
             this.btnCobrar.FlatAppearance.BorderSize = 0;
             this.btnCobrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCobrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -220,6 +223,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmPaqueteVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.FrmPaqueteVenta_Load);
             this.PanelPrincipal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridPaquete)).EndInit();
             this.panel3.ResumeLayout(false);
