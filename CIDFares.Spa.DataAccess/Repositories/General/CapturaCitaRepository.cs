@@ -313,6 +313,35 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             {
                 throw ex;
             }
-        }
+        }       
+
+        public async Task<IEnumerable<CapturaCita>> GetCitasSinAgendar(string nombreCompleto, object IdSucursal)
+        {
+            try{
+                //CapturaCita Item;
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@nombreCompleto", nombreCompleto);
+                    dynamicParameters.Add("@idSucursal", IdSucursal);
+                    var lista = await conexion.QueryAsync<CapturaCita, Cliente, Servicio, OrdenServicio, Paquetes, OrdenPaquete, CapturaCita>("[Cita].[SPCID_Get_CitaSinAgendar]",
+                    (cita, cliente, serv, os, p, op) =>
+                    {
+                        cita.OrdenServicio = os;
+                        cita.OrdenServicio.OrdenPaquete = op;
+                        cita.OrdenServicio.OrdenPaquete.Paquete = p;
+                        cita.OrdenServicio.Servicio = serv;
+                        cita.OrdenServicio.Cliente = cliente;
+                        return cita;
+                    },
+                    splitOn: "IdAgendaCita, IdCliente, IdServicio, IdOrdenServicio, IdPaquete, IdOrdenPaquete", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return lista;
+                }
+            }         
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }                
     }
 }
