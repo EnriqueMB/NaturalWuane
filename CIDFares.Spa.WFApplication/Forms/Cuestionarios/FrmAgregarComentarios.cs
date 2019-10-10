@@ -1,6 +1,8 @@
-﻿using CIDFares.Spa.Business.ViewModels.Catalogos;
+﻿using CIDFares.Library.Controls.CIDMessageBox.Code;
+using CIDFares.Spa.Business.ViewModels.Catalogos;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
+using CIDFares.Spa.WFApplication.Constants;
 using CIDFares.Spa.WFApplication.Session;
 using System;
 using System.Collections.Generic;
@@ -67,6 +69,19 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             try
             {
                 Comentario.DataBindings.Add("Text",Model, "comentarios",true,DataSourceUpdateMode.OnPropertyChanged);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void BtnCancelarComentario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmCancelInput) == DialogResult.OK)
+                    this.Close();
             }
             catch (Exception ex)
             {

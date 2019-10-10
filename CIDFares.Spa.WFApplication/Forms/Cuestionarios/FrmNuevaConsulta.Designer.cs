@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.FlpBotones = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnCancelarConsulta = new System.Windows.Forms.Button();
-            this.btnNuevaConsulta = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmbEncuestas = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,6 +40,8 @@
             this.PanelPreguntas = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblError = new System.Windows.Forms.Label();
+            this.btnNuevaConsulta = new CIDFares.Library.Controls.Btn.Btn();
+            this.btnCancelarConsulta = new CIDFares.Library.Controls.Btn.Btn();
             this.pnlTitulo.SuspendLayout();
             this.FlpBotones.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -81,41 +82,6 @@
             this.FlpBotones.Padding = new System.Windows.Forms.Padding(10, 20, 10, 0);
             this.FlpBotones.Size = new System.Drawing.Size(816, 74);
             this.FlpBotones.TabIndex = 10;
-            // 
-            // btnCancelarConsulta
-            // 
-            this.btnCancelarConsulta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelarConsulta.BackColor = System.Drawing.Color.White;
-            this.btnCancelarConsulta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
-            this.btnCancelarConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarConsulta.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarConsulta.ForeColor = System.Drawing.Color.Black;
-            this.btnCancelarConsulta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelarConsulta.Location = new System.Drawing.Point(663, 23);
-            this.btnCancelarConsulta.Name = "btnCancelarConsulta";
-            this.btnCancelarConsulta.Size = new System.Drawing.Size(130, 28);
-            this.btnCancelarConsulta.TabIndex = 15;
-            this.btnCancelarConsulta.Text = "CANCELAR";
-            this.btnCancelarConsulta.UseVisualStyleBackColor = false;
-            this.btnCancelarConsulta.Click += new System.EventHandler(this.BtnCancelarConsulta_Click);
-            // 
-            // btnNuevaConsulta
-            // 
-            this.btnNuevaConsulta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNuevaConsulta.BackColor = System.Drawing.Color.White;
-            this.btnNuevaConsulta.Enabled = false;
-            this.btnNuevaConsulta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
-            this.btnNuevaConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevaConsulta.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevaConsulta.ForeColor = System.Drawing.Color.Black;
-            this.btnNuevaConsulta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevaConsulta.Location = new System.Drawing.Point(527, 23);
-            this.btnNuevaConsulta.Name = "btnNuevaConsulta";
-            this.btnNuevaConsulta.Size = new System.Drawing.Size(130, 28);
-            this.btnNuevaConsulta.TabIndex = 15;
-            this.btnNuevaConsulta.Text = "GUARDAR";
-            this.btnNuevaConsulta.UseVisualStyleBackColor = false;
-            this.btnNuevaConsulta.Click += new System.EventHandler(this.BtnNuevaConsulta_Click);
             // 
             // panel1
             // 
@@ -205,6 +171,46 @@
             this.lblError.Text = "label4";
             this.lblError.Visible = false;
             // 
+            // btnNuevaConsulta
+            // 
+            this.btnNuevaConsulta.BackColor = System.Drawing.Color.White;
+            this.btnNuevaConsulta.BeforeTouchSize = new System.Drawing.Size(75, 23);
+            this.btnNuevaConsulta.FlatAppearance.BorderSize = 0;
+            this.btnNuevaConsulta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnNuevaConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevaConsulta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevaConsulta.ForeColor = System.Drawing.Color.Black;
+            this.btnNuevaConsulta.IsBackStageButton = false;
+            this.btnNuevaConsulta.Location = new System.Drawing.Point(567, 23);
+            this.btnNuevaConsulta.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnNuevaConsulta.MouseHoverForeColor = System.Drawing.Color.White;
+            this.btnNuevaConsulta.MouseLeaveForeColor = System.Drawing.Color.Black;
+            this.btnNuevaConsulta.Name = "btnNuevaConsulta";
+            this.btnNuevaConsulta.Size = new System.Drawing.Size(110, 29);
+            this.btnNuevaConsulta.TabIndex = 16;
+            this.btnNuevaConsulta.Text = "GUARDAR";
+            this.btnNuevaConsulta.Click += new System.EventHandler(this.BtnNuevaConsulta_Click);
+            // 
+            // btnCancelarConsulta
+            // 
+            this.btnCancelarConsulta.BackColor = System.Drawing.Color.White;
+            this.btnCancelarConsulta.BeforeTouchSize = new System.Drawing.Size(75, 23);
+            this.btnCancelarConsulta.FlatAppearance.BorderSize = 0;
+            this.btnCancelarConsulta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnCancelarConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarConsulta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarConsulta.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelarConsulta.IsBackStageButton = false;
+            this.btnCancelarConsulta.Location = new System.Drawing.Point(683, 23);
+            this.btnCancelarConsulta.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnCancelarConsulta.MouseHoverForeColor = System.Drawing.Color.White;
+            this.btnCancelarConsulta.MouseLeaveForeColor = System.Drawing.Color.Black;
+            this.btnCancelarConsulta.Name = "btnCancelarConsulta";
+            this.btnCancelarConsulta.Size = new System.Drawing.Size(110, 29);
+            this.btnCancelarConsulta.TabIndex = 17;
+            this.btnCancelarConsulta.Text = "CANCELAR";
+            this.btnCancelarConsulta.Click += new System.EventHandler(this.BtnCancelarConsulta_Click);
+            // 
             // FrmNuevaConsultaControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,8 +243,6 @@
         private System.Windows.Forms.Panel pnlTitulo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.FlowLayoutPanel FlpBotones;
-        private System.Windows.Forms.Button btnCancelarConsulta;
-        private System.Windows.Forms.Button btnNuevaConsulta;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox cmbEncuestas;
         private System.Windows.Forms.Label label4;
@@ -247,5 +251,7 @@
         private System.Windows.Forms.Panel PanelPreguntas;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblError;
+        private Library.Controls.Btn.Btn btnNuevaConsulta;
+        private Library.Controls.Btn.Btn btnCancelarConsulta;
     }
 }

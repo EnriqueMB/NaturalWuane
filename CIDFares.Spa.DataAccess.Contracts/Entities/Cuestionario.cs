@@ -25,6 +25,19 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
 
         public List<Preguntas> ListaPreguntas { get; set; }
         public List<Respuestas> ListaRespuestas { get; set; }
+
+
+        public List<Preguntas> ListaPreguntasPadre { get
+            { if (ListaPreguntas != null)
+                {
+                    var aux = ListaPreguntas.FindAll(x => x.IdPreguntaDepende.Equals(Guid.Empty));
+                    return aux;
+                }
+                else
+                    return new List<Preguntas>();
+                    
+                    } }
+
         #endregion
     }
 }

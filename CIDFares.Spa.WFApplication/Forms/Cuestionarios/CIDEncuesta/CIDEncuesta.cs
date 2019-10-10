@@ -57,7 +57,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios.CIDEncuesta
         #region Eventos
         private void CIDEncuesta_Load(object sender, EventArgs e)
         {
-            Iniciarbinding();
+            Iniciarbinding();          
             //this.rbtSi.Checked = true;
             if (_pregunta.TipoPregunta == "MULTIPLE" && _pregunta.respuestasMultiples)
             {
@@ -166,6 +166,19 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios.CIDEncuesta
             }
         }
         #endregion
+
+        private void RbtSi_CheckedChanged(object sender, EventArgs e)
+        {
+            //if (rbtSi.Checked)
+            //{
+            //    rbtNo.Checked = false;
+            //}
+            //else
+            //{
+            //    rbtNo.Checked = true;
+
+            //}
+        }       
     }
 }
 

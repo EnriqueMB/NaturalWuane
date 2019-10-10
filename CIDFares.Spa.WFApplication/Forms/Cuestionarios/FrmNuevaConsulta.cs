@@ -24,6 +24,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         #region propiedades
         public ConsultaViewModel Model { get; set; }
         public int IndexPregunta { get; set; }
+        int IndexPreguntaDependiente = -1;
         public DataTable tablaRespuestasMultiples { get; set; }
         public DataTable tablaRespuestas { get; set; }
         #endregion
@@ -118,6 +119,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 }
             }            
         }
+
+
+        List<Preguntas> PreguntasDependientes = null;
+
         private void Button1_Click(object sender, EventArgs e)
         {
             try
@@ -126,57 +131,72 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 if (PanelPreguntas.Controls.Count > 0)
                 {
                     var controlPreguntaActual = (PanelPreguntas.Controls[0] as CIDEncuesta.CIDEncuesta);
-
                     var dato = controlPreguntaActual.Model;
                                      
                     var validationResults = controlPreguntaActual.Model.Validate();
                     if (validationResults.IsValid)
                     {
-                        //guardar las respuesuestas en una nueva lista.            
+                        
+
                         var value = CargarPreguntas(dato);
 
                         Model._listRespuestasMultiples.RemoveAll(x => x.IdPregunta.Equals(dato.IDPre));
                         Model._ListaRespuestasEncuesta.RemoveAll(x => x.IdPregunta.Equals(dato.IDPre));
                         Model._listRespuestasMultiples.AddRange(value.pregunta.Respuesta.ToList());
-                        Model._ListaRespuestasEncuesta.Add(value.respuesta);
-
-                        //
-
-                        //var item = Model._ListaRespuestasEncuesta.FirstOrDefault(x => x.IdPregunta.Equals(dato.IDPre));
-                        //item = value.respuesta;
-
-                        
-
-
-                        //Buscar en las listas dependiendo el tipo el objeto de respuestas 
-                        //Actualizar sus valores.
+                        Model._ListaRespuestasEncuesta.Add(value.respuesta);                  
 
                         ObtenerTablaPreguntas();
-                        //generar una tabla atravez de la lista.                         
+
+                        //---------------------------               
                         ////verificar si lapregunta es de tipo SI/No
-                        //if (dato.TipoPregunta == "SI/NO")
-                        //{
-                        //    //ver si el id de la pregunta actual sean iguales a algun iddependede de la lista
-                        //    var result = Model.cuestionario.ListaPreguntas.Where(x => x.IdPreguntaDepende == dato.IDPre).OrderBy(x=>x.Orden).ToList();
-                        //    if(result.Count > 0)
-                        //    {
-                        //        string value = "";
-                        //        //si existe resultados que sean iguales preguntar cuando activarla (si o no)
-                        //        foreach (var item in result)
-                        //        {                        
-                        //            value = item.ActivarCuando;
-                        //        }
+                        if (dato.TipoPregunta == "SI/NO")
+                        {
+                            //ver si el id de la pregunta actual sean iguales a algun iddependede de la lista
+                            //var result = Model.cuestionario.ListaPreguntas.Where(x => x.IdPreguntaDepende == dato.IDPre && x.ActivarCuando.Equals((dato.RdioBtonValue) ? "SI" : "NO")).OrderBy(x => x.Orden).ToList();
+                            var result = Model.cuestionario.ListaPreguntas.Where(x => x.IdPreguntaDepende == dato.IDPre && x.ActivarCuando.Equals((dato.RdioBtonValue ?? false) ? "SI" : "NO")).OrderBy(x => x.Orden).ToList();
 
-                        //        if (dato.RdioBtonValue && value == "SI")
-                        //        {
+                            if(result != null)
+                            {
+                                if (result.Count == 0)
+                                    PreguntasDependientes = null;
+                                else
+                                {
+                                    PreguntasDependientes = new List<Preguntas>(result);
+                                    //PreguntasDependientes.AddRange(result);
+                                }
+                            }
 
-                        //        }
-                        //    }
-                        //}
+                            
+                            //if (PreguntasDependientes.Count > 0)
+                            //{
+                            //    //string value = "";
+                            //    //si existe resultados que sean iguales preguntar cuando activarla(si o no)
+                            //    //foreach (var item in result)
+                            //    //{
+                            //    //    value = item.ActivarCuando;
+                            //    //}
+
+                            //    //var dat = result.Where(x=>x.ActivarCuando == "SI");                            
+
+                            //    //if (dato.RdioBtonValue && value == "SI")
+                            //    //{
+
+                            //    //}
+                            //    PanelPreguntas.Controls.RemoveAt(0);
+                            //    IndexPreguntaDependiente ++;
+                            //    PanelRespuestasDependientes(PreguntasDependientes);
+                            //}                                                 
+                        }
+
 
                         PanelPreguntas.Controls.RemoveAt(0);
-                        IndexPregunta++;
+                        if (PreguntasDependientes is null)
+                            IndexPregunta++;
+                        else
+                            IndexPreguntaDependiente++;
                         AgregarPreguntaAPanel();
+                        //---------------
+
                         // si es si, ver si el radiobutton sea igual a si y mostrar las coincidencias encontradas
                         // si es no y hay resultados y el radiobutton es igual a si no mostrar nada o viceversa.                
                     }
@@ -187,7 +207,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                         this.lblError.Visible = true;
                         lblError.Text = validationResults.ToString();
                     }
-                }
+                }               
             }
             catch (Exception ex)
             {
@@ -266,23 +286,99 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         private void AgregarPreguntaAPanel()
         {
             try
-            {                      
-                if (Model.cuestionario.ListaPreguntas.Count == (IndexPregunta + 1))
+            {
+                if (PreguntasDependientes is null)
                 {
-                    button1.Text = "FINALIZAR ENCUESTA";
-                    button1.AutoSize = true;                   
-                    btnNuevaConsulta.Enabled = true;                   
-                }              
-                else
-                {
+                    //var dato = Model.cuestionario.ListaPreguntasPadre[IndexPregunta];
+                    //var result = Model.cuestionario.ListaPreguntas.Where(x => x.IdPreguntaDepende == dato.IdPregunta);
+                    //if (result is null)
+                    //    result = new List<Preguntas>();
+                    if (Model.cuestionario.ListaPreguntasPadre.Count == (IndexPregunta + 1))//  && result.Count() == 0 )
+                    {
+                        //button1.Text = "FINALIZAR ENCUESTA";
+                        button1.Text = ">";
+                        button1.AutoSize = true;
+                        btnNuevaConsulta.Enabled = true;
+                    }
+                    else
+                    {
+                        button1.Text = ">";
+                        button1.Size = new Size(41, 28);
+                        button1.Location = new Point(762, 6);
+                    }
+
                     button1.Text = ">";
                     button1.Size = new Size(41, 28);
                     button1.Location = new Point(762, 6);
-                }
 
-                if (Model.cuestionario.ListaPreguntas.Count > 0 && IndexPregunta >= 0 && IndexPregunta < Model.cuestionario.ListaPreguntas.Count)
+                    if (Model.cuestionario.ListaPreguntasPadre.Count > 0 && IndexPregunta >= 0 && IndexPregunta < Model.cuestionario.ListaPreguntasPadre.Count)
+                    {
+                        var itemPregunta = Model.cuestionario.ListaPreguntasPadre[IndexPregunta];
+                        var itemRespuesta = Model._ListaRespuestasEncuesta.FirstOrDefault(x => x.IdPregunta.Equals(itemPregunta.IdPregunta));
+                        var itemsRespuestas = Model._listRespuestasMultiples.FindAll(x => x.IdPregunta.Equals(itemPregunta.IdPregunta));
+
+                        CIDEncuesta.CIDEncuesta frmEncuesta =
+                            new CIDEncuesta.CIDEncuesta(itemPregunta, itemRespuesta, itemsRespuestas);
+                        frmEncuesta.Dock = DockStyle.Fill;
+                        PanelPreguntas.Controls.Add(frmEncuesta);
+                    }
+                }
+                else
                 {
-                    var itemPregunta = Model.cuestionario.ListaPreguntas[IndexPregunta];
+                    
+                    //else
+                    //{
+                    //    button1.Text = ">";
+                    //    button1.Size = new Size(41, 28);
+                    //    button1.Location = new Point(762, 6);
+                    //}
+
+                    if (PreguntasDependientes.Count > 0 && IndexPreguntaDependiente >= 0 && IndexPreguntaDependiente < PreguntasDependientes.Count)
+                    {
+                        var itemPregunta = PreguntasDependientes[IndexPreguntaDependiente];
+                        var itemRespuesta = Model._ListaRespuestasEncuesta.FirstOrDefault(x => x.IdPregunta.Equals(itemPregunta.IdPregunta));
+                        var itemsRespuestas = Model._listRespuestasMultiples.FindAll(x => x.IdPregunta.Equals(itemPregunta.IdPregunta));
+
+                        CIDEncuesta.CIDEncuesta frmEncuesta =
+                            new CIDEncuesta.CIDEncuesta(itemPregunta, itemRespuesta, itemsRespuestas);
+                        frmEncuesta.Dock = DockStyle.Fill;
+                        PanelPreguntas.Controls.Add(frmEncuesta);
+
+                        
+                    }
+
+                    if (PreguntasDependientes.Count == (IndexPreguntaDependiente + 1))
+                    {
+                        if (Model.cuestionario.ListaPreguntasPadre.Count == (IndexPregunta))
+                        {
+                            //button1.Text = "FINALIZAR ENCUESTA";
+                            button1.Text = ">";
+                            button1.AutoSize = true;
+                            btnNuevaConsulta.Enabled = true;
+                        }
+
+                    }
+
+                    if (PreguntasDependientes.Count == IndexPreguntaDependiente + 1)
+                    {
+                        PreguntasDependientes = null;
+                        IndexPreguntaDependiente = -1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmNuevaConsulta ~ AgregarPreguntaAPanel()");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
+            }            
+        }
+        private void PanelRespuestasDependientes(List<Preguntas> lst)
+        {
+            try
+            {              
+                if (lst.Count > 0 && IndexPreguntaDependiente >= 0 && IndexPreguntaDependiente < lst.Count)
+                {
+                    var itemPregunta =lst[IndexPreguntaDependiente];
                     var itemRespuesta = Model._ListaRespuestasEncuesta.FirstOrDefault(x => x.IdPregunta.Equals(itemPregunta.IdPregunta));
                     var itemsRespuestas = Model._listRespuestasMultiples.FindAll(x => x.IdPregunta.Equals(itemPregunta.IdPregunta));
 
@@ -296,9 +392,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             {
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmNuevaConsulta ~ AgregarPreguntaAPanel()");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
-            }            
+            }
         }
-       
         private void BtnNuevaConsulta_Click(object sender, EventArgs e)
         {
             try

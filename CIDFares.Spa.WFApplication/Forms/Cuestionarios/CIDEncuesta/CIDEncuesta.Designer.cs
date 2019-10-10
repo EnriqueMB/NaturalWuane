@@ -154,6 +154,7 @@
             this.rbtSi.TabIndex = 19;
             this.rbtSi.Text = "SI";
             this.rbtSi.UseVisualStyleBackColor = true;
+            this.rbtSi.CheckedChanged += new System.EventHandler(this.RbtSi_CheckedChanged);
             // 
             // rbtNo
             // 

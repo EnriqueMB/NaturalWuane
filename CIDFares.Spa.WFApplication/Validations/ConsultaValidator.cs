@@ -23,10 +23,10 @@ namespace CIDFares.Spa.WFApplication.Validations
                 .When(x => x.TipoPregunta == "MULTIPLE" && x.respuestasMultiples == false)
                 .WithMessage("DEBE SELECCIONAR UNA OPCION.");
 
-            //RuleFor(x => x.RdioBtonValue)
-            //    .NotNull()
-            //    .When(x => x.TipoPregunta == "SI/NO")
-            //    .WithMessage("DEBE SELECCIONAR UNA OPCION SI O NO.");
+            RuleFor(x => x.RdioBtonValue)
+                .NotNull()
+                .When(x => x.TipoPregunta == "SI/NO")
+                .WithMessage("DEBE SELECCIONAR UNA OPCION SI O NO.");
 
             RuleFor(x => x.Respuesta)
                 .NotEmpty()
