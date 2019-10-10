@@ -74,6 +74,7 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<CompraValidator, IValidator<ComprasViewModel>>();
             ServiceLocator.Instance.Register<CapturaCitaValidator, IValidator<CapturaCitaViewModel>>();
             ServiceLocator.Instance.Register<ProductosMonederoValidator, IValidator<ProductosMonederoViewModel>>();
+            ServiceLocator.Instance.Register<ConsultaValidator, IValidator<CIDcontrolViewModel>>();
             ServiceLocator.Instance.Register<EntradaSalidaAlmacenValidator, IValidator<EntradaSalidaAlmacenViewModel>>();
             ServiceLocator.Instance.Register<AlimentoValidator, IValidator<AlimentoViewModels>>();
             ServiceLocator.Instance.Register<CambioVentaValidator, IValidator<CambioVentaViewModel>>();
@@ -82,6 +83,12 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<MedicionValidator, IValidator<MedicionViewModel>>();
             ServiceLocator.Instance.Register<DireccionesClienteValidator, IValidator<DireccionesClienteViewModel>>();
             ServiceLocator.Instance.Register<PromocionValidator, IValidator<PromocionViewModel>>();
+            ServiceLocator.Instance.Register<AbonoPaqueteValidator, IValidator < PaqueteViewModel >> ();
+            ServiceLocator.Instance.Register<ContestarMedicionValidator, IValidator <ContestarMedicionViewModel>> ();
+            ServiceLocator.Instance.Register<AbonoPaqueteValidator, IValidator < PaqueteViewModel >>();
+            ServiceLocator.Instance.Register<CapturaConsultaValidator, IValidator < OpcionesViewModel >>();
+            ServiceLocator.Instance.Register<DireccionesClienteValidator, IValidator<DireccionesClienteViewModel>>();          
+            ServiceLocator.Instance.Register<PromocionValidator, IValidator < PromocionViewModel >>();
         }
 
         private static void RegisterViewModelDependencies()
@@ -107,6 +114,9 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<PaqueteViewModel>();
             ServiceLocator.Instance.Register<RegistroEntradaSalidaViewModel>();
             ServiceLocator.Instance.Register<ComprasViewModel>();
+            ServiceLocator.Instance.Register<ConsultaViewModel>();
+            ServiceLocator.Instance.Register<OpcionesViewModel>();
+            ServiceLocator.Instance.Register<CIDcontrolViewModel>();
             ServiceLocator.Instance.Register<PromocionViewModel>();
             ServiceLocator.Instance.Register<ProductosMonederoViewModel>();
             ServiceLocator.Instance.Register<EntradaSalidaAlmacenViewModel>();
@@ -119,6 +129,8 @@ namespace CIDFares.Spa.WFApplication
             ServiceLocator.Instance.Register<ListaMedicionViewModel>();
             ServiceLocator.Instance.Register<AbonoPaqueteDetalleViewModel>();
             ServiceLocator.Instance.Register<TurnoPrincipalViewModel>();
+            ServiceLocator.Instance.Register<ContestarMedicionViewModel>();
+            ServiceLocator.Instance.Register<CapturaConsultaViewModel>();
             ServiceLocator.Instance.Register<DireccionesClienteViewModel>();
             ServiceLocator.Instance.Register<CitasSinAgendarViewModel>();
             ServiceLocator.Instance.Register<PaquetesClienteViewModel>();

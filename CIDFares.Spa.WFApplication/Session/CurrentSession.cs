@@ -17,6 +17,14 @@ namespace CIDFares.Spa.WFApplication.Session
 
         public static int IdSucursal { get; set; }
 
+        public static string NombreSucursal { get; set; }
+           
+        public static string Direccion { get; set; }
+
+        public static string Telefono { get; set; }
+
+        public static string RFC { get; set; }
+
         //Permisos de usuario
         public static string[] ReglasUsuario { get; set; }
 

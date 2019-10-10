@@ -175,7 +175,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                if(Model.UrlImagen != "" && Model.UrlImagen != null)
+                //Creamos el directorio para almacenar las fotos.
+                string ruta = Path.Combine(Application.StartupPath + @"\Resources\imgPaquetes\");
+                if (!Directory.Exists(ruta))
+                    Directory.CreateDirectory(ruta);
+                if (Model.UrlImagen != "" && Model.UrlImagen != null)
                 {
                     string User = ConfigurationManager.AppSettings.Get("UsuarioFtpTxt");
                     string pass = ConfigurationManager.AppSettings.Get("ContraseñaFtpTxt");

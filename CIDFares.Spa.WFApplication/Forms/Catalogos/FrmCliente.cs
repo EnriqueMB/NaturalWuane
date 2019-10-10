@@ -245,13 +245,20 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                //Creamos la ruta para guardar las fotos si no existe
+                string ruta = Path.Combine(Application.StartupPath + @"\Resources\imgClientes\");
+                if (!Directory.Exists(ruta))
+                    Directory.CreateDirectory(ruta);
                 if (Model.UrlFoto != "" && Model.UrlFoto != null)
                 {
                     string User = ConfigurationManager.AppSettings.Get("UsuarioFtpTxt");
                     string pass = ConfigurationManager.AppSettings.Get("ContraseñaFtpTxt");
                     Model.Extencion = Path.GetExtension(Model.UrlFoto);//Obtenemos la Extencion del archivo
                     Model.RutaAux = Path.Combine(Application.StartupPath + @"\Resources\imgClientes\" + Model.Clave + Model.Extencion);//Creamos la ruta para guardar la imagen
-                                                                                                                                       //Verificamos que la imagen no exista, si existe la borramos.
+                    
+                    
+
+                    //Verificamos que la imagen no exista, si existe la borramos.
                     if (File.Exists(Model.RutaAux))
                     {
                         File.Delete(Model.RutaAux);//Borramos la imagen.

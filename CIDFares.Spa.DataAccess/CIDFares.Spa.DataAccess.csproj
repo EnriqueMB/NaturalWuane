@@ -31,8 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CIDFares.Library.Code">
-      <HintPath>..\..\CIDFares.Library\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
+    <Reference Include="CIDFares.Library.Code, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CIDFaresLibrary\CIDFares.Library.Code\bin\Debug\CIDFares.Library.Code.dll</HintPath>
     </Reference>
     <Reference Include="Dapper, Version=1.60.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.1.60.6\lib\net451\Dapper.dll</HintPath>
@@ -54,9 +55,12 @@
     <Compile Include="Repositories\General\CambioVentaRepository.cs" />
     <Compile Include="Repositories\General\CapturaCitaRepository.cs" />
     <Compile Include="Repositories\General\CancelacionVentaRepository.cs" />
+    <Compile Include="Repositories\General\CapturaConsultaRepository.cs" />
     <Compile Include="Repositories\General\CategoriaProductoRepository.cs" />
     <Compile Include="Repositories\General\ClienteRepository.cs" />
     <Compile Include="Repositories\General\CompraRepository.cs" />
+    <Compile Include="Repositories\General\ConsultaRepository.cs" />
+    <Compile Include="Repositories\General\ContestarMedicionRepository.cs" />
     <Compile Include="Repositories\General\DireccionesClienteRepository.cs" />
     <Compile Include="Repositories\General\EmpleadoRepository.cs" />
     <Compile Include="Repositories\General\CuestionarioRepository.cs" />
@@ -70,6 +74,7 @@
     <Compile Include="Repositories\General\LoginRepository.cs" />
     <Compile Include="Repositories\General\MedicionRepository.cs" />
     <Compile Include="Repositories\General\MunicipioRepository.cs" />
+    <Compile Include="Repositories\General\OpcionRepository.cs" />
     <Compile Include="Repositories\General\PaisRepository.cs" />
     <Compile Include="Repositories\General\PaqueteRepository.cs" />
     <Compile Include="Repositories\General\ProductoRepository.cs" />

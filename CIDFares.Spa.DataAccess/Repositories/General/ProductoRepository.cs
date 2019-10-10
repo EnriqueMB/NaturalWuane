@@ -106,6 +106,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@IdTipoIva", entity.IdAplicaIva);
                     dynamicParameters.Add("@CostoProducto", entity.CostoProducto);
                     dynamicParameters.Add("@PorcentajeP", entity.PorcentajeP);
+                    dynamicParameters.Add("@UrlImagen", entity.UrlImagen);
                     var result = await conexion.ExecuteScalarAsync<String>("[Catalogo].[SPCID_AC_Producto]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     return result;
                 }
@@ -142,7 +143,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.UnidadMedida = dr.GetString(dr.GetOrdinal("UnidadMedida"));
                         item.ClaveSat = dr.GetInt32(dr.GetOrdinal("ClaveSat"));
                         item.Porcentaje = !dr.IsDBNull(dr.GetOrdinal("Porcentaje")) ? dr.GetDecimal(dr.GetOrdinal("Porcentaje")) :0;
-
+                        item.UrlImagen = dr.GetString(dr.GetOrdinal("UrlImagen"));
                         Lista.Add(item);
                     }
                     return Lista;
@@ -207,6 +208,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     item.Add("@Usuario", IdUsuario);
                     item.Add("@CostoProducto", element.CostoProducto);
                     item.Add("@PorcentajeP", element.PorcentajeP);
+                    item.Add("@UrlImagen", element.UrlImagen);
                     var result = await conexion.ExecuteScalarAsync<String>("[Catalogo].[SPCID_AC_Producto]", param: item, commandType: CommandType.StoredProcedure);
                     return result;
                 }
@@ -245,6 +247,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         producto.UrlFoto = dr.GetString(dr.GetOrdinal("UrlLocalImagen"));
                         producto.CostoProducto = dr.GetDecimal(dr.GetOrdinal("CostoProducto"));
                         producto.PorcentajeP = dr.GetDecimal(dr.GetOrdinal("PorcentajeP"));
+                        producto.UrlImagen = dr.GetString(dr.GetOrdinal("UrlImagen"));
                     }
                     return producto;
                 }
@@ -321,6 +324,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                         item.ClaveSat = dr.GetInt32(dr.GetOrdinal("ClaveSat"));
                         item.Clave = dr.GetString(dr.GetOrdinal("Clave"));
                         item.Porcentaje = !dr.IsDBNull(dr.GetOrdinal("Porcentaje")) ? dr.GetDecimal(dr.GetOrdinal("Porcentaje")) : 0;
+                        item.UrlImagen = dr.GetString(dr.GetOrdinal("UrlImagen"));
                         Lista.Add(item);
                     }
                     return Lista;

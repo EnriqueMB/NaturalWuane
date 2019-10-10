@@ -39,10 +39,6 @@ namespace CIDFares.Spa.WFApplication.Validations
 
             RuleFor(x => x.Descripcion)
                 .MaximumLength(400).WithMessage("LA DESCRIPCIÓN DEL PAQUETE TIENE COMO UN MÁXIMO DE 400 CARACTERES");
-
-            RuleFor(x => x.RutaImagen)
-                .NotEmpty()
-                .WithMessage("SELECCIONE UNA IMAGEN DEL PAQUETE");
         }
     }
 }

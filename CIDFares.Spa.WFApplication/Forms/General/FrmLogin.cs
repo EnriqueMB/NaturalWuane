@@ -36,6 +36,10 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 CurrentSession.IdTurnoEmpleado = Model.IdTurnoEmpleado;
                 CurrentSession.ReglasUsuario = Model.ReglaUsuario;
                 CurrentSession.IdSucursal = Model.IdSucursal;
+                CurrentSession.NombreSucursal = Model.NombreSucursal;
+                CurrentSession.RFC = Model.RFC;
+                CurrentSession.Direccion = Model.Direccion;
+                CurrentSession.Telefono = Model.Telefono;
             }
             catch (Exception ex)
             {
