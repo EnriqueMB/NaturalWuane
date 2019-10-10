@@ -8,6 +8,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
 {
     public class TurnoDias
     {
+        public TurnoDias() { }
         public int IdTurno { get; set; }
         public string NombreDia { get; set; }
         public string HoraEntrada { get; set; }

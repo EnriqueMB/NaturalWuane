@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn17 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn18 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn19 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn20 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.btnAnterior = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -69,10 +69,10 @@
             this.ServicioControl = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnReservarCita = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.labelNombre = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.panelGrid = new System.Windows.Forms.Panel();
@@ -482,8 +482,8 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.button2);
-            this.panel10.Controls.Add(this.button1);
+            this.panel10.Controls.Add(this.btnCancelar);
+            this.panel10.Controls.Add(this.btnReservarCita);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(4, 415);
             this.panel10.Margin = new System.Windows.Forms.Padding(4);
@@ -491,46 +491,46 @@
             this.panel10.Size = new System.Drawing.Size(433, 60);
             this.panel10.TabIndex = 9;
             // 
-            // button2
+            // btnCancelar
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(200, 14);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(173, 34);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(200, 14);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(173, 34);
+            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // button1
+            // btnReservarCita
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(19, 14);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(173, 34);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Reservar cita";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnReservarCita.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReservarCita.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnReservarCita.FlatAppearance.BorderSize = 0;
+            this.btnReservarCita.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReservarCita.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnReservarCita.ForeColor = System.Drawing.Color.White;
+            this.btnReservarCita.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReservarCita.Location = new System.Drawing.Point(19, 14);
+            this.btnReservarCita.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReservarCita.Name = "btnReservarCita";
+            this.btnReservarCita.Size = new System.Drawing.Size(173, 34);
+            this.btnReservarCita.TabIndex = 7;
+            this.btnReservarCita.Text = "Reservar cita";
+            this.btnReservarCita.UseVisualStyleBackColor = false;
+            this.btnReservarCita.Click += new System.EventHandler(this.btnReservarCita_Click);
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
-            this.panel8.Controls.Add(this.labelNombre);
+            this.panel8.Controls.Add(this.lblNombre);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Margin = new System.Windows.Forms.Padding(4);
@@ -538,17 +538,17 @@
             this.panel8.Size = new System.Drawing.Size(441, 64);
             this.panel8.TabIndex = 1;
             // 
-            // labelNombre
+            // lblNombre
             // 
-            this.labelNombre.AutoEllipsis = true;
-            this.labelNombre.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombre.ForeColor = System.Drawing.Color.White;
-            this.labelNombre.Location = new System.Drawing.Point(17, 18);
-            this.labelNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(403, 26);
-            this.labelNombre.TabIndex = 1;
-            this.labelNombre.Text = "Agendar cita";
+            this.lblNombre.AutoEllipsis = true;
+            this.lblNombre.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.Color.White;
+            this.lblNombre.Location = new System.Drawing.Point(17, 18);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(403, 26);
+            this.lblNombre.TabIndex = 1;
+            this.lblNombre.Text = "Agendar cita";
             // 
             // label1
             // 
@@ -592,63 +592,63 @@
             this.dgmCita.AllowResizingColumns = true;
             this.dgmCita.AutoExpandGroups = true;
             this.dgmCita.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn1.AllowEditing = false;
-            gridTextColumn1.AllowResizing = true;
-            gridTextColumn1.HeaderText = "Cliente";
-            gridTextColumn1.MappingName = "OrdenServicio.Cliente.NombreCompleto";
-            gridTextColumn2.AllowEditing = false;
-            gridTextColumn2.AllowResizing = true;
-            gridTextColumn2.HeaderText = "Servicio";
-            gridTextColumn2.MappingName = "OrdenServicio.Servicio.Nombre";
-            gridTextColumn3.AllowEditing = false;
-            gridTextColumn3.AllowResizing = true;
-            gridTextColumn3.Format = "HH:mm";
-            gridTextColumn3.HeaderText = "Inicio";
-            gridTextColumn3.MappingName = "FechaInicio";
-            gridTextColumn4.AllowEditing = false;
-            gridTextColumn4.AllowResizing = true;
-            gridTextColumn4.Format = "HH:mm";
-            gridTextColumn4.HeaderText = "Fin";
-            gridTextColumn4.MappingName = "FechaFinal";
-            gridTextColumn5.AllowEditing = false;
-            gridTextColumn5.AllowResizing = true;
-            gridTextColumn5.HeaderText = "IdOrdenPaquete";
-            gridTextColumn5.MappingName = "OrdenServicio.OrdenPaquete.IdOrdenPaquete";
-            gridTextColumn5.Visible = false;
-            gridTextColumn6.AllowEditing = false;
-            gridTextColumn6.AllowResizing = true;
-            gridTextColumn6.HeaderText = "IdAgendaCita";
-            gridTextColumn6.MappingName = "IdAgendaCita";
-            gridTextColumn6.Visible = false;
-            gridTextColumn7.AllowEditing = false;
-            gridTextColumn7.AllowResizing = true;
-            gridTextColumn7.HeaderText = "IdOrdenServicio";
-            gridTextColumn7.MappingName = "OrdenServicio.IdOrdenServicio";
-            gridTextColumn7.Visible = false;
-            gridTextColumn8.AllowEditing = false;
-            gridTextColumn8.AllowResizing = true;
-            gridTextColumn8.HeaderText = "IdCliente";
-            gridTextColumn8.MappingName = "OrdenServicio.Cliente.IdCliente";
-            gridTextColumn8.Visible = false;
-            gridTextColumn9.AllowEditing = false;
-            gridTextColumn9.AllowResizing = true;
-            gridTextColumn9.HeaderText = "IdServicio";
-            gridTextColumn9.MappingName = "OrdenServicio.Servicio.IdServicio";
-            gridTextColumn9.Visible = false;
-            gridTextColumn10.AllowEditing = false;
-            gridTextColumn10.AllowResizing = true;
-            gridTextColumn10.HeaderText = "Paquete";
-            gridTextColumn10.MappingName = "OrdenServicio.OrdenPaquete.Paquete.Nombre";
-            this.dgmCita.Columns.Add(gridTextColumn1);
-            this.dgmCita.Columns.Add(gridTextColumn2);
-            this.dgmCita.Columns.Add(gridTextColumn3);
-            this.dgmCita.Columns.Add(gridTextColumn4);
-            this.dgmCita.Columns.Add(gridTextColumn5);
-            this.dgmCita.Columns.Add(gridTextColumn6);
-            this.dgmCita.Columns.Add(gridTextColumn7);
-            this.dgmCita.Columns.Add(gridTextColumn8);
-            this.dgmCita.Columns.Add(gridTextColumn9);
-            this.dgmCita.Columns.Add(gridTextColumn10);
+            gridTextColumn11.AllowEditing = false;
+            gridTextColumn11.AllowResizing = true;
+            gridTextColumn11.HeaderText = "Cliente";
+            gridTextColumn11.MappingName = "OrdenServicio.Cliente.NombreCompleto";
+            gridTextColumn12.AllowEditing = false;
+            gridTextColumn12.AllowResizing = true;
+            gridTextColumn12.HeaderText = "Servicio";
+            gridTextColumn12.MappingName = "OrdenServicio.Servicio.Nombre";
+            gridTextColumn13.AllowEditing = false;
+            gridTextColumn13.AllowResizing = true;
+            gridTextColumn13.Format = "HH:mm";
+            gridTextColumn13.HeaderText = "Inicio";
+            gridTextColumn13.MappingName = "FechaInicio";
+            gridTextColumn14.AllowEditing = false;
+            gridTextColumn14.AllowResizing = true;
+            gridTextColumn14.Format = "HH:mm";
+            gridTextColumn14.HeaderText = "Fin";
+            gridTextColumn14.MappingName = "FechaFinal";
+            gridTextColumn15.AllowEditing = false;
+            gridTextColumn15.AllowResizing = true;
+            gridTextColumn15.HeaderText = "IdOrdenPaquete";
+            gridTextColumn15.MappingName = "OrdenServicio.OrdenPaquete.IdOrdenPaquete";
+            gridTextColumn15.Visible = false;
+            gridTextColumn16.AllowEditing = false;
+            gridTextColumn16.AllowResizing = true;
+            gridTextColumn16.HeaderText = "IdAgendaCita";
+            gridTextColumn16.MappingName = "IdAgendaCita";
+            gridTextColumn16.Visible = false;
+            gridTextColumn17.AllowEditing = false;
+            gridTextColumn17.AllowResizing = true;
+            gridTextColumn17.HeaderText = "IdOrdenServicio";
+            gridTextColumn17.MappingName = "OrdenServicio.IdOrdenServicio";
+            gridTextColumn17.Visible = false;
+            gridTextColumn18.AllowEditing = false;
+            gridTextColumn18.AllowResizing = true;
+            gridTextColumn18.HeaderText = "IdCliente";
+            gridTextColumn18.MappingName = "OrdenServicio.Cliente.IdCliente";
+            gridTextColumn18.Visible = false;
+            gridTextColumn19.AllowEditing = false;
+            gridTextColumn19.AllowResizing = true;
+            gridTextColumn19.HeaderText = "IdServicio";
+            gridTextColumn19.MappingName = "OrdenServicio.Servicio.IdServicio";
+            gridTextColumn19.Visible = false;
+            gridTextColumn20.AllowEditing = false;
+            gridTextColumn20.AllowResizing = true;
+            gridTextColumn20.HeaderText = "Paquete";
+            gridTextColumn20.MappingName = "OrdenServicio.OrdenPaquete.Paquete.Nombre";
+            this.dgmCita.Columns.Add(gridTextColumn11);
+            this.dgmCita.Columns.Add(gridTextColumn12);
+            this.dgmCita.Columns.Add(gridTextColumn13);
+            this.dgmCita.Columns.Add(gridTextColumn14);
+            this.dgmCita.Columns.Add(gridTextColumn15);
+            this.dgmCita.Columns.Add(gridTextColumn16);
+            this.dgmCita.Columns.Add(gridTextColumn17);
+            this.dgmCita.Columns.Add(gridTextColumn18);
+            this.dgmCita.Columns.Add(gridTextColumn19);
+            this.dgmCita.Columns.Add(gridTextColumn20);
             this.dgmCita.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgmCita.Location = new System.Drawing.Point(0, 0);
             this.dgmCita.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -806,12 +806,12 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel10;
-        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button btnReservarCita;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label labelNombre;
+        private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox FechaControl;
         private System.Windows.Forms.ComboBox IdHoraControl;
-        public System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox btnAnterior;
         private System.Windows.Forms.ComboBox IdServicioControl;
