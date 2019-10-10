@@ -421,31 +421,39 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
         {
             try
             {
-                if (this.NombreCompletoControl.Text != string.Empty)
+                if (groupBoxCita.Enabled == true)
                 {
-                    FrmBuscarPaquete busPaquete = new FrmBuscarPaquete();
-                    busPaquete.ShowDialog();
-                    Model.IdPaquete = busPaquete.paquetes.IdPaquete;
-                    if (Model.IdPaquete != 0)
+                    if (this.NombreCompletoControl.Text != string.Empty)
                     {
-                        var x = await Model.AgendarPaquete(CurrentSession.IdSucursal, CurrentSession.IdCuentaUsuario);                              
-                        Model.IdOrdenPaquete = x.IdOrdenPaquete;
-                        ServiciosPaquete(Model.IdOrdenPaquete);
-                        IdServicioControl.Visible = true;
-                        groupBoxCita.Enabled = true;
-                        lblNombre.Text = busPaquete.paquetes.Nombre;
-                        BtnBuscar.Enabled = false;
-                        ServicioControl.Visible = false;
-                        pictureBox1.Visible = false;
+                        FrmBuscarPaquete busPaquete = new FrmBuscarPaquete();
+                        busPaquete.ShowDialog();
+                        Model.IdPaquete = busPaquete.paquetes.IdPaquete;
+                        if (Model.IdPaquete != 0)
+                        {
+                            var x = await Model.AgendarPaquete(CurrentSession.IdSucursal, CurrentSession.IdCuentaUsuario);
+                            Model.IdOrdenPaquete = x.IdOrdenPaquete;
+                            ServiciosPaquete(Model.IdOrdenPaquete);
+                            IdServicioControl.Visible = true;
+                            groupBoxCita.Enabled = true;
+                            lblNombre.Text = busPaquete.paquetes.Nombre;
+                            BtnBuscar.Enabled = false;
+                            ServicioControl.Visible = false;
+                            pictureBox1.Visible = false;
+                        }
+                        else
+                        {
+                            CIDMessageBox.ShowAlert(Messages.SystemName, Messages.PaqueteSelectMessage, TypeMessage.informacion);
+                        }                        
                     }
-                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.PaqueteSelectMessage, TypeMessage.informacion);
-
+                    else
+                    {
+                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ClienteSelectMessage, TypeMessage.informacion);
+                    }
                 }
                 else
                 {
-                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ClienteSelectMessage, TypeMessage.informacion);
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.CitaAddMessage, TypeMessage.informacion);
                 }
-
             }
             catch (Exception ex)
             {
