@@ -72,7 +72,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.NombreControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.pnlFoto = new System.Windows.Forms.Panel();
-            this.FotoControl = new System.Windows.Forms.PictureBox();
+            this.RutaImagenControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.ImagenControl = new System.Windows.Forms.PictureBox();
             this.BtnSeleccionar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -98,7 +99,8 @@
             this.pnlServicio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NombreControl)).BeginInit();
             this.pnlFoto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RutaImagenControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImagenControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,7 +129,7 @@
             // 
             this.pnlButtons.Controls.Add(this.flButtons);
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlButtons.Location = new System.Drawing.Point(0, 273);
+            this.pnlButtons.Location = new System.Drawing.Point(0, 274);
             this.pnlButtons.Margin = new System.Windows.Forms.Padding(2);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Size = new System.Drawing.Size(821, 67);
@@ -180,7 +182,7 @@
             this.pnlGrid.Location = new System.Drawing.Point(0, 50);
             this.pnlGrid.Margin = new System.Windows.Forms.Padding(2);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(821, 223);
+            this.pnlGrid.Size = new System.Drawing.Size(821, 224);
             this.pnlGrid.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -250,7 +252,7 @@
             // 
             // IEPSControl
             // 
-            this.IEPSControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
+            this.IEPSControl.BeforeTouchSize = new System.Drawing.Size(175, 38);
             this.IEPSControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.IEPSControl.Location = new System.Drawing.Point(28, 37);
             this.IEPSControl.Margin = new System.Windows.Forms.Padding(2);
@@ -373,7 +375,7 @@
             // 
             // PorcentajePControl
             // 
-            this.PorcentajePControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
+            this.PorcentajePControl.BeforeTouchSize = new System.Drawing.Size(175, 38);
             this.PorcentajePControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.PorcentajePControl.Location = new System.Drawing.Point(103, 35);
             this.PorcentajePControl.Margin = new System.Windows.Forms.Padding(2);
@@ -416,7 +418,7 @@
             // 
             // DescripcionControl
             // 
-            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
+            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(175, 38);
             this.DescripcionControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.DescripcionControl.Location = new System.Drawing.Point(8, 30);
             this.DescripcionControl.Margin = new System.Windows.Forms.Padding(2);
@@ -458,7 +460,6 @@
             this.DuracionControl.ShowUpDown = true;
             this.DuracionControl.Size = new System.Drawing.Size(78, 20);
             this.DuracionControl.TabIndex = 7;
-            this.DuracionControl.ValueChanged += new System.EventHandler(this.DuracionControl_ValueChanged);
             // 
             // label3
             // 
@@ -484,7 +485,7 @@
             // 
             // PrecioControl
             // 
-            this.PrecioControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
+            this.PrecioControl.BeforeTouchSize = new System.Drawing.Size(175, 38);
             this.PrecioControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.PrecioControl.Location = new System.Drawing.Point(5, 30);
             this.PrecioControl.Margin = new System.Windows.Forms.Padding(2);
@@ -518,7 +519,7 @@
             // 
             // ClaveControl
             // 
-            this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
+            this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(175, 38);
             this.ClaveControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ClaveControl.Location = new System.Drawing.Point(8, 32);
             this.ClaveControl.Margin = new System.Windows.Forms.Padding(2);
@@ -594,7 +595,7 @@
             // 
             // NombreControl
             // 
-            this.NombreControl.BeforeTouchSize = new System.Drawing.Size(175, 23);
+            this.NombreControl.BeforeTouchSize = new System.Drawing.Size(175, 38);
             this.NombreControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.NombreControl.Location = new System.Drawing.Point(6, 35);
             this.NombreControl.Margin = new System.Windows.Forms.Padding(2);
@@ -606,24 +607,44 @@
             // 
             // pnlFoto
             // 
-            this.pnlFoto.Controls.Add(this.FotoControl);
+            this.pnlFoto.Controls.Add(this.RutaImagenControl);
+            this.pnlFoto.Controls.Add(this.ImagenControl);
             this.pnlFoto.Controls.Add(this.BtnSeleccionar);
             this.pnlFoto.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlFoto.Location = new System.Drawing.Point(614, 0);
             this.pnlFoto.Margin = new System.Windows.Forms.Padding(2);
             this.pnlFoto.Name = "pnlFoto";
-            this.pnlFoto.Size = new System.Drawing.Size(207, 223);
+            this.pnlFoto.Size = new System.Drawing.Size(207, 224);
             this.pnlFoto.TabIndex = 1;
             // 
-            // FotoControl
+            // RutaImagenControl
             // 
-            this.FotoControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FotoControl.Location = new System.Drawing.Point(2, 11);
-            this.FotoControl.Name = "FotoControl";
-            this.FotoControl.Size = new System.Drawing.Size(203, 124);
-            this.FotoControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.FotoControl.TabIndex = 45;
-            this.FotoControl.TabStop = false;
+            this.RutaImagenControl.BackColor = System.Drawing.Color.White;
+            this.RutaImagenControl.BeforeTouchSize = new System.Drawing.Size(175, 38);
+            this.RutaImagenControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RutaImagenControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.RutaImagenControl.CornerRadius = 2;
+            this.RutaImagenControl.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.RutaImagenControl.Location = new System.Drawing.Point(11, 143);
+            this.RutaImagenControl.Margin = new System.Windows.Forms.Padding(2);
+            this.RutaImagenControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.RutaImagenControl.MinimumSize = new System.Drawing.Size(8, 4);
+            this.RutaImagenControl.Multiline = true;
+            this.RutaImagenControl.Name = "RutaImagenControl";
+            this.RutaImagenControl.ReadOnly = true;
+            this.RutaImagenControl.Size = new System.Drawing.Size(175, 38);
+            this.RutaImagenControl.TabIndex = 0;
+            this.RutaImagenControl.TabStop = false;
+            // 
+            // ImagenControl
+            // 
+            this.ImagenControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ImagenControl.Location = new System.Drawing.Point(7, 10);
+            this.ImagenControl.Name = "ImagenControl";
+            this.ImagenControl.Size = new System.Drawing.Size(194, 115);
+            this.ImagenControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ImagenControl.TabIndex = 45;
+            this.ImagenControl.TabStop = false;
             // 
             // BtnSeleccionar
             // 
@@ -634,7 +655,7 @@
             this.BtnSeleccionar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.BtnSeleccionar.ForeColor = System.Drawing.Color.White;
             this.BtnSeleccionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSeleccionar.Location = new System.Drawing.Point(44, 168);
+            this.BtnSeleccionar.Location = new System.Drawing.Point(43, 188);
             this.BtnSeleccionar.Name = "BtnSeleccionar";
             this.BtnSeleccionar.Size = new System.Drawing.Size(118, 28);
             this.BtnSeleccionar.TabIndex = 44;
@@ -650,7 +671,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 340);
+            this.ClientSize = new System.Drawing.Size(821, 341);
             this.Controls.Add(this.pnlGrid);
             this.Controls.Add(this.pnlButtons);
             this.Controls.Add(this.pnlHeader);
@@ -659,7 +680,7 @@
             this.MinimumSize = new System.Drawing.Size(837, 379);
             this.Name = "FrmServicioNuevo";
             this.Text = "FrmServicioNuevo";
-            this.Load += new System.EventHandler(this.FrmServicioNuevo_Load);
+            this.Shown += new System.EventHandler(this.FrmServicioNuevo_Shown);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlButtons.ResumeLayout(false);
@@ -693,7 +714,9 @@
             this.pnlServicio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NombreControl)).EndInit();
             this.pnlFoto.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.FotoControl)).EndInit();
+            this.pnlFoto.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RutaImagenControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImagenControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
@@ -744,9 +767,10 @@
         private System.Windows.Forms.Label lblIEPS;
         private System.Windows.Forms.Panel pnlFoto;
         private System.Windows.Forms.Button BtnSeleccionar;
-        private System.Windows.Forms.PictureBox FotoControl;
+        private System.Windows.Forms.PictureBox ImagenControl;
         private System.Windows.Forms.DateTimePicker DuracionControl;
         private System.Windows.Forms.Label label10;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt PorcentajePControl;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt RutaImagenControl;
     }
 }

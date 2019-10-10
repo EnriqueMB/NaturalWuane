@@ -227,7 +227,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     if (Model.ListaDetallePaquete.Count > 0)
                     {
                         this.ObtenerTablas(Model.ListaDetallePaquete);
-                        if (Model.UpdateImagen || ClaveAux != Model.Clave)//SI se cambia la clave o la imagen se sube la imagen
+                        if (Model.UpdateImagen || (ClaveAux != Model.Clave && ClaveAux != null))//SI se cambia la clave o la imagen se sube la imagen
                         {
                             bool subir = false;
                             CIDWait.Show(async () =>

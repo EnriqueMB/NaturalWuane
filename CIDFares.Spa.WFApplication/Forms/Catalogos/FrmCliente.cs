@@ -409,15 +409,18 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 BuscarImagen.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures).ToString();
                 if (BuscarImagen.ShowDialog() == DialogResult.OK)
                 {
-                    Model.Foto = null;
-                    Model.UpdateImagen = true;
-                    Model.Extencion = Path.GetExtension(BuscarImagen.FileName);//Obtenemos la extención de la imagen.
-                    Model.RutaImagen = BuscarImagen.FileName; //Guardamos la ruta de la imagen.
-                    var x = Image.FromFile(Model.RutaImagen).VaryQualityLevel(35L);//Almacenamos la imagen creada en una variable(Imagen).
-                    var y = Model.Convertir_Imagen_Bytes(x); //Mandamos la variable para convertirla a bytes.
-                    x.Dispose();
-                    Model.Foto = Model.Convertir_Bytes_Imagen(y); //Le pasamos la imagen convertida a la propiedad Imagen del modelo para mostrarlo en el formulario.
-                    Model.UrlFoto = ConfigurationManager.AppSettings.Get("ServerFtpTxt") + "/imgCliente/";
+                    CIDWait.Show(async () =>
+                    {
+                        Model.Foto = null;
+                        Model.UpdateImagen = true;
+                        Model.Extencion = Path.GetExtension(BuscarImagen.FileName);//Obtenemos la extención de la imagen.
+                        Model.RutaImagen = BuscarImagen.FileName; //Guardamos la ruta de la imagen.
+                        var x = Image.FromFile(Model.RutaImagen).VaryQualityLevel(35L);//Almacenamos la imagen creada en una variable(Imagen).
+                        var y = await Model.Convertir_Imagen_Bytes(x); //Mandamos la variable para convertirla a bytes.
+                        x.Dispose();
+                        Model.Foto = await Model.Convertir_Bytes_Imagen(y); //Le pasamos la imagen convertida a la propiedad Imagen del modelo para mostrarlo en el formulario.
+                        Model.UrlFoto = ConfigurationManager.AppSettings.Get("ServerFtpTxt") + "/imgCliente/";
+                    }, "Espere");
                 }
             }
             catch (Exception ex)

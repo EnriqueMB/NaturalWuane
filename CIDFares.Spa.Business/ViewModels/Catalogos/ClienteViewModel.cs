@@ -158,7 +158,15 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
                     //model.DatosCliente.FotoBase64 = this.FotoBase64;
                     model.DatosCliente.Rfc = this.Rfc;
                     model.DatosCliente.Email = this.Email;
-                    model.DatosCliente.UrlFoto = this.UrlFoto;
+                    if (!this.UpdateImagen)
+                    {
+                        model.DatosCliente.UrlFoto = "";
+                        this.Extencion = "";
+                    }
+                    else
+                    {
+                        model.DatosCliente.UrlFoto = this.UrlFoto;
+                    }
                     model.ListaDireciones = GuardarLista();
 
                     var result = await Repository.AddWithDTO(model, this.Extencion);
