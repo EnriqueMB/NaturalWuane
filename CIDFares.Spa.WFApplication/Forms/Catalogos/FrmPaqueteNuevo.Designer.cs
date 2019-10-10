@@ -29,23 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn17 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn18 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn19 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn20 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GroupColumnDescription groupColumnDescription2 = new Syncfusion.WinForms.DataGrid.GroupColumnDescription();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GroupColumnDescription groupColumnDescription1 = new Syncfusion.WinForms.DataGrid.GroupColumnDescription();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenedor1 = new System.Windows.Forms.Panel();
             this.panelFormulario = new System.Windows.Forms.Panel();
             this.panelGrid = new System.Windows.Forms.Panel();
+            this.dataGridsfPaqueteDetalle = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.pnlContenedorForm = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnSubirImagen = new CIDFares.Library.Controls.Btn.Btn();
             this.RutaImagenControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.ImagenControl = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -72,22 +74,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ClaveControl = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.panelAgregarProducto = new System.Windows.Forms.Panel();
+            this.btnEliminarRegistro = new Syncfusion.Windows.Forms.ButtonAdv();
+            this.btnAgregarServicio = new Syncfusion.Windows.Forms.ButtonAdv();
+            this.btnAgregarProducto = new Syncfusion.Windows.Forms.ButtonAdv();
             this.panelbtn = new System.Windows.Forms.Panel();
             this.flButtons = new System.Windows.Forms.FlowLayoutPanel();
-            this.panelTitulo = new System.Windows.Forms.Panel();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dataGridsfPaqueteDetalle = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.btnGuardar = new Syncfusion.Windows.Forms.ButtonAdv();
             this.btnCancelar = new Syncfusion.Windows.Forms.ButtonAdv();
-            this.btnAgregarProducto = new Syncfusion.Windows.Forms.ButtonAdv();
-            this.btnAgregarServicio = new Syncfusion.Windows.Forms.ButtonAdv();
-            this.btnEliminarRegistro = new Syncfusion.Windows.Forms.ButtonAdv();
+            this.panelTitulo = new System.Windows.Forms.Panel();
             this.lblPaquete = new System.Windows.Forms.Label();
-            this.BtnSubirImagen = new CIDFares.Library.Controls.Btn.Btn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelContenedor.SuspendLayout();
             this.panelContenedor1.SuspendLayout();
             this.panelFormulario.SuspendLayout();
             this.panelGrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridsfPaqueteDetalle)).BeginInit();
             this.pnlContenedorForm.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RutaImagenControl)).BeginInit();
@@ -111,7 +112,6 @@
             this.flButtons.SuspendLayout();
             this.panelTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridsfPaqueteDetalle)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContenedor
@@ -153,6 +153,73 @@
             this.panelGrid.Size = new System.Drawing.Size(1050, 197);
             this.panelGrid.TabIndex = 10;
             // 
+            // dataGridsfPaqueteDetalle
+            // 
+            this.dataGridsfPaqueteDetalle.AccessibleName = "Table";
+            this.dataGridsfPaqueteDetalle.AllowEditing = false;
+            this.dataGridsfPaqueteDetalle.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            gridTextColumn1.AllowEditing = false;
+            gridTextColumn1.HeaderText = "IDTipo";
+            gridTextColumn1.MappingName = "IDTipo";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.AllowEditing = false;
+            gridTextColumn2.HeaderText = "IdGenerico";
+            gridTextColumn2.MappingName = "IdGenerico";
+            gridTextColumn2.MaximumWidth = 100D;
+            gridTextColumn2.MinimumWidth = 90D;
+            gridTextColumn2.Visible = false;
+            gridTextColumn3.AllowEditing = false;
+            gridTextColumn3.HeaderText = "Tipo";
+            gridTextColumn3.MappingName = "Tipo";
+            gridTextColumn3.MaximumWidth = 200D;
+            gridTextColumn3.MinimumWidth = 200D;
+            gridTextColumn3.Visible = false;
+            gridTextColumn4.AllowEditing = false;
+            gridTextColumn4.HeaderText = "Nombre";
+            gridTextColumn4.MappingName = "Nombre";
+            gridTextColumn5.AllowEditing = false;
+            gridTextColumn5.HeaderText = "Cantidad";
+            gridTextColumn5.MappingName = "Cantidad";
+            gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.Format = "C2";
+            gridTextColumn6.HeaderText = "Precio";
+            gridTextColumn6.MappingName = "Precios";
+            gridTextColumn7.AllowEditing = false;
+            gridTextColumn7.Format = "C2";
+            gridTextColumn7.HeaderText = "Precio sin descuento";
+            gridTextColumn7.MappingName = "PrecioSinDescuento";
+            gridTextColumn8.AllowEditing = false;
+            gridTextColumn8.Format = "N2";
+            gridTextColumn8.HeaderText = "Porcentaje descuento";
+            gridTextColumn8.MappingName = "PorcentajeDescuento";
+            gridTextColumn9.AllowEditing = false;
+            gridTextColumn9.Format = "C2";
+            gridTextColumn9.HeaderText = "Precio descuento";
+            gridTextColumn9.MappingName = "PrecioDescuento";
+            gridTextColumn10.AllowEditing = false;
+            gridTextColumn10.HeaderText = "IdDetallePaquete";
+            gridTextColumn10.MappingName = "IdPaqueteDetalle";
+            gridTextColumn10.Visible = false;
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn1);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn2);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn3);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn4);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn5);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn6);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn7);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn8);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn9);
+            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn10);
+            this.dataGridsfPaqueteDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridsfPaqueteDetalle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            groupColumnDescription1.ColumnName = "Tipo";
+            this.dataGridsfPaqueteDetalle.GroupColumnDescriptions.Add(groupColumnDescription1);
+            this.dataGridsfPaqueteDetalle.Location = new System.Drawing.Point(0, 0);
+            this.dataGridsfPaqueteDetalle.Name = "dataGridsfPaqueteDetalle";
+            this.dataGridsfPaqueteDetalle.Size = new System.Drawing.Size(1050, 197);
+            this.dataGridsfPaqueteDetalle.TabIndex = 3;
+            this.dataGridsfPaqueteDetalle.Text = "sfDataGrid1";
+            // 
             // pnlContenedorForm
             // 
             this.pnlContenedorForm.Controls.Add(this.groupBox1);
@@ -177,10 +244,33 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Subir imagen del paquete";
             // 
+            // BtnSubirImagen
+            // 
+            this.BtnSubirImagen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnSubirImagen.BackColor = System.Drawing.Color.White;
+            this.BtnSubirImagen.BeforeTouchSize = new System.Drawing.Size(81, 28);
+            this.BtnSubirImagen.FlatAppearance.BorderSize = 0;
+            this.BtnSubirImagen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.BtnSubirImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSubirImagen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSubirImagen.ForeColor = System.Drawing.Color.Black;
+            this.BtnSubirImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSubirImagen.IsBackStageButton = false;
+            this.BtnSubirImagen.Location = new System.Drawing.Point(6, 79);
+            this.BtnSubirImagen.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.BtnSubirImagen.MouseHoverForeColor = System.Drawing.Color.White;
+            this.BtnSubirImagen.MouseLeaveForeColor = System.Drawing.Color.Black;
+            this.BtnSubirImagen.Name = "BtnSubirImagen";
+            this.BtnSubirImagen.Size = new System.Drawing.Size(81, 28);
+            this.BtnSubirImagen.TabIndex = 48;
+            this.BtnSubirImagen.Text = "Subir";
+            this.BtnSubirImagen.UseVisualStyleBackColor = false;
+            this.BtnSubirImagen.Click += new System.EventHandler(this.BtnSubirImagen_Click);
+            // 
             // RutaImagenControl
             // 
             this.RutaImagenControl.BackColor = System.Drawing.Color.White;
-            this.RutaImagenControl.BeforeTouchSize = new System.Drawing.Size(266, 27);
+            this.RutaImagenControl.BeforeTouchSize = new System.Drawing.Size(210, 23);
             this.RutaImagenControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RutaImagenControl.CornerRadius = 2;
             this.RutaImagenControl.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -197,6 +287,7 @@
             // ImagenControl
             // 
             this.ImagenControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ImagenControl.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.imagen_subir;
             this.ImagenControl.Location = new System.Drawing.Point(93, 27);
             this.ImagenControl.Name = "ImagenControl";
             this.ImagenControl.Size = new System.Drawing.Size(179, 126);
@@ -253,7 +344,7 @@
             // 
             // TotalControl
             // 
-            this.TotalControl.BeforeTouchSize = new System.Drawing.Size(266, 27);
+            this.TotalControl.BeforeTouchSize = new System.Drawing.Size(100, 26);
             this.TotalControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.TotalControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalControl.Location = new System.Drawing.Point(134, 30);
@@ -263,7 +354,7 @@
             this.TotalControl.Multiline = true;
             this.TotalControl.Name = "TotalControl";
             this.TotalControl.ReadOnly = true;
-            this.TotalControl.Size = new System.Drawing.Size(100, 23);
+            this.TotalControl.Size = new System.Drawing.Size(100, 26);
             this.TotalControl.TabIndex = 8;
             // 
             // label6
@@ -279,7 +370,7 @@
             // 
             // MontoPaqueteControl
             // 
-            this.MontoPaqueteControl.BeforeTouchSize = new System.Drawing.Size(266, 27);
+            this.MontoPaqueteControl.BeforeTouchSize = new System.Drawing.Size(100, 26);
             this.MontoPaqueteControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.MontoPaqueteControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MontoPaqueteControl.Location = new System.Drawing.Point(5, 30);
@@ -288,7 +379,7 @@
             this.MontoPaqueteControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.MontoPaqueteControl.Multiline = true;
             this.MontoPaqueteControl.Name = "MontoPaqueteControl";
-            this.MontoPaqueteControl.Size = new System.Drawing.Size(95, 23);
+            this.MontoPaqueteControl.Size = new System.Drawing.Size(95, 26);
             this.MontoPaqueteControl.TabIndex = 7;
             // 
             // panelNumeroPagos
@@ -350,7 +441,7 @@
             // NPagoControl
             // 
             this.NPagoControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.NPagoControl.BeforeTouchSize = new System.Drawing.Size(266, 27);
+            this.NPagoControl.BeforeTouchSize = new System.Drawing.Size(100, 26);
             this.NPagoControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.NPagoControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NPagoControl.Location = new System.Drawing.Point(156, 30);
@@ -359,7 +450,7 @@
             this.NPagoControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.NPagoControl.Multiline = true;
             this.NPagoControl.Name = "NPagoControl";
-            this.NPagoControl.Size = new System.Drawing.Size(70, 23);
+            this.NPagoControl.Size = new System.Drawing.Size(70, 26);
             this.NPagoControl.TabIndex = 5;
             this.NPagoControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NPagoControl_KeyPress);
             // 
@@ -376,7 +467,7 @@
             // 
             // NPersonaControl
             // 
-            this.NPersonaControl.BeforeTouchSize = new System.Drawing.Size(266, 27);
+            this.NPersonaControl.BeforeTouchSize = new System.Drawing.Size(100, 26);
             this.NPersonaControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.NPersonaControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NPersonaControl.Location = new System.Drawing.Point(10, 30);
@@ -385,7 +476,7 @@
             this.NPersonaControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.NPersonaControl.Multiline = true;
             this.NPersonaControl.Name = "NPersonaControl";
-            this.NPersonaControl.Size = new System.Drawing.Size(67, 23);
+            this.NPersonaControl.Size = new System.Drawing.Size(67, 26);
             this.NPersonaControl.TabIndex = 4;
             this.NPersonaControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NPersonaControl_KeyPress);
             // 
@@ -414,7 +505,7 @@
             // 
             this.DescripcionControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(266, 27);
+            this.DescripcionControl.BeforeTouchSize = new System.Drawing.Size(210, 23);
             this.DescripcionControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.DescripcionControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DescripcionControl.Location = new System.Drawing.Point(5, 23);
@@ -449,9 +540,8 @@
             // 
             // NombreControl
             // 
-            this.NombreControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.NombreControl.BeforeTouchSize = new System.Drawing.Size(266, 27);
+            this.NombreControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.NombreControl.BeforeTouchSize = new System.Drawing.Size(100, 26);
             this.NombreControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.NombreControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NombreControl.Location = new System.Drawing.Point(14, 36);
@@ -460,7 +550,7 @@
             this.NombreControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.NombreControl.Multiline = true;
             this.NombreControl.Name = "NombreControl";
-            this.NombreControl.Size = new System.Drawing.Size(210, 23);
+            this.NombreControl.Size = new System.Drawing.Size(210, 26);
             this.NombreControl.TabIndex = 2;
             // 
             // panelClave
@@ -488,7 +578,7 @@
             // 
             this.ClaveControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(266, 27);
+            this.ClaveControl.BeforeTouchSize = new System.Drawing.Size(100, 26);
             this.ClaveControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ClaveControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClaveControl.Location = new System.Drawing.Point(10, 36);
@@ -497,7 +587,7 @@
             this.ClaveControl.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.ClaveControl.Multiline = true;
             this.ClaveControl.Name = "ClaveControl";
-            this.ClaveControl.Size = new System.Drawing.Size(216, 23);
+            this.ClaveControl.Size = new System.Drawing.Size(216, 26);
             this.ClaveControl.TabIndex = 1;
             // 
             // panelAgregarProducto
@@ -511,6 +601,54 @@
             this.panelAgregarProducto.Name = "panelAgregarProducto";
             this.panelAgregarProducto.Size = new System.Drawing.Size(504, 36);
             this.panelAgregarProducto.TabIndex = 6;
+            // 
+            // btnEliminarRegistro
+            // 
+            this.btnEliminarRegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnEliminarRegistro.BeforeTouchSize = new System.Drawing.Size(100, 29);
+            this.btnEliminarRegistro.FlatAppearance.BorderSize = 0;
+            this.btnEliminarRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarRegistro.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnEliminarRegistro.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarRegistro.IsBackStageButton = false;
+            this.btnEliminarRegistro.Location = new System.Drawing.Point(215, 4);
+            this.btnEliminarRegistro.Name = "btnEliminarRegistro";
+            this.btnEliminarRegistro.Size = new System.Drawing.Size(100, 29);
+            this.btnEliminarRegistro.TabIndex = 24;
+            this.btnEliminarRegistro.Text = "Eliminar";
+            this.btnEliminarRegistro.Click += new System.EventHandler(this.btnEliminarRegistro_Click);
+            // 
+            // btnAgregarServicio
+            // 
+            this.btnAgregarServicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnAgregarServicio.BeforeTouchSize = new System.Drawing.Size(100, 29);
+            this.btnAgregarServicio.FlatAppearance.BorderSize = 0;
+            this.btnAgregarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarServicio.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnAgregarServicio.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarServicio.IsBackStageButton = false;
+            this.btnAgregarServicio.Location = new System.Drawing.Point(109, 4);
+            this.btnAgregarServicio.Name = "btnAgregarServicio";
+            this.btnAgregarServicio.Size = new System.Drawing.Size(100, 29);
+            this.btnAgregarServicio.TabIndex = 23;
+            this.btnAgregarServicio.Text = "+ Servicio";
+            this.btnAgregarServicio.Click += new System.EventHandler(this.btnAgregarServicio_Click);
+            // 
+            // btnAgregarProducto
+            // 
+            this.btnAgregarProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnAgregarProducto.BeforeTouchSize = new System.Drawing.Size(100, 29);
+            this.btnAgregarProducto.FlatAppearance.BorderSize = 0;
+            this.btnAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarProducto.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnAgregarProducto.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarProducto.IsBackStageButton = false;
+            this.btnAgregarProducto.Location = new System.Drawing.Point(3, 4);
+            this.btnAgregarProducto.Name = "btnAgregarProducto";
+            this.btnAgregarProducto.Size = new System.Drawing.Size(100, 29);
+            this.btnAgregarProducto.TabIndex = 22;
+            this.btnAgregarProducto.Text = "+ Producto";
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
             // 
             // panelbtn
             // 
@@ -532,88 +670,6 @@
             this.flButtons.Padding = new System.Windows.Forms.Padding(400, 13, 0, 0);
             this.flButtons.Size = new System.Drawing.Size(1050, 60);
             this.flButtons.TabIndex = 9;
-            // 
-            // panelTitulo
-            // 
-            this.panelTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
-            this.panelTitulo.Controls.Add(this.lblPaquete);
-            this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitulo.ForeColor = System.Drawing.Color.White;
-            this.panelTitulo.Location = new System.Drawing.Point(0, 0);
-            this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(1050, 58);
-            this.panelTitulo.TabIndex = 0;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // dataGridsfPaqueteDetalle
-            // 
-            this.dataGridsfPaqueteDetalle.AccessibleName = "Table";
-            this.dataGridsfPaqueteDetalle.AllowEditing = false;
-            this.dataGridsfPaqueteDetalle.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            gridTextColumn11.AllowEditing = false;
-            gridTextColumn11.HeaderText = "IDTipo";
-            gridTextColumn11.MappingName = "IDTipo";
-            gridTextColumn11.Visible = false;
-            gridTextColumn12.AllowEditing = false;
-            gridTextColumn12.HeaderText = "IdGenerico";
-            gridTextColumn12.MappingName = "IdGenerico";
-            gridTextColumn12.MaximumWidth = 100D;
-            gridTextColumn12.MinimumWidth = 90D;
-            gridTextColumn12.Visible = false;
-            gridTextColumn13.AllowEditing = false;
-            gridTextColumn13.HeaderText = "Tipo";
-            gridTextColumn13.MappingName = "Tipo";
-            gridTextColumn13.MaximumWidth = 200D;
-            gridTextColumn13.MinimumWidth = 200D;
-            gridTextColumn13.Visible = false;
-            gridTextColumn14.AllowEditing = false;
-            gridTextColumn14.HeaderText = "Nombre";
-            gridTextColumn14.MappingName = "Nombre";
-            gridTextColumn15.AllowEditing = false;
-            gridTextColumn15.HeaderText = "Cantidad";
-            gridTextColumn15.MappingName = "Cantidad";
-            gridTextColumn16.AllowEditing = false;
-            gridTextColumn16.Format = "C2";
-            gridTextColumn16.HeaderText = "Precio";
-            gridTextColumn16.MappingName = "Precios";
-            gridTextColumn17.AllowEditing = false;
-            gridTextColumn17.Format = "C2";
-            gridTextColumn17.HeaderText = "Precio sin descuento";
-            gridTextColumn17.MappingName = "PrecioSinDescuento";
-            gridTextColumn18.AllowEditing = false;
-            gridTextColumn18.Format = "N2";
-            gridTextColumn18.HeaderText = "Porcentaje descuento";
-            gridTextColumn18.MappingName = "PorcentajeDescuento";
-            gridTextColumn19.AllowEditing = false;
-            gridTextColumn19.Format = "C2";
-            gridTextColumn19.HeaderText = "Precio descuento";
-            gridTextColumn19.MappingName = "PrecioDescuento";
-            gridTextColumn20.AllowEditing = false;
-            gridTextColumn20.HeaderText = "IdDetallePaquete";
-            gridTextColumn20.MappingName = "IdPaqueteDetalle";
-            gridTextColumn20.Visible = false;
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn11);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn12);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn13);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn14);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn15);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn16);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn17);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn18);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn19);
-            this.dataGridsfPaqueteDetalle.Columns.Add(gridTextColumn20);
-            this.dataGridsfPaqueteDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridsfPaqueteDetalle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            groupColumnDescription2.ColumnName = "Tipo";
-            this.dataGridsfPaqueteDetalle.GroupColumnDescriptions.Add(groupColumnDescription2);
-            this.dataGridsfPaqueteDetalle.Location = new System.Drawing.Point(0, 0);
-            this.dataGridsfPaqueteDetalle.Name = "dataGridsfPaqueteDetalle";
-            this.dataGridsfPaqueteDetalle.Size = new System.Drawing.Size(1050, 197);
-            this.dataGridsfPaqueteDetalle.TabIndex = 3;
-            this.dataGridsfPaqueteDetalle.Text = "sfDataGrid1";
             // 
             // btnGuardar
             // 
@@ -647,53 +703,16 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnAgregarProducto
+            // panelTitulo
             // 
-            this.btnAgregarProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
-            this.btnAgregarProducto.BeforeTouchSize = new System.Drawing.Size(100, 29);
-            this.btnAgregarProducto.FlatAppearance.BorderSize = 0;
-            this.btnAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarProducto.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnAgregarProducto.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarProducto.IsBackStageButton = false;
-            this.btnAgregarProducto.Location = new System.Drawing.Point(3, 4);
-            this.btnAgregarProducto.Name = "btnAgregarProducto";
-            this.btnAgregarProducto.Size = new System.Drawing.Size(100, 29);
-            this.btnAgregarProducto.TabIndex = 22;
-            this.btnAgregarProducto.Text = "+ Producto";
-            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
-            // 
-            // btnAgregarServicio
-            // 
-            this.btnAgregarServicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
-            this.btnAgregarServicio.BeforeTouchSize = new System.Drawing.Size(100, 29);
-            this.btnAgregarServicio.FlatAppearance.BorderSize = 0;
-            this.btnAgregarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarServicio.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnAgregarServicio.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarServicio.IsBackStageButton = false;
-            this.btnAgregarServicio.Location = new System.Drawing.Point(109, 4);
-            this.btnAgregarServicio.Name = "btnAgregarServicio";
-            this.btnAgregarServicio.Size = new System.Drawing.Size(100, 29);
-            this.btnAgregarServicio.TabIndex = 23;
-            this.btnAgregarServicio.Text = "+ Servicio";
-            this.btnAgregarServicio.Click += new System.EventHandler(this.btnAgregarServicio_Click);
-            // 
-            // btnEliminarRegistro
-            // 
-            this.btnEliminarRegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
-            this.btnEliminarRegistro.BeforeTouchSize = new System.Drawing.Size(100, 29);
-            this.btnEliminarRegistro.FlatAppearance.BorderSize = 0;
-            this.btnEliminarRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarRegistro.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnEliminarRegistro.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarRegistro.IsBackStageButton = false;
-            this.btnEliminarRegistro.Location = new System.Drawing.Point(215, 4);
-            this.btnEliminarRegistro.Name = "btnEliminarRegistro";
-            this.btnEliminarRegistro.Size = new System.Drawing.Size(100, 29);
-            this.btnEliminarRegistro.TabIndex = 24;
-            this.btnEliminarRegistro.Text = "Eliminar";
-            this.btnEliminarRegistro.Click += new System.EventHandler(this.btnEliminarRegistro_Click);
+            this.panelTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(186)))), ((int)(((byte)(60)))));
+            this.panelTitulo.Controls.Add(this.lblPaquete);
+            this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTitulo.ForeColor = System.Drawing.Color.White;
+            this.panelTitulo.Location = new System.Drawing.Point(0, 0);
+            this.panelTitulo.Name = "panelTitulo";
+            this.panelTitulo.Size = new System.Drawing.Size(1050, 58);
+            this.panelTitulo.TabIndex = 0;
             // 
             // lblPaquete
             // 
@@ -705,28 +724,9 @@
             this.lblPaquete.TabIndex = 184;
             this.lblPaquete.Text = "Nuevo paquete";
             // 
-            // BtnSubirImagen
+            // errorProvider1
             // 
-            this.BtnSubirImagen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnSubirImagen.BackColor = System.Drawing.Color.White;
-            this.BtnSubirImagen.BeforeTouchSize = new System.Drawing.Size(81, 28);
-            this.BtnSubirImagen.FlatAppearance.BorderSize = 0;
-            this.BtnSubirImagen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.BtnSubirImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSubirImagen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSubirImagen.ForeColor = System.Drawing.Color.Black;
-            this.BtnSubirImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSubirImagen.IsBackStageButton = false;
-            this.BtnSubirImagen.Location = new System.Drawing.Point(6, 79);
-            this.BtnSubirImagen.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
-            this.BtnSubirImagen.MouseHoverForeColor = System.Drawing.Color.White;
-            this.BtnSubirImagen.MouseLeaveForeColor = System.Drawing.Color.Black;
-            this.BtnSubirImagen.Name = "BtnSubirImagen";
-            this.BtnSubirImagen.Size = new System.Drawing.Size(81, 28);
-            this.BtnSubirImagen.TabIndex = 48;
-            this.BtnSubirImagen.Text = "Subir";
-            this.BtnSubirImagen.UseVisualStyleBackColor = false;
-            this.BtnSubirImagen.Click += new System.EventHandler(this.BtnSubirImagen_Click);
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmPaqueteNuevo
             // 
@@ -744,6 +744,7 @@
             this.panelContenedor1.ResumeLayout(false);
             this.panelFormulario.ResumeLayout(false);
             this.panelGrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridsfPaqueteDetalle)).EndInit();
             this.pnlContenedorForm.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -775,7 +776,6 @@
             this.panelTitulo.ResumeLayout(false);
             this.panelTitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridsfPaqueteDetalle)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -42,6 +42,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             Model = ServiceLocator.Instance.Resolve<PaqueteViewModel>();
             Model.State = EntityState.Create;
             BtnSubirImagen.FlatAppearance.BorderSize = 1;
+            this.ActiveControl = this.ClaveControl;
+            this.ClaveControl.Focus();
         }
 
         public FrmPaqueteNuevo(Paquetes paquete)
