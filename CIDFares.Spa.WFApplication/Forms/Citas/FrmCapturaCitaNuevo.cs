@@ -184,7 +184,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 lblNombre.Text = Paquetes.Nombre;
                 Model.IdPaquete = Paquetes.IdPaquete;
                 Model.Nombre = Paquetes.Nombre;
-                pictureBox1.Visible = false;
+                btnBuscarServicio.Visible = false;
                 btnNuevo.Visible = false;
                 btnModificar.Visible = false;
                 btnAgregarPaquete.Visible = false;
