@@ -18,6 +18,22 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
         public string Nombre { get; set; }
         public List<Producto> ListaProductos { get; set; }
         public InventarioFisicoViewModel Model { get; set; }
+        public Guid Usuario { get; set; }
+
+        public List<Producto> listaAlta { get; set; }
+        public List<Producto> listaBaja { get; set; }
+        int cantidadAux = 0;
+        bool ValidarExcel=false;
+        decimal PrecioCostoA = 0;
+        decimal TotalA = 0;
+        decimal PrecioCostoB = 0;
+        decimal TotalB = 0;
+        decimal SubA = 0;
+        decimal SubB = 0;
+        decimal PorcetajeIvaTotalA = 0;
+        decimal PorcetajeIvaTotalB = 0;
+        int CantidadA = 0;
+        int CantidadB = 0;
         #endregion
 
         #region propiedades Privadas
@@ -35,13 +51,16 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
             GenerarArchivo();
         }
 
-        public Excels(int idSucursal, IExcel ex, string nombre)
+        public Excels(int idSucursal, IExcel ex, string nombre, Guid usuario)
         {
             Model = ServiceLocator.Instance.Resolve<InventarioFisicoViewModel>();
             this.idSucursal = idSucursal;
             Ex = ex;
+            Usuario = usuario;
             Nombre = nombre;
             ListaProductos = new List<Producto>();
+            listaAlta = new List<Producto>();
+            listaBaja = new List<Producto>();
             Importar();
         }
 
@@ -86,20 +105,25 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
                 Ruta = Ex.AbrirExcel();
                 if (Ruta != null)
                 {
-                    Ex.AbrirArchivo(Ruta, Nombre);
-                    int TotalProducto = Convert.ToInt32(Ex.LeerExcel(2, 7));
-                    Producto model = new Producto();
-
-                    for (int i = 1; i <= TotalProducto; i++)
+                    ValidarExcel = Ex.AbrirArchivo(Ruta, Nombre);
+                    if (ValidarExcel == true)
                     {
-                        model = new Producto();
-                        model.IdProducto = Convert.ToInt32(Ex.LeerExcel(FilaInicio, 1));
-                        model.CantidadProducto = Convert.ToInt32(Ex.LeerExcel(FilaInicio, 5));
-                        FilaInicio++;
-                        ListaProductos.Add(model);
-                    }
 
-                        GetListaProductos(ListaProductos);
+                    
+                        int TotalProducto = Convert.ToInt32(Ex.LeerExcel(2, 7));
+                        Producto model = new Producto();
+
+                        for (int i = 1; i <= TotalProducto; i++)
+                        {
+                            model = new Producto();
+                            model.IdProducto = Convert.ToInt32(Ex.LeerExcel(FilaInicio, 1));
+                            model.CantidadProducto = Convert.ToInt32(Ex.LeerExcel(FilaInicio, 5));
+                            FilaInicio++;
+                            ListaProductos.Add(model);
+                        }
+
+                    GetListaProductos(ListaProductos);
+                    }
                 }
             }
             catch (Exception ex)
@@ -108,9 +132,12 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
             }
             finally
             {
-                if (Ruta != null)
+                if (ValidarExcel==true)
                 {
-                    Ex.Cerrar();
+                    if (Ruta != null)
+                    {
+                        Ex.Cerrar();
+                    }
                 }
             }
         }
@@ -119,28 +146,39 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
         {
             try
             {
-                List<Producto> listaAlta = new List<Producto>();
-                List<Producto> listaBaja = new List<Producto>();
-                int cantidadAux = 0; 
-               var GetListaProducto =  await Model.GetListaProducto(idSucursal);
+             
+                var GetListaProducto =  await Model.GetListaProducto(idSucursal);
                 foreach (var item in ListaExcel)
                 {
                     var x = GetListaProducto.Where(p => p.IdProducto == item.IdProducto).Select(
-                        u =>
-                        cantidadAux =u.CantidadProducto).ToList();
-                    if (item.CantidadProducto > cantidadAux)
-                    {
-                        listaAlta.Add(item);
-                    }
-                    else if(item.CantidadProducto < cantidadAux)
-                    {
-                        listaBaja.Add(item);
-                    }
+                        u => {
+                            cantidadAux = u.CantidadProducto;
+                            if(item.CantidadProducto > cantidadAux)//item excel, aux es de la base
+                            {
+                                CantidadA += item.CantidadProducto - cantidadAux;
+                                //PrecioCostoA += u.CostoProducto - (u.CostoProducto * (u.Porcentaje / 100));
+                                PorcetajeIvaTotalA += CantidadA * (u.CostoProducto * (u.Porcentaje / 100));
+                                TotalA += CantidadA * u.CostoProducto;
+                                SubA += CantidadA * u.CostoProducto - (u.CostoProducto * (u.Porcentaje / 100));
+                                listaAlta.Add(item);
+                            }
+                            else if(item.CantidadProducto < cantidadAux)
+                            {
+                                CantidadB += cantidadAux - item.CantidadProducto;
+                                PorcetajeIvaTotalB += CantidadB *(u.CostoProducto * (u.Porcentaje / 100));
+                                TotalB += CantidadB * u.CostoProducto;
+                                SubB += CantidadB * u.CostoProducto - (u.CostoProducto * (u.Porcentaje / 100));
+                                listaBaja.Add(item);
+                            }
+                            return u;
+                            }).ToList();
+
+                   
                 }
+                await Model.ActualizarProducto(listaAlta, listaBaja, idSucursal, CantidadA, PorcetajeIvaTotalA, TotalA, SubA, CantidadB, PorcetajeIvaTotalB, TotalB, SubB, Usuario);
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }

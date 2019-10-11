@@ -48,24 +48,23 @@ namespace CIDFares.Spa.Business.ViewModels.General
             }
         }
 
-        public void Importar(int IdSucursal, string Nombre)
+        public void Importar(int IdSucursal, string Nombre, Guid usuario)
         {
             try
             {
-                Excels Importar = new Excels(IdSucursal, Ex, Nombre);
+                Excels Importar = new Excels(IdSucursal, Ex, Nombre, usuario);
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
 
-        public async Task<int> ActualizarProducto(List<Producto> List, int IdSucursal)
+        public async Task<int> ActualizarProducto(List<Producto> ListA, List<Producto> ListB, int IdSucursal,decimal CantidadA, decimal PorcetajeIvaTotalA, decimal TotalA, decimal SubA, decimal CantidadB, decimal PorcetajeIvaTotalB, decimal TotalB, decimal SubB, Guid Usuario)
         {
             try
             {
-                var x = await IRepository.ActualizarProducto(List, IdSucursal);
+                var x = await IRepository.ActualizarProducto(ListA, ListB, IdSucursal, CantidadA,  PorcetajeIvaTotalA, TotalA, SubA, CantidadB, PorcetajeIvaTotalB, TotalB, SubB, Usuario);
                 return x;
             }
             catch (Exception ex)

@@ -73,7 +73,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }
 
-        public async Task<int> ActualizarProducto(List<Producto> List, object IdSucursal)
+        public async Task<int> ActualizarProducto(List<Producto> ListA, List<Producto> ListB, int IdSucursal, decimal CantidadA, decimal PorcetajeIvaTotalA, decimal TotalA, decimal SubA, decimal CantidadB, decimal PorcetajeIvaTotalB, decimal TotalB, decimal SubB, Guid usuario)
         {
             try
             {
@@ -82,7 +82,17 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     conexion.Open();
                     DynamicParameters Parametros = new DynamicParameters();
                     Parametros.Add("@IdSucursal", IdSucursal);
-                    Parametros.Add("@TablaInventario", List.ToDataTable(new List<string> { "IdProducto", "CantidadProducto" }), DbType.Object);
+                    Parametros.Add("@TablaAlta", ListA.ToDataTable(new List<string> { "IdProducto", "CantidadProducto" }), DbType.Object);
+                    Parametros.Add("@@TablaBaja", ListB.ToDataTable(new List<string> { "IdProducto", "CantidadProducto" }), DbType.Object);
+                    Parametros.Add("@CantidadAlta", CantidadA);
+                    Parametros.Add("@@IvaA", PorcetajeIvaTotalA);
+                    Parametros.Add("@TotalA", TotalA);
+                    Parametros.Add("@SubA", SubA);
+                    Parametros.Add("@CantidadBaja", CantidadB);
+                    Parametros.Add("@Usuario", usuario);
+                    Parametros.Add("@@IvaB", PorcetajeIvaTotalB);
+                    Parametros.Add("@TotalB", TotalB);
+                    Parametros.Add("@SubB", SubB);
                     var x = await conexion.ExecuteScalarAsync<int>("[Inventario].[SPCID_A_InventarioProducto]", param: Parametros, commandType: CommandType.StoredProcedure);
                     return x;
                 }

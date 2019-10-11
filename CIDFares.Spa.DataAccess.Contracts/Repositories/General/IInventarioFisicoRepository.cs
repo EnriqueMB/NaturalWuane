@@ -11,7 +11,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
     public interface IInventarioFisicoRepository : IBaseRepository<Producto>
     {
         Task<IEnumerable<Producto>> GetProductos(object IdSucursal);
-        Task<int> ActualizarProducto(List<Producto> List, object IdSucursal);
+        Task<int> ActualizarProducto(List<Producto> ListA, List<Producto> ListB, int IdSucursal, decimal CantidadA, decimal PorcetajeIvaTotalA, decimal TotalA, decimal SubA, decimal CantidadB,  decimal PorcetajeIvaTotalB, decimal TotalB, decimal SubB, Guid usuario);
         Task<IEnumerable<Producto>> GetCantidadProductos(object IdSucursal);
     }
 }

@@ -58,7 +58,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         {
             try
             {
-                Model.Importar(CurrentSession.IdSucursal, Nombre);
+                Model.Importar(CurrentSession.IdSucursal, Nombre, CurrentSession.IdCuentaUsuario);
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
             }
             catch (Exception ex)
