@@ -476,9 +476,15 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                errorProvider1.SetError(TBoxNombreTurno, string.Empty);
+                errorProvider1.SetError(DiasControl, string.Empty);
                 if (TBoxNombreTurno.Text == "")
                 {
                     errorProvider1.SetError(TBoxNombreTurno, "INGRESE EL NOMBRE DEL TURNO");
+                }
+                else if (Model.ListaValores.Count == 0)
+                {
+                    errorProvider1.SetError(DiasControl, "AGREGUE POR LO MENOS UN DIA");
                 }
                 else
                 {
@@ -491,10 +497,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                         LimpiarPropiedades();
                         this.Close();
                     }
-                    else if (resul.IdTurno == 0)
-                    {
-                        errorProvider1.SetError(TBoxNombreTurno, "EL NOMBRE DE ESTE TURNO YA EXISTE");
-                    }
+                    else
+                        CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
                 }
             }
             catch(Exception ex)
@@ -515,6 +519,35 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             {
 
                 throw ex;
+            }
+        }
+
+        private async void TBoxNombreTurno_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                BtnGuardar.Enabled = true;
+                errorProvider1.SetError(TBoxNombreTurno, string.Empty);
+                var result = await Model.ValidarNombre();
+                if (result > 0)
+                {
+                    if (Model.IdTurno > 0)
+                    {
+                        if (result != Model.IdTurno)
+                        {
+                            BtnGuardar.Enabled = false;
+                            errorProvider1.SetError(TBoxNombreTurno, "YA EXISTE UN TURNO CON ESE NOMBRE");
+                        }
+                    }
+                    else
+                    {
+                        BtnGuardar.Enabled = false;
+                        errorProvider1.SetError(TBoxNombreTurno, "YA EXISTE UN TURNO CON ESE NOMBRE");
+                    }
+                }
+            }
+            catch (Exception)
+            {
             }
         }
     }

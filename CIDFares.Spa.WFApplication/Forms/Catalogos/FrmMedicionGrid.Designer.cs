@@ -122,6 +122,7 @@
             this.pnlBotonesDatos.Padding = new System.Windows.Forms.Padding(35, 17, 17, 17);
             this.pnlBotonesDatos.Size = new System.Drawing.Size(330, 67);
             this.pnlBotonesDatos.TabIndex = 53;
+            this.pnlBotonesDatos.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBotonesDatos_Paint);
             // 
             // btnGuardar
             // 
