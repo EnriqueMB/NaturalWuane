@@ -263,41 +263,70 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
 
         private void btnTotal_Click(object sender, EventArgs e)
         {
-            BindingList<Venta> Lista = (BindingList<Venta>)sfDataGridVenta.DataSource;
-            this.CleanErrors(errorProvider1, typeof(VentasViewModel));
-            var validationResults = Model.Validate();
-            validationResults.ToString();
-
-            if (validationResults.IsValid)
+            try
             {
-                if (Lista.Count > 0)
+                BindingList<Venta> Lista = (BindingList<Venta>)sfDataGridVenta.DataSource;
+                this.CleanErrors(errorProvider1, typeof(VentasViewModel));
+                var validationResults = Model.Validate();
+                validationResults.ToString();
+
+                if (validationResults.IsValid)
                 {
-                    Model.TablaProducto = ObtenerTablaProducto(Lista);
-                    Model.TablaServicio = ObtenerTablaServicio(Lista);
-                    ObtenerLista(Lista);
-                    if (Model.ListaOrdenPaquete.Count > 0)
+                    if (Lista.Count > 0)
                     {
-                        FrmPaqueteVenta paquete = new FrmPaqueteVenta(Model);
-                        paquete.ShowDialog();
-                        AgregarPaquetes(Model.ListaOrdenPaquete);
-                        sfDataGridVenta.Refresh();
-                        if (paquete.resultado)
-                            LimpiarPropiedades();
+                        Model.TablaProducto = ObtenerTablaProducto(Lista);
+                        Model.TablaServicio = ObtenerTablaServicio(Lista);
+                        
+                        ObtenerLista(Lista);
+                        if (Model.ListaOrdenPaquete.Count > 0)
+                        {
+                            FrmPaqueteVenta paquete = new FrmPaqueteVenta(Model);
+                            paquete.ShowDialog();
+                            AgregarPaquetes(Model.ListaOrdenPaquete);
+                            sfDataGridVenta.Refresh();
+                            if (paquete.resultado)
+                                LimpiarPropiedades();
+                        }
+                        else
+                        {
+                            Model.TablaPaquete = ObtenerTablaPaquete();
+                            FrmSeleccionarPago pago = new FrmSeleccionarPago(Model);
+                            pago.ShowDialog();
+                            if (pago.resultado)
+                                LimpiarPropiedades();
+                        }
                     }
                     else
-                    {
-                        FrmSeleccionarPago pago = new FrmSeleccionarPago(Model);
-                        pago.ShowDialog();
-                        if (pago.resultado)
-                            LimpiarPropiedades();
-                    }
+                        errorProvider1.SetError(FolioVentaControl, "Seleccione al menos un articulo.");
                 }
                 else
-                    errorProvider1.SetError(FolioVentaControl, "Seleccione al menos un articulo.");
-            }
-            else
                     this.ShowErrors(errorProvider1, typeof(VentasViewModel), validationResults);
+            }
+            catch(Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmBuscarCliente ~ btnBuscar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
+            }
     }
+
+        private DataTable ObtenerTablaPaquete()
+        {
+            try
+            {
+                DataTable Tabla = new DataTable();
+                Tabla.Columns.Add("IdOrdenPaquete", typeof(Guid));
+                Tabla.Columns.Add("EsAbono", typeof(bool));
+                Tabla.Columns.Add("Cantidad", typeof(decimal));
+                Tabla.Columns.Add("Total", typeof(decimal));
+
+                return Tabla;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
         private void AgregarPaquetes(BindingList<OrdenPaquete> listaOrdenPaquete)
         {
@@ -367,6 +396,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 Model.TablaFormaPago = new DataTable();
                 Model.TablaProducto = new DataTable();
                 Model.TablaServicio = new DataTable();
+                Model.TablaPaquete = new DataTable();
                 Model.Listaventa.Clear();
                 Model.Efectivo = 0;
                 Model.GetFolio();
@@ -379,6 +409,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 BusquedaControl.Text = "";
                 txtCantidad.Text= "";
                 TotalControl.Text = "0";
+                btnAgendaPaquete.Visible = false;
             }
             catch (Exception)
             {
