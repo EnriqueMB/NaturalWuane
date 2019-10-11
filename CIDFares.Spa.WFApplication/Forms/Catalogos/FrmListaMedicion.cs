@@ -31,6 +31,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             Model.IdListaMedicion = id;
             if (id > 0)
                 Model.State = EntityState.Update;
+            this.BtnAgregar.FlatAppearance.BorderSize = 1;
+            this.btnQuitar.FlatAppearance.BorderSize = 1;
         }
         #endregion
 
@@ -232,8 +234,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                LimpiarPropiedades();
-                Close();
+                if (CIDMessageBox.ShowAlertRequest(Constants.Messages.SystemName, Constants.Messages.ConfirmCancelInput) == DialogResult.OK)
+                {
+                    LimpiarPropiedades();
+                    Close();
+                }
             }
             catch (Exception ex)
             {

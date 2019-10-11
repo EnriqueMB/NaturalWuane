@@ -29,6 +29,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             Model = ServiceLocator.Instance.Resolve<MedicionViewModel>();
             Model.Page = -1;
             Model.Opcion = 1;
+            this.btnEditarLista.FlatAppearance.BorderSize = 1;
+            this.btnElimiarLista.FlatAppearance.BorderSize = 1;
+            this.BtnSeleccionar.FlatAppearance.BorderSize = 1;
         }
         #endregion
 
@@ -273,9 +276,12 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
-                LimpiarPropiedades();
-                GroupMedicion.Enabled = false;
-                pnlBotonesDatos.Enabled = false;
+                if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.ConfirmCancelInput) == DialogResult.OK)
+                {
+                    LimpiarPropiedades();
+                    GroupMedicion.Enabled = false;
+                    pnlBotonesDatos.Enabled = false;
+                }
             }
             catch (Exception ex)
             {

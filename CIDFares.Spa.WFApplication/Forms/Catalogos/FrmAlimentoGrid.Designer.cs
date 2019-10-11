@@ -142,13 +142,14 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.flowLayoutPanel1.Controls.Add(this.btnNuevo);
             this.flowLayoutPanel1.Controls.Add(this.btnModificar);
             this.flowLayoutPanel1.Controls.Add(this.btnEliminar);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(17, 18);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(398, 35);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20, 15, 0, 0);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1066, 68);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // btnNuevo
@@ -161,7 +162,7 @@
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.Color.Black;
             this.btnNuevo.IsBackStageButton = false;
-            this.btnNuevo.Location = new System.Drawing.Point(3, 3);
+            this.btnNuevo.Location = new System.Drawing.Point(23, 18);
             this.btnNuevo.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.btnNuevo.MouseHoverForeColor = System.Drawing.Color.White;
             this.btnNuevo.MouseLeaveForeColor = System.Drawing.Color.Black;
@@ -182,7 +183,7 @@
             this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.Black;
             this.btnModificar.IsBackStageButton = false;
-            this.btnModificar.Location = new System.Drawing.Point(132, 3);
+            this.btnModificar.Location = new System.Drawing.Point(152, 18);
             this.btnModificar.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.btnModificar.MouseHoverForeColor = System.Drawing.Color.White;
             this.btnModificar.MouseLeaveForeColor = System.Drawing.Color.Black;
@@ -203,7 +204,7 @@
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
             this.btnEliminar.IsBackStageButton = false;
-            this.btnEliminar.Location = new System.Drawing.Point(261, 3);
+            this.btnEliminar.Location = new System.Drawing.Point(281, 18);
             this.btnEliminar.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.btnEliminar.MouseHoverForeColor = System.Drawing.Color.White;
             this.btnEliminar.MouseLeaveForeColor = System.Drawing.Color.Black;

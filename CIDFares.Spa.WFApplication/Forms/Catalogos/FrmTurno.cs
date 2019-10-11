@@ -62,6 +62,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             else
                 Model.State = EntityState.Create;
+            this.EliminarBtn.FlatAppearance.BorderSize = 1;
+            this.BtnAgregar.FlatAppearance.BorderSize = 1;
         }
 
         private void IniciarComboDias()

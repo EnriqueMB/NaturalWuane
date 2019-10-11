@@ -60,7 +60,7 @@
             // 
             this.LblTurno.AutoSize = true;
             this.LblTurno.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.LblTurno.Location = new System.Drawing.Point(47, 18);
+            this.LblTurno.Location = new System.Drawing.Point(9, 11);
             this.LblTurno.Name = "LblTurno";
             this.LblTurno.Size = new System.Drawing.Size(68, 30);
             this.LblTurno.TabIndex = 0;
@@ -78,13 +78,15 @@
             // 
             // flowLayoutPanelContainsButtons
             // 
-            this.flowLayoutPanelContainsButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.flowLayoutPanelContainsButtons.Controls.Add(this.BtnNuevo);
             this.flowLayoutPanelContainsButtons.Controls.Add(this.BtnModificar);
             this.flowLayoutPanelContainsButtons.Controls.Add(this.BtnEliminar);
-            this.flowLayoutPanelContainsButtons.Location = new System.Drawing.Point(12, 3);
+            this.flowLayoutPanelContainsButtons.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelContainsButtons.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flowLayoutPanelContainsButtons.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanelContainsButtons.Name = "flowLayoutPanelContainsButtons";
-            this.flowLayoutPanelContainsButtons.Size = new System.Drawing.Size(398, 37);
+            this.flowLayoutPanelContainsButtons.Padding = new System.Windows.Forms.Padding(20, 15, 0, 0);
+            this.flowLayoutPanelContainsButtons.Size = new System.Drawing.Size(1052, 68);
             this.flowLayoutPanelContainsButtons.TabIndex = 0;
             // 
             // BtnNuevo
@@ -97,7 +99,7 @@
             this.BtnNuevo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnNuevo.ForeColor = System.Drawing.Color.Black;
             this.BtnNuevo.IsBackStageButton = false;
-            this.BtnNuevo.Location = new System.Drawing.Point(3, 3);
+            this.BtnNuevo.Location = new System.Drawing.Point(23, 18);
             this.BtnNuevo.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.BtnNuevo.MouseHoverForeColor = System.Drawing.Color.White;
             this.BtnNuevo.MouseLeaveForeColor = System.Drawing.Color.Black;
@@ -118,7 +120,7 @@
             this.BtnModificar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnModificar.ForeColor = System.Drawing.Color.Black;
             this.BtnModificar.IsBackStageButton = false;
-            this.BtnModificar.Location = new System.Drawing.Point(132, 3);
+            this.BtnModificar.Location = new System.Drawing.Point(152, 18);
             this.BtnModificar.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.BtnModificar.MouseHoverForeColor = System.Drawing.Color.White;
             this.BtnModificar.MouseLeaveForeColor = System.Drawing.Color.Black;
@@ -139,7 +141,7 @@
             this.BtnEliminar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminar.ForeColor = System.Drawing.Color.Black;
             this.BtnEliminar.IsBackStageButton = false;
-            this.BtnEliminar.Location = new System.Drawing.Point(261, 3);
+            this.BtnEliminar.Location = new System.Drawing.Point(281, 18);
             this.BtnEliminar.MouseHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.BtnEliminar.MouseHoverForeColor = System.Drawing.Color.White;
             this.BtnEliminar.MouseLeaveForeColor = System.Drawing.Color.Black;
@@ -171,7 +173,7 @@
             gridTextColumn1.MappingName = "NombreTurno";
             this.GridNombresTurnos.Columns.Add(gridTextColumn1);
             this.GridNombresTurnos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GridNombresTurnos.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GridNombresTurnos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GridNombresTurnos.Location = new System.Drawing.Point(0, 0);
             this.GridNombresTurnos.Name = "GridNombresTurnos";
             this.GridNombresTurnos.Size = new System.Drawing.Size(1052, 446);
