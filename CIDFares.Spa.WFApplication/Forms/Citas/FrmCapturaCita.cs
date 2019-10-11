@@ -138,27 +138,27 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
         
         private async void btnBuscar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                List<SpecialDate> listsd = new List<SpecialDate>();
-                await Model.GetCitaXPeriodo(CurrentSession.IdSucursal);                
-                Image newimage = Properties.Resources.holaNW2;
-                foreach (var item in Model.ListaCapturaCita)
-                {
-                    SpecialDate special = new SpecialDate();                    
-                    special.IsDateVisible = false;
-                    special.Value = item.FechaInicio;
-                    special.Image = newimage;
-                    special.ImageAlign = ContentAlignment.MiddleLeft;
-                    listsd.Add(special);
-                }
-                this.mcCita2.SpecialDates = listsd;                
-            }
-            catch (Exception ex)
-            {
-                ErrorLogHelper.AddExcFileTxt(ex, "FrmCapturaCita ~ btnBuscar_Click(object sender, EventArgs e)");
-                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
-            }
+            //try
+            //{
+            //    List<SpecialDate> listsd = new List<SpecialDate>();
+            //    await Model.GetCitaXPeriodo(CurrentSession.IdSucursal);                
+            //    Image newimage = Properties.Resources.holaNW2;
+            //    foreach (var item in Model.ListaCapturaCita)
+            //    {
+            //        SpecialDate special = new SpecialDate();                    
+            //        special.IsDateVisible = false;
+            //        special.Value = item.FechaInicio;
+            //        special.Image = newimage;
+            //        special.ImageAlign = ContentAlignment.MiddleLeft;
+            //        listsd.Add(special);
+            //    }
+            //    this.mcCita2.SpecialDates = listsd;                
+            //}
+            //catch (Exception ex)
+            //{
+            //    ErrorLogHelper.AddExcFileTxt(ex, "FrmCapturaCita ~ btnBuscar_Click(object sender, EventArgs e)");
+            //    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
+            //}
         }       
 
         private void mcCita_Click(object sender, EventArgs e)
@@ -220,6 +220,31 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmCapturaCita ~ mcCita2_DoubleClick(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
-        }        
+        }
+
+        private async void mcCita2_Navigating(SfCalendar sender, Syncfusion.WinForms.Input.Events.NavigatingEventArgs e)
+        {
+            try
+            {
+                List<SpecialDate> listsd = new List<SpecialDate>();
+                await Model.GetCitaXPeriodo(CurrentSession.IdSucursal);
+                Image newimage = Properties.Resources.holaNW2;
+                foreach (var item in Model.ListaCapturaCita)
+                {
+                    SpecialDate special = new SpecialDate();
+                    special.IsDateVisible = false;
+                    special.Value = item.FechaInicio;
+                    special.Image = newimage;
+                    special.ImageAlign = ContentAlignment.MiddleLeft;
+                    listsd.Add(special);
+                }
+                this.mcCita2.SpecialDates = listsd;
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmCapturaCita ~ btnBuscar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorBusqueda, TypeMessage.error);
+            }
+        }
     }
 }

@@ -81,7 +81,7 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Location = new System.Drawing.Point(1013, 27);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(119, 32);
             this.btnBuscar.TabIndex = 5;
@@ -178,6 +178,7 @@
             this.mcCita2.Style.Cell.SelectedCellHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.mcCita2.TabIndex = 0;
             this.mcCita2.Text = "sfCalendar1";
+            this.mcCita2.Navigating += new Syncfusion.WinForms.Input.Events.NavigatingEventHandler(this.mcCita2_Navigating);
             this.mcCita2.DoubleClick += new System.EventHandler(this.mcCita2_DoubleClick);
             // 
             // FrmCapturaCita
