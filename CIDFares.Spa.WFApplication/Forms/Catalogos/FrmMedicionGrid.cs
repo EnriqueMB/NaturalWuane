@@ -365,17 +365,24 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                btnGuardar.Enabled = true;
                 errorProvider1.SetError(NombreControl, string.Empty);
                 var result = await Model.ValidarNombre();
                 if(result > 0)
                 {
                     if (Model.IdMedicion > 0)
                     {
-                        if(result != Model.IdMedicion)
+                        if (result != Model.IdMedicion)
+                        {
+                            btnGuardar.Enabled = false;
                             errorProvider1.SetError(NombreControl, "El nombre ya existe en los registros");
+                        }
                     }
                     else
+                    {
+                        btnGuardar.Enabled = false;
                         errorProvider1.SetError(NombreControl, "El nombre ya existe en los registros");
+                    }
                 }
             }
             catch (Exception ex)
@@ -428,6 +435,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 ErrorLogHelper.AddExcFileTxt(ex, "FrmDireccionesCliente ~ btnEliminarLista_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.error);
             }
+        }
+
+        private void pnlBotonesDatos_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

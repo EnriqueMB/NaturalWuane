@@ -227,7 +227,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                     //else
                     //    Model.ImageLocation = "Sin Foto";
                     //Model.FotoBase64 = string.Empty;
-                    //await Model.GetDireciones();
+                    await Model.GetDireciones();
                 }
                 else
                 {

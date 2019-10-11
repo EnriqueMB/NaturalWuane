@@ -124,6 +124,19 @@ namespace CIDFares.Spa.Business.ViewModels.Catalogos
             }
         }
 
+        public Task<int> ValidarNombre()
+        {
+            try
+            {
+                var result = TurnoRepository.NameExistAsync(NombreTurno);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         #endregion
 
         #region Binding

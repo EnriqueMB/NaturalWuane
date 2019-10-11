@@ -156,6 +156,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                errorProvider1.SetError(BtnAgregar, string.Empty);
                 btnGuarda.Enabled = false;
                 this.CleanErrors(errorProvider1, typeof(ListaMedicionViewModel));
                 var ValidationsResult = Model.Validate();
@@ -201,17 +202,24 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         {
             try
             {
+                btnGuarda.Enabled = true;
                 errorProvider1.SetError(NombreControl, string.Empty);
                 var result = await Model.ValidarNombre();
                 if(result > 0)
                 {
-                    if(Model.IdListaMedicion > 0)
+                    if (Model.IdListaMedicion > 0)
                     {
-                        if(result != Model.IdListaMedicion)
+                        if (result != Model.IdListaMedicion)
+                        {
+                            btnGuarda.Enabled = false;
                             errorProvider1.SetError(NombreControl, "El nombre ya existe en los registros");
+                        }
                     }
                     else
+                    {
+                        btnGuarda.Enabled = false;
                         errorProvider1.SetError(NombreControl, "El nombre ya existe en los registros");
+                    }
                 }
             }
             catch (Exception ex)
