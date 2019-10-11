@@ -48,10 +48,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
             Model._ListaMediciones = _value.dtoMedicionesConsulta;
             Model._tablaRespuestas = _value.dtoEncuestaConsultaOpciones.ToList().ToDataTable(new List<string> { "IdEncuesta", "IdPregunta", "IdRespuesta", "Respuesta", "RespuestaSINO" });
             Model._tablaRespuestasMultiple = _value.dtoRespuestaMultiple.ToList().ToDataTable(new List<string> { "IdPregunta", "IdRespuesta" });
-            Model._tablaMedicion = _value.dtoMedicionesConsulta.Where(x=>x.asignar).ToList().ToDataTable(new List<string> {"dato", "IdMedicion","Nombre", "IdValorSeleccionado","valor"});//TablaMedicion();
+            //Model._tablaMedicion =TablaMedicion();
+            Model._tablaMedicion = _value.dtoMedicionesConsulta.Where(x => x.asignar).ToList().ToDataTable(new List<string> { "dato", "IdMedicion", "Nombre", "IdValorSeleccionado", "valor" });
             Model.State = EntityState.Update;
         }
-        #endregion
+        #endregion        
 
         #region Metodos
         //private DataTable TablaMedicion()
@@ -61,9 +62,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
         //    tblMedicion.Columns.Add("Nombre", typeof(string));
         //    tblMedicion.Columns.Add("IdValorSeleccionado", typeof(int));
         //    tblMedicion.Columns.Add("valor", typeof(string));
-        //    foreach (var item in dtoConsulta.dtoMedicionesConsulta.Where(x=>x.asignar))
+        //    foreach (var item in dtoConsulta.dtoMedicionesConsulta.Where(x => x.asignar))
         //    {
-        //        tblMedicion.Rows.Add(new object[] {item.dato.IdMedicion,item.dato.Nombre,item.dato.IdValorSeleccionado,item.dato.valor });
+        //        tblMedicion.Rows.Add(new object[] { item.dato.IdMedicion, item.dato.Nombre, item.dato.IdValorSeleccionado, item.dato.valor });
         //    }
 
         //    return tblMedicion;

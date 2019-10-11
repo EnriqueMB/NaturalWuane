@@ -24,7 +24,7 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
         private IServicioRepository ServicioRepository { get; set; }
         private IPaqueteRepository PaqueteRepository { get; set; }
         public IBusqProductoRepository BusqProductoRepository { get; set; }
-        public IImpresoraTicket         Ticket { get; set; }
+        public IImpresoraTicket Ticket { get; set; }
         #endregion
 
         #region Propiedades públicas
