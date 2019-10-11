@@ -57,25 +57,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\ConsultaDto.cs" />
     <Compile Include="DTOs\DTOCliente.cs" />
     <Compile Include="DTOs\General\PromocionDto.cs" />
     <Compile Include="DTOs\General\CitaDto.cs" />
     <Compile Include="DTOs\Requests\DireccionesClienteRequest.cs" />
     <Compile Include="DTOs\Requests\EncuestaRequest.cs" />
     <Compile Include="DTOs\Requests\LoginRequests.cs" />
+    <Compile Include="DTOs\Requests\VentaTicketRequest.cs" />
     <Compile Include="Entities\Alimento.cs" />
     <Compile Include="Entities\AbonoPaquete.cs" />
     <Compile Include="Entities\AbonoPaqueteDetalle.cs" />
     <Compile Include="Entities\BusqueProducto.cs" />
     <Compile Include="Entities\CambioVenta.cs" />
     <Compile Include="Entities\CapturaCita.cs" />
+    <Compile Include="Entities\CapturaConsulta.cs" />
     <Compile Include="Entities\CategoriaProducto.cs" />
     <Compile Include="Entities\OrdenPaquete.cs" />
     <Compile Include="Entities\OrdenServicio.cs" />
     <Compile Include="Entities\Cliente.cs" />
+    <Compile Include="Entities\ComentariosConsulta.cs" />
     <Compile Include="Entities\Compra.cs" />
+    <Compile Include="Entities\Consulta.cs" />
     <Compile Include="Entities\CompraCancelacion.cs" />
     <Compile Include="Entities\Cuestionario.cs" />
+    <Compile Include="Entities\DetalleProducto.cs" />
+    <Compile Include="Entities\DetalleServicio.cs" />
+    <Compile Include="Entities\DetallesPaquete.cs" />
     <Compile Include="Entities\DireccionesCliente.cs" />
     <Compile Include="Entities\EntradaSalidaAlmacen.cs" />
     <Compile Include="Entities\Estado.cs" />
@@ -83,6 +91,8 @@
     <Compile Include="Entities\ListaMedicion.cs" />
     <Compile Include="Entities\Medicion.cs" />
     <Compile Include="Entities\Municipio.cs" />
+    <Compile Include="Entities\OpcionCuestionario.cs" />
+    <Compile Include="Entities\OpcionMedicion.cs" />
     <Compile Include="Entities\Pais.cs" />
     <Compile Include="Entities\Iva.cs" />
     <Compile Include="Entities\Promocion.cs" />
@@ -128,10 +138,13 @@
     <Compile Include="Repositories\General\ICambioVentaRepository.cs" />
     <Compile Include="Repositories\General\ICapturaCitaRepository.cs" />
     <Compile Include="Repositories\General\ICancelacionVentaRepository.cs" />
+    <Compile Include="Repositories\General\ICapturaConsultaRepository.cs" />
     <Compile Include="Repositories\General\ICategoriaProductoRepository.cs" />
     <Compile Include="Repositories\General\IClienteRepository.cs" />
     <Compile Include="Entities\FormaPago.cs" />
     <Compile Include="Repositories\General\ICompraRepository.cs" />
+    <Compile Include="Repositories\General\IConsultaRepository.cs" />
+    <Compile Include="Repositories\General\IContestarMedicionRepository.cs" />
     <Compile Include="Repositories\General\ICuestionarioRepository.cs" />
     <Compile Include="Repositories\General\IDireccionesClienteRepository.cs" />
     <Compile Include="Repositories\General\IEmpleadoRepository.cs" />
@@ -144,6 +157,7 @@
     <Compile Include="Repositories\General\ILoginRepository.cs" />
     <Compile Include="Repositories\General\IMedicionRepository.cs" />
     <Compile Include="Repositories\General\IMunicipioRepository.cs" />
+    <Compile Include="Repositories\General\IopcionesRepository.cs" />
     <Compile Include="Repositories\General\IPaisRepository.cs" />
     <Compile Include="Repositories\General\IPaqueteRepository.cs" />
     <Compile Include="Repositories\General\IProductoRepository.cs" />

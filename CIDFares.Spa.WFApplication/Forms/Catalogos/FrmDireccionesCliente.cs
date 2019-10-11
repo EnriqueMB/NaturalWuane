@@ -28,6 +28,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         public DireccionesClienteViewModel Model { get; set; }
         public List<DireccionesClienteRequest> ListaDirecciones { get; set; }
         #endregion
+
+        #region Constructor
         public FrmDireccionesCliente(Guid IdCliente, string nombre, List<DireccionesClienteRequest> lista)
         {
             InitializeComponent();
@@ -37,6 +39,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             Model.IdCliente = IdCliente;
             Model.CargarLista(lista);
         }
+        #endregion
 
         #region Metodos 
         private void LimpiarPropiedades()
@@ -148,6 +151,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
         }
         #endregion
+
+        #region Eventos
         private void FrmDireccionesCliente_Shown(object sender, EventArgs e)
         {
             try
@@ -167,7 +172,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmDireccionesCliente ~ FrmDireccionesCliente_Shown(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
 
@@ -196,6 +202,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmDireccionesCliente ~ btnGuardar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
         }
@@ -221,6 +228,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmDireccionesCliente ~ btnAgregar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
             finally
@@ -274,6 +282,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmDireccionesCliente ~ btnEliminar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.error);
             }
         }
@@ -342,9 +351,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 else
                     CIDMessageBox.ShowAlert(Messages.SystemName, Messages.GridSelectMessage, TypeMessage.informacion);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmDireccionesCliente ~ btnModificar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.informacion);
             }
         }
 
@@ -389,5 +399,6 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorAlCancelarFrm, TypeMessage.error);
             }
         }
+        #endregion
     }
 }

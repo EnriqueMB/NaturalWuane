@@ -12,6 +12,8 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public Producto()
         {
             Nombre = string.Empty;
+            datoProducto = new DetalleProducto();
+
         }
         #endregion
 
@@ -41,12 +43,14 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public Guid Usuario { get; set; }
         public decimal CostoProducto { get; set; }
         public decimal PorcentajeP { get; set; }
+        public string UrlImagen { get; set; }
+
         //foto
         public string Base64String { get; set; }
         public string UrlFoto { get; set; }
         public bool UpdateFoto { get; set; }
-
         public int CantidadProducto { get; set; }
+        public DetalleProducto datoProducto { get; set; }
         #endregion
 
     }

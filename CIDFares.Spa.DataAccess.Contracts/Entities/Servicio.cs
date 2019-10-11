@@ -8,6 +8,11 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
 {
     public class Servicio
     {
+        public Servicio()
+        {
+            Nombre = string.Empty;            
+            datoServicio = new DetalleServicio();
+        }
         public int IdServicio { get; set; }
         public int IdTipoServicio { get; set; }
         public int IdTipoIva { get; set; }  
@@ -31,8 +36,10 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         //foto
         //public string Base64String { get; set; }
         public string FotoBase64 { get; set; }
-        public string UrlFoto { get; set; }
+        public string UrlImagen { get; set; }
         public bool UpdateFoto { get; set; }   
         public decimal CantidadServicio { get; set; }
+
+        public DetalleServicio datoServicio { get; set; }
     }
 }

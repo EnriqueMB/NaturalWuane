@@ -304,8 +304,11 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             SlideGenerales(btnMonedero);
             GetPanel(new FrmProductosMonedero());
         }
-
-
+        private void BtnConsulta_Click(object sender, EventArgs e)
+        {
+            SlideGenerales(btnConsulta);
+            GetPanel(new FrmCapturaConsulta());
+        }
         private void BtnCancelacionVenta_Click(object sender, EventArgs e)
         {
             SlideGenerales(btnCancelacionVenta);
@@ -444,6 +447,10 @@ namespace CIDFares.Spa.WFApplication.Forms.General
             }
         }
 
+
+        private void BtnConfiguracion_Click(object sender, EventArgs e)
+        {
+        }
         private void btnEmpleado_Click(object sender, EventArgs e)
         {
             SlideCatalogo(btnEmpleado);
@@ -493,7 +500,6 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         {
             SlideCatalogo(btnAbonarPaquete);
             GetPanel(new FrmAbonarPaquete());
-
         }
 
         private void btnCita_Click(object sender, EventArgs e)

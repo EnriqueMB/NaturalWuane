@@ -41,5 +41,6 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public Guid IdVenta { get; set; }
         public int LocalId { get; set; }
         public int IdTurno { get; set; }
+        public Guid IdOrdenPaquete { get; set; }
     }
 }

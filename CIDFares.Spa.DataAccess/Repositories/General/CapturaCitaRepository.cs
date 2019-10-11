@@ -20,25 +20,9 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             throw new NotImplementedException();
         }
 
-        public async Task<int> DeleteAsync(object id, object IdUsuario)
+        public Task<int> DeleteAsync(object id, object IdUsuario)
         {
-            try
-            {
-                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
-                {
-                    conexion.Open();
-                    var dynamicParameters = new DynamicParameters();
-                    dynamicParameters.Add("@idAgendaCita", id);
-                    dynamicParameters.Add("@idEstadoCita", 8);
-                    dynamicParameters.Add("@user", IdUsuario);
-                    var result = await conexion.ExecuteScalarAsync<int>("[Cita].[SPCID_Delete_Cita]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                    return result;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            throw new NotImplementedException();
         }
 
         public Task<bool> ExistAsync(object id)
@@ -173,7 +157,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@idCliente", element.OrdenServicio.Cliente.IdCliente);
                     dynamicParameters.Add("@idEstadoCita", 5);                
                     dynamicParameters.Add("@user", IdUsuario);
-                    var result = await conexion.ExecuteScalarAsync<int>("[Cita].[SPCID_AC_Cita2]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Cita].[SPCID_AC_Cita]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     element.Resultado = result;
                     return element;
                 }
@@ -200,7 +184,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     dynamicParameters.Add("@opcion", 2);
                     dynamicParameters.Add("@idAgendaCita", element.IdAgendaCita);
                     dynamicParameters.Add("@idOrdenServicio", element.OrdenServicio.IdOrdenServicio);
-                    dynamicParameters.Add("@idPaquete", element.OrdenServicio.OrdenPaquete.Paquete.IdPaquete);
+                    dynamicParameters.Add("@idOrdenPaquete", element.OrdenServicio.OrdenPaquete.IdOrdenPaquete);
                     dynamicParameters.Add("@idServicio", element.OrdenServicio.Servicio.IdServicio);
                     dynamicParameters.Add("@aplicado", false);
                     dynamicParameters.Add("@pagado", false);
@@ -315,16 +299,50 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
             }
         }       
 
-        public async Task<IEnumerable<CapturaCita>> GetCitasSinAgendar(string nombreCompleto, object IdSucursal)
+        public async Task<IEnumerable<OrdenServicio>> GetCitasSinAgendar(string nombreCompleto, object IdSucursal)
         {
             try{
                 //CapturaCita Item;
                 using (IDbConnection conexion = new SqlConnection(WebConnectionString))
                 {
+                    conexion.Open();
+                    List<CapturaCita> Lista = new List<CapturaCita>();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@nombreCompleto", nombreCompleto);
+                    dynamicParameters.Add("@idSucursal", IdSucursal);
+                    //var lista = await conexion.QueryAsync<CapturaCita, Cliente, Servicio, OrdenServicio, Paquetes, OrdenPaquete, CapturaCita>("[Cita].[SPCID_Get_CitaSinAgendar]",
+                    var lista = await conexion.QueryAsync<OrdenServicio, Cliente, Paquetes, OrdenPaquete, OrdenServicio>("[Cita].[SPCID_Get_CitaSinAgendar]",
+                    (os, cliente, p, op) =>
+                    {
+                        os.Cliente = cliente;
+                        os.OrdenPaquete = op;
+                        os.OrdenPaquete.Paquete = p;                        
+                        return os;
+                    },
+                    splitOn: "IdOrdenServicio, IdCliente, IdPaquete, IdOrdenPaquete", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return lista;                    
+                }
+            }         
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<IEnumerable<CapturaCita>> GetCitasSinAgendarDetalle(string nombreCompleto, object IdSucursal)
+        {
+            try
+            {
+                //CapturaCita Item;
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    List<CapturaCita> Lista = new List<CapturaCita>();
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@nombreCompleto", nombreCompleto);
                     dynamicParameters.Add("@idSucursal", IdSucursal);
                     var lista = await conexion.QueryAsync<CapturaCita, Cliente, Servicio, OrdenServicio, Paquetes, OrdenPaquete, CapturaCita>("[Cita].[SPCID_Get_CitaSinAgendar]",
+                    //var lista = await conexion.QueryAsync<OrdenServicio, Cliente, Paquetes, OrdenPaquete, OrdenServicio>("[Cita].[SPCID_Get_CitaSinAgendar]",
                     (cita, cliente, serv, os, p, op) =>
                     {
                         cita.OrdenServicio = os;
@@ -337,11 +355,63 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     splitOn: "IdAgendaCita, IdCliente, IdServicio, IdOrdenServicio, IdPaquete, IdOrdenPaquete", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                     return lista;
                 }
-            }         
+            }
             catch (Exception ex)
             {
                 throw ex;
             }
-        }                
+        }
+
+        public async Task<IEnumerable<OrdenServicio>> GetCitasSinPagar(Guid idCliente, int idSucursal)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@IdCliente", idCliente);
+                    dynamicParameters.Add("@IdSucursal", idSucursal);
+                    //var result = await conexion.QueryAsync<CapturaCita>("[Cita].[SPCID_Get_CitaSinPagar]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    var lista = await conexion.QueryAsync<OrdenServicio, Cliente, Paquetes, OrdenPaquete, OrdenServicio>("[Cita].[SPCID_Get_CitaSinPagar]",
+                    (os, cliente, p, op) =>
+                    {
+                        os.Cliente = cliente;
+                        os.OrdenPaquete = op;
+                        os.OrdenPaquete.Paquete = p;
+                        return os;
+                    },
+                    splitOn: "IdOrdenServicio, IdCliente, IdPaquete, IdOrdenPaquete", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<int> DeleteCita(Guid idAgendaCita, Guid idOrdenPaquete, Guid idOrdenServicio, object IdUsuario)
+        {
+            try
+            {
+                using (IDbConnection conexion = new SqlConnection(WebConnectionString))
+                {
+                    conexion.Open();
+                    var dynamicParameters = new DynamicParameters();
+                    dynamicParameters.Add("@idAgendaCita", idAgendaCita);
+                    dynamicParameters.Add("@idOrdenPaquete", idOrdenPaquete);
+                    dynamicParameters.Add("@idOrdenServicio", idOrdenServicio);
+                    dynamicParameters.Add("@idEstadoCita", 8);
+                    dynamicParameters.Add("@user", IdUsuario);
+                    var result = await conexion.ExecuteScalarAsync<int>("[Cita].[SPCID_Delete_Cita]", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

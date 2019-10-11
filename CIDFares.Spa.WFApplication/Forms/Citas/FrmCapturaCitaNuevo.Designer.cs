@@ -65,14 +65,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.IdServicioControl = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnBuscarServicio = new System.Windows.Forms.PictureBox();
             this.ServicioControl = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnReservarCita = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.labelNombre = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.panelGrid = new System.Windows.Forms.Panel();
@@ -96,7 +96,7 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnBuscar)).BeginInit();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBuscarServicio)).BeginInit();
             this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
             this.pnlGrid.SuspendLayout();
@@ -423,7 +423,7 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.IdServicioControl);
-            this.panel6.Controls.Add(this.pictureBox1);
+            this.panel6.Controls.Add(this.btnBuscarServicio);
             this.panel6.Controls.Add(this.ServicioControl);
             this.panel6.Controls.Add(this.label5);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -437,26 +437,26 @@
             // 
             this.IdServicioControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IdServicioControl.FormattingEnabled = true;
-            this.IdServicioControl.Location = new System.Drawing.Point(16, 38);
+            this.IdServicioControl.Location = new System.Drawing.Point(17, 38);
             this.IdServicioControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.IdServicioControl.Name = "IdServicioControl";
             this.IdServicioControl.Size = new System.Drawing.Size(396, 36);
             this.IdServicioControl.TabIndex = 35;
             this.IdServicioControl.Visible = false;
             // 
-            // pictureBox1
+            // btnBuscarServicio
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
-            this.pictureBox1.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar;
-            this.pictureBox1.Location = new System.Drawing.Point(372, 38);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(41, 36);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.btnBuscarServicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscarServicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnBuscarServicio.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.buscar;
+            this.btnBuscarServicio.Location = new System.Drawing.Point(372, 38);
+            this.btnBuscarServicio.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarServicio.Name = "btnBuscarServicio";
+            this.btnBuscarServicio.Size = new System.Drawing.Size(41, 36);
+            this.btnBuscarServicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.btnBuscarServicio.TabIndex = 8;
+            this.btnBuscarServicio.TabStop = false;
+            this.btnBuscarServicio.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // ServicioControl
             // 
@@ -482,8 +482,8 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.button2);
-            this.panel10.Controls.Add(this.button1);
+            this.panel10.Controls.Add(this.btnCancelar);
+            this.panel10.Controls.Add(this.btnReservarCita);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(4, 415);
             this.panel10.Margin = new System.Windows.Forms.Padding(4);
@@ -491,46 +491,46 @@
             this.panel10.Size = new System.Drawing.Size(433, 60);
             this.panel10.TabIndex = 9;
             // 
-            // button2
+            // btnCancelar
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(200, 14);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(173, 34);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(200, 14);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(173, 34);
+            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // button1
+            // btnReservarCita
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(19, 14);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(173, 34);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Reservar cita";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnReservarCita.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReservarCita.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.btnReservarCita.FlatAppearance.BorderSize = 0;
+            this.btnReservarCita.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReservarCita.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnReservarCita.ForeColor = System.Drawing.Color.White;
+            this.btnReservarCita.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReservarCita.Location = new System.Drawing.Point(19, 14);
+            this.btnReservarCita.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReservarCita.Name = "btnReservarCita";
+            this.btnReservarCita.Size = new System.Drawing.Size(173, 34);
+            this.btnReservarCita.TabIndex = 7;
+            this.btnReservarCita.Text = "Reservar cita";
+            this.btnReservarCita.UseVisualStyleBackColor = false;
+            this.btnReservarCita.Click += new System.EventHandler(this.btnReservarCita_Click);
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
-            this.panel8.Controls.Add(this.labelNombre);
+            this.panel8.Controls.Add(this.lblNombre);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Margin = new System.Windows.Forms.Padding(4);
@@ -538,17 +538,17 @@
             this.panel8.Size = new System.Drawing.Size(441, 64);
             this.panel8.TabIndex = 1;
             // 
-            // labelNombre
+            // lblNombre
             // 
-            this.labelNombre.AutoEllipsis = true;
-            this.labelNombre.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombre.ForeColor = System.Drawing.Color.White;
-            this.labelNombre.Location = new System.Drawing.Point(17, 18);
-            this.labelNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(403, 26);
-            this.labelNombre.TabIndex = 1;
-            this.labelNombre.Text = "Agendar cita";
+            this.lblNombre.AutoEllipsis = true;
+            this.lblNombre.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.Color.White;
+            this.lblNombre.Location = new System.Drawing.Point(17, 18);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(403, 26);
+            this.lblNombre.TabIndex = 1;
+            this.lblNombre.Text = "Agendar cita";
             // 
             // label1
             // 
@@ -754,7 +754,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BtnBuscar)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBuscarServicio)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
@@ -793,7 +793,7 @@
         private System.Windows.Forms.TextBox NombreCompletoControl;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox btnBuscarServicio;
         private System.Windows.Forms.TextBox ServicioControl;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panelGrid;
@@ -806,12 +806,12 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel10;
-        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button btnReservarCita;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label labelNombre;
+        private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox FechaControl;
         private System.Windows.Forms.ComboBox IdHoraControl;
-        public System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox btnAnterior;
         private System.Windows.Forms.ComboBox IdServicioControl;

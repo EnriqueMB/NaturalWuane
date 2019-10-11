@@ -24,9 +24,18 @@ namespace CIDFares.Spa.DataAccess.Contracts.DTOs.Requests
 
         public string Nombres { get; set; }
 
+
         public int IdTurnoEmpleado { get; set; }
 
         public int IdSucursal { get; set; }
+
+        public string NombreSucursal { get; set; }
+
+        public string Direccion { get; set; }
+
+        public string Telefono { get; set; }
+
+        public string RFC { get; set; }
 
         public string[] ReglaUsuario { get; set; }
     }

@@ -52,12 +52,17 @@
     <Compile Include="ValueObjects\EntityState.cs" />
     <Compile Include="ViewModels\Catalogos\AlimentoViewModels.cs" />
     <Compile Include="ViewModels\Catalogos\BusquedaProductoViewModel.cs" />
+    <Compile Include="ViewModels\Catalogos\CapturaConsultaViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\CategoriaProductoViewModel.cs" />
+    <Compile Include="ViewModels\Catalogos\CIDcontrolViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\ClienteViewModel.cs" />
+    <Compile Include="ViewModels\Catalogos\ConsultaViewModel.cs" />
+    <Compile Include="ViewModels\Catalogos\ContestarMedicionViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\DireccionesClienteViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\EncuestasViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\EmpleadoViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\FormaPagoViewModel.cs" />
+    <Compile Include="ViewModels\Catalogos\OpcionesViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\ListaMedicionViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\MedicionViewModel.cs" />
     <Compile Include="ViewModels\Catalogos\PaqueteViewModel.cs" />
@@ -80,6 +85,7 @@
     <Compile Include="ViewModels\General\ProductosMonederoViewModel.cs" />
     <Compile Include="ViewModels\Ventas\CambioVentaViewModel.cs" />
     <Compile Include="ViewModels\Ventas\CancelacionVentaViewModel.cs" />
+    <Compile Include="ViewModels\Ventas\PaquetesClienteViewModel.cs" />
     <Compile Include="ViewModels\Ventas\SeleccionarPagoViewModel.cs" />
     <Compile Include="ViewModels\General\SucursalViewModel.cs" />
     <Compile Include="ViewModels\Ventas\VentasViewModel.cs" />

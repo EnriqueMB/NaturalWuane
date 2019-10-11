@@ -87,11 +87,11 @@ namespace CIDFares.Spa.WFApplication.Validations
             RuleFor(producto => producto.PrecioPublico)
                 .NotEqual(0).WithMessage("NO DEBE DEJAR EL CAMPO DE PRECIO PUBLICO VACIO");
 
-            RuleFor(producto => producto.PrecioMayoreo)
-                .NotEqual(0).WithMessage("NO DEBE DEJAR EL CAMPO DE PRECIO  MAYOREO VACIO");
+            //RuleFor(producto => producto.PrecioMayoreo)
+            //    .NotEqual(0).WithMessage("NO DEBE DEJAR EL CAMPO DE PRECIO  MAYOREO VACIO");
 
-            RuleFor(producto => producto.PrecioMenudeo)
-                .NotEqual(0).WithMessage("NO DEBE DEJAR EL CAMPO DE PRECIO MENUDEO VACIO");
+            //RuleFor(producto => producto.PrecioMenudeo)
+            //    .NotEqual(0).WithMessage("NO DEBE DEJAR EL CAMPO DE PRECIO MENUDEO VACIO");
 
 
 

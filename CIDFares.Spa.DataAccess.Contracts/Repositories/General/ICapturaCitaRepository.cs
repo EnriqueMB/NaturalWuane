@@ -13,14 +13,18 @@ namespace CIDFares.Spa.DataAccess.Contracts.Repositories.General
     {                
         Task<BindingList<CapturaCita>> GetCitaXPeriodo(DateTime fechaInicio, DateTime fechaFin, object IdSucursal);
         Task<IEnumerable<CapturaCita>> GetCitaDetalle(DateTime? fecha, object IdSucursal);
-        Task<IEnumerable<CapturaCita>> GetCitasSinAgendar(string nombreCompleto, object IdSucursal);
+        Task<IEnumerable<OrdenServicio>> GetCitasSinAgendar(string nombreCompleto, object IdSucursal);
+        Task<IEnumerable<CapturaCita>> GetCitasSinAgendarDetalle(string nombreCompleto, object IdSucursal);
         //Task<BindingList<CapturaCita>> GetCitaDetalleServicio(Guid idCita);
         Task<CapturaCita> AddCita(CapturaCita element, object IdUsuario, object IdSucursal);
         Task<CapturaCita> UpdateCita(CapturaCita element, object IdUsuario, object IdSucursal);
         Task<BindingList<CapturaCita>> ValidarFechaServicio(DateTime? fecha);
         Task<int> BusyService(CapturaCita element, object IdSucursal);
-        Task<int> BusyService2(Guid idAgendaCita, int idServicio, DateTime fechaInicio, object IdSucursal);       
+        Task<int> DeleteCita(Guid idAgendaCita, Guid idOrdenPaquete, Guid idOrdenServicio, object idUsuario);
+        Task<int> BusyService2(Guid idAgendaCita, int idServicio, DateTime fechaInicio, object IdSucursal);               
         Task<IEnumerable<CapturaCita>> LlenarComboHorarioSucursal(object Dias, object IdSucursal);
         Task<OrdenPaquete> AgendarPaquete(int IdPaquete, Guid idCliente, Guid idUsuario, int idSucursal);
+        
+        Task<IEnumerable<OrdenServicio>> GetCitasSinPagar(Guid idCliente, int idSucursal);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CIDFares.Library.Code.Extensions;
+using CIDFares.Library.Code.Helpers;
 using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
 using CIDFares.Library.Controls.CIDWait.Code;
@@ -20,6 +21,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
         #region Propiedades Publicas
         public MedicionViewModel Model { get; set; }
         #endregion
+
+        #region Constructor
         public FrmMedicionGrid()
         {
             InitializeComponent();
@@ -27,6 +30,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             Model.Page = -1;
             Model.Opcion = 1;
         }
+        #endregion
 
         #region Metodos
         private void IniciarBinding()
@@ -144,7 +148,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmDireccionesCliente ~ FrmMedicionGrid_Shown(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
 
@@ -173,8 +178,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmDireccionesCliente ~ X_ValueChanged(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
             }
         }
 
@@ -217,7 +222,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmDireccionesCliente ~ btnModificar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
             }
         }
 
@@ -252,6 +258,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmDireccionesCliente ~ btnEliminar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.informacion);
             }
         }
@@ -305,6 +312,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmDireccionesCliente ~ btnGuardar_Click(object sender, EventArgs e)");
                 CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorMessage, TypeMessage.error);
             }
             finally
@@ -348,7 +356,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmDireccionesCliente ~ btnEditarLista_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorLoadMessage, TypeMessage.error);
             }
         }
 
@@ -416,7 +425,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmDireccionesCliente ~ btnEliminarLista_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorDeleteMessage, TypeMessage.error);
             }
         }
     }

@@ -208,8 +208,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Catalogos
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmAlimentoNuevo ~ btnCancelar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorAlCancelarFrm, TypeMessage.error);
             }
         }
     }

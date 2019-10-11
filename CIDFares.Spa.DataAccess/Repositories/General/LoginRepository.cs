@@ -34,7 +34,12 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                             loginRequests.IdEmpleado = !dr.IsDBNull(dr.GetOrdinal("IdEmpleado")) ? dr.GetGuid(dr.GetOrdinal("IdEmpleado")) : Guid.Empty;
                             loginRequests.Nombres = dr.GetString(dr.GetOrdinal("Nombre"));
                             loginRequests.IdSucursal = !dr.IsDBNull(dr.GetOrdinal("IdSucursal")) ? dr.GetInt32(dr.GetOrdinal("IdSucursal")) : 0;
+                            loginRequests.NombreSucursal = dr.GetString(dr.GetOrdinal("NombreSucursal"));
+                            loginRequests.Direccion = dr.GetString(dr.GetOrdinal("Direccion"));
+                            loginRequests.Telefono = dr.GetString(dr.GetOrdinal("Telefono"));
+                            loginRequests.RFC = dr.GetString(dr.GetOrdinal("RFC"));
                             loginRequests.ReglaUsuario = dr.GetString(dr.GetOrdinal("IdReglas")).Split(',');
+
                         }
                     }
                     dr.Close();

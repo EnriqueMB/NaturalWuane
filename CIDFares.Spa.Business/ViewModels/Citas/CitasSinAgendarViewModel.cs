@@ -18,30 +18,49 @@ namespace CIDFares.Spa.Business.ViewModels.Citas
         #endregion
 
         #region Propiedades públicas
-        public BindingList<CapturaCita> ListaCitasSinAgendar { get; set; }              
+        public BindingList<OrdenServicio> ListaCitasSinAgendar { get; set; }
+        public BindingList<CapturaCita> ListaCitasSinAgendarDetalle { get; set; }
         public EntityState State { get; set; }
         #endregion
 
         public CitasSinAgendarViewModel(ICapturaCitaRepository capturaCitaRepository)
         {
             Repository = capturaCitaRepository;
-            ListaCitasSinAgendar = new BindingList<CapturaCita>();            
+            ListaCitasSinAgendar = new BindingList<OrdenServicio>();
+            ListaCitasSinAgendarDetalle = new BindingList<CapturaCita>();
         }
 
         public async Task GetCitasSinAgendar(string nombreCompleto, int IdSucursal)
         {
             try
             {
-                var x = await Repository.GetCitasSinAgendar(nombreCompleto, IdSucursal);
-                ListaCitasSinAgendar.Clear();
+                var x = await Repository.GetCitasSinAgendarDetalle(nombreCompleto, IdSucursal);
+                ListaCitasSinAgendarDetalle.Clear();
                 foreach (var item in x)
                 {
-                    ListaCitasSinAgendar.Add(item);
+                    ListaCitasSinAgendarDetalle.Add(item);
                 }
             }
             catch (Exception ex)
             {
 
+                throw ex;
+            }
+        }
+
+        public async Task GetCitasSinAgendarDetalle(string nombreCompleto, Guid idOrdenServicio, int IdSucursal)
+        {
+            try
+            {
+                var x = await Repository.GetCitasSinAgendarDetalle(nombreCompleto, IdSucursal);
+                ListaCitasSinAgendarDetalle.Clear();
+                foreach (var item in x)
+                {
+                    ListaCitasSinAgendarDetalle.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }
@@ -226,7 +245,19 @@ namespace CIDFares.Spa.Business.ViewModels.Citas
                 _Servicio = value;
                 OnPropertyChanged(nameof(Servicio));
             }
-        }        
+        }
+
+        private DateTime _FechaAlta;
+
+        public DateTime FechaAlta
+        {
+            get { return _FechaAlta; }
+            set
+            {
+                _FechaAlta = value;
+                OnPropertyChanged(nameof(FechaAlta));
+            }
+        }
         #endregion
         #region InotifyPropertyChanged Members
 

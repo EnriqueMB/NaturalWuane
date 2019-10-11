@@ -19,7 +19,7 @@ namespace CIDFares.Spa.WFApplication.Validations
                .MaximumLength(20).WithMessage("LA CLAVE DEL PAQUETE TIENE UN MAXIMO DE 20 CARACTERES")
                .MustAsync(async (paq, x, context) =>
                {
-                    int result = await paqueteRepository.NameExistAsync(paq.Clave);
+                   int result = await paqueteRepository.NameExistAsync(paq.Clave);
                    if (result > 0)
                    {
                        if (result == paq.IdPaquete)

@@ -41,6 +41,11 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             ListaHoras = new BindingList<CapturaCita>();
             ListaServicioPaquete = new BindingList<Servicio>();
             IdHora = new TimeSpan();
+            TablaGServicio = new DataTable();
+            Observaciones = string.Empty;
+            Cliente = string.Empty;
+            Hora = string.Empty;
+            Servicio = string.Empty;
         }
         #endregion
 
@@ -173,11 +178,11 @@ namespace CIDFares.Spa.Business.ViewModels.Ventas
             }
         }
 
-        public async Task<int> DeleteAsync(Guid IdAgendaCita, Guid idUsuario)
+        public async Task<int> DeleteAsync(Guid IdAgendaCita, Guid idOrdenPaquete, Guid idOrdenServicio, Guid idUsuario)
         {
             try
             {
-                return await Repository.DeleteAsync(IdAgendaCita, idUsuario);                
+                return await Repository.DeleteCita(IdAgendaCita, idOrdenPaquete, idOrdenServicio, idUsuario);                
             }
             catch (Exception ex)
             {
