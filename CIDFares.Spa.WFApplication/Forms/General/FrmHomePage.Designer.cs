@@ -156,12 +156,12 @@
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.White;
-            this.pnlMenu.Controls.Add(this.pnlGenerales);
             this.pnlMenu.Controls.Add(this.pnlMenuPrincipal);
             this.pnlMenu.Controls.Add(this.pnlUsuarios);
             this.pnlMenu.Controls.Add(this.pnlNomina);
             this.pnlMenu.Controls.Add(this.pnlConfiguracion);
             this.pnlMenu.Controls.Add(this.pnlCatalogo);
+            this.pnlMenu.Controls.Add(this.pnlGenerales);
             this.pnlMenu.Location = new System.Drawing.Point(0, 174);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(213, 463);
