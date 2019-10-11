@@ -16,6 +16,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
             TablaFormaPago = new DataTable();
             TablaProducto = new DataTable();
             TablaServicio = new DataTable();
+            TablaPaquete = new DataTable();
         }
         public int IdGenerico { get; set; }
         public int IdTipo { get; set; }
