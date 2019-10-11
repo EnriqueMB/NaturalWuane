@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace CIDFares.Spa.WFApplication.Forms.Ventas
@@ -141,7 +142,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
             {
                 List<SpecialDate> listsd = new List<SpecialDate>();
                 await Model.GetCitaXPeriodo(CurrentSession.IdSucursal);                
-                Image newimage = Image.FromFile("c:\\holanw2.png");
+                Image newimage = Properties.Resources.holaNW2;
                 foreach (var item in Model.ListaCapturaCita)
                 {
                     SpecialDate special = new SpecialDate();                    

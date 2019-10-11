@@ -181,9 +181,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Citas
                 ServicioControl.Visible = false;
                 btnBuscarServicio.Visible = false;
                 pnlButtons.Visible = false;
-                lblNombre.Text = Paquetes.Nombre;
-                Model.IdPaquete = Paquetes.IdPaquete;
-                Model.Nombre = Paquetes.Nombre;
+                //lblNombre.Text = Paquetes.Nombre;
+                //Model.IdPaquete = Paquetes.IdPaquete;
+                //Model.Nombre = Paquetes.Nombre;
                 btnBuscarServicio.Visible = false;
                 btnNuevo.Visible = false;
                 btnModificar.Visible = false;

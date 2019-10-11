@@ -89,7 +89,7 @@
             this.PanelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelTitulo.Location = new System.Drawing.Point(0, 0);
             this.PanelTitulo.Name = "PanelTitulo";
-            this.PanelTitulo.Size = new System.Drawing.Size(1052, 58);
+            this.PanelTitulo.Size = new System.Drawing.Size(820, 58);
             this.PanelTitulo.TabIndex = 0;
             // 
             // Turnos
@@ -107,7 +107,7 @@
             // 
             this.PanelBTN.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PanelBTN.Controls.Add(this.PanelContainsBtnGuardarç);
-            this.PanelBTN.Location = new System.Drawing.Point(0, 527);
+            this.PanelBTN.Location = new System.Drawing.Point(-116, 527);
             this.PanelBTN.Name = "PanelBTN";
             this.PanelBTN.Size = new System.Drawing.Size(1052, 47);
             this.PanelBTN.TabIndex = 0;
@@ -466,7 +466,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1052, 574);
+            this.ClientSize = new System.Drawing.Size(820, 574);
             this.Controls.Add(this.panelContainerPanelsDataTurno);
             this.Controls.Add(this.PanelBTN);
             this.Controls.Add(this.PanelTitulo);
