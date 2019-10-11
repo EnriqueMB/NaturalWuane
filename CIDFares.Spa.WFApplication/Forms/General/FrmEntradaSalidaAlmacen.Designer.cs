@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn13 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn14 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn15 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn17 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn18 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlTop = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblProducto = new System.Windows.Forms.Label();
             this.FolioProductoControl = new System.Windows.Forms.Label();
             this.pblButtom = new System.Windows.Forms.Panel();
-            this.CantidadControl = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.CantidadControl = new System.Windows.Forms.Label();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.MotivoControl = new System.Windows.Forms.TextBox();
@@ -58,28 +58,33 @@
             this.dataGridsf1 = new CIDFares.Library.Controls.CIDDataGridsf.DataGridsf();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlCenter = new System.Windows.Forms.Panel();
+            this.pnlGrid = new System.Windows.Forms.Panel();
             this.pnlLeft = new System.Windows.Forms.Panel();
             this.pnlTotal = new System.Windows.Forms.Panel();
-            this.pnlGrid = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.IvaControl = new System.Windows.Forms.Label();
             this.TotalControl = new System.Windows.Forms.Label();
             this.SubtotalControl = new System.Windows.Forms.Label();
+            this.btnImportar = new System.Windows.Forms.Button();
+            this.bntExportar = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pnlTop.SuspendLayout();
             this.pblButtom.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridsf1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.pnlCenter.SuspendLayout();
+            this.pnlGrid.SuspendLayout();
             this.pnlLeft.SuspendLayout();
             this.pnlTotal.SuspendLayout();
-            this.pnlGrid.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTop
             // 
+            this.pnlTop.Controls.Add(this.btnImportar);
+            this.pnlTop.Controls.Add(this.bntExportar);
             this.pnlTop.Controls.Add(this.lblTitulo);
             this.pnlTop.Controls.Add(this.lblProducto);
             this.pnlTop.Controls.Add(this.FolioProductoControl);
@@ -130,17 +135,6 @@
             this.pblButtom.Name = "pblButtom";
             this.pblButtom.Size = new System.Drawing.Size(772, 77);
             this.pblButtom.TabIndex = 1;
-            // 
-            // CantidadControl
-            // 
-            this.CantidadControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CantidadControl.AutoSize = true;
-            this.CantidadControl.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CantidadControl.Location = new System.Drawing.Point(683, 3);
-            this.CantidadControl.Name = "CantidadControl";
-            this.CantidadControl.Size = new System.Drawing.Size(17, 18);
-            this.CantidadControl.TabIndex = 15;
-            this.CantidadControl.Text = "0";
             // 
             // flowLayoutPanel1
             // 
@@ -194,6 +188,17 @@
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // CantidadControl
+            // 
+            this.CantidadControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CantidadControl.AutoSize = true;
+            this.CantidadControl.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CantidadControl.Location = new System.Drawing.Point(683, 3);
+            this.CantidadControl.Name = "CantidadControl";
+            this.CantidadControl.Size = new System.Drawing.Size(17, 18);
+            this.CantidadControl.TabIndex = 15;
+            this.CantidadControl.Text = "0";
             // 
             // lblCantidad
             // 
@@ -277,65 +282,65 @@
             this.dataGridsf1.AutoExpandGroups = true;
             this.dataGridsf1.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
             this.dataGridsf1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            gridTextColumn10.AllowDragging = true;
-            gridTextColumn10.AllowEditing = false;
-            gridTextColumn10.AllowFiltering = true;
-            gridTextColumn10.HeaderText = "IdProducto";
-            gridTextColumn10.MappingName = "IdProducto";
-            gridTextColumn10.Visible = false;
-            gridTextColumn11.AllowDragging = true;
-            gridTextColumn11.AllowEditing = false;
-            gridTextColumn11.AllowFiltering = true;
-            gridTextColumn11.HeaderText = "Clave";
-            gridTextColumn11.MappingName = "Clave";
-            gridTextColumn12.AllowDragging = true;
-            gridTextColumn12.AllowEditing = false;
-            gridTextColumn12.AllowFiltering = true;
-            gridTextColumn12.HeaderText = "Nombre";
-            gridTextColumn12.MappingName = "Nombre";
-            gridTextColumn13.AllowDragging = true;
-            gridTextColumn13.AllowEditing = false;
-            gridTextColumn13.AllowFiltering = true;
-            gridTextColumn13.HeaderText = "Cantidad";
-            gridTextColumn13.MappingName = "Cantidad";
-            gridTextColumn14.AllowDragging = true;
-            gridTextColumn14.AllowEditing = false;
-            gridTextColumn14.AllowFiltering = true;
-            gridTextColumn14.HeaderText = "Descripcion";
-            gridTextColumn14.MappingName = "Descripcion";
-            gridTextColumn15.AllowDragging = true;
-            gridTextColumn15.AllowEditing = false;
-            gridTextColumn15.AllowFiltering = true;
-            gridTextColumn15.Format = "C";
-            gridTextColumn15.HeaderText = "Costo";
-            gridTextColumn15.MappingName = "PrecioCosto";
-            gridTextColumn16.AllowDragging = true;
-            gridTextColumn16.AllowEditing = false;
-            gridTextColumn16.AllowFiltering = true;
-            gridTextColumn16.Format = "C";
-            gridTextColumn16.HeaderText = "SubTotal";
-            gridTextColumn16.MappingName = "Subtotal";
-            gridTextColumn17.AllowDragging = true;
-            gridTextColumn17.AllowEditing = false;
-            gridTextColumn17.AllowFiltering = true;
-            gridTextColumn17.Format = "C";
-            gridTextColumn17.HeaderText = "Iva";
-            gridTextColumn17.MappingName = "PorcentajeIva";
-            gridTextColumn18.AllowDragging = true;
-            gridTextColumn18.AllowEditing = false;
-            gridTextColumn18.AllowFiltering = true;
-            gridTextColumn18.Format = "C";
-            gridTextColumn18.HeaderText = "Total";
-            gridTextColumn18.MappingName = "Total";
-            this.dataGridsf1.Columns.Add(gridTextColumn10);
-            this.dataGridsf1.Columns.Add(gridTextColumn11);
-            this.dataGridsf1.Columns.Add(gridTextColumn12);
-            this.dataGridsf1.Columns.Add(gridTextColumn13);
-            this.dataGridsf1.Columns.Add(gridTextColumn14);
-            this.dataGridsf1.Columns.Add(gridTextColumn15);
-            this.dataGridsf1.Columns.Add(gridTextColumn16);
-            this.dataGridsf1.Columns.Add(gridTextColumn17);
-            this.dataGridsf1.Columns.Add(gridTextColumn18);
+            gridTextColumn1.AllowDragging = true;
+            gridTextColumn1.AllowEditing = false;
+            gridTextColumn1.AllowFiltering = true;
+            gridTextColumn1.HeaderText = "IdProducto";
+            gridTextColumn1.MappingName = "IdProducto";
+            gridTextColumn1.Visible = false;
+            gridTextColumn2.AllowDragging = true;
+            gridTextColumn2.AllowEditing = false;
+            gridTextColumn2.AllowFiltering = true;
+            gridTextColumn2.HeaderText = "Clave";
+            gridTextColumn2.MappingName = "Clave";
+            gridTextColumn3.AllowDragging = true;
+            gridTextColumn3.AllowEditing = false;
+            gridTextColumn3.AllowFiltering = true;
+            gridTextColumn3.HeaderText = "Nombre";
+            gridTextColumn3.MappingName = "Nombre";
+            gridTextColumn4.AllowDragging = true;
+            gridTextColumn4.AllowEditing = false;
+            gridTextColumn4.AllowFiltering = true;
+            gridTextColumn4.HeaderText = "Cantidad";
+            gridTextColumn4.MappingName = "Cantidad";
+            gridTextColumn5.AllowDragging = true;
+            gridTextColumn5.AllowEditing = false;
+            gridTextColumn5.AllowFiltering = true;
+            gridTextColumn5.HeaderText = "Descripcion";
+            gridTextColumn5.MappingName = "Descripcion";
+            gridTextColumn6.AllowDragging = true;
+            gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.AllowFiltering = true;
+            gridTextColumn6.Format = "C";
+            gridTextColumn6.HeaderText = "Costo";
+            gridTextColumn6.MappingName = "PrecioCosto";
+            gridTextColumn7.AllowDragging = true;
+            gridTextColumn7.AllowEditing = false;
+            gridTextColumn7.AllowFiltering = true;
+            gridTextColumn7.Format = "C";
+            gridTextColumn7.HeaderText = "SubTotal";
+            gridTextColumn7.MappingName = "Subtotal";
+            gridTextColumn8.AllowDragging = true;
+            gridTextColumn8.AllowEditing = false;
+            gridTextColumn8.AllowFiltering = true;
+            gridTextColumn8.Format = "C";
+            gridTextColumn8.HeaderText = "Iva";
+            gridTextColumn8.MappingName = "PorcentajeIva";
+            gridTextColumn9.AllowDragging = true;
+            gridTextColumn9.AllowEditing = false;
+            gridTextColumn9.AllowFiltering = true;
+            gridTextColumn9.Format = "C";
+            gridTextColumn9.HeaderText = "Total";
+            gridTextColumn9.MappingName = "Total";
+            this.dataGridsf1.Columns.Add(gridTextColumn1);
+            this.dataGridsf1.Columns.Add(gridTextColumn2);
+            this.dataGridsf1.Columns.Add(gridTextColumn3);
+            this.dataGridsf1.Columns.Add(gridTextColumn4);
+            this.dataGridsf1.Columns.Add(gridTextColumn5);
+            this.dataGridsf1.Columns.Add(gridTextColumn6);
+            this.dataGridsf1.Columns.Add(gridTextColumn7);
+            this.dataGridsf1.Columns.Add(gridTextColumn8);
+            this.dataGridsf1.Columns.Add(gridTextColumn9);
             this.dataGridsf1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridsf1.Location = new System.Drawing.Point(234, 0);
             this.dataGridsf1.Name = "dataGridsf1";
@@ -370,6 +375,16 @@
             this.pnlCenter.Size = new System.Drawing.Size(772, 324);
             this.pnlCenter.TabIndex = 2;
             // 
+            // pnlGrid
+            // 
+            this.pnlGrid.Controls.Add(this.dataGridsf1);
+            this.pnlGrid.Controls.Add(this.pnlLeft);
+            this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlGrid.Location = new System.Drawing.Point(0, 0);
+            this.pnlGrid.Name = "pnlGrid";
+            this.pnlGrid.Size = new System.Drawing.Size(772, 243);
+            this.pnlGrid.TabIndex = 2;
+            // 
             // pnlLeft
             // 
             this.pnlLeft.Controls.Add(this.label2);
@@ -399,16 +414,6 @@
             this.pnlTotal.Name = "pnlTotal";
             this.pnlTotal.Size = new System.Drawing.Size(772, 81);
             this.pnlTotal.TabIndex = 1;
-            // 
-            // pnlGrid
-            // 
-            this.pnlGrid.Controls.Add(this.dataGridsf1);
-            this.pnlGrid.Controls.Add(this.pnlLeft);
-            this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlGrid.Location = new System.Drawing.Point(0, 0);
-            this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(772, 243);
-            this.pnlGrid.TabIndex = 2;
             // 
             // label5
             // 
@@ -470,6 +475,36 @@
             this.SubtotalControl.TabIndex = 15;
             this.SubtotalControl.Text = "$000";
             // 
+            // btnImportar
+            // 
+            this.btnImportar.FlatAppearance.BorderSize = 0;
+            this.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImportar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImportar.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.cloud2;
+            this.btnImportar.Location = new System.Drawing.Point(273, 74);
+            this.btnImportar.Name = "btnImportar";
+            this.btnImportar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnImportar.Size = new System.Drawing.Size(33, 31);
+            this.btnImportar.TabIndex = 183;
+            this.toolTip1.SetToolTip(this.btnImportar, "EXPORTAR");
+            this.btnImportar.UseVisualStyleBackColor = true;
+            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
+            // 
+            // bntExportar
+            // 
+            this.bntExportar.FlatAppearance.BorderSize = 0;
+            this.bntExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntExportar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bntExportar.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.download24;
+            this.bntExportar.Location = new System.Drawing.Point(234, 74);
+            this.bntExportar.Name = "bntExportar";
+            this.bntExportar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.bntExportar.Size = new System.Drawing.Size(33, 31);
+            this.bntExportar.TabIndex = 182;
+            this.toolTip1.SetToolTip(this.bntExportar, "IMPORTAR");
+            this.bntExportar.UseVisualStyleBackColor = true;
+            this.bntExportar.Click += new System.EventHandler(this.bntExportar_Click);
+            // 
             // FrmEntradaSalidaAlmacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -489,11 +524,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridsf1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.pnlCenter.ResumeLayout(false);
+            this.pnlGrid.ResumeLayout(false);
             this.pnlLeft.ResumeLayout(false);
             this.pnlLeft.PerformLayout();
             this.pnlTotal.ResumeLayout(false);
             this.pnlTotal.PerformLayout();
-            this.pnlGrid.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -529,5 +564,8 @@
         private System.Windows.Forms.Label IvaControl;
         private System.Windows.Forms.Label TotalControl;
         private System.Windows.Forms.Label SubtotalControl;
+        private System.Windows.Forms.Button bntExportar;
+        private System.Windows.Forms.Button btnImportar;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -22,7 +22,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
 
         #region propiedades publicas
         public BindingList<Producto> ListaProducto { get; set; }
-        public Producto TablaProducto { get; set; }
+        //public Producto TablaProducto { get; set; }
         #endregion
 
         #region constructor
@@ -30,7 +30,7 @@ namespace CIDFares.Spa.Business.ViewModels.General
         {
             Ex = excel;
             IRepository = Repo;
-            TablaProducto = new Producto();
+            //TablaProducto = new Producto();
         }
         #endregion
 

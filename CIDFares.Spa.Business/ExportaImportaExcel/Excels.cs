@@ -17,16 +17,16 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
         public string Ruta { get; set; }
         public string Nombre { get; set; }
         public List<Producto> ListaProductos { get; set; }
-        public InventarioFisicoViewModel Model { get; set; }
+        public EntradaSalidaAlmacenViewModel Model { get; set; }
         public Guid Usuario { get; set; }
 
         public List<Producto> listaAlta { get; set; }
         public List<Producto> listaBaja { get; set; }
         int cantidadAux = 0;
-        bool ValidarExcel=false;
-        decimal PrecioCostoA = 0;
+        bool ValidarExcel = false;
+        int Ret = 0;
         decimal TotalA = 0;
-        decimal PrecioCostoB = 0;
+        int ret2 = 0;
         decimal TotalB = 0;
         decimal SubA = 0;
         decimal SubB = 0;
@@ -48,12 +48,11 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
             Lista = productos;
             Ruta = ruta;
             Nombre = nombre;
-            GenerarArchivo();
         }
 
         public Excels(int idSucursal, IExcel ex, string nombre, Guid usuario)
         {
-            Model = ServiceLocator.Instance.Resolve<InventarioFisicoViewModel>();
+            Model = ServiceLocator.Instance.Resolve<EntradaSalidaAlmacenViewModel>();
             this.idSucursal = idSucursal;
             Ex = ex;
             Usuario = usuario;
@@ -61,7 +60,6 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
             ListaProductos = new List<Producto>();
             listaAlta = new List<Producto>();
             listaBaja = new List<Producto>();
-            Importar();
         }
 
         //-----------------------EXPORTAR ARCHIVIO----------------------------------------
@@ -97,7 +95,7 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
             }
         }
         // -------------------------------------------IMPORTAR ARCHIVO-----------------------------------
-        public  void Importar()
+        public async Task<int> Importar()
         {
             try
             {
@@ -122,9 +120,23 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
                             ListaProductos.Add(model);
                         }
 
-                    GetListaProductos(ListaProductos);
+                         Ret= await GetListaProductos(ListaProductos);
+                        
                     }
                 }
+                if (Ret==1)
+                {
+                    ret2 = 2;//se guardo
+                }
+                else if (Ruta==null)
+                {
+                    ret2 = 1;//no se abrio ningun archivo
+                }
+                else if (ValidarExcel == false)
+                {
+                    ret2 = 0;//no tiene el formato correcto
+                }
+                return ret2;
             }
             catch (Exception ex)
             {
@@ -142,7 +154,7 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
             }
         }
 
-        public async void GetListaProductos(List<Producto> ListaExcel)
+        public async Task<int> GetListaProductos(List<Producto> ListaExcel)
         {
             try
             {
@@ -156,7 +168,6 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
                             if(item.CantidadProducto > cantidadAux)//item excel, aux es de la base
                             {
                                 CantidadA += item.CantidadProducto - cantidadAux;
-                                //PrecioCostoA += u.CostoProducto - (u.CostoProducto * (u.Porcentaje / 100));
                                 PorcetajeIvaTotalA += CantidadA * (u.CostoProducto * (u.Porcentaje / 100));
                                 TotalA += CantidadA * u.CostoProducto;
                                 SubA += CantidadA * u.CostoProducto - (u.CostoProducto * (u.Porcentaje / 100));
@@ -176,6 +187,7 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
                    
                 }
                 await Model.ActualizarProducto(listaAlta, listaBaja, idSucursal, CantidadA, PorcetajeIvaTotalA, TotalA, SubA, CantidadB, PorcetajeIvaTotalB, TotalB, SubB, Usuario);
+                return 1;//datos guardados
             }
             catch (Exception ex)
             {

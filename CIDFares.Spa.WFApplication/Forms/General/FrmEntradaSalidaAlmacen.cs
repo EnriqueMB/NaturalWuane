@@ -2,6 +2,7 @@
 using CIDFares.Library.Code.Helpers;
 using CIDFares.Library.Controls.CIDMessageBox.Code;
 using CIDFares.Library.Controls.CIDMessageBox.Enums;
+using CIDFares.Library.Controls.CIDWait.Code;
 using CIDFares.Spa.Business.ViewModels.General;
 using CIDFares.Spa.CrossCutting.Services;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
@@ -13,6 +14,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -26,6 +28,8 @@ namespace CIDFares.Spa.WFApplication.Forms.General
         #region propidesades publicas
         public EntradaSalidaAlmacenViewModel Model { get; set; }
         public BusqueProducto producto { get; set; }
+        public static string PathAr = Path.Combine(System.Windows.Forms.Application.StartupPath, @"Resources\Excel\Producto.xlsx");
+        public static string Nombre = "Producto";
         #endregion
 
         #region combo Tipo
@@ -357,7 +361,7 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                         }
                     }
                     else
-                        errorProvider1.SetError(FolioProductoControl, "Seleccione al menos un articulo.");
+                        errorProvider1.SetError(FolioProductoControl, "SELECCIONE AL MENOS UN ARTICULO.");
                 }
                 else
                     this.ShowErrors(errorProvider1, typeof(EntradaSalidaAlmacenViewModel), validationResults);
@@ -396,6 +400,46 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 if (CIDMessageBox.ShowAlertRequest(Messages.SystemName, Messages.HaveProduct) == DialogResult.OK )
                 Model.ListaProducto.Clear();
                 CantidadProducto();
+            }
+        }
+
+        private async void bntExportar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                 await Model.GetProducto(CurrentSession.IdSucursal, PathAr, Nombre);
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmEntradaSalidaAlmacen ~ btnExportar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
+            }
+        }
+
+
+        private async void btnImportar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var x = await Model.Importar(CurrentSession.IdSucursal, Nombre, CurrentSession.IdCuentaUsuario);
+                if (x == 0)//el archivo no tiene el formato correcto
+                {
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.DocumentIncorrect, TypeMessage.error);
+                }
+                else if (x == 1)//no se abrio ningun archivo
+                {
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.Empty, TypeMessage.informacion);
+                }
+                else if (x == 2)//datos guardados
+                {
+                    CIDMessageBox.ShowAlert(Messages.SystemName, Messages.SuccessMessage, TypeMessage.correcto);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogHelper.AddExcFileTxt(ex, "FrmInventarioTest ~ btnImportar_Click(object sender, EventArgs e)");
+                CIDMessageBox.ShowAlert(Messages.SystemName, Messages.ErrorFormulario, TypeMessage.error);
             }
         }
     }

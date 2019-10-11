@@ -37,5 +37,7 @@ namespace CIDFares.Spa.WFApplication.Constants
         public const string PaqueteSelectMessage = "SELECCIONE UN PAQUETE";
         public const string ServicioSelectMessage = "SELECCIONE UN SERVICIO";
         public const string PaidAppointment = "NO PUEDE ELIMINAR CITAS PAGADAS";
+        public const string DocumentIncorrect = "NO A SELECCIONADO UN ARCHIVO CON EL FORMATO CORRECTO";
+        public const string Empty = "NO A SELECCIONADO NINGUN ARCHIVO";
     }
 }

@@ -1,4 +1,6 @@
-﻿using CIDFares.Spa.DataAccess.Contracts.Entities;
+﻿using CIDFares.Library.Code.Utilities.IBase;
+using CIDFares.Spa.Business.ExportaImportaExcel;
+using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.DataAccess.Contracts.Repositories.General;
 using CIDFares.Spa.DataAccess.Contracts.Validations;
 using System;
@@ -17,7 +19,10 @@ namespace CIDFares.Spa.Business.ViewModels.General
         private IEntradaSalidaAlmacenRepository IRepository { get; set; }
         private IProductoRepository IProductoRepository { get; set; }
         private IVentaRepository VentaRepository { get; set; }
+        public IInventarioFisicoRepository IRepository2 { get; set; }
+        private IExcel Ex { get; set; }
         #endregion
+       
 
         #region propiedades publicas
         public DataTable TablaEntradaAlmacen { get; set; }
@@ -27,14 +32,16 @@ namespace CIDFares.Spa.Business.ViewModels.General
         #endregion
 
         #region constructor
-        public EntradaSalidaAlmacenViewModel(IEntradaSalidaAlmacenRepository repository, IProductoRepository ProductoRepository, IVentaRepository Venta)
+        public EntradaSalidaAlmacenViewModel(IEntradaSalidaAlmacenRepository repository, IProductoRepository ProductoRepository, IVentaRepository Venta, IInventarioFisicoRepository Repo, IExcel excel)
         {
             IRepository = repository;
             IProductoRepository = ProductoRepository;
             VentaRepository = Venta;
             ListaProducto = new BindingList<EntradaSalidaAlmacen>();
+            Ex = excel;
+            IRepository2 = Repo;
             #region  Binding
-           // Folio = string.Empty;
+            // Folio = string.Empty;
             Busqueda = string.Empty;
             Tipo = "S";
             Cantidad = 0;
@@ -79,6 +86,64 @@ namespace CIDFares.Spa.Business.ViewModels.General
             try
             {
                 this.Folio = await IRepository.GetFolio();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        #endregion
+
+        #region Metodos excel
+        public async Task GetProducto(object Idsucursal, string Ruta, string Nombre)
+        {
+            try
+            {
+                var Productos = await IRepository2.GetProductos(Idsucursal);
+                Excels ExportarProductos = new Excels(Productos, Ruta, Nombre, Ex);
+                ExportarProductos.GenerarArchivo();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<int> Importar(int IdSucursal, string Nombre, Guid usuario)
+        {
+            try
+            {
+                Excels Importar = new Excels(IdSucursal, Ex, Nombre, usuario);
+                var x = await Importar.Importar();
+                return x;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<int> ActualizarProducto(List<Producto> ListA, List<Producto> ListB, int IdSucursal, decimal CantidadA, decimal PorcetajeIvaTotalA, decimal TotalA, decimal SubA, decimal CantidadB, decimal PorcetajeIvaTotalB, decimal TotalB, decimal SubB, Guid Usuario)
+        {
+            try
+            {
+                var x = await IRepository2.ActualizarProducto(ListA, ListB, IdSucursal, CantidadA, PorcetajeIvaTotalA, TotalA, SubA, CantidadB, PorcetajeIvaTotalB, TotalB, SubB, Usuario);
+                return x;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<IEnumerable<Producto>> GetListaProducto(int IdSucursal)
+        {
+            try
+            {
+                var x = await IRepository2.GetCantidadProductos(IdSucursal);
+                return x;
             }
             catch (Exception ex)
             {

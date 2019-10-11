@@ -985,5 +985,20 @@
   <ItemGroup>
     <None Include="Resources\buscar0.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cloud2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upload24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download24.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
