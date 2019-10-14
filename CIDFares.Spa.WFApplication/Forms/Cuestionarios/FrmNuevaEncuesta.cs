@@ -9,6 +9,7 @@ using CIDFares.Spa.DataAccess.Contracts.DTOs.Requests;
 using CIDFares.Spa.DataAccess.Contracts.Entities;
 using CIDFares.Spa.WFApplication.Constants;
 using CIDFares.Spa.WFApplication.Session;
+using Syncfusion.Data.Extensions;
 using Syncfusion.WinForms.DataGrid;
 using System;
 using System.Collections.Generic;
@@ -146,7 +147,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 if (validationResults.IsValid)
                 {                   
                     Model.TblPregunta = ObtenerTablaPreguntas(Model.ListaPregunta.ToList());                    
-                    Model.TblRespuesta = ObtenerTablaRepuestas(Model.ListaRespuesta.ToList());
+                    Model.TblRespuesta = ObtenerTablaRepuestas(Model.ListaRespuesta.ToList());              
 
                     if (this.Model.ListaPregunta.Count > 0)
                     {
@@ -170,6 +171,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 else
                 {
                     this.ShowErrors(errorProvider1, typeof(EncuestasViewModel), validationResults);
+                    if(validationResults.ToString() == "MULTIPLE")
+                        CIDMessageBox.ShowAlert(Messages.SystemName, "DEBE CAPTURAR RESPUESTAS DE LAS PREGUNTAS MULTIPLES", TypeMessage.informacion);
                 }
             }
             catch (Exception ex)

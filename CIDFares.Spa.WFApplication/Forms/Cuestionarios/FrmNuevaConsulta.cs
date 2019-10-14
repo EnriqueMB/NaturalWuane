@@ -164,29 +164,8 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                                     PreguntasDependientes = new List<Preguntas>(result);
                                     //PreguntasDependientes.AddRange(result);
                                 }
-                            }
-
-                            
-                            //if (PreguntasDependientes.Count > 0)
-                            //{
-                            //    //string value = "";
-                            //    //foreach (var item in result)
-                            //    //{
-                            //    //    value = item.ActivarCuando;
-                            //    //}
-
-                            //    //var dat = result.Where(x=>x.ActivarCuando == "SI");                            
-
-                            //    //if (dato.RdioBtonValue && value == "SI")
-                            //    //{
-
-                            //    //}
-                            //    PanelPreguntas.Controls.RemoveAt(0);
-                            //    IndexPreguntaDependiente ++;
-                            //    PanelRespuestasDependientes(PreguntasDependientes);
-                            //}                                                 
+                            }                                                        
                         }
-
 
                         PanelPreguntas.Controls.RemoveAt(0);
                         if (PreguntasDependientes is null)

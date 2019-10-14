@@ -22,6 +22,18 @@ namespace CIDFares.Spa.WFApplication.Validations
             RuleFor(x => x.IdTipoEncuesta)
                 .NotEqual(0)
                 .WithMessage("DEBE SELECCIONAR UN TIPO DE ENCUESTA.");
+
+            RuleForEach(x => x.ListaPregunta)
+                .Must((x, item, context) =>
+                {
+                    if (item.TipoPregunta.Equals("MULTIPLE"))
+                    {
+                        var aux = x.ListaRespuesta.ToList().FindAll(respuesta => respuesta.IdPregunta.Equals(item.IdPregunta));
+                        return (aux.Count > 0);
+                    }
+                    return true;
+                })
+                .WithMessage("MULTIPLE");
         }
         #endregion
     }
