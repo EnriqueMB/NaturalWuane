@@ -60,11 +60,11 @@
             this.LblHoraSalida1 = new System.Windows.Forms.Label();
             this.LblHoraEntrada1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1BotonesDatosTurno = new System.Windows.Forms.FlowLayoutPanel();
+            this.BtnAgregar = new CIDFares.Library.Controls.Btn.Btn();
+            this.EliminarBtn = new CIDFares.Library.Controls.Btn.Btn();
             this.panelContainTableDataTurnoDays = new System.Windows.Forms.Panel();
             this.horarioDesignV21 = new CIDFares.Library.Controls.CIDHorario.Design.HorarioDesignV2();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.BtnAgregar = new CIDFares.Library.Controls.Btn.Btn();
-            this.EliminarBtn = new CIDFares.Library.Controls.Btn.Btn();
             this.PanelTitulo.SuspendLayout();
             this.PanelBTN.SuspendLayout();
             this.PanelContainsBtnGuardarç.SuspendLayout();
@@ -232,10 +232,10 @@
             // LblNombreTurno
             // 
             this.LblNombreTurno.AutoSize = true;
-            this.LblNombreTurno.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNombreTurno.Location = new System.Drawing.Point(30, 0);
+            this.LblNombreTurno.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNombreTurno.Location = new System.Drawing.Point(28, -1);
             this.LblNombreTurno.Name = "LblNombreTurno";
-            this.LblNombreTurno.Size = new System.Drawing.Size(68, 20);
+            this.LblNombreTurno.Size = new System.Drawing.Size(68, 21);
             this.LblNombreTurno.TabIndex = 0;
             this.LblNombreTurno.Text = "Nombre";
             // 
@@ -419,29 +419,6 @@
             this.flowLayoutPanel1BotonesDatosTurno.Size = new System.Drawing.Size(323, 41);
             this.flowLayoutPanel1BotonesDatosTurno.TabIndex = 53;
             // 
-            // panelContainTableDataTurnoDays
-            // 
-            this.panelContainTableDataTurnoDays.BackColor = System.Drawing.Color.White;
-            this.panelContainTableDataTurnoDays.Controls.Add(this.horarioDesignV21);
-            this.panelContainTableDataTurnoDays.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelContainTableDataTurnoDays.Location = new System.Drawing.Point(0, 0);
-            this.panelContainTableDataTurnoDays.Name = "panelContainTableDataTurnoDays";
-            this.panelContainTableDataTurnoDays.Size = new System.Drawing.Size(708, 469);
-            this.panelContainTableDataTurnoDays.TabIndex = 0;
-            // 
-            // horarioDesignV21
-            // 
-            this.horarioDesignV21.BackColor = System.Drawing.SystemColors.Control;
-            this.horarioDesignV21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.horarioDesignV21.Location = new System.Drawing.Point(0, 0);
-            this.horarioDesignV21.Name = "horarioDesignV21";
-            this.horarioDesignV21.Size = new System.Drawing.Size(708, 469);
-            this.horarioDesignV21.TabIndex = 0;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // BtnAgregar
             // 
             this.BtnAgregar.BackColor = System.Drawing.Color.White;
@@ -483,6 +460,29 @@
             this.EliminarBtn.Text = "Eliminar";
             this.EliminarBtn.UseVisualStyleBackColor = false;
             this.EliminarBtn.Click += new System.EventHandler(this.EliminarBtn_Click);
+            // 
+            // panelContainTableDataTurnoDays
+            // 
+            this.panelContainTableDataTurnoDays.BackColor = System.Drawing.Color.White;
+            this.panelContainTableDataTurnoDays.Controls.Add(this.horarioDesignV21);
+            this.panelContainTableDataTurnoDays.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelContainTableDataTurnoDays.Location = new System.Drawing.Point(0, 0);
+            this.panelContainTableDataTurnoDays.Name = "panelContainTableDataTurnoDays";
+            this.panelContainTableDataTurnoDays.Size = new System.Drawing.Size(708, 469);
+            this.panelContainTableDataTurnoDays.TabIndex = 0;
+            // 
+            // horarioDesignV21
+            // 
+            this.horarioDesignV21.BackColor = System.Drawing.SystemColors.Control;
+            this.horarioDesignV21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.horarioDesignV21.Location = new System.Drawing.Point(0, 0);
+            this.horarioDesignV21.Name = "horarioDesignV21";
+            this.horarioDesignV21.Size = new System.Drawing.Size(708, 469);
+            this.horarioDesignV21.TabIndex = 0;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmTurno
             // 
