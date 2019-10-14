@@ -39,6 +39,8 @@
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlTop = new System.Windows.Forms.Panel();
+            this.btnImportar = new System.Windows.Forms.Button();
+            this.bntExportar = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblProducto = new System.Windows.Forms.Label();
             this.FolioProductoControl = new System.Windows.Forms.Label();
@@ -67,8 +69,6 @@
             this.IvaControl = new System.Windows.Forms.Label();
             this.TotalControl = new System.Windows.Forms.Label();
             this.SubtotalControl = new System.Windows.Forms.Label();
-            this.btnImportar = new System.Windows.Forms.Button();
-            this.bntExportar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pnlTop.SuspendLayout();
             this.pblButtom.SuspendLayout();
@@ -93,6 +93,36 @@
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(772, 111);
             this.pnlTop.TabIndex = 0;
+            // 
+            // btnImportar
+            // 
+            this.btnImportar.FlatAppearance.BorderSize = 0;
+            this.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImportar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImportar.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.cloud2;
+            this.btnImportar.Location = new System.Drawing.Point(273, 74);
+            this.btnImportar.Name = "btnImportar";
+            this.btnImportar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnImportar.Size = new System.Drawing.Size(33, 31);
+            this.btnImportar.TabIndex = 183;
+            this.toolTip1.SetToolTip(this.btnImportar, "IMPORTAR");
+            this.btnImportar.UseVisualStyleBackColor = true;
+            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
+            // 
+            // bntExportar
+            // 
+            this.bntExportar.FlatAppearance.BorderSize = 0;
+            this.bntExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntExportar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bntExportar.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.download24;
+            this.bntExportar.Location = new System.Drawing.Point(234, 74);
+            this.bntExportar.Name = "bntExportar";
+            this.bntExportar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.bntExportar.Size = new System.Drawing.Size(33, 31);
+            this.bntExportar.TabIndex = 182;
+            this.toolTip1.SetToolTip(this.bntExportar, "EXPORTAR");
+            this.bntExportar.UseVisualStyleBackColor = true;
+            this.bntExportar.Click += new System.EventHandler(this.bntExportar_Click);
             // 
             // lblTitulo
             // 
@@ -474,36 +504,6 @@
             this.SubtotalControl.Size = new System.Drawing.Size(31, 13);
             this.SubtotalControl.TabIndex = 15;
             this.SubtotalControl.Text = "$000";
-            // 
-            // btnImportar
-            // 
-            this.btnImportar.FlatAppearance.BorderSize = 0;
-            this.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImportar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImportar.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.cloud2;
-            this.btnImportar.Location = new System.Drawing.Point(273, 74);
-            this.btnImportar.Name = "btnImportar";
-            this.btnImportar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnImportar.Size = new System.Drawing.Size(33, 31);
-            this.btnImportar.TabIndex = 183;
-            this.toolTip1.SetToolTip(this.btnImportar, "EXPORTAR");
-            this.btnImportar.UseVisualStyleBackColor = true;
-            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
-            // 
-            // bntExportar
-            // 
-            this.bntExportar.FlatAppearance.BorderSize = 0;
-            this.bntExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntExportar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntExportar.Image = global::CIDFares.Spa.WFApplication.Properties.Resources.download24;
-            this.bntExportar.Location = new System.Drawing.Point(234, 74);
-            this.bntExportar.Name = "bntExportar";
-            this.bntExportar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.bntExportar.Size = new System.Drawing.Size(33, 31);
-            this.bntExportar.TabIndex = 182;
-            this.toolTip1.SetToolTip(this.bntExportar, "IMPORTAR");
-            this.bntExportar.UseVisualStyleBackColor = true;
-            this.bntExportar.Click += new System.EventHandler(this.bntExportar_Click);
             // 
             // FrmEntradaSalidaAlmacen
             // 

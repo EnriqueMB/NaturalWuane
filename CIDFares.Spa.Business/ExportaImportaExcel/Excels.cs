@@ -32,8 +32,8 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
         decimal SubB = 0;
         decimal PorcetajeIvaTotalA = 0;
         decimal PorcetajeIvaTotalB = 0;
-        int CantidadA = 0;
-        int CantidadB = 0;
+        int CantidadTotalA = 0;
+        int CantidadTotalB = 0;
         #endregion
 
         #region propiedades Privadas
@@ -167,18 +167,20 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
                             cantidadAux = u.CantidadProducto;
                             if(item.CantidadProducto > cantidadAux)//item excel, aux es de la base
                             {
-                                CantidadA += item.CantidadProducto - cantidadAux;
-                                PorcetajeIvaTotalA += CantidadA * (u.CostoProducto * (u.Porcentaje / 100));
-                                TotalA += CantidadA * u.CostoProducto;
-                                SubA += CantidadA * u.CostoProducto - (u.CostoProducto * (u.Porcentaje / 100));
+                                CantidadTotalA += item.CantidadProducto - cantidadAux;
+                                int CantidadA = item.CantidadProducto - cantidadAux;
+                                PorcetajeIvaTotalA += (CantidadA * u.PrecioPublico * (u.Porcentaje /100));
+                                TotalA += CantidadA * u.PrecioPublico;
+                                SubA += CantidadA * u.PrecioPublico - (CantidadA * (u.PrecioPublico * (u.Porcentaje / 100)));
                                 listaAlta.Add(item);
                             }
                             else if(item.CantidadProducto < cantidadAux)
                             {
-                                CantidadB += cantidadAux - item.CantidadProducto;
-                                PorcetajeIvaTotalB += CantidadB *(u.CostoProducto * (u.Porcentaje / 100));
-                                TotalB += CantidadB * u.CostoProducto;
-                                SubB += CantidadB * u.CostoProducto - (u.CostoProducto * (u.Porcentaje / 100));
+                                CantidadTotalB += cantidadAux - item.CantidadProducto;
+                                int CantidadB = cantidadAux - item.CantidadProducto;
+                                PorcetajeIvaTotalB += (CantidadB * u.PrecioPublico * (u.Porcentaje / 100));
+                                TotalB += CantidadB * u.PrecioPublico;
+                                SubB += CantidadB * u.PrecioPublico - (CantidadB * (u.PrecioPublico * (u.Porcentaje / 100)));
                                 listaBaja.Add(item);
                             }
                             return u;
@@ -186,7 +188,7 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
 
                    
                 }
-                await Model.ActualizarProducto(listaAlta, listaBaja, idSucursal, CantidadA, PorcetajeIvaTotalA, TotalA, SubA, CantidadB, PorcetajeIvaTotalB, TotalB, SubB, Usuario);
+                await Model.ActualizarProducto(listaAlta, listaBaja, idSucursal, CantidadTotalA, PorcetajeIvaTotalA, TotalA, SubA, CantidadTotalB, PorcetajeIvaTotalB, TotalB, SubB, Usuario);
                 return 1;//datos guardados
             }
             catch (Exception ex)

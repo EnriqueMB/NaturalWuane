@@ -108,10 +108,10 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                         Clave = Producto.Clave,
                         Cantidad = Convert.ToInt32(Producto.CantidadProducto),
                         Nombre = Producto.Nombre,
-                        PrecioCosto = Producto.CostoProducto - (Producto.CostoProducto * (Producto.PorcentajeIva / 100)),
-                        PorcentajeIva = (Producto.CostoProducto * (Producto.PorcentajeIva / 100)),
-                        Total = Producto.CantidadProducto * Producto.CostoProducto,
-                        SubTotal = Producto.CantidadProducto * Producto.CostoProducto - (Producto.CostoProducto * (Producto.PorcentajeIva / 100))
+                        PrecioCosto = Producto.Precio - (Producto.Precio * (Producto.PorcentajeIva / 100)),
+                        PorcentajeIva = (Producto.Precio * (Producto.PorcentajeIva / 100)),
+                        Total = Producto.CantidadProducto * Producto.Precio,
+                        SubTotal = Producto.CantidadProducto * Producto.Precio - (Producto.Precio * (Producto.PorcentajeIva / 100))
                     });
                     CantidadProducto();
 
@@ -120,8 +120,8 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                 {
                     var x = Model.ListaProducto.Where(p => p.IdProducto == Producto.IdProducto).Select(u => {
                         u.Cantidad += Convert.ToInt32(Producto.CantidadProducto);
-                        u.PorcentajeIva += (Producto.CostoProducto * (Producto.PorcentajeIva / 100));
-                        u.Total = u.Cantidad * Producto.CostoProducto;
+                        u.PorcentajeIva += (Producto.Precio * (Producto.PorcentajeIva / 100));
+                        u.Total = u.Cantidad * Producto.Precio;
                         u.SubTotal = u.Cantidad * u.PrecioCosto;
                         return u;
                     }).ToList();
@@ -139,10 +139,10 @@ namespace CIDFares.Spa.WFApplication.Forms.General
                             Clave = Producto.Clave,
                             Cantidad = Convert.ToInt32(Producto.CantidadProducto),
                             Nombre = Producto.Nombre,
-                            PrecioCosto = Producto.CostoProducto - (Producto.CostoProducto * (Producto.PorcentajeIva / 100)),
-                            PorcentajeIva = (Producto.CostoProducto * (Producto.PorcentajeIva / 100)),
-                            Total = Producto.CantidadProducto * Producto.CostoProducto,
-                            SubTotal = Producto.CantidadProducto * Producto.CostoProducto - (Producto.CostoProducto * (Producto.PorcentajeIva / 100))
+                            PrecioCosto = Producto.Precio - (Producto.Precio * (Producto.PorcentajeIva / 100)),
+                            PorcentajeIva = (Producto.Precio * (Producto.PorcentajeIva / 100)),
+                            Total = Producto.CantidadProducto * Producto.Precio,
+                            SubTotal = Producto.CantidadProducto * Producto.Precio - (Producto.Precio * (Producto.PorcentajeIva / 100))
                         });
                         CantidadProducto();
 
