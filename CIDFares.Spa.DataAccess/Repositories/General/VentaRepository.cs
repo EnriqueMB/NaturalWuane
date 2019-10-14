@@ -220,7 +220,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     var dynamicParameters = new DynamicParameters();
                     dynamicParameters.Add("@IdVenta", id);
 
-                    venta.dtoVenta = (await conexion.QueryAsync<Venta, Cliente, Venta>("[Venta].[SPCID_Get_DatosVentaDetalle]",
+                    venta.Venta = (await conexion.QueryAsync<Venta, Cliente, Venta>("[Venta].[SPCID_Get_DatosVentaDetalle]",
                         (x, cliente) =>
                         {
                             x.ClienteVenta = cliente;
@@ -231,17 +231,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
 
                     using (var dr = conexion.QueryMultipleAsync("[Venta].[SPCID_Get_VentaDetalle]", param: dynamicParameters, commandType: CommandType.StoredProcedure).Result)
                     {
-                        //venta.dtoVenta = dr.ReadFirstOrDefault<Venta>
-                        //venta.dtoVenta = new BindingList<Venta>(dr.Read<Venta>(new[] { typeof(Venta), typeof(Cliente) },
-                        //    (result) =>
-                        //    {
-                        //        var opcion = (result[0] as Venta);
-                        //        opcion.ClienteVenta = (result[1] as Cliente);
-                        //        return opcion;
-                        //    },
-                        //    splitOn: "IdVenta,IdCliente").ToList());
-                            
-
+                       
                         venta.dtoProducto = dr.Read<Producto>(new[] { typeof(Producto),typeof(DetalleProducto)},
                             (result) =>
                             {
@@ -251,14 +241,14 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                             },
                             splitOn: "IdProducto,IdVentaProducto").ToList();
 
-                        //venta.dtoPaquete = dr.Read<Paquetes>(new[] { typeof(Paquetes), typeof(DetallesPaquete)},
-                        //    (result) =>
-                        //    {
-                        //       var opcion = (result[0] as Paquetes);
-                        //        opcion.datoPaquete = (result[1] as DetallesPaquete);
-                        //        return opcion;
-                        //    },
-                        //    splitOn: "IdPaquete,IdVentaPaquete").ToList();
+                        venta.dtoPaquete = dr.Read<Paquetes>(new[] { typeof(Paquetes), typeof(DetallesPaquete) },
+                            (result) =>
+                            {
+                                var opcion = (result[0] as Paquetes);
+                                opcion.datoPaquete = (result[1] as DetallesPaquete);
+                                return opcion;
+                            },
+                            splitOn: "IdPaquete,IdVentaPaquete").ToList();
 
                         venta.dtoServicio = dr.Read<Servicio>(new[] { typeof(Servicio), typeof(DetalleServicio) },
                             (result) =>

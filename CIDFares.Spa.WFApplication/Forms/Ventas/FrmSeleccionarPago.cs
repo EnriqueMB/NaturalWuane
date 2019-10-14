@@ -120,7 +120,7 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas
                             else
                                 Resultado = await Model.GuardarVenta(CurrentSession.IdCuentaUsuario, CurrentSession.IdSucursal);
                                 var idVenta =  await Model.ObtenerVenta(CurrentSession.IdSucursal, CurrentSession.IdCuentaUsuario);
-                                 var ticket = await Model.ObtenerTicket(idVenta);
+                                var ticket = await Model.ObtenerTicket(idVenta);
                             if(ticket != null)
                             {
                                 ImprimirVenta IV = new ImprimirVenta(ticket);

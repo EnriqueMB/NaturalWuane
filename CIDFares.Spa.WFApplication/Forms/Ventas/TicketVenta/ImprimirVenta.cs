@@ -22,19 +22,18 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas.TicketVenta
 
             //Datos de la cabecera del ticket
 
-            ticket.TextoCentro("NOMBRE:" + CurrentSession.NombreSucursal);
-            ticket.TextoIzquierda("DIREC:" + CurrentSession.Direccion);
-            ticket.TextoIzquierda("TELEF:" + CurrentSession.Telefono);
-            ticket.TextoIzquierda("R.F.C." + CurrentSession.RFC);
+            ticket.TextoCentro(CurrentSession.NombreSucursal);
+            ticket.TextoIzquierda(CurrentSession.Direccion);
+            ticket.TextoIzquierda(CurrentSession.Telefono);
+            ticket.TextoIzquierda(CurrentSession.RFC);
 
 
             ticket.lineasAsteriscos();
 
             //Sub cabecera
-            ticket.TextoIzquierda("FOLIO:" + datos.dtoVenta.Folio);
-            //ticket.TextoIzquierda("TURNO:" + datos.dtoVenta.IdTurno);
+            ticket.TextoIzquierda("FOLIO:" + datos.Venta.Folio);
             ticket.TextoIzquierda("ATENDIO:" + CurrentSession.Nombres);
-            ticket.TextoIzquierda("CLIENTE:" + datos.dtoVenta.ClienteVenta.NombreCompleto);
+            ticket.TextoIzquierda("CLIENTE:" + datos.Venta.ClienteVenta.NombreCompleto);
             ticket.TextoIzquierda("");
             ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA:" + DateTime.Now.ToShortTimeString());
 
@@ -50,10 +49,10 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas.TicketVenta
 
             }
 
-            //foreach (var item in datos.dtoPaquete)
-            //{
-            //    ticket.AgregarArticulos(item.Nombre, item.datoPaquete.Cantidad, item.MontoPaquete, item.datoPaquete.Total );
-            //}
+            foreach (var item in datos.dtoPaquete)
+            {
+                ticket.AgregarArticulos(item.Nombre, item.datoPaquete.Cantidad, item.MontoPaquete, item.datoPaquete.Total);
+            }
 
             foreach (var item in datos.dtoServicio)
             {
@@ -63,9 +62,9 @@ namespace CIDFares.Spa.WFApplication.Forms.Ventas.TicketVenta
             ticket.lineasAsteriscos();
             //Resumen de la venta
 
-            ticket.AgregarTotales("SUBTOTAL......$", datos.dtoVenta.SubTotal);
-            ticket.AgregarTotales("IVA...........$", datos.dtoVenta.PorcentajeIva);
-            ticket.AgregarTotales("TOTAL.........$", datos.dtoVenta.PrecioConIva);
+            ticket.AgregarTotales("SUBTOTAL......$", datos.Venta.SubTotal);
+            ticket.AgregarTotales("IVA...........$", datos.Venta.PorcentajeIva);
+            ticket.AgregarTotales("TOTAL.........$", datos.Venta.PrecioConIva);
             ticket.TextoIzquierda("");
           
             //Texto final del ticket
