@@ -50,6 +50,7 @@ namespace CIDFares.Spa.DataAccess.Contracts.Entities
         public string UrlFoto { get; set; }
         public bool UpdateFoto { get; set; }
         public int CantidadProducto { get; set; }
+        public int CantidadTotal { get; set; }
         public DetalleProducto datoProducto { get; set; }
         #endregion
 

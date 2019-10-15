@@ -83,7 +83,7 @@ namespace CIDFares.Spa.DataAccess.Repositories.General
                     DynamicParameters Parametros = new DynamicParameters();
                     Parametros.Add("@IdSucursal", IdSucursal);
                     Parametros.Add("@TablaAlta", ListA.ToDataTable(new List<string> { "IdProducto", "CantidadProducto" }), DbType.Object);
-                    Parametros.Add("@@TablaBaja", ListB.ToDataTable(new List<string> { "IdProducto", "CantidadProducto" }), DbType.Object);
+                    Parametros.Add("@@TablaBaja", ListB.ToDataTable(new List<string> { "IdProducto", "CantidadProducto" , "CantidadTotal" }), DbType.Object);
                     Parametros.Add("@CantidadAlta", CantidadA);
                     Parametros.Add("@@IvaA", PorcetajeIvaTotalA);
                     Parametros.Add("@TotalA", TotalA);

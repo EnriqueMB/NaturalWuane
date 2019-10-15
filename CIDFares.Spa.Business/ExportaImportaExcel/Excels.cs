@@ -176,11 +176,13 @@ namespace CIDFares.Spa.Business.ExportaImportaExcel
                             }
                             else if(item.CantidadProducto < cantidadAux)
                             {
+                                item.CantidadTotal = item.CantidadTotal;
                                 CantidadTotalB += cantidadAux - item.CantidadProducto;
                                 int CantidadB = cantidadAux - item.CantidadProducto;
                                 PorcetajeIvaTotalB += (CantidadB * u.PrecioPublico * (u.Porcentaje / 100));
                                 TotalB += CantidadB * u.PrecioPublico;
                                 SubB += CantidadB * u.PrecioPublico - (CantidadB * (u.PrecioPublico * (u.Porcentaje / 100)));
+                                item.CantidadProducto = CantidadB;
                                 listaBaja.Add(item);
                             }
                             return u;
