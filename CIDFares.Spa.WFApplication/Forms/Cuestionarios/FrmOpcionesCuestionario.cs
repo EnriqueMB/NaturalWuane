@@ -291,12 +291,16 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                 }
                 else if (opcion == 2)
                 {
-                    var result = Model._ListaMediciones.Where(x => x.asignar);
-                    if (result.Count() > 0)
-                    {
-                      List<Medicion> lst = new List<Medicion>();
+                    //var result = Model._ListaMediciones.Where(x => x.asignar);
+                    //if (result.Count() > 0)
+                    //{
+                    List<Medicion> lst = new List<Medicion>();
 
-                        Model._ListaMediciones.Where(x => x.asignar).Select(a => { lst.Add(a.dato); return a; }).ToList();
+                    //  Model._ListaMediciones.Where(x => x.asignar).Select(a => { lst.Add(a.dato); return a; }).ToList();                             
+                    foreach (var item in Model._ListaMediciones)
+                    {
+                        lst.Add(item.dato);
+                    }       
 
                         FrmContestarMedicion _medicion = new FrmContestarMedicion(lst);
                         _medicion.ShowDialog();
@@ -308,11 +312,11 @@ namespace CIDFares.Spa.WFApplication.Forms.Cuestionarios
                             groupOpciones.Enabled = true;
                             btnGuardarConsulta.Enabled = true;
                         }                       
-                    }
-                    else
-                    {
-                        CIDMessageBox.ShowAlert(Messages.SystemName, "DEBE SELECCIONAR UNA MEDICION", TypeMessage.informacion);
-                    }
+                    //}
+                    //else
+                    //{
+                    //    CIDMessageBox.ShowAlert(Messages.SystemName, "DEBE SELECCIONAR UNA MEDICION", TypeMessage.informacion);
+                    //}
                 }
             }
             catch (Exception ex)

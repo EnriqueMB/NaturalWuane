@@ -29,23 +29,26 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn8 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridCheckBoxColumn gridCheckBoxColumn2 = new Syncfusion.WinForms.DataGrid.GridCheckBoxColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn10 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn11 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn12 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn16 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridCheckBoxColumn gridCheckBoxColumn2 = new Syncfusion.WinForms.DataGrid.GridCheckBoxColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn17 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn18 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn19 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridCheckBoxColumn gridCheckBoxColumn3 = new Syncfusion.WinForms.DataGrid.GridCheckBoxColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn20 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridCheckBoxColumn gridCheckBoxColumn3 = new Syncfusion.WinForms.DataGrid.GridCheckBoxColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn21 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn1 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn2 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn3 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn4 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn9 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
-            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn21 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn22 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn23 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn5 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn6 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
+            Syncfusion.WinForms.DataGrid.GridTextColumn gridTextColumn7 = new Syncfusion.WinForms.DataGrid.GridTextColumn();
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.FlpBotones = new System.Windows.Forms.FlowLayoutPanel();
@@ -81,6 +84,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.NombreCompleto = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.tabArchivos = new System.Windows.Forms.TabPage();
+            this.dataGridsf1 = new CIDFares.Library.Controls.CIDDataGridsf.DataGridsf();
             this.pnlTitulo.SuspendLayout();
             this.FlpBotones.SuspendLayout();
             this.tab.SuspendLayout();
@@ -96,6 +101,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbNuevoCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.tabArchivos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridsf1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTitulo
@@ -138,7 +145,7 @@
             this.btnGuardarConsulta.BackColor = System.Drawing.Color.White;
             this.btnGuardarConsulta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.btnGuardarConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarConsulta.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarConsulta.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarConsulta.ForeColor = System.Drawing.Color.Black;
             this.btnGuardarConsulta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardarConsulta.Location = new System.Drawing.Point(961, 23);
@@ -156,7 +163,7 @@
             this.btnAceptar.BackColor = System.Drawing.Color.White;
             this.btnAceptar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAceptar.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.Color.Black;
             this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAceptar.Location = new System.Drawing.Point(434, 498);
@@ -175,6 +182,7 @@
             this.tab.Controls.Add(this.tabServicios);
             this.tab.Controls.Add(this.tabProductos);
             this.tab.Controls.Add(this.tabPlanAlimentacion);
+            this.tab.Controls.Add(this.tabArchivos);
             this.tab.Location = new System.Drawing.Point(3, 11);
             this.tab.Name = "tab";
             this.tab.SelectedIndex = 0;
@@ -191,7 +199,7 @@
             this.tabCuestionarios.Padding = new System.Windows.Forms.Padding(3);
             this.tabCuestionarios.Size = new System.Drawing.Size(616, 455);
             this.tabCuestionarios.TabIndex = 0;
-            this.tabCuestionarios.Text = "CUESTIONARIOS";
+            this.tabCuestionarios.Text = "Cuestionarios";
             this.tabCuestionarios.UseVisualStyleBackColor = true;
             // 
             // dtgEncuestas
@@ -206,38 +214,38 @@
             this.dtgEncuestas.AutoExpandGroups = true;
             this.dtgEncuestas.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
             this.dtgEncuestas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            gridTextColumn5.AllowDragging = true;
-            gridTextColumn5.AllowEditing = false;
-            gridTextColumn5.AllowFiltering = true;
-            gridTextColumn5.HeaderText = "IdEncuesta";
-            gridTextColumn5.MappingName = "datos.IdEncuesta";
-            gridTextColumn5.Visible = false;
-            gridTextColumn6.AllowDragging = true;
-            gridTextColumn6.AllowEditing = false;
-            gridTextColumn6.AllowFiltering = true;
-            gridTextColumn6.HeaderText = "ENCUESTA";
-            gridTextColumn6.MappingName = "datos.NombreEncuesta";
-            gridTextColumn7.AllowDragging = true;
-            gridTextColumn7.AllowEditing = false;
-            gridTextColumn7.AllowFiltering = true;
-            gridTextColumn7.HeaderText = "IdTipoEncuesta";
-            gridTextColumn7.MappingName = "datos.IdTipoEncuesta";
-            gridTextColumn7.Visible = false;
-            gridTextColumn8.AllowDragging = true;
-            gridTextColumn8.AllowEditing = false;
-            gridTextColumn8.AllowFiltering = true;
-            gridTextColumn8.HeaderText = "TIPO DE ENCUESTA";
-            gridTextColumn8.MappingName = "datos.Descripcion";
+            gridTextColumn10.AllowDragging = true;
+            gridTextColumn10.AllowEditing = false;
+            gridTextColumn10.AllowFiltering = true;
+            gridTextColumn10.HeaderText = "IdEncuesta";
+            gridTextColumn10.MappingName = "datos.IdEncuesta";
+            gridTextColumn10.Visible = false;
+            gridTextColumn11.AllowDragging = true;
+            gridTextColumn11.AllowEditing = false;
+            gridTextColumn11.AllowFiltering = true;
+            gridTextColumn11.HeaderText = "ENCUESTA";
+            gridTextColumn11.MappingName = "datos.NombreEncuesta";
+            gridTextColumn12.AllowDragging = true;
+            gridTextColumn12.AllowEditing = false;
+            gridTextColumn12.AllowFiltering = true;
+            gridTextColumn12.HeaderText = "IdTipoEncuesta";
+            gridTextColumn12.MappingName = "datos.IdTipoEncuesta";
+            gridTextColumn12.Visible = false;
+            gridTextColumn16.AllowDragging = true;
+            gridTextColumn16.AllowEditing = false;
+            gridTextColumn16.AllowFiltering = true;
+            gridTextColumn16.HeaderText = "TIPO DE ENCUESTA";
+            gridTextColumn16.MappingName = "datos.Descripcion";
             gridCheckBoxColumn2.AllowCheckBoxOnHeader = true;
             gridCheckBoxColumn2.AllowDragging = true;
             gridCheckBoxColumn2.AllowEditing = false;
             gridCheckBoxColumn2.AllowFiltering = true;
             gridCheckBoxColumn2.HeaderText = "ASIGNAR";
             gridCheckBoxColumn2.MappingName = "asignar";
-            this.dtgEncuestas.Columns.Add(gridTextColumn5);
-            this.dtgEncuestas.Columns.Add(gridTextColumn6);
-            this.dtgEncuestas.Columns.Add(gridTextColumn7);
-            this.dtgEncuestas.Columns.Add(gridTextColumn8);
+            this.dtgEncuestas.Columns.Add(gridTextColumn10);
+            this.dtgEncuestas.Columns.Add(gridTextColumn11);
+            this.dtgEncuestas.Columns.Add(gridTextColumn12);
+            this.dtgEncuestas.Columns.Add(gridTextColumn16);
             this.dtgEncuestas.Columns.Add(gridCheckBoxColumn2);
             this.dtgEncuestas.Location = new System.Drawing.Point(3, 5);
             this.dtgEncuestas.Name = "dtgEncuestas";
@@ -265,7 +273,7 @@
             this.tabMediciones.Padding = new System.Windows.Forms.Padding(3);
             this.tabMediciones.Size = new System.Drawing.Size(616, 455);
             this.tabMediciones.TabIndex = 1;
-            this.tabMediciones.Text = "MEDICIONES";
+            this.tabMediciones.Text = "Mediciones";
             this.tabMediciones.UseVisualStyleBackColor = true;
             // 
             // dtgMediciones
@@ -280,45 +288,46 @@
             this.dtgMediciones.AutoExpandGroups = true;
             this.dtgMediciones.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
             this.dtgMediciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
-            gridTextColumn16.AllowDragging = true;
-            gridTextColumn16.AllowEditing = false;
-            gridTextColumn16.AllowFiltering = true;
-            gridTextColumn16.HeaderText = "IdEncuesta";
-            gridTextColumn16.MappingName = "dato.datos.IdEncuesta";
-            gridTextColumn16.Visible = false;
             gridTextColumn17.AllowDragging = true;
             gridTextColumn17.AllowEditing = false;
             gridTextColumn17.AllowFiltering = true;
-            gridTextColumn17.HeaderText = "NOMBRE";
-            gridTextColumn17.MappingName = "dato.Nombre";
+            gridTextColumn17.HeaderText = "IdEncuesta";
+            gridTextColumn17.MappingName = "dato.datos.IdEncuesta";
+            gridTextColumn17.Visible = false;
             gridTextColumn18.AllowDragging = true;
             gridTextColumn18.AllowEditing = false;
             gridTextColumn18.AllowFiltering = true;
-            gridTextColumn18.HeaderText = "UNIDAD DE MEDIDA";
-            gridTextColumn18.MappingName = "dato.NombreUnidadMedida";
+            gridTextColumn18.HeaderText = "NOMBRE";
+            gridTextColumn18.MappingName = "dato.Nombre";
             gridTextColumn19.AllowDragging = true;
             gridTextColumn19.AllowEditing = false;
             gridTextColumn19.AllowFiltering = true;
-            gridTextColumn19.HeaderText = "VALOR";
-            gridTextColumn19.MappingName = "dato.NombreLista";
+            gridTextColumn19.HeaderText = "UNIDAD DE MEDIDA";
+            gridTextColumn19.MappingName = "dato.NombreUnidadMedida";
+            gridTextColumn20.AllowDragging = true;
+            gridTextColumn20.AllowEditing = false;
+            gridTextColumn20.AllowFiltering = true;
+            gridTextColumn20.HeaderText = "VALOR";
+            gridTextColumn20.MappingName = "dato.NombreLista";
             gridCheckBoxColumn3.AllowCheckBoxOnHeader = true;
             gridCheckBoxColumn3.AllowDragging = true;
             gridCheckBoxColumn3.AllowEditing = false;
             gridCheckBoxColumn3.AllowFiltering = true;
             gridCheckBoxColumn3.HeaderText = "ASIGNAR";
             gridCheckBoxColumn3.MappingName = "asignar";
-            gridTextColumn20.AllowDragging = true;
-            gridTextColumn20.AllowEditing = false;
-            gridTextColumn20.AllowFiltering = true;
-            gridTextColumn20.HeaderText = "Column6";
-            gridTextColumn20.MappingName = "dato.IdListaMedicion";
-            gridTextColumn20.Visible = false;
-            this.dtgMediciones.Columns.Add(gridTextColumn16);
+            gridCheckBoxColumn3.Visible = false;
+            gridTextColumn21.AllowDragging = true;
+            gridTextColumn21.AllowEditing = false;
+            gridTextColumn21.AllowFiltering = true;
+            gridTextColumn21.HeaderText = "Column6";
+            gridTextColumn21.MappingName = "dato.IdListaMedicion";
+            gridTextColumn21.Visible = false;
             this.dtgMediciones.Columns.Add(gridTextColumn17);
             this.dtgMediciones.Columns.Add(gridTextColumn18);
             this.dtgMediciones.Columns.Add(gridTextColumn19);
-            this.dtgMediciones.Columns.Add(gridCheckBoxColumn3);
             this.dtgMediciones.Columns.Add(gridTextColumn20);
+            this.dtgMediciones.Columns.Add(gridCheckBoxColumn3);
+            this.dtgMediciones.Columns.Add(gridTextColumn21);
             this.dtgMediciones.Location = new System.Drawing.Point(3, 5);
             this.dtgMediciones.Name = "dtgMediciones";
             this.dtgMediciones.RowHeight = 21;
@@ -342,7 +351,7 @@
             this.tabServicios.Name = "tabServicios";
             this.tabServicios.Size = new System.Drawing.Size(616, 455);
             this.tabServicios.TabIndex = 2;
-            this.tabServicios.Text = "SERVICIOS";
+            this.tabServicios.Text = "Servicios";
             this.tabServicios.UseVisualStyleBackColor = true;
             // 
             // tabProductos
@@ -351,7 +360,7 @@
             this.tabProductos.Name = "tabProductos";
             this.tabProductos.Size = new System.Drawing.Size(616, 455);
             this.tabProductos.TabIndex = 3;
-            this.tabProductos.Text = "PRODUCTOS";
+            this.tabProductos.Text = "Productos";
             this.tabProductos.UseVisualStyleBackColor = true;
             // 
             // tabPlanAlimentacion
@@ -360,7 +369,7 @@
             this.tabPlanAlimentacion.Name = "tabPlanAlimentacion";
             this.tabPlanAlimentacion.Size = new System.Drawing.Size(616, 455);
             this.tabPlanAlimentacion.TabIndex = 4;
-            this.tabPlanAlimentacion.Text = "PLAN DE ALIMENTACION";
+            this.tabPlanAlimentacion.Text = "Plan de alimentación";
             this.tabPlanAlimentacion.UseVisualStyleBackColor = true;
             // 
             // pnlContenedor
@@ -416,12 +425,12 @@
             gridTextColumn2.AllowDragging = true;
             gridTextColumn2.AllowEditing = false;
             gridTextColumn2.AllowFiltering = true;
-            gridTextColumn2.HeaderText = "COMENTARIOS";
+            gridTextColumn2.HeaderText = "Comentarios";
             gridTextColumn2.MappingName = "Comentario";
             gridTextColumn3.AllowDragging = true;
             gridTextColumn3.AllowEditing = false;
             gridTextColumn3.AllowFiltering = true;
-            gridTextColumn3.HeaderText = "FECHA";
+            gridTextColumn3.HeaderText = "Fecha";
             gridTextColumn3.MappingName = "Fecha";
             gridTextColumn4.AllowDragging = true;
             gridTextColumn4.AllowEditing = false;
@@ -429,23 +438,23 @@
             gridTextColumn4.HeaderText = "Column5";
             gridTextColumn4.MappingName = "IdUsuario";
             gridTextColumn4.Visible = false;
-            gridTextColumn9.AllowDragging = true;
-            gridTextColumn9.AllowEditing = false;
-            gridTextColumn9.AllowFiltering = true;
-            gridTextColumn9.HeaderText = "USUARIO";
-            gridTextColumn9.MappingName = "Nombre";
-            gridTextColumn21.AllowDragging = true;
-            gridTextColumn21.AllowEditing = false;
-            gridTextColumn21.AllowFiltering = true;
-            gridTextColumn21.HeaderText = "IdEncuesta";
-            gridTextColumn21.MappingName = "IdEncuesta";
-            gridTextColumn21.Visible = false;
+            gridTextColumn22.AllowDragging = true;
+            gridTextColumn22.AllowEditing = false;
+            gridTextColumn22.AllowFiltering = true;
+            gridTextColumn22.HeaderText = "Usuario";
+            gridTextColumn22.MappingName = "Nombre";
+            gridTextColumn23.AllowDragging = true;
+            gridTextColumn23.AllowEditing = false;
+            gridTextColumn23.AllowFiltering = true;
+            gridTextColumn23.HeaderText = "IdEncuesta";
+            gridTextColumn23.MappingName = "IdEncuesta";
+            gridTextColumn23.Visible = false;
             this.dtgComentarios.Columns.Add(gridTextColumn1);
             this.dtgComentarios.Columns.Add(gridTextColumn2);
             this.dtgComentarios.Columns.Add(gridTextColumn3);
             this.dtgComentarios.Columns.Add(gridTextColumn4);
-            this.dtgComentarios.Columns.Add(gridTextColumn9);
-            this.dtgComentarios.Columns.Add(gridTextColumn21);
+            this.dtgComentarios.Columns.Add(gridTextColumn22);
+            this.dtgComentarios.Columns.Add(gridTextColumn23);
             this.dtgComentarios.Location = new System.Drawing.Point(13, 328);
             this.dtgComentarios.Name = "dtgComentarios";
             this.dtgComentarios.RowHeight = 21;
@@ -512,22 +521,22 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(10, 185);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(150, 18);
+            this.label6.Size = new System.Drawing.Size(160, 21);
             this.label6.TabIndex = 50;
             this.label6.Text = "RECOMENDACIONES";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(256, 74);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 18);
+            this.label5.Size = new System.Drawing.Size(115, 21);
             this.label5.TabIndex = 50;
             this.label5.Text = "OBSERVACION";
             // 
@@ -544,22 +553,22 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(256, 12);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(112, 18);
+            this.label7.Size = new System.Drawing.Size(118, 21);
             this.label7.TabIndex = 50;
             this.label7.Text = "FECHA DE ALTA";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(10, 74);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 18);
+            this.label4.Size = new System.Drawing.Size(113, 21);
             this.label4.TabIndex = 7;
             this.label4.Text = "DIAGNOSTICO";
             // 
@@ -636,22 +645,22 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(356, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 18);
+            this.label2.Size = new System.Drawing.Size(148, 21);
             this.label2.TabIndex = 50;
             this.label2.Text = "TIPO DE CONSULTA";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(7, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 18);
+            this.label1.Size = new System.Drawing.Size(68, 21);
             this.label1.TabIndex = 51;
             this.label1.Text = "CLIENTE";
             // 
@@ -667,6 +676,63 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // tabArchivos
+            // 
+            this.tabArchivos.Controls.Add(this.dataGridsf1);
+            this.tabArchivos.Location = new System.Drawing.Point(4, 22);
+            this.tabArchivos.Name = "tabArchivos";
+            this.tabArchivos.Size = new System.Drawing.Size(616, 455);
+            this.tabArchivos.TabIndex = 5;
+            this.tabArchivos.Text = "Archivos";
+            this.tabArchivos.UseVisualStyleBackColor = true;
+            // 
+            // dataGridsf1
+            // 
+            this.dataGridsf1.AccessibleName = "Table";
+            this.dataGridsf1.AllowDraggingColumns = true;
+            this.dataGridsf1.AllowEditing = false;
+            this.dataGridsf1.AllowFiltering = true;
+            this.dataGridsf1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridsf1.AutoExpandGroups = true;
+            this.dataGridsf1.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            this.dataGridsf1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
+            gridTextColumn5.AllowDragging = true;
+            gridTextColumn5.AllowEditing = false;
+            gridTextColumn5.AllowFiltering = true;
+            gridTextColumn5.HeaderText = "Nombre";
+            gridTextColumn5.MappingName = "dato.Nombre";
+            gridTextColumn6.AllowDragging = true;
+            gridTextColumn6.AllowEditing = false;
+            gridTextColumn6.AllowFiltering = true;
+            gridTextColumn6.HeaderText = "Tipo de archivo";
+            gridTextColumn6.MappingName = "dato.NombreUnidadMedida";
+            gridTextColumn7.AllowDragging = true;
+            gridTextColumn7.AllowEditing = false;
+            gridTextColumn7.AllowFiltering = true;
+            gridTextColumn7.HeaderText = "Fecha de alta";
+            gridTextColumn7.MappingName = "dato.NombreLista";
+            this.dataGridsf1.Columns.Add(gridTextColumn5);
+            this.dataGridsf1.Columns.Add(gridTextColumn6);
+            this.dataGridsf1.Columns.Add(gridTextColumn7);
+            this.dataGridsf1.Location = new System.Drawing.Point(5, 5);
+            this.dataGridsf1.Name = "dataGridsf1";
+            this.dataGridsf1.RowHeight = 21;
+            this.dataGridsf1.SerializationController = null;
+            this.dataGridsf1.ShowGroupDropArea = true;
+            this.dataGridsf1.Size = new System.Drawing.Size(607, 273);
+            this.dataGridsf1.Style.CellStyle.TextColor = System.Drawing.Color.Black;
+            this.dataGridsf1.Style.GroupDropAreaItemStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.dataGridsf1.Style.GroupDropAreaItemStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.dataGridsf1.Style.GroupDropAreaStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
+            this.dataGridsf1.Style.GroupDropAreaStyle.TextColor = System.Drawing.Color.Black;
+            this.dataGridsf1.Style.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(166)))), ((int)(((byte)(48)))));
+            this.dataGridsf1.Style.HeaderStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridsf1.Style.IndentCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(251)))));
+            this.dataGridsf1.TabIndex = 16;
+            this.dataGridsf1.Text = "dataGridsf1";
             // 
             // FrmOpcionesCuestionario
             // 
@@ -699,6 +765,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbNuevoCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.tabArchivos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridsf1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -740,5 +808,7 @@
         private System.Windows.Forms.Button btnComentarios;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TabPage tabArchivos;
+        private Library.Controls.CIDDataGridsf.DataGridsf dataGridsf1;
     }
 }
